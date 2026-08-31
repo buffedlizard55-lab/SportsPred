@@ -85,12 +85,33 @@ without inventing tiers.
   silently retuned; correcting it needs per-market missing sets and a
   re-calibration run.
 
+## Forward collection and grading
+
+`scripts/collect_espn.mjs` closes the loop:
+
+1. scores the live card and **appends** each selection to `data/predictions.json`
+   (append-only, so history cannot be rewritten);
+2. re-reads any earlier prediction whose match has since finished and writes the
+   real outcome to `data/results.json`.
+
+`scripts/backtest.mjs` then reports hit rate, Brier, log loss and calibration
+over that record. Constraints that still apply:
+
+- The **games-handicap market can never be graded**, because grading needs the
+  line that was actually offered and no free odds source exists (`IR-01`).
+  It reports `void`, never a guessed line.
+- A match with an incomplete set record (retirement or walkover) is flagged
+  `irregular` rather than recorded as a clean win.
+- `tests/settlement.test.mjs` pins the field-name contract between the settler
+  and the grader, which is otherwise easy to break silently.
+
 ## Reproducing the checks
 
 ```bash
 node scripts/verify_live.mjs              # full live pipeline against ESPN, today
 node scripts/verify_live.mjs --date 2026-08-30 --tape 30
 node scripts/build_surface_map.mjs        # rebuild the surface map from source rows
+node scripts/collect_espn.mjs --dry-run   # forward collection, without writing
 npm test                                  # 104 tests, including the ESPN parsers
 ```
 

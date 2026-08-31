@@ -31,8 +31,8 @@
       "severity": "high",
       "title": "The standard free ATP/WTA match datasets are gone, but verified mirrors exist",
       "detail": "github.com/JeffSackmann/tennis_atp returns 404 (re-verified 2026-08-31). A GitHub API call to /users/JeffSackmann/repos returned exactly one public repository: tennis_MatchChartingProject. Verified forks/archives of the dataset exist and are reachable via the GitHub API: Kadantte/tennis_atp (ATP) and Aneeshers/tennis-sackmann-archive (ATP + WTA, with the CC BY-NC-SA 4.0 LICENSE). scripts/backtest_historical.mjs uses them for a genuine walk-forward backtest.",
-      "impact": "History/backtest: RESOLVED. Live slate: still open \u2014 the mirrors are snapshots (matches through 2026-05-25, rankings through 2026-06-08) and the official ATP/WTA ranking pages are client-side rendered, so current form/rankings remain unsourced (IR-14).",
-      "status": "PARTIALLY RESOLVED"
+      "impact": "History/backtest: RESOLVED. Live slate: still open \u2014 the mirrors are snapshots (matches through 2026-05-25, rankings through 2026-06-08) and the official ATP/WTA ranking pages are client-side rendered, so current form/rankings remain unsourced (IR-14). UPDATE 2026-08-31: superseded for live use. ESPN's public scoreboard now supplies current-season fixtures, live scores and settled results, and scripts/collect_espn.mjs grades recorded predictions from it. The Sackmann mirrors are still used for the historical backtest and for the surface map.",
+      "status": "MITIGATED"
     },
     {
       "id": "IR-03",

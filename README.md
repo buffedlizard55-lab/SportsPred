@@ -69,6 +69,7 @@ scripts/
   lib/historical.mjs    pre-match feature builder + grader (pure, tested)
   build_surface_map.mjs builds data/surfaces.json from the Sackmann mirrors
   verify_live.mjs       end-to-end live check against ESPN (exits 2 if unreachable)
+  collect_espn.mjs      forward collection: record picks, settle finished matches
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
 tests/                  104 Node tests + 23 Python tests
@@ -118,6 +119,7 @@ all work. What is available and what is not:
 | Form, surface split, first-set rate, straight sets, rest, H2H | ✅ computed from a 120-day match tape |
 | Tournament level and round | ✅ coded from recorded `tourney_level` data |
 | Historical backtest | ✅ 2024–25 ATP walk-forward, 63.9% win-match hit rate |
+| Forward collection + automatic result settlement | ✅ `scripts/collect_espn.mjs` records picks and grades them from ESPN |
 | **Odds / prices** | ❌ **no free key-less source** — every price factor is unscored (`IR-01`) |
 | **Serve %, ace rate** | ❌ ESPN ships empty tennis statistics (`IR-16`) |
 | **Injuries, social sentiment** | ❌ no free structured source (`IR-13`) |
