@@ -201,6 +201,7 @@ function generateAll() {
   const written = writeCard(card.results);
   state.tips = written.tips;
   renderPredictions(written, card);
+  switchTab('predictions');
 }
 
 function renderPredictions(written, card) {
