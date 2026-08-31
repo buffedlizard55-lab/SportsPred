@@ -1,0 +1,24 @@
+# Dependencies / build output
+node_modules/
+_site/
+dist/
+build/
+
+# Raw HTML captures: large, high-churn, and only needed transiently to refresh
+# the parser fixture. See IR-03.
+tests/fixtures/captures/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+
+# Editors / OS
+.DS_Store
+*.swp
+.idea/
+.vscode/
+
+# Local scratch
+*.log
+.tmp/

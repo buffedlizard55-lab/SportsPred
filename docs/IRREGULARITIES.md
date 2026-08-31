@@ -1,0 +1,155 @@
+# Irregularity register
+
+Everything that did not check out, that could not be verified, or that conflicts
+with the brief. The machine-readable version — which the site renders under
+**Data quality** — lives in [`../data/provenance.json`](../data/provenance.json);
+this page is the readable form and is kept in step with it.
+
+Verified 2026-08-31.
+
+---
+
+## Blockers
+
+### IR-01 — OLBG exposes no structured odds · HIGH · OPEN
+The tips index and event pages are server-rendered, but prices are injected
+client-side into the betslip. The only price text found anywhere was inside
+free-text tipster commentary on event 899350 ("Alcaraz is favored at 1.20,
+Safiullin 5.50"), which is prose, not data.
+
+Step 1 of the master prompt requires odds cross-referenced across at least two
+bookmakers. That cannot be met from OLBG. Every odds-dependent factor is
+therefore unscored:
+
+- implied-probability band (25 pts, win match)
+- first-set price band (−5 pts modifier)
+- handicap price band (25 pts)
+- both "shorter than −500" blocking rules
+
+An integration test asserts that no odds field exists anywhere in `slate.json`,
+so a future edit cannot quietly introduce an invented price.
+
+### IR-02 — The standard free match dataset is gone · HIGH · OPEN
+`github.com/JeffSackmann/tennis_atp` returns 404 over both the HTML and
+`raw.githubusercontent.com` paths. A GitHub API query for that user returned
+exactly one public repository, `tennis_MatchChartingProject` — point-by-point
+charting, not match results. Many third-party READMEs still link the CSVs and
+are now stale.
+
+This blocks the historical backtest corpus and the form, surface and serve
+factors. Forward collection is unaffected: `scripts/record_predictions.mjs`
+accumulates selections and `scripts/backtest.mjs` will grade them as soon as a
+results source exists.
+
+---
+
+## Verification gaps
+
+### IR-03 — Collection cannot run from the development sandbox · MEDIUM · OPEN
+No outbound network in the sandbox, so neither collector could be executed
+against live pages. `data/slate.json` was transcribed from a live fetch, and
+`scripts/collect_olbg.py` independently re-parses the same page shape and
+reproduces the same events, which cross-checks the transcription.
+
+The parser fixture at `tests/fixtures/olbg_tennis_index.RECONSTRUCTED.html` is
+**reconstructed, not captured** — the real values are genuine, the surrounding
+markup is not. Its tests prove the parser works on that shape, not on OLBG's
+current markup. The first CI run with `--save-html` produces a real capture that
+should replace it.
+
+### IR-04 — Tournament, tour, round and surface are absent from the OLBG index · MEDIUM · OPEN
+The index lists only player names, kickoff and consensus. The tournament stage
+(10 pts) and surface form (20 pts) factors depend on data OLBG does not publish
+here. The presence of "US Open" and "US Open Women" outright markets on the same
+page hints at the event, but that is an inference — so the fields are `null`.
+
+### IR-13 — Two Step 1 requirements are not achievable from free sources · MEDIUM · OPEN
+X sentiment requires paid API access or ToS-restricted scraping. Structured
+injury reporting has no free source. Both are excluded rather than approximated;
+`scripts/collect_players.py` declares them as unverified adapters that
+contribute nothing.
+
+---
+
+## Data observations
+
+### IR-05 — The tips index only lists matches with tipster coverage · LOW · OPEN
+The page is ordered by tip volume and paginates via "Load More Tips". Matches
+nobody has tipped appear only on the All Events index. The collector targets
+both, so `slate.json` becomes the fuller list on the first CI run.
+
+### IR-06 — Two matches have consensus only on an excluded market · LOW · NOTED
+Events 899314 (Grabher v Cirstea) and 899395 (Mensik v Mochizuki) list
+Total Games as their consensus market. The prompt excludes total games entirely,
+so no consensus signal exists for their scored markets.
+
+### IR-09 — Cached search results disagree with the live page · LOW · NOTED
+A search-engine cache of the OLBG tennis page listed "Iga Swiatek v Elena
+Rybakina" and "Coco Gauff v Marta Kostyuk" as upcoming, while the live fetch on
+2026-08-31 shows Swiatek v Xiyu Wang and Sonmez v Gauff. Only the live fetch was
+used. Any future collector must not treat cached copies as authoritative.
+
+### IR-10 — Kickoff times carry no explicit timezone · LOW · MITIGATED
+OLBG renders UK local time but does not state it per row. `Today`/`Tomorrow`
+labels were resolved against the 00:12 UTC fetch time; the literal "01 Sept"
+rows on the same page are consistent with that resolution, which cross-checks
+it. Every row carries `date_basis: observed` or `derived` so the distinction is
+visible in the data rather than hidden in code.
+
+---
+
+## Conflicts with the brief
+
+### IR-07 — Two Step 4 output rules contradict each other · MEDIUM · RESOLVED IN CODE
+"The predicted winner must be bolded and obvious within the first 20 words" and
+"no two tips may open with the same word" cannot both hold if the bolded name is
+the first word: all three markets for one match would then open identically.
+
+Resolution: the tip leads with a distinctive analytical opener and the bolded
+pick lands inside the 20-word window. The validator enforces both at once, and a
+test asserts the bold position and the opening-uniqueness together.
+
+### IR-08 — The unique-opening rule is unbounded · MEDIUM · OPEN (documented limit)
+Three markets per match means a 20-match card needs 60 tips. There are 24
+distinct hand-written openings. Beyond that the rule cannot be honoured without
+padding the prose with filler — which the same prompt bans.
+
+`writeCard` reports `openerPoolExhausted` and the UI shows a warning rather than
+silently repeating an opening. This is a limit of the requirement, not of the
+implementation; the honest fixes are either a larger curated pool or relaxing
+the rule to "per market".
+
+### IR-11 — Defects in the prompt's scoring rules · HIGH · RESOLVED IN CODE
+Full detail in [`PROMPT_REVIEW.md`](PROMPT_REVIEW.md). Summary:
+
+| Defect | Effect | Patch |
+|---|---|---|
+| First-set market inherits the win-match base | Its floor sits above its own HIGH threshold, so it can only ever say HIGH | `firstSetIndependentScale` |
+| Surface form scored on raw win count | A 2–0 record outscores an 8–3 record | `surfaceWinRateNotCount` |
+| Bonuses stack past the 100-point ceiling | Scores can reach 118 | `capScoresAt100` |
+| Odds band labelled "value" | Measures implied probability while implying edge; systematically rewards heavy favourites | `labelProbabilityNotValue` |
+| Ranking bands omit top-20-vs-top-20 | Undefined pairings fall through | scored 0 and reported as missing |
+
+Each patch is a named flag with a covering test, so literal v1.0 behaviour can be
+restored and the difference measured.
+
+### IR-12 — The WTA/ATP handicap equivalence is unsourced · MEDIUM · OPEN (assumption)
+The prompt states a WTA −3.5 is roughly equivalent to an ATP −5.5, with no
+source. The prompt also asserts that set betting and total games have
+"documented negative expected value" with no citation, while excluding those
+markets and simultaneously recommending games handicap — the same market family.
+
+The engine applies **no** gender handicap adjustment. Baking an unverified
+calibration factor into a betting line is precisely the kind of invention this
+project exists to avoid. It needs the backtest corpus to calibrate.
+
+---
+
+## Not an irregularity, but worth stating
+
+With no odds and no player statistics sourced, **every match on the current
+slate is unscored**. `scripts/backtest.mjs` reports no metrics rather than a
+fabricated hit rate, and the site shows "unscored — no sourced price or ranking"
+rather than a prediction. This is the intended behaviour of a system that
+refuses to guess. It is not a bug, and it should not be "fixed" by loosening the
+engine.
