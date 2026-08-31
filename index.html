@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>SportsPred — Tennis Scoreboard &amp; Predictions</title>
-<meta name="description" content="Tennis scoreboard with calendar, sourced from OLBG markets, with one-click generated predictions.">
+  <meta name="description" content="Live tennis scoreboard with calendar and one-click three-market predictions, generated only from sourced data.">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -34,15 +34,26 @@
 
   <!-- SCOREBOARD -->
   <section id="tab-scoreboard" class="panel active">
+    <div class="toolbar datebar">
+      <button class="btn" id="prev-day" aria-label="Previous day">‹</button>
+      <input type="date" id="date-input" aria-label="Choose date">
+      <button class="btn" id="next-day" aria-label="Next day">›</button>
+      <button class="btn" id="today-btn">Today</button>
+      <span class="hint" id="day-summary"></span>
+    </div>
     <div class="toolbar">
       <div class="segmented" id="phase-filter">
-        <button data-phase="upcoming" class="active">Upcoming</button>
+        <button data-phase="all" class="active">All</button>
+        <button data-phase="upcoming">Upcoming</button>
         <button data-phase="live">In play</button>
         <button data-phase="results">Results</button>
-        <button data-phase="all">All</button>
       </div>
       <input type="search" id="search" placeholder="Filter by player…" aria-label="Filter matches by player">
       <button class="btn primary" id="generate-card">Generate predictions for all</button>
+    </div>
+    <div id="progress" class="progress" hidden>
+      <div class="progress-label" id="progress-label"></div>
+      <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
     <div id="match-list" class="match-list"></div>
   </section>
@@ -53,10 +64,9 @@
       <button class="btn" id="cal-prev" aria-label="Previous month">‹</button>
       <h2 id="cal-title" class="cal-title">—</h2>
       <button class="btn" id="cal-next" aria-label="Next month">›</button>
-      <span class="hint">Click a day to filter the scoreboard.</span>
+      <span class="hint">Click any day to load that date's matches — past results or upcoming fixtures.</span>
     </div>
     <div class="cal-grid" id="cal-grid"></div>
-    <div id="cal-detail" class="cal-detail"></div>
   </section>
 
   <!-- PREDICTIONS -->

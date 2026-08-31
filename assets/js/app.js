@@ -4,28 +4,36 @@
  * Scoring and writing are imported from /engine so the browser runs exactly the
  * code the test suite covers. This file only does I/O, joining and rendering.
  *
- * Data policy: nothing is invented here. If a field is absent from the JSON
- * snapshots it stays absent in the match object, the engine records it as
- * missing, and the UI shows it under "Data quality".
+ * DATA POLICY
+ * Nothing is invented here. Live data is collected from ESPN's public, key-less
+ * endpoints in the visitor's browser; any field ESPN does not publish stays
+ * null, the engine records it as missing, and the UI shows it under
+ * "Data quality". Odds are never sourced (IR-01), so odds-dependent factors are
+ * permanently unscored and the site says so instead of implying a price.
  */
 
-import { scoreMatch, scoreCard, RULESET_VERSION, PATCHES, PROMPT_VERSION } from '../../engine/engine.js';
-import { writeTip, writeCard, OPENERS, MIN_WORDS } from '../../engine/writer.js';
-import { toMatch, phaseOf as phaseOfEvent } from '../../engine/join.js';
+import { scoreMatch, scoreCard, RULESET_VERSION, PATCHES, PROMPT_VERSION, CONFIDENCE } from '../../engine/engine.js';
+import { writeCard, MIN_WORDS } from '../../engine/writer.js';
+import { collectCard, toEngineMatch, isoDate, TAPE_DAYS } from './collector.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 
+const todayISO = () => new Date().toISOString().slice(0, 10);
+
 const state = {
-  slate: null,
-  players: null,
+  surfaces: null,
   provenance: null,
-  phase: 'upcoming',
+  slate: null,          // OLBG snapshot (secondary, verified separately)
+  date: todayISO(),
+  card: null,           // last collected card
+  scored: null,
+  phase: 'all',
   search: '',
-  selectedDate: null,
   calMonth: null,
   tips: [],
   lastCard: null,
+  loading: false,
 };
 
 /* ------------------------------------------------------------------ *
@@ -39,87 +47,154 @@ async function loadJSON(path) {
 }
 
 async function boot() {
+  state.calMonth = new Date(`${state.date}T12:00:00Z`);
+
   try {
-    state.slate = await loadJSON('data/slate.json');
+    state.surfaces = await loadJSON('data/surfaces.json');
   } catch (e) {
-    $('#match-list').innerHTML = `<div class="empty">Could not load the match snapshot: ${e.message}</div>`;
+    fatal(`Could not load the surface map: ${e.message}`);
     return;
   }
-  // Optional files — their absence is a fact about collection status, not an error.
-  state.players = await loadJSON('data/players.json').catch(() => ({ players: {} }));
   state.provenance = await loadJSON('data/provenance.json').catch(() => null);
+  state.slate = await loadJSON('data/slate.json').catch(() => null);
 
-  state.calMonth = new Date(state.slate.events[0]?.resolved_date || new Date().toISOString());
-  state.calMonth.setDate(1);
+  $('#ruleset-pill').textContent = `ruleset ${RULESET_VERSION} · prompt ${PROMPT_VERSION}`;
+  $('#date-input').value = state.date;
 
-  $('#ruleset-pill').textContent = `ruleset ${RULESET_VERSION} / prompt ${PROMPT_VERSION}`;
-  $('#snapshot-pill').textContent = `snapshot ${state.slate.source.fetched_at_utc.replace('T', ' ').replace(':00Z', 'Z')}`;
-  const src = $('#source-link');
-  src.href = state.slate.source.url;
-  src.textContent = 'OLBG source ↗';
-  $('#footer-meta').textContent =
-    `Snapshot fetched ${state.slate.source.fetched_at_utc} · ${state.slate.events.length} matches · ` +
-    `${state.slate.outrights.length} outrights · ruleset ${RULESET_VERSION}`;
-
-  renderScoreboard();
-  renderCalendar();
-  renderQuality();
   renderAbout();
+  renderCalendar();
+  await loadDate(state.date);
+}
+
+function fatal(msg) {
+  $('#match-list').innerHTML = `<div class="empty">${esc(msg)}</div>`;
+}
+
+/** Collect and score one date. */
+async function loadDate(dateISO) {
+  if (state.loading) return;
+  state.loading = true;
+  state.date = dateISO;
+  state.card = null;
+  state.scored = null;
+  state.tips = [];
+  $('#pred-out').innerHTML = '';
+  $('#pred-table').innerHTML = '';
+  $('#pred-warnings').innerHTML = '';
+  $('#pred-hint').textContent = '';
+
+  showProgress(`Collecting ${dateISO}…`, 2);
+  try {
+    const card = await collectCard(dateISO, state.surfaces, (msg, pct) => showProgress(msg, pct));
+    state.card = card;
+    state.scored = card.matches.map((m) => {
+      const em = toEngineMatch(m, card);
+      return { raw: m, match: em, result: scoreMatch(em) };
+    });
+    hideProgress();
+  } catch (e) {
+    hideProgress();
+    fatal(`Live collection failed: ${e.message}. ESPN's public API may be unreachable from this network.`);
+    state.loading = false;
+    return;
+  }
+  state.loading = false;
+  renderScoreboard();
+  renderQuality();
+  renderStatusPills();
+}
+
+function showProgress(msg, pct) {
+  const el = $('#progress');
+  el.hidden = false;
+  $('#progress-label').textContent = msg;
+  $('#progress-bar').style.width = `${Math.max(2, Math.min(100, pct || 0))}%`;
+}
+function hideProgress() { $('#progress').hidden = true; }
+
+function renderStatusPills() {
+  const q = state.card?.quality;
+  if (!q) return;
+  $('#snapshot-pill').textContent = `collected ${q.collected_at_utc.slice(11, 19)}Z · ${q.tape_matches} history matches`;
+  const src = $('#source-link');
+  src.href = 'https://www.espn.com/tennis/scoreboard';
+  src.textContent = 'ESPN source ↗';
 }
 
 /* ------------------------------------------------------------------ *
  * Scoreboard
  * ------------------------------------------------------------------ */
 
-function phaseOf(ev) {
-  return phaseOfEvent(ev, new Date().toISOString().slice(0, 10));
-}
-
 function renderScoreboard() {
   const list = $('#match-list');
+  if (!state.scored) { list.innerHTML = '<div class="empty">Loading…</div>'; return; }
+
   const q = state.search.toLowerCase();
-  const rows = state.slate.events.filter((ev) => {
-    if (state.phase !== 'all' && phaseOf(ev) !== state.phase) return false;
-    if (state.selectedDate && ev.resolved_date !== state.selectedDate) return false;
-    if (q && !`${ev.home} ${ev.away}`.toLowerCase().includes(q)) return false;
+  const rows = state.scored.filter(({ raw }) => {
+    if (state.phase !== 'all' && raw.phase !== state.phase) return false;
+    if (q && !raw.players.map((p) => p.name).join(' ').toLowerCase().includes(q)) return false;
     return true;
   });
 
+  // Distinguish "the feed failed" from "the calendar is genuinely empty".
+  const feedFailed = (state.card?.quality?.scoreboard_failures?.length || 0) > 0;
+  $('#day-summary').textContent = state.scored.length
+    ? `${state.date} — ${state.scored.length} singles match${state.scored.length === 1 ? '' : 'es'} `
+      + `(${state.scored.filter((r) => r.raw.phase === 'results').length} finished, `
+      + `${state.scored.filter((r) => r.raw.phase === 'live').length} in play, `
+      + `${state.scored.filter((r) => r.raw.phase === 'upcoming').length} upcoming)`
+    : feedFailed
+      ? `${state.date} — the ESPN feed could not be reached, so nothing is known about this date. `
+        + 'This is a collection failure, not an empty schedule.'
+      : `${state.date} — no singles matches scheduled on ESPN for this date.`;
+
   if (!rows.length) {
-    list.innerHTML = `<div class="empty">
-      ${state.phase === 'results'
-        ? 'No settled results in this snapshot. Results are added by the collector once matches complete.'
-        : state.phase === 'live'
-          ? 'No live scores in this snapshot. OLBG’s tips pages do not expose live scores, so this project does not claim them.'
-          : 'No matches match the current filters.'}
-    </div>`;
+    list.innerHTML = `<div class="empty">${
+      feedFailed
+        ? 'The ESPN feed could not be reached from this browser, so no matches could be collected. '
+          + 'Nothing is shown rather than showing stale or invented data. Check your connection and reload.'
+        : `No matches match the current filter for ${esc(state.date)}.`
+    }</div>`;
     return;
   }
 
-  list.innerHTML = rows.map((ev) => {
-    const match = toMatch(ev, state.players);
-    const res = scoreMatch(match);
-    const unscored = res.favourite === null;
+  list.innerHTML = rows.map(({ raw, result }) => {
+    const unscored = result.favourite === null;
     const badges = unscored
-      ? '<span class="badge warn">unscored — no sourced price or ranking</span>'
+      ? '<span class="badge warn">unscored — no sourced ranking</span>'
       : ['win_match', 'first_set', 'games_handicap']
-        .map((m) => `<span class="badge ${res.markets[m].band}" title="${label(m)} score ${res.markets[m].score}">${label(m)} ${res.markets[m].band}</span>`)
-        .join(' ');
-    const cons = ev.consensus
-      ? `OLBG consensus: ${ev.consensus.selection} · ${ev.consensus.market} · ${ev.consensus.tips_for}/${ev.consensus.tips_total}`
-      : 'no OLBG consensus listed';
-    return `<div class="match" data-id="${ev.event_id}">
-      <div class="when"><span class="d">${ev.display_date}</span>${ev.display_time} UK</div>
+        .map((m) => {
+          const r = result.markets[m];
+          if (!r) return '';
+          return `<span class="badge ${r.band}" title="${label(m)} score ${r.score}">${label(m)} ${r.band}</span>`;
+        }).join(' ');
+
+    const score = raw.sets && raw.sets.length
+      ? raw.sets.map((s) => `${s.a}-${s.b}`).join(' ')
+      : '';
+    const time = (raw.start_utc || '').slice(11, 16);
+    const statusCls = raw.phase === 'live' ? 'live' : raw.phase;
+
+    return `<div class="match" data-id="${esc(raw.competition_id)}">
+      <div class="when">
+        <span class="d ${statusCls}">${esc(raw.phase === 'results' ? 'FT' : raw.phase === 'live' ? 'LIVE' : time || 'TBC')}</span>
+        <span class="tour">${esc(raw.tour || '')}</span>
+      </div>
       <div>
-        <div class="who">${esc(ev.home)}<span class="vs">v</span>${esc(ev.away)}</div>
-        <div class="sub">${esc(cons)} · <a href="${ev.url}" target="_blank" rel="noopener noreferrer">OLBG ↗</a></div>
+        <div class="who">${esc(raw.players[0].name)}<span class="vs">v</span>${esc(raw.players[1].name)}</div>
+        ${score ? `<div class="score">${esc(score)}${raw.winner_name ? ` · ${esc(raw.winner_name)} won` : ''}</div>` : ''}
+        <div class="sub">${esc(raw.tournament || '')}${raw.round ? ` · ${esc(raw.round)}` : ''}
+          · ${raw.surface ? esc(raw.surface) : '<em>surface unsourced</em>'}</div>
         <div class="sub">${badges}</div>
       </div>
-      <div class="acts"><button class="btn" data-gen="${ev.event_id}">Predict</button></div>
+      <div class="acts">
+        <button class="btn" data-gen="${esc(raw.competition_id)}" ${unscored ? 'disabled title="Cannot score: no sourced ranking"' : ''}>Predict</button>
+      </div>
     </div>`;
   }).join('');
 
-  $$('#match-list [data-gen]').forEach((b) => b.addEventListener('click', () => generateFor(b.dataset.gen)));
+  $$('#match-list [data-gen]').forEach((b) =>
+    b.addEventListener('click', () => generateFor(b.dataset.gen)));
 }
 
 function label(m) {
@@ -133,70 +208,63 @@ function label(m) {
 function renderCalendar() {
   const grid = $('#cal-grid');
   const d = state.calMonth;
-  $('#cal-title').textContent = d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
+  $('#cal-title').textContent = d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' });
 
-  const first = new Date(Date.UTC(d.getFullYear(), d.getMonth(), 1));
+  const y = d.getUTCFullYear();
+  const mo = d.getUTCMonth();
+  const first = new Date(Date.UTC(y, mo, 1));
   const startDow = (first.getUTCDay() + 6) % 7; // Monday-first
-  const daysInMonth = new Date(Date.UTC(d.getFullYear(), d.getMonth() + 1, 0)).getUTCDate();
-
-  const counts = {};
-  for (const ev of state.slate.events) {
-    counts[ev.resolved_date] = (counts[ev.resolved_date] || 0) + 1;
-  }
+  const daysInMonth = new Date(Date.UTC(y, mo + 1, 0)).getUTCDate();
+  const today = todayISO();
 
   let html = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     .map((x) => `<div class="cal-dow">${x}</div>`).join('');
-
   for (let i = 0; i < startDow; i++) html += '<div class="cal-day out"></div>';
   for (let day = 1; day <= daysInMonth; day++) {
-    const iso = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-    const n = counts[iso] || 0;
-    const sel = state.selectedDate === iso ? ' sel' : '';
-    html += `<div class="cal-day${sel}" data-date="${iso}">
-      <div class="n">${day}</div>${n ? `<div class="c">${n} match${n > 1 ? 'es' : ''}</div>` : ''}</div>`;
+    const iso = `${y}-${String(mo + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const cls = [
+      'cal-day',
+      iso === state.date ? 'sel' : '',
+      iso === today ? 'today' : '',
+    ].filter(Boolean).join(' ');
+    html += `<div class="${cls}" data-date="${iso}"><div class="n">${day}</div>
+      ${iso === today ? '<div class="c">today</div>' : ''}</div>`;
   }
   grid.innerHTML = html;
 
-  $$('#cal-grid [data-date]').forEach((el) => el.addEventListener('click', () => {
-    state.selectedDate = state.selectedDate === el.dataset.date ? null : el.dataset.date;
+  $$('#cal-grid [data-date]').forEach((el) => el.addEventListener('click', async () => {
+    $('#date-input').value = el.dataset.date;
+    renderCalendarSelection(el.dataset.date);
+    switchTab('scoreboard');
+    await loadDate(el.dataset.date);
     renderCalendar();
-    renderScoreboard();
-    renderCalDetail();
-    if (state.selectedDate) switchTab('scoreboard');
   }));
-  renderCalDetail();
 }
 
-function renderCalDetail() {
-  const el = $('#cal-detail');
-  if (!state.selectedDate) { el.innerHTML = ''; return; }
-  const rows = state.slate.events.filter((e) => e.resolved_date === state.selectedDate);
-  el.innerHTML = `<h2>${state.selectedDate} — ${rows.length} match${rows.length === 1 ? '' : 'es'}</h2>` +
-    (rows.length ? `<table><thead><tr><th>Time (UK)</th><th>Match</th><th>OLBG consensus</th><th></th></tr></thead><tbody>` +
-      rows.map((r) => `<tr><td>${r.display_time}</td><td>${esc(r.home)} v ${esc(r.away)}</td>
-        <td>${esc(r.consensus ? `${r.consensus.selection} (${r.consensus.market})` : '—')}</td>
-        <td><a href="${r.url}" target="_blank" rel="noopener noreferrer">source ↗</a></td></tr>`).join('') +
-      `</tbody></table>` : '<div class="empty">No matches sourced for this date.</div>');
+function renderCalendarSelection(iso) {
+  state.date = iso;
+  $$('#cal-grid .cal-day').forEach((el) =>
+    el.classList.toggle('sel', el.dataset.date === iso));
 }
 
 /* ------------------------------------------------------------------ *
  * Predictions
  * ------------------------------------------------------------------ */
 
-function generateFor(eventId) {
-  const ev = state.slate.events.find((e) => e.event_id === eventId);
-  if (!ev) return;
-  const card = scoreCard([toMatch(ev, state.players)]);
-  state.lastCard = card;
-  const written = writeCard(card.results);
-  state.tips = written.tips;
-  renderPredictions(written, card);
-  switchTab('predictions');
+function generateFor(competitionId) {
+  const row = state.scored?.find((r) => r.raw.competition_id === competitionId);
+  if (!row) return;
+  emit(scoreCard([row.match]));
 }
 
 function generateAll() {
-  const matches = state.slate.events.map((ev) => toMatch(ev, state.players));
-  const card = scoreCard(matches);
+  if (!state.scored?.length) { toast('Nothing collected for this date'); return; }
+  // Only matches that are actually scoreable go to the writer; the rest are
+  // reported as unscored rather than being given invented content.
+  emit(scoreCard(state.scored.map((r) => r.match)));
+}
+
+function emit(card) {
   state.lastCard = card;
   const written = writeCard(card.results);
   state.tips = written.tips;
@@ -212,24 +280,25 @@ function renderPredictions(written, card) {
   const notes = [];
   if (card.trimmed) notes.push(card.trimmedReason);
   if (written.openerPoolExhausted) {
-    notes.push(`This card needs more tips than there are distinct openings (${written.openerPoolSize}). ` +
-      `The Step 4 uniqueness rule cannot be honoured past that point; affected tips are marked.`);
+    notes.push(`This card needs more tips than there are distinct openings (${written.openerPoolSize}). `
+      + 'The Step 4 uniqueness rule cannot be honoured past that point; affected tips are withheld rather than repeated.');
   }
   const unscored = written.unscored || [];
   if (unscored.length) {
-    notes.push(`${unscored.length} match${unscored.length === 1 ? '' : 'es'} could not be scored at all: no sourced price ` +
-      `or ranking is available yet. Nothing has been estimated for them.`);
+    notes.push(`${unscored.length} match${unscored.length === 1 ? '' : 'es'} could not be scored: no sourced ranking. `
+      + 'Nothing has been estimated for them.');
   }
   if (written.violations.length) {
     notes.push(`${written.violations.length} output-rule violation(s) recorded — those tips were withheld, not published.`);
   }
-  warns.innerHTML = notes.length
-    ? notes.map((n) => `<div class="info-box">${esc(n)}</div>`).join('')
-    : '<div class="info-box">All emitted tips passed every Step 4 output rule.</div>';
+  notes.push('Odds are not available from any free key-less source, so every price-dependent factor is unscored. '
+    + 'Confidence bands are capped accordingly — see Data quality.');
+
+  warns.innerHTML = notes.map((n) => `<div class="info-box">${esc(n)}</div>`).join('');
 
   const scored = written.tips.filter((t) => t.ok);
-  hint.textContent = `${scored.length} tips · ${written.tips.filter((t) => t.skip).length} skips · ` +
-    `${unscored.length} unscored · min ${MIN_WORDS} words each · ruleset ${RULESET_VERSION}`;
+  hint.textContent = `${scored.length} tips · ${written.tips.filter((t) => t.skip).length} skips · `
+    + `${unscored.length} unscored · min ${MIN_WORDS} words each · ruleset ${RULESET_VERSION}`;
 
   out.innerHTML = written.tips.map((t, i) => {
     if (!t.ok) {
@@ -255,29 +324,30 @@ function renderPredictions(written, card) {
     copy(t.text.replace(/\*\*/g, ''));
   }));
 
-  renderSummaryTable(card, written);
+  renderSummaryTable(card);
 }
 
 function renderTipText(text) {
-  // Only **bold** is trusted; everything else is escaped.
   return text.split(/(\*\*[^*]+\*\*)/g)
-    .map((part) => part.startsWith('**') && part.endsWith('**')
+    .map((part) => (part.startsWith('**') && part.endsWith('**')
       ? `<strong>${esc(part.slice(2, -2))}</strong>`
-      : esc(part))
+      : esc(part)))
     .join('');
 }
 
-function renderSummaryTable(card, written) {
+function renderSummaryTable(card) {
   const el = $('#pred-table');
   const rows = card.results.map(({ match, result }) => {
     const band = (m) => result.markets[m]?.band ?? '—';
+    const hcapSkipped = !result.markets.games_handicap
+      || result.markets.games_handicap.band === CONFIDENCE.SKIP;
     return `<tr>
-      <td><a href="${match.url}" target="_blank" rel="noopener noreferrer">${esc(match.home)} v ${esc(match.away)}</a></td>
+      <td>${esc(match.home)} v ${esc(match.away)}</td>
       <td>${esc(result.favourite ?? '—')}</td>
       <td><span class="badge ${band('win_match')}">${band('win_match')}</span></td>
       <td><span class="badge ${band('first_set')}">${band('first_set')}</span></td>
       <td><span class="badge ${band('games_handicap')}">${band('games_handicap')}</span></td>
-      <td class="words">${result.markets.games_handicap?.band === 'SKIP' ? 'skipped — insufficient dominance evidence' : ''}</td>
+      <td class="words">${hcapSkipped ? 'skipped — insufficient dominance evidence' : ''}</td>
     </tr>`;
   });
   el.innerHTML = `<h2>Summary</h2>
@@ -292,38 +362,47 @@ function renderSummaryTable(card, written) {
 
 function renderQuality() {
   const el = $('#quality-out');
+  const q = state.card?.quality;
+  if (!q) { el.innerHTML = '<div class="empty">Nothing collected yet.</div>'; return; }
+
   const allMissing = new Map();
   let unscored = 0;
-
-  for (const ev of state.slate.events) {
-    const res = scoreMatch(toMatch(ev, state.players));
-    if (res.favourite === null) { unscored++; continue; }
-    for (const m of res.missing) allMissing.set(m, (allMissing.get(m) || 0) + 1);
+  for (const { result } of state.scored) {
+    if (result.favourite === null) { unscored++; continue; }
+    for (const m of result.missing) allMissing.set(m, (allMissing.get(m) || 0) + 1);
   }
 
   const irregularities = state.provenance?.irregularities || [];
-  const collected = Object.keys(state.players?.players || {}).length;
 
   el.innerHTML = `
-    <h2>Collection status</h2>
+    <h2>This collection</h2>
     <table><tbody>
-      <tr><td>Matches in snapshot</td><td>${state.slate.events.length}</td></tr>
-      <tr><td>Matches with sourced player statistics</td><td>${collected} players</td></tr>
-      <tr><td>Matches the engine can score</td><td>${state.slate.events.length - unscored}</td></tr>
-      <tr><td>Matches unscoreable without more data</td><td>${unscored}</td></tr>
-      <tr><td>Snapshot fetched</td><td>${state.slate.source.fetched_at_utc}</td></tr>
+      <tr><td>Date</td><td>${esc(state.date)}</td></tr>
+      <tr><td>Collected at</td><td>${esc(q.collected_at_utc)}</td></tr>
+      <tr><td>Singles matches found</td><td>${state.scored.length}</td></tr>
+      <tr><td>Matches the engine can score</td><td>${state.scored.length - unscored}</td></tr>
+      <tr><td>Matches unscoreable (no sourced ranking)</td><td>${unscored}</td></tr>
+      <tr><td>Matches with no sourced surface</td><td>${q.matches_without_surface}</td></tr>
+      <tr><td>History tape</td><td>${q.tape_matches} completed matches over ${q.tape_days} days</td></tr>
+      <tr><td>Ranked players loaded</td><td>${q.ranked_players}</td></tr>
+      <tr><td>Feed failures</td><td>${(q.scoreboard_failures.length + q.ranking_failures.length) || 'none'}</td></tr>
     </tbody></table>
 
-    <h2>Factors the engine is missing</h2>
+    <h2>Factors that can never be sourced here</h2>
+    <table><thead><tr><th>Factor</th><th>Why</th><th>Ref</th></tr></thead><tbody>
+      ${q.unavailable_factors.map((f) => `<tr><td>${esc(f.factor)}</td><td>${esc(f.reason)}</td><td><code>${esc(f.ref)}</code></td></tr>`).join('')}
+    </tbody></table>
+
+    <h2>Factors missing on this card</h2>
     ${allMissing.size ? `<table><thead><tr><th>Missing factor</th><th>Matches affected</th></tr></thead><tbody>${
-      [...allMissing.entries()].sort((a, b) => b[1] - a[1])
-        .map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${v}</td></tr>`).join('')
-    }</tbody></table>` : '<div class="info-box">No missing factors.</div>'}
+  [...allMissing.entries()].sort((a, b) => b[1] - a[1])
+    .map(([k, v]) => `<tr><td><code>${esc(k)}</code></td><td>${v}</td></tr>`).join('')
+}</tbody></table>` : '<div class="info-box">No missing factors.</div>'}
 
     <h2>Flagged irregularities</h2>
     ${irregularities.length
-      ? `<ul class="tight">${irregularities.map((i) => `<li><strong>${esc(i.id)}</strong> — ${esc(i.detail)}</li>`).join('')}</ul>`
-      : '<div class="info-box">No irregularities file present yet.</div>'}
+    ? `<ul class="tight">${irregularities.map((i) => `<li><strong>${esc(i.id)}</strong> — ${esc(i.detail)}</li>`).join('')}</ul>`
+    : '<div class="info-box">No irregularities file present.</div>'}
   `;
 }
 
@@ -332,44 +411,51 @@ function renderQuality() {
  * ------------------------------------------------------------------ */
 
 function renderAbout() {
-  const src = state.slate.source;
+  const s = state.surfaces;
   $('#about-out').innerHTML = `
     <h2>What this is</h2>
-    <p class="lede">A static scoreboard and prediction generator for tennis. Matches and markets are collected from
-    public OLBG pages, joined to player statistics where those can be sourced, and scored by the three-market model
-    in <code>engine/engine.js</code>. Predictions are written by <code>engine/writer.js</code> and every tip is
-    checked against the output rules before it is shown.</p>
+    <p class="lede">A static tennis scoreboard and three-market prediction generator. The live slate, results and
+    rankings are collected in your browser from ESPN's public endpoints; the court surface is resolved from a map
+    built out of recorded match data; and every match is scored by the model in <code>engine/engine.js</code>.
+    Tips are written by <code>engine/writer.js</code> and validated against the Step 4 output rules before display.</p>
 
-    <h2>Sources</h2>
-    <table><thead><tr><th>Source</th><th>What it provides</th><th>Link</th></tr></thead><tbody>
-      <tr><td>OLBG tennis tips index</td><td>fixtures, kickoff times, market names, tipster consensus</td>
-        <td><a href="${src.url}" target="_blank" rel="noopener noreferrer">${src.url} ↗</a></td></tr>
-      <tr><td>OLBG event pages</td><td>full per-match market list including Games Won handicap selections</td>
-        <td><a href="https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/3" target="_blank" rel="noopener noreferrer">all events ↗</a></td></tr>
-      <tr><td>ATP Tour (official)</td><td>schedule and rankings, men's</td>
-        <td><a href="https://www.atptour.com/" target="_blank" rel="noopener noreferrer">atptour.com ↗</a></td></tr>
-      <tr><td>WTA Tennis (official)</td><td>schedule and rankings, women's</td>
-        <td><a href="https://www.wtatennis.com/" target="_blank" rel="noopener noreferrer">wtatennis.com ↗</a></td></tr>
+    <h2>Sources — all publicly verifiable</h2>
+    <table><thead><tr><th>Source</th><th>Provides</th><th>Link</th></tr></thead><tbody>
+      <tr><td>ESPN tennis scoreboard (public JSON, no key)</td><td>fixtures, live and final scores, rounds, set scores</td>
+        <td><a href="https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard" target="_blank" rel="noopener noreferrer">atp ↗</a>
+        · <a href="https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard" target="_blank" rel="noopener noreferrer">wta ↗</a></td></tr>
+      <tr><td>ESPN rankings</td><td>current ATP/WTA rank, previous rank, points</td>
+        <td><a href="https://site.api.espn.com/apis/site/v2/sports/tennis/atp/rankings" target="_blank" rel="noopener noreferrer">atp ↗</a>
+        · <a href="https://site.api.espn.com/apis/site/v2/sports/tennis/wta/rankings" target="_blank" rel="noopener noreferrer">wta ↗</a></td></tr>
+      <tr><td>Sackmann dataset mirrors (CC BY-NC-SA 4.0)</td>
+        <td>court surface and tour level per tournament — ${s ? s.counts.resolved : '—'} tournaments from ${s ? s.files_used.reduce((a, f) => a + f.rows, 0).toLocaleString() : '—'} match rows</td>
+        <td><a href="https://github.com/Kadantte/tennis_atp" target="_blank" rel="noopener noreferrer">atp mirror ↗</a>
+        · <a href="https://github.com/Aneeshers/tennis-sackmann-archive" target="_blank" rel="noopener noreferrer">archive ↗</a></td></tr>
+      <tr><td>OLBG tennis tips</td><td>market listing and tipster consensus (snapshot; see Data quality)</td>
+        <td><a href="https://www.olbg.com/betting-tips/Tennis/6" target="_blank" rel="noopener noreferrer">olbg.com ↗</a></td></tr>
     </tbody></table>
 
-    <h2>Anti-hallucination rules this site follows</h2>
+    <h2>What this site will not do</h2>
     <ul class="tight">
-      <li>A factor with no source is never estimated. It is recorded as missing and the score is reduced.</li>
-      <li>Scores are capped and every point is traceable to a named rule and the value that triggered it.</li>
-      <li>Tips containing numerals are withheld, so odds, lines and set scores cannot leak into output.</li>
-      <li>Unscoreable matches are shown as unscored rather than given a plausible-looking guess.</li>
-      <li>Anything that cannot be verified from this environment is marked unverified in <code>docs/SOURCES.md</code>.</li>
+      <li><strong>It will not show odds.</strong> No free, key-less, cross-origin odds source was verified, so no price
+      is displayed and every odds-dependent factor is scored as missing rather than assumed.</li>
+      <li><strong>It will not invent a statistic.</strong> Serve percentages and ace rates are absent from ESPN's tennis
+      feed, so they stay unsourced instead of being estimated.</li>
+      <li><strong>It will not guess a surface.</strong> A tournament missing from the surface map, or whose source rows
+      disagreed, is shown as "surface unsourced".</li>
+      <li><strong>It will not publish a tip that breaks the output rules.</strong> Tips containing digits, banned
+      phrases, repeated names, or fewer than ${MIN_WORDS} words are withheld and the violation is reported.</li>
     </ul>
 
     <h2>Model ruleset</h2>
-    <p class="lede">Implements the master prompt ${PROMPT_VERSION}, plus patches recorded in <code>engine/engine.js</code>:
-    ${Object.keys(PATCHES).map((k) => `<code>${k}</code>${PATCHES[k] ? ' ✓' : ' ✗'}`).join(', ')}.</p>
+    <p class="lede">Implements master prompt ${PROMPT_VERSION} with documented patches:
+    ${Object.keys(PATCHES).map((k) => `<code>${k}</code>${PATCHES[k] ? ' ✓' : ' ✗'}`).join(', ')}.
+    The reasoning for each is in <code>docs/PROMPT_REVIEW.md</code>.</p>
 
     <h2>Reproduce</h2>
-    <pre>npm test                 # engine + writer tests (the same modules the browser runs)
-python3 scripts/collect_olbg.py   # refresh data/slate.json
-python3 scripts/collect_players.py # refresh data/players.json
-node scripts/backtest.mjs          # grade stored predictions</pre>
+    <pre>npm test                              # engine, writer, ESPN parsers, backtest
+node scripts/build_surface_map.mjs    # rebuild the surface map from source data
+node scripts/backtest_historical.mjs  # walk-forward backtest on real matches</pre>
   `;
 }
 
@@ -403,6 +489,38 @@ function switchTab(name) {
   $$('.panel').forEach((p) => p.classList.toggle('active', p.id === `tab-${name}`));
 }
 
+/** Full copy-ready card: tips, summary table, skip flags, RG reminder. */
+function buildCardText() {
+  const tips = state.tips.filter((t) => t.ok);
+  if (!tips.length) return '';
+  const lines = [`Tennis predictions — ${state.date}`, ''];
+  for (const t of tips) {
+    lines.push(`${t.match} — ${t.marketLabel} [${t.band}]`);
+    lines.push(t.text.replace(/\*\*/g, ''));
+    lines.push('');
+  }
+  const card = state.lastCard;
+  if (card) {
+    lines.push('SUMMARY');
+    lines.push('Match | Selection | Win match | First set | Games handicap');
+    for (const { match, result } of card.results) {
+      const b = (m) => result.markets[m]?.band ?? '—';
+      lines.push(`${match.home} v ${match.away} | ${result.favourite ?? '—'} | ${b('win_match')} | ${b('first_set')} | ${b('games_handicap')}`);
+    }
+    const skipped = card.results.filter(({ result }) =>
+      !result.markets.games_handicap || result.markets.games_handicap.band === CONFIDENCE.SKIP);
+    if (skipped.length) {
+      lines.push('');
+      lines.push('HANDICAP SKIPS — insufficient dominance evidence:');
+      for (const { match } of skipped) lines.push(`- ${match.home} v ${match.away}`);
+    }
+  }
+  lines.push('');
+  lines.push('Responsible gambling: nothing here is betting advice or a guarantee. Predictions are generated '
+    + 'mechanically from sourced data and are fallible. 18+.');
+  return lines.join('\n');
+}
+
 /* ------------------------------------------------------------------ *
  * Wire up
  * ------------------------------------------------------------------ */
@@ -415,20 +533,52 @@ $$('#phase-filter button').forEach((b) => b.addEventListener('click', () => {
   renderScoreboard();
 }));
 $('#search').addEventListener('input', (e) => { state.search = e.target.value; renderScoreboard(); });
-$('#cal-prev').addEventListener('click', () => { state.calMonth.setMonth(state.calMonth.getMonth() - 1); renderCalendar(); });
-$('#cal-next').addEventListener('click', () => { state.calMonth.setMonth(state.calMonth.getMonth() + 1); renderCalendar(); });
+
+$('#date-input').addEventListener('change', async (e) => {
+  const v = e.target.value;
+  if (!v) return;
+  state.calMonth = new Date(`${v}T12:00:00Z`);
+  renderCalendar();
+  await loadDate(v);
+});
+$('#today-btn').addEventListener('click', async () => {
+  const t = todayISO();
+  $('#date-input').value = t;
+  state.calMonth = new Date(`${t}T12:00:00Z`);
+  renderCalendar();
+  await loadDate(t);
+});
+$('#prev-day').addEventListener('click', () => shiftDay(-1));
+$('#next-day').addEventListener('click', () => shiftDay(1));
+async function shiftDay(n) {
+  const d = new Date(`${state.date}T12:00:00Z`);
+  const iso = isoDate(new Date(d.getTime() + n * 86400000));
+  $('#date-input').value = iso;
+  state.calMonth = new Date(`${iso}T12:00:00Z`);
+  renderCalendar();
+  await loadDate(iso);
+}
+
+$('#cal-prev').addEventListener('click', () => {
+  state.calMonth = new Date(Date.UTC(state.calMonth.getUTCFullYear(), state.calMonth.getUTCMonth() - 1, 1));
+  renderCalendar();
+});
+$('#cal-next').addEventListener('click', () => {
+  state.calMonth = new Date(Date.UTC(state.calMonth.getUTCFullYear(), state.calMonth.getUTCMonth() + 1, 1));
+  renderCalendar();
+});
+
 $('#generate-all').addEventListener('click', generateAll);
 $('#generate-card').addEventListener('click', generateAll);
 $('#copy-all').addEventListener('click', () => {
-  copy(state.tips.filter((t) => t.ok).map((t) => t.text.replace(/\*\*/g, '')).join('\n\n'));
+  const text = state.tips.filter((t) => t.ok).map((t) => t.text.replace(/\*\*/g, '')).join('\n\n');
+  if (!text) { toast('Generate predictions first'); return; }
+  copy(text);
 });
 $('#copy-card').addEventListener('click', () => {
-  const parts = state.tips.filter((t) => t.ok).map((t) => `${t.marketLabel}: ${t.text.replace(/\*\*/g, '')}`);
-  const skipped = state.lastCard?.results
-    .filter((r) => r.result.markets.games_handicap?.band === 'SKIP')
-    .map((r) => `${r.match.home} v ${r.match.away} — games handicap skipped, insufficient dominance evidence`);
-  const footer = '\n\nResponsible gambling: this is not betting advice. 18+.';
-  copy([...parts, ...(skipped.length ? ['', 'Handicap skips:', ...skipped] : []), footer].join('\n'));
+  const text = buildCardText();
+  if (!text) { toast('Generate predictions first'); return; }
+  copy(text);
 });
 
 boot();

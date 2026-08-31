@@ -1,0 +1,5872 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-08-31T01:32:40Z",
+  "method": "Surface per tournament derived from the surface column of recorded match rows in the Sackmann dataset mirrors. A tournament needs >=90% agreement across its own rows or its surface is left null. Nothing is inferred from tournament names.",
+  "min_agreement": 0.9,
+  "attribution": "Jeff Sackmann tennis datasets, CC BY-NC-SA 4.0, via verified mirrors.",
+  "sources": [
+    {
+      "tour": "atp",
+      "repo": "Kadantte/tennis_atp",
+      "url": "https://github.com/Kadantte/tennis_atp"
+    },
+    {
+      "tour": "wta",
+      "repo": "Aneeshers/tennis-sackmann-archive",
+      "url": "https://github.com/Aneeshers/tennis-sackmann-archive"
+    }
+  ],
+  "files_used": [
+    {
+      "tour": "atp",
+      "year": 2024,
+      "repo": "Kadantte/tennis_atp",
+      "path": "atp_matches_2024.csv",
+      "rows": 3076
+    },
+    {
+      "tour": "atp",
+      "year": 2025,
+      "repo": "Kadantte/tennis_atp",
+      "path": "atp_matches_2025.csv",
+      "rows": 2944
+    },
+    {
+      "tour": "atp",
+      "year": 2026,
+      "repo": "Kadantte/tennis_atp",
+      "path": "atp_matches_2026.csv",
+      "rows": 1449
+    },
+    {
+      "tour": "wta",
+      "year": 2024,
+      "repo": "Aneeshers/tennis-sackmann-archive",
+      "path": "wta/wta_matches_2024.csv",
+      "rows": 2632
+    },
+    {
+      "tour": "wta",
+      "year": 2025,
+      "repo": "Aneeshers/tennis-sackmann-archive",
+      "path": "wta/wta_matches_2025.csv",
+      "rows": 2759
+    },
+    {
+      "tour": "wta",
+      "year": 2026,
+      "repo": "Aneeshers/tennis-sackmann-archive",
+      "path": "wta/wta_matches_2026.csv",
+      "rows": 1273
+    }
+  ],
+  "counts": {
+    "tournaments": 351,
+    "resolved": 349,
+    "conflicts": 2
+  },
+  "conflicts": [
+    {
+      "key": "wta|linz",
+      "counts": {
+        "Hard": 54,
+        "Clay": 27
+      }
+    },
+    {
+      "key": "wta|prague",
+      "counts": {
+        "Clay": 31,
+        "Hard": 31
+      }
+    }
+  ],
+  "tournaments": {
+    "atp|acapulco": {
+      "tour": "atp",
+      "name": "Acapulco",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "atp|adelaide": {
+      "tour": "atp",
+      "name": "Adelaide",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 81
+      }
+    },
+    "atp|almaty": {
+      "tour": "atp",
+      "name": "Almaty",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|antwerp": {
+      "tour": "atp",
+      "name": "Antwerp",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 27
+      }
+    },
+    "atp|athens": {
+      "tour": "atp",
+      "name": "Athens",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 27
+      }
+    },
+    "atp|atlanta": {
+      "tour": "atp",
+      "name": "Atlanta",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 27
+      }
+    },
+    "atp|auckland": {
+      "tour": "atp",
+      "name": "Auckland",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 81
+      }
+    },
+    "atp|australian open": {
+      "tour": "atp",
+      "name": "Australian Open",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 381,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Hard": 381
+      }
+    },
+    "atp|barcelona": {
+      "tour": "atp",
+      "name": "Barcelona",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 109,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 109
+      }
+    },
+    "atp|basel": {
+      "tour": "atp",
+      "name": "Basel",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "atp|bastad": {
+      "tour": "atp",
+      "name": "Bastad",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 54
+      }
+    },
+    "atp|beijing": {
+      "tour": "atp",
+      "name": "Beijing",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "atp|belgrade": {
+      "tour": "atp",
+      "name": "Belgrade",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 27
+      }
+    },
+    "atp|brisbane": {
+      "tour": "atp",
+      "name": "Brisbane",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "atp|brussels": {
+      "tour": "atp",
+      "name": "Brussels",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 27
+      }
+    },
+    "atp|bucharest": {
+      "tour": "atp",
+      "name": "Bucharest",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "atp|buenos aires": {
+      "tour": "atp",
+      "name": "Buenos Aires",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "atp|canada masters": {
+      "tour": "atp",
+      "name": "Canada Masters",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 150,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Hard": 150
+      }
+    },
+    "atp|chengdu": {
+      "tour": "atp",
+      "name": "Chengdu",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|cincinnati masters": {
+      "tour": "atp",
+      "name": "Cincinnati Masters",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 150,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Hard": 150
+      }
+    },
+    "atp|cordoba": {
+      "tour": "atp",
+      "name": "Cordoba",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 27
+      }
+    },
+    "atp|dallas": {
+      "tour": "atp",
+      "name": "Dallas",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 89,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 89
+      }
+    },
+    "atp|davis cup finals f ita vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup Finals F: ITA vs ESP",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals f ita vs ned": {
+      "tour": "atp",
+      "name": "Davis Cup Finals F: ITA vs NED",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf arg vs ger": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: ARG vs GER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf esp vs cze": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: ESP vs CZE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf fra vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: FRA vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf ger vs can": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: GER vs CAN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf ita vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: ITA vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf ita vs aut": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: ITA vs AUT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf ned vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: NED vs ESP",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals qf usa vs aus": {
+      "tour": "atp",
+      "name": "Davis Cup Finals QF: USA vs AUS",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr aus vs cze": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: AUS vs CZE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr aus vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: AUS vs ESP",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr aus vs fra": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: AUS vs FRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr bel vs bra": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: BEL vs BRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr can vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: CAN vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr can vs fin": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: CAN vs FIN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr can vs gbr": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: CAN vs GBR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr cze vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: CZE vs ESP",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr cze vs fra": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: CZE vs FRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr fin vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: FIN vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr fin vs gbr": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: FIN vs GBR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr fra vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: FRA vs ESP",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr gbr vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: GBR vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ger vs chi": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: GER vs CHI",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ger vs svk": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: GER vs SVK",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ger vs usa": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: GER vs USA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ita vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: ITA vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ita vs bra": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: ITA vs BRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ita vs ned": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: ITA vs NED",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ned vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: NED vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr ned vs bra": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: NED vs BRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr svk vs chi": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: SVK vs CHI",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr usa vs chi": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: USA vs CHI",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals rr usa vs svk": {
+      "tour": "atp",
+      "name": "Davis Cup Finals RR: USA vs SVK",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals sf esp vs ger": {
+      "tour": "atp",
+      "name": "Davis Cup Finals SF: ESP vs GER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals sf ger vs ned": {
+      "tour": "atp",
+      "name": "Davis Cup Finals SF: GER vs NED",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals sf ita vs aus": {
+      "tour": "atp",
+      "name": "Davis Cup Finals SF: ITA vs AUS",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup finals sf ita vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup Finals SF: ITA vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup qls r1 arg vs kaz": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: ARG vs KAZ",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup qls r1 aus vs ecu": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: AUS vs ECU",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r1 aus vs swe": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: AUS vs SWE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 aut vs fin": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: AUT vs FIN",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r1 bel vs bul": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: BEL vs BUL",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r1 bra vs can": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: BRA vs CAN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 bra vs fra": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: BRA vs FRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 can vs hun": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CAN vs HUN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 can vs kor": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CAN vs KOR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 chi vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CHI vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 chi vs per": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CHI vs PER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 chi vs srb": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CHI vs SRB",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r1 cro vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CRO vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 cro vs svk": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CRO vs SVK",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 cze vs isr": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: CZE vs ISR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 den vs cro": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: DEN vs CRO",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 fin vs por": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: FIN vs POR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 fra vs svk": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: FRA vs SVK",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 ger vs isr": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: GER vs ISR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 ger vs per": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: GER vs PER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 hun vs ger": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: HUN vs GER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 jpn vs aut": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: JPN vs AUT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 jpn vs gbr": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: JPN vs GBR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 kor vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: KOR vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 kor vs cze": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: KOR vs CZE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 ned vs ind": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: NED vs IND",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 ned vs sui": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: NED vs SUI",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 nor vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: NOR vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 nor vs gbr": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: NOR vs GBR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 srb vs den": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: SRB vs DEN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r1 srb vs svk": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: SRB vs SVK",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r1 sui vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: SUI vs ESP",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 swe vs bra": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: SWE vs BRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 swe vs cze": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: SWE vs CZE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 tpe vs fra": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: TPE vs FRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 ukr vs usa": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: UKR vs USA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r1 usa vs hun": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: USA vs HUN",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r1 usa vs tpe": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R1: USA vs TPE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r2 aus vs bel": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: AUS vs BEL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r2 cro vs fra": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: CRO vs FRA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup qls r2 den vs esp": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: DEN vs ESP",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup qls r2 ger vs jpn": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: GER vs JPN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r2 hun vs aut": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: HUN vs AUT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup qls r2 ned vs arg": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: NED vs ARG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup qls r2 usa vs cze": {
+      "tour": "atp",
+      "name": "Davis Cup QLS R2: USA vs CZE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 po bul vs bih": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: BUL vs BIH",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po chn vs por": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: CHN vs POR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po col vs bar": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: COL vs BAR",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 po col vs lux": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: COL vs LUX",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 po ecu vs uru": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: ECU vs URU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po egy vs ecu": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: EGY vs ECU",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po egy vs pol": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: EGY vs POL",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po geo vs pol": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: GEO vs POL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po gre vs egy": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: GRE vs EGY",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 po gre vs mex": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: GRE vs MEX",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po gre vs rou": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: GRE vs ROU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po hkg vs fin": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: HKG vs FIN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po ind vs tog": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: IND vs TOG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po irl vs aut": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: IRL vs AUT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po isr vs ltu": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: ISR vs LTU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po kaz vs mon": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: KAZ vs MON",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po kaz vs pak": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: KAZ vs PAK",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po lbn vs jpn": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: LBN vs JPN",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po lbn vs per": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: LBN vs PER",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po ltu vs geo": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: LTU vs GEO",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 po lux vs ltu": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: LUX vs LTU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po lux vs ukr": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: LUX vs UKR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po mar vs col": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: MAR vs COL",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po mex vs den": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: MEX vs DEN",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po mon vs por": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: MON vs POR",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 po nor vs lat": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: NOR vs LAT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po nzl vs bih": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: NZL vs BIH",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 po nzl vs tur": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: NZL vs TUR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po pak vs ind": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: PAK vs IND",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Grass": 3
+      }
+    },
+    "atp|davis cup wg1 po par vs rou": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: PAR vs ROU",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po rou vs bul": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: ROU vs BUL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po slo vs tur": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: SLO vs TUR",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 po sui vs tun": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: SUI vs TUN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po tpe vs lbn": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: TPE vs LBN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po tun vs ukr": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: TUN vs UKR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 po tur vs mex": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: TUR vs MEX",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 po uzb vs bih": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: UZB vs BIH",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 po uzb vs pol": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 PO: UZB vs POL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 aut vs tur": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: AUT vs TUR",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 r1 bul vs fin": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: BUL vs FIN",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 r1 can vs isr": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: CAN vs ISR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 chi vs lux": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: CHI vs LUX",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 r1 cro vs ltu": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: CRO vs LTU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 ecu vs bih": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: ECU vs BIH",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 r1 egy vs hun": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: EGY vs HUN",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg1 r1 gre vs bra": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: GRE vs BRA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 isr vs ukr": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: ISR vs UKR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 jpn vs col": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: JPN vs COL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 kaz vs den": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: KAZ vs DEN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 kor vs kaz": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: KOR vs KAZ",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 nor vs por": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: NOR vs POR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 per vs por": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: PER vs POR",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg1 r1 pol vs gbr": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: POL vs GBR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 pol vs kor": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: POL vs KOR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 srb vs gre": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SRB vs GRE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 srb vs tur": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SRB vs TUR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 sui vs ind": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SUI vs IND",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 sui vs per": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SUI vs PER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 svk vs col": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SVK vs COL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 swe vs ind": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SWE vs IND",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg1 r1 swe vs tun": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: SWE vs TUN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 r1 tpe vs bih": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: TPE vs BIH",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg1 r1 tpe vs nor": {
+      "tour": "atp",
+      "name": "Davis Cup WG1 R1: TPE vs NOR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po bar vs bol": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: BAR vs BOL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po ben vs esa": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: BEN vs ESA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po ben vs lat": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: BEN vs LAT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po bol vs tha": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: BOL vs THA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 po chn vs slo": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: CHN vs SLO",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po cyp vs mar": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: CYP vs MAR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po cyp vs mkd": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: CYP vs MKD",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po cyp vs tha": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: CYP vs THA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 po dom vs bol": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: DOM vs BOL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po dom vs lat": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: DOM vs LAT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po esa vs mda": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: ESA vs MDA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po esa vs poc": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: ESA vs POC",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po est vs ven": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: EST vs VEN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po geo vs ber": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: GEO vs BER",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po hkg vs zim": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: HKG vs ZIM",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po ina vs tog": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: INA vs TOG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po iri vs est": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: IRI vs EST",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 po irl vs syr": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: IRL vs SYR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po jam vs bar": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: JAM vs BAR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po jam vs nzl": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: JAM vs NZL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po jam vs uru": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: JAM vs URU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po ksa vs irl": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: KSA vs IRL",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po mne vs chn": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: MNE vs CHN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po nam vs est": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: NAM vs EST",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po nam vs hkg": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: NAM vs HKG",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po ngr vs uzb": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: NGR vs UZB",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po pak vs sen": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: PAK vs SEN",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Grass": 4
+      }
+    },
+    "atp|davis cup wg2 po par vs mon": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: PAR vs MON",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 po rsa vs mne": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: RSA vs MNE",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po rsa vs ngr": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: RSA vs NGR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po slo vs ina": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: SLO vs INA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 po tha vs pur": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: THA vs PUR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 po tog vs ina": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: TOG vs INA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po tun vs crc": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: TUN vs CRC",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 2,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 2
+      }
+    },
+    "atp|davis cup wg2 po uru vs mda": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: URU vs MDA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg2 po vie vs rsa": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: VIE vs RSA",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 po zim vs mar": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 PO: ZIM vs MAR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 bar vs pak": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: BAR vs PAK",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 bol vs uru": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: BOL vs URU",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 r1 bul vs esa": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: BUL vs ESA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg2 r1 cyp vs mon": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: CYP vs MON",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 esa vs rou": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: ESA vs ROU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 5,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 5
+      }
+    },
+    "atp|davis cup wg2 r1 est vs mex": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: EST vs MEX",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 geo vs mex": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: GEO vs MEX",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 r1 hkg vs ecu": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: HKG vs ECU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 r1 hkg vs uzb": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: HKG vs UZB",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 irl vs chn": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: IRL vs CHN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 lbn vs bar": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: LBN vs BAR",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 r1 lbn vs rsa": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: LBN vs RSA",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 r1 ltu vs ben": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: LTU vs BEN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 mar vs mon": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: MAR vs MON",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 r1 nzl vs geo": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: NZL vs GEO",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 nzl vs lux": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: NZL vs LUX",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 r1 par vs pak": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: PAR vs PAK",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 r1 rou vs chn": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: ROU vs CHN",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 r1 rsa vs mar": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: RSA vs MAR",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 4
+      }
+    },
+    "atp|davis cup wg2 r1 slo vs uru": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: SLO vs URU",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 tog vs egy": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: TOG vs EGY",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 tog vs lat": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: TOG vs LAT",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|davis cup wg2 r1 tun vs irl": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: TUN vs IRL",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 4,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 4
+      }
+    },
+    "atp|davis cup wg2 r1 ukr vs dom": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: UKR vs DOM",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Clay": 3
+      }
+    },
+    "atp|davis cup wg2 r1 uzb vs est": {
+      "tour": "atp",
+      "name": "Davis Cup WG2 R1: UZB vs EST",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 3,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 3
+      }
+    },
+    "atp|delray beach": {
+      "tour": "atp",
+      "name": "Delray Beach",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 81
+      }
+    },
+    "atp|doha": {
+      "tour": "atp",
+      "name": "Doha",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 89,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 89
+      }
+    },
+    "atp|dubai": {
+      "tour": "atp",
+      "name": "Dubai",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "atp|eastbourne": {
+      "tour": "atp",
+      "name": "Eastbourne",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 54
+      }
+    },
+    "atp|estoril": {
+      "tour": "atp",
+      "name": "Estoril",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 27
+      }
+    },
+    "atp|geneva": {
+      "tour": "atp",
+      "name": "Geneva",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "atp|gstaad": {
+      "tour": "atp",
+      "name": "Gstaad",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 54
+      }
+    },
+    "atp|halle": {
+      "tour": "atp",
+      "name": "Halle",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 62
+      }
+    },
+    "atp|hamburg": {
+      "tour": "atp",
+      "name": "Hamburg",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 93
+      }
+    },
+    "atp|hangzhou": {
+      "tour": "atp",
+      "name": "Hangzhou",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|hong kong": {
+      "tour": "atp",
+      "name": "Hong Kong",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 81
+      }
+    },
+    "atp|houston": {
+      "tour": "atp",
+      "name": "Houston",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "atp|indian wells masters": {
+      "tour": "atp",
+      "name": "Indian Wells Masters",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Hard": 285
+      }
+    },
+    "atp|kitzbuhel": {
+      "tour": "atp",
+      "name": "Kitzbuhel",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 54
+      }
+    },
+    "atp|laver cup": {
+      "tour": "atp",
+      "name": "Laver Cup",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 18,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 18
+      }
+    },
+    "atp|los cabos": {
+      "tour": "atp",
+      "name": "Los Cabos",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|lyon": {
+      "tour": "atp",
+      "name": "Lyon",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 27
+      }
+    },
+    "atp|madrid masters": {
+      "tour": "atp",
+      "name": "Madrid Masters",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Clay": 285
+      }
+    },
+    "atp|mallorca": {
+      "tour": "atp",
+      "name": "Mallorca",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 54
+      }
+    },
+    "atp|marrakech": {
+      "tour": "atp",
+      "name": "Marrakech",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "atp|marseille": {
+      "tour": "atp",
+      "name": "Marseille",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|metz": {
+      "tour": "atp",
+      "name": "Metz",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|miami masters": {
+      "tour": "atp",
+      "name": "Miami Masters",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Hard": 285
+      }
+    },
+    "atp|monte carlo masters": {
+      "tour": "atp",
+      "name": "Monte Carlo Masters",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 165,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Clay": 165
+      }
+    },
+    "atp|montpellier": {
+      "tour": "atp",
+      "name": "Montpellier",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 81
+      }
+    },
+    "atp|munich": {
+      "tour": "atp",
+      "name": "Munich",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 89,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 89
+      }
+    },
+    "atp|newport": {
+      "tour": "atp",
+      "name": "Newport",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 27
+      }
+    },
+    "atp|next gen finals": {
+      "tour": "atp",
+      "name": "Next Gen Finals",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 30,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "F"
+      ],
+      "counts": {
+        "Hard": 30
+      }
+    },
+    "atp|paris masters": {
+      "tour": "atp",
+      "name": "Paris Masters",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 110,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Hard": 110
+      }
+    },
+    "atp|paris olympics": {
+      "tour": "atp",
+      "name": "Paris Olympics",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 64,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "O"
+      ],
+      "counts": {
+        "Clay": 64
+      }
+    },
+    "atp|queens club": {
+      "tour": "atp",
+      "name": "Queen's Club",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 62
+      }
+    },
+    "atp|rio de janeiro": {
+      "tour": "atp",
+      "name": "Rio De Janeiro",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 93
+      }
+    },
+    "atp|roland garros": {
+      "tour": "atp",
+      "name": "Roland Garros",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 381,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Clay": 381
+      }
+    },
+    "atp|rome masters": {
+      "tour": "atp",
+      "name": "Rome Masters",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Clay": 285
+      }
+    },
+    "atp|rotterdam": {
+      "tour": "atp",
+      "name": "Rotterdam",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "atp|s hertogenbosch": {
+      "tour": "atp",
+      "name": "s Hertogenbosch",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 54
+      }
+    },
+    "atp|santiago": {
+      "tour": "atp",
+      "name": "Santiago",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "atp|shanghai masters": {
+      "tour": "atp",
+      "name": "Shanghai Masters",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 190,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "M"
+      ],
+      "counts": {
+        "Hard": 190
+      }
+    },
+    "atp|stockholm": {
+      "tour": "atp",
+      "name": "Stockholm",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "atp|stuttgart": {
+      "tour": "atp",
+      "name": "Stuttgart",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Grass": 54
+      }
+    },
+    "atp|tokyo": {
+      "tour": "atp",
+      "name": "Tokyo",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "atp|tour finals": {
+      "tour": "atp",
+      "name": "Tour Finals",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 30,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "F"
+      ],
+      "counts": {
+        "Hard": 30
+      }
+    },
+    "atp|umag": {
+      "tour": "atp",
+      "name": "Umag",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Clay": 54
+      }
+    },
+    "atp|united cup": {
+      "tour": "atp",
+      "name": "United Cup",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 74,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 74
+      }
+    },
+    "atp|us open": {
+      "tour": "atp",
+      "name": "Us Open",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 254,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Hard": 254
+      }
+    },
+    "atp|vienna": {
+      "tour": "atp",
+      "name": "Vienna",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "atp|washington": {
+      "tour": "atp",
+      "name": "Washington",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 94,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 94
+      }
+    },
+    "atp|wimbledon": {
+      "tour": "atp",
+      "name": "Wimbledon",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 254,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Grass": 254
+      }
+    },
+    "atp|winston salem": {
+      "tour": "atp",
+      "name": "Winston-Salem",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 94,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "A"
+      ],
+      "counts": {
+        "Hard": 94
+      }
+    },
+    "wta|abu dhabi": {
+      "tour": "wta",
+      "name": "Abu Dhabi",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 81
+      }
+    },
+    "wta|adelaide": {
+      "tour": "wta",
+      "name": "Adelaide",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 87,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 87
+      }
+    },
+    "wta|auckland": {
+      "tour": "wta",
+      "name": "Auckland",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "wta|austin": {
+      "tour": "wta",
+      "name": "Austin",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "wta|australian open": {
+      "tour": "wta",
+      "name": "Australian Open",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 381,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Hard": 381
+      }
+    },
+    "wta|bad homburg": {
+      "tour": "wta",
+      "name": "Bad Homburg",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 58,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Grass": 58
+      }
+    },
+    "wta|beijing": {
+      "tour": "wta",
+      "name": "Beijing",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 190,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 190
+      }
+    },
+    "wta|berlin": {
+      "tour": "wta",
+      "name": "Berlin",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Grass": 54
+      }
+    },
+    "wta|birmingham": {
+      "tour": "wta",
+      "name": "Birmingham",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Grass": 31
+      }
+    },
+    "wta|bjk cup finals": {
+      "tour": "wta",
+      "name": "BJK Cup Finals",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 36,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "D"
+      ],
+      "counts": {
+        "Hard": 36
+      }
+    },
+    "wta|bogota": {
+      "tour": "wta",
+      "name": "Bogota",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 93
+      }
+    },
+    "wta|brisbane": {
+      "tour": "wta",
+      "name": "Brisbane",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 141,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 141
+      }
+    },
+    "wta|budapest": {
+      "tour": "wta",
+      "name": "Budapest",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 31
+      }
+    },
+    "wta|buenos aires 125": {
+      "tour": "wta",
+      "name": "Buenos Aires 125",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "W"
+      ],
+      "counts": {
+        "Clay": 31
+      }
+    },
+    "wta|charleston": {
+      "tour": "wta",
+      "name": "Charleston",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 141,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Clay": 141
+      }
+    },
+    "wta|chennai": {
+      "tour": "wta",
+      "name": "Chennai",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|cincinnati": {
+      "tour": "wta",
+      "name": "Cincinnati",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 150,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 150
+      }
+    },
+    "wta|cleveland": {
+      "tour": "wta",
+      "name": "Cleveland",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "wta|cluj napoca": {
+      "tour": "wta",
+      "name": "Cluj-Napoca",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "wta|doha": {
+      "tour": "wta",
+      "name": "Doha",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 165,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P",
+        "PM"
+      ],
+      "counts": {
+        "Hard": 165
+      }
+    },
+    "wta|dubai": {
+      "tour": "wta",
+      "name": "Dubai",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 165,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P",
+        "PM"
+      ],
+      "counts": {
+        "Hard": 165
+      }
+    },
+    "wta|eastbourne": {
+      "tour": "wta",
+      "name": "Eastbourne",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 58,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I",
+        "P"
+      ],
+      "counts": {
+        "Grass": 58
+      }
+    },
+    "wta|guadalajara": {
+      "tour": "wta",
+      "name": "Guadalajara",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "wta|guangzhou": {
+      "tour": "wta",
+      "name": "Guangzhou",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "wta|hamburg": {
+      "tour": "wta",
+      "name": "Hamburg",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 31
+      }
+    },
+    "wta|hobart": {
+      "tour": "wta",
+      "name": "Hobart",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 93
+      }
+    },
+    "wta|hong kong": {
+      "tour": "wta",
+      "name": "Hong Kong",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "wta|hua hin 2": {
+      "tour": "wta",
+      "name": "Hua Hin 2",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|hua hin": {
+      "tour": "wta",
+      "name": "Hua Hin",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|iasi": {
+      "tour": "wta",
+      "name": "Iasi",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 61,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 61
+      }
+    },
+    "wta|indian wells": {
+      "tour": "wta",
+      "name": "Indian Wells",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 285
+      }
+    },
+    "wta|jiujiang": {
+      "tour": "wta",
+      "name": "Jiujiang",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "wta|linz": {
+      "tour": "wta",
+      "name": "Linz",
+      "surface": null,
+      "agreement": 0.667,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54,
+        "Clay": 27
+      }
+    },
+    "wta|madrid": {
+      "tour": "wta",
+      "name": "Madrid",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Clay": 285
+      }
+    },
+    "wta|merida": {
+      "tour": "wta",
+      "name": "Merida",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 85,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I",
+        "P"
+      ],
+      "counts": {
+        "Hard": 85
+      }
+    },
+    "wta|miami": {
+      "tour": "wta",
+      "name": "Miami",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 285
+      }
+    },
+    "wta|monastir": {
+      "tour": "wta",
+      "name": "Monastir",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|monterrey": {
+      "tour": "wta",
+      "name": "Monterrey",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "wta|montreal": {
+      "tour": "wta",
+      "name": "Montreal",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 95,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 95
+      }
+    },
+    "wta|ningbo": {
+      "tour": "wta",
+      "name": "Ningbo",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "wta|nottingham": {
+      "tour": "wta",
+      "name": "Nottingham",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Grass": 62
+      }
+    },
+    "wta|osaka": {
+      "tour": "wta",
+      "name": "Osaka",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 62
+      }
+    },
+    "wta|ostrava": {
+      "tour": "wta",
+      "name": "Ostrava",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 29,
+      "years": [
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 29
+      }
+    },
+    "wta|palermo": {
+      "tour": "wta",
+      "name": "Palermo",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 31
+      }
+    },
+    "wta|paris olympics": {
+      "tour": "wta",
+      "name": "Paris Olympics",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 64,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "O"
+      ],
+      "counts": {
+        "Clay": 64
+      }
+    },
+    "wta|prague": {
+      "tour": "wta",
+      "name": "Prague",
+      "surface": null,
+      "agreement": 0.5,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 31,
+        "Hard": 31
+      }
+    },
+    "wta|queens club": {
+      "tour": "wta",
+      "name": "Queen's Club",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Grass": 27
+      }
+    },
+    "wta|rabat": {
+      "tour": "wta",
+      "name": "Rabat",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 93
+      }
+    },
+    "wta|riyadh finals": {
+      "tour": "wta",
+      "name": "Riyadh Finals",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 30,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "F"
+      ],
+      "counts": {
+        "Hard": 30
+      }
+    },
+    "wta|roland garros": {
+      "tour": "wta",
+      "name": "Roland Garros",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 381,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Clay": 381
+      }
+    },
+    "wta|rome": {
+      "tour": "wta",
+      "name": "Rome",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 285,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Clay": 285
+      }
+    },
+    "wta|rouen": {
+      "tour": "wta",
+      "name": "Rouen",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 93,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Clay": 93
+      }
+    },
+    "wta|s hertogenbosch": {
+      "tour": "wta",
+      "name": "s Hertogenbosch",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Grass": 62
+      }
+    },
+    "wta|san diego": {
+      "tour": "wta",
+      "name": "San Diego",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 27,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 27
+      }
+    },
+    "wta|sao paulo": {
+      "tour": "wta",
+      "name": "Sao Paulo",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|seoul": {
+      "tour": "wta",
+      "name": "Seoul",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "wta|singapore": {
+      "tour": "wta",
+      "name": "Singapore",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|strasbourg": {
+      "tour": "wta",
+      "name": "Strasbourg",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I",
+        "P"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "wta|stuttgart": {
+      "tour": "wta",
+      "name": "Stuttgart",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 81,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Clay": 81
+      }
+    },
+    "wta|tokyo": {
+      "tour": "wta",
+      "name": "Tokyo",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "wta|toronto": {
+      "tour": "wta",
+      "name": "Toronto",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 55,
+      "years": [
+        2024
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 55
+      }
+    },
+    "wta|united cup": {
+      "tour": "wta",
+      "name": "United Cup",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 75,
+      "years": [
+        2024,
+        2025,
+        2026
+      ],
+      "levels": [
+        "I"
+      ],
+      "counts": {
+        "Hard": 75
+      }
+    },
+    "wta|us open": {
+      "tour": "wta",
+      "name": "Us Open",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 254,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Hard": 254
+      }
+    },
+    "wta|w35 h tauste": {
+      "tour": "wta",
+      "name": "W35+H Tauste",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "35+H"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|w50 h koksijde": {
+      "tour": "wta",
+      "name": "W50+H Koksijde",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "50+H"
+      ],
+      "counts": {
+        "Clay": 31
+      }
+    },
+    "wta|w50 h leipzig": {
+      "tour": "wta",
+      "name": "W50+H Leipzig",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "50+H"
+      ],
+      "counts": {
+        "Clay": 31
+      }
+    },
+    "wta|w50 h macon": {
+      "tour": "wta",
+      "name": "W50+H Macon",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 31,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "50+H"
+      ],
+      "counts": {
+        "Hard": 31
+      }
+    },
+    "wta|w50 h palma del r o": {
+      "tour": "wta",
+      "name": "W50+H Palma del Río",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 29,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "50+H"
+      ],
+      "counts": {
+        "Hard": 29
+      }
+    },
+    "wta|w50 h pazardzhik": {
+      "tour": "wta",
+      "name": "W50+H Pazardzhik",
+      "surface": "Clay",
+      "agreement": 1,
+      "matches": 62,
+      "years": [
+        2025
+      ],
+      "levels": [
+        "50+H"
+      ],
+      "counts": {
+        "Clay": 62
+      }
+    },
+    "wta|washington": {
+      "tour": "wta",
+      "name": "Washington",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 54,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "P"
+      ],
+      "counts": {
+        "Hard": 54
+      }
+    },
+    "wta|wimbledon": {
+      "tour": "wta",
+      "name": "Wimbledon",
+      "surface": "Grass",
+      "agreement": 1,
+      "matches": 254,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "G"
+      ],
+      "counts": {
+        "Grass": 254
+      }
+    },
+    "wta|wuhan": {
+      "tour": "wta",
+      "name": "Wuhan",
+      "surface": "Hard",
+      "agreement": 1,
+      "matches": 110,
+      "years": [
+        2024,
+        2025
+      ],
+      "levels": [
+        "PM"
+      ],
+      "counts": {
+        "Hard": 110
+      }
+    }
+  }
+}

@@ -26,6 +26,7 @@ PLAYERS = os.path.join(DATA, 'players.json')
 PREDICTIONS = os.path.join(DATA, 'predictions.json')
 RESULTS = os.path.join(DATA, 'results.json')
 PROVENANCE = os.path.join(DATA, 'provenance.json')
+SURFACES = os.path.join(DATA, 'surfaces.json')
 
 # Fields the players store promises to carry provenance for (see its
 # field_contract). If any of these is present on a player record it must be an
@@ -92,6 +93,34 @@ def validate_players(store):
     return problems, len(players)
 
 
+
+def validate_surfaces(doc):
+    """The surface map must cite real source rows for every resolved entry."""
+    problems = []
+    tournaments = doc.get('tournaments')
+    if not isinstance(tournaments, dict) or not tournaments:
+        return ['no tournaments in surface map'], 0
+    if not doc.get('sources'):
+        problems.append('surface map declares no sources')
+    if not doc.get('files_used'):
+        problems.append('surface map records no source files')
+    allowed = {'Hard', 'Clay', 'Grass', 'Carpet'}
+    resolved = 0
+    floor = doc.get('min_agreement', 0.9)
+    for key, t in tournaments.items():
+        surface = t.get('surface')
+        if surface is None:
+            continue  # deliberately unresolved; listed under conflicts
+        resolved += 1
+        if surface not in allowed:
+            problems.append(f'{key}: unexpected surface {surface!r}')
+        if not t.get('matches'):
+            problems.append(f'{key}: resolved surface cites no source rows')
+        if (t.get('agreement') or 0) < floor:
+            problems.append(f'{key}: agreement below the declared floor')
+    return problems, resolved
+
+
 def report(name, problems, *counts):
     status = 'OK' if not problems else 'PROBLEMS'
     print(f'  [{status:8}] {name}')
@@ -123,6 +152,16 @@ def main():
         problems, n = validate_players(players)
         total += report('data/players.json', problems, n)
         print(f'              {n} player records')
+
+    surfaces = load(SURFACES)
+    if surfaces is None:
+        print('  [MISSING] data/surfaces.json'); total += 1
+    else:
+        problems, n = validate_surfaces(surfaces)
+        total += report('data/surfaces.json', problems, n)
+        rows = sum(f.get('rows', 0) for f in surfaces.get('files_used', []))
+        print(f'              {n} tournaments resolved from {rows} source match rows, '
+              f'{len(surfaces.get("conflicts", []))} left unresolved')
 
     for name, path in [('data/predictions.json', PREDICTIONS),
                        ('data/results.json', RESULTS),

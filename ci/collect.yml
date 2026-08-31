@@ -32,6 +32,12 @@ jobs:
 
       # --save-html keeps a raw capture so the RECONSTRUCTED parser fixture can
       # be replaced with a genuine one. See IR-03.
+      - name: Rebuild the surface map from source match data
+        continue-on-error: true
+        run: node scripts/build_surface_map.mjs
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
       - name: Collect OLBG slate
         id: collect
         continue-on-error: true
@@ -49,7 +55,21 @@ jobs:
         continue-on-error: true
         run: python3 scripts/collect_players.py --from-slate || true
 
-      - name: Record predictions for forward grading
+      # Primary forward collection: records selections from the LIVE ESPN card
+      # and settles any earlier prediction whose match has since finished.
+      # Exits 2 if ESPN is unreachable, which is treated as a warning so a
+      # transient outage does not fail the run or overwrite good data.
+      - name: Collect from ESPN and settle results
+        id: espn
+        continue-on-error: true
+        run: node scripts/collect_espn.mjs
+
+      - name: Report a failed ESPN collection
+        if: steps.espn.outcome == 'failure'
+        run: echo "::warning::ESPN collection failed. Recorded data is unchanged."
+
+      - name: Record predictions against the OLBG slate
+        continue-on-error: true
         run: node scripts/record_predictions.mjs
 
       - name: Backtest report

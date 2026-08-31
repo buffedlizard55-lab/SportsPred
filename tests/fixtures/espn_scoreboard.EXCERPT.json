@@ -1,0 +1,302 @@
+{
+  "_fixture_provenance": {
+    "what": "Trimmed EXCERPT of real responses from site.api.espn.com tennis scoreboard.",
+    "fetched_utc": "2026-08-31T01:30:00Z",
+    "urls": [
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20260714",
+      "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20260831"
+    ],
+    "honesty_note": "Field names, nesting and values are copied verbatim from the live responses. Events unrelated to the assertions were removed to keep the fixture small; nothing was added or altered. The Women's Singles grouping under the ATP league and the TBD placeholder competitors are genuine observations, retained deliberately because the parser must handle both.",
+    "excluded": "The multi-hundred-entry league calendar array and unrelated competitions."
+  },
+  "leagues": [
+    {
+      "id": "851",
+      "uid": "s:850~l:851",
+      "name": "ATP",
+      "abbreviation": "ATP",
+      "slug": "atp",
+      "season": { "year": 2026, "displayName": "2026" }
+    }
+  ],
+  "season": { "type": 2, "year": 2026 },
+  "day": { "date": "2026-08-30" },
+  "events": [
+    {
+      "id": "189-2026",
+      "uid": "s:850~l:851~e:189-2026",
+      "date": "2026-08-24T04:00Z",
+      "endDate": "2026-09-14T03:59Z",
+      "major": true,
+      "name": "US Open",
+      "shortName": "US Open",
+      "season": { "year": 2026, "type": 2 },
+      "groupings": [
+        {
+          "grouping": { "id": "1", "slug": "mens-singles", "displayName": "Men's Singles" },
+          "competitions": [
+            {
+              "id": "184607",
+              "uid": "s:850~l:851~e:189-2026~c:184607",
+              "date": "2026-08-24T15:05Z",
+              "startDate": "2026-08-24T15:05Z",
+              "timeValid": true,
+              "status": {
+                "period": 2,
+                "type": {
+                  "id": "3",
+                  "name": "STATUS_FINAL",
+                  "state": "post",
+                  "completed": true,
+                  "description": "Final",
+                  "detail": "Final"
+                }
+              },
+              "venue": { "fullName": "New York, USA", "court": "Court 5" },
+              "format": { "regulation": { "periods": 5 } },
+              "notes": [
+                {
+                  "text": "Jacob Fearnley (GBR) bt Roberto Carballes Baena (ESP) 7-6 (7-3) 6-3",
+                  "type": "event"
+                }
+              ],
+              "competitors": [
+                {
+                  "id": "2012",
+                  "uid": "s:850~l:851~a:2012",
+                  "type": "athlete",
+                  "order": 2,
+                  "homeAway": "away",
+                  "winner": false,
+                  "linescores": [
+                    { "value": 6.0, "tiebreak": 3, "winner": false },
+                    { "value": 3.0, "winner": false }
+                  ],
+                  "athlete": {
+                    "displayName": "Roberto Carballes Baena",
+                    "shortName": "R. Carballes Baena",
+                    "fullName": "Roberto Carballes Baena",
+                    "flag": {
+                      "href": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
+                      "alt": "Spain"
+                    }
+                  },
+                  "statistics": []
+                },
+                {
+                  "id": "11685",
+                  "uid": "s:850~l:851~a:11685",
+                  "type": "athlete",
+                  "order": 1,
+                  "homeAway": "home",
+                  "winner": true,
+                  "linescores": [
+                    { "value": 7.0, "tiebreak": 7, "winner": true },
+                    { "value": 6.0, "winner": true }
+                  ],
+                  "athlete": {
+                    "displayName": "Jacob Fearnley",
+                    "shortName": "J. Fearnley",
+                    "fullName": "Jacob Fearnley",
+                    "flag": {
+                      "href": "https://a.espncdn.com/i/teamlogos/countries/500/gbr.png",
+                      "alt": "Great Britain"
+                    }
+                  },
+                  "statistics": []
+                }
+              ],
+              "tournamentId": 189,
+              "type": { "id": "1", "text": "Men's Singles", "slug": "mens-singles" },
+              "round": { "id": "11", "displayName": "Qualifying 1st Round" },
+              "wasSuspended": false
+            },
+            {
+              "id": "182549",
+              "uid": "s:850~l:851~e:189-2026~c:182549",
+              "date": "2026-09-04T04:00Z",
+              "startDate": "2026-09-04T04:00Z",
+              "timeValid": false,
+              "status": {
+                "period": 1,
+                "type": {
+                  "id": "1",
+                  "name": "STATUS_SCHEDULED",
+                  "state": "pre",
+                  "completed": false,
+                  "description": "Scheduled",
+                  "detail": "M/d - 'TBD'"
+                }
+              },
+              "venue": { "fullName": "New York, USA", "court": "" },
+              "format": { "regulation": { "periods": 5 } },
+              "notes": [],
+              "competitors": [
+                {
+                  "id": "-4",
+                  "uid": "s:850~l:851~a:-4",
+                  "type": "athlete",
+                  "order": 2,
+                  "homeAway": "away",
+                  "athlete": { "displayName": "TBD", "shortName": "TBD", "fullName": "TBD", "links": [] },
+                  "statistics": []
+                },
+                {
+                  "id": "-3",
+                  "uid": "s:850~l:851~a:-3",
+                  "type": "athlete",
+                  "order": 1,
+                  "homeAway": "home",
+                  "athlete": { "displayName": "TBD", "shortName": "TBD", "fullName": "TBD", "links": [] },
+                  "statistics": []
+                }
+              ],
+              "tournamentId": 189,
+              "type": { "id": "1", "text": "Men's Singles", "slug": "mens-singles" },
+              "round": { "id": "3", "displayName": "Round 3" },
+              "wasSuspended": false
+            }
+          ]
+        },
+        {
+          "grouping": { "id": "3", "slug": "mens-doubles", "displayName": "Men's Doubles" },
+          "competitions": [
+            {
+              "id": "184900",
+              "uid": "s:850~l:851~e:189-2026~c:184900",
+              "date": "2026-09-12T04:00Z",
+              "startDate": "2026-09-12T04:00Z",
+              "status": {
+                "period": 1,
+                "type": {
+                  "id": "1",
+                  "name": "STATUS_SCHEDULED",
+                  "state": "pre",
+                  "completed": false,
+                  "description": "Scheduled",
+                  "detail": "M/d - 'TBD'"
+                }
+              },
+              "venue": { "fullName": "New York, USA", "court": "" },
+              "format": { "regulation": { "periods": 5 } },
+              "notes": [],
+              "competitors": [
+                {
+                  "id": "-4",
+                  "type": "athlete",
+                  "order": 2,
+                  "homeAway": "away",
+                  "athlete": { "displayName": "TBD", "shortName": "TBD", "fullName": "TBD", "links": [] },
+                  "statistics": []
+                },
+                {
+                  "id": "-3",
+                  "type": "athlete",
+                  "order": 1,
+                  "homeAway": "home",
+                  "athlete": { "displayName": "TBD", "shortName": "TBD", "fullName": "TBD", "links": [] },
+                  "statistics": []
+                }
+              ],
+              "tournamentId": 189,
+              "type": { "id": "3", "text": "Men's Doubles", "slug": "mens-doubles" },
+              "round": { "id": "7", "displayName": "Final" },
+              "wasSuspended": false
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "306-2026",
+      "uid": "s:850~l:851~e:306-2026",
+      "date": "2026-07-06T04:00Z",
+      "endDate": "2026-07-20T03:59Z",
+      "major": false,
+      "name": "Nordea Open",
+      "shortName": "Nordea Open",
+      "season": { "year": 2026, "type": 2 },
+      "groupings": [
+        {
+          "grouping": { "id": "2", "slug": "womens-singles", "displayName": "Women's Singles" },
+          "competitions": [
+            {
+              "id": "178684",
+              "uid": "s:850~l:851~e:306-2026~c:178684",
+              "date": "2026-07-06T09:05Z",
+              "startDate": "2026-07-06T09:05Z",
+              "timeValid": true,
+              "status": {
+                "period": 2,
+                "type": {
+                  "id": "3",
+                  "name": "STATUS_FINAL",
+                  "state": "post",
+                  "completed": true,
+                  "description": "Final",
+                  "detail": "Final"
+                }
+              },
+              "venue": { "fullName": "Båstad, Sweden", "court": "Court 2" },
+              "format": { "regulation": { "periods": 5 } },
+              "notes": [
+                { "text": "Miriam Bulgaru (ROM) bt Valeriya Strakhova (UKR) 6-2 6-2", "type": "event" }
+              ],
+              "competitors": [
+                {
+                  "id": "3042",
+                  "uid": "s:850~l:851~a:3042",
+                  "type": "athlete",
+                  "order": 2,
+                  "homeAway": "away",
+                  "winner": false,
+                  "linescores": [
+                    { "value": 2.0, "winner": false },
+                    { "value": 2.0, "winner": false }
+                  ],
+                  "athlete": {
+                    "displayName": "Valeriya Strakhova",
+                    "shortName": "V. Strakhova",
+                    "fullName": "Valeriya Strakhova",
+                    "flag": {
+                      "href": "https://a.espncdn.com/i/teamlogos/countries/500/ukr.png",
+                      "alt": "Ukraine"
+                    }
+                  },
+                  "statistics": []
+                },
+                {
+                  "id": "3568",
+                  "uid": "s:850~l:851~a:3568",
+                  "type": "athlete",
+                  "order": 1,
+                  "homeAway": "home",
+                  "winner": true,
+                  "linescores": [
+                    { "value": 6.0, "winner": true },
+                    { "value": 6.0, "winner": true }
+                  ],
+                  "athlete": {
+                    "displayName": "Miriam Bulgaru",
+                    "shortName": "M. Bulgaru",
+                    "fullName": "Miriam Bulgaru",
+                    "flag": {
+                      "href": "https://a.espncdn.com/i/teamlogos/countries/500/rom.png",
+                      "alt": "Romania"
+                    }
+                  },
+                  "statistics": []
+                }
+              ],
+              "tournamentId": 306,
+              "type": { "id": "2", "text": "Women's Singles", "slug": "womens-singles" },
+              "round": { "id": "1", "displayName": "Round 1" },
+              "wasSuspended": false
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
