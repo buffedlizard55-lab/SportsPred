@@ -55,13 +55,17 @@ scripts/
   collect_olbg.py       OLBG slate collector (stdlib only)
   collect_players.py    statistics collector; refuses to write estimates
   record_predictions.mjs  forward collection
-  backtest.mjs          grading: hit rate, Brier, log loss, ROI
+  backtest.mjs          grading of recorded picks: hit rate, Brier, log loss, ROI
+  backtest_historical.mjs  walk-forward backtest on the Sackmann dataset mirror
+  lib/historical.mjs    pre-match feature builder + grader (pure, tested)
+  build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
-tests/                  55 Node tests + 23 Python tests
+tests/                  62 Node tests + 23 Python tests
 docs/
   PROMPT_REVIEW.md      line-by-line review of the master prompt
   SOURCES.md            every source with its verification status
   IRREGULARITIES.md     everything that did not check out
+  BACKTEST.md           historical backtest method + results
 ```
 
 The engine is imported directly by the browser **and** by the tests. There is no
@@ -72,12 +76,14 @@ copy of the scoring logic, so the site cannot drift from what is tested.
 ## Running it
 
 ```bash
-npm test                                          # engine, writer, join, backtest
+npm test                                          # engine, writer, join, backtest, historical
 python3 -m unittest discover -s tests -p 'test_*.py'   # OLBG parsers
+python3 scripts/build_data.py --strict            # validate the committed data layer
 python3 scripts/serve.py 8000                     # local preview
 python3 scripts/collect_olbg.py --dry-run         # refresh the slate
 node scripts/record_predictions.mjs               # forward collection
-node scripts/backtest.mjs                         # grading report
+node scripts/backtest.mjs                         # grading report (recorded picks)
+node scripts/backtest_historical.mjs              # walk-forward backtest (real data)
 ```
 
 No third-party packages are required anywhere. The collectors are stdlib-only
@@ -87,31 +93,35 @@ and the site is plain ES modules with no build step.
 
 ## Current status — read this before trusting any output
 
-The engine and the site are complete and tested. **The data pipeline is not yet
-feeding it**, for two verified reasons:
+The engine, the site and the **historical backtest** are complete and tested.
+The live-data pipeline is still the gap, for two verified reasons:
 
 - **OLBG publishes no structured odds.** Its pages are server-rendered but
   prices are injected client-side into the betslip. Every odds-dependent factor
-  is therefore unscored. (`IR-01`)
-- **The canonical free ATP/WTA match dataset is gone.** `JeffSackmann/tennis_atp`
-  returns 404; a GitHub API query for that user returns exactly one public
-  repository. That blocks form, surface, serve and historical backtesting. (`IR-02`)
+  is therefore unscored for the live slate. (`IR-01`)
+- **The canonical free ATP/WTA dataset is gone, but verified mirrors exist.**
+  `JeffSackmann/tennis_atp` returns 404 (re-verified 2026-08-31), yet
+  `Kadantte/tennis_atp` and `Aneeshers/tennis-sackmann-archive` preserve the
+  data. They are snapshots (matches to 2026-05-25, rankings to 2026-06-08), so
+  they power the **backtest** — see [`docs/BACKTEST.md`](docs/BACKTEST.md) for
+  the 63.9% win-match result and the monotonic score calibration — but they are
+  too stale to fill "current form" on today's card. (`IR-02`, `IR-14`)
 
-The consequence, stated plainly: **on today's data every match is unscored, and
-the site says so rather than inventing predictions.** That is the correct
-behaviour, not a failure — but it does mean the project needs an odds source
-(API key) and a results source before it produces tips.
+The consequence, stated plainly: **on today's live data every match is still
+unscored, and the site says so rather than inventing predictions.** That is the
+correct behaviour, not a failure. To produce live tips the project needs an
+odds source (API key) and a current-season results/rankings source.
 
-To unblock:
+To unblock live scoring:
 
 | Need | Options |
 |---|---|
 | Odds for ≥2 books | The Odds API, Betfair Exchange API — both need a key |
-| Match results + form | A verified mirror of the Sackmann CSVs, or ATP/WTA results pages |
-| Rankings | `atptour.com/en/rankings/singles`, `wtatennis.com/rankings/singles` |
+| Current-season form + rankings | A live ATP/WTA feed, or a refreshed Sackmann mirror, or a keyed API |
+| Historical backtest | ✅ working — `scripts/backtest_historical.mjs` |
 
-Each is declared as an adapter in `scripts/collect_players.py` with its
-verification state. Add a key as a repository secret and the corresponding
+Each live source is declared as an adapter in `scripts/collect_players.py` with
+its verification state. Add a key as a repository secret and the corresponding
 adapter starts contributing; no code change is needed to the engine.
 
 ---

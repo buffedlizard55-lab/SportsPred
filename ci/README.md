@@ -28,7 +28,7 @@ pushed from here instead.
 ## What each workflow does
 
 ### `pages.yml`
-Runs on push to `main` and on demand. Runs the full test suite (55 Node,
+Runs on push to `main` and on demand. Runs the full test suite (62 Node,
 23 Python), then assembles a clean artifact containing only `index.html`,
 `assets/`, `engine/` and `data/` and publishes it. Scripts, tests and captured
 HTML fixtures are deliberately excluded from the public site.

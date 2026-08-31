@@ -115,7 +115,8 @@ test('provenance file lists irregularities with ids and detail', () => {
     assert.ok(!ids.has(ir.id), `duplicate irregularity id ${ir.id}`);
     ids.add(ir.id);
     assert.ok(ir.detail.length > 40, `${ir.id} detail too short`);
-    assert.ok(['OPEN', 'NOTED', 'MITIGATED', 'RESOLVED IN CODE', 'OPEN — documented limitation', 'OPEN — assumption']
+    assert.ok(['OPEN', 'NOTED', 'MITIGATED', 'RESOLVED IN CODE', 'PARTIALLY RESOLVED',
+      'OPEN — documented limitation', 'OPEN — assumption']
       .includes(ir.status), `${ir.id} has an undocumented status: ${ir.status}`);
   }
 });

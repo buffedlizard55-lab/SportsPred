@@ -2,9 +2,10 @@
 
 Every source this project uses or considered, with what was actually observed
 and when. "Verified" means a response was received and read in this environment
-on the stated date — not that the source is generally reliable.
+on the stated date — not that the source is generally reliable, and not that it
+is necessarily usable for a given purpose.
 
-All checks below were run on **2026-08-31**.
+All checks below were re-run on **2026-08-31**.
 
 ---
 
@@ -12,56 +13,78 @@ All checks below were run on **2026-08-31**.
 
 ### OLBG tennis tips index
 - **URL:** <https://www.olbg.com/betting-tips/Tennis/3>
-- **Fetched:** 2026-08-31 00:12 UTC
+- **Fetched:** 2026-08-31 (hosted page-fetch; the build sandbox cannot reach
+  `olbg.com` directly — see the environment note at the bottom).
 - **Provides:** match pairs, kickoff labels (`Today` / `Tomorrow` / `01 Sept`),
   kickoff times, `event_id`, the tipster consensus selection and its market,
   tip counts and percentages, comment counts, expert flags.
-- **Method:** HTTP GET of server-rendered HTML. No JavaScript execution was
-  needed to read any of the above.
 - **Used for:** `data/slate.json`.
-- **Note:** the wrong path `/betting/tips/Tennis` returns an empty page. The
-  correct path is `/betting-tips/Tennis/3`.
+- **Verified against the snapshot:** the live page on 2026-08-31 lists the same
+  matches as `data/slate.json`. Tipster consensus numbers drift in real time
+  (e.g. Tsitsipas v Fils was 2/4 for Tsitsipas at snapshot time and 3/5 for
+  Fils at re-check) — expected behaviour for a vote-count page, and the reason
+  the collector must refresh rather than treat the snapshot as fixed.
 
-### OLBG event pages
+### OLBG event pages (market list)
 - **Example:** <https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Roman_Safiullin_vs_Carlos_Alcaraz/3?event_id=899350>
-- **Fetched:** 2026-08-31 00:12 UTC
-- **Provides:** the full market list for one match — `Win Match`,
-  `Set Betting`, `1st Set Winner`, `Games Won`, `Total Games` — with the
-  selection available under each, and the Games Won handicap labels
-  (`Carlos Alcaraz -5.50`, `Roman Safiullin +5.50`).
-- **Note:** the market list was verified on **one** event page only. It is not
-  asserted for the other 19 matches in the snapshot. The collector fetches each
-  event page and marks `markets_verified` per row.
+- **Provides:** the market list per match — `Win Match`, `Set Betting`,
+  `1st Set Winner`, `Games Won`, `Total Games` — and the Games Won handicap
+  labels (e.g. `Carlos Alcaraz -5.50`, `Roman Safiullin +5.50`).
+- **Caveat, unchanged:** the market list was verified on **one** event page.
+  It is not asserted for every other match; the collector fetches each event
+  page and marks `markets_verified` per row.
+- **No structured odds.** Prices are injected client-side into the betslip and
+  are absent from server-rendered HTML. See `IR-01`.
 
-### OLBG all-events index
-- **URL:** <https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/3>
-- **Status:** referenced as a collector target. Not separately captured in this
-  session, so its exact structure is unverified.
+### Sackmann tennis dataset — verified mirrors
+The canonical repositories (`JeffSackmann/tennis_atp`, `tennis_wta`) are gone
+(see "checked and rejected"). Two forks/archives of the same dataset were
+verified reachable and are used **for historical backtesting only**:
+
+- **Kadantte/tennis_atp** — <https://github.com/Kadantte/tennis_atp>
+  - Fork of the deleted Sackmann ATP repo. Verified 2026-08-31 via the GitHub API.
+  - Contains `atp_matches_1968.csv` … `atp_matches_2026.csv`,
+    `atp_rankings_current.csv` and `atp_rankings_20s.csv` etc.
+  - Last match date observed: **2026-05-25**; last ranking date: **2026-06-08**.
+  - `atp_players.csv` is present but **empty** in this fork.
+- **Aneeshers/tennis-sackmann-archive** — <https://github.com/Aneeshers/tennis-sackmann-archive>
+  - "Archival mirror of Jeff Sackmann's tennis datasets" (473 files, `atp/` +
+    `wta/` + `slam_pointbypoint/`). Verified 2026-08-31.
+  - ATP and WTA matches through **2026-05-25**; rankings through **2026-06-08**.
+  - Ships the original **LICENSE**: Creative Commons Attribution-NonCommercial-
+    ShareAlike 4.0 (CC BY-NC-SA 4.0), requiring attribution to Jeff Sackmann.
+- **Used for:** `scripts/backtest_historical.mjs` (2024–2025 ATP walk-forward
+  backtest). Not used for the live slate, because the mirrors are a snapshot
+  (~3 months behind on 2026-08-31) and there is no current-season live feed in
+  them. See `IR-02` / `IR-14`.
 
 ### GitHub API
-- **URL:** `https://api.github.com/users/JeffSackmann/repos`
-- **Fetched:** 2026-08-31
-- **Returned:** exactly one public repository, `tennis_MatchChartingProject`
-  (updated 2026-08-30, pushed 2026-05-25).
-- **Used for:** establishing that the Sackmann match CSVs are no longer public.
+- **URL:** `https://api.github.com/repos/{owner}/{repo}/contents/{path}` and
+  `https://api.github.com/search/repositories?q=…`
+- **Fetched:** 2026-08-31 (reachable from the build sandbox — unlike
+  `raw.githubusercontent.com`).
+- **Used for:** verifying the mirrors above and for downloading the backtest
+  CSVs.
 
 ---
 
-## Checked and rejected
+## Checked and rejected / unreachable for machine use
 
 | Source | Result | Consequence |
 |---|---|---|
-| `github.com/JeffSackmann/tennis_atp` | **404** over both the HTML and `raw.githubusercontent.com` paths | Form, surface, serve and H2H factors have no source. `IR-02` |
+| `github.com/JeffSackmann/tennis_atp` | **404** (re-verified 2026-08-31) | Original repo gone; use the verified mirrors for history. `IR-02` |
 | `github.com/JeffSackmann/tennis_wta` | **404** | Same |
-| `ultimatetennisstatistics.com/api` | **404** (`Object Not Found`) | No JSON API at that path |
-| `ultimatetennisstatistics.com/stats` | **404** | — |
-| OLBG structured odds | **Not present in HTML** | Prices are client-side only. `IR-01` |
+| ATP rankings page `atptour.com/en/rankings/singles` | Reachable as a web page, but the ranking table is **client-side rendered** — no rows in the server response | Not machine-parseable without a headless browser. `IR-02` |
+| WTA rankings page `wtatennis.com/rankings/singles` | Same: JS-rendered, no rows server-side | Same |
+| `atptour.com/en/-/www/rankings/singles?...` | **404** — no such JSON endpoint at that path | No undocumented JSON endpoint assumed; none is used |
+| OLBG structured odds | **Not present in server-rendered HTML** | `IR-01` |
 
 Third-party aggregators (`matchstat.com`, `tennisratio.com`, `tennisstats.com`)
-appeared in search results with the required statistics. They were **not** used:
-they are unlicensed scrapes of official data, their figures disagree with each
-other, and building on them would undermine the "official verified sources"
-requirement.
+and paid API marketplaces (RapidAPI "Tennis API", Zylalabs "ATP Ranking Data
+API", etc.) appeared in search results with the required statistics. They were
+**not** used: the aggregators are unlicensed scrapes whose figures disagree
+with each other, and the APIs require keys that violate the "free, no manual
+input" constraint.
 
 ---
 
@@ -69,45 +92,33 @@ requirement.
 
 | Source | Why not |
 |---|---|
-| X / Twitter sentiment | Paid API; scraping breaches the terms of service. The prompt asks for this. `IR-13` |
+| X / Twitter sentiment | Paid API; scraping breaches the terms of service. `IR-13` |
 | Injury reporting | No free structured source exists |
-| The Odds API, Betfair | Require an API key, which conflicts with "no manual input". Declared as adapters in `scripts/collect_players.py`, ready for a repository secret |
-
----
-
-## Official sources referenced but not reachable from here
-
-These are the correct authoritative sources and are linked from the site, but no
-request to them succeeded from this environment (see the environment note below).
-They are listed as **unverified**, not as working.
-
-- ATP Tour — <https://www.atptour.com/> (schedule, rankings, results)
-- WTA Tennis — <https://www.wtatennis.com/> (schedule, rankings, results)
+| The Odds API, Betfair Exchange | Require an API key — conflicts with "no manual input". Declared as adapters in `scripts/collect_players.py`, ready for a repository secret |
 
 ---
 
 ## Environment note
 
-Every direct HTTP request issued from the build sandbox failed with no response
-at all (connection code `000`) for `olbg.com`, `raw.githubusercontent.com`,
-`atptour.com`, `wtatennis.com` and `ultimatetennisstatistics.com`. The pages
-above were retrieved through a hosted page-fetch facility that does have egress.
+Direct HTTP requests from the build sandbox succeed only for
+`api.github.com` and `github.com`. They fail (connection code `000`) for
+`olbg.com`, `raw.githubusercontent.com`, `atptour.com`, `wtatennis.com` and
+`*.github.io`. Pages on those hosts were retrieved through the hosted
+page-fetch facility, which has egress. Consequences:
 
-Consequences, stated plainly:
-
-- `data/slate.json` was transcribed field by field from a live fetch. It is real
-  data, but the transcription was done by hand, so `scripts/collect_olbg.py`
-  re-derives it and the two are cross-checked.
-- The collectors cannot be exercised against the live network here. Their parser
-  logic is unit-tested; the fixture is **reconstructed**, not captured. The
-  first CI run with `--save-html` produces a genuine capture that should replace
-  it. `IR-03`
+- The OLBG collectors cannot be exercised against the live network *from the
+  sandbox*; they are unit-tested against saved fixtures and are expected to run
+  in GitHub Actions, whose runners have normal egress.
+- The historical backtest downloads its CSVs over the GitHub API (reachable in
+  both places), so it runs here and in CI.
 
 ---
 
 ## Attribution
 
-OLBG content is used here as a factual fixture and market listing, with a link
-back to the originating page on every row. If OLBG objects to this use the
-collector can be pointed at ATP/WTA and an odds provider instead; nothing in the
-engine depends on OLBG specifically.
+- Sackmann mirror data is CC BY-NC-SA 4.0 and attributed to Jeff Sackmann
+  (see the archive LICENSE). The project is non-commercial research.
+- OLBG content is used as a factual fixture and market listing, with a link
+  back to the originating page on every row. If OLBG objects, the collector can
+  be pointed at ATP/WTA and an odds provider instead; nothing in the engine
+  depends on OLBG specifically.

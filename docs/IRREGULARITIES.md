@@ -29,17 +29,22 @@ therefore unscored:
 An integration test asserts that no odds field exists anywhere in `slate.json`,
 so a future edit cannot quietly introduce an invented price.
 
-### IR-02 — The standard free match dataset is gone · HIGH · OPEN
-`github.com/JeffSackmann/tennis_atp` returns 404 over both the HTML and
-`raw.githubusercontent.com` paths. A GitHub API query for that user returned
-exactly one public repository, `tennis_MatchChartingProject` — point-by-point
-charting, not match results. Many third-party READMEs still link the CSVs and
-are now stale.
+### IR-02 — The standard free match dataset is gone, but verified mirrors exist · HIGH · PARTIALLY RESOLVED
+`github.com/JeffSackmann/tennis_atp` returns 404 (re-verified 2026-08-31). A
+GitHub API query for that user returned exactly one public repository,
+`tennis_MatchChartingProject` — point-by-point charting, not match results.
 
-This blocks the historical backtest corpus and the form, surface and serve
-factors. Forward collection is unaffected: `scripts/record_predictions.mjs`
-accumulates selections and `scripts/backtest.mjs` will grade them as soon as a
-results source exists.
+**Resolution for history:** two verified forks/archives of the dataset exist and
+are reachable via the GitHub API — `Kadantte/tennis_atp` (ATP) and
+`Aneeshers/tennis-sackmann-archive` (ATP + WTA, with the CC BY-NC-SA 4.0
+LICENSE). `scripts/backtest_historical.mjs` uses them and produces a genuine
+walk-forward backtest (see `docs/BACKTEST.md`).
+
+**Still open for the live slate:** the mirrors are snapshots (matches through
+2026-05-25, rankings through 2026-06-08) with no current-season live feed, and
+the official ATP/WTA ranking pages are client-side rendered, so current form
+and rankings for today's matches remain unsourced. That part of `IR-02` stays
+open — see `IR-14`.
 
 ---
 
@@ -68,6 +73,27 @@ X sentiment requires paid API access or ToS-restricted scraping. Structured
 injury reporting has no free source. Both are excluded rather than approximated;
 `scripts/collect_players.py` declares them as unverified adapters that
 contribute nothing.
+
+### IR-14 — The Sackmann mirrors are stale snapshots, not a live feed · HIGH · OPEN
+The verified mirrors (`Kadantte/tennis_atp`, `Aneeshers/tennis-sackmann-archive`)
+were last updated in early/mid June 2026: matches stop at **2026-05-25**, rankings
+at **2026-06-08**. For a slate on 2026-08-31 that means "last 5 matches in the
+last month" and "current ranking" cannot be honestly computed from them — feeding
+May data into a "current form" field would misstate recency. The mirrors also
+ship an **empty `atp_players.csv`**, and the rankings CSVs key players by ID, so
+name→rank mapping needs a players file these mirrors do not provide.
+
+Consequence: the mirrors unblock **backtesting** (and a labelled historical
+rankings fallback), but the live slate still needs a current-season source or a
+keyed odds/rankings API before its form and ranking factors can be filled.
+
+### IR-15 — Historical feature builder uses a documented ordering approximation · LOW · MITIGATED
+Sackmann's `tourney_date` is a tournament start date, so matches inside one
+event, and matches in different events in the same week, share a date. The
+builder orders strictly by `(tourney_date, match_num)`, so a same-week match in
+another event may be treated as prior to a match it was actually simultaneous
+with. The effect is a small amount of same-week lookahead, not a forecast leak
+across weeks. Documented in `scripts/lib/historical.mjs` rather than hidden.
 
 ---
 
@@ -147,9 +173,13 @@ project exists to avoid. It needs the backtest corpus to calibrate.
 
 ## Not an irregularity, but worth stating
 
-With no odds and no player statistics sourced, **every match on the current
-slate is unscored**. `scripts/backtest.mjs` reports no metrics rather than a
-fabricated hit rate, and the site shows "unscored — no sourced price or ranking"
-rather than a prediction. This is the intended behaviour of a system that
-refuses to guess. It is not a bug, and it should not be "fixed" by loosening the
-engine.
+- **The live slate is still unscored.** With no odds and no *current-season*
+  statistics sourced, every match on today's card is unscored, and the site says
+  so rather than inventing a prediction. This is intended behaviour, not a bug.
+- **The historical backtest now runs on real data.** `scripts/backtest_historical.mjs`
+  grades the engine walk-forward over 2024–2025 ATP matches from the verified
+  mirror: 5,377 win-match picks, **63.9% hit rate**, with the model's raw score
+  monotonically tracking the outcome (58% → 69% → 77% → 96% across score
+  buckets). This measures rank/form/surface/serve picking only — no odds are in
+  the dataset, so **no profitability or value claim follows**. See
+  [`BACKTEST.md`](BACKTEST.md).

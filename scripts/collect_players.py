@@ -7,10 +7,16 @@ source URL and a fetch timestamp attached to it. There is no code path that
 produces a statistic from a model, a default, or a plausible guess.
 
 Current status (verified 2026-08-31): no free, structured, machine-readable
-source for the required statistics has been confirmed reachable. Each adapter
-below therefore declares its verification state, and an unverified adapter
-contributes nothing. See data/players.json -> collection_status and
-docs/IRREGULARITIES.md IR-02.
+source for *current* live statistics has been confirmed reachable — the ATP/WTA
+ranking pages are client-side rendered and the OLBG pages expose no odds. Each
+live adapter below therefore declares its verification state, and an unverified
+adapter contributes nothing.
+
+Verified **historical** mirrors of the Sackmann dataset exist
+(`Kadantte/tennis_atp`, `Aneeshers/tennis-sackmann-archive`) and are consumed by
+`scripts/backtest_historical.mjs` — but they are snapshots (matches through
+2026-05-25), so they are deliberately NOT used to fill the live slate. See
+`HISTORICAL_SOURCES` below and docs/IRREGULARITIES.md IR-02 / IR-14.
 
     python3 scripts/collect_players.py --players "Carlos Alcaraz" --dry-run
     python3 scripts/collect_players.py --from-slate      # everyone on the card
@@ -55,10 +61,10 @@ ADAPTERS = {
         'verified': False,
         'source': 'https://github.com/JeffSackmann/tennis_atp',
         'provides': ['form.last5', 'form.straightSetsLast3', 'surface.*', 'serve.*', 'h2h'],
-        'note': 'BLOCKED. Returns 404 over both HTML and raw.githubusercontent.com. A GitHub API '
-                'query for this user returned exactly one public repository '
-                '(tennis_MatchChartingProject). Third-party READMEs still link these CSVs and are stale. '
-                'See IR-02.',
+        'note': 'BLOCKED. Returns 404 (re-verified 2026-08-31). A GitHub API query for this user '
+                'returned exactly one public repository (tennis_MatchChartingProject). Verified '
+                'forks/archives of the dataset exist — see HISTORICAL_SOURCES — but they are '
+                'snapshots, not a live feed, so they are not used to fill the live slate. See IR-02.',
     },
     'odds_aggregator': {
         'verified': False,
@@ -80,6 +86,31 @@ ADAPTERS = {
         'provides': [],
         'note': 'Deliberately not implemented. X requires paid API access and scraping it breaches '
                 'its terms. The prompt asks for this; it is excluded rather than faked. IR-13.',
+    },
+}
+
+
+# Verified historical mirrors of the Sackmann dataset. Reachable via the GitHub
+# API (verified 2026-08-31). Used by scripts/backtest_historical.mjs for the
+# walk-forward backtest. NOT used for the live slate: they are snapshots whose
+# data ends 2026-05-25 (matches) / 2026-06-08 (rankings), so they cannot
+# honestly supply "current" form or ranking. See docs/IRREGULARITIES.md IR-14.
+HISTORICAL_SOURCES = {
+    'sackmann_mirror_atp': {
+        'verified': True,
+        'source': 'https://github.com/Kadantte/tennis_atp',
+        'provides': ['historical ATP matches 1968-2026 (through 2026-05-25)',
+                     'historical rankings (through 2026-06-08)'],
+        'note': 'Fork of the deleted JeffSackmann/tennis_atp. CC BY-NC-SA 4.0 (attribution '
+                'Jeff Sackmann). atp_players.csv is empty in this fork; matches carry '
+                'winner_rank/loser_rank directly. Consumed by backtest_historical.mjs.',
+    },
+    'sackmann_mirror_atp_wta': {
+        'verified': True,
+        'source': 'https://github.com/Aneeshers/tennis-sackmann-archive',
+        'provides': ['historical ATP + WTA matches and rankings (through 2026-05-25 / 2026-06-08)'],
+        'note': 'Archival mirror of Sackmann datasets incl. WTA, with the original CC BY-NC-SA 4.0 '
+                'LICENSE. 473 files. Not yet wired into the backtest (ATP-only for now).',
     },
 }
 
@@ -134,6 +165,15 @@ def main():
         print(f'               source:   {spec["source"]}')
         if spec['provides']:
             print(f'               provides: {", ".join(spec["provides"])}')
+        print(f'               {spec["note"]}')
+        print()
+
+    print('Verified historical sources (backtest only, not the live slate):')
+    for name, spec in HISTORICAL_SOURCES.items():
+        flag = 'VERIFIED' if spec['verified'] else 'NOT VERIFIED'
+        print(f'[{flag:12}] {name}')
+        print(f'               source:   {spec["source"]}')
+        print(f'               provides: {", ".join(spec["provides"])}')
         print(f'               {spec["note"]}')
         print()
 
