@@ -3,17 +3,18 @@
   "source": {
     "name": "OLBG — Tennis Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Tennis/3",
-    "fetched_at_utc": "2026-08-31T00:12:00Z",
-    "method": "HTTP GET of server-rendered HTML; no JavaScript execution required",
+    "fetched_at_utc": "2026-08-31T01:30:00Z",
+    "method": "HTTP GET of server-rendered HTML via hosted page-fetch; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution is limited to this factual fixture/market listing; see docs/SOURCES.md."
   },
   "notes": [
-    "Every field below was read directly from the page named above. Nothing is inferred unless the field name says 'derived'.",
+    "Every field below was read directly from the page named above on 2026-08-31. Nothing is inferred unless the field name says 'derived'.",
     "OLBG renders kickoff times in UK local time. Late August is BST (UTC+1).",
-    "The page was fetched at 01:12 BST on 31 Aug 2026, so 'Today' resolves to 2026-08-31 and 'Tomorrow' to 2026-09-01. This is consistent with the literal '01 Sept' rows on the same page, which cross-checks the resolution.",
+    "Fetched after 01:00 UTC on 31 Aug 2026, so 'Today' would be 2026-08-31 and 'Tomorrow' is 2026-09-01. This is consistent with the literal '01 Sept' rows on the same page.",
     "OLBG's tips index exposes consensus tips and markets but NOT structured prices. Odds appear only inside free-text tipster commentary and in a client-side betslip, so they are absent here rather than estimated.",
-    "This index lists only matches that already have tipster coverage ('Load More Tips' pagination). Matches with zero tips are on the All Events index, which the collector also targets.",
-    "Tournament, tour (ATP/WTA) and round are not stated on this page and are therefore null. See docs/IRREGULARITIES.md."
+    "This index lists only matches that already have tipster coverage ('Load More Tips' pagination). Matches with zero tips are on the All Events index.",
+    "Tournament, tour (ATP/WTA) and round are not stated on this page and are therefore null. See docs/IRREGULARITIES.md.",
+    "Live re-fetch on 2026-08-31 dropped Venus Williams v Sofia Kenin (event 899311, previously 'Today 21:00') and Damir Dzumhur v Hubert Hurkacz (899329) from the first page. Added Arthur Fery v Lorenzo Musetti (899283) and Brandon Nakashima v Sebastian Baez (899317). Tsitsipas v Fils consensus flipped to Arthur Fils 3/5."
   ],
   "market_taxonomy": {
     "verified_on_event_page": "899350",
@@ -27,22 +28,6 @@
     "caveat": "The market list was verified on one event page only. It is NOT asserted for the other events below."
   },
   "events": [
-    {
-      "event_id": "899311",
-      "type": "match",
-      "home": "Venus Williams",
-      "away": "Sofia Kenin",
-      "display_date": "Today",
-      "display_time": "21:00",
-      "resolved_date": "2026-08-31",
-      "date_basis": "derived",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Venus_Williams_vs_Sofia_Kenin/3?event_id=899311",
-      "tournament": null,
-      "tour": null,
-      "round": null,
-      "surface": null,
-      "consensus": { "market": "Win Match", "selection": "Sofia Kenin", "tips_for": 10, "tips_total": 10, "pct": 100, "comments": 2, "experts": 1 }
-    },
     {
       "event_id": "899276",
       "type": "match",
@@ -96,6 +81,19 @@
       "consensus": { "market": "Win Match", "selection": "Frances Tiafoe", "tips_for": 4, "tips_total": 4, "pct": 100, "comments": 1, "experts": 0 }
     },
     {
+      "event_id": "899336",
+      "type": "match",
+      "home": "Stefanos Tsitsipas",
+      "away": "Arthur Fils",
+      "display_date": "Tomorrow",
+      "display_time": "11:00",
+      "resolved_date": "2026-09-01",
+      "date_basis": "derived",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stefanos_Tsitsipas_vs_Arthur_Fils/3?event_id=899336",
+      "tournament": null, "tour": null, "round": null, "surface": null,
+      "consensus": { "market": "Win Match", "selection": "Arthur Fils", "tips_for": 3, "tips_total": 5, "pct": 60, "comments": 2, "experts": 0 }
+    },
+    {
       "event_id": "899266",
       "type": "match",
       "home": "Aryna Sabalenka",
@@ -136,19 +134,6 @@
       "consensus": { "market": "Win Match", "selection": "Iga Swiatek", "tips_for": 3, "tips_total": 3, "pct": 100, "comments": 3, "experts": 0 }
     },
     {
-      "event_id": "899286",
-      "type": "match",
-      "home": "Rafael Jodar",
-      "away": "Thanasi Kokkinakis",
-      "display_date": "01 Sept",
-      "display_time": "11:00",
-      "resolved_date": "2026-09-01",
-      "date_basis": "observed",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Rafael_Jodar_vs_Thanasi_Kokkinakis/3?event_id=899286",
-      "tournament": null, "tour": null, "round": null, "surface": null,
-      "consensus": { "market": "Win Match", "selection": "Rafael Jodar", "tips_for": 3, "tips_total": 3, "pct": 100, "comments": 1, "experts": 0 }
-    },
-    {
       "event_id": "899361",
       "type": "match",
       "home": "Thea Frodin",
@@ -162,30 +147,17 @@
       "consensus": { "market": "Win Match", "selection": "Elena Rybakina", "tips_for": 3, "tips_total": 3, "pct": 100, "comments": 1, "experts": 0 }
     },
     {
-      "event_id": "899336",
+      "event_id": "899286",
       "type": "match",
-      "home": "Stefanos Tsitsipas",
-      "away": "Arthur Fils",
-      "display_date": "Tomorrow",
+      "home": "Rafael Jodar",
+      "away": "Thanasi Kokkinakis",
+      "display_date": "01 Sept",
       "display_time": "11:00",
       "resolved_date": "2026-09-01",
-      "date_basis": "derived",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Stefanos_Tsitsipas_vs_Arthur_Fils/3?event_id=899336",
+      "date_basis": "observed",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Rafael_Jodar_vs_Thanasi_Kokkinakis/3?event_id=899286",
       "tournament": null, "tour": null, "round": null, "surface": null,
-      "consensus": { "market": "Win Match", "selection": "Stefanos Tsitsipas", "tips_for": 2, "tips_total": 4, "pct": 50, "comments": 1, "experts": 1 }
-    },
-    {
-      "event_id": "899352",
-      "type": "match",
-      "home": "Elsa Jacquemot",
-      "away": "Marie Bouzkova",
-      "display_date": "Tomorrow",
-      "display_time": "11:00",
-      "resolved_date": "2026-09-01",
-      "date_basis": "derived",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elsa_Jacquemot_vs_Marie_Bouzkova/3?event_id=899352",
-      "tournament": null, "tour": null, "round": null, "surface": null,
-      "consensus": { "market": "Win Match", "selection": "Marie Bouzkova", "tips_for": 2, "tips_total": 3, "pct": 67, "comments": 1, "experts": 0 }
+      "consensus": { "market": "Win Match", "selection": "Rafael Jodar", "tips_for": 3, "tips_total": 3, "pct": 100, "comments": 1, "experts": 0 }
     },
     {
       "event_id": "899344",
@@ -199,6 +171,19 @@
       "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Lilli_Tagger_vs_Tamara_Korpatsch/3?event_id=899344",
       "tournament": null, "tour": null, "round": null, "surface": null,
       "consensus": { "market": "Win Match", "selection": "Lilli Tagger", "tips_for": 2, "tips_total": 3, "pct": 67, "comments": 0, "experts": 0 }
+    },
+    {
+      "event_id": "899352",
+      "type": "match",
+      "home": "Elsa Jacquemot",
+      "away": "Marie Bouzkova",
+      "display_date": "Tomorrow",
+      "display_time": "11:00",
+      "resolved_date": "2026-09-01",
+      "date_basis": "derived",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elsa_Jacquemot_vs_Marie_Bouzkova/3?event_id=899352",
+      "tournament": null, "tour": null, "round": null, "surface": null,
+      "consensus": { "market": "Win Match", "selection": "Marie Bouzkova", "tips_for": 2, "tips_total": 3, "pct": 67, "comments": 1, "experts": 0 }
     },
     {
       "event_id": "899350",
@@ -248,17 +233,17 @@
       "consensus": { "market": "Win Match", "selection": "Naomi Osaka", "tips_for": 2, "tips_total": 2, "pct": 100, "comments": 1, "experts": 0 }
     },
     {
-      "event_id": "899329",
+      "event_id": "899283",
       "type": "match",
-      "home": "Damir Dzumhur",
-      "away": "Hubert Hurkacz",
+      "home": "Arthur Fery",
+      "away": "Lorenzo Musetti",
       "display_date": "01 Sept",
       "display_time": "11:00",
       "resolved_date": "2026-09-01",
       "date_basis": "observed",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Damir_Dzumhur_vs_Hubert_Hurkacz/3?event_id=899329",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Arthur_Fery_vs_Lorenzo_Musetti/3?event_id=899283",
       "tournament": null, "tour": null, "round": null, "surface": null,
-      "consensus": { "market": "Win Match", "selection": "Hubert Hurkacz", "tips_for": 2, "tips_total": 2, "pct": 100, "comments": 1, "experts": 0 }
+      "consensus": { "market": "Win Match", "selection": "Lorenzo Musetti", "tips_for": 2, "tips_total": 3, "pct": 67, "comments": 1, "experts": 0 }
     },
     {
       "event_id": "899421",
@@ -285,6 +270,19 @@
       "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Zverev_vs_Lorenzo_Sonego/3?event_id=899278",
       "tournament": null, "tour": null, "round": null, "surface": null,
       "consensus": { "market": "Win Match", "selection": "Alexander Zverev", "tips_for": 2, "tips_total": 2, "pct": 100, "comments": 1, "experts": 0 }
+    },
+    {
+      "event_id": "899317",
+      "type": "match",
+      "home": "Brandon Nakashima",
+      "away": "Sebastian Baez",
+      "display_date": "01 Sept",
+      "display_time": "11:00",
+      "resolved_date": "2026-09-01",
+      "date_basis": "observed",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Brandon_Nakashima_vs_Sebastian_Baez/3?event_id=899317",
+      "tournament": null, "tour": null, "round": null, "surface": null,
+      "consensus": { "market": "Win Match", "selection": "Brandon Nakashima", "tips_for": 2, "tips_total": 2, "pct": 100, "comments": 2, "experts": 0 }
     },
     {
       "event_id": "899348",
