@@ -9,9 +9,9 @@
  * missing, and the UI shows it under "Data quality".
  */
 
-import { scoreMatch, scoreCard, RULESET_VERSION, PATCHES, PROMPT_VERSION } from '../../engine/engine.mjs';
-import { writeTip, writeCard, OPENERS, MIN_WORDS } from '../../engine/writer.mjs';
-import { toMatch, phaseOf as phaseOfEvent } from '../../engine/join.mjs';
+import { scoreMatch, scoreCard, RULESET_VERSION, PATCHES, PROMPT_VERSION } from '../../engine/engine.js';
+import { writeTip, writeCard, OPENERS, MIN_WORDS } from '../../engine/writer.js';
+import { toMatch, phaseOf as phaseOfEvent } from '../../engine/join.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -336,7 +336,7 @@ function renderAbout() {
     <h2>What this is</h2>
     <p class="lede">A static scoreboard and prediction generator for tennis. Matches and markets are collected from
     public OLBG pages, joined to player statistics where those can be sourced, and scored by the three-market model
-    in <code>engine/engine.mjs</code>. Predictions are written by <code>engine/writer.mjs</code> and every tip is
+    in <code>engine/engine.js</code>. Predictions are written by <code>engine/writer.js</code> and every tip is
     checked against the output rules before it is shown.</p>
 
     <h2>Sources</h2>
@@ -361,7 +361,7 @@ function renderAbout() {
     </ul>
 
     <h2>Model ruleset</h2>
-    <p class="lede">Implements the master prompt ${PROMPT_VERSION}, plus patches recorded in <code>engine/engine.mjs</code>:
+    <p class="lede">Implements the master prompt ${PROMPT_VERSION}, plus patches recorded in <code>engine/engine.js</code>:
     ${Object.keys(PATCHES).map((k) => `<code>${k}</code>${PATCHES[k] ? ' ✓' : ' ✗'}`).join(', ')}.</p>
 
     <h2>Reproduce</h2>

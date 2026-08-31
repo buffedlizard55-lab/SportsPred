@@ -9,7 +9,7 @@ import assert from 'node:assert/strict';
 import {
   scoreMatch, scoreCard, pickFavourite, normaliseOdds, decimalToAmerican,
   americanToImpliedProb, PATCHES, RULESET_VERSION,
-} from '../engine/engine.mjs';
+} from '../engine/engine.js';
 
 /* ---------------- odds helpers ---------------- */
 

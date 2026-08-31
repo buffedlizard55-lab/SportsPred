@@ -16,9 +16,9 @@ import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 
-import { scoreCard } from '../engine/engine.mjs';
-import { writeCard } from '../engine/writer.mjs';
-import { slateToMatches } from '../engine/join.mjs';
+import { scoreCard } from '../engine/engine.js';
+import { writeCard } from '../engine/writer.js';
+import { slateToMatches } from '../engine/join.js';
 
 const HERE = path.dirname(fileURLToPath(import.meta.url));
 const DATA = path.join(HERE, '..', 'data');

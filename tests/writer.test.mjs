@@ -5,8 +5,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 
-import { scoreMatch, scoreCard } from '../engine/engine.mjs';
-import { writeTip, writeCard, validateTip, BANNED_PHRASES, MIN_WORDS, OPENERS as ANGLES } from '../engine/writer.mjs';
+import { scoreMatch, scoreCard } from '../engine/engine.js';
+import { writeTip, writeCard, validateTip, BANNED_PHRASES, MIN_WORDS, OPENERS as ANGLES } from '../engine/writer.js';
 
 function dominantMatch(eventId = 99) {
   return {

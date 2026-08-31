@@ -6,9 +6,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-import { toMatch, slateToMatches, playerKey, phaseOf } from '../engine/join.mjs';
-import { scoreMatch, scoreCard } from '../engine/engine.mjs';
-import { writeCard } from '../engine/writer.mjs';
+import { toMatch, slateToMatches, playerKey, phaseOf } from '../engine/join.js';
+import { scoreMatch, scoreCard } from '../engine/engine.js';
+import { writeCard } from '../engine/writer.js';
 
 const slate = JSON.parse(await readFile(new URL('../data/slate.json', import.meta.url)));
 const players = JSON.parse(await readFile(new URL('../data/players.json', import.meta.url)));

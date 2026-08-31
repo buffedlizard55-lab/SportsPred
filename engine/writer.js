@@ -10,7 +10,7 @@
  * sourced is simply absent from the text.
  */
 
-import { CONFIDENCE } from './engine.mjs';
+import { CONFIDENCE } from './engine.js';
 
 export const MIN_WORDS = 40;
 

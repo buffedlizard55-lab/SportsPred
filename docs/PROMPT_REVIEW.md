@@ -9,7 +9,7 @@ Line-by-line review. Each finding is marked:
 - **OK** — implementable as written
 
 Everything marked DEFECT or GAP is either patched behind a named flag in
-`engine/engine.mjs` or recorded in `data/provenance.json`. Nothing was silently
+`engine/engine.js` or recorded in `data/provenance.json`. Nothing was silently
 "fixed" — each change is listed here with the test that covers it.
 
 ---
@@ -178,7 +178,7 @@ Three markets per match means a 20-match card needs 60 tips. There are 24 distin
 
 ## Summary of patches applied
 
-| Flag in `engine/engine.mjs` | Default | Fixes | Test |
+| Flag in `engine/engine.js` | Default | Fixes | Test |
 |---|---|---|---|
 | `capScoresAt100` | on | bonus stacking past 100 | *scores are capped at 100 despite bonuses* |
 | `firstSetIndependentScale` | on | first-set market cannot fall below HIGH | *first-set score can fall below the HIGH threshold* |

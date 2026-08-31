@@ -41,9 +41,9 @@ implemented rather than promised:
 
 ```
 engine/                 the model — pure functions, no I/O
-  engine.mjs            Step 2 scoring and Step 3 decision rules
-  writer.mjs            Step 4 tip writing and the output-rule validator
-  join.mjs              slate -> engine input; never fills a gap
+  engine.js             Step 2 scoring and Step 3 decision rules
+  writer.js             Step 4 tip writing and the output-rule validator
+  join.js               slate -> engine input; never fills a gap
 assets/js/app.js        browser controller: scoreboard, calendar, copy buttons
 data/
   slate.json            the collected OLBG slate, with source URL and fetch time
