@@ -8,6 +8,10 @@ build/
 # the parser fixture. See IR-03.
 tests/fixtures/captures/
 
+# Downloaded Sackmann CSVs for the historical backtest. Large, third-party,
+# and refreshable from the verified mirror; never committed.
+data/.cache/
+
 # Python
 __pycache__/
 *.py[cod]

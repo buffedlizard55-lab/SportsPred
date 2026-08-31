@@ -3,8 +3,10 @@
   "generated_at_utc": "2026-08-31T00:20:00Z",
   "environment": {
     "verified_at_utc": "2026-08-31T00:12:00Z",
-    "outbound_network_from_sandbox": false,
-    "note": "Every direct HTTP request issued from this sandbox returned connection failure (HTTP 000) for olbg.com, raw.githubusercontent.com, atptour.com, wtatennis.com and ultimatetennisstatistics.com. Pages below were retrieved through the hosted page-fetch tool, which does have egress. Consequence: the collectors in scripts/ are written and parser-tested against saved fixtures, but their live network behaviour must be confirmed by a GitHub Actions run."
+    "outbound_network_from_sandbox": "partial",
+    "reachable_from_sandbox": ["api.github.com", "github.com"],
+    "unreachable_from_sandbox": ["olbg.com", "raw.githubusercontent.com", "atptour.com", "wtatennis.com", "*.github.io"],
+    "note": "Direct HTTP requests from this sandbox reach api.github.com and github.com only; olbg.com, raw.githubusercontent.com, atptour.com, wtatennis.com and *.github.io return connection failure (HTTP 000). Those hosts were read through the hosted page-fetch tool. Consequence: OLBG collectors are parser-tested against saved fixtures and must run in GitHub Actions; the historical backtest downloads over the GitHub API and runs in both places."
   },
   "irregularities": [
     {
@@ -18,10 +20,10 @@
     {
       "id": "IR-02",
       "severity": "high",
-      "title": "The standard free ATP/WTA match datasets are no longer publicly reachable",
-      "detail": "github.com/JeffSackmann/tennis_atp returns 404 over both the HTML and raw.githubusercontent.com paths. A GitHub API call to /users/JeffSackmann/repos returned exactly one public repository: tennis_MatchChartingProject (point-by-point charting, not full match results). Numerous third-party READMEs still link the tennis_atp CSVs, so those links are now stale.",
-      "impact": "Blocks the historical backtest corpus and the form/surface/serve factors. Forward collection is unaffected.",
-      "status": "OPEN"
+      "title": "The standard free ATP/WTA match datasets are gone, but verified mirrors exist",
+      "detail": "github.com/JeffSackmann/tennis_atp returns 404 (re-verified 2026-08-31). A GitHub API call to /users/JeffSackmann/repos returned exactly one public repository: tennis_MatchChartingProject. Verified forks/archives of the dataset exist and are reachable via the GitHub API: Kadantte/tennis_atp (ATP) and Aneeshers/tennis-sackmann-archive (ATP + WTA, with the CC BY-NC-SA 4.0 LICENSE). scripts/backtest_historical.mjs uses them for a genuine walk-forward backtest.",
+      "impact": "History/backtest: RESOLVED. Live slate: still open — the mirrors are snapshots (matches through 2026-05-25, rankings through 2026-06-08) and the official ATP/WTA ranking pages are client-side rendered, so current form/rankings remain unsourced (IR-14).",
+      "status": "PARTIALLY RESOLVED"
     },
     {
       "id": "IR-03",
@@ -110,6 +112,22 @@
       "detail": "Social-media and analyst sentiment from X requires paid API access or ToS-restricted scraping. Structured injury reporting has no free API. Both are excluded rather than approximated.",
       "impact": "Sentiment is dropped entirely; physical concerns are scored only when a citable source exists.",
       "status": "OPEN"
+    },
+    {
+      "id": "IR-14",
+      "severity": "high",
+      "title": "The Sackmann mirrors are stale snapshots, not a live feed",
+      "detail": "The verified mirrors (Kadantte/tennis_atp, Aneeshers/tennis-sackmann-archive) were last updated in early/mid June 2026: matches stop at 2026-05-25, rankings at 2026-06-08. For a slate on 2026-08-31 that means 'last 5 matches in the last month' and 'current ranking' cannot be honestly computed from them. The mirrors also ship an empty atp_players.csv, and the rankings CSVs key players by ID, so name-to-rank mapping needs a players file these mirrors do not provide.",
+      "impact": "The mirrors unblock backtesting (and a labelled historical rankings fallback), but the live slate still needs a current-season source or a keyed odds/rankings API before its form and ranking factors can be filled.",
+      "status": "OPEN"
+    },
+    {
+      "id": "IR-15",
+      "severity": "low",
+      "title": "Historical feature builder uses a documented ordering approximation",
+      "detail": "Sackmann's tourney_date is a tournament start date, so matches inside one event, and matches in different events in the same week, share a date. The builder orders strictly by (tourney_date, match_num), so a same-week match in another event may be treated as prior to a match it was actually simultaneous with.",
+      "impact": "A small amount of same-week lookahead in the historical backtest, not a forecast leak across weeks. Documented in scripts/lib/historical.mjs.",
+      "status": "MITIGATED"
     }
   ]
 }
