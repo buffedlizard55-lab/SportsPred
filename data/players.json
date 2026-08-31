@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "description": "Player statistics keyed by lowercased full name. Every value must carry its own source URL and fetch timestamp. Empty objects mean 'not sourced' — the engine treats a missing field as unscoreable and never estimates it.",
+  "generated_at_utc": null,
+  "collector": "scripts/collect_players.py",
+  "field_contract": {
+    "rank": "integer, official ATP/WTA singles ranking at fetch time",
+    "odds": "{ decimal, american } — match moneyline, cross-referenced across >=2 books",
+    "firstSetOdds": "{ decimal, american } — first set winner market",
+    "handicapOdds": "{ decimal, american } — games handicap market for this player's line",
+    "form.last5": "['W'|'L', ...] most recent first, last month only",
+    "form.tournamentWinStreak": "integer, wins in the current event",
+    "form.straightSetsLast3": "[bool, bool, bool] most recent first",
+    "form.firstSetWinRateLast10": "float 0-1, last 10 matches on this surface",
+    "form.lastMatchStraightSetLoss": "bool",
+    "form.beatHigherRankedThisEvent": "bool",
+    "form.documentedSlowStarter": "bool, only from a citable source",
+    "surface.wins / surface.losses": "integers, current surface, last 12 months",
+    "surface.titles": "integer, current surface, last 12 months",
+    "surface.poorRecordOnSurface": "bool, documented poor record",
+    "surface.dominantMarginGames": "{ bigWins, of } — wins by 6+ games in the last N surface matches",
+    "serve.firstServePct": "float 0-1, this surface",
+    "serve.acesPerMatch": "float, this surface",
+    "rest.daysRest": "integer",
+    "rest.played3SetsLast24h": "bool",
+    "rest.physicalConcernCited": "bool, only from a citable source"
+  },
+  "collection_status": {
+    "rank": "NOT SOURCED — no ranking feed has been verified reachable from this environment",
+    "odds": "NOT SOURCED — OLBG does not expose structured prices in server-rendered HTML; a price aggregator is required",
+    "form": "NOT SOURCED — the standard free ATP/WTA match CSVs are no longer publicly reachable (see docs/IRREGULARITIES.md IR-02)",
+    "surface": "NOT SOURCED",
+    "serve": "NOT SOURCED",
+    "rest": "NOT SOURCED",
+    "h2h": "NOT SOURCED"
+  },
+  "players": {},
+  "h2h": {}
+}

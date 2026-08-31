@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SportsPred — Tennis Scoreboard &amp; Predictions</title>
+<meta name="description" content="Tennis scoreboard with calendar, sourced from OLBG markets, with one-click generated predictions.">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="wrap">
+    <div class="brand">
+      <h1>SportsPred</h1>
+      <p class="tag">Tennis scoreboard &amp; three-market prediction engine</p>
+    </div>
+    <div class="meta" id="meta">
+      <span class="pill" id="ruleset-pill">ruleset …</span>
+      <span class="pill" id="snapshot-pill">snapshot …</span>
+      <a class="pill link" id="source-link" href="#" target="_blank" rel="noopener noreferrer">source ↗</a>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs wrap" role="tablist">
+  <button class="tab active" data-tab="scoreboard" role="tab">Scoreboard</button>
+  <button class="tab" data-tab="calendar" role="tab">Calendar</button>
+  <button class="tab" data-tab="predictions" role="tab">Predictions</button>
+  <button class="tab" data-tab="quality" role="tab">Data quality</button>
+  <button class="tab" data-tab="about" role="tab">About &amp; sources</button>
+</nav>
+
+<main class="wrap">
+
+  <!-- SCOREBOARD -->
+  <section id="tab-scoreboard" class="panel active">
+    <div class="toolbar">
+      <div class="segmented" id="phase-filter">
+        <button data-phase="upcoming" class="active">Upcoming</button>
+        <button data-phase="live">In play</button>
+        <button data-phase="results">Results</button>
+        <button data-phase="all">All</button>
+      </div>
+      <input type="search" id="search" placeholder="Filter by player…" aria-label="Filter matches by player">
+      <button class="btn primary" id="generate-card">Generate predictions for all</button>
+    </div>
+    <div id="match-list" class="match-list"></div>
+  </section>
+
+  <!-- CALENDAR -->
+  <section id="tab-calendar" class="panel">
+    <div class="toolbar">
+      <button class="btn" id="cal-prev" aria-label="Previous month">‹</button>
+      <h2 id="cal-title" class="cal-title">—</h2>
+      <button class="btn" id="cal-next" aria-label="Next month">›</button>
+      <span class="hint">Click a day to filter the scoreboard.</span>
+    </div>
+    <div class="cal-grid" id="cal-grid"></div>
+    <div id="cal-detail" class="cal-detail"></div>
+  </section>
+
+  <!-- PREDICTIONS -->
+  <section id="tab-predictions" class="panel">
+    <div class="toolbar">
+      <button class="btn primary" id="generate-all">Generate predictions</button>
+      <button class="btn" id="copy-all">Copy all</button>
+      <button class="btn" id="copy-card">Copy formatted card</button>
+      <span class="hint" id="pred-hint"></span>
+    </div>
+    <div id="pred-warnings" class="warnings"></div>
+    <div id="pred-out" class="pred-out"></div>
+    <div id="pred-table"></div>
+  </section>
+
+  <!-- DATA QUALITY -->
+  <section id="tab-quality" class="panel">
+    <p class="lede">
+      Nothing on this site is inferred without a source. Where a factor could not be
+      sourced it is listed here, and the engine refuses to score it rather than guess.
+    </p>
+    <div id="quality-out"></div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="tab-about" class="panel">
+    <div id="about-out"></div>
+  </section>
+
+</main>
+
+<footer class="footer wrap">
+  <p><strong>Responsible gambling.</strong> Nothing here is betting advice or a guarantee of any outcome.
+  Predictions are generated mechanically from sourced data and are fallible. 18+.
+  If gambling is becoming a problem, contact your national support service.</p>
+  <p class="small" id="footer-meta"></p>
+</footer>
+
+<div id="toast" class="toast" role="status" aria-live="polite"></div>
+
+<script type="module" src="assets/js/app.js"></script>
+</body>
+</html>

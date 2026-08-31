@@ -1,0 +1,72 @@
+name: Collect slate
+
+# Forward collection. Refreshes the OLBG slate, records the model's selections
+# against it, and commits only if the data actually changed.
+#
+# This is the part of the project that cannot run in a sandbox without egress.
+# The collector aborts rather than writing an empty or stale snapshot, so a
+# blocked run leaves the previous good data in place.
+
+on:
+  schedule:
+    - cron: '*/30 * * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Tests must pass before collecting
+        run: |
+          npm test
+          python3 -m unittest discover -s tests -p 'test_*.py'
+
+      # --save-html keeps a raw capture so the RECONSTRUCTED parser fixture can
+      # be replaced with a genuine one. See IR-03.
+      - name: Collect OLBG slate
+        id: collect
+        continue-on-error: true
+        run: |
+          python3 scripts/collect_olbg.py \
+            --save-html tests/fixtures/captures \
+            --enrich --enrich-limit 25
+
+      - name: Report a failed collection without failing the run
+        if: steps.collect.outcome == 'failure'
+        run: |
+          echo "::warning::OLBG collection failed. data/slate.json is unchanged."
+
+      - name: Collect player statistics
+        continue-on-error: true
+        run: python3 scripts/collect_players.py --from-slate || true
+
+      - name: Record predictions for forward grading
+        run: node scripts/record_predictions.mjs
+
+      - name: Backtest report
+        run: node scripts/backtest.mjs
+
+      - name: Commit data changes
+        run: |
+          git config user.name "sportspred-collector[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          # Keep raw HTML captures out of git history; they are large and churn.
+          git reset -q tests/fixtures/captures 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+          else
+            git commit -m "chore(data): refresh slate and recorded predictions
+
+Automated by .github/workflows/collect.yml"
+            git push
+          fi

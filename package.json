@@ -1,0 +1,16 @@
+{
+  "name": "sportspred",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tennis prediction engine, OLBG slate collector and static scoreboard site",
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "build:data": "python3 scripts/build_data.py",
+    "collect": "python3 scripts/collect_olbg.py",
+    "backtest": "node scripts/backtest.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
