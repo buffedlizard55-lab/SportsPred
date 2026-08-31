@@ -11,6 +11,30 @@ All checks below were re-run on **2026-08-31**.
 
 ## Verified — used
 
+### ESPN public tennis API — PRIMARY LIVE SOURCE
+- **Scoreboard:** `https://site.api.espn.com/apis/site/v2/sports/tennis/{atp|wta}/scoreboard?dates=YYYYMMDD`
+- **Rankings:** `https://site.api.espn.com/apis/site/v2/sports/tennis/{atp|wta}/rankings`
+- **Tournaments:** `http://sports.core.api.espn.com/v2/sports/tennis/leagues/{atp|wta}/events?dates=YYYYMMDD-YYYYMMDD`
+- **Fetched:** 2026-08-31. No API key, no signup, no auth header of any kind.
+- **Provides:** tournament and match identity, scheduled start, live/final
+  status, per-set linescores with tiebreak detail, winner flags, round labels,
+  seeds, venue city, `indoor` flag; and current rank, previous rank and points
+  per player.
+- **Used for:** the entire live scoreboard, results, calendar and every
+  form/rank/surface-split statistic the engine consumes.
+- **Status:** ESPN retired its public developer programme; these are the
+  undocumented endpoints that serve espn.com itself. They are open and widely
+  used, but **unofficial and unversioned** — ESPN can change them without
+  notice. `scripts/verify_live.mjs` exists precisely to detect that breakage,
+  and the parsers are pinned by tests against a captured excerpt.
+- **Verified NOT to provide:**
+  - **odds** — `…/competitions/{id}/odds` returns `{"count":0,…,"items":[]}` (`IR-01`)
+  - **serve statistics** — every competitor carries `"statistics": []` (`IR-16`)
+  - **court surface** — no surface field exists anywhere in the payload
+- **Observed irregularity:** the ATP scoreboard returns Women's Singles
+  groupings (Nordea Open, competition `178684`). The league slug is therefore
+  not a reliable tour label (`IR-19`).
+
 ### OLBG tennis tips index
 - **URL:** <https://www.olbg.com/betting-tips/Tennis/3>
 - **Fetched:** 2026-08-31 (hosted page-fetch; the build sandbox cannot reach
@@ -54,7 +78,9 @@ verified reachable and are used **for historical backtesting only**:
   - Ships the original **LICENSE**: Creative Commons Attribution-NonCommercial-
     ShareAlike 4.0 (CC BY-NC-SA 4.0), requiring attribution to Jeff Sackmann.
 - **Used for:** `scripts/backtest_historical.mjs` (2024–2025 ATP walk-forward
-  backtest). Not used for the live slate, because the mirrors are a snapshot
+  backtest) **and** `scripts/build_surface_map.mjs`, which derives each
+  tournament's court surface and tour level from the `surface` / `tourney_level`
+  columns of 14,133 recorded match rows. Not used for live form, because the mirrors are a snapshot
   (~3 months behind on 2026-08-31) and there is no current-season live feed in
   them. See `IR-02` / `IR-14`.
 

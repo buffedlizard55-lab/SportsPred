@@ -181,3 +181,28 @@ h3 { font-size: 14px; margin: 20px 0 8px; color: var(--muted); text-transform: u
   .cal-day { min-height: 48px; }
   .match .acts { justify-content: flex-start; }
 }
+
+/* ---- live collection additions ---- */
+.datebar { gap: .5rem; }
+.datebar input[type="date"] {
+  padding: .45rem .6rem; border: 1px solid var(--line, #d8dee9);
+  border-radius: 8px; font: inherit; background: #fff; color: inherit;
+}
+.progress { margin: .75rem 0 1rem; }
+.progress-label { font-size: .82rem; color: #5b6472; margin-bottom: .35rem; }
+.progress-track { height: 6px; background: #e8edf3; border-radius: 999px; overflow: hidden; }
+.progress-bar {
+  height: 100%; width: 2%; border-radius: 999px;
+  background: linear-gradient(90deg, #2f7d5d, #46a97c); transition: width .25s ease;
+}
+.match .when .d.live { background: #b3261e; color: #fff; }
+.match .when .d.results { background: #5b6472; color: #fff; }
+.match .when .d.upcoming { background: #2f5d7d; color: #fff; }
+.match .when .tour {
+  display: block; margin-top: .3rem; font-size: .68rem;
+  letter-spacing: .06em; color: #6b7482;
+}
+.match .score { font-variant-numeric: tabular-nums; font-weight: 600; margin: .15rem 0; }
+.cal-day.today { outline: 2px solid #46a97c; outline-offset: -2px; }
+.cal-day { cursor: pointer; }
+.btn[disabled] { opacity: .45; cursor: not-allowed; }

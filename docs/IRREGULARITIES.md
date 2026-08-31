@@ -171,6 +171,46 @@ project exists to avoid. It needs the backtest corpus to calibrate.
 
 ---
 
+### IR-16 — ESPN publishes no serve statistics for tennis · HIGH · OPEN
+Every competitor object in the ESPN tennis scoreboard carries `statistics: []`.
+First-serve percentage and aces per match are therefore unavailable from the
+live source (verified 2026-08-31, ATP and WTA).
+
+The prompt calls serve statistics "the strongest predictor of first set
+outcomes", so this is a material gap. The +8 serving-advantage modifier can
+never fire. Deriving a proxy from set scores was rejected: it would be a
+fabricated statistic wearing the name of a real one.
+
+### IR-17 — "Beat a higher-ranked player this event" is not derivable · LOW · OPEN
+The +3 bonus needs each beaten opponent's ranking **at the time of that match**.
+ESPN's scoreboard carries no per-match ranking, and applying today's ranking
+retroactively would misstate history. Permanently unsourced.
+
+### IR-18 — The missing-factor penalty is shared across all three markets · MEDIUM · OPEN
+`applyMissingPenalty` subtracts a fixed amount per *distinct* missing factor
+across the whole match, then applies that same total to win-match, first-set and
+games-handicap alike. A first-set score is therefore reduced by gaps belonging to
+another market — for example an unsourced handicap price.
+
+With odds permanently unavailable (`IR-01`) the shared penalty is large, so
+first-set scores sit near zero and that market almost always reports LOW or SKIP.
+
+The behaviour is **conservative** — it understates confidence rather than
+overstating it — so it is documented rather than quietly retuned. A proper fix
+needs per-market missing sets plus a re-run of the backtest to recalibrate the
+thresholds; changing the arithmetic without recalibrating would move selections
+on no evidence.
+
+### IR-19 — ESPN's league slug does not indicate the tour · MEDIUM · RESOLVED IN CODE
+The **ATP** scoreboard returns **Women's Singles** groupings — observed at the
+Nordea Open, competition `178684`, 2026-07-06. Treating the requested league as
+the tour would mislabel those matches.
+
+`tourOf()` reads the grouping/competition type text instead, and a regression
+test pins this behaviour against the real payload.
+
+---
+
 ## Not an irregularity, but worth stating
 
 - **The live slate is still unscored.** With no odds and no *current-season*

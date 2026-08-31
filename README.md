@@ -3,10 +3,13 @@
 A tennis scoreboard and three-market prediction engine, built around one rule:
 **nothing is published without a source.**
 
-The site collects the current OLBG tennis slate, joins it to player statistics
-where those can be sourced, scores each match across Win Match, First Set Winner
-and Games Handicap, and writes copy-ready predictions. Every one of those steps
-is machine-checked.
+The site collects live tennis matches, results and rankings from ESPN's public
+key-less endpoints, resolves each tournament's court surface from recorded match
+data, scores every match across Win Match, First Set Winner and Games Handicap,
+and writes copy-ready predictions. Every one of those steps is machine-checked.
+
+Pick any date on the calendar — past, today, or upcoming — and the scoreboard
+loads that day's real card. One button turns it into written tips you can copy.
 
 **Live site:** published from `main` via GitHub Pages. The workflows are ready in
 [`ci/`](ci/README.md) but need one manual step to install — see below.
@@ -43,10 +46,16 @@ implemented rather than promised:
 engine/                 the model — pure functions, no I/O
   engine.js             Step 2 scoring and Step 3 decision rules
   writer.js             Step 4 tip writing and the output-rule validator
+  espn.js               ESPN payload parsers + player-stat derivation
+  surface.js            tournament -> court surface, or null with a reason
+  tournament.js         tour level / round coding, H2H orientation
   join.js               slate -> engine input; never fills a gap
-assets/js/app.js        browser controller: scoreboard, calendar, copy buttons
+assets/js/
+  collector.js          live browser collection from ESPN (no key, no server)
+  app.js                controller: scoreboard, calendar, copy buttons
 data/
-  slate.json            the collected OLBG slate, with source URL and fetch time
+  surfaces.json         tournament -> surface, built from recorded match rows
+  slate.json            an OLBG slate snapshot, with source URL and fetch time
   players.json          player statistics + per-factor collection status
   predictions.json      append-only record of every selection made
   results.json          settled outcomes (empty — see IR-02)
@@ -58,10 +67,13 @@ scripts/
   backtest.mjs          grading of recorded picks: hit rate, Brier, log loss, ROI
   backtest_historical.mjs  walk-forward backtest on the Sackmann dataset mirror
   lib/historical.mjs    pre-match feature builder + grader (pure, tested)
+  build_surface_map.mjs builds data/surfaces.json from the Sackmann mirrors
+  verify_live.mjs       end-to-end live check against ESPN (exits 2 if unreachable)
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
-tests/                  62 Node tests + 23 Python tests
+tests/                  104 Node tests + 23 Python tests
 docs/
+  LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
   SOURCES.md            every source with its verification status
   IRREGULARITIES.md     everything that did not check out
@@ -76,11 +88,13 @@ copy of the scoring logic, so the site cannot drift from what is tested.
 ## Running it
 
 ```bash
-npm test                                          # engine, writer, join, backtest, historical
+npm test                                          # 104 tests: engine, writer, ESPN parsers, pipeline
 python3 -m unittest discover -s tests -p 'test_*.py'   # OLBG parsers
 python3 scripts/build_data.py --strict            # validate the committed data layer
 python3 scripts/serve.py 8000                     # local preview
-python3 scripts/collect_olbg.py --dry-run         # refresh the slate
+node scripts/verify_live.mjs                      # live end-to-end check against ESPN
+node scripts/build_surface_map.mjs                # rebuild the surface map
+python3 scripts/collect_olbg.py --dry-run         # refresh the OLBG slate snapshot
 node scripts/record_predictions.mjs               # forward collection
 node scripts/backtest.mjs                         # grading report (recorded picks)
 node scripts/backtest_historical.mjs              # walk-forward backtest (real data)
@@ -93,36 +107,33 @@ and the site is plain ES modules with no build step.
 
 ## Current status — read this before trusting any output
 
-The engine, the site and the **historical backtest** are complete and tested.
-The live-data pipeline is still the gap, for two verified reasons:
+The engine, the site, the **live collection** and the **historical backtest**
+all work. What is available and what is not:
 
-- **OLBG publishes no structured odds.** Its pages are server-rendered but
-  prices are injected client-side into the betslip. Every odds-dependent factor
-  is therefore unscored for the live slate. (`IR-01`)
-- **The canonical free ATP/WTA dataset is gone, but verified mirrors exist.**
-  `JeffSackmann/tennis_atp` returns 404 (re-verified 2026-08-31), yet
-  `Kadantte/tennis_atp` and `Aneeshers/tennis-sackmann-archive` preserve the
-  data. They are snapshots (matches to 2026-05-25, rankings to 2026-06-08), so
-  they power the **backtest** — see [`docs/BACKTEST.md`](docs/BACKTEST.md) for
-  the 63.9% win-match result and the monotonic score calibration — but they are
-  too stale to fill "current form" on today's card. (`IR-02`, `IR-14`)
-
-The consequence, stated plainly: **on today's live data every match is still
-unscored, and the site says so rather than inventing predictions.** That is the
-correct behaviour, not a failure. To produce live tips the project needs an
-odds source (API key) and a current-season results/rankings source.
-
-To unblock live scoring:
-
-| Need | Options |
+| Requirement | Status |
 |---|---|
-| Odds for ≥2 books | The Odds API, Betfair Exchange API — both need a key |
-| Current-season form + rankings | A live ATP/WTA feed, or a refreshed Sackmann mirror, or a keyed API |
-| Historical backtest | ✅ working — `scripts/backtest_historical.mjs` |
+| Live fixtures, live scores, results | ✅ ESPN public API, no key |
+| Current ATP/WTA rankings + trajectory | ✅ ESPN public API |
+| Court surface per tournament | ✅ derived from 14,133 recorded match rows (349 tournaments) |
+| Form, surface split, first-set rate, straight sets, rest, H2H | ✅ computed from a 120-day match tape |
+| Tournament level and round | ✅ coded from recorded `tourney_level` data |
+| Historical backtest | ✅ 2024–25 ATP walk-forward, 63.9% win-match hit rate |
+| **Odds / prices** | ❌ **no free key-less source** — every price factor is unscored (`IR-01`) |
+| **Serve %, ace rate** | ❌ ESPN ships empty tennis statistics (`IR-16`) |
+| **Injuries, social sentiment** | ❌ no free structured source (`IR-13`) |
 
-Each live source is declared as an adapter in `scripts/collect_players.py` with
-its verification state. Add a key as a repository secret and the corresponding
-adapter starts contributing; no code change is needed to the engine.
+The consequence, stated plainly: **the site produces real predictions on real
+matches, but with odds permanently unavailable the price-dependent factors are
+scored as missing and confidence is capped accordingly.** Many first-set and
+handicap selections will therefore read SKIP. That is the model refusing to bet
+on evidence it does not have, not a bug — see `IR-18` for the one place where
+this is more conservative than the prompt intends.
+
+Full detail: [`docs/LIVE_DATA.md`](docs/LIVE_DATA.md).
+
+To add odds, supply a key for The Odds API or Betfair and fill
+`players[].odds` / `firstSetOdds` / `handicapOdds`; every odds rule in the
+engine is already written and tested.
 
 ---
 
