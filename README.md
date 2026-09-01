@@ -5,14 +5,20 @@ A tennis scoreboard and three-market prediction engine, built around one rule:
 
 The site collects live tennis matches, results and rankings from ESPN's public
 key-less endpoints, resolves each tournament's court surface from recorded match
-data, scores every match across Win Match, First Set Winner and Games Handicap,
-and writes copy-ready predictions. Every one of those steps is machine-checked.
+data, overlays matching OLBG event rows for market review, scores every match
+across Win Match, First Set Winner and Games Handicap, and writes copy-ready
+predictions. Every one of those steps is machine-checked.
 
 Pick any date on the calendar — past, today, or upcoming — and the scoreboard
-loads that day's real card. One button turns it into written tips you can copy.
+loads that day's real card. Each match card shows sourced rank trajectory,
+recent form, surface record, and manual-review links back to ESPN/OLBG where
+available. One button turns the card into written tips you can copy.
 
-**Live site:** published from `main` via GitHub Pages. The workflows are ready in
-[`ci/`](ci/README.md) but need one manual step to install — see below.
+**Live site:** GitHub Pages is already enabled for this repository at
+<https://buffedlizard55-lab.github.io/SportsPred/>. Actions deployment files are
+present in this checkout under `.github/workflows/` and mirrored in [`ci/`](ci/README.md),
+but pushing them to GitHub from this Arena session was blocked by missing
+`workflows` permission (`IR-20`).
 **Local preview:** `python3 scripts/serve.py 8000` then open <http://localhost:8000>.
 
 ---
@@ -47,12 +53,13 @@ engine/                 the model — pure functions, no I/O
   engine.js             Step 2 scoring and Step 3 decision rules
   writer.js             Step 4 tip writing and the output-rule validator
   espn.js               ESPN payload parsers + player-stat derivation
+  olbg.js               OLBG snapshot/date/market helpers for the site
   surface.js            tournament -> court surface, or null with a reason
   tournament.js         tour level / round coding, H2H orientation
   join.js               slate -> engine input; never fills a gap
 assets/js/
   collector.js          live browser collection from ESPN (no key, no server)
-  app.js                controller: scoreboard, calendar, copy buttons
+  app.js                controller: scoreboard, calendar, OLBG overlay, copy buttons
 data/
   surfaces.json         tournament -> surface, built from recorded match rows
   slate.json            an OLBG slate snapshot, with source URL and fetch time
@@ -72,10 +79,12 @@ scripts/
   collect_espn.mjs      forward collection: record picks, settle finished matches
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
-tests/                  104 Node tests + 23 Python tests
+.github/workflows/      installed Pages deploy + scheduled collection workflows
+tests/                  120 Node tests + 23 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
+  PROMPT_FEATURE_MATRIX.md  prompt line -> repo feature/status/source matrix
   SOURCES.md            every source with its verification status
   IRREGULARITIES.md     everything that did not check out
   BACKTEST.md           historical backtest method + results
@@ -89,7 +98,7 @@ copy of the scoring logic, so the site cannot drift from what is tested.
 ## Running it
 
 ```bash
-npm test                                          # 104 tests: engine, writer, ESPN parsers, pipeline
+npm test                                          # 120 tests: engine, writer, ESPN parsers, OLBG helpers, join, pipeline
 python3 -m unittest discover -s tests -p 'test_*.py'   # OLBG parsers
 python3 scripts/build_data.py --strict            # validate the committed data layer
 python3 scripts/serve.py 8000                     # local preview
@@ -139,29 +148,51 @@ engine is already written and tested.
 
 ---
 
-## Automation — needs one manual step
+## Automation and deployment
 
-Two workflows are written and complete, in [`ci/`](ci/README.md):
+This checkout now contains workflow files in `.github/workflows/`, with mirrored
+copies in [`ci/`](ci/README.md):
 
-- **`ci/collect.yml`** — every 30 minutes: collect the slate, record predictions,
-  print the backtest report, commit only if data changed. A failed collection
-  leaves the previous snapshot untouched.
-- **`ci/pages.yml`** — runs the full test suite, then publishes `index.html`,
-  `assets/`, `engine/` and `data/`. Scripts and fixtures are deliberately
-  excluded from the public artifact.
+- **`.github/workflows/collect.yml`** — every 30 minutes: run tests, refresh the
+  OLBG slate, enrich event pages for market lists, collect/settle ESPN records,
+  print the backtest report, and commit only when `data/` changed.
+- **`.github/workflows/pages.yml`** — run the full test suite, validate the data
+  layer, build a minimal Pages artifact, and deploy it with the official Pages
+  Actions.
 
-They sit in `ci/` rather than `.github/workflows/` because the automation
-account used here lacks the `workflows` permission GitHub requires to create
-them; the push was rejected with that exact error. To enable:
+### What may still need a manual repository setting
 
-```bash
-mkdir -p .github/workflows
-cp ci/pages.yml ci/collect.yml .github/workflows/
-git add .github/workflows && git commit -m "ci: enable workflows" && git push
-```
+The Pages site currently exists and was verified at:
+<https://buffedlizard55-lab.github.io/SportsPred/>.
 
-Then set **Settings → Pages → Source** to **GitHub Actions**. Full detail in
-[`ci/README.md`](ci/README.md).
+A remote push of the workflow files was attempted from this Arena session and
+GitHub rejected it for missing `workflows` permission (`IR-20`). So there are
+**two** possible remaining manual steps, depending on your repository settings:
+
+1. **If the workflow files are not yet on GitHub:** push `.github/workflows/`
+   from a checkout authenticated with credentials that have `workflows`
+   permission, or reconnect GitHub in Arena with that permission.
+2. **If GitHub Pages is still set to Deploy from a branch:** change it to
+   **GitHub Actions** after the workflow files are present on the remote branch.
+
+Step-by-step:
+
+1. Ensure `.github/workflows/pages.yml` and `.github/workflows/collect.yml` are present on the remote repository. If they are not, push them from a checkout authenticated with `workflows` permission.
+2. Open the repository on GitHub.
+3. Go to **Settings → Pages**.
+4. Under **Build and deployment → Source**, choose **GitHub Actions**.
+5. Save the setting if GitHub prompts for confirmation.
+6. Open the **Actions** tab and confirm the latest **Deploy site** run passed.
+7. Re-open the Pages URL and verify the updated site content changed.
+
+If GitHub refuses workflow runs or Pages deployment, review:
+
+- branch protection on `main`
+- repository Actions permissions
+- Pages environment approval rules
+- whether the workflow files have actually reached the branch GitHub is reading
+
+Operational detail and fallback notes live in [`ci/README.md`](ci/README.md).
 
 ---
 

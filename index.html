@@ -25,6 +25,7 @@
 <nav class="tabs wrap" role="tablist">
   <button class="tab active" data-tab="scoreboard" role="tab">Scoreboard</button>
   <button class="tab" data-tab="calendar" role="tab">Calendar</button>
+  <button class="tab" data-tab="olbg" role="tab">OLBG markets</button>
   <button class="tab" data-tab="predictions" role="tab">Predictions</button>
   <button class="tab" data-tab="quality" role="tab">Data quality</button>
   <button class="tab" data-tab="about" role="tab">About &amp; sources</button>
@@ -67,6 +68,21 @@
       <span class="hint">Click any day to load that date's matches — past results or upcoming fixtures.</span>
     </div>
     <div class="cal-grid" id="cal-grid"></div>
+  </section>
+
+  <!-- OLBG MARKETS -->
+  <section id="tab-olbg" class="panel">
+    <div class="toolbar">
+      <button class="btn" id="olbg-prev-date" aria-label="Previous OLBG date">‹</button>
+      <h2 id="olbg-title" class="cal-title">—</h2>
+      <button class="btn" id="olbg-next-date" aria-label="Next OLBG date">›</button>
+      <button class="btn" id="olbg-open-source">Open OLBG index</button>
+      <span class="hint">Snapshot-driven market board. Click a dated cell to load that day into the live scoreboard and prediction engine.</span>
+    </div>
+    <div class="cal-grid" id="olbg-cal-grid"></div>
+    <div id="olbg-summary" class="olbg-summary"></div>
+    <div id="olbg-events"></div>
+    <div id="olbg-outrights"></div>
   </section>
 
   <!-- PREDICTIONS -->

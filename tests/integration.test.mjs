@@ -6,7 +6,16 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFile } from 'node:fs/promises';
 
-import { toMatch, slateToMatches, playerKey, phaseOf } from '../engine/join.js';
+import {
+  toMatch,
+  slateToMatches,
+  playerKey,
+  phaseOf,
+  canonicalPlayerKey,
+  matchupKey,
+  buildSlateIndex,
+  matchSlateEvent,
+} from '../engine/join.js';
 import { scoreMatch, scoreCard } from '../engine/engine.js';
 import { writeCard } from '../engine/writer.js';
 
@@ -35,6 +44,27 @@ test('every event row carries the fields the UI renders', () => {
 test('event ids are unique', () => {
   const ids = slate.events.map((e) => e.event_id);
   assert.equal(new Set(ids).size, ids.length);
+});
+
+test('canonicalPlayerKey ignores accents and punctuation for cross-source joins', () => {
+  assert.equal(canonicalPlayerKey('J.J. Wolf'), canonicalPlayerKey('JJ Wolf'));
+  assert.equal(canonicalPlayerKey('Élise Mertens'), canonicalPlayerKey('Elise Mertens'));
+});
+
+test('matchupKey is order-independent and date-sensitive', () => {
+  const a = matchupKey('2026-09-01', 'Alexander Bublik', 'J.J. Wolf');
+  const b = matchupKey('2026-09-01', 'JJ Wolf', 'Alexander Bublik');
+  const c = matchupKey('2026-09-02', 'JJ Wolf', 'Alexander Bublik');
+  assert.equal(a, b);
+  assert.notEqual(a, c);
+});
+
+test('a live card match can be matched back to its OLBG event row for manual review', () => {
+  const index = buildSlateIndex(slate);
+  const ev = matchSlateEvent({ resolved_date: '2026-09-01', home: 'Carlos Alcaraz', away: 'Roman Safiullin' }, index);
+  assert.ok(ev, 'expected Safiullin v Alcaraz to match an OLBG row');
+  assert.equal(ev.event_id, '899350');
+  assert.equal(ev.consensus.selection, 'Carlos Alcaraz');
 });
 
 test('no odds values are present anywhere in the snapshot (OLBG exposes none)', () => {

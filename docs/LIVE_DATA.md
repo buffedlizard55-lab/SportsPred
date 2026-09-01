@@ -112,7 +112,7 @@ node scripts/verify_live.mjs              # full live pipeline against ESPN, tod
 node scripts/verify_live.mjs --date 2026-08-30 --tape 30
 node scripts/build_surface_map.mjs        # rebuild the surface map from source rows
 node scripts/collect_espn.mjs --dry-run   # forward collection, without writing
-npm test                                  # 104 tests, including the ESPN parsers
+npm test                                  # 120 tests, including the ESPN parsers, OLBG helpers and overlay joins
 ```
 
 `verify_live.mjs` **fails loudly** with exit code 2 if ESPN cannot be reached.

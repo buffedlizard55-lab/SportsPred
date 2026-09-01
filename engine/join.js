@@ -12,6 +12,61 @@ export function playerKey(name) {
 }
 
 /**
+ * Accent- and punctuation-insensitive player key for cross-source joins.
+ * OLBG and ESPN sometimes disagree on dots, apostrophes or spacing in names
+ * (for example "JJ Wolf" vs "J.J. Wolf"). This normaliser is for IDENTITY only;
+ * it never rewrites the display name shown to the user.
+ */
+export function canonicalPlayerKey(name) {
+  return String(name ?? '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '');
+}
+
+/**
+ * Order-independent key for a singles match-up on one calendar date.
+ * Used to overlay the OLBG slate snapshot onto the live ESPN card.
+ */
+export function matchupKey(dateISO, a, b) {
+  const names = [canonicalPlayerKey(a), canonicalPlayerKey(b)].sort();
+  return `${dateISO ?? ''}|${names.join('|')}`;
+}
+
+/**
+ * Build an index of OLBG slate rows by date + unordered player pair.
+ * Duplicate keys are kept as arrays rather than overwritten, so ambiguity is
+ * visible to the caller instead of being silently collapsed.
+ */
+export function buildSlateIndex(slate) {
+  const index = new Map();
+  for (const ev of slate?.events ?? []) {
+    if (!ev?.resolved_date || !ev?.home || !ev?.away) continue;
+    const key = matchupKey(ev.resolved_date, ev.home, ev.away);
+    const rows = index.get(key) ?? [];
+    rows.push(ev);
+    index.set(key, rows);
+  }
+  return index;
+}
+
+/**
+ * Find the OLBG event row corresponding to a live match, if the join is unique.
+ * Returns null when nothing matches OR when multiple snapshot rows collide.
+ */
+export function matchSlateEvent(live, slateOrIndex) {
+  const dateISO = live?.resolved_date ?? live?.date ?? null;
+  const home = live?.home ?? live?.players?.[0]?.name ?? null;
+  const away = live?.away ?? live?.players?.[1]?.name ?? null;
+  if (!dateISO || !home || !away) return null;
+
+  const index = slateOrIndex instanceof Map ? slateOrIndex : buildSlateIndex(slateOrIndex);
+  const rows = index.get(matchupKey(dateISO, home, away)) ?? [];
+  return rows.length === 1 ? rows[0] : null;
+}
+
+/**
  * @param {object} ev        one event row from data/slate.json
  * @param {object} store     parsed data/players.json
  * @returns {object}         engine match object
