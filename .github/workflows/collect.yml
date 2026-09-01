@@ -79,8 +79,5 @@ jobs:
             echo "No data changes to commit."
           else
             git commit -m "chore(data): refresh slate and recorded predictions"
-            git commit --amend -m "chore(data): refresh slate and recorded predictions
-
-Automated by .github/workflows/collect.yml"
             git push
           fi
