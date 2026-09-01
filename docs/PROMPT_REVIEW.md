@@ -69,7 +69,7 @@ Scored on **raw win count with no denominator**:
 - 1 win → 6
 - 0 wins → 0
 
-A player 2–0 scores 13. A player 8–3 scores 6. That is backwards. It also rewards avoiding tournaments: playing fewer matches raises the score per win.
+A player 2–0 scores 13. Worse, a player 8–3 with no title matches **no band at all** — \"3 or more wins including a title\" fails on the title condition, and the lower bands are written for exactly 2 or exactly 1 wins — so the literal bands leave the common case undefined; the engine's v1.0-literal mode scores it 0. The count system also rewards avoiding tournaments: playing fewer matches raises the score per win.
 → Patched: `surfaceWinRateNotCount` scores win rate with a 3-match minimum-sample gate (≥75% → 20, ≥55% → 13, >0 → 6, 0 → 0). The literal v1.0 behaviour is retained behind the flag so the difference can be measured.
 
 Second issue: this factor is scored for "Player", not comparatively. Ranking is a *gap*, surface form is an *absolute*. A 12–4 record against an opponent who is 18–2 scores the same as against one who is 0–9.

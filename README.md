@@ -50,6 +50,7 @@ engine/                 the model — pure functions, no I/O
   surface.js            tournament -> court surface, or null with a reason
   tournament.js         tour level / round coding, H2H orientation
   join.js               slate -> engine input; never fills a gap
+  olbg.js               OLBG snapshot view-model + live-card correlation (display only)
 assets/js/
   collector.js          live browser collection from ESPN (no key, no server)
   app.js                controller: scoreboard, calendar, copy buttons
@@ -72,7 +73,7 @@ scripts/
   collect_espn.mjs      forward collection: record picks, settle finished matches
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
-tests/                  104 Node tests + 23 Python tests
+tests/                  120 Node tests + 23 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
@@ -89,7 +90,7 @@ copy of the scoring logic, so the site cannot drift from what is tested.
 ## Running it
 
 ```bash
-npm test                                          # 104 tests: engine, writer, ESPN parsers, pipeline
+npm test                                          # 120 tests: engine, writer, ESPN parsers, pipeline, OLBG view-model
 python3 -m unittest discover -s tests -p 'test_*.py'   # OLBG parsers
 python3 scripts/build_data.py --strict            # validate the committed data layer
 python3 scripts/serve.py 8000                     # local preview
@@ -120,6 +121,7 @@ all work. What is available and what is not:
 | Tournament level and round | ✅ coded from recorded `tourney_level` data |
 | Historical backtest | ✅ 2024–25 ATP walk-forward, 63.9% win-match hit rate |
 | Forward collection + automatic result settlement | ✅ `scripts/collect_espn.mjs` records picks and grades them from ESPN |
+| OLBG markets in a scoreboard with calendar | ✅ committed snapshot rendered as the scoreboard's "OLBG market snapshot" panel, correlated to the live card and marked on the calendar; refreshed by scheduled CI collection |
 | **Odds / prices** | ❌ **no free key-less source** — every price factor is unscored (`IR-01`) |
 | **Serve %, ace rate** | ❌ ESPN ships empty tennis statistics (`IR-16`) |
 | **Injuries, social sentiment** | ❌ no free structured source (`IR-13`) |

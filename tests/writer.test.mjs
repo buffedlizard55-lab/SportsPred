@@ -120,6 +120,31 @@ test('a SKIP tip is one sentence and starts with SKIP', () => {
   assert.equal(out.text.split(/(?<=[.!?])\s+/).length, 1);
 });
 
+test('SKIP tips do not consume openings from the styled pool (regression)', () => {
+  // Every market on every match here is LOW/SKIP, so all 27 emitted lines are
+  // SKIP sentences. None of them displays a styled opener, so the pool must
+  // report zero consumption — previously it burned all 24 and then raised
+  // spurious openerPoolExhausted violations.
+  const weak = (id) => ({
+    event_id: id,
+    players: [{ name: `Alpha ${id}`, rank: 3 }, { name: `Beta ${id}`, rank: 4 }],
+    surface: 'hard',
+    tournament: { level: 'GS', round: 'F' },
+    // Nothing else sourced: odds, form, h2h all absent -> every market LOW/SKIP.
+  });
+  const matches = Array.from({ length: 9 }, (_, i) => weak(300 + i));
+  // scoreMatch directly, not scoreCard: the card-level trim rule would
+  // legitimately reduce this weak card to three matches and mask the test.
+  const { tips, violations, openerPoolExhausted, openerPoolSize } =
+    writeCard(matches.map((m) => ({ match: m, result: scoreMatch(m) })));
+  const skips = tips.filter((t) => t.ok && t.skip);
+  assert.equal(skips.length, 9 * 3, `expected all-skip output, got ${JSON.stringify(tips)}`);
+  assert.equal(openerPoolExhausted, false,
+    `skip-only card must not exhaust the ${openerPoolSize}-opener styled pool`);
+  assert.equal(violations.filter((v) => v.openerPoolExhausted).length, 0,
+    'no pool-exhaustion violation may be raised by SKIP output');
+});
+
 test('no two tips in a card share an opening word', () => {
   const matches = [101, 102, 103].map((id) => dominantMatch(id));
   const card = scoreCard(matches);

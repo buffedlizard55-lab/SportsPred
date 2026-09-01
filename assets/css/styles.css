@@ -186,8 +186,21 @@ h3 { font-size: 14px; margin: 20px 0 8px; color: var(--muted); text-transform: u
 .datebar { gap: .5rem; }
 .datebar input[type="date"] {
   padding: .45rem .6rem; border: 1px solid var(--line, #d8dee9);
-  border-radius: 8px; font: inherit; background: #fff; color: inherit;
+  border-radius: 8px; font: inherit;
+  /* Must follow the dark theme: the previous #fff background with inherited
+     (light) text rendered the field unreadable. */
+  background: var(--panel-2); color: var(--text); color-scheme: dark;
 }
+
+/* OLBG slate snapshot panel */
+.olbg-title { margin-top: 26px; padding-top: 18px; border-top: 1px solid var(--line); }
+#olbg-block details { margin: 10px 0; }
+#olbg-block summary { cursor: pointer; color: var(--muted); padding: 6px 0; }
+#olbg-block summary:hover { color: var(--text); }
+#olbg-block details[open] summary { color: var(--text); }
+#olbg-block details.caveats summary { color: var(--med); }
+.slate-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); margin: 3px auto 0; }
+.cal-day.has-slate { border-style: solid; }
 .progress { margin: .75rem 0 1rem; }
 .progress-label { font-size: .82rem; color: #5b6472; margin-bottom: .35rem; }
 .progress-track { height: 6px; background: #e8edf3; border-radius: 999px; overflow: hidden; }

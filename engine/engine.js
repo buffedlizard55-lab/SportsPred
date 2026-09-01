@@ -431,7 +431,9 @@ function bandFor(score, highAt, medAt) {
 
 /**
  * Score all three markets for one match.
- * @param {object} match  see docs/SCHEMA.md
+ * @param {object} match  engine input shape — see the field contract in
+ *   engine/join.js (`toMatch`) and the live equivalent `toEngineMatch` in
+ *   assets/js/collector.js. Every field may be null.
  * @returns {object} result with per-market score, band, components, missing
  */
 export function scoreMatch(match) {

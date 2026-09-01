@@ -28,10 +28,19 @@ pushed from here instead.
 ## What each workflow does
 
 ### `pages.yml`
-Runs on push to `main` and on demand. Runs the full test suite (62 Node,
+Runs on push to `main` and on demand. Runs the full test suite (120 Node,
 23 Python), then assembles a clean artifact containing only `index.html`,
 `assets/`, `engine/` and `data/` and publishes it. Scripts, tests and captured
 HTML fixtures are deliberately excluded from the public site.
+
+> **Current exposure, verified 2026-08-31:** Pages is deployed in **legacy
+> mode** from `main`/`/` (`gh api repos/{owner}/{repo}/pages` reports
+> `build_type: legacy`), so until `pages.yml` is installed *and* the Pages
+> source is switched to GitHub Actions, everything at the repository root —
+> including `scripts/`, `tests/` and `docs/` — is publicly reachable at
+> https://buffedlizard55-lab.github.io/SportsPred/. Nothing sensitive is in
+> those paths, but the exclusion claim above only becomes true after the
+> switch.
 
 ### `collect.yml`
 Runs every 30 minutes and on demand. Runs tests, collects the OLBG slate with

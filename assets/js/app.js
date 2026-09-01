@@ -14,6 +14,7 @@
 
 import { scoreMatch, scoreCard, RULESET_VERSION, PATCHES, PROMPT_VERSION, CONFIDENCE } from '../../engine/engine.js';
 import { writeCard, MIN_WORDS } from '../../engine/writer.js';
+import { buildOlbgView, pairKey } from '../../engine/olbg.js';
 import { collectCard, toEngineMatch, isoDate, TAPE_DAYS } from './collector.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -25,6 +26,7 @@ const state = {
   surfaces: null,
   provenance: null,
   slate: null,          // OLBG snapshot (secondary, verified separately)
+  olbg: null,           // view-model of the slate vs the live card
   date: todayISO(),
   card: null,           // last collected card
   scored: null,
@@ -91,6 +93,9 @@ async function loadDate(dateISO) {
       const em = toEngineMatch(m, card);
       return { raw: m, match: em, result: scoreMatch(em) };
     });
+    // Correlate the committed OLBG snapshot against the live card (exact
+    // player-pair matches only; the view-model never fabricates one).
+    state.olbg = buildOlbgView(state.slate, card.matches, dateISO);
     hideProgress();
   } catch (e) {
     hideProgress();
@@ -102,6 +107,7 @@ async function loadDate(dateISO) {
   renderScoreboard();
   renderQuality();
   renderStatusPills();
+  renderOlbg();
 }
 
 function showProgress(msg, pct) {
@@ -125,9 +131,20 @@ function renderStatusPills() {
  * Scoreboard
  * ------------------------------------------------------------------ */
 
+/** Map of normalised player-pair -> OLBG snapshot event, for badges. */
+function olbgByPair() {
+  const map = new Map();
+  for (const ev of state.slate?.events ?? []) {
+    const pk = pairKey(ev.home, ev.away);
+    if (pk && !map.has(pk)) map.set(pk, ev);
+  }
+  return map;
+}
+
 function renderScoreboard() {
   const list = $('#match-list');
   if (!state.scored) { list.innerHTML = '<div class="empty">Loading…</div>'; return; }
+  const olbgMap = state.slate ? olbgByPair() : new Map();
 
   const q = state.search.toLowerCase();
   const rows = state.scored.filter(({ raw }) => {
@@ -175,6 +192,11 @@ function renderScoreboard() {
     const time = (raw.start_utc || '').slice(11, 16);
     const statusCls = raw.phase === 'live' ? 'live' : raw.phase;
 
+    // OLBG snapshot correlation (exact player-pair match only).
+    const oEv = olbgMap.get(pairKey(raw.players[0].name, raw.players[1].name));
+    const oc = oEv?.consensus;
+    const olbgLine = oEv ? `<div class="sub">🔗 <a href="${esc(oEv.url)}" target="_blank" rel="noopener noreferrer">OLBG</a> consensus: <strong>${esc(oc?.selection ?? '—')}</strong> · ${esc(oc?.market ?? '—')} · ${oc?.tips_for ?? '?'}/${oc?.tips_total ?? '?'} tips (${oc?.pct ?? '?'}%)${oc?.experts ? ` · ${oc.experts} expert` : ''}</div>` : '';
+
     return `<div class="match" data-id="${esc(raw.competition_id)}">
       <div class="when">
         <span class="d ${statusCls}">${esc(raw.phase === 'results' ? 'FT' : raw.phase === 'live' ? 'LIVE' : time || 'TBC')}</span>
@@ -185,6 +207,7 @@ function renderScoreboard() {
         ${score ? `<div class="score">${esc(score)}${raw.winner_name ? ` · ${esc(raw.winner_name)} won` : ''}</div>` : ''}
         <div class="sub">${esc(raw.tournament || '')}${raw.round ? ` · ${esc(raw.round)}` : ''}
           · ${raw.surface ? esc(raw.surface) : '<em>surface unsourced</em>'}</div>
+        ${olbgLine}
         <div class="sub">${badges}</div>
       </div>
       <div class="acts">
@@ -199,6 +222,62 @@ function renderScoreboard() {
 
 function label(m) {
   return { win_match: 'Win', first_set: 'Set1', games_handicap: 'Hcap' }[m] || m;
+}
+
+/* ------------------------------------------------------------------ *
+ * OLBG slate snapshot panel
+ * ------------------------------------------------------------------ */
+
+function renderOlbg() {
+  const el = $('#olbg-block');
+  if (!el) return;
+  const v = state.olbg;
+  if (!v) { el.innerHTML = ''; return; }
+  if (!v.present) {
+    el.innerHTML = `<div class="empty">OLBG slate snapshot unavailable — ${esc(v.reason)}.</div>`;
+    return;
+  }
+
+  const rowHtml = (ev) => {
+    const c = ev.consensus ?? {};
+    const chips = [
+      ev.on_live_card ? '<span class="badge HIGH">on live card</span>' : '',
+      ev.model_excluded ? '<span class="badge SKIP" title="This consensus is on a market the model excludes">market excluded by model</span>' : '',
+    ].filter(Boolean).join(' ');
+    return `<div class="match">
+      <div class="when"><span class="d upcoming">${esc(ev.display_time || '—')}</span><span class="tour">UK</span></div>
+      <div>
+        <div class="who">${esc(ev.home)}<span class="vs">v</span>${esc(ev.away)}</div>
+        <div class="sub">Consensus: <strong>${esc(c.selection ?? '—')}</strong> — ${esc(c.market ?? '—')} · ${c.tips_for ?? '?'} of ${c.tips_total ?? '?'} tips (${c.pct ?? '?'}%)${c.comments ? ` · ${c.comments} comment${c.comments === 1 ? '' : 's'}` : ''}${c.experts ? ` · ${c.experts} expert tipster${c.experts === 1 ? '' : 's'}` : ''}</div>
+        <div class="sub">${chips} <a href="${esc(ev.url)}" target="_blank" rel="noopener noreferrer">OLBG event page ↗</a></div>
+      </div>
+    </div>`;
+  };
+
+  const dates = Object.keys(v.events_by_date).filter((d) => d !== 'unknown').sort();
+  const sections = dates.map((iso) => {
+    const list = v.events_by_date[iso];
+    return `<details${iso === v.date ? ' open' : ''}><summary>${esc(iso)} — ${list.length} market${list.length === 1 ? '' : 's'}${iso === v.date ? ' (selected day)' : ''}</summary>${list.map(rowHtml).join('')}</details>`;
+  }).join('');
+
+  const outrightRows = v.outrights.map((o) => `<tr>
+    <td>${esc(o.name)}</td><td>${esc(o.resolved_date ?? '—')}</td>
+    <td>${esc(o.consensus?.selection ?? '—')} (${o.consensus?.tips_for ?? '?'} of ${o.consensus?.tips_total ?? '?'})</td>
+    <td><a href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">event ↗</a></td>
+  </tr>`).join('');
+
+  const liveCount = state.scored?.length ?? 0;
+  el.innerHTML = `
+    <h2 class="olbg-title">OLBG market snapshot</h2>
+    <p class="hint">All openly listed tennis markets from <a href="${esc(v.source_url)}" target="_blank" rel="noopener noreferrer">${esc(v.source_name)} ↗</a>,
+    fetched ${esc(v.fetched_at_utc ?? 'unknown time')} — ${v.totals.events} matches across ${v.totals.dates} date${v.totals.dates === 1 ? '' : 's'}
+    plus ${v.totals.outrights} outright${v.totals.outrights === 1 ? '' : 's'}. ${v.totals.on_current_card} of the ${liveCount} live match${liveCount === 1 ? '' : 'es'} on ${esc(v.date)} also appear on this snapshot.</p>
+    ${sections || '<div class="empty">The snapshot lists no match markets.</div>'}
+    ${v.outrights.length ? `<h3>Outright markets <span class="hint">(never scored — outside the three-market model)</span></h3>
+      <table><thead><tr><th>Market</th><th>Date</th><th>Tipster consensus</th><th>Source</th></tr></thead><tbody>${outrightRows}</tbody></table>` : ''}
+    <details class="caveats"><summary>Snapshot caveats — read before comparing with the live card</summary>
+      <ul class="tight">${v.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
+    </details>`;
 }
 
 /* ------------------------------------------------------------------ *
@@ -217,18 +296,28 @@ function renderCalendar() {
   const daysInMonth = new Date(Date.UTC(y, mo + 1, 0)).getUTCDate();
   const today = todayISO();
 
+  // Markers reflect ONLY the committed OLBG snapshot (it covers its fetch
+  // window, day or two ahead) — never an invented schedule.
+  const slateDates = new Map();
+  for (const ev of state.slate?.events ?? []) {
+    if (!ev?.resolved_date) continue;
+    slateDates.set(ev.resolved_date, (slateDates.get(ev.resolved_date) || 0) + 1);
+  }
+
   let html = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     .map((x) => `<div class="cal-dow">${x}</div>`).join('');
   for (let i = 0; i < startDow; i++) html += '<div class="cal-day out"></div>';
   for (let day = 1; day <= daysInMonth; day++) {
     const iso = `${y}-${String(mo + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const sl = slateDates.get(iso) || 0;
     const cls = [
       'cal-day',
       iso === state.date ? 'sel' : '',
       iso === today ? 'today' : '',
+      sl ? 'has-slate' : '',
     ].filter(Boolean).join(' ');
-    html += `<div class="${cls}" data-date="${iso}"><div class="n">${day}</div>
-      ${iso === today ? '<div class="c">today</div>' : ''}</div>`;
+    html += `<div class="${cls}" data-date="${iso}"${sl ? ` title="OLBG snapshot lists ${sl} market${sl === 1 ? '' : 's'} on this date"` : ''}><div class="n">${day}</div>
+      ${iso === today ? '<div class="c">today</div>' : ''}${sl ? '<div class="slate-dot"></div>' : ''}</div>`;
   }
   grid.innerHTML = html;
 
@@ -431,8 +520,8 @@ function renderAbout() {
         <td>court surface and tour level per tournament — ${s ? s.counts.resolved : '—'} tournaments from ${s ? s.files_used.reduce((a, f) => a + f.rows, 0).toLocaleString() : '—'} match rows</td>
         <td><a href="https://github.com/Kadantte/tennis_atp" target="_blank" rel="noopener noreferrer">atp mirror ↗</a>
         · <a href="https://github.com/Aneeshers/tennis-sackmann-archive" target="_blank" rel="noopener noreferrer">archive ↗</a></td></tr>
-      <tr><td>OLBG tennis tips</td><td>market listing and tipster consensus (snapshot; see Data quality)</td>
-        <td><a href="https://www.olbg.com/betting-tips/Tennis/6" target="_blank" rel="noopener noreferrer">olbg.com ↗</a></td></tr>
+      <tr><td>OLBG tennis tips</td><td>market listing and tipster consensus — snapshot rendered as the "OLBG market snapshot" panel under the scoreboard, with per-event links for manual review</td>
+        <td><a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener noreferrer">olbg.com ↗</a></td></tr>
     </tbody></table>
 
     <h2>What this site will not do</h2>
