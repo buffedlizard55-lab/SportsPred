@@ -15,10 +15,10 @@ recent form, surface record, and manual-review links back to ESPN/OLBG where
 available. One button turns the card into written tips you can copy.
 
 **Live site:** GitHub Pages is already enabled for this repository at
-<https://buffedlizard55-lab.github.io/SportsPred/>. Actions deployment files are
-present in this checkout under `.github/workflows/` and mirrored in [`ci/`](ci/README.md),
-but pushing them to GitHub from this Arena session was blocked by missing
-`workflows` permission (`IR-20`).
+<https://buffedlizard55-lab.github.io/SportsPred/>. Workflow files are present
+on this branch under `.github/workflows/` and mirrored in [`ci/`](ci/README.md).
+At the time of writing, the public Pages site is still configured in **legacy**
+mode from `main` until the repository Pages source is switched to **GitHub Actions**.
 **Local preview:** `python3 scripts/serve.py 8000` then open <http://localhost:8000>.
 
 ---
@@ -80,7 +80,7 @@ scripts/
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
 .github/workflows/      installed Pages deploy + scheduled collection workflows
-tests/                  120 Node tests + 23 Python tests
+tests/                  129 Node tests + 23 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
@@ -165,25 +165,18 @@ copies in [`ci/`](ci/README.md):
 The Pages site currently exists and was verified at:
 <https://buffedlizard55-lab.github.io/SportsPred/>.
 
-A remote push of the workflow files was attempted from this Arena session and
-GitHub rejected it for missing `workflows` permission (`IR-20`). So there are
-**two** possible remaining manual steps, depending on your repository settings:
-
-1. **If the workflow files are not yet on GitHub:** push `.github/workflows/`
-   from a checkout authenticated with credentials that have `workflows`
-   permission, or reconnect GitHub in Arena with that permission.
-2. **If GitHub Pages is still set to Deploy from a branch:** change it to
-   **GitHub Actions** after the workflow files are present on the remote branch.
+The workflow files are now present on this branch. The remaining manual step is
+usually the repository Pages setting if it is still configured for **Deploy from
+a branch** rather than **GitHub Actions**.
 
 Step-by-step:
 
-1. Ensure `.github/workflows/pages.yml` and `.github/workflows/collect.yml` are present on the remote repository. If they are not, push them from a checkout authenticated with `workflows` permission.
-2. Open the repository on GitHub.
-3. Go to **Settings → Pages**.
-4. Under **Build and deployment → Source**, choose **GitHub Actions**.
-5. Save the setting if GitHub prompts for confirmation.
-6. Open the **Actions** tab and confirm the latest **Deploy site** run passed.
-7. Re-open the Pages URL and verify the updated site content changed.
+1. Open the repository on GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment → Source**, choose **GitHub Actions**.
+4. Save the setting if GitHub prompts for confirmation.
+5. Open the **Actions** tab and confirm the latest **Deploy site** run passed.
+6. Re-open the Pages URL and verify the updated site content changed.
 
 If GitHub refuses workflow runs or Pages deployment, review:
 

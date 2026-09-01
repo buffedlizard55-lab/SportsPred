@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-08-31T03:30:00Z",
+  "generated_at_utc": "2026-09-01T22:10:00Z",
   "environment": {
     "verified_at_utc": "2026-08-31T00:12:00Z",
     "outbound_network_from_sandbox": "partial",
@@ -173,10 +173,10 @@
     {
       "id": "IR-20",
       "severity": "medium",
-      "title": "Arena GitHub auth cannot push workflow files",
-      "detail": "On 2026-08-31 a push of branch arena/01a0558a-sportspred containing .github/workflows/pages.yml and .github/workflows/collect.yml was rejected by GitHub with: refusing to allow a GitHub App to create or update workflow `.github/workflows/collect.yml` without `workflows` permission.",
-      "impact": "The workflow files exist in this checkout and are validated by inspection, but they are not yet installed on the remote repository from this Arena session. A GitHub connection with workflows permission, or a local push from user credentials, is still required to publish them remotely.",
-      "status": "OPEN"
+      "title": "Arena GitHub auth initially blocked workflow-file push",
+      "detail": "On 2026-09-01 an earlier push of branch arena/01a0558a-sportspred containing .github/workflows/pages.yml and .github/workflows/collect.yml was rejected by GitHub with: refusing to allow a GitHub App to create or update workflow `.github/workflows/collect.yml` without `workflows` permission.",
+      "impact": "That blocker was later cleared enough for the branch to be pushed and PR #7 to be opened. The workflows are now present on the remote feature branch. The remaining deployment step is repository configuration: GitHub Pages is still verified in legacy mode from main until the Pages source is switched to GitHub Actions.",
+      "status": "MITIGATED"
     }
   ]
 }

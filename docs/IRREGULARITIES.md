@@ -209,21 +209,19 @@ the tour would mislabel those matches.
 `tourOf()` reads the grouping/competition type text instead, and a regression
 test pins this behaviour against the real payload.
 
-### IR-20 — Arena GitHub auth cannot push workflow files · MEDIUM · OPEN
-On 2026-08-31 a push of `arena/01a0558a-sportspred` containing
+### IR-20 — Arena GitHub auth initially blocked workflow-file push · MEDIUM · MITIGATED
+On 2026-09-01 an earlier push of `arena/01a0558a-sportspred` containing
 `.github/workflows/pages.yml` and `.github/workflows/collect.yml` was rejected
 by GitHub with:
 
 > refusing to allow a GitHub App to create or update workflow
 > `.github/workflows/collect.yml` without `workflows` permission
 
-Consequence: the workflow files now exist **in this checkout** and are ready for
-review, but they are **not yet installed on the remote repository** from this
-Arena session. A GitHub connection with `workflows` permission, or a local push
-made with user credentials, is still required to publish them remotely.
-
-This is a deployment-permission blocker, not a code blocker. The OLBG board,
-prompt matrix, site changes and tests all exist locally and were verified.
+That blocker was later cleared enough for the branch to be pushed and PR #7 to
+be opened. The workflows are therefore now present on the remote feature branch.
+What remains outside the code itself is repository configuration: the public
+Pages site is still verified as **legacy** deployment from `main` until the
+Pages source is switched to **GitHub Actions**.
 
 ---
 

@@ -299,19 +299,24 @@ function renderCalendar() {
   const startDow = (first.getUTCDay() + 6) % 7; // Monday-first
   const daysInMonth = new Date(Date.UTC(y, mo + 1, 0)).getUTCDate();
   const today = todayISO();
+  const olbgCounts = olbgDateCounts(state.slate);
 
   let html = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     .map((x) => `<div class="cal-dow">${x}</div>`).join('');
   for (let i = 0; i < startDow; i++) html += '<div class="cal-day out"></div>';
   for (let day = 1; day <= daysInMonth; day++) {
     const iso = `${y}-${String(mo + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const slate = olbgCounts.get(iso) || { matches: 0, outrights: 0 };
+    const hasSlate = slate.matches + slate.outrights > 0;
     const cls = [
       'cal-day',
       iso === state.date ? 'sel' : '',
       iso === today ? 'today' : '',
+      hasSlate ? 'has-slate' : '',
     ].filter(Boolean).join(' ');
     html += `<div class="${cls}" data-date="${iso}"><div class="n">${day}</div>
-      ${iso === today ? '<div class="c">today</div>' : ''}</div>`;
+      ${iso === today ? '<div class="c">today</div>' : ''}
+      ${hasSlate ? '<div class="slate-dot" title="OLBG snapshot covers this date"></div>' : ''}</div>`;
   }
   grid.innerHTML = html;
 

@@ -217,8 +217,11 @@ h3 { font-size: 14px; margin: 20px 0 8px; color: var(--muted); text-transform: u
 .datebar { gap: .5rem; }
 .datebar input[type="date"] {
   padding: .45rem .6rem; border: 1px solid var(--line, #d8dee9);
-  border-radius: 8px; font: inherit; background: var(--panel-2); color: var(--text);
+  border-radius: 8px; font: inherit;
+  background: var(--panel-2); color: var(--text); color-scheme: dark;
 }
+.slate-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-2); margin: 3px auto 0; }
+.cal-day.has-slate { border-style: solid; }
 .progress { margin: .75rem 0 1rem; }
 .progress-label { font-size: .82rem; color: #5b6472; margin-bottom: .35rem; }
 .progress-track { height: 6px; background: #e8edf3; border-radius: 999px; overflow: hidden; }

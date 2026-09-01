@@ -9,10 +9,10 @@ The workflow files now exist in this checkout at:
 
 The copies in `ci/` are retained as readable mirrors/templates for review.
 
-**Important verified caveat:** a push of these workflow files from this Arena
-session was rejected by GitHub for missing `workflows` permission (`IR-20`). So
-reviewing the files is possible here, but publishing them to the remote
-repository still needs credentials with that permission.
+At the time of writing, GitHub Pages for the public site is still configured in
+**legacy** mode from `main`/`/`, so the custom Pages workflow will not become
+the production publishing path until the repository Pages source is switched to
+**GitHub Actions**.
 
 ## What each workflow does
 
@@ -24,7 +24,7 @@ Verified workflow behavior from the file contents:
 1. checks out the repo
 2. sets up Node 22
 3. configures GitHub Pages metadata
-4. runs the full test suite (**120 Node + 23 Python**)
+4. runs the full test suite (**129 Node + 23 Python**)
 5. runs `python3 scripts/build_data.py --strict`
 6. assembles a minimal `_site/` artifact containing only:
    - `index.html`
@@ -70,6 +70,12 @@ If the repository is still configured for **Deploy from a branch** instead of
 3. Save the change if prompted.
 4. Open **Actions** and verify a **Deploy site** run succeeds.
 5. Reload the Pages URL and confirm the updated site is live.
+
+> **Current exposure, verified 2026-09-01:** until that switch is made, the
+> root-published legacy Pages site can still serve repository-root paths such as
+> `scripts/`, `tests/` and `docs/`. Nothing sensitive is stored there, but the
+> “minimal artifact only” promise applies to the Actions deployment path, not to
+> the current legacy site.
 
 ## Irregularities / review points
 

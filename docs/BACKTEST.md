@@ -77,3 +77,10 @@ node scripts/backtest_historical.mjs
 
 The CSVs are cached under `data/.cache/sackmann/` (git-ignored). To re-download,
 delete that directory.
+
+> Sandbox note (verified 2026-08-31): in a TLS-intercepting sandbox Node may
+> fail with `UNABLE_TO_VERIFY_LEAF_SIGNATURE` while `curl` works. Run with the
+> system trust store, e.g.
+> `NODE_EXTRA_CA_CERTS=/usr/lib/ssl/cert.pem node scripts/backtest_historical.mjs`.
+> The figures above were reproduced this way in that environment (2024–2025,
+> 6,020 rows, 5,377 scored, 63.9% win-match hit rate — identical to the table).
