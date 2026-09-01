@@ -284,7 +284,13 @@ export function writeCard(scoredMatches) {
         violations.push({ event_id: match?.event_id, market, violations: out.violations });
         tips.push({ event_id: match?.event_id, market, ok: false, text: null, band: null });
       } else {
-        usedOpeners.add(opener.word);
+        // SKIP tips are single explanatory sentences that open with "SKIP" —
+        // they never display the styled opener, so they must NOT consume a
+        // slot from the uniqueness pool. (Previously a skip-heavy card burned
+        // every opening and then reported a spurious openerPoolExhausted.)
+        if (!out.skip) {
+          usedOpeners.add(opener.word);
+        }
         tips.push({
           event_id: match?.event_id,
           match: `${match?.players?.[0]?.name} v ${match?.players?.[1]?.name}`,
@@ -294,14 +300,14 @@ export function writeCard(scoredMatches) {
           text: out.text,
           band: out.band,
           skip: !!out.skip,
-          opener: opener.id,
+          opener: out.skip ? null : opener.id,
         });
-        if (exhausted) {
+        if (exhausted && !out.skip) {
           violations.push({
             event_id: match?.event_id,
             market,
             openerPoolExhausted: true,
-            detail: `more tips than distinct openings available (${OPENERS.length})`,
+            detail: `more styled tips than distinct openings available (${OPENERS.length})`,
           });
         }
       }
@@ -311,8 +317,9 @@ export function writeCard(scoredMatches) {
 
   const emitted = tips.filter((t) => t.ok);
   // SKIP lines are single explanatory sentences, not styled tips, so they are
-  // excluded from the opening-uniqueness rule.
-  const openers = emitted.filter((t) => !t.skip).map((t) => t.text.split(/\s+/)[0].toLowerCase());
+  // excluded from the opening-uniqueness rule and from pool accounting.
+  const styled = emitted.filter((t) => !t.skip);
+  const openers = styled.map((t) => t.text.split(/\s+/)[0].toLowerCase());
   const dupes = [...new Set(openers.filter((o, i) => openers.indexOf(o) !== i))];
   if (dupes.length) violations.push({ duplicateOpeners: dupes });
 
@@ -322,6 +329,6 @@ export function writeCard(scoredMatches) {
     violations,
     unscored,
     openerPoolSize: OPENERS.length,
-    openerPoolExhausted: emitted.length > OPENERS.length,
+    openerPoolExhausted: styled.length > OPENERS.length,
   };
 }
