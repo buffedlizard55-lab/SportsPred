@@ -1,0 +1,764 @@
+{
+  "schema_version": 1,
+  "sport": "Handball",
+  "generated_at_utc": "2026-09-01T22:00:00Z",
+  "predictions": [
+    {
+      "event_id": "11396",
+      "competition_id": "hb-20260902-11396",
+      "date": "2026-09-02",
+      "match": "Aalborg Handbold v Fredericia HK",
+      "league": "Danish Handboldligaen",
+      "favourite": "Aalborg Handbold",
+      "markets": {
+        "win_match": {
+          "selection": "Aalborg Handbold",
+          "band": "HIGH",
+          "score": 93,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Aalborg Handbold to cover",
+          "band": "HIGH",
+          "score": 88,
+          "spread": 6.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 82,
+          "total": 61.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11401",
+      "competition_id": "hb-20260902-11401",
+      "date": "2026-09-02",
+      "match": "Skjern Handbold v Mors Thy Handbold",
+      "league": "Danish Handboldligaen",
+      "favourite": "Skjern Handbold",
+      "markets": {
+        "win_match": {
+          "selection": "Skjern Handbold",
+          "band": "HIGH",
+          "score": 78,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Skjern Handbold to cover",
+          "band": "MEDIUM",
+          "score": 68,
+          "spread": 2.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 75,
+          "total": 64.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11416",
+      "competition_id": "hb-20260904-11416",
+      "date": "2026-09-04",
+      "match": "Montpellier v Chartres",
+      "league": "French LNH Starligue",
+      "favourite": "Montpellier",
+      "markets": {
+        "win_match": {
+          "selection": "Montpellier",
+          "band": "HIGH",
+          "score": 95,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Montpellier to cover",
+          "band": "HIGH",
+          "score": 90,
+          "spread": 6.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 72,
+          "total": 61.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11403",
+      "competition_id": "hb-20260902-11403",
+      "date": "2026-09-02",
+      "match": "Bergischer HC v SG Flensburg Handewitt",
+      "league": "German Handball-Bundesliga",
+      "favourite": "SG Flensburg Handewitt",
+      "markets": {
+        "win_match": {
+          "selection": "SG Flensburg Handewitt",
+          "band": "HIGH",
+          "score": 88,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "SG Flensburg Handewitt to cover",
+          "band": "HIGH",
+          "score": 84,
+          "spread": 5.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 85,
+          "total": 65.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11422",
+      "competition_id": "hb-20260902-11422",
+      "date": "2026-09-02",
+      "match": "Nykobing FH W v Team Esbjerg W",
+      "league": "Danish Kvindeligaen",
+      "favourite": "Team Esbjerg W",
+      "markets": {
+        "win_match": {
+          "selection": "Team Esbjerg W",
+          "band": "HIGH",
+          "score": 96,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Team Esbjerg W to cover",
+          "band": "HIGH",
+          "score": 92,
+          "spread": 4.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Under",
+          "band": "MEDIUM",
+          "score": 65,
+          "total": 61.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11456",
+      "competition_id": "hb-20260902-11456",
+      "date": "2026-09-02",
+      "match": "Kolstad v Runar",
+      "league": "Norwegian REMA 1000-ligaen Men",
+      "favourite": "Kolstad",
+      "markets": {
+        "win_match": {
+          "selection": "Kolstad",
+          "band": "HIGH",
+          "score": 94,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Kolstad to cover",
+          "band": "HIGH",
+          "score": 89,
+          "spread": 6.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 74,
+          "total": 59.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "historical-01",
+      "competition_id": "hb-20260901-001",
+      "date": "2026-09-01",
+      "match": "THW Kiel v TBV Lemgo Lippe",
+      "league": "German Handball-Bundesliga",
+      "favourite": "THW Kiel",
+      "markets": {
+        "win_match": {
+          "selection": "THW Kiel",
+          "band": "HIGH",
+          "score": 82,
+          "settled": true,
+          "correct": true
+        },
+        "handicap_spread": {
+          "selection": "THW Kiel to cover",
+          "band": "HIGH",
+          "score": 76,
+          "spread": 4.5,
+          "settled": true,
+          "correct": true
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 68,
+          "total": 61.5,
+          "settled": true,
+          "correct": true
+        }
+      },
+      "result": {
+        "home": 35,
+        "away": 27,
+        "winner": "THW Kiel",
+        "total": 62,
+        "margin": 8
+      }
+    },
+    {
+      "event_id": "historical-02",
+      "competition_id": "hb-20260830-001",
+      "date": "2026-08-30",
+      "match": "Aalborg Handbold v TMS Ringsted",
+      "league": "Danish Handboldligaen",
+      "favourite": "Aalborg Handbold",
+      "markets": {
+        "win_match": {
+          "selection": "Aalborg Handbold",
+          "band": "HIGH",
+          "score": 92,
+          "settled": true,
+          "correct": true
+        },
+        "handicap_spread": {
+          "selection": "Aalborg Handbold to cover",
+          "band": "HIGH",
+          "score": 86,
+          "spread": 7.5,
+          "settled": true,
+          "correct": true
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 79,
+          "total": 63.5,
+          "settled": true,
+          "correct": true
+        }
+      },
+      "result": {
+        "home": 36,
+        "away": 28,
+        "winner": "Aalborg Handbold",
+        "total": 64,
+        "margin": 8
+      }
+    },
+    {
+      "event_id": "historical-03",
+      "competition_id": "hb-20260829-001",
+      "date": "2026-08-29",
+      "match": "Montpellier v Limoges",
+      "league": "French LNH Starligue",
+      "favourite": "Montpellier",
+      "markets": {
+        "win_match": {
+          "selection": "Montpellier",
+          "band": "HIGH",
+          "score": 90,
+          "settled": true,
+          "correct": true
+        },
+        "handicap_spread": {
+          "selection": "Montpellier to cover",
+          "band": "HIGH",
+          "score": 84,
+          "spread": 5.5,
+          "settled": true,
+          "correct": true
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 67,
+          "total": 60.5,
+          "settled": true,
+          "correct": true
+        }
+      },
+      "result": {
+        "home": 34,
+        "away": 27,
+        "winner": "Montpellier",
+        "total": 61,
+        "margin": 7
+      }
+    },
+    {
+      "event_id": "11399",
+      "competition_id": "hb-20260902-11399",
+      "date": "2026-09-02",
+      "match": "Ribe Esbjerg HH v KIF Kolding",
+      "league": "Danish Handboldligaen",
+      "favourite": "Ribe Esbjerg HH",
+      "markets": {
+        "win_match": {
+          "selection": "Ribe Esbjerg HH",
+          "band": "HIGH",
+          "score": 77,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Ribe Esbjerg HH to cover",
+          "band": "HIGH",
+          "score": 88,
+          "spread": 3.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 77,
+          "total": 63.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11400",
+      "competition_id": "hb-20260902-11400",
+      "date": "2026-09-02",
+      "match": "Skive FH v TMS Ringsted",
+      "league": "Danish Handboldligaen",
+      "favourite": "TMS Ringsted",
+      "markets": {
+        "win_match": {
+          "selection": "TMS Ringsted",
+          "band": "LOW",
+          "score": 26,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Skive FH to cover",
+          "band": "SKIP",
+          "score": 30,
+          "spread": 0.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "LOW",
+          "score": 67,
+          "total": 65.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11398",
+      "competition_id": "hb-20260902-11398",
+      "date": "2026-09-02",
+      "match": "Nordsjaelland Handbold v Skanderborg Handbold",
+      "league": "Danish Handboldligaen",
+      "favourite": "Skanderborg Handbold",
+      "markets": {
+        "win_match": {
+          "selection": "Skanderborg Handbold",
+          "band": "HIGH",
+          "score": 79,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Skanderborg Handbold to cover",
+          "band": "HIGH",
+          "score": 93,
+          "spread": 3.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 77,
+          "total": 63.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11406",
+      "competition_id": "hb-20260902-11406",
+      "date": "2026-09-02",
+      "match": "MT Melsungen v Frisch Auf Goppingen",
+      "league": "German Handball-Bundesliga",
+      "favourite": "MT Melsungen",
+      "markets": {
+        "win_match": {
+          "selection": "MT Melsungen",
+          "band": "MEDIUM",
+          "score": 56,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "MT Melsungen to cover",
+          "band": "MEDIUM",
+          "score": 63,
+          "spread": 3.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 67,
+          "total": 56.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11404",
+      "competition_id": "hb-20260902-11404",
+      "date": "2026-09-02",
+      "match": "HC Erlangen v TSV Hannover Burgdorf",
+      "league": "German Handball-Bundesliga",
+      "favourite": "TSV Hannover Burgdorf",
+      "markets": {
+        "win_match": {
+          "selection": "TSV Hannover Burgdorf",
+          "band": "LOW",
+          "score": 36,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "HC Erlangen to cover",
+          "band": "SKIP",
+          "score": 46,
+          "spread": 2.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 52,
+          "total": 58.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11407",
+      "competition_id": "hb-20260902-11407",
+      "date": "2026-09-02",
+      "match": "Rhein Neckar Lowen v Vfl Gummersbach",
+      "league": "German Handball-Bundesliga",
+      "favourite": "Rhein Neckar Lowen",
+      "markets": {
+        "win_match": {
+          "selection": "Rhein Neckar Lowen",
+          "band": "LOW",
+          "score": 44,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Vfl Gummersbach to cover",
+          "band": "SKIP",
+          "score": 45,
+          "spread": 0.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 77,
+          "total": 61.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11423",
+      "competition_id": "hb-20260902-11423",
+      "date": "2026-09-02",
+      "match": "Ringkobing W v Odense Handbold W",
+      "league": "Danish Kvindeligaen",
+      "favourite": "Odense Handbold W",
+      "markets": {
+        "win_match": {
+          "selection": "Odense Handbold W",
+          "band": "HIGH",
+          "score": 99,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Odense Handbold W to cover",
+          "band": "HIGH",
+          "score": 100,
+          "spread": 10.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 64,
+          "total": 62.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11453",
+      "competition_id": "hb-20260902-11453",
+      "date": "2026-09-02",
+      "match": "Follo HK W v Larvik W",
+      "league": "Norwegian REMA 1000-ligaen Women",
+      "favourite": "Larvik W",
+      "markets": {
+        "win_match": {
+          "selection": "Larvik W",
+          "band": "HIGH",
+          "score": 74,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Larvik W to cover",
+          "band": "HIGH",
+          "score": 88,
+          "spread": 2.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "SKIP",
+          "score": 39,
+          "total": 54.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11454",
+      "competition_id": "hb-20260902-11454",
+      "date": "2026-09-02",
+      "match": "Gjerpen W v Byasen W",
+      "league": "Norwegian REMA 1000-ligaen Women",
+      "favourite": "Byasen W",
+      "markets": {
+        "win_match": {
+          "selection": "Byasen W",
+          "band": "LOW",
+          "score": 46,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Byasen W to cover",
+          "band": "MEDIUM",
+          "score": 56,
+          "spread": 0.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 54,
+          "total": 56.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11455",
+      "competition_id": "hb-20260902-11455",
+      "date": "2026-09-02",
+      "match": "Utleira W v Storhamar W",
+      "league": "Norwegian REMA 1000-ligaen Women",
+      "favourite": "Storhamar W",
+      "markets": {
+        "win_match": {
+          "selection": "Storhamar W",
+          "band": "HIGH",
+          "score": 100,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Storhamar W to cover",
+          "band": "HIGH",
+          "score": 100,
+          "spread": 6.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "SKIP",
+          "score": 27,
+          "total": 52.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11452",
+      "competition_id": "hb-20260902-11452",
+      "date": "2026-09-02",
+      "match": "Fjellhammer W v Sola W",
+      "league": "Norwegian REMA 1000-ligaen Women",
+      "favourite": "Sola W",
+      "markets": {
+        "win_match": {
+          "selection": "Sola W",
+          "band": "HIGH",
+          "score": 91,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "Sola W to cover",
+          "band": "HIGH",
+          "score": 100,
+          "spread": 6.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "SKIP",
+          "score": 27,
+          "total": 53.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11410",
+      "competition_id": "hb-20260903-11410",
+      "date": "2026-09-03",
+      "match": "TBV Lemgo Lippe v HSG Wetzlar",
+      "league": "German Handball-Bundesliga",
+      "favourite": "TBV Lemgo Lippe",
+      "markets": {
+        "win_match": {
+          "selection": "TBV Lemgo Lippe",
+          "band": "HIGH",
+          "score": 84,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "TBV Lemgo Lippe to cover",
+          "band": "HIGH",
+          "score": 98,
+          "spread": 6.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 67,
+          "total": 57.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11409",
+      "competition_id": "hb-20260903-11409",
+      "date": "2026-09-03",
+      "match": "SG BBM Bietigheim v THW Kiel",
+      "league": "German Handball-Bundesliga",
+      "favourite": "THW Kiel",
+      "markets": {
+        "win_match": {
+          "selection": "THW Kiel",
+          "band": "HIGH",
+          "score": 81,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "THW Kiel to cover",
+          "band": "HIGH",
+          "score": 90,
+          "spread": 5.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 77,
+          "total": 62.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "11402",
+      "competition_id": "hb-20260903-11402",
+      "date": "2026-09-03",
+      "match": "SonderjyskE v Bjerringbro Silkeborg",
+      "league": "Danish Handboldligaen",
+      "favourite": "Bjerringbro Silkeborg",
+      "markets": {
+        "win_match": {
+          "selection": "Bjerringbro Silkeborg",
+          "band": "LOW",
+          "score": 33,
+          "settled": false
+        },
+        "handicap_spread": {
+          "selection": "SonderjyskE to cover",
+          "band": "SKIP",
+          "score": 43,
+          "spread": 0.5,
+          "settled": false
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "HIGH",
+          "score": 77,
+          "total": 63.5,
+          "settled": false
+        }
+      }
+    },
+    {
+      "event_id": "hb-20260901-002",
+      "competition_id": "hb-20260901-002",
+      "date": "2026-09-01",
+      "match": "Bergischer HC v Frisch Auf Goppingen",
+      "league": "German Handball-Bundesliga",
+      "favourite": "Frisch Auf Goppingen",
+      "markets": {
+        "win_match": {
+          "selection": "Frisch Auf Goppingen",
+          "band": "LOW",
+          "score": 13,
+          "settled": true
+        },
+        "handicap_spread": {
+          "selection": "Bergischer HC to cover",
+          "band": "SKIP",
+          "score": 22,
+          "spread": 0.5,
+          "settled": true
+        },
+        "game_total": {
+          "selection": "Over",
+          "band": "MEDIUM",
+          "score": 65,
+          "total": 57.5,
+          "settled": true
+        }
+      },
+      "result": {
+        "home": 29,
+        "away": 28,
+        "winner": "Bergischer HC",
+        "total": 57,
+        "margin": 1
+      }
+    }
+  ]
+}

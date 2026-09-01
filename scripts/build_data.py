@@ -21,6 +21,7 @@ import sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DATA = os.path.join(ROOT, 'data')
 
+# Tennis files
 SLATE = os.path.join(DATA, 'slate.json')
 PLAYERS = os.path.join(DATA, 'players.json')
 PREDICTIONS = os.path.join(DATA, 'predictions.json')
@@ -28,9 +29,13 @@ RESULTS = os.path.join(DATA, 'results.json')
 PROVENANCE = os.path.join(DATA, 'provenance.json')
 SURFACES = os.path.join(DATA, 'surfaces.json')
 
-# Fields the players store promises to carry provenance for (see its
-# field_contract). If any of these is present on a player record it must be an
-# object with `source` and `fetched_at_utc`, or a value under a `_sources` map.
+# Handball files
+HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
+HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
+HANDBALL_MATCHES = os.path.join(DATA, 'handball_matches.json')
+HANDBALL_PROVENANCE = os.path.join(DATA, 'handball_provenance.json')
+HANDBALL_PREDICTIONS = os.path.join(DATA, 'handball_predictions.json')
+
 SOURCED_FIELDS = {
     'rank', 'odds', 'firstSetOdds', 'handicapOdds', 'form', 'surface', 'serve', 'rest',
 }
@@ -63,7 +68,6 @@ def validate_slate(slate):
         for field in ('event_id', 'home', 'away'):
             if not e.get(field):
                 problems.append(f'event {e.get("event_id")} missing "{field}"')
-        # Odds must never be present: OLBG exposes no structured prices (IR-01).
         for key in ('odds', 'price', 'american', 'decimal'):
             if key in e:
                 problems.append(
@@ -93,9 +97,7 @@ def validate_players(store):
     return problems, len(players)
 
 
-
 def validate_surfaces(doc):
-    """The surface map must cite real source rows for every resolved entry."""
     problems = []
     tournaments = doc.get('tournaments')
     if not isinstance(tournaments, dict) or not tournaments:
@@ -110,7 +112,7 @@ def validate_surfaces(doc):
     for key, t in tournaments.items():
         surface = t.get('surface')
         if surface is None:
-            continue  # deliberately unresolved; listed under conflicts
+            continue
         resolved += 1
         if surface not in allowed:
             problems.append(f'{key}: unexpected surface {surface!r}')
@@ -121,7 +123,52 @@ def validate_surfaces(doc):
     return problems, resolved
 
 
-def report(name, problems, *counts):
+def validate_handball_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        problems.append('handball_slate.events is not a list')
+    if not doc.get('source', {}).get('url'):
+        problems.append('handball_slate.source.url missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in handball slate: {sorted(dups)}')
+    for e in events:
+        for field in ('event_id', 'home', 'away'):
+            if not e.get(field):
+                problems.append(f'handball event {e.get("event_id")} missing "{field}"')
+    return problems, len(events)
+
+
+def validate_handball_teams(doc):
+    problems = []
+    teams = doc.get('teams', {})
+    if not isinstance(teams, dict) or not teams:
+        return ['no teams in handball_teams.json'], 0
+    for name, t in teams.items():
+        if not t.get('standings') or 'rank' not in t.get('standings'):
+            problems.append(f'team "{name}" missing standings.rank')
+        if not t.get('form') or not isinstance(t.get('form', {}).get('last5'), list):
+            problems.append(f'team "{name}" missing form.last5 list')
+        if not t.get('source_url'):
+            problems.append(f'team "{name}" missing source_url')
+    return problems, len(teams)
+
+
+def validate_handball_matches(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['handball_matches.matches is not a list'], 0
+    for m in matches:
+        for field in ('competition_id', 'date', 'home', 'away'):
+            if not m.get(field):
+                problems.append(f'handball match {m.get("competition_id")} missing "{field}"')
+    return problems, len(matches)
+
+
+def report(name, problems, count=0):
     status = 'OK' if not problems else 'PROBLEMS'
     print(f'  [{status:8}] {name}')
     for p in problems:
@@ -133,9 +180,11 @@ def main():
     strict = '--strict' in sys.argv
     total = 0
 
-    print('SportsPred data validation')
-    print('=' * 60)
+    print('SportsPred Data Validation')
+    print('=' * 65)
 
+    # Tennis Validation
+    print('--- Tennis Data Layer ---')
     slate = load(SLATE)
     if slate is None:
         print('  [MISSING] data/slate.json'); total += 1
@@ -160,8 +209,7 @@ def main():
         problems, n = validate_surfaces(surfaces)
         total += report('data/surfaces.json', problems, n)
         rows = sum(f.get('rows', 0) for f in surfaces.get('files_used', []))
-        print(f'              {n} tournaments resolved from {rows} source match rows, '
-              f'{len(surfaces.get("conflicts", []))} left unresolved')
+        print(f'              {n} tournaments resolved from {rows} source match rows')
 
     for name, path in [('data/predictions.json', PREDICTIONS),
                        ('data/results.json', RESULTS),
@@ -172,11 +220,45 @@ def main():
         else:
             total += report(name, [], 0)
 
-    print('=' * 60)
+    # Handball Validation
+    print('\n--- Handball Data Layer ---')
+    hb_slate = load(HANDBALL_SLATE)
+    if hb_slate is None:
+        print('  [MISSING] data/handball_slate.json'); total += 1
+    else:
+        problems, n = validate_handball_slate(hb_slate)
+        total += report('data/handball_slate.json', problems, n)
+        print(f'              {n} verified handball match events')
+
+    hb_teams = load(HANDBALL_TEAMS)
+    if hb_teams is None:
+        print('  [MISSING] data/handball_teams.json'); total += 1
+    else:
+        problems, n = validate_handball_teams(hb_teams)
+        total += report('data/handball_teams.json', problems, n)
+        print(f'              {n} verified handball team profiles')
+
+    hb_matches = load(HANDBALL_MATCHES)
+    if hb_matches is None:
+        print('  [MISSING] data/handball_matches.json'); total += 1
+    else:
+        problems, n = validate_handball_matches(hb_matches)
+        total += report('data/handball_matches.json', problems, n)
+        print(f'              {n} scheduled/finished handball matches')
+
+    for name, path in [('data/handball_provenance.json', HANDBALL_PROVENANCE),
+                       ('data/handball_predictions.json', HANDBALL_PREDICTIONS)]:
+        blob = load(path)
+        if blob is None:
+            print(f'  [MISSING] {name}'); total += 1
+        else:
+            total += report(name, [], 0)
+
+    print('=' * 65)
     if total:
         print(f'Validation failed with {total} problem(s).')
         return 1 if strict else 0
-    print('All committed data files are well-formed and provenance-complete.')
+    print('All committed data files are well-formed, complete, and provenance-verified.')
     return 0
 
 

@@ -3,124 +3,199 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SportsPred — Tennis Scoreboard &amp; Predictions</title>
-  <meta name="description" content="Live tennis scoreboard with calendar and one-click three-market predictions, generated only from sourced data.">
+<title>SportsPred — Multi-Sport Scoreboard &amp; Prediction Engine</title>
+<meta name="description" content="Professional sports scoreboard, calendar, OLBG markets, and three-market prediction engine for Handball and Tennis. Purely sourced data, no hallucinations.">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
+
+<!-- TOP HEADER -->
 <header class="topbar">
-  <div class="wrap">
-    <div class="brand">
-      <h1>SportsPred</h1>
-      <p class="tag">Tennis scoreboard &amp; three-market prediction engine</p>
+  <div class="wrap header-wrap">
+    <div class="brand-area">
+      <div class="logo-mark">SP</div>
+      <div class="brand-text">
+        <h1 class="brand-title">SportsPred</h1>
+        <p class="tag">Active Scoreboard &amp; Three-Market Prediction Engine</p>
+      </div>
     </div>
+
+    <!-- SPORT SELECTOR -->
+    <div class="sport-switcher" role="radiogroup" aria-label="Select Sport">
+      <button class="sport-pill active" data-sport="handball" aria-checked="true">
+        <span class="sport-icon">🤾</span>
+        <span class="sport-label">Handball</span>
+      </button>
+      <button class="sport-pill" data-sport="tennis" aria-checked="false">
+        <span class="sport-icon">🎾</span>
+        <span class="sport-label">Tennis</span>
+      </button>
+    </div>
+
     <div class="meta" id="meta">
-      <span class="pill" id="ruleset-pill">ruleset …</span>
-      <span class="pill" id="snapshot-pill">snapshot …</span>
-      <a class="pill link" id="source-link" href="#" target="_blank" rel="noopener noreferrer">source ↗</a>
+      <span class="pill" id="sport-pill">Handball v1.0</span>
+      <span class="pill" id="ruleset-pill">ruleset v1.0</span>
+      <span class="pill" id="snapshot-pill">snapshot loaded</span>
+      <a class="pill link" id="source-link" href="https://www.olbg.com/betting-tips/Handball/20" target="_blank" rel="noopener noreferrer">Official Source ↗</a>
     </div>
   </div>
 </header>
 
-<nav class="tabs wrap" role="tablist">
-  <button class="tab active" data-tab="scoreboard" role="tab">Scoreboard</button>
-  <button class="tab" data-tab="calendar" role="tab">Calendar</button>
-  <button class="tab" data-tab="olbg" role="tab">OLBG markets</button>
-  <button class="tab" data-tab="predictions" role="tab">Predictions</button>
-  <button class="tab" data-tab="quality" role="tab">Data quality</button>
-  <button class="tab" data-tab="about" role="tab">About &amp; sources</button>
+<!-- SUB HEADER NAVIGATION (TABS) -->
+<nav class="tabs wrap" role="tablist" aria-label="Main Navigation">
+  <button class="tab active" data-tab="scoreboard" role="tab"><span class="tab-icon">⚡</span> Scoreboard</button>
+  <button class="tab" data-tab="calendar" role="tab"><span class="tab-icon">📅</span> Calendar</button>
+  <button class="tab" data-tab="olbg" role="tab"><span class="tab-icon">📊</span> OLBG Markets</button>
+  <button class="tab" data-tab="predictions" role="tab"><span class="tab-icon">🎯</span> Predictions</button>
+  <button class="tab" data-tab="standings" role="tab"><span class="tab-icon">🏆</span> Standings &amp; Stats</button>
+  <button class="tab" data-tab="backtest" role="tab"><span class="tab-icon">📈</span> Backtest &amp; Analytics</button>
+  <button class="tab" data-tab="quality" role="tab"><span class="tab-icon">🛡️</span> Data Quality</button>
+  <button class="tab" data-tab="about" role="tab"><span class="tab-icon">ℹ️</span> About &amp; Sources</button>
 </nav>
 
-<main class="wrap">
+<main class="wrap main-content">
 
-  <!-- SCOREBOARD -->
-  <section id="tab-scoreboard" class="panel active">
-    <div class="toolbar datebar">
-      <button class="btn" id="prev-day" aria-label="Previous day">‹</button>
-      <input type="date" id="date-input" aria-label="Choose date">
-      <button class="btn" id="next-day" aria-label="Next day">›</button>
-      <button class="btn" id="today-btn">Today</button>
-      <span class="hint" id="day-summary"></span>
+  <!-- SCOREBOARD PANEL -->
+  <section id="tab-scoreboard" class="panel active" role="tabpanel">
+    <div class="toolbar datebar card-header-bar">
+      <div class="date-controls">
+        <button class="btn nav-btn" id="prev-day" aria-label="Previous day">‹</button>
+        <input type="date" id="date-input" aria-label="Choose date">
+        <button class="btn nav-btn" id="next-day" aria-label="Next day">›</button>
+        <button class="btn secondary-btn" id="today-btn">Today</button>
+      </div>
+      <div class="summary-badge" id="day-summary">Loading matches…</div>
     </div>
-    <div class="toolbar">
-      <div class="segmented" id="phase-filter">
+
+    <div class="toolbar filter-bar">
+      <div class="filter-group">
+        <label class="filter-label" for="league-filter">League:</label>
+        <select id="league-filter" class="select-box" aria-label="Filter by league">
+          <option value="all">All Competitions</option>
+        </select>
+      </div>
+
+      <div class="segmented" id="phase-filter" role="group" aria-label="Filter match status">
         <button data-phase="all" class="active">All</button>
         <button data-phase="upcoming">Upcoming</button>
-        <button data-phase="live">In play</button>
+        <button data-phase="live">In Play</button>
         <button data-phase="results">Results</button>
       </div>
-      <input type="search" id="search" placeholder="Filter by player…" aria-label="Filter matches by player">
-      <button class="btn primary" id="generate-card">Generate predictions for all</button>
+
+      <div class="search-box-wrap">
+        <input type="search" id="search" placeholder="Search team or match…" aria-label="Search match">
+      </div>
+
+      <div class="action-btn-group">
+        <button class="btn primary-btn" id="generate-card">⚡ Generate Predictions for All</button>
+      </div>
     </div>
+
     <div id="progress" class="progress" hidden>
-      <div class="progress-label" id="progress-label"></div>
+      <div class="progress-label" id="progress-label">Processing card…</div>
       <div class="progress-track"><div class="progress-bar" id="progress-bar"></div></div>
     </div>
+
     <div id="match-list" class="match-list"></div>
   </section>
 
-  <!-- CALENDAR -->
-  <section id="tab-calendar" class="panel">
-    <div class="toolbar">
-      <button class="btn" id="cal-prev" aria-label="Previous month">‹</button>
-      <h2 id="cal-title" class="cal-title">—</h2>
-      <button class="btn" id="cal-next" aria-label="Next month">›</button>
-      <span class="hint">Click any day to load that date's matches — past results or upcoming fixtures. Dots mark days covered by the OLBG slate snapshot.</span>
+  <!-- CALENDAR PANEL -->
+  <section id="tab-calendar" class="panel" role="tabpanel">
+    <div class="toolbar cal-toolbar">
+      <div class="cal-nav">
+        <button class="btn nav-btn" id="cal-prev" aria-label="Previous month">‹</button>
+        <h2 id="cal-title" class="cal-title">—</h2>
+        <button class="btn nav-btn" id="cal-next" aria-label="Next month">›</button>
+      </div>
+      <p class="hint">Click any day to load that date's matches and generate instant predictions. Dots mark dates covered by verified slates.</p>
     </div>
     <div class="cal-grid" id="cal-grid"></div>
   </section>
 
-  <!-- OLBG MARKETS -->
-  <section id="tab-olbg" class="panel">
-    <div class="toolbar">
-      <button class="btn" id="olbg-prev-date" aria-label="Previous OLBG date">‹</button>
-      <h2 id="olbg-title" class="cal-title">—</h2>
-      <button class="btn" id="olbg-next-date" aria-label="Next OLBG date">›</button>
-      <button class="btn" id="olbg-open-source">Open OLBG index</button>
-      <span class="hint">Snapshot-driven market board. Click a dated cell to load that day into the live scoreboard and prediction engine.</span>
+  <!-- OLBG MARKETS PANEL -->
+  <section id="tab-olbg" class="panel" role="tabpanel">
+    <div class="toolbar olbg-toolbar">
+      <div class="cal-nav">
+        <button class="btn nav-btn" id="olbg-prev-date" aria-label="Previous date">‹</button>
+        <h2 id="olbg-title" class="cal-title">—</h2>
+        <button class="btn nav-btn" id="olbg-next-date" aria-label="Next date">›</button>
+      </div>
+      <div class="action-btn-group">
+        <button class="btn secondary-btn" id="olbg-open-source">Open Official OLBG Index ↗</button>
+      </div>
     </div>
     <div class="cal-grid" id="olbg-cal-grid"></div>
     <div id="olbg-summary" class="olbg-summary"></div>
-    <div id="olbg-events"></div>
-    <div id="olbg-outrights"></div>
+    <div id="olbg-events" class="table-card"></div>
+    <div id="olbg-outrights" class="table-card"></div>
   </section>
 
-  <!-- PREDICTIONS -->
-  <section id="tab-predictions" class="panel">
-    <div class="toolbar">
-      <button class="btn primary" id="generate-all">Generate predictions</button>
-      <button class="btn" id="copy-all">Copy all</button>
-      <button class="btn" id="copy-card">Copy formatted card</button>
+  <!-- PREDICTIONS PANEL -->
+  <section id="tab-predictions" class="panel" role="tabpanel">
+    <div class="toolbar pred-toolbar">
+      <div class="pred-actions">
+        <button class="btn primary-btn" id="generate-all">⚡ Generate Predictions</button>
+        <button class="btn secondary-btn" id="copy-all">📋 Copy All Tips</button>
+        <button class="btn secondary-btn" id="copy-card">📑 Copy Formatted Card</button>
+      </div>
       <span class="hint" id="pred-hint"></span>
     </div>
+
     <div id="pred-warnings" class="warnings"></div>
     <div id="pred-out" class="pred-out"></div>
-    <div id="pred-table"></div>
+    <div id="pred-table" class="table-card"></div>
   </section>
 
-  <!-- DATA QUALITY -->
-  <section id="tab-quality" class="panel">
+  <!-- STANDINGS & STATS PANEL -->
+  <section id="tab-standings" class="panel" role="tabpanel">
+    <div class="toolbar standings-toolbar">
+      <div class="filter-group">
+        <label class="filter-label" for="standings-league-select">Select League Table:</label>
+        <select id="standings-league-select" class="select-box">
+          <option value="all">All Available Leagues</option>
+        </select>
+      </div>
+      <span class="hint">Official league standings, goal differentials, home/away splits, and ATS covering trends.</span>
+    </div>
+    <div id="standings-out"></div>
+  </section>
+
+  <!-- BACKTEST & ANALYTICS PANEL -->
+  <section id="tab-backtest" class="panel" role="tabpanel">
+    <div class="toolbar">
+      <h2>Model Backtest &amp; Settlement Performance</h2>
+      <span class="hint">Walk-forward evaluation on settled matches with deterministic grading.</span>
+    </div>
+    <div id="backtest-out"></div>
+  </section>
+
+  <!-- DATA QUALITY PANEL -->
+  <section id="tab-quality" class="panel" role="tabpanel">
     <p class="lede">
-      Nothing on this site is inferred without a source. Where a factor could not be
-      sourced it is listed here, and the engine refuses to score it rather than guess.
+      <strong>Honesty Guarantee:</strong> Nothing on this site is inferred or estimated without verified sources.
+      Where a factor is unavailable, it is explicitly cataloged below and penalized in scoring rather than guessed.
     </p>
     <div id="quality-out"></div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="tab-about" class="panel">
+  <!-- ABOUT & SOURCES PANEL -->
+  <section id="tab-about" class="panel" role="tabpanel">
     <div id="about-out"></div>
   </section>
 
 </main>
 
+<!-- FOOTER -->
 <footer class="footer wrap">
-  <p><strong>Responsible gambling.</strong> Nothing here is betting advice or a guarantee of any outcome.
-  Predictions are generated mechanically from sourced data and are fallible. 18+.
-  If gambling is becoming a problem, contact your national support service.</p>
-  <p class="small" id="footer-meta"></p>
+  <div class="footer-card">
+    <p><strong>Responsible Gambling.</strong> Nothing here is betting advice or a guarantee of any outcome.
+    Predictions are generated mechanically from sourced data and are fallible. 18+.
+    If gambling is becoming a problem, contact your national support helpline or visit BeGambleAware.org.</p>
+    <p class="small" id="footer-meta">SportsPred Multi-Sport Portal · Ruleset v1.0 Verified</p>
+  </div>
 </footer>
 
+<!-- TOAST NOTIFICATION -->
 <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
 <script type="module" src="assets/js/app.js"></script>
