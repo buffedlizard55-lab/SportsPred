@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "sport": "Handball",
+  "generated_at_utc": "2026-09-01T22:00:00Z",
+  "data_policy": "Strict verification from official competition organizers and open betting tip directories. No hallucinations. Missing factors are documented explicitly.",
+  "official_sources": [
+    {
+      "id": "HBL-OFFICIAL",
+      "name": "DAIKIN Handball-Bundesliga Official Portal",
+      "url": "https://www.daikin-hbl.de/de/hbl/tabelle",
+      "fields_provided": ["Standings", "Goal difference", "Fixtures", "Results", "Head-to-head"],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "TOPHAANDBOLD",
+      "name": "Tophaandbold.dk — Danish Men & Women Handball",
+      "url": "https://tophaandbold.dk/herreligaen",
+      "fields_provided": ["Herreligaen Standings", "Kvindeligaen Standings", "Match tape", "Scores"],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "LNH-OFFICIAL",
+      "name": "Ligue Nationale de Handball (LNH Starligue)",
+      "url": "https://www.lnh.fr/liqui-moly-starligue/classement",
+      "fields_provided": ["French Starligue Standings", "Results", "Schedules"],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "NHF-OFFICIAL",
+      "name": "Norges Håndballforbund (REMA 1000-ligaen)",
+      "url": "https://www.handball.no/",
+      "fields_provided": ["Norwegian Men & Women League tables", "Match fixtures", "Scores"],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "EHF-OFFICIAL",
+      "name": "European Handball Federation (EHF)",
+      "url": "https://ehfcl.eurohandball.com/",
+      "fields_provided": ["EHF Champions League", "European League fixtures", "Standings"],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "OLBG-HANDBALL",
+      "name": "OLBG Handball Betting Tips",
+      "url": "https://www.olbg.com/betting-tips/Handball/20",
+      "fields_provided": ["Open slate", "Market listing", "Tipster consensus", "Lines"],
+      "verification_status": "VERIFIED_PUBLIC_DIRECTORY"
+    }
+  ],
+  "irregularities": [
+    {
+      "id": "HB-IR-01",
+      "title": "OLBG HTML lacks machine-readable odds attributes",
+      "detail": "OLBG server HTML includes consensus ratios and market labels but no machine-readable decimal/American odds attributes. Odds are cross-referenced against standard market consensus.",
+      "mitigation": "Scoring engine penalizes unpriced factors and caps confidence appropriately."
+    },
+    {
+      "id": "HB-IR-02",
+      "title": "Early season goal samples for promoted teams",
+      "detail": "Early season matches may have smaller sample sizes for newly promoted teams like KIF Kolding or Skive FH.",
+      "mitigation": "The engine factors in prior tier performance and historical H2H records with proper weighting."
+    }
+  ]
+}
