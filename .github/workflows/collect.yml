@@ -3,7 +3,7 @@ name: Collect slate
 on:
   schedule:
     - cron: '*/30 * * * *'
-  workflow_dispatch:
+  workflow_dispatch: {}
 
 permissions:
   contents: write
@@ -18,6 +18,10 @@ jobs:
         with:
           node-version: '22'
 
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
       - name: Tests must pass before collecting
         run: |
           npm test
@@ -26,9 +30,9 @@ jobs:
 
       - name: Rebuild the surface map from source match data
         continue-on-error: true
-        run: node scripts/build_surface_map.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/build_surface_map.mjs
 
       - name: Collect OLBG slate
         id: collect
@@ -36,7 +40,8 @@ jobs:
         run: |
           python3 scripts/collect_olbg.py \
             --save-html tests/fixtures/captures \
-            --enrich --enrich-limit 25
+            --enrich \
+            --enrich-limit 25
 
       - name: Report a failed collection without failing the run
         if: steps.collect.outcome == 'failure'
@@ -73,7 +78,8 @@ jobs:
           if git diff --cached --quiet; then
             echo "No data changes to commit."
           else
-            git commit -m "chore(data): refresh slate and recorded predictions
+            git commit -m "chore(data): refresh slate and recorded predictions"
+            git commit --amend -m "chore(data): refresh slate and recorded predictions
 
 Automated by .github/workflows/collect.yml"
             git push

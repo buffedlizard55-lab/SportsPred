@@ -1,8 +1,10 @@
 name: Deploy site
 
 on:
+  pull_request:
+    branches: [main]
   push:
-    branches: [main, arena/01a0558a-sportspred]
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -11,7 +13,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
+  group: pages-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
@@ -39,7 +41,7 @@ jobs:
           cp index.html _site/
           cp -r assets _site/
           cp -r engine _site/
-          cp -r data   _site/
+          cp -r data _site/
           printf 'User-agent: *\nAllow: /\n' > _site/robots.txt
 
       - uses: actions/upload-pages-artifact@v3
@@ -47,6 +49,7 @@ jobs:
           path: _site
 
   deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-latest
     environment:
