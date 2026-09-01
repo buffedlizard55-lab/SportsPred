@@ -1,23 +1,33 @@
 /**
- * SportsPred — OLBG slate view-model (pure, no I/O).
+ * SportsPred — OLBG slate helpers and view-model (pure, no I/O).
  *
- * Turns the committed data/slate.json snapshot into the structure the
- * scoreboard renders, and correlates snapshot events with the live ESPN card.
+ * The live scoreboard comes from ESPN. OLBG is a secondary source used for the
+ * upcoming market slate, consensus labels and per-event market verification
+ * where event pages have been fetched.
  *
  * HONESTY RULES
- *  - The snapshot carries NO odds (IR-01): OLBG publishes structured prices
- *    nowhere in server-rendered HTML. This module therefore never produces an
- *    odds field, for any event, on any code path.
- *  - Correlation with live matches is by exact normalised player-pair only.
- *    If either player name differs (spelling, doubles partner listed, TBD),
- *    the event is left unmatched — never fuzzy-matched on a hunch.
- *  - The snapshot is dated. This module reports its fetch time and resolved
- *    dates verbatim; it does not extrapolate the slate to other days.
- *  - Tipster consensus is NOT a bookmaker price and has no Step 2 factor, so
- *    it is built for display only and is never fed to the engine.
+ *  - The snapshot carries NO structured odds (IR-01). This module never emits
+ *    price fields on any code path.
+ *  - Correlation with live matches is by exact normalised player pair only.
+ *  - Snapshot dates are reported verbatim; nothing is extrapolated.
+ *  - Tipster consensus is display-only and is never fed into model scoring.
  */
 
 import { normaliseName } from './espn.js';
+
+function toMinutes(hhmm) {
+  if (!hhmm || !/^\d{1,2}:\d{2}$/.test(hhmm)) return Number.POSITIVE_INFINITY;
+  const [h, m] = hhmm.split(':').map(Number);
+  return h * 60 + m;
+}
+
+function byDateTime(a, b) {
+  const da = `${a?.resolved_date ?? ''} ${a?.display_time ?? ''}`;
+  const db = `${b?.resolved_date ?? ''} ${b?.display_time ?? ''}`;
+  if (da < db) return -1;
+  if (da > db) return 1;
+  return 0;
+}
 
 /** Order-independent identity for a two-player fixture. null if a name is empty. */
 export function pairKey(aName, bName) {
@@ -37,26 +47,18 @@ export function outrightEvents(slate) {
   return (slate?.outrights ?? []).map((e) => ({ ...e }));
 }
 
-/** Group match events by their resolved ISO date. `null`-dated events are
- *  kept under the key 'unknown' rather than guessed at. */
+/** Group match events by resolved date; unknown dates stay under 'unknown'. */
 export function groupByDate(events) {
   const groups = new Map();
-  for (const ev of events) {
-    const key = ev.resolved_date || 'unknown';
+  for (const ev of events ?? []) {
+    const key = ev?.resolved_date || 'unknown';
     if (!groups.has(key)) groups.set(key, []);
     groups.get(key).push(ev);
   }
   return groups;
 }
 
-/**
- * Correlate slate events with live scoreboard rows.
- * @param {object[]} events   rows from matchEvents()
- * @param {object[]} matches  live rows in parseCompetition shape (players[].name)
- * @returns {{ correlated: Array, unmatchedEvents: Array, unmatchedMatches: Array }}
- *   `correlated` entries are { event, live } — the original objects, annotated
- *   copies are returned so callers can render without mutating source data.
- */
+/** Correlate OLBG match rows with live scoreboard rows by exact player pair. */
 export function correlateToLive(events, matches) {
   const byPair = new Map();
   const unmatchedMatches = [];
@@ -72,7 +74,7 @@ export function correlateToLive(events, matches) {
     const live = pk ? byPair.get(pk) : null;
     if (live) {
       correlated.push({ event: { ...ev }, live, competition_id: live.competition_id ?? null });
-      byPair.delete(pk); // one live match serves one slate event; a repeat is unmatched
+      byPair.delete(pk);
     } else {
       unmatchedEvents.push({ ...ev });
     }
@@ -84,32 +86,25 @@ export function correlateToLive(events, matches) {
   };
 }
 
-/**
- * The full view-model for the scoreboard's OLBG panel.
- * @param {object} slate     parsed data/slate.json (may be null)
- * @param {object[]} matches live scoreboard rows for the selected date
- * @param {string} dateISO   the scoreboard's selected date
- */
+/** Full snapshot-vs-live view-model, kept for backward compatibility/tests. */
 export function buildOlbgView(slate, matches, dateISO) {
   if (!slate || !Array.isArray(slate.events)) {
     return { present: false, reason: 'no slate snapshot committed in data/' };
   }
   const events = matchEvents(slate);
   const outrights = outrightEvents(slate);
-  const { correlated, unmatchedEvents } = correlateToLive(events, matches);
+  const { correlated } = correlateToLive(events, matches);
   const liveIds = new Set(correlated.map((c) => c.event.event_id));
 
   const annotated = events.map((ev) => ({
     ...ev,
     on_live_card: liveIds.has(ev.event_id),
-    // Consensus for a model-excluded market (Total Games / Set Betting) is a
-    // fact about the snapshot; the exclusion is stated, the market kept visible.
     model_market: slate.market_taxonomy?.mapping_to_model?.[ev.consensus?.market] ?? null,
     model_excluded: (slate.market_taxonomy?.excluded_by_model ?? []).includes(ev.consensus?.market),
   }));
 
-  const forDate = {};
-  for (const [iso, list] of groupByDate(annotated)) forDate[iso] = list;
+  const eventsByDate = {};
+  for (const [iso, list] of groupByDate(annotated)) eventsByDate[iso] = list;
 
   return {
     present: true,
@@ -121,12 +116,11 @@ export function buildOlbgView(slate, matches, dateISO) {
       events: events.length,
       outrights: outrights.length,
       on_current_card: annotated.filter((e) => e.on_live_card).length,
-      dates: Object.keys(forDate).filter((d) => d !== 'unknown').length,
+      dates: Object.keys(eventsByDate).filter((d) => d !== 'unknown').length,
     },
-    events_today: forDate[dateISO] ?? [],
-    events_by_date: forDate,
+    events_today: eventsByDate[dateISO] ?? [],
+    events_by_date: eventsByDate,
     outrights,
-    // Stated limits of the snapshot, shown in the UI rather than implied.
     caveats: [
       'Snapshot listing: OLBG is not re-fetched from the browser; this is the committed slate.json, refreshed by scheduled collection.',
       'OLBG publishes no structured odds anywhere in server-rendered pages — no prices are shown or inferred (IR-01).',
@@ -134,5 +128,116 @@ export function buildOlbgView(slate, matches, dateISO) {
       'Kickoff times are UK local time as rendered by OLBG (IR-10).',
       'Consensus figures are live vote counts and drift between fetches (IR-09).',
     ],
+  };
+}
+
+/** Unique OLBG dates present in the snapshot, sorted ascending. */
+export function olbgDates(slate) {
+  const dates = new Set();
+  for (const row of [...(slate?.events ?? []), ...(slate?.outrights ?? [])]) {
+    if (row?.resolved_date) dates.add(row.resolved_date);
+  }
+  return [...dates].sort();
+}
+
+/** Snapshot match rows for one ISO date. */
+export function olbgEventsForDate(slate, dateISO) {
+  return (slate?.events ?? [])
+    .filter((row) => row?.resolved_date === dateISO)
+    .slice()
+    .sort(byDateTime);
+}
+
+/** Snapshot outright rows for one ISO date. */
+export function olbgOutrightsForDate(slate, dateISO) {
+  return (slate?.outrights ?? [])
+    .filter((row) => row?.resolved_date === dateISO)
+    .slice()
+    .sort(byDateTime);
+}
+
+/** Match + outright counts keyed by resolved date. */
+export function olbgDateCounts(slate) {
+  const map = new Map();
+  for (const row of slate?.events ?? []) {
+    if (!row?.resolved_date) continue;
+    const rec = map.get(row.resolved_date) ?? { matches: 0, outrights: 0 };
+    rec.matches += 1;
+    map.set(row.resolved_date, rec);
+  }
+  for (const row of slate?.outrights ?? []) {
+    if (!row?.resolved_date) continue;
+    const rec = map.get(row.resolved_date) ?? { matches: 0, outrights: 0 };
+    rec.outrights += 1;
+    map.set(row.resolved_date, rec);
+  }
+  return map;
+}
+
+/** Counts of consensus-market labels on the filtered rows. */
+export function consensusMarketCounts(rows) {
+  const counts = new Map();
+  for (const row of rows ?? []) {
+    const market = row?.consensus?.market;
+    if (!market) continue;
+    counts.set(market, (counts.get(market) ?? 0) + 1);
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([market, count]) => ({ market, count }));
+}
+
+/** Counts of verified event-page market names on the filtered match rows. */
+export function verifiedMarketCounts(rows) {
+  const counts = new Map();
+  for (const row of rows ?? []) {
+    for (const market of row?.markets_on_event_page ?? []) {
+      counts.set(market, (counts.get(market) ?? 0) + 1);
+    }
+  }
+  return [...counts.entries()]
+    .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+    .map(([market, count]) => ({ market, count }));
+}
+
+/** Summary of what the OLBG snapshot actually exposes on one date. */
+export function olbgSummaryForDate(slate, dateISO) {
+  const events = olbgEventsForDate(slate, dateISO);
+  const outrights = olbgOutrightsForDate(slate, dateISO);
+  const verifiedEventPages = events.filter((row) => row?.markets_verified === true).length;
+  const withGamesWonSelections = events.filter((row) => {
+    const list = row?.games_won_selections ?? row?.event_page_extras?.games_won_selections ?? [];
+    return Array.isArray(list) && list.length;
+  }).length;
+  return {
+    date: dateISO,
+    matches: events.length,
+    outrights: outrights.length,
+    verifiedEventPages,
+    unverifiedEventPages: events.length - verifiedEventPages,
+    withGamesWonSelections,
+    withoutGamesWonSelections: events.length - withGamesWonSelections,
+    consensusMarkets: consensusMarketCounts(events),
+    verifiedMarkets: verifiedMarketCounts(events),
+  };
+}
+
+/** Nearest previous/next OLBG date relative to a selected date. */
+export function adjacentOlbgDates(slate, selectedDate) {
+  const dates = olbgDates(slate);
+  let prev = null;
+  let next = null;
+  for (const d of dates) {
+    if (d < selectedDate) prev = d;
+    if (d > selectedDate) { next = d; break; }
+  }
+  return { prev, next, dates };
+}
+
+/** Sort helper exported for tests/UI parity. */
+export function olbgSortKey(row) {
+  return {
+    date: row?.resolved_date ?? '',
+    minutes: toMinutes(row?.display_time ?? null),
   };
 }

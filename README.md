@@ -5,14 +5,20 @@ A tennis scoreboard and three-market prediction engine, built around one rule:
 
 The site collects live tennis matches, results and rankings from ESPN's public
 key-less endpoints, resolves each tournament's court surface from recorded match
-data, scores every match across Win Match, First Set Winner and Games Handicap,
-and writes copy-ready predictions. Every one of those steps is machine-checked.
+data, overlays matching OLBG event rows for market review, scores every match
+across Win Match, First Set Winner and Games Handicap, and writes copy-ready
+predictions. Every one of those steps is machine-checked.
 
 Pick any date on the calendar — past, today, or upcoming — and the scoreboard
-loads that day's real card. One button turns it into written tips you can copy.
+loads that day's real card. Each match card shows sourced rank trajectory,
+recent form, surface record, and manual-review links back to ESPN/OLBG where
+available. One button turns the card into written tips you can copy.
 
-**Live site:** published from `main` via GitHub Pages. The workflows are ready in
-[`ci/`](ci/README.md) but need one manual step to install — see below.
+**Live site:** GitHub Pages is already enabled for this repository at
+<https://buffedlizard55-lab.github.io/SportsPred/>. Workflow files are present
+on this branch under `.github/workflows/` and mirrored in [`ci/`](ci/README.md).
+At the time of writing, the public Pages site is still configured in **legacy**
+mode from `main` until the repository Pages source is switched to **GitHub Actions**.
 **Local preview:** `python3 scripts/serve.py 8000` then open <http://localhost:8000>.
 
 ---
@@ -47,13 +53,13 @@ engine/                 the model — pure functions, no I/O
   engine.js             Step 2 scoring and Step 3 decision rules
   writer.js             Step 4 tip writing and the output-rule validator
   espn.js               ESPN payload parsers + player-stat derivation
+  olbg.js               OLBG snapshot/date/market helpers for the site
   surface.js            tournament -> court surface, or null with a reason
   tournament.js         tour level / round coding, H2H orientation
   join.js               slate -> engine input; never fills a gap
-  olbg.js               OLBG snapshot view-model + live-card correlation (display only)
 assets/js/
   collector.js          live browser collection from ESPN (no key, no server)
-  app.js                controller: scoreboard, calendar, copy buttons
+  app.js                controller: scoreboard, calendar, OLBG overlay, copy buttons
 data/
   surfaces.json         tournament -> surface, built from recorded match rows
   slate.json            an OLBG slate snapshot, with source URL and fetch time
@@ -73,10 +79,12 @@ scripts/
   collect_espn.mjs      forward collection: record picks, settle finished matches
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
-tests/                  120 Node tests + 23 Python tests
+.github/workflows/      installed Pages deploy + scheduled collection workflows
+tests/                  129 Node tests + 23 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
+  PROMPT_FEATURE_MATRIX.md  prompt line -> repo feature/status/source matrix
   SOURCES.md            every source with its verification status
   IRREGULARITIES.md     everything that did not check out
   BACKTEST.md           historical backtest method + results
@@ -90,7 +98,7 @@ copy of the scoring logic, so the site cannot drift from what is tested.
 ## Running it
 
 ```bash
-npm test                                          # 120 tests: engine, writer, ESPN parsers, pipeline, OLBG view-model
+npm test                                          # 120 tests: engine, writer, ESPN parsers, OLBG helpers, join, pipeline
 python3 -m unittest discover -s tests -p 'test_*.py'   # OLBG parsers
 python3 scripts/build_data.py --strict            # validate the committed data layer
 python3 scripts/serve.py 8000                     # local preview
@@ -121,7 +129,6 @@ all work. What is available and what is not:
 | Tournament level and round | ✅ coded from recorded `tourney_level` data |
 | Historical backtest | ✅ 2024–25 ATP walk-forward, 63.9% win-match hit rate |
 | Forward collection + automatic result settlement | ✅ `scripts/collect_espn.mjs` records picks and grades them from ESPN |
-| OLBG markets in a scoreboard with calendar | ✅ committed snapshot rendered as the scoreboard's "OLBG market snapshot" panel, correlated to the live card and marked on the calendar; refreshed by scheduled CI collection |
 | **Odds / prices** | ❌ **no free key-less source** — every price factor is unscored (`IR-01`) |
 | **Serve %, ace rate** | ❌ ESPN ships empty tennis statistics (`IR-16`) |
 | **Injuries, social sentiment** | ❌ no free structured source (`IR-13`) |
@@ -141,29 +148,44 @@ engine is already written and tested.
 
 ---
 
-## Automation — needs one manual step
+## Automation and deployment
 
-Two workflows are written and complete, in [`ci/`](ci/README.md):
+This checkout now contains workflow files in `.github/workflows/`, with mirrored
+copies in [`ci/`](ci/README.md):
 
-- **`ci/collect.yml`** — every 30 minutes: collect the slate, record predictions,
-  print the backtest report, commit only if data changed. A failed collection
-  leaves the previous snapshot untouched.
-- **`ci/pages.yml`** — runs the full test suite, then publishes `index.html`,
-  `assets/`, `engine/` and `data/`. Scripts and fixtures are deliberately
-  excluded from the public artifact.
+- **`.github/workflows/collect.yml`** — every 30 minutes: run tests, refresh the
+  OLBG slate, enrich event pages for market lists, collect/settle ESPN records,
+  print the backtest report, and commit only when `data/` changed.
+- **`.github/workflows/pages.yml`** — run the full test suite, validate the data
+  layer, build a minimal Pages artifact, and deploy it with the official Pages
+  Actions.
 
-They sit in `ci/` rather than `.github/workflows/` because the automation
-account used here lacks the `workflows` permission GitHub requires to create
-them; the push was rejected with that exact error. To enable:
+### What may still need a manual repository setting
 
-```bash
-mkdir -p .github/workflows
-cp ci/pages.yml ci/collect.yml .github/workflows/
-git add .github/workflows && git commit -m "ci: enable workflows" && git push
-```
+The Pages site currently exists and was verified at:
+<https://buffedlizard55-lab.github.io/SportsPred/>.
 
-Then set **Settings → Pages → Source** to **GitHub Actions**. Full detail in
-[`ci/README.md`](ci/README.md).
+The workflow files are now present on this branch. The remaining manual step is
+usually the repository Pages setting if it is still configured for **Deploy from
+a branch** rather than **GitHub Actions**.
+
+Step-by-step:
+
+1. Open the repository on GitHub.
+2. Go to **Settings → Pages**.
+3. Under **Build and deployment → Source**, choose **GitHub Actions**.
+4. Save the setting if GitHub prompts for confirmation.
+5. Open the **Actions** tab and confirm the latest **Deploy site** run passed.
+6. Re-open the Pages URL and verify the updated site content changed.
+
+If GitHub refuses workflow runs or Pages deployment, review:
+
+- branch protection on `main`
+- repository Actions permissions
+- Pages environment approval rules
+- whether the workflow files have actually reached the branch GitHub is reading
+
+Operational detail and fallback notes live in [`ci/README.md`](ci/README.md).
 
 ---
 

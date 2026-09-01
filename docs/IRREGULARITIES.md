@@ -209,6 +209,20 @@ the tour would mislabel those matches.
 `tourOf()` reads the grouping/competition type text instead, and a regression
 test pins this behaviour against the real payload.
 
+### IR-20 — Arena GitHub auth initially blocked workflow-file push · MEDIUM · MITIGATED
+On 2026-09-01 an earlier push of `arena/01a0558a-sportspred` containing
+`.github/workflows/pages.yml` and `.github/workflows/collect.yml` was rejected
+by GitHub with:
+
+> refusing to allow a GitHub App to create or update workflow
+> `.github/workflows/collect.yml` without `workflows` permission
+
+That blocker was later cleared enough for the branch to be pushed and PR #7 to
+be opened. The workflows are therefore now present on the remote feature branch.
+What remains outside the code itself is repository configuration: the public
+Pages site is still verified as **legacy** deployment from `main` until the
+Pages source is switched to **GitHub Actions**.
+
 ---
 
 ## Not an irregularity, but worth stating

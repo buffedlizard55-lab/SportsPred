@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-08-31T02:00:00Z",
+  "generated_at_utc": "2026-09-01T22:10:00Z",
   "environment": {
     "verified_at_utc": "2026-08-31T00:12:00Z",
     "outbound_network_from_sandbox": "partial",
@@ -31,7 +31,7 @@
       "severity": "high",
       "title": "The standard free ATP/WTA match datasets are gone, but verified mirrors exist",
       "detail": "github.com/JeffSackmann/tennis_atp returns 404 (re-verified 2026-08-31). A GitHub API call to /users/JeffSackmann/repos returned exactly one public repository: tennis_MatchChartingProject. Verified forks/archives of the dataset exist and are reachable via the GitHub API: Kadantte/tennis_atp (ATP) and Aneeshers/tennis-sackmann-archive (ATP + WTA, with the CC BY-NC-SA 4.0 LICENSE). scripts/backtest_historical.mjs uses them for a genuine walk-forward backtest.",
-      "impact": "History/backtest: RESOLVED. Live slate: still open \u2014 the mirrors are snapshots (matches through 2026-05-25, rankings through 2026-06-08) and the official ATP/WTA ranking pages are client-side rendered, so current form/rankings remain unsourced (IR-14). UPDATE 2026-08-31: superseded for live use. ESPN's public scoreboard now supplies current-season fixtures, live scores and settled results, and scripts/collect_espn.mjs grades recorded predictions from it. The Sackmann mirrors are still used for the historical backtest and for the surface map.",
+      "impact": "History/backtest: RESOLVED. Live slate: still open — the mirrors are snapshots (matches through 2026-05-25, rankings through 2026-06-08) and the official ATP/WTA ranking pages are client-side rendered, so current form/rankings remain unsourced (IR-14). UPDATE 2026-08-31: superseded for live use. ESPN's public scoreboard now supplies current-season fixtures, live scores and settled results, and scripts/collect_espn.mjs grades recorded predictions from it. The Sackmann mirrors are still used for the historical backtest and for the surface map.",
       "status": "MITIGATED"
     },
     {
@@ -80,7 +80,7 @@
       "title": "The unique-opening rule is not satisfiable for large cards",
       "detail": "Three markets per match means a 20-match card needs 60 tips. There are 24 distinct hand-written openings. Beyond that the rule cannot be honoured without fabricating filler.",
       "impact": "writeCard reports openerPoolExhausted and the UI shows a warning instead of silently repeating openings.",
-      "status": "OPEN \u2014 documented limitation"
+      "status": "OPEN — documented limitation"
     },
     {
       "id": "IR-09",
@@ -112,7 +112,7 @@
       "title": "The WTA/ATP handicap equivalence is unsourced",
       "detail": "The prompt states a WTA -3.5 is roughly equivalent to an ATP -5.5. No source is given and nothing reachable here supports or refutes it. The prompt also asserts set betting and total games have 'documented negative expected value' with no citation, while excluding those markets and simultaneously recommending games handicap, which is the same market family.",
       "impact": "Treated as an assumption, not a fact. The engine does not apply a gender handicap adjustment; it would need the backtest corpus to calibrate.",
-      "status": "OPEN \u2014 assumption"
+      "status": "OPEN — assumption"
     },
     {
       "id": "IR-13",
@@ -159,7 +159,7 @@
       "severity": "medium",
       "title": "The missing-factor penalty is shared across all three markets",
       "detail": "`applyMissingPenalty` subtracts 6 points per DISTINCT missing factor across the whole match, then applies that same total to win-match, first-set and games-handicap alike. A first-set score is therefore reduced by gaps that belong to the handicap market (e.g. an unsourced handicap price).",
-      "impact": "With odds permanently unavailable (IR-01) the shared penalty is large, so first-set scores sit near zero and that market almost always reports LOW/SKIP. The behaviour is conservative \u2014 it understates rather than overstates confidence \u2014 so it is documented rather than silently retuned. Fixing it properly requires per-market missing sets and a re-run of the backtest to recalibrate the thresholds.",
+      "impact": "With odds permanently unavailable (IR-01) the shared penalty is large, so first-set scores sit near zero and that market almost always reports LOW/SKIP. The behaviour is conservative — it understates rather than overstates confidence — so it is documented rather than silently retuned. Fixing it properly requires per-market missing sets and a re-run of the backtest to recalibrate the thresholds.",
       "status": "OPEN"
     },
     {
@@ -169,6 +169,14 @@
       "detail": "The ATP scoreboard returns Women's Singles groupings (observed at the Nordea Open, competition 178684, 2026-07-06). Treating the requested league as the tour would mislabel those matches.",
       "impact": "Tour is read from the grouping/competition type text instead of the league slug, and a regression test asserts this using the real payload. Any future collector must not trust the slug.",
       "status": "RESOLVED IN CODE"
+    },
+    {
+      "id": "IR-20",
+      "severity": "medium",
+      "title": "Arena GitHub auth initially blocked workflow-file push",
+      "detail": "On 2026-09-01 an earlier push of branch arena/01a0558a-sportspred containing .github/workflows/pages.yml and .github/workflows/collect.yml was rejected by GitHub with: refusing to allow a GitHub App to create or update workflow `.github/workflows/collect.yml` without `workflows` permission.",
+      "impact": "That blocker was later cleared enough for the branch to be pushed and PR #7 to be opened. The workflows are now present on the remote feature branch. The remaining deployment step is repository configuration: GitHub Pages is still verified in legacy mode from main until the Pages source is switched to GitHub Actions.",
+      "status": "MITIGATED"
     }
   ]
 }

@@ -14,7 +14,8 @@
 
 import { scoreMatch, scoreCard, RULESET_VERSION, PATCHES, PROMPT_VERSION, CONFIDENCE } from '../../engine/engine.js';
 import { writeCard, MIN_WORDS } from '../../engine/writer.js';
-import { buildOlbgView, pairKey } from '../../engine/olbg.js';
+import { buildSlateIndex, matchSlateEvent } from '../../engine/join.js';
+import { olbgDateCounts, olbgSummaryForDate, olbgEventsForDate, olbgOutrightsForDate, adjacentOlbgDates } from '../../engine/olbg.js';
 import { collectCard, toEngineMatch, isoDate, TAPE_DAYS } from './collector.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
@@ -26,7 +27,7 @@ const state = {
   surfaces: null,
   provenance: null,
   slate: null,          // OLBG snapshot (secondary, verified separately)
-  olbg: null,           // view-model of the slate vs the live card
+  slateIndex: new Map(),
   date: todayISO(),
   card: null,           // last collected card
   scored: null,
@@ -59,12 +60,14 @@ async function boot() {
   }
   state.provenance = await loadJSON('data/provenance.json').catch(() => null);
   state.slate = await loadJSON('data/slate.json').catch(() => null);
+  state.slateIndex = buildSlateIndex(state.slate);
 
   $('#ruleset-pill').textContent = `ruleset ${RULESET_VERSION} · prompt ${PROMPT_VERSION}`;
   $('#date-input').value = state.date;
 
   renderAbout();
   renderCalendar();
+  renderOlbg();
   await loadDate(state.date);
 }
 
@@ -93,9 +96,6 @@ async function loadDate(dateISO) {
       const em = toEngineMatch(m, card);
       return { raw: m, match: em, result: scoreMatch(em) };
     });
-    // Correlate the committed OLBG snapshot against the live card (exact
-    // player-pair matches only; the view-model never fabricates one).
-    state.olbg = buildOlbgView(state.slate, card.matches, dateISO);
     hideProgress();
   } catch (e) {
     hideProgress();
@@ -106,8 +106,8 @@ async function loadDate(dateISO) {
   state.loading = false;
   renderScoreboard();
   renderQuality();
-  renderStatusPills();
   renderOlbg();
+  renderStatusPills();
 }
 
 function showProgress(msg, pct) {
@@ -131,20 +131,9 @@ function renderStatusPills() {
  * Scoreboard
  * ------------------------------------------------------------------ */
 
-/** Map of normalised player-pair -> OLBG snapshot event, for badges. */
-function olbgByPair() {
-  const map = new Map();
-  for (const ev of state.slate?.events ?? []) {
-    const pk = pairKey(ev.home, ev.away);
-    if (pk && !map.has(pk)) map.set(pk, ev);
-  }
-  return map;
-}
-
 function renderScoreboard() {
   const list = $('#match-list');
   if (!state.scored) { list.innerHTML = '<div class="empty">Loading…</div>'; return; }
-  const olbgMap = state.slate ? olbgByPair() : new Map();
 
   const q = state.search.toLowerCase();
   const rows = state.scored.filter(({ raw }) => {
@@ -155,11 +144,13 @@ function renderScoreboard() {
 
   // Distinguish "the feed failed" from "the calendar is genuinely empty".
   const feedFailed = (state.card?.quality?.scoreboard_failures?.length || 0) > 0;
+  const slateMatches = state.scored.filter(({ raw }) => findSlateOverlay(raw)).length;
   $('#day-summary').textContent = state.scored.length
     ? `${state.date} — ${state.scored.length} singles match${state.scored.length === 1 ? '' : 'es'} `
       + `(${state.scored.filter((r) => r.raw.phase === 'results').length} finished, `
       + `${state.scored.filter((r) => r.raw.phase === 'live').length} in play, `
       + `${state.scored.filter((r) => r.raw.phase === 'upcoming').length} upcoming)`
+      + (slateMatches ? ` · ${slateMatches} matched to the OLBG snapshot` : '')
     : feedFailed
       ? `${state.date} — the ESPN feed could not be reached, so nothing is known about this date. `
         + 'This is a collection failure, not an empty schedule.'
@@ -175,7 +166,7 @@ function renderScoreboard() {
     return;
   }
 
-  list.innerHTML = rows.map(({ raw, result }) => {
+  list.innerHTML = rows.map(({ raw, match, result }) => {
     const unscored = result.favourite === null;
     const badges = unscored
       ? '<span class="badge warn">unscored — no sourced ranking</span>'
@@ -191,11 +182,12 @@ function renderScoreboard() {
       : '';
     const time = (raw.start_utc || '').slice(11, 16);
     const statusCls = raw.phase === 'live' ? 'live' : raw.phase;
-
-    // OLBG snapshot correlation (exact player-pair match only).
-    const oEv = olbgMap.get(pairKey(raw.players[0].name, raw.players[1].name));
-    const oc = oEv?.consensus;
-    const olbgLine = oEv ? `<div class="sub">🔗 <a href="${esc(oEv.url)}" target="_blank" rel="noopener noreferrer">OLBG</a> consensus: <strong>${esc(oc?.selection ?? '—')}</strong> · ${esc(oc?.market ?? '—')} · ${oc?.tips_for ?? '?'}/${oc?.tips_total ?? '?'} tips (${oc?.pct ?? '?'}%)${oc?.experts ? ` · ${oc.experts} expert` : ''}</div>` : '';
+    const olbg = findSlateOverlay(raw);
+    const playersHtml = (match.players || []).map((p) => `
+      <div class="player-audit">
+        <strong>${esc(p.name)}</strong>
+        <span>${esc(playerAuditLine(p, raw.surface))}</span>
+      </div>`).join('');
 
     return `<div class="match" data-id="${esc(raw.competition_id)}">
       <div class="when">
@@ -207,8 +199,10 @@ function renderScoreboard() {
         ${score ? `<div class="score">${esc(score)}${raw.winner_name ? ` · ${esc(raw.winner_name)} won` : ''}</div>` : ''}
         <div class="sub">${esc(raw.tournament || '')}${raw.round ? ` · ${esc(raw.round)}` : ''}
           · ${raw.surface ? esc(raw.surface) : '<em>surface unsourced</em>'}</div>
-        ${olbgLine}
         <div class="sub">${badges}</div>
+        <div class="player-audits">${playersHtml}</div>
+        ${renderOlbgLine(olbg)}
+        ${renderReviewLinks(raw, olbg)}
       </div>
       <div class="acts">
         <button class="btn" data-gen="${esc(raw.competition_id)}" ${unscored ? 'disabled title="Cannot score: no sourced ranking"' : ''}>Predict</button>
@@ -224,60 +218,70 @@ function label(m) {
   return { win_match: 'Win', first_set: 'Set1', games_handicap: 'Hcap' }[m] || m;
 }
 
-/* ------------------------------------------------------------------ *
- * OLBG slate snapshot panel
- * ------------------------------------------------------------------ */
+function findSlateOverlay(raw) {
+  return matchSlateEvent({
+    resolved_date: raw?.date ?? null,
+    home: raw?.players?.[0]?.name ?? null,
+    away: raw?.players?.[1]?.name ?? null,
+  }, state.slateIndex);
+}
 
-function renderOlbg() {
-  const el = $('#olbg-block');
-  if (!el) return;
-  const v = state.olbg;
-  if (!v) { el.innerHTML = ''; return; }
-  if (!v.present) {
-    el.innerHTML = `<div class="empty">OLBG slate snapshot unavailable — ${esc(v.reason)}.</div>`;
-    return;
+function rankingSourceUrl(raw) {
+  const slug = String(raw?.tour ?? '').toLowerCase();
+  if (slug === 'atp' || slug === 'wta') {
+    return `https://site.api.espn.com/apis/site/v2/sports/tennis/${slug}/rankings`;
   }
+  return 'https://www.espn.com/tennis/rankings';
+}
 
-  const rowHtml = (ev) => {
-    const c = ev.consensus ?? {};
-    const chips = [
-      ev.on_live_card ? '<span class="badge HIGH">on live card</span>' : '',
-      ev.model_excluded ? '<span class="badge SKIP" title="This consensus is on a market the model excludes">market excluded by model</span>' : '',
-    ].filter(Boolean).join(' ');
-    return `<div class="match">
-      <div class="when"><span class="d upcoming">${esc(ev.display_time || '—')}</span><span class="tour">UK</span></div>
-      <div>
-        <div class="who">${esc(ev.home)}<span class="vs">v</span>${esc(ev.away)}</div>
-        <div class="sub">Consensus: <strong>${esc(c.selection ?? '—')}</strong> — ${esc(c.market ?? '—')} · ${c.tips_for ?? '?'} of ${c.tips_total ?? '?'} tips (${c.pct ?? '?'}%)${c.comments ? ` · ${c.comments} comment${c.comments === 1 ? '' : 's'}` : ''}${c.experts ? ` · ${c.experts} expert tipster${c.experts === 1 ? '' : 's'}` : ''}</div>
-        <div class="sub">${chips} <a href="${esc(ev.url)}" target="_blank" rel="noopener noreferrer">OLBG event page ↗</a></div>
-      </div>
-    </div>`;
-  };
+function fmtTrajectory(v) {
+  if (v === 'rising') return '↑ rising';
+  if (v === 'falling') return '↓ falling';
+  if (v === 'stable') return '→ stable';
+  return 'trajectory unsourced';
+}
 
-  const dates = Object.keys(v.events_by_date).filter((d) => d !== 'unknown').sort();
-  const sections = dates.map((iso) => {
-    const list = v.events_by_date[iso];
-    return `<details${iso === v.date ? ' open' : ''}><summary>${esc(iso)} — ${list.length} market${list.length === 1 ? '' : 's'}${iso === v.date ? ' (selected day)' : ''}</summary>${list.map(rowHtml).join('')}</details>`;
-  }).join('');
+function fmtRank(player) {
+  return player?.rank == null ? 'rank unsourced' : `#${player.rank} ${fmtTrajectory(player.rankTrajectory)}`;
+}
 
-  const outrightRows = v.outrights.map((o) => `<tr>
-    <td>${esc(o.name)}</td><td>${esc(o.resolved_date ?? '—')}</td>
-    <td>${esc(o.consensus?.selection ?? '—')} (${o.consensus?.tips_for ?? '?'} of ${o.consensus?.tips_total ?? '?'})</td>
-    <td><a href="${esc(o.url)}" target="_blank" rel="noopener noreferrer">event ↗</a></td>
-  </tr>`).join('');
+function fmtForm(player) {
+  const last5 = player?.form?.last5;
+  if (!Array.isArray(last5) || !last5.length) return 'form unsourced';
+  return `form ${last5.join('')}`;
+}
 
-  const liveCount = state.scored?.length ?? 0;
-  el.innerHTML = `
-    <h2 class="olbg-title">OLBG market snapshot</h2>
-    <p class="hint">All openly listed tennis markets from <a href="${esc(v.source_url)}" target="_blank" rel="noopener noreferrer">${esc(v.source_name)} ↗</a>,
-    fetched ${esc(v.fetched_at_utc ?? 'unknown time')} — ${v.totals.events} matches across ${v.totals.dates} date${v.totals.dates === 1 ? '' : 's'}
-    plus ${v.totals.outrights} outright${v.totals.outrights === 1 ? '' : 's'}. ${v.totals.on_current_card} of the ${liveCount} live match${liveCount === 1 ? '' : 'es'} on ${esc(v.date)} also appear on this snapshot.</p>
-    ${sections || '<div class="empty">The snapshot lists no match markets.</div>'}
-    ${v.outrights.length ? `<h3>Outright markets <span class="hint">(never scored — outside the three-market model)</span></h3>
-      <table><thead><tr><th>Market</th><th>Date</th><th>Tipster consensus</th><th>Source</th></tr></thead><tbody>${outrightRows}</tbody></table>` : ''}
-    <details class="caveats"><summary>Snapshot caveats — read before comparing with the live card</summary>
-      <ul class="tight">${v.caveats.map((c) => `<li>${esc(c)}</li>`).join('')}</ul>
-    </details>`;
+function fmtSurface(player, surface) {
+  if (!surface || !player?.surface || player.surface.wins == null || player.surface.losses == null) return 'surface record unsourced';
+  return `${surface} ${player.surface.wins}-${player.surface.losses}`;
+}
+
+function playerAuditLine(player, surface) {
+  return [fmtRank(player), fmtForm(player), fmtSurface(player, surface)].join(' · ');
+}
+
+function renderReviewLinks(raw, olbg) {
+  const links = [];
+  if (raw?.source_url) links.push(`<a href="${esc(raw.source_url)}" target="_blank" rel="noopener noreferrer">ESPN match ↗</a>`);
+  links.push(`<a href="${esc(rankingSourceUrl(raw))}" target="_blank" rel="noopener noreferrer">ESPN rankings ↗</a>`);
+  if (olbg?.url) links.push(`<a href="${esc(olbg.url)}" target="_blank" rel="noopener noreferrer">OLBG event ↗</a>`);
+  if (raw?.surface_provenance?.key) links.push('<a href="data/surfaces.json" target="_blank" rel="noopener noreferrer">surface map ↗</a>');
+  return links.length ? `<div class="sub review-links">Manual review: ${links.join(' · ')}</div>` : '';
+}
+
+function renderOlbgLine(olbg) {
+  if (!olbg) return '';
+  const c = olbg.consensus || {};
+  const consensus = c.market && c.selection
+    ? `OLBG consensus: ${esc(c.selection)} on ${esc(c.market)}${c.tips_for != null && c.tips_total != null ? ` (${esc(c.tips_for)}/${esc(c.tips_total)})` : ''}`
+    : 'OLBG event linked for manual review';
+  const markets = Array.isArray(olbg.markets_on_event_page) && olbg.markets_on_event_page.length
+    ? `Markets verified: ${olbg.markets_on_event_page.map(esc).join(' · ')}`
+    : olbg.markets_verified
+      ? 'Markets verified on the OLBG event page'
+      : 'Market list not yet verified in this snapshot';
+  const note = olbg.model_note ? ` · ${esc(olbg.model_note)}` : '';
+  return `<div class="sub olbg-line">${consensus} · ${markets}${note}</div>`;
 }
 
 /* ------------------------------------------------------------------ *
@@ -295,29 +299,24 @@ function renderCalendar() {
   const startDow = (first.getUTCDay() + 6) % 7; // Monday-first
   const daysInMonth = new Date(Date.UTC(y, mo + 1, 0)).getUTCDate();
   const today = todayISO();
-
-  // Markers reflect ONLY the committed OLBG snapshot (it covers its fetch
-  // window, day or two ahead) — never an invented schedule.
-  const slateDates = new Map();
-  for (const ev of state.slate?.events ?? []) {
-    if (!ev?.resolved_date) continue;
-    slateDates.set(ev.resolved_date, (slateDates.get(ev.resolved_date) || 0) + 1);
-  }
+  const olbgCounts = olbgDateCounts(state.slate);
 
   let html = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
     .map((x) => `<div class="cal-dow">${x}</div>`).join('');
   for (let i = 0; i < startDow; i++) html += '<div class="cal-day out"></div>';
   for (let day = 1; day <= daysInMonth; day++) {
     const iso = `${y}-${String(mo + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-    const sl = slateDates.get(iso) || 0;
+    const slate = olbgCounts.get(iso) || { matches: 0, outrights: 0 };
+    const hasSlate = slate.matches + slate.outrights > 0;
     const cls = [
       'cal-day',
       iso === state.date ? 'sel' : '',
       iso === today ? 'today' : '',
-      sl ? 'has-slate' : '',
+      hasSlate ? 'has-slate' : '',
     ].filter(Boolean).join(' ');
-    html += `<div class="${cls}" data-date="${iso}"${sl ? ` title="OLBG snapshot lists ${sl} market${sl === 1 ? '' : 's'} on this date"` : ''}><div class="n">${day}</div>
-      ${iso === today ? '<div class="c">today</div>' : ''}${sl ? '<div class="slate-dot"></div>' : ''}</div>`;
+    html += `<div class="${cls}" data-date="${iso}"><div class="n">${day}</div>
+      ${iso === today ? '<div class="c">today</div>' : ''}
+      ${hasSlate ? '<div class="slate-dot" title="OLBG snapshot covers this date"></div>' : ''}</div>`;
   }
   grid.innerHTML = html;
 
@@ -334,6 +333,165 @@ function renderCalendarSelection(iso) {
   state.date = iso;
   $$('#cal-grid .cal-day').forEach((el) =>
     el.classList.toggle('sel', el.dataset.date === iso));
+}
+
+/* ------------------------------------------------------------------ *
+ * OLBG markets view
+ * ------------------------------------------------------------------ */
+
+function findLiveRowForSlate(ev) {
+  return state.scored?.find(({ raw }) => findSlateOverlay(raw)?.event_id === ev?.event_id) ?? null;
+}
+
+function fmtPhase(phase) {
+  return phase === 'live' ? 'in play' : phase === 'results' ? 'final' : phase === 'upcoming' ? 'upcoming' : 'not matched';
+}
+
+function renderMarketList(items, empty) {
+  if (!items?.length) return `<span class="muted">${esc(empty)}</span>`;
+  return items.map((item) => `<span class="mini-pill">${esc(item)}</span>`).join(' ');
+}
+
+function renderOlbgSummary(summary) {
+  const consensus = summary.consensusMarkets.length
+    ? summary.consensusMarkets.map((m) => `${m.market}: ${m.count}`).join(' · ')
+    : 'no consensus market labels';
+  const verified = summary.verifiedMarkets.length
+    ? summary.verifiedMarkets.map((m) => `${m.market}: ${m.count}`).join(' · ')
+    : 'no event-page market lists verified for this date';
+  return `
+    <div class="stat-grid">
+      <div class="stat-card"><strong>${summary.matches}</strong><span>match rows on ${esc(summary.date)}</span></div>
+      <div class="stat-card"><strong>${summary.verifiedEventPages}</strong><span>event pages verified</span></div>
+      <div class="stat-card"><strong>${summary.withGamesWonSelections}</strong><span>rows with Games Won labels observed</span></div>
+      <div class="stat-card"><strong>${summary.outrights}</strong><span>outright rows on this date</span></div>
+    </div>
+    <div class="info-box">Consensus markets on this date: ${esc(consensus)}.</div>
+    <div class="info-box">Verified event-page markets on this date: ${esc(verified)}.</div>
+    <div class="info-box">OLBG prices are still absent from structured HTML, so this view shows market names, labels, consensus and review links — not odds. See IR-01.</div>
+  `;
+}
+
+function renderOlbg() {
+  const grid = $('#olbg-cal-grid');
+  const summaryEl = $('#olbg-summary');
+  const eventsEl = $('#olbg-events');
+  const outrightsEl = $('#olbg-outrights');
+  const openBtn = $('#olbg-open-source');
+  if (!grid || !summaryEl || !eventsEl || !outrightsEl) return;
+
+  if (!state.slate) {
+    $('#olbg-title').textContent = 'OLBG snapshot unavailable';
+    grid.innerHTML = '';
+    summaryEl.innerHTML = '<div class="empty">No OLBG snapshot is present in data/slate.json.</div>';
+    eventsEl.innerHTML = '';
+    outrightsEl.innerHTML = '';
+    return;
+  }
+
+  const counts = olbgDateCounts(state.slate);
+  const summary = olbgSummaryForDate(state.slate, state.date);
+  const events = olbgEventsForDate(state.slate, state.date);
+  const outrights = olbgOutrightsForDate(state.slate, state.date);
+  const { prev, next } = adjacentOlbgDates(state.slate, state.date);
+  const d = state.calMonth;
+  $('#olbg-title').textContent = `OLBG snapshot — ${d.toLocaleDateString('en-GB', { month: 'long', year: 'numeric', timeZone: 'UTC' })} · selected ${state.date}`;
+  openBtn.onclick = () => window.open(state.slate?.source?.url || 'https://www.olbg.com/betting-tips/Tennis/3', '_blank', 'noopener,noreferrer');
+  $('#olbg-prev-date').disabled = !prev;
+  $('#olbg-next-date').disabled = !next;
+  $('#olbg-prev-date').dataset.date = prev || '';
+  $('#olbg-next-date').dataset.date = next || '';
+
+  const y = d.getUTCFullYear();
+  const mo = d.getUTCMonth();
+  const first = new Date(Date.UTC(y, mo, 1));
+  const startDow = (first.getUTCDay() + 6) % 7;
+  const daysInMonth = new Date(Date.UTC(y, mo + 1, 0)).getUTCDate();
+  let html = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+    .map((x) => `<div class="cal-dow">${x}</div>`).join('');
+  for (let i = 0; i < startDow; i++) html += '<div class="cal-day out"></div>';
+  for (let day = 1; day <= daysInMonth; day++) {
+    const iso = `${y}-${String(mo + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    const c = counts.get(iso) || { matches: 0, outrights: 0 };
+    const total = c.matches + c.outrights;
+    const cls = [
+      'cal-day',
+      iso === state.date ? 'sel' : '',
+      total ? 'has-events' : '',
+      iso === todayISO() ? 'today' : '',
+    ].filter(Boolean).join(' ');
+    html += `<div class="${cls}" data-olbg-date="${iso}"><div class="n">${day}</div>
+      ${total ? `<div class="count-badge">${total}</div>` : ''}
+      ${c.matches ? `<div class="c">${c.matches} matches${c.outrights ? ` · ${c.outrights} outright` : ''}</div>` : c.outrights ? `<div class="c">${c.outrights} outright</div>` : ''}</div>`;
+  }
+  grid.innerHTML = html;
+  $$('#olbg-cal-grid [data-olbg-date]').forEach((el) => el.addEventListener('click', async () => {
+    const iso = el.dataset.olbgDate;
+    $('#date-input').value = iso;
+    state.calMonth = new Date(`${iso}T12:00:00Z`);
+    renderCalendar();
+    renderOlbg();
+    await loadDate(iso);
+    switchTab('olbg');
+    renderCalendar();
+    renderOlbg();
+  }));
+
+  summaryEl.innerHTML = renderOlbgSummary(summary);
+
+  if (!events.length) {
+    eventsEl.innerHTML = `<h2>Match markets</h2><div class="empty">No OLBG match rows are present for ${esc(state.date)} in the committed snapshot.</div>`;
+  } else {
+    const rows = events.map((ev) => {
+      const live = findLiveRowForSlate(ev);
+      const predictable = live && live.result?.favourite !== null;
+      const action = live
+        ? `<button class="btn" data-olbg-predict="${esc(live.raw.competition_id)}" ${predictable ? '' : 'disabled title="Matched live row is unscored"'}>Predict</button>`
+        : '<span class="muted">not matched to the loaded live card</span>';
+      const reviewLinks = [
+        `<a href="${esc(ev.url)}" target="_blank" rel="noopener noreferrer">OLBG event ↗</a>`,
+        live?.raw?.source_url ? `<a href="${esc(live.raw.source_url)}" target="_blank" rel="noopener noreferrer">ESPN match ↗</a>` : null,
+      ].filter(Boolean).join(' · ');
+      const gamesWon = ev.games_won_selections ?? ev.event_page_extras?.games_won_selections ?? [];
+      return `<tr>
+        <td>${esc(ev.display_time || '—')}</td>
+        <td>${esc(ev.home)} v ${esc(ev.away)}</td>
+        <td>${esc(fmtPhase(live?.raw?.phase))}</td>
+        <td>${esc(ev.consensus?.market || '—')}</td>
+        <td>${esc(ev.consensus?.selection || '—')}</td>
+        <td>${renderMarketList(ev.markets_on_event_page, 'event page not verified in this snapshot')}</td>
+        <td>${renderMarketList(gamesWon, 'no Games Won labels observed')}</td>
+        <td>${reviewLinks}</td>
+        <td>${action}</td>
+      </tr>`;
+    }).join('');
+    eventsEl.innerHTML = `
+      <h2>Match markets</h2>
+      <table><thead><tr><th>Time</th><th>Match</th><th>Live card</th><th>Consensus market</th><th>Consensus pick</th><th>Verified markets</th><th>Games Won labels</th><th>Review</th><th>Action</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+      <p class="hint">Only markets actually observed on OLBG event pages are shown in “Verified markets”. Rows without that list are left explicitly unverified.</p>
+    `;
+  }
+
+  if (!outrights.length) {
+    outrightsEl.innerHTML = '';
+  } else {
+    const rows = outrights.map((ev) => `<tr>
+      <td>${esc(ev.display_time || '—')}</td>
+      <td>${esc(ev.name || ev.slug || '—')}</td>
+      <td>${esc(ev.consensus?.market || '—')}</td>
+      <td>${esc(ev.consensus?.selection || '—')}</td>
+      <td><a href="${esc(ev.url)}" target="_blank" rel="noopener noreferrer">OLBG event ↗</a></td>
+    </tr>`).join('');
+    outrightsEl.innerHTML = `
+      <h2>Outrights</h2>
+      <table><thead><tr><th>Time</th><th>Market</th><th>Consensus market</th><th>Consensus pick</th><th>Review</th></tr></thead>
+      <tbody>${rows}</tbody></table>
+      <p class="hint">Outrights are displayed for completeness but are outside the three-match-market model.</p>
+    `;
+  }
+
+  $$('#olbg-events [data-olbg-predict]').forEach((b) => b.addEventListener('click', () => generateFor(b.dataset.olbgPredict)));
 }
 
 /* ------------------------------------------------------------------ *
@@ -462,6 +620,7 @@ function renderQuality() {
   }
 
   const irregularities = state.provenance?.irregularities || [];
+  const slateMatches = state.scored.filter(({ raw }) => findSlateOverlay(raw)).length;
 
   el.innerHTML = `
     <h2>This collection</h2>
@@ -474,6 +633,8 @@ function renderQuality() {
       <tr><td>Matches with no sourced surface</td><td>${q.matches_without_surface}</td></tr>
       <tr><td>History tape</td><td>${q.tape_matches} completed matches over ${q.tape_days} days</td></tr>
       <tr><td>Ranked players loaded</td><td>${q.ranked_players}</td></tr>
+      <tr><td>OLBG snapshot rows loaded</td><td>${state.slate?.events?.length ?? 0}</td></tr>
+      <tr><td>Live matches matched back to OLBG</td><td>${slateMatches}</td></tr>
       <tr><td>Feed failures</td><td>${(q.scoreboard_failures.length + q.ranking_failures.length) || 'none'}</td></tr>
     </tbody></table>
 
@@ -505,8 +666,9 @@ function renderAbout() {
     <h2>What this is</h2>
     <p class="lede">A static tennis scoreboard and three-market prediction generator. The live slate, results and
     rankings are collected in your browser from ESPN's public endpoints; the court surface is resolved from a map
-    built out of recorded match data; and every match is scored by the model in <code>engine/engine.js</code>.
-    Tips are written by <code>engine/writer.js</code> and validated against the Step 4 output rules before display.</p>
+    built out of recorded match data; OLBG snapshot rows are overlaid where a same-day player pairing matches; and
+    every match is scored by the model in <code>engine/engine.js</code>. Tips are written by
+    <code>engine/writer.js</code> and validated against the Step 4 output rules before display.</p>
 
     <h2>Sources — all publicly verifiable</h2>
     <table><thead><tr><th>Source</th><th>Provides</th><th>Link</th></tr></thead><tbody>
@@ -520,7 +682,7 @@ function renderAbout() {
         <td>court surface and tour level per tournament — ${s ? s.counts.resolved : '—'} tournaments from ${s ? s.files_used.reduce((a, f) => a + f.rows, 0).toLocaleString() : '—'} match rows</td>
         <td><a href="https://github.com/Kadantte/tennis_atp" target="_blank" rel="noopener noreferrer">atp mirror ↗</a>
         · <a href="https://github.com/Aneeshers/tennis-sackmann-archive" target="_blank" rel="noopener noreferrer">archive ↗</a></td></tr>
-      <tr><td>OLBG tennis tips</td><td>market listing and tipster consensus — snapshot rendered as the "OLBG market snapshot" panel under the scoreboard, with per-event links for manual review</td>
+      <tr><td>OLBG tennis tips</td><td>market listing and tipster consensus (snapshot; see Data quality)</td>
         <td><a href="https://www.olbg.com/betting-tips/Tennis/3" target="_blank" rel="noopener noreferrer">olbg.com ↗</a></td></tr>
     </tbody></table>
 
@@ -651,10 +813,32 @@ async function shiftDay(n) {
 $('#cal-prev').addEventListener('click', () => {
   state.calMonth = new Date(Date.UTC(state.calMonth.getUTCFullYear(), state.calMonth.getUTCMonth() - 1, 1));
   renderCalendar();
+  renderOlbg();
 });
 $('#cal-next').addEventListener('click', () => {
   state.calMonth = new Date(Date.UTC(state.calMonth.getUTCFullYear(), state.calMonth.getUTCMonth() + 1, 1));
   renderCalendar();
+  renderOlbg();
+});
+$('#olbg-prev-date').addEventListener('click', async (e) => {
+  const iso = e.currentTarget.dataset.date;
+  if (!iso) return;
+  $('#date-input').value = iso;
+  state.calMonth = new Date(`${iso}T12:00:00Z`);
+  renderCalendar();
+  renderOlbg();
+  await loadDate(iso);
+  switchTab('olbg');
+});
+$('#olbg-next-date').addEventListener('click', async (e) => {
+  const iso = e.currentTarget.dataset.date;
+  if (!iso) return;
+  $('#date-input').value = iso;
+  state.calMonth = new Date(`${iso}T12:00:00Z`);
+  renderCalendar();
+  renderOlbg();
+  await loadDate(iso);
+  switchTab('olbg');
 });
 
 $('#generate-all').addEventListener('click', generateAll);
