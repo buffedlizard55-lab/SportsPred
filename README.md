@@ -17,6 +17,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`sources.html`](sources.html) | Every feed, per sport, with the official governing-body link; the machine-verification report; the irregularity register. |
 | [`method.html`](method.html) | The method, the facts-vs-hyperparameters split, the output rules, and the backtest. |
 | [`pro.html`](pro.html) | The specialist engine console (cricket · handball · tennis · F1) with the per-sport master prompts. |
+| [`greyhounds.html`](greyhounds.html) | Greyhound racing: daily GBGB racecards, results and month calendar with form/trap/distance/grade analysis and the written WIN tips generated per the GREYHOUND RACING PREDICTION MASTER PROMPT v1.0. |
 | [`golf.html`](golf.html) | Golf: PGA TOUR / DP World Tour / LPGA / Champions leaderboards and calendars, and the six-market golf card (outright, top six, first round leader, top European, top American, top British & Irish) generated for every men's-tour event on the board. |
 
 Every sport is reachable from the rail in the masthead on every page.
@@ -29,11 +30,16 @@ governing-body links, and — where one exists — the key-less ESPN feed and it
 candidate leagues.
 
 Sports with a structured feed are **predicted**. Sports without one (horse
-racing, greyhounds, darts, snooker, Gaelic football, cycling, boxing) are
-**listed and linked for manual review** and produce no output at all. Golf is
-an outright sport, so it bypasses the two-competitor universal engine and runs
-on its own specialist page (`golf.html`) driven by the GOLF TOURNAMENT
-PREDICTION MASTER PROMPT v1.0 (`docs/GOLF_MASTER_PROMPT.md`). Aussie
+racing, darts, snooker, Gaelic football, cycling, boxing) are **listed and
+linked for manual review** and produce no output at all. Golf is an outright
+sport, so it bypasses the two-competitor universal engine and runs on its own
+specialist page (`golf.html`) driven by the GOLF TOURNAMENT PREDICTION MASTER
+PROMPT v1.0 (`docs/GOLF_MASTER_PROMPT.md`). Greyhounds likewise run on their
+own page (`greyhounds.html`) driven by the GREYHOUND RACING PREDICTION MASTER
+PROMPT v1.0 over the **official GBGB results API** (meetings, draws, results
+and per-dog form histories) with the Sporting Life racecard index for
+meeting enumeration and the OLBG slate as display-only context
+(`docs/GREYHOUND_SOURCES.md`, `docs/GREYHOUND_IRREGULARITIES.md`). Aussie
 Rules and eSports carry OLBG tipster content but no market feed we can reach.
 That split is stated on [`markets.html`](markets.html) per sport, not buried.
 
@@ -166,7 +172,15 @@ engine/                 the model — pure functions, no I/O
   golf_writer.js        Golf Step 4 writer (five blocks, table, weather, RG) + validator
   golf_data.js          Golf results tape -> per-player profiles (leak-free)
   golf_card.js          Golf documents -> scored & written card
-  golf_espn.js          ESPN golf / OWGR / PGA TOUR / ESPN-stats parsers
+  golf_espn.js        ESPN golf / OWGR / PGA TOUR / ESPN-stats parsers
+  greyhound_gbgb.js   GBGB official results API parsers (meetings, draws,
+                      results, per-dog histories; trials excluded)
+  greyhound_data.js   runner profiles from the results tape (trap/track/
+                      distance/grade records, best/last times)
+  greyhound_engine.js Greyhound Step 2 scoring (form 35, odds 25, trap &
+                      distance 20, track/grade 20) + Step 3 card rules
+  greyhound_writer.js Greyhound Step 4 tip writer + output-rule validator
+  greyhound_card.js   slate -> scored & written WIN card; settlement
 assets/js/
   golf-page.js          golf page controller (leaderboards, calendar, cards, button)
   golf-collector.js     live browser collection for golf from ESPN (no key)
@@ -185,6 +199,11 @@ data/
 scripts/
   collect_golf_espn.mjs golf events, results tape, OWGR, ESPN stats, PGA TOUR SG
   collect_golf_olbg.py  OLBG golf slate collector (stdlib only)
+  collect_greyhound.mjs GBGB meetings/draws/results + dog histories; records
+                        and settles forward picks (data/greyhound_*.json)
+  collect_greyhound_olbg.py  OLBG greyhound slate collector (stdlib only)
+  backtest_greyhound.mjs  walk-forward backtest over settled GBGB races
+                        (official SP feeds the odds tier; PnL illustrative)
   collect_golf_weather.mjs  Open-Meteo four-day + round-one trend per event
   backtest_golf.mjs     golf walk-forward backtest + ledger
   data_changed.mjs      collector commit guard: exit 1 when only timestamps moved

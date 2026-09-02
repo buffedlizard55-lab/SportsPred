@@ -1,0 +1,816 @@
+{
+  "schema_version": 1,
+  "sport": "Greyhounds",
+  "source": {
+    "name": "GBGB official results API — dog history (fixture sample)",
+    "base": "https://api.gbgb.org.uk/api",
+    "site": "https://www.gbgb.org.uk/racing/results/",
+    "fetched_at_utc": "2026-09-02T19:05:00Z"
+  },
+  "dogs": {
+    "637203": {
+      "dogId": 637203,
+      "name": "Faiths Memory",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7272030,
+          "meetingId": 1037203
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7272031,
+          "meetingId": 1037203
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 5,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7272032,
+          "meetingId": 1037203
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7272033,
+          "meetingId": 1037203
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7272034,
+          "meetingId": 1037203
+        }
+      ]
+    },
+    "641943": {
+      "dogId": 641943,
+      "name": "Outdoor Cracker",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7319430,
+          "meetingId": 1041943
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7319431,
+          "meetingId": 1041943
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7319432,
+          "meetingId": 1041943
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7319433,
+          "meetingId": 1041943
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.28,
+          "raceId": 7319434,
+          "meetingId": 1041943
+        }
+      ]
+    },
+    "651042": {
+      "dogId": 651042,
+      "name": "Strathrannoch",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7410420,
+          "meetingId": 1051042
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7410421,
+          "meetingId": 1051042
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.04,
+          "raceId": 7410422,
+          "meetingId": 1051042
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.16,
+          "raceId": 7410423,
+          "meetingId": 1051042
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.28,
+          "raceId": 7410424,
+          "meetingId": 1051042
+        }
+      ]
+    },
+    "651692": {
+      "dogId": 651692,
+      "name": "Aayamza Legend",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7416920,
+          "meetingId": 1051692
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7416921,
+          "meetingId": 1051692
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7416922,
+          "meetingId": 1051692
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7416923,
+          "meetingId": 1051692
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.28,
+          "raceId": 7416924,
+          "meetingId": 1051692
+        }
+      ]
+    },
+    "653651": {
+      "dogId": 653651,
+      "name": "My Name Siddy",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7436510,
+          "meetingId": 1053651
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7436511,
+          "meetingId": 1053651
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.04,
+          "raceId": 7436512,
+          "meetingId": 1053651
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.16,
+          "raceId": 7436513,
+          "meetingId": 1053651
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7436514,
+          "meetingId": 1053651
+        }
+      ]
+    },
+    "657011": {
+      "dogId": 657011,
+      "name": "Jimmyjimmyjimmy",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7470110,
+          "meetingId": 1057011
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 27.92,
+          "raceId": 7470111,
+          "meetingId": 1057011
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7470112,
+          "meetingId": 1057011
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7470113,
+          "meetingId": 1057011
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7470114,
+          "meetingId": 1057011
+        }
+      ]
+    },
+    "657190": {
+      "dogId": 657190,
+      "name": "Ballycowen Alfie",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 27.8,
+          "raceId": 7471900,
+          "meetingId": 1057190
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7471901,
+          "meetingId": 1057190
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7471902,
+          "meetingId": 1057190
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.16,
+          "raceId": 7471903,
+          "meetingId": 1057190
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7471904,
+          "meetingId": 1057190
+        }
+      ]
+    },
+    "659263": {
+      "dogId": 659263,
+      "name": "Lady Wright",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7492630,
+          "meetingId": 1059263
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 5,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7492631,
+          "meetingId": 1059263
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7492632,
+          "meetingId": 1059263
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7492633,
+          "meetingId": 1059263
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7492634,
+          "meetingId": 1059263
+        }
+      ]
+    },
+    "659756": {
+      "dogId": 659756,
+      "name": "Monroe Daisy",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7497560,
+          "meetingId": 1059756
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7497561,
+          "meetingId": 1059756
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7497562,
+          "meetingId": 1059756
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 5,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7497563,
+          "meetingId": 1059756
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7497564,
+          "meetingId": 1059756
+        }
+      ]
+    },
+    "663283": {
+      "dogId": 663283,
+      "name": "Fastnet Ranger",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 5,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7532830,
+          "meetingId": 1063283
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 4,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7532831,
+          "meetingId": 1063283
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7532832,
+          "meetingId": 1063283
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.16,
+          "raceId": 7532833,
+          "meetingId": 1063283
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 5,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7532834,
+          "meetingId": 1063283
+        }
+      ]
+    },
+    "664814": {
+      "dogId": 664814,
+      "name": "Move Over Toby",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 27.8,
+          "raceId": 7548140,
+          "meetingId": 1064814
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 6,
+          "sp": "8/1",
+          "runTime": 27.92,
+          "raceId": 7548141,
+          "meetingId": 1064814
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.04,
+          "raceId": 7548142,
+          "meetingId": 1064814
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.16,
+          "raceId": 7548143,
+          "meetingId": 1064814
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7548144,
+          "meetingId": 1064814
+        }
+      ]
+    },
+    "665880": {
+      "dogId": 665880,
+      "name": "Golden Hare",
+      "fetchedAt": "2026-09-02T19:05:00Z",
+      "runs": [
+        {
+          "date": "2026-08-28",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 1,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 27.8,
+          "raceId": 7558800,
+          "meetingId": 1065880
+        },
+        {
+          "date": "2026-08-23",
+          "track": "Yarmouth",
+          "grade": "OR1",
+          "distance": 462,
+          "trap": 2,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 27.92,
+          "raceId": 7558801,
+          "meetingId": 1065880
+        },
+        {
+          "date": "2026-08-18",
+          "track": "Romford",
+          "grade": "OR1",
+          "distance": 400,
+          "trap": 3,
+          "position": 2,
+          "sp": "8/1",
+          "runTime": 28.04,
+          "raceId": 7558802,
+          "meetingId": 1065880
+        },
+        {
+          "date": "2026-08-13",
+          "track": "Yarmouth",
+          "grade": "A1",
+          "distance": 462,
+          "trap": 4,
+          "position": 1,
+          "sp": "5/2",
+          "runTime": 28.16,
+          "raceId": 7558803,
+          "meetingId": 1065880
+        },
+        {
+          "date": "2026-08-08",
+          "track": "Romford",
+          "grade": "A1",
+          "distance": 400,
+          "trap": 5,
+          "position": 3,
+          "sp": "8/1",
+          "runTime": 28.28,
+          "raceId": 7558804,
+          "meetingId": 1065880
+        }
+      ]
+    }
+  }
+}

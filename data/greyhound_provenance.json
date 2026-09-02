@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "sport": "Greyhounds",
+  "generated_at_utc": "2026-09-02T19:05:00Z",
+  "irregularities": [
+    {
+      "id": "IR-GH-01",
+      "severity": "high",
+      "status": "open",
+      "title": "No free key-less live odds feed for greyhounds",
+      "detail": "OLBG server HTML carries no structured prices; Sporting Life racecards show no pre-race prices; GBGB publishes the starting price only after the race. The 25-point odds-and-value category cannot be scored on a live card, odds-gated Step 3 tiers cannot fire, and HIGH confidence is unreachable live. SPs are used for the settled-race backtest only.",
+      "sources": [
+        "https://www.olbg.com/betting-tips/Greyhounds/28",
+        "https://www.sportinglife.com/greyhounds/racecards",
+        "https://api.gbgb.org.uk/api/results/meeting/451800"
+      ],
+      "effect_on_output": "Odds component marked missing on every live tip; confidence capped at MEDIUM; value-target tier withheld."
+    },
+    {
+      "id": "IR-GH-02",
+      "severity": "medium",
+      "status": "open",
+      "title": "Analyst verdicts and tip-sheet narrative are paywalled",
+      "detail": "Timeform analyst verdicts and Sporting Life form summaries are not in the free racecard payload. They are never scored and never paraphrased.",
+      "sources": [
+        "https://www.sportinglife.com/greyhounds/racecards"
+      ],
+      "effect_on_output": "No verdict-derived clauses; tips use measured form/trap/distance/grade factors only."
+    },
+    {
+      "id": "IR-GH-03",
+      "severity": "low",
+      "status": "open",
+      "title": "Social-media sentiment deliberately excluded",
+      "detail": "The prompt instructs tipster/social sentiment to be used internally and never referenced. No structured free feed exists, so the factor is neither collected nor scored.",
+      "sources": [],
+      "effect_on_output": "No sentiment input."
+    },
+    {
+      "id": "IR-GH-04",
+      "severity": "low",
+      "status": "open",
+      "title": "Track handedness/configuration not in the official data",
+      "detail": "The greyhound adjustment for rail-trap bias on left-handed tracks needs per-track configuration, which GBGB does not publish as data. Trap scoring uses measured wins/places per trap instead.",
+      "sources": [
+        "https://www.gbgb.org.uk/racing/results/"
+      ],
+      "effect_on_output": "Structural trap advantage measured from results, not assumed from layout."
+    }
+  ]
+}

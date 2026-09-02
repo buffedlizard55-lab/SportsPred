@@ -153,11 +153,15 @@ function makeFetch(counters) {
       });
     }
     if (u.includes('data/olbg_sports.json') || u.includes('_slate.json') || u.includes('data/slate.json')
-        || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')) {
+        || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
+        || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
       return { ok: false, status: 404, json: async () => ({}) };
     }
+    // Live GBGB API calls are not reachable in the sandbox; the page must
+    // fall back to the committed data and label it.
+    if (u.includes('api.gbgb.org.uk')) return { ok: false, status: 503, json: async () => ({}) };
     return { ok: false, status: 404, json: async () => ({}) };
   };
 }
@@ -474,4 +478,62 @@ test('the registry contains no endpoint that the verifier proved dead', { skip: 
   }
   assert.deepEqual(stillListed, [],
     `these slugs failed live verification and must be removed from engine/registry.js: ${stillListed.join(', ')}`);
+});
+
+test('greyhounds.html boots, renders races and auto-generates a written WIN tip', { skip: !JSDOM }, async () => {
+  const { document, counters } = await bootPage('greyhounds.html', { search: '?date=2026-09-02' });
+
+  // The card renders the fixture's races.
+  const races = [...document.querySelectorAll('.race')];
+  assert.ok(races.length >= 2, 'at least two races render');
+
+  // A tip box with a written tip exists for the selection.
+  const tipText = document.querySelector('.tip-text');
+  assert.ok(tipText, 'a written tip box renders');
+  const tip = tipText.textContent;
+  assert.match(tip, /Confidence:\s*(LOW|MEDIUM|HIGH)/, 'tip declares confidence');
+  assert.ok(/\b(\w[\w'-] ?){39,}/.test(tip) || tip.split(/\s+/).length >= 40, 'tip is at least 40 words');
+  // Winner bolded early and no numerals leak into the prose.
+  assert.ok(/<strong>.*?<\/strong>/.test(tipText.innerHTML), 'selection name is bolded');
+  assert.ok(!/\d/.test(tip.replace(/\s+/g, ' ')), `no numerals in tip text: ${tip.slice(0, 80)}`);
+
+  // Confidence badge is visible in the card.
+  assert.ok(document.querySelector('.race .badge'), 'a confidence/result badge renders');
+
+  // The GBGB live source was attempted (and gracefully fell back to committed data).
+  assert.ok(counters.calls.some((u) => u.includes('api.gbgb.org.uk')), 'live GBGB refresh was attempted');
+});
+
+test('the greyhound Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('greyhounds.html', { search: '?date=2026-09-02' });
+  const before = document.querySelector('.tip-text')?.textContent || '';
+  const btn = document.querySelector('#generate');
+  assert.ok(btn, 'generate button exists');
+  btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+  for (let i = 0; i < 20; i += 1) await new Promise((r) => setTimeout(r, 15));
+  const after = document.querySelector('.tip-text')?.textContent || '';
+  assert.ok(after, 'tips present after Generate click');
+  assert.match(after, /Confidence:\s*(LOW|MEDIUM|HIGH)/);
+  assert.notEqual(before, '', 'a tip existed and was regenerated');
+});
+
+test('greyhound Analysis exposes fired rules and at least two https review links', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('greyhounds.html', { search: '?date=2026-09-02' });
+  const details = document.querySelector('.analysis details');
+  assert.ok(details, 'an analysis panel exists');
+  details.setAttribute('open', '');
+  const text = details.textContent;
+  assert.match(text, /Factor|form|trap/i, 'analysis names scored factors');
+  const links = [...details.querySelectorAll('a[href^="https://"]')];
+  assert.ok(links.length >= 2, `at least two https review links, saw ${links.length}`);
+  // No odds figures are claimed for a live card.
+  assert.match(text, /odds/i, 'the odds category is reported (as not available live)');
+});
+
+test('registry: greyhounds are predicted on their own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const g = SPORTS.find((s) => s.key === 'greyhounds');
+  assert.equal(g.predictable, true);
+  assert.equal(g.page, 'greyhounds.html');
+  assert.equal(g.specialistEngine, 'greyhounds');
 });

@@ -49,6 +49,14 @@ GOLF_PROVENANCE = os.path.join(DATA, 'golf_provenance.json')
 GOLF_BACKTEST = os.path.join(DATA, 'golf_backtest.json')
 GOLF_PREDICTIONS = os.path.join(DATA, 'golf_predictions.json')
 
+# Greyhound files
+GREYHOUND_MEETINGS = os.path.join(DATA, 'greyhound_meetings.json')
+GREYHOUND_HISTORY = os.path.join(DATA, 'greyhound_history.json')
+GREYHOUND_SLATE = os.path.join(DATA, 'greyhound_slate.json')
+GREYHOUND_PROVENANCE = os.path.join(DATA, 'greyhound_provenance.json')
+GREYHOUND_BACKTEST = os.path.join(DATA, 'greyhound_backtest.json')
+GREYHOUND_PREDICTIONS = os.path.join(DATA, 'greyhound_predictions.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -339,6 +347,68 @@ def validate_golf_slate(doc):
     return problems, len(events)
 
 
+def validate_greyhound_meetings(doc):
+    problems = []
+    races = doc.get('races', [])
+    if not isinstance(races, list):
+        return ['greyhound_meetings.races is not a list'], 0
+    src = doc.get('source', {})
+    if not src.get('base'):
+        problems.append('greyhound_meetings.source.base missing')
+    seen = set()
+    for r in races:
+        rid = r.get('raceId')
+        if rid in seen:
+            problems.append(f'duplicate raceId {rid}')
+        seen.add(rid)
+        for field in ('track', 'date', 'time', 'grade', 'distance'):
+            if not r.get(field):
+                problems.append(f'greyhound race {rid} missing "{field}"')
+        if r.get('status') not in ('result', 'scheduled'):
+            problems.append(f'greyhound race {rid} has bad status {r.get("status")!r}')
+        runners = r.get('runners', [])
+        if not isinstance(runners, list) or len(runners) < 2:
+            problems.append(f'greyhound race {rid} has fewer than two runners')
+        for rn in runners:
+            if not rn.get('dogId') or not rn.get('name') or rn.get('trap') is None:
+                problems.append(f'greyhound race {rid} runner missing dogId/name/trap: {rn.get("name")}')
+    return problems, len(races)
+
+
+def validate_greyhound_history(doc):
+    problems = []
+    dogs = doc.get('dogs', {})
+    if not isinstance(dogs, dict):
+        return ['greyhound_history.dogs is not an object'], 0
+    n_runs = 0
+    for dog_id, d in dogs.items():
+        if not d.get('dogId'):
+            problems.append(f'greyhound history dog {dog_id} missing dogId')
+        runs = d.get('runs', [])
+        if not isinstance(runs, list):
+            problems.append(f'greyhound history dog {dog_id} runs is not a list')
+            continue
+        n_runs += len(runs)
+        for run in runs:
+            if not run.get('position') or not run.get('track') or not run.get('grade'):
+                problems.append(f'greyhound history run for {dog_id} missing position/track/grade')
+    return problems, n_runs
+
+
+def validate_greyhound_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['greyhound_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('greyhound_slate.source.url missing')
+    for e in events:
+        for field in ('event_id', 'url', 'event_name'):
+            if not e.get(field):
+                problems.append(f'greyhound slate row missing "{field}": {e.get("event_id")}')
+    return problems, len(events)
+
+
 def validate_handball_matches(doc):
     problems = []
     matches = doc.get('matches', [])
@@ -474,6 +544,25 @@ def main():
         blob = load(path)
         if blob is None:
             print(f'  [PENDING] {name} (populated by the scheduled golf collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+        else:
+            total += report(name, [], 0)
+
+    # Greyhound Validation (official GBGB data; populated by the greyhound collector)
+    print('\n--- Greyhound Data Layer ---')
+    gh_names = [('data/greyhound_meetings.json', GREYHOUND_MEETINGS, validate_greyhound_meetings),
+                ('data/greyhound_history.json', GREYHOUND_HISTORY, validate_greyhound_history),
+                ('data/greyhound_slate.json', GREYHOUND_SLATE, validate_greyhound_slate),
+                ('data/greyhound_provenance.json', GREYHOUND_PROVENANCE, None),
+                ('data/greyhound_backtest.json', GREYHOUND_BACKTEST, None),
+                ('data/greyhound_predictions.json', GREYHOUND_PREDICTIONS, None)]
+    for name, path, fn in gh_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the scheduled greyhound collector)')
             continue
         if fn:
             problems, n = fn(blob)

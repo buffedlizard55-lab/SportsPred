@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Greyhound racing scoreboard, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="Daily UK greyhound racecards and results from the official GBGB database, with a calendar, form analysis and automatically generated, source-linked win predictions and confidence scores.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preconnect" href="https://api.gbgb.org.uk" crossorigin>
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Greyhounds</h1>
+      <p class="page-sub" id="page-sub">Daily GBGB racecards and results across the UK tracks, with form, trap and grade analysis and automatically generated win predictions for every upcoming race — every figure traceable to the official Greyhound Board of Great Britain database.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress" style="display:none"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="track-filter" aria-label="Filter by track">
+            <option value="all">All tracks</option>
+          </select>
+          <select id="status-filter" aria-label="Filter by status">
+            <option value="all">All races</option>
+            <option value="scheduled">Upcoming</option>
+            <option value="result">Results</option>
+            <option value="selected">Selections only</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search dog, trainer, track…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+          <button class="btn sm" id="refresh" title="Clear the local cache and refetch">↻ Refetch</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers show how many races were run or are scheduled that day, from the GBGB meetings in the committed collection window. Pick any date to load that card.</div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Today's selections</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG greyhound markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sources</h3></div>
+        <div class="card-body meta-line" id="sources">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a greyhound card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p>Each runner is scored on recent form, trap-draw record, distance fit and track/grade context exactly as the greyhound master prompt specifies, with the last two runs weighted most heavily.</p>
+          <p>Selections need <strong>55 points or more</strong>, at least two placed runs in the last five, and two measured core categories. Live win odds are not published by any free key-less feed, so the odds component is recorded as missing and confidence on a live card is capped at <span class="badge MEDIUM">MEDIUM</span>; HIGH is only reachable in backtests that use the official starting price.</p>
+          <p>Open <strong>Analysis</strong> on any race for every rule that fired, its points, the factors not available and the official review links.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/greyhound-page.js"></script>
+</body>
+</html>
