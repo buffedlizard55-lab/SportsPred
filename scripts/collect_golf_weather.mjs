@@ -35,15 +35,46 @@ async function getJSON(url) {
 const todayISO = () => new Date().toISOString().slice(0, 10);
 const addDays = (iso, n) => new Date(Date.parse(`${iso}T12:00:00Z`) + n * 86400000).toISOString().slice(0, 10);
 
+/** Countries ESPN abbreviates or names differently from the gazetteer. */
+const COUNTRY_ALIASES = { usa: 'united states', scotland: 'united kingdom', england: 'united kingdom', wales: 'united kingdom', 'northern ireland': 'united kingdom', uae: 'united arab emirates', 'south korea': 'korea', 'republic of ireland': 'ireland' };
+
+/**
+ * Query variants for a course city. ESPN writes "Crans Montana" where the
+ * gazetteer has "Crans-Montana", and "St. Louis" where it has "Saint Louis",
+ * so each variant is tried in turn until one returns a hit in the right country.
+ */
+export function cityQueryVariants(city) {
+  const c = String(city || '').trim();
+  if (!c) return [];
+  const out = [c];
+  if (c.includes(' ')) out.push(c.replace(/\s+/g, '-'));
+  if (c.includes('-')) out.push(c.replace(/-/g, ' '));
+  if (/^st\.?\s/i.test(c)) out.push(c.replace(/^st\.?\s/i, 'Saint '));
+  if (/^mt\.?\s/i.test(c)) out.push(c.replace(/^mt\.?\s/i, 'Mount '));
+  const first = c.split(/[\s,-]+/)[0];
+  if (first && first.length >= 4 && first !== c) out.push(first);
+  return [...new Set(out)];
+}
+
+function countryMatches(hit, country) {
+  if (!country) return true;
+  const want = String(country).toLowerCase();
+  const alias = COUNTRY_ALIASES[want] || want;
+  const got = String(hit.country || '').toLowerCase();
+  return got.includes(want.slice(0, 5)) || got.includes(alias.slice(0, 5));
+}
+
 async function geocode(city, country) {
-  const url = `${GEO}?name=${encodeURIComponent(city)}&count=5&language=en&format=json`;
-  try {
-    const j = await getJSON(url);
-    const hits = j?.results || [];
-    const hit = hits.find((h) => country && String(h.country || '').toLowerCase().includes(String(country).toLowerCase().slice(0, 5))) || hits[0];
-    if (!hit) return null;
-    return { lat: hit.latitude, lon: hit.longitude, name: hit.name, country: hit.country, timezone: hit.timezone, url };
-  } catch { return null; }
+  for (const q of cityQueryVariants(city)) {
+    const url = `${GEO}?name=${encodeURIComponent(q)}&count=10&language=en&format=json`;
+    try {
+      const j = await getJSON(url);
+      const hits = j?.results || [];
+      const hit = hits.find((h) => countryMatches(h, country));
+      if (hit) return { lat: hit.latitude, lon: hit.longitude, name: hit.name, country: hit.country, timezone: hit.timezone, url, query: q };
+    } catch { /* try the next variant */ }
+  }
+  return null;
 }
 
 /** Trend from hourly wind + rain across the local tee window (07:00-17:00). */

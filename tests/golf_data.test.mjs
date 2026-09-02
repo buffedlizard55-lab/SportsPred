@@ -8,9 +8,12 @@ import assert from 'node:assert/strict';
 import {
   normName, nameKeys, classifyRegion, courseClass, buildResultsIndex, historyBefore, summariseForm, eventHistory,
   r1Profile, courseClassRecord, buildGolfProfile, buildFieldContext, selectGolfEvents, eventCoversDate, matchGolfOlbg, eventNameKey,
+  isStrokePlayRound, applySgCoverageFloor, SG_COVERAGE_FLOOR,
 } from '../engine/golf_data.js';
-import { buildGolfEventCard, buildGolfDateCard, owgrLookup, matchOwgr, statsLookup, sgLookup, matchSg, golfCalendarCounts } from '../engine/golf_card.js';
-import { r1Trend } from '../scripts/collect_golf_weather.mjs';
+import { buildGolfEventCard, buildGolfDateCard, owgrLookup, matchOwgr, statsLookup, sgLookup, matchSg, golfCalendarCounts, gradeGolfSelections } from '../engine/golf_card.js';
+import { r1Trend, cityQueryVariants } from '../scripts/collect_golf_weather.mjs';
+
+const round3 = (x) => Math.round(x * 1000) / 1000;
 
 test('name normalisation handles diacritics, suffixes and initials', () => {
   assert.equal(normName('Ludvig Åberg'), 'ludvig aberg');
@@ -187,4 +190,75 @@ test('end-to-end card: profiles, context and validated output from committed-sha
   const day = buildGolfDateCard({ eventsDoc, resultsDoc, rankingsDoc, statsDoc: null, weatherDoc, slateDoc: null }, '2026-09-04');
   assert.equal(day.cards.length, 1);
   assert.equal(buildGolfEventCard({ eventsDoc, resultsDoc }, 'nope'), null);
+});
+
+/* ------------------------------------------------------------------ *
+ * stroke-play sanity and the strokes-gained coverage floor (IR-GOLF-14/15)
+ * ------------------------------------------------------------------ */
+
+test('r1Profile ignores partial withdrawn rounds and Stableford point totals', () => {
+  const rows = [
+    { eventId: 'a', endDate: '2026-08-01', par: 72, rounds: [23, null, null, null], result: 'WD' },   // nine holes then WD
+    { eventId: 'b', endDate: '2026-07-25', par: 71, rounds: [8, 11, 12, 5], result: 'F' },            // modified Stableford points
+    { eventId: 'c', endDate: '2026-07-18', par: 72, rounds: [66, 70, 71, 69], result: 'F' },
+    { eventId: 'd', endDate: '2026-07-11', par: 70, rounds: [67, 70, null, null], result: 'CUT' },
+    { eventId: 'e', endDate: '2026-07-04', par: 72, rounds: [72, 70, 71, 69], result: 'F' },
+    { eventId: 'f', endDate: '2026-06-27', par: 72, rounds: [69, 70, 71, 69], result: 'F' },
+  ];
+  const r1 = r1Profile(rows);
+  assert.equal(r1.rounds, 4, 'only the four real opening rounds are counted');
+  assert.equal(r1.fastStarts, 2, '66 and 67 are fast starts; 23 and 8 are not');
+  assert.equal(r1.avgR1ToPar, round3((-6 - 3 + 0 - 3) / 4));
+  assert.equal(isStrokePlayRound(23), false);
+  assert.equal(isStrokePlayRound(55), true);
+  assert.equal(isStrokePlayRound(101), false);
+});
+
+test('applySgCoverageFloor suppresses strokes gained when fewer than half the field carries a row', () => {
+  const mk = (id, sg, amateur = false) => ({ athleteId: id, amateur, sg: sg ? { app: { avg: 0.5 } } : null });
+  const thin = [mk('1', true), mk('2', false), mk('3', false), mk('4', false), mk('5', true, true)];
+  const res = applySgCoverageFloor(thin);
+  assert.deepEqual(res.suppressed, { matched: 1, scored: 4, floor: SG_COVERAGE_FLOOR });
+  assert.ok(res.profiles.every((p) => p.sg === null), 'every strokes-gained row is dropped');
+  assert.equal(res.profiles[0].sgSuppressed, true);
+  const rich = [mk('1', true), mk('2', true), mk('3', false), mk('4', true)];
+  const ok = applySgCoverageFloor(rich);
+  assert.equal(ok.suppressed, null);
+  assert.equal(ok.profiles[0].sg.app.avg, 0.5, 'rows are kept when coverage clears the floor');
+  assert.equal(applySgCoverageFloor([mk('1', false)]).suppressed, null, 'no rows at all is not a suppression (it is a missing source)');
+});
+
+test('gradeGolfSelections grades every market from the final field and refuses to grade first-round leader on a Stableford tape', () => {
+  const field = [
+    { athleteId: '1', position: 1, result: 'F', country: 'USA', countryCode: 'USA', r1: 64 },
+    { athleteId: '2', position: 2, result: 'F', country: 'England', countryCode: 'ENG', r1: 66 },
+    { athleteId: '3', position: 6, result: 'F', country: 'Denmark', countryCode: 'DEN', r1: 70 },
+    { athleteId: '4', position: null, result: 'CUT', country: 'USA', countryCode: 'USA', r1: 75 },
+    ...Array.from({ length: 20 }, (_, i) => ({ athleteId: `x${i}`, position: 10 + i, result: 'F', country: 'Spain', countryCode: 'ESP', r1: 68 + (i % 5) })),
+  ];
+  const sel = (id, name, band = 'MEDIUM') => ({ selections: [{ athleteId: id, name, band }] });
+  const scored = { markets: {
+    outright: sel('1', 'A'), top6: { selections: [{ athleteId: '3', name: 'C', band: 'HIGH' }, { athleteId: '4', name: 'D', band: 'MEDIUM' }] }, frl: sel('1', 'A'),
+    top_european: sel('2', 'B'), top_american: sel('4', 'D'), top_british_irish: sel('2', 'B'),
+  } };
+  const g = gradeGolfSelections(scored, field);
+  assert.equal(g.outright.status, 'HIT');
+  assert.equal(g.top6.status, 'HIT');
+  assert.equal(g.frl.status, 'HIT', 'lowest completed opening round wins the first-round-leader grade');
+  assert.equal(g.top_european.status, 'HIT', 'the Englishman is the best-placed European');
+  assert.equal(g.top_american.status, 'MISS', 'a missed cut cannot be top American when another American finished');
+  assert.equal(g.top_british_irish.status, 'HIT');
+  assert.deepEqual(g._top6List, { selections: 2, hits: 1 });
+
+  const stableford = field.map((p) => ({ ...p, r1: p.r1 - 60 })); // point totals, not strokes
+  assert.equal(gradeGolfSelections(scored, stableford).frl.status, 'UNVERIFIED');
+  assert.equal(gradeGolfSelections({ markets: { outright: { selections: [] } } }, field).outright.status, 'NO SELECTION');
+  assert.equal(gradeGolfSelections({ markets: { outright: sel('zz', 'Ghost') } }, field).outright.status, 'UNVERIFIED');
+});
+
+test('cityQueryVariants tries the hyphenated and Saint forms the gazetteer expects', () => {
+  assert.deepEqual(cityQueryVariants('Crans Montana'), ['Crans Montana', 'Crans-Montana', 'Crans']);
+  assert.deepEqual(cityQueryVariants('St. Louis'), ['St. Louis', 'St.-Louis', 'Saint Louis']);
+  assert.deepEqual(cityQueryVariants('Doonbeg'), ['Doonbeg']);
+  assert.deepEqual(cityQueryVariants(''), []);
 });

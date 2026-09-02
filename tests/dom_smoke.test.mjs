@@ -107,6 +107,12 @@ function makeFetch(counters) {
     if (u.includes('data/golf_results.json')) return ok(golfResultsDoc());
     if (u.includes('data/golf_rankings.json')) return ok(golfRankingsDoc());
     if (u.includes('data/golf_weather.json')) return ok({ events: { 401822700: { available: true, days: [{ date: '2026-09-03', windMaxKmh: 34, precipProbPct: 55 }], r1: { trend: 'deteriorating' }, sourceUrl: 'https://api.open-meteo.com/v1/forecast?latitude=46&longitude=7' } } });
+    if (u.includes('data/golf_backtest.json')) {
+      return ok({ events: 22, generated_at_utc: '2026-09-01T00:00:00Z', summary: [
+        { market: 'outright', hits: 2, graded: 22, hitRate: 0.091 }, { market: 'top6', hits: 8, graded: 20, hitRate: 0.4 }, { market: 'frl', hits: 1, graded: 22, hitRate: 0.045 },
+        { market: 'top_european', hits: 3, graded: 22, hitRate: 0.136 }, { market: 'top_american', hits: 6, graded: 22, hitRate: 0.273 }, { market: 'top_british_irish', hits: 5, graded: 22, hitRate: 0.227 },
+      ], top6List: { selections: 100, hits: 27, rate: 0.27 } });
+    }
     if (u.includes('data/golf_events.json') || u.includes('data/golf_stats.json') || u.includes('data/golf_slate.json')) {
       return { ok: false, status: 404, json: async () => ({}) };
     }
@@ -296,6 +302,8 @@ test('golf.html boots, renders leaderboards from ESPN and auto-generates a six-m
     assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'the rail lists selections');
     assert.match(document.querySelector('#rail-count').textContent, /selections across 1 tournament card/);
     assert.match(document.querySelector('#coverage').textContent, /OWGR rows/);
+    assert.match(document.querySelector('#coverage').textContent, /walk-forward backtest \(22 events/, 'the measured backtest summary is surfaced');
+    assert.ok(document.querySelector('#coverage a[href="data/golf_backtest.json"]'), 'the backtest ledger is linked');
     assert.ok(document.querySelectorAll('#calgrid .cell .c').length >= 1, 'calendar shows tournament days');
   } finally { cleanup(); }
 });

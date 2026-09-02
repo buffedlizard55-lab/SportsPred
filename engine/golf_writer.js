@@ -267,7 +267,7 @@ function joinList(items) {
 }
 
 const LOW_ANGLES = {
-  outright: (n) => `The evidence is thinner than usual, so ${n} is offered as a value-style outright rather than a confident headline, with enough sourced support to be worth a small interest.`,
+  outright: (n) => `The evidence is thinner than usual, so ${n} is offered as a value-style outright rather than a confident headline, with enough sourced support to justify a place on the list.`,
   top6: (n) => `The case for ${n} inside the top six is partial rather than complete, which is why the grade stays modest.`,
   frl: (n) => `For the opening round ${n} has enough sourced support to be listed, but the gaps in the evidence keep the grade modest.`,
   regional: (n, r) => `Within the ${r} group the sourced evidence is thin, but ${n} still reads best on what is published, so the market goes that way at a modest grade.`,
@@ -299,7 +299,7 @@ const ANGLES = {
   ],
 };
 
-function composeTip({ marketKey, label, cand, band, openerIdx, angleIdx, valuePick = false, coSelection = false }) {
+function composeTip({ marketKey, label, cand, band, openerIdx, angleIdx, valuePick = false, outsider = false, coSelection = false }) {
   const name = cand.name;
   const facts = factClauses(cand, marketKey);
   const cautions = cautionClauses(cand);
@@ -310,12 +310,14 @@ function composeTip({ marketKey, label, cand, band, openerIdx, angleIdx, valuePi
   const angle = angleFn(name, REGION_WORD[marketKey]);
   const caution = cautions.length ? ` Against that, ${cautions[0]}.` : '';
   const co = coSelection ? ' The scores at the head of this regional market are close enough that a second selection is justified alongside the first.' : '';
-  const value = valuePick ? ' Ranked outside the leading group in this field yet close to it on the evidence that matters, this is the value play of the week.' : '';
+  const value = valuePick
+    ? ' Ranked outside the leading group in this field yet close to it on the evidence that matters, this is the value play of the week.'
+    : outsider ? ' Listed as the outright from outside the leading group, this is an outsider case built on the sourced record rather than a headline claim.' : '';
   let text = `${opener} ${factText}. ${angle}${caution}${value}${co} ${confidenceSentence(band)}`.replace(/\s+/g, ' ').trim();
   if (text.split(/\s+/).length < MIN_WORDS) {
     text = text.replace(/\s*Confidence:.*$/, '') + ' The evidence comes from completed rounds rather than reputation, and it holds up across the factors this market rewards. ' + confidenceSentence(band);
   }
-  return { text, ok: true, violations: [], band, market: label, marketKey, name, athleteId: cand.athleteId, skip: false, valuePick, coSelection, score: cand.score };
+  return { text, ok: true, violations: [], band, market: label, marketKey, name, athleteId: cand.athleteId, skip: false, valuePick, outsider, coSelection, score: cand.score };
 }
 
 function skipTip(label, marketKey, reason) {
@@ -364,7 +366,10 @@ export function writeGolfCard(scored, event, weather = null) {
   if (outTop) {
     b1.tips.push(next('outright', MARKETS.outright, outTop, outTop.band, { valuePick: Boolean(outTop.valuePick) }));
     const val = outright.selections.find((s) => s.athleteId !== outTop.athleteId) || null;
-    if (val) b1.tips.push(next('outright', MARKETS.outright, val, val.valueFallback ? CONFIDENCE.LOW : val.band, { valuePick: Boolean(val.valuePick || val.valueFallback) }));
+    // Strict VALUE PICK (field rank 15-40, fit >= 18, form >= 14) keeps the flag;
+    // the outside-the-top-five fallback is written at the band its score earns
+    // and never carries the VALUE PICK label (IR-GOLF-01).
+    if (val) b1.tips.push(next('outright', MARKETS.outright, val, val.band, { valuePick: val.valuePick === true, outsider: val.valueFallback === true }));
   } else {
     const t = skipTip(MARKETS.outright, 'outright', skipReason(outright)); tips.push(t); b1.tips.push(t);
   }

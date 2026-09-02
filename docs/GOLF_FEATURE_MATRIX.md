@@ -24,7 +24,11 @@
   otherwise the factor is missing.
 - **LPGA / Champions predictions** — outside the prompt's men's-tour rules
   (IR-GOLF-08); leaderboards and calendars only.
-- **Data files on this branch** — the sandbox cannot reach the sources
-  (IR-GOLF-13). The first `golf-collect.yml` run on this branch populates
-  `data/golf_*.json`; until then the page loads live leaderboards in the
-  browser and records history factors as missing.
+- **Data files** — the sandbox cannot reach the sources (IR-GOLF-13), so
+  `data/golf_*.json` are produced only by `golf-collect.yml`. The first run
+  (2026-09-02) committed 230 tape events / 2,324 players (PGA TOUR + DP World
+  Tour, 2024–2026), 1,000 OWGR rows, 573 ESPN season-stat rows and six PGA
+  TOUR strokes-gained categories (151 rows each). The walk-forward backtest
+  over that tape is summarised on the golf page and in
+  `data/golf_backtest.json`; two corrections it exposed are IR-GOLF-14 and
+  IR-GOLF-15.

@@ -38,6 +38,8 @@ market and every candidate in the analysis panel.
   substitution is written into the component detail. When a category is not
   parseable, or for any DP World Tour event, the SG components score zero,
   are marked missing, and the market is capped at MEDIUM by construction.
+  Fields where only a minority of players carry a row are handled by the
+  coverage floor in IR-GOLF-14.
 
 ### IR-GOLF-03: Course type and grass are not published
 - **Observation:** ESPN publishes yardage and par only. No free source
@@ -138,3 +140,47 @@ market and every candidate in the analysis panel.
   reports `[PENDING]` in `scripts/build_data.py`, the golf page still loads
   the live leaderboards from ESPN in the visitor's browser, and every
   history-based factor is honestly recorded as missing.
+
+### IR-GOLF-14: Strokes-gained coverage floor (found on the first real run)
+- **Observation:** The first collector run (2026-09-02) built the Omega
+  European Masters card with strokes gained for 11 of 154 players — the
+  handful of PGA TOUR members in a DP World Tour field. Ranking those eleven
+  *within the field* handed them up to thirty-three points nobody else could
+  earn, which lifted an otherwise MEDIUM outright to HIGH and put two
+  Americans at the head of the first-round-leader list on putting rows the
+  rest of the field did not have.
+- **Prompt lines affected:** Every strokes-gained line (approach 25,
+  tee-to-green +5, putting trend +3, FRL putting 20, top-six tee-to-green
+  +10, American approach penalty −10).
+- **Handling:** `applySgCoverageFloor` (engine/golf_data.js) scores strokes
+  gained only when at least half of the non-amateur field carries a row;
+  below that it is missing for everyone, the event-level `missing[]` says
+  "only N of M players…", a flag is raised, and no market can read HIGH. The
+  page's coverage line shows both numbers ("with SG (scored after the
+  coverage floor)"). The backtest applies the same floor, so its
+  current-season DP World Tour events are graded without strokes gained
+  (`sgApplied` on every ledger row).
+
+### IR-GOLF-15: Non-stroke-play rounds in the results tape
+- **Observation:** ESPN publishes the Barracuda Championship (modified
+  Stableford) round values as points (1–19), and partial rounds for
+  withdrawn players (e.g. 23 strokes through nine holes). Both read as
+  record-low opening rounds: 22 of 230 tape events had a "lowest round one"
+  below 58, all from withdrawn players or the Stableford event.
+- **Prompt lines affected:** FRL opening-round scoring rank (35), fast-start
+  profile (20), the layout early-scoring bonus (15) and first-round-leader
+  grading in the backtest.
+- **Handling:** `isStrokePlayRound` (55–100 strokes) gates every opening-round
+  measurement and the shared grader (`gradeGolfSelections`) refuses to grade
+  first-round leader when fewer than twenty real opening rounds exist for
+  the event — the Barracuda rows are `UNVERIFIED`, not misgraded.
+
+### IR-GOLF-16: Course city spelling defeats the gazetteer
+- **Observation:** ESPN lists the Omega European Masters venue city as
+  "Crans Montana"; Open-Meteo's geocoder only knows "Crans-Montana", so the
+  first weather run returned `geocoding failed for Crans Montana` and the
+  weather note fell back to "no forecast was available".
+- **Handling:** `cityQueryVariants` tries the hyphenated, de-hyphenated,
+  "Saint"/"Mount" and first-token forms in turn, with country aliases
+  (USA → United States, Scotland/England/Wales/Northern Ireland → United
+  Kingdom). The variant that matched is recorded in the weather document.

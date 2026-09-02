@@ -458,7 +458,12 @@ export function scoreGolfEvent(event, profiles, ctx) {
   if ((profiles || []).some((p) => p?.amateur)) flags.push('amateurs excluded from all markets');
 
   const eventMissing = [];
-  if (!ctx.sgCoverage) eventMissing.push('strokes gained (no free per-player strokes-gained source for this event; approach, tee-to-green and putting categories score zero and are marked missing)');
+  if (ctx.sgSuppressed) {
+    eventMissing.push(`strokes gained (only ${ctx.sgSuppressed.matched} of ${ctx.sgSuppressed.scored} players in this field have a strokes-gained row, below the ${Math.round(ctx.sgSuppressed.floor * 100)}% coverage floor, so it is scored as missing for every player to keep the field on a level footing)`);
+    flags.push(`strokes gained suppressed: ${ctx.sgSuppressed.matched} of ${ctx.sgSuppressed.scored} players covered (floor ${Math.round(ctx.sgSuppressed.floor * 100)}%); no player can read HIGH`);
+  } else if (!ctx.sgCoverage) {
+    eventMissing.push('strokes gained (no free per-player strokes-gained source for this event; approach, tee-to-green and putting categories score zero and are marked missing)');
+  }
   if (!ctx.weather?.r1?.trend) eventMissing.push('round-one weather trend (forecast not collected or event more than a week away)');
   if (ctx.priorEditionsInTape === 0) eventMissing.push('course history (no prior edition of this tournament in the sourced tape)');
   eventMissing.push('odds (no free key-less bookmaker odds source; OWGR rank within the field stands in for market favouritism in the value rules)');
@@ -481,12 +486,13 @@ export function scoreGolfEvent(event, profiles, ctx) {
   let valuePickApplied = null;
   if (top && (top.fieldRank === null || top.fieldRank <= RULES.value.favouriteCut || !top.valuePick)) {
     const v = valueCands[0] || null;
-    if (v) { outrightSel.push({ ...v, valuePick: true, band: CONFIDENCE.LOW === v.band ? v.band : v.band }); valuePickApplied = v.name; }
+    if (v) { outrightSel.push({ ...v, valuePick: true }); valuePickApplied = v.name; }
     else if (outsideTop5[0]) {
       // Prompt: always at least one value outright outside the top-five favourites.
+      // The strict VALUE PICK label is withheld; the player keeps the band the score earns.
       outrightSel.push({ ...outsideTop5[0], valuePick: false, valueFallback: true });
       valuePickApplied = outsideTop5[0].name;
-      flags.push('no player met the strict VALUE PICK test (field rank 15-40, fit >= 18, form >= 14); the best-scoring player outside the top-five favourites is listed instead and written as LOW');
+      flags.push('no player met the strict VALUE PICK test (field rank 15-40, fit >= 18, form >= 14); the best-scoring player outside the top-five favourites is listed as the outside-the-top-five outright instead, without the VALUE PICK label');
     }
   }
   const outrightMarket = {
@@ -506,11 +512,14 @@ export function scoreGolfEvent(event, profiles, ctx) {
   }).sort((a, b) => b.score - a.score || (a.fieldRank ?? 999) - (b.fieldRank ?? 999));
   let top6Sel = top6Cands.filter((c) => c.band !== CONFIDENCE.SKIP && hasEvidence(c)).slice(0, RULES.top6.max);
   const g = RULES.top6Guard;
-  if (top6Sel.length === RULES.top6.max && top6Sel.every((c) => c.fieldRank !== null && c.fieldRank <= g.favouriteCut)) {
-    const alt = top6Cands.find((c) => c.band !== CONFIDENCE.SKIP && c.fieldRank !== null && c.fieldRank >= g.minFieldRank && !top6Sel.includes(c));
-    if (alt) { top6Sel = [...top6Sel.slice(0, RULES.top6.max - 1), { ...alt, guardSwap: true }]; flags.push(`top-six guard: ${alt.name} replaces the sixth favourite so the list is not six market favourites`); }
-    else flags.push('top-six guard: every qualifying player is a top-six favourite and no player ranked fifteenth or worse clears the threshold; the sixth slot is left empty');
-    if (!alt) top6Sel = top6Sel.slice(0, RULES.top6.max - 1);
+  // Prompt: never let all six selections be favourites — at least one must be
+  // ranked fifteenth or worse in the field (field rank by OWGR, IR-GOLF-10).
+  if (top6Sel.length === RULES.top6.max && !top6Sel.some((c) => c.fieldRank !== null && c.fieldRank >= g.minFieldRank)) {
+    const alt = top6Cands.find((c) => c.band !== CONFIDENCE.SKIP && hasEvidence(c) && c.fieldRank !== null && c.fieldRank >= g.minFieldRank && !top6Sel.includes(c));
+    const allFav = top6Sel.every((c) => c.fieldRank !== null && c.fieldRank <= g.favouriteCut);
+    if (alt) { top6Sel = [...top6Sel.slice(0, RULES.top6.max - 1), { ...alt, guardSwap: true }]; flags.push(`top-six guard: ${alt.name} (ranked ${alt.fieldRank} in the field) replaces the sixth name so the list carries a player ranked fifteenth or worse`); }
+    else if (allFav) { top6Sel = top6Sel.slice(0, RULES.top6.max - 1); flags.push('top-six guard: every qualifying player is a top-six favourite and no player ranked fifteenth or worse clears the threshold; the sixth slot is left empty'); }
+    else flags.push('top-six guard: no player ranked fifteenth or worse clears the threshold; the six selections stand because they are not all top-six favourites');
   }
   const top6Market = {
     key: 'top6', label: MARKETS.top6, threshold: RULES.top6.skip,

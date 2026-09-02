@@ -213,7 +213,7 @@ docs/
   GOLF_PROMPT_REVIEW.md prompt line -> code -> test, with every substitution named
   GOLF_FEATURE_MATRIX.md what the golf layer delivers and how it is proven
   GOLF_SOURCES.md       every golf endpoint, verified, with review links
-  GOLF_IRREGULARITIES.md IR-GOLF-01..13
+  GOLF_IRREGULARITIES.md IR-GOLF-01..16
 ```
 
 The engine is imported directly by the browser **and** by the tests. There is no

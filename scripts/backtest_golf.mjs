@@ -30,9 +30,9 @@ import { writeFileSync, readFileSync, existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { buildResultsIndex, buildGolfProfile, buildFieldContext, classifyRegion } from '../engine/golf_data.js';
-import { scoreGolfEvent, RULESET_VERSION, CONFIDENCE } from '../engine/golf_engine.js';
-import { owgrLookup, matchOwgr, statsLookup, sgLookup, matchSg } from '../engine/golf_card.js';
+import { buildResultsIndex, buildGolfProfile, buildFieldContext, applySgCoverageFloor } from '../engine/golf_data.js';
+import { scoreGolfEvent, RULESET_VERSION } from '../engine/golf_engine.js';
+import { owgrLookup, matchOwgr, statsLookup, sgLookup, matchSg, gradeGolfSelections } from '../engine/golf_card.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = process.env.SPORTSPRED_DATA_DIR || join(ROOT, 'data');
@@ -50,32 +50,9 @@ function fieldFromEntry(entry, players) {
   for (const row of entry.rows || []) {
     const [athleteId, position, result, toPar, r1] = row;
     const p = players[athleteId] || {};
-    out.push({ athleteId: String(athleteId), name: p.name || `Player ${athleteId}`, country: p.country ?? null, countryCode: p.countryCode ?? null, teeTime: null, amateur: false, _position: position, _result: result, _toPar: toPar, _r1: r1 });
+    out.push({ athleteId: String(athleteId), name: p.name || `Player ${athleteId}`, country: p.country ?? null, countryCode: p.countryCode ?? null, teeTime: null, amateur: false, position: position ?? null, result: result ?? null, toPar: toPar ?? null, r1: r1 ?? null });
   }
   return out;
-}
-
-function gradeMarket(key, market, field) {
-  const sel = market?.selections?.[0] || null;
-  if (!sel || sel.band === CONFIDENCE.SKIP) return { status: 'NO SELECTION', hit: null, selection: null, band: null };
-  const me = field.find((p) => p.athleteId === sel.athleteId);
-  if (!me) return { status: 'UNVERIFIED', hit: null, selection: sel.name, band: sel.band };
-  const finished = (p) => p._position !== null && p._position !== undefined && (p._result === 'F' || p._result === 'MDF');
-  let hit = null;
-  if (key === 'outright') hit = finished(me) && me._position === 1;
-  else if (key === 'top6') hit = finished(me) && me._position <= 6;
-  else if (key === 'frl') {
-    const r1s = field.map((p) => p._r1).filter((v) => Number.isFinite(v) && v > 0);
-    if (!r1s.length || !Number.isFinite(me._r1)) return { status: 'UNVERIFIED', hit: null, selection: sel.name, band: sel.band };
-    hit = me._r1 === Math.min(...r1s);
-  } else {
-    const flag = key === 'top_european' ? 'european' : key === 'top_american' ? 'american' : 'britishIrish';
-    const eligible = field.filter((p) => classifyRegion({ country: p.country, countryCode: p.countryCode })[flag] && finished(p));
-    if (!eligible.length) return { status: 'UNVERIFIED', hit: null, selection: sel.name, band: sel.band };
-    const best = Math.min(...eligible.map((p) => p._position));
-    hit = finished(me) && me._position === best;
-  }
-  return { status: hit ? 'HIT' : 'MISS', hit, selection: sel.name, band: sel.band, valuePick: sel.valuePick === true };
 }
 
 function main() {
@@ -105,21 +82,25 @@ function main() {
     const event = { id: meta.eventId, name: meta.name, tour: meta.tour, tournamentId: meta.tournamentId, startDate: meta.startDate, endDate: meta.endDate, purse: meta.purse, course: { yards: meta.yards, par: meta.par } };
     const asOf = meta.startDate;
     const useSg = sg.available && currentSeason && meta.seasonYear === currentSeason;
-    const profiles = field.map((player) => buildGolfProfile({
+    const raw = field.map((player) => buildGolfProfile({
       index, player, event, asOfISO: asOf,
       ranking: matchOwgr(owgr, player.name),
       stats: stats.byId.get(player.athleteId) || null,
       sg: useSg ? matchSg(sg, player.name) : null,
       statsDist: { distanceQ1: stats.distanceQ1, distanceQ3: stats.distanceQ3 },
     }));
+    const floor = applySgCoverageFloor(raw);
+    const profiles = floor.profiles;
     const ctx = buildFieldContext({ event, profiles, index, weather: null, asOfISO: asOf });
     ctx.priorEditionsInTape = events.filter((e) => e.tournamentId && e.tournamentId === meta.tournamentId && e.endDate < asOf).length;
+    ctx.sgSuppressed = floor.suppressed;
     const scored = scoreGolfEvent(event, profiles, ctx);
     if (scored.unscored) continue;
 
-    const row = { eventId: meta.eventId, tour: meta.tour, name: meta.name, date: meta.endDate, winner: entry.winner?.name ?? null, markets: {}, sourceUrl: meta.sourceUrl };
+    const graded = gradeGolfSelections(scored, field);
+    const row = { eventId: meta.eventId, tour: meta.tour, name: meta.name, date: meta.endDate, winner: entry.winner?.name ?? null, markets: {}, sourceUrl: meta.sourceUrl, sgApplied: Boolean(useSg && !floor.suppressed) };
     for (const k of keys) {
-      const g = gradeMarket(k, scored.markets[k], field);
+      const g = graded[k];
       row.markets[k] = g;
       const agg = byMarket[k];
       agg.total += 1;
@@ -132,9 +113,7 @@ function main() {
       }
     }
     // Top-six list as a whole: how many of the (up to six) selections finished top six.
-    const t6 = scored.markets.top6?.selections || [];
-    const t6hits = t6.filter((s) => { const p = field.find((x) => x.athleteId === s.athleteId); return p && p._position !== null && p._position <= 6 && (p._result === 'F' || p._result === 'MDF'); }).length;
-    row.top6List = { selections: t6.length, hits: t6hits };
+    row.top6List = graded._top6List;
     rows.push(row);
     ledger.push({
       id: `golf-${meta.eventId}`, date: meta.endDate, tour: meta.tour, event: meta.name,
@@ -157,7 +136,7 @@ function main() {
     sport: 'Golf',
     ruleset: RULESET_VERSION,
     generated_at_utc: new Date().toISOString(),
-    method: 'Walk-forward: each completed event is scored with results that ended before its first round only. Fields are reconstructed from the event result rows. Tee times and weather are not available historically, so the first-round-leader tee/weather category is missing for every past event. Strokes gained (season averages) is applied only to current-season events. Grading uses the ESPN leaderboard linked on every row.',
+    method: 'Walk-forward: each completed event is scored with results that ended before its first round only. Fields are reconstructed from the event result rows. Tee times and weather are not available historically, so the first-round-leader tee/weather category is missing for every past event. Strokes gained (season averages) is applied only to current-season events and only when at least half the field carries a strokes-gained row. First-round-leader grading uses completed stroke-play opening rounds only (Stableford events and partial withdrawn rounds are excluded). Grading uses the ESPN leaderboard linked on every row.',
     leak_control: 'historyBefore(asOfISO) filters strictly on endDate < first-round date.',
     known_limitation: `The first ${MIN_HISTORY_EVENTS} events of the tape are skipped because no history exists for them; early-tape events still carry thin history and are graded as such.`,
     events: rows.length,

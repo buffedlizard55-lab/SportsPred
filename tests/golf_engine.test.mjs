@@ -262,6 +262,29 @@ test('scoreGolfEvent: top-six guard never lists six top-six favourites', () => {
   assert.ok(r.flags.some((f) => f.startsWith('top-six guard')));
 });
 
+test('scoreGolfEvent: top-six guard also fires when the six are ranked 1-14 but none is fifteenth or worse', () => {
+  const profiles = field(60);
+  // ranks 7-12 overwhelming (none is a top-six favourite, none is 15+), and a 30th-ranked qualifier
+  for (let i = 6; i < 12; i += 1) profiles[i].form = form({ winIn6w: true, top10Last5: 3, top10Rate12m: 0.5, starts: 10 });
+  profiles[29].form = form({ winIn6w: true, top10Rate12m: 0.4, starts: 10 });
+  const r = scoreGolfEvent({ id: 'e1' }, profiles, fieldCtx(profiles));
+  const sel = r.markets.top6.selections;
+  assert.equal(sel.length, 6);
+  const swapped = sel.find((s) => s.guardSwap);
+  assert.ok(swapped && swapped.fieldRank >= 15, 'a player ranked fifteenth or worse was swapped in');
+  assert.ok(sel.slice(0, 5).every((s) => s.fieldRank < 15), 'the five strongest names ranked inside fifteen are kept');
+  assert.ok(r.flags.some((f) => f.startsWith('top-six guard') && f.includes(`ranked ${swapped.fieldRank} in the field`)));
+});
+
+test('scoreGolfEvent: a suppressed strokes-gained source is disclosed at event level and caps every market below HIGH', () => {
+  const profiles = field(40);
+  for (let i = 0; i < 3; i += 1) profiles[i].form = form({ winIn6w: true, top10Last5: 3, top10Rate12m: 0.5, starts: 10 });
+  const r = scoreGolfEvent({ id: 'e1' }, profiles, fieldCtx(profiles, { sgSuppressed: { matched: 4, scored: 40, floor: 0.5 } }));
+  assert.ok(r.missing.some((m) => m.includes('only 4 of 40 players')), 'the coverage floor is disclosed');
+  assert.ok(r.flags.some((f) => f.startsWith('strokes gained suppressed')));
+  for (const m of Object.values(r.markets)) for (const s of m.selections) assert.notEqual(s.band, CONFIDENCE.HIGH, `${m.label} ${s.name} cannot be HIGH without strokes gained`);
+});
+
 test('scoreGolfEvent: regional markets pick one, co-select within five points, skip with no eligible players', () => {
   const profiles = field(30);
   const r = scoreGolfEvent({ id: 'e1' }, profiles, fieldCtx(profiles));

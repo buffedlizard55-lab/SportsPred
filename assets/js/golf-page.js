@@ -36,6 +36,7 @@ const state = {
   calendars: {},       // tour -> {season, events[], url}
   events: [],          // events on the board (live-refreshed or committed)
   cards: new Map(),    // eventId -> card
+  backtest: null,      // data/golf_backtest.json (walk-forward ledger summary)
   calMonth: null,
   loadedAt: null,
   errors: [],
@@ -69,13 +70,14 @@ function renderStatic() {
 
 async function loadDocs() {
   setProgress(5, 'Loading committed golf data…');
-  const [events, results, rankings, stats, weather, slate] = await Promise.all([
+  const [events, results, rankings, stats, weather, slate, backtest] = await Promise.all([
     loadStatic('data/golf_events.json'),
     loadStatic('data/golf_results.json'),
     loadStatic('data/golf_rankings.json'),
     loadStatic('data/golf_stats.json'),
     loadStatic('data/golf_weather.json', TTL.REGISTRY),
     loadStatic('data/golf_slate.json'),
+    loadStatic('data/golf_backtest.json'),
   ]);
   state.docs = {
     eventsDoc: events.data || { events: [], calendars: {} },
@@ -85,6 +87,7 @@ async function loadDocs() {
     weatherDoc: weather.data || null,
     slateDoc: slate.data || null,
   };
+  state.backtest = backtest.data || null;
   state.shared = {
     index: buildResultsIndex(state.docs.resultsDoc),
     owgr: owgrLookup(state.docs.rankingsDoc),
@@ -339,6 +342,12 @@ function detailHtml(eventId) {
   }).join('');
 
   const v = card.validation;
+  const g = card.grades;
+  const gradeHtml = g ? `
+        <div class="tip-meta" style="margin-top:8px">
+          <span class="badge ghost">RETROSPECTIVE</span>
+          <span class="meta-line">Scored from history that ended before round one, then graded against the final leaderboard: ${MARKET_ORDER.map((k) => `${esc(card.scored.markets[k]?.label || k)} <span class="badge ${g[k]?.status === 'HIT' ? 'HIGH' : g[k]?.status === 'MISS' ? 'SKIP' : 'ghost'}">${esc(g[k]?.status || 'n/a')}</span>`).join(' · ')}${g._top6List ? ` · top-six list ${g._top6List.hits}/${g._top6List.selections} placed` : ''}</span>
+        </div>` : '';
   return `
   <div class="detail-grid">
     <div>
@@ -353,6 +362,7 @@ function detailHtml(eventId) {
           <tbody>${card.written.summary.map((r) => `<tr><th>${esc(r.market)}</th><td>${esc(r.selection)}${r.valuePick ? ' <span class="badge ghost">VALUE</span>' : ''}</td><td class="num"><span class="badge ${esc(r.band)}">${esc(r.band)}</span></td></tr>`).join('')}</tbody></table>
         <p class="meta-line" style="margin-top:8px">${esc(card.written.weatherNote)}</p>
         ${v && !v.ok ? `<p class="meta-line"><strong>Validator issues:</strong> ${esc(v.issues.map((i) => `${i.market || ''} ${i.player || ''}: ${i.violations.join('; ')}`).join(' | '))}</p>` : ''}
+        ${gradeHtml}
       </div>
       ${card.scored.flags.length ? `<p class="meta-line" style="margin-top:10px"><strong>Flags for review</strong></p><ul class="miss">${card.scored.flags.map((f) => `<li>${esc(f)}</li>`).join('')}</ul>` : ''}
       <p class="meta-line" style="margin-top:10px"><strong>Not available for this event</strong></p>
@@ -434,8 +444,19 @@ function renderCoverage() {
     <span>results tape: <code>${Object.keys(r.events || {}).length} events · ${Object.keys(r.players || {}).length} players</code>${r.fetched_at_utc ? ` (${esc(String(r.fetched_at_utc).slice(0, 10))})` : ''}</span>
     <span>OWGR rows: <code>${d.rankingsDoc?.rows?.length ?? 0}</code>${d.rankingsDoc?.fetched_at_utc ? ` (${esc(String(d.rankingsDoc.fetched_at_utc).slice(0, 10))})` : ''}</span>
     <span>season stats: <code>${d.statsDoc?.espn?.rows?.length ?? 0}</code> · strokes gained: <code>${d.statsDoc?.sg?.available ? 'PGA TOUR season' : 'not available'}</code></span>
-    <span>this board: <code>${sum('scored')} players scored · ${sum('owgrMatched')} ranked · ${sum('sgMatched')} with SG · ${sum('teeTimes')} tee times</code></span>
-    <span>weather: <code>${cards.filter((c) => c.coverage?.weather).length}/${cards.length} events</code></span>`;
+    <span>this board: <code>${sum('scored')} players scored · ${sum('owgrMatched')} ranked · ${sum('sgMatched')} with SG (${sum('sgScored')} scored after the coverage floor) · ${sum('teeTimes')} tee times</code></span>
+    <span>weather: <code>${cards.filter((c) => c.coverage?.weather).length}/${cards.length} events</code></span>
+    ${backtestLine()}`;
+}
+
+/** One-line walk-forward backtest summary from data/golf_backtest.json (real numbers only). */
+function backtestLine() {
+  const bt = state.backtest;
+  if (!bt?.summary?.length) return '<span>backtest: <code>not run yet</code> — <code>npm run backtest:golf</code> after a collection</span>';
+  const pct = (x) => (x == null ? 'n/a' : `${Math.round(x * 100)}%`);
+  const m = Object.fromEntries(bt.summary.map((r) => [r.market, r]));
+  const t6 = bt.top6List;
+  return `<span>walk-forward backtest (${bt.events} events, ${esc(String(bt.generated_at_utc || '').slice(0, 10))}): <code>outright ${m.outright?.hits ?? 0}/${m.outright?.graded ?? 0} (${pct(m.outright?.hitRate)}) · top-six headline ${m.top6?.hits ?? 0}/${m.top6?.graded ?? 0} (${pct(m.top6?.hitRate)}) · top-six list ${t6?.hits ?? 0}/${t6?.selections ?? 0} placed (${pct(t6?.rate)}) · first-round leader ${m.frl?.hits ?? 0}/${m.frl?.graded ?? 0} (${pct(m.frl?.hitRate)}) · European ${pct(m.top_european?.hitRate)} · American ${pct(m.top_american?.hitRate)} · British &amp; Irish ${pct(m.top_british_irish?.hitRate)}</code> — <a href="data/golf_backtest.json" target="_blank" rel="noopener noreferrer">ledger ↗</a></span>`;
 }
 
 function renderMeta() {

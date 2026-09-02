@@ -2,8 +2,8 @@
  "schema_version": 1,
  "sport": "Golf",
  "ruleset": "v1.0",
- "generated_at_utc": "2026-09-02T17:17:26.942Z",
- "method": "Walk-forward: each completed event is scored with results that ended before its first round only. Fields are reconstructed from the event result rows. Tee times and weather are not available historically, so the first-round-leader tee/weather category is missing for every past event. Strokes gained (season averages) is applied only to current-season events. Grading uses the ESPN leaderboard linked on every row.",
+ "generated_at_utc": "2026-09-02T17:40:27.773Z",
+ "method": "Walk-forward: each completed event is scored with results that ended before its first round only. Fields are reconstructed from the event result rows. Tee times and weather are not available historically, so the first-round-leader tee/weather category is missing for every past event. Strokes gained (season averages) is applied only to current-season events and only when at least half the field carries a strokes-gained row. First-round-leader grading uses completed stroke-play opening rounds only (Stableford events and partial withdrawn rounds are excluded). Grading uses the ESPN leaderboard linked on every row.",
  "leak_control": "historyBefore(asOfISO) filters strictly on endDate < first-round date.",
  "known_limitation": "The first 8 events of the tape are skipped because no history exists for them; early-tape events still carry thin history and are graded as such.",
  "events": 222,
@@ -12,21 +12,21 @@
    "market": "outright",
    "events": 222,
    "graded": 220,
-   "hits": 14,
-   "hitRate": 0.064,
+   "hits": 16,
+   "hitRate": 0.073,
    "noSelection": 2,
    "unverified": 0,
    "byBand": {
     "LOW": {
-     "total": 101,
-     "hit": 2
+     "total": 111,
+     "hit": 3
     },
     "MEDIUM": {
      "total": 78,
-     "hit": 9
+     "hit": 10
     },
     "HIGH": {
-     "total": 41,
+     "total": 31,
      "hit": 3
     }
    }
@@ -34,38 +34,38 @@
   {
    "market": "top6",
    "events": 222,
-   "graded": 172,
+   "graded": 169,
    "hits": 71,
-   "hitRate": 0.413,
-   "noSelection": 50,
+   "hitRate": 0.42,
+   "noSelection": 53,
    "unverified": 0,
    "byBand": {
     "MEDIUM": {
-     "total": 128,
-     "hit": 50
+     "total": 137,
+     "hit": 53
     },
     "HIGH": {
-     "total": 44,
-     "hit": 21
+     "total": 32,
+     "hit": 18
     }
    }
   },
   {
    "market": "frl",
    "events": 222,
-   "graded": 216,
-   "hits": 4,
-   "hitRate": 0.019,
-   "noSelection": 6,
-   "unverified": 0,
+   "graded": 217,
+   "hits": 7,
+   "hitRate": 0.032,
+   "noSelection": 3,
+   "unverified": 2,
    "byBand": {
     "LOW": {
-     "total": 183,
-     "hit": 3
+     "total": 189,
+     "hit": 5
     },
     "MEDIUM": {
-     "total": 33,
-     "hit": 1
+     "total": 28,
+     "hit": 2
     }
    }
   },
@@ -73,21 +73,21 @@
    "market": "top_european",
    "events": 222,
    "graded": 220,
-   "hits": 27,
-   "hitRate": 0.123,
+   "hits": 26,
+   "hitRate": 0.118,
    "noSelection": 2,
    "unverified": 0,
    "byBand": {
     "LOW": {
-     "total": 85,
-     "hit": 6
+     "total": 88,
+     "hit": 5
     },
     "MEDIUM": {
-     "total": 106,
+     "total": 111,
      "hit": 16
     },
     "HIGH": {
-     "total": 29,
+     "total": 21,
      "hit": 5
     }
    }
@@ -96,21 +96,21 @@
    "market": "top_american",
    "events": 222,
    "graded": 218,
-   "hits": 56,
-   "hitRate": 0.257,
+   "hits": 55,
+   "hitRate": 0.252,
    "noSelection": 2,
    "unverified": 2,
    "byBand": {
     "LOW": {
-     "total": 100,
+     "total": 103,
      "hit": 22
     },
     "MEDIUM": {
-     "total": 85,
-     "hit": 27
+     "total": 84,
+     "hit": 26
     },
     "HIGH": {
-     "total": 33,
+     "total": 31,
      "hit": 7
     }
    }
@@ -119,30 +119,30 @@
    "market": "top_british_irish",
    "events": 222,
    "graded": 219,
-   "hits": 52,
-   "hitRate": 0.237,
+   "hits": 50,
+   "hitRate": 0.228,
    "noSelection": 2,
    "unverified": 1,
    "byBand": {
     "LOW": {
-     "total": 111,
+     "total": 117,
      "hit": 23
     },
     "MEDIUM": {
-     "total": 77,
+     "total": 78,
      "hit": 19
     },
     "HIGH": {
-     "total": 31,
-     "hit": 10
+     "total": 24,
+     "hit": 8
     }
    }
   }
  ],
  "top6List": {
-  "selections": 750,
-  "hits": 196,
-  "rate": 0.261
+  "selections": 719,
+  "hits": 189,
+  "rate": 0.263
  },
  "rows": [
   {
@@ -194,6 +194,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602815",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -248,6 +249,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580331",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -303,6 +305,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602816",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -358,6 +361,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580332",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -413,6 +417,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602817",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -468,6 +473,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580333",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -523,6 +529,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602818",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -579,6 +586,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580334",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -635,6 +643,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401624739",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 0
@@ -691,6 +700,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580335",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -746,6 +756,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580336",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -802,6 +813,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602819",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -858,6 +870,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580337",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -914,6 +927,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602820",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -970,6 +984,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580338",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -1025,6 +1040,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580339",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -1080,6 +1096,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602821",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -1136,6 +1153,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580340",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -1192,6 +1210,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580341",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -1247,6 +1266,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602822",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -1303,6 +1323,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580342",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 1
@@ -1359,6 +1380,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401624740",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -1415,6 +1437,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580343",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -1471,6 +1494,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580344",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -1526,6 +1550,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580346",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -1582,9 +1607,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580345",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
-    "hits": 1
+    "hits": 2
    }
   },
   {
@@ -1637,6 +1663,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602824",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 1
@@ -1693,6 +1720,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580348",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -1749,6 +1777,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602825",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -1805,6 +1834,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580349",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -1860,6 +1890,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580350",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -1916,6 +1947,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580351",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -1972,6 +2004,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580352",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 2
@@ -2027,6 +2060,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602826",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -2083,6 +2117,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580353",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 1
@@ -2138,6 +2173,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602827",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -2194,6 +2230,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580354",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -2250,6 +2287,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602828",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -2306,6 +2344,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580355",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -2362,6 +2401,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580356",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 1
@@ -2417,6 +2457,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602829",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -2473,6 +2514,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580357",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -2529,6 +2571,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602830",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -2585,6 +2628,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580358",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -2641,6 +2685,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602831",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -2697,6 +2742,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580359",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -2752,6 +2798,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401634279",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -2808,6 +2855,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580360",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -2834,11 +2882,10 @@
      "band": null
     },
     "frl": {
-     "status": "MISS",
-     "hit": false,
+     "status": "UNVERIFIED",
+     "hit": null,
      "selection": "Neal Shipley",
-     "band": "LOW",
-     "valuePick": false
+     "band": "LOW"
     },
     "top_european": {
      "status": "MISS",
@@ -2863,6 +2910,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580361",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -2892,7 +2940,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Michael Thorbjornsen",
+     "selection": "Pierceson Coody",
      "band": "LOW",
      "valuePick": false
     },
@@ -2919,6 +2967,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580362",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -2948,7 +2997,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Jacob Bridgeman",
+     "selection": "Aaron Rai",
      "band": "LOW",
      "valuePick": false
     },
@@ -2975,6 +3024,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580363",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 2
@@ -3004,7 +3054,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Collin Morikawa",
+     "selection": "Scottie Scheffler",
      "band": "LOW",
      "valuePick": false
     },
@@ -3031,6 +3081,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580364",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -3086,6 +3137,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602832",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3142,6 +3194,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580365",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -3170,7 +3223,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Adrien Saddier",
+     "selection": "Andrea Pavan",
      "band": "LOW",
      "valuePick": false
     },
@@ -3196,6 +3249,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602833",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3252,6 +3306,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580366",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -3307,6 +3362,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602834",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3335,7 +3391,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Francesco Laporta",
+     "selection": "Sebastian Söderberg",
      "band": "LOW",
      "valuePick": false
     },
@@ -3362,6 +3418,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602835",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3391,7 +3448,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Adrien Saddier",
+     "selection": "Aaron Rai",
      "band": "LOW",
      "valuePick": false
     },
@@ -3418,6 +3475,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602836",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 1
@@ -3474,6 +3532,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693936",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -3503,7 +3562,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Adrien Saddier",
+     "selection": "Aaron Rai",
      "band": "LOW",
      "valuePick": false
     },
@@ -3530,6 +3589,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602837",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 3
@@ -3557,10 +3617,11 @@
      "valuePick": false
     },
     "frl": {
-     "status": "NO SELECTION",
-     "hit": null,
-     "selection": null,
-     "band": null
+     "status": "MISS",
+     "hit": false,
+     "selection": "Richie Ramsay",
+     "band": "LOW",
+     "valuePick": false
     },
     "top_european": {
      "status": "MISS",
@@ -3585,6 +3646,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602838",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -3614,7 +3676,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Andrew Putnam",
+     "selection": "Adrien Saddier",
      "band": "LOW",
      "valuePick": false
     },
@@ -3641,6 +3703,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602839",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -3696,6 +3759,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693937",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3752,6 +3816,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602840",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -3807,6 +3872,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693938",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3863,6 +3929,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602841",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 2
@@ -3918,6 +3985,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693939",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -3946,7 +4014,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Adrien Saddier",
+     "selection": "Haotong Li",
      "band": "LOW",
      "valuePick": false
     },
@@ -3973,6 +4041,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602823",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4029,6 +4098,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693940",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 0
@@ -4085,6 +4155,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602842",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 3
@@ -4140,6 +4211,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693941",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4196,6 +4268,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401602843",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 2
@@ -4251,6 +4324,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693942",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4280,7 +4354,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Michael Thorbjornsen",
+     "selection": "Jacob Bridgeman",
      "band": "LOW",
      "valuePick": false
     },
@@ -4307,6 +4381,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693943",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 2
@@ -4362,6 +4437,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401713579",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4417,6 +4493,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401713589",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4473,6 +4550,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693956",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -4528,6 +4606,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401713590",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4583,6 +4662,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401693957",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -4639,6 +4719,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401713600",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -4695,6 +4776,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401713601",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -4751,6 +4833,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703489",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -4780,7 +4863,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Taylor Pendrith",
+     "selection": "Robert MacIntyre",
      "band": "LOW",
      "valuePick": false
     },
@@ -4807,6 +4890,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703490",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 0
@@ -4836,7 +4920,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Michael Thorbjornsen",
+     "selection": "Justin Thomas",
      "band": "LOW",
      "valuePick": false
     },
@@ -4863,6 +4947,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703491",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -4919,6 +5004,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734047",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -4975,6 +5061,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703492",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 0
@@ -5031,6 +5118,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734048",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 1
@@ -5087,6 +5175,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703493",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -5143,6 +5232,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734049",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 1
@@ -5199,6 +5289,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703494",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -5255,6 +5346,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734074",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -5311,6 +5403,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703495",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -5367,6 +5460,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703496",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -5396,7 +5490,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Calum Hill",
+     "selection": "Filippo Celli",
      "band": "LOW",
      "valuePick": false
     },
@@ -5423,6 +5517,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734050",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -5479,6 +5574,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703497",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 1
@@ -5535,6 +5631,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734051",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -5591,6 +5688,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703498",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -5647,6 +5745,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703499",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -5703,6 +5802,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734052",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 1
@@ -5759,6 +5859,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703500",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -5815,6 +5916,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703501",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 1
@@ -5871,6 +5973,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734053",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -5927,6 +6030,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703502",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 2
@@ -5983,6 +6087,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734054",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 1
@@ -6039,6 +6144,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703503",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -6095,6 +6201,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703504",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -6151,6 +6258,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703505",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -6206,6 +6314,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703506",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -6262,6 +6371,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734055",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -6312,6 +6422,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703507",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -6367,6 +6478,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734075",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -6423,6 +6535,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703508",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -6479,6 +6592,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703509",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -6534,6 +6648,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703510",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -6562,7 +6677,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Haotong Li",
+     "selection": "Jayden Schaper",
      "band": "LOW",
      "valuePick": false
     },
@@ -6589,6 +6704,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734056",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -6645,6 +6761,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703511",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -6701,6 +6818,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703512",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 2
@@ -6757,6 +6875,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734057",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -6813,6 +6932,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703513",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -6868,6 +6988,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734058",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -6924,6 +7045,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703514",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -6980,6 +7102,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734059",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -7036,6 +7159,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703515",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 0
@@ -7092,6 +7216,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703516",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -7148,6 +7273,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703517",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -7204,6 +7330,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734060",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 1
@@ -7260,6 +7387,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703518",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -7316,6 +7444,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734061",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 1
@@ -7372,6 +7501,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703519",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -7427,6 +7557,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703520",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -7483,6 +7614,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703521",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -7509,11 +7641,10 @@
      "band": null
     },
     "frl": {
-     "status": "MISS",
-     "hit": false,
+     "status": "UNVERIFIED",
+     "hit": null,
      "selection": "Ricky Castillo",
-     "band": "LOW",
-     "valuePick": false
+     "band": "LOW"
     },
     "top_european": {
      "status": "MISS",
@@ -7538,6 +7669,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703522",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -7567,7 +7699,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Ryo Hisatsune",
+     "selection": "Michael Thorbjornsen",
      "band": "LOW",
      "valuePick": false
     },
@@ -7594,6 +7726,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703523",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -7623,7 +7756,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Pierceson Coody",
+     "selection": "Michael Thorbjornsen",
      "band": "LOW",
      "valuePick": false
     },
@@ -7650,6 +7783,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703524",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 1
@@ -7706,6 +7840,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703525",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -7734,7 +7869,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Calum Hill",
+     "selection": "Marco Penge",
      "band": "LOW",
      "valuePick": false
     },
@@ -7761,6 +7896,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734062",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -7817,6 +7953,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703530",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -7844,9 +7981,9 @@
      "valuePick": false
     },
     "frl": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Richard Sterne",
+     "status": "HIT",
+     "hit": true,
+     "selection": "Marco Penge",
      "band": "LOW",
      "valuePick": false
     },
@@ -7873,6 +8010,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734063",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -7929,6 +8067,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703531",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -7958,7 +8097,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Patrick Rodgers",
+     "selection": "Alex Noren",
      "band": "LOW",
      "valuePick": false
     },
@@ -7985,6 +8124,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734064",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 2
@@ -8014,7 +8154,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Patrick Rodgers",
+     "selection": "Matt Fitzpatrick",
      "band": "LOW",
      "valuePick": false
     },
@@ -8041,6 +8181,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734065",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 1
@@ -8070,7 +8211,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Ryan Gerard",
+     "selection": "Haotong Li",
      "band": "LOW",
      "valuePick": false
     },
@@ -8097,6 +8238,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734066",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 1
@@ -8126,7 +8268,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Patrick Rodgers",
+     "selection": "Matt Fitzpatrick",
      "band": "LOW",
      "valuePick": false
     },
@@ -8153,9 +8295,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734067",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
-    "hits": 2
+    "hits": 1
    }
   },
   {
@@ -8182,7 +8325,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Ricky Castillo",
+     "selection": "Scottie Scheffler",
      "band": "LOW",
      "valuePick": false
     },
@@ -8209,9 +8352,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738553",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
-    "hits": 2
+    "hits": 3
    }
   },
   {
@@ -8237,7 +8381,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Tom Vaillant",
+     "selection": "Harry Hall",
      "band": "LOW",
      "valuePick": false
     },
@@ -8264,6 +8408,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734068",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -8291,10 +8436,11 @@
      "valuePick": false
     },
     "frl": {
-     "status": "NO SELECTION",
-     "hit": null,
-     "selection": null,
-     "band": null
+     "status": "MISS",
+     "hit": false,
+     "selection": "Matt Fitzpatrick",
+     "band": "LOW",
+     "valuePick": false
     },
     "top_european": {
      "status": "MISS",
@@ -8319,6 +8465,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734069",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -8347,7 +8494,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Ricky Castillo",
+     "selection": "Matt Wallace",
      "band": "LOW",
      "valuePick": false
     },
@@ -8374,6 +8521,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738554",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -8403,7 +8551,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Joel Girrbach",
+     "selection": "Oliver Lindell",
      "band": "LOW",
      "valuePick": false
     },
@@ -8430,6 +8578,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734073",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -8459,7 +8608,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Emiliano Grillo",
+     "selection": "Alex Noren",
      "band": "LOW",
      "valuePick": false
     },
@@ -8486,6 +8635,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738555",
+   "sgApplied": false,
    "top6List": {
     "selections": 4,
     "hits": 1
@@ -8542,6 +8692,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734076",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 1
@@ -8570,7 +8721,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Frederic LaCroix",
+     "selection": "Casey Jarvis",
      "band": "LOW",
      "valuePick": false
     },
@@ -8597,6 +8748,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734070",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -8626,7 +8778,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Ricky Castillo",
+     "selection": "Alex Noren",
      "band": "LOW",
      "valuePick": false
     },
@@ -8653,6 +8805,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738556",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -8709,6 +8862,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734071",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -8738,7 +8892,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Ricky Castillo",
+     "selection": "Ben Griffin",
      "band": "LOW",
      "valuePick": false
     },
@@ -8765,6 +8919,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738557",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 2
@@ -8821,6 +8976,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401734072",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 4
@@ -8849,7 +9005,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Paul Peterson",
+     "selection": "Thorbjørn Olesen",
      "band": "LOW",
      "valuePick": false
     },
@@ -8876,6 +9032,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738558",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -8905,7 +9062,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Noah Goodwin",
+     "selection": "William Mouw",
      "band": "LOW",
      "valuePick": false
     },
@@ -8932,6 +9089,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738559",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -8947,21 +9105,21 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Min Woo Lee",
-     "band": "HIGH",
-     "valuePick": false
+     "selection": "Marc Leishman",
+     "band": "MEDIUM",
+     "valuePick": true
     },
     "top6": {
      "status": "HIT",
      "hit": true,
-     "selection": "Min Woo Lee",
-     "band": "HIGH",
+     "selection": "Marc Leishman",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Daniel Hillier",
+     "selection": "Marco Penge",
      "band": "LOW",
      "valuePick": false
     },
@@ -8969,7 +9127,7 @@
      "status": "MISS",
      "hit": false,
      "selection": "Alex Fitzpatrick",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
@@ -8982,15 +9140,16 @@
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
-     "selection": "Alex Fitzpatrick",
-     "band": "HIGH",
+     "selection": "Marco Penge",
+     "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822390",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
-    "hits": 2
+    "hits": 3
    }
   },
   {
@@ -9044,6 +9203,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401738560",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -9059,21 +9219,21 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "selection": "Lucas Herbert",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top6": {
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matt McCarty",
+     "selection": "Daniel Hillier",
      "band": "LOW",
      "valuePick": false
     },
@@ -9081,28 +9241,29 @@
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
      "status": "HIT",
      "hit": true,
      "selection": "Matt McCarty",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     },
     "top_british_irish": {
      "status": "HIT",
      "hit": true,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822391",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
-    "hits": 2
+    "hits": 0
    }
   },
   {
@@ -9115,16 +9276,15 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Christiaan Bezuidenhout",
-     "band": "MEDIUM",
+     "selection": "Thorbjørn Olesen",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Viktor Hovland",
-     "band": "HIGH",
-     "valuePick": false
+     "status": "NO SELECTION",
+     "hit": null,
+     "selection": null,
+     "band": null
     },
     "frl": {
      "status": "MISS",
@@ -9136,8 +9296,8 @@
     "top_european": {
      "status": "MISS",
      "hit": false,
-     "selection": "Viktor Hovland",
-     "band": "HIGH",
+     "selection": "Thorbjørn Olesen",
+     "band": "LOW",
      "valuePick": false
     },
     "top_american": {
@@ -9151,14 +9311,15 @@
      "status": "MISS",
      "hit": false,
      "selection": "Jordan Smith",
-     "band": "HIGH",
+     "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822392",
+   "sgApplied": false,
    "top6List": {
-    "selections": 6,
-    "hits": 2
+    "selections": 0,
+    "hits": 0
    }
   },
   {
@@ -9171,28 +9332,28 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Christiaan Bezuidenhout",
-     "band": "HIGH",
+     "selection": "Angel Ayora",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top6": {
      "status": "MISS",
      "hit": false,
-     "selection": "Christiaan Bezuidenhout",
-     "band": "HIGH",
+     "selection": "Angel Ayora",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Christiaan Bezuidenhout",
+     "selection": "Richard Sterne",
      "band": "LOW",
      "valuePick": false
     },
     "top_european": {
      "status": "MISS",
      "hit": false,
-     "selection": "John Parry",
+     "selection": "Angel Ayora",
      "band": "MEDIUM",
      "valuePick": false
     },
@@ -9207,13 +9368,14 @@
      "status": "HIT",
      "hit": true,
      "selection": "John Parry",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822675",
+   "sgApplied": false,
    "top6List": {
-    "selections": 4,
+    "selections": 2,
     "hits": 1
    }
   },
@@ -9238,10 +9400,11 @@
      "band": null
     },
     "frl": {
-     "status": "NO SELECTION",
-     "hit": null,
-     "selection": null,
-     "band": null
+     "status": "MISS",
+     "hit": false,
+     "selection": "Trevor Cone",
+     "band": "LOW",
+     "valuePick": false
     },
     "top_european": {
      "status": "MISS",
@@ -9266,6 +9429,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401833647",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -9279,10 +9443,10 @@
    "winner": "Jayden Schaper",
    "markets": {
     "outright": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "John Parry",
-     "band": "HIGH",
+     "status": "HIT",
+     "hit": true,
+     "selection": "Jayden Schaper",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top6": {
@@ -9293,9 +9457,9 @@
      "valuePick": false
     },
     "frl": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Mikael Lindberg",
+     "status": "HIT",
+     "hit": true,
+     "selection": "Casey Jarvis",
      "band": "LOW",
      "valuePick": false
     },
@@ -9303,13 +9467,13 @@
      "status": "MISS",
      "hit": false,
      "selection": "John Parry",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
-     "status": "HIT",
-     "hit": true,
-     "selection": "Ryan Gerard",
+     "status": "MISS",
+     "hit": false,
+     "selection": "Alexander Levy",
      "band": "LOW",
      "valuePick": false
     },
@@ -9317,14 +9481,15 @@
      "status": "HIT",
      "hit": true,
      "selection": "John Parry",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822676",
+   "sgApplied": false,
    "top6List": {
-    "selections": 5,
-    "hits": 2
+    "selections": 3,
+    "hits": 1
    }
   },
   {
@@ -9351,7 +9516,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Robert MacIntyre",
+     "selection": "Russell Henley",
      "band": "MEDIUM",
      "valuePick": false
     },
@@ -9378,6 +9543,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811928",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -9394,21 +9560,21 @@
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top6": {
      "status": "HIT",
      "hit": true,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
      "selection": "Tommy Fleetwood",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     },
     "top_european": {
@@ -9429,13 +9595,14 @@
      "status": "MISS",
      "hit": false,
      "selection": "Tommy Fleetwood",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822677",
+   "sgApplied": false,
    "top6List": {
-    "selections": 6,
+    "selections": 5,
     "hits": 2
    }
   },
@@ -9490,6 +9657,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811929",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -9506,28 +9674,28 @@
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top6": {
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     },
     "top_european": {
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
@@ -9541,14 +9709,15 @@
      "status": "MISS",
      "hit": false,
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822678",
+   "sgApplied": false,
    "top6List": {
     "selections": 6,
-    "hits": 1
+    "hits": 0
    }
   },
   {
@@ -9602,9 +9771,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811930",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
-    "hits": 0
+    "hits": 1
    }
   },
   {
@@ -9658,6 +9828,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822681",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 1
@@ -9714,6 +9885,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811931",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -9764,12 +9936,13 @@
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matt Wallace",
+     "selection": "Andy Sullivan",
      "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822682",
+   "sgApplied": false,
    "top6List": {
     "selections": 3,
     "hits": 1
@@ -9826,6 +9999,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811932",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -9882,6 +10056,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811933",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -9931,12 +10106,13 @@
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
-     "selection": "Alex Fitzpatrick",
-     "band": "MEDIUM",
+     "selection": "Calum Hill",
+     "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822684",
+   "sgApplied": false,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -9993,6 +10169,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811934",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -10043,12 +10220,13 @@
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
-     "selection": "Alex Fitzpatrick",
+     "selection": "Andy Sullivan",
      "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822685",
+   "sgApplied": false,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -10105,6 +10283,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811935",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -10121,48 +10300,49 @@
      "status": "MISS",
      "hit": false,
      "selection": "Rasmus Neergaard-Petersen",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
      "status": "MISS",
      "hit": false,
      "selection": "Rasmus Neergaard-Petersen",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Séamus Power",
-     "band": "MEDIUM",
+     "selection": "Jackson Suber",
+     "band": "LOW",
      "valuePick": false
     },
     "top_european": {
      "status": "MISS",
      "hit": false,
      "selection": "Rasmus Højgaard",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     },
     "top_american": {
      "status": "MISS",
      "hit": false,
      "selection": "Michael Brennan",
-     "band": "HIGH",
+     "band": "LOW",
      "valuePick": false
     },
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
      "selection": "Matt Wallace",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811936",
+   "sgApplied": false,
    "top6List": {
-    "selections": 5,
+    "selections": 2,
     "hits": 1
    }
   },
@@ -10211,12 +10391,13 @@
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
-     "selection": "Alex Fitzpatrick",
+     "selection": "Calum Hill",
      "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822686",
+   "sgApplied": false,
    "top6List": {
     "selections": 5,
     "hits": 2
@@ -10244,8 +10425,8 @@
      "valuePick": false
     },
     "frl": {
-     "status": "MISS",
-     "hit": false,
+     "status": "HIT",
+     "hit": true,
      "selection": "Maverick McNealy",
      "band": "MEDIUM",
      "valuePick": false
@@ -10273,9 +10454,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811937",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
-    "hits": 2
+    "hits": 1
    }
   },
   {
@@ -10329,6 +10511,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811938",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -10384,6 +10567,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822687",
+   "sgApplied": true,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -10440,6 +10624,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811939",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -10456,27 +10641,27 @@
      "status": "MISS",
      "hit": false,
      "selection": "Akshay Bhatia",
-     "band": "HIGH",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
      "status": "MISS",
      "hit": false,
-     "selection": "Akshay Bhatia",
-     "band": "HIGH",
+     "selection": "Angel Ayora",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Akshay Bhatia",
+     "selection": "Casey Jarvis",
      "band": "LOW",
      "valuePick": false
     },
     "top_european": {
-     "status": "HIT",
-     "hit": true,
-     "selection": "Alex Fitzpatrick",
+     "status": "MISS",
+     "hit": false,
+     "selection": "Marcus Armitage",
      "band": "LOW",
      "valuePick": false
     },
@@ -10484,20 +10669,21 @@
      "status": "MISS",
      "hit": false,
      "selection": "Akshay Bhatia",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_british_irish": {
-     "status": "HIT",
-     "hit": true,
-     "selection": "Alex Fitzpatrick",
+     "status": "MISS",
+     "hit": false,
+     "selection": "Marcus Armitage",
      "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822688",
+   "sgApplied": false,
    "top6List": {
-    "selections": 2,
+    "selections": 1,
     "hits": 0
    }
   },
@@ -10552,6 +10738,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811940",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -10608,6 +10795,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811941",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -10664,6 +10852,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811942",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -10714,6 +10903,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811943",
+   "sgApplied": true,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -10770,6 +10960,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822689",
+   "sgApplied": true,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -10826,9 +11017,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811944",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
-    "hits": 3
+    "hits": 2
    }
   },
   {
@@ -10882,6 +11074,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822690",
+   "sgApplied": true,
    "top6List": {
     "selections": 3,
     "hits": 0
@@ -10938,6 +11131,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811945",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -10994,6 +11188,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811946",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -11049,6 +11244,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822691",
+   "sgApplied": true,
    "top6List": {
     "selections": 0,
     "hits": 0
@@ -11078,7 +11274,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Collin Morikawa",
+     "selection": "Rory McIlroy",
      "band": "LOW",
      "valuePick": false
     },
@@ -11105,6 +11301,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811947",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 0
@@ -11161,6 +11358,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811948",
+   "sgApplied": true,
    "top6List": {
     "selections": 4,
     "hits": 2
@@ -11217,6 +11415,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822692",
+   "sgApplied": true,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -11273,6 +11472,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811949",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -11288,16 +11488,15 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Sepp Straka",
-     "band": "HIGH",
+     "selection": "Guido Migliozzi",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Sepp Straka",
-     "band": "HIGH",
-     "valuePick": false
+     "status": "NO SELECTION",
+     "hit": null,
+     "selection": null,
+     "band": null
     },
     "frl": {
      "status": "MISS",
@@ -11309,8 +11508,8 @@
     "top_european": {
      "status": "MISS",
      "hit": false,
-     "selection": "Sepp Straka",
-     "band": "HIGH",
+     "selection": "Guido Migliozzi",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
@@ -11329,8 +11528,9 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822693",
+   "sgApplied": false,
    "top6List": {
-    "selections": 1,
+    "selections": 0,
     "hits": 0
    }
   },
@@ -11385,6 +11585,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811950",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 0
@@ -11441,6 +11642,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822694",
+   "sgApplied": true,
    "top6List": {
     "selections": 2,
     "hits": 0
@@ -11497,6 +11699,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811951",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -11553,6 +11756,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811952",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -11566,10 +11770,10 @@
    "winner": "Eugenio Chacarra",
    "markets": {
     "outright": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Adrien Saddier",
-     "band": "MEDIUM",
+     "status": "HIT",
+     "hit": true,
+     "selection": "Eugenio Chacarra",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
@@ -11601,16 +11805,17 @@
      "valuePick": false
     },
     "top_british_irish": {
-     "status": "HIT",
-     "hit": true,
-     "selection": "Matt Wallace",
-     "band": "MEDIUM",
+     "status": "MISS",
+     "hit": false,
+     "selection": "Dan Bradbury",
+     "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822695",
+   "sgApplied": false,
    "top6List": {
-    "selections": 5,
+    "selections": 4,
     "hits": 3
    }
   },
@@ -11665,6 +11870,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811953",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 3
@@ -11721,6 +11927,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811954",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -11736,8 +11943,8 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matti Schmid",
-     "band": "MEDIUM",
+     "selection": "Davis Bryant",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
@@ -11769,16 +11976,17 @@
      "valuePick": false
     },
     "top_british_irish": {
-     "status": "HIT",
-     "hit": true,
-     "selection": "Marco Penge",
+     "status": "MISS",
+     "hit": false,
+     "selection": "Marcus Armitage",
      "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822696",
+   "sgApplied": false,
    "top6List": {
-    "selections": 4,
+    "selections": 1,
     "hits": 0
    }
   },
@@ -11806,7 +12014,7 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Eric Cole",
+     "selection": "Scottie Scheffler",
      "band": "MEDIUM",
      "valuePick": false
     },
@@ -11833,6 +12041,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811955",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -11848,8 +12057,8 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Lee Hodges",
-     "band": "MEDIUM",
+     "selection": "Jackson Koivun",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
@@ -11862,15 +12071,15 @@
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Patrick Fishburn",
-     "band": "MEDIUM",
+     "selection": "Ben Kohles",
+     "band": "LOW",
      "valuePick": false
     },
     "top_european": {
      "status": "MISS",
      "hit": false,
      "selection": "Stephan Jaeger",
-     "band": "MEDIUM",
+     "band": "LOW",
      "valuePick": false
     },
     "top_american": {
@@ -11889,8 +12098,9 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811956",
+   "sgApplied": false,
    "top6List": {
-    "selections": 6,
+    "selections": 1,
     "hits": 0
    }
   },
@@ -11945,6 +12155,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811957",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -11960,22 +12171,21 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Joel Dahmen",
-     "band": "MEDIUM",
+     "selection": "Taylor Pendrith",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Joel Dahmen",
-     "band": "HIGH",
-     "valuePick": false
+     "status": "NO SELECTION",
+     "hit": null,
+     "selection": null,
+     "band": null
     },
     "frl": {
      "status": "MISS",
      "hit": false,
-     "selection": "Austin Eckroat",
-     "band": "MEDIUM",
+     "selection": "Jacob Skov Olesen",
+     "band": "LOW",
      "valuePick": false
     },
     "top_european": {
@@ -11988,21 +12198,22 @@
     "top_american": {
      "status": "MISS",
      "hit": false,
-     "selection": "Joel Dahmen",
-     "band": "MEDIUM",
+     "selection": "Blades Brown",
+     "band": "LOW",
      "valuePick": false
     },
     "top_british_irish": {
-     "status": "MISS",
-     "hit": false,
-     "selection": "Séamus Power",
+     "status": "HIT",
+     "hit": true,
+     "selection": "Todd Clements",
      "band": "LOW",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811958",
+   "sgApplied": false,
    "top6List": {
-    "selections": 3,
+    "selections": 0,
     "hits": 0
    }
   },
@@ -12057,6 +12268,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811959",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -12113,6 +12325,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811960",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -12169,6 +12382,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811961",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 1
@@ -12225,6 +12439,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811962",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -12240,15 +12455,15 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Rasmus Højgaard",
-     "band": "HIGH",
+     "selection": "Gregorio De Leo",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
      "status": "HIT",
      "hit": true,
-     "selection": "Rasmus Højgaard",
-     "band": "HIGH",
+     "selection": "Oliver Lindell",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
@@ -12262,7 +12477,7 @@
      "status": "MISS",
      "hit": false,
      "selection": "Rasmus Højgaard",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
@@ -12281,9 +12496,10 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822697",
+   "sgApplied": false,
    "top6List": {
-    "selections": 3,
-    "hits": 2
+    "selections": 1,
+    "hits": 1
    }
   },
   {
@@ -12337,6 +12553,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811963",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 0
@@ -12393,6 +12610,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822698",
+   "sgApplied": false,
    "top6List": {
     "selections": 1,
     "hits": 0
@@ -12449,6 +12667,7 @@
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811964",
+   "sgApplied": true,
    "top6List": {
     "selections": 6,
     "hits": 2
@@ -12464,15 +12683,15 @@
     "outright": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "LOW",
      "valuePick": false
     },
     "top6": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "frl": {
@@ -12485,8 +12704,8 @@
     "top_european": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "MEDIUM",
      "valuePick": false
     },
     "top_american": {
@@ -12499,15 +12718,16 @@
     "top_british_irish": {
      "status": "MISS",
      "hit": false,
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "MEDIUM",
      "valuePick": false
     }
    },
    "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401822699",
+   "sgApplied": false,
    "top6List": {
-    "selections": 3,
-    "hits": 1
+    "selections": 2,
+    "hits": 0
    }
   }
  ]

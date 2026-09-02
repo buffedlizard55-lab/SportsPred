@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "sport": "Golf",
- "generated_at_utc": "2026-09-02T17:17:26.942Z",
+ "generated_at_utc": "2026-09-02T17:40:27.773Z",
  "predictions": [
   {
    "id": "golf-401602815",
@@ -2134,7 +2134,7 @@
     "frl": {
      "selection": "Neal Shipley",
      "band": "LOW",
-     "status": "MISS"
+     "status": "UNVERIFIED"
     },
     "top_european": {
      "selection": "Marcus Kinhult",
@@ -2176,7 +2176,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Michael Thorbjornsen",
+     "selection": "Pierceson Coody",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2220,7 +2220,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Jacob Bridgeman",
+     "selection": "Aaron Rai",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2264,7 +2264,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Collin Morikawa",
+     "selection": "Scottie Scheffler",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2396,7 +2396,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Adrien Saddier",
+     "selection": "Andrea Pavan",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2528,7 +2528,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Francesco Laporta",
+     "selection": "Sebastian Söderberg",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2572,7 +2572,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Adrien Saddier",
+     "selection": "Aaron Rai",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2660,7 +2660,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Adrien Saddier",
+     "selection": "Aaron Rai",
      "band": "LOW",
      "status": "MISS"
     },
@@ -2704,9 +2704,9 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": null,
-     "band": null,
-     "status": "NO SELECTION"
+     "selection": "Richie Ramsay",
+     "band": "LOW",
+     "status": "MISS"
     },
     "top_european": {
      "selection": "Aaron Rai",
@@ -2748,7 +2748,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Andrew Putnam",
+     "selection": "Adrien Saddier",
      "band": "LOW",
      "status": "MISS"
     },
@@ -3012,7 +3012,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Adrien Saddier",
+     "selection": "Haotong Li",
      "band": "LOW",
      "status": "MISS"
     },
@@ -3276,7 +3276,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Michael Thorbjornsen",
+     "selection": "Jacob Bridgeman",
      "band": "LOW",
      "status": "MISS"
     },
@@ -3672,7 +3672,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Taylor Pendrith",
+     "selection": "Robert MacIntyre",
      "band": "LOW",
      "status": "MISS"
     },
@@ -3716,7 +3716,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Michael Thorbjornsen",
+     "selection": "Justin Thomas",
      "band": "LOW",
      "status": "MISS"
     },
@@ -4156,7 +4156,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Calum Hill",
+     "selection": "Filippo Celli",
      "band": "LOW",
      "status": "MISS"
     },
@@ -5080,7 +5080,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Haotong Li",
+     "selection": "Jayden Schaper",
      "band": "LOW",
      "status": "MISS"
     },
@@ -5830,7 +5830,7 @@
     "frl": {
      "selection": "Ricky Castillo",
      "band": "LOW",
-     "status": "MISS"
+     "status": "UNVERIFIED"
     },
     "top_european": {
      "selection": "Calum Hill",
@@ -5872,7 +5872,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Ryo Hisatsune",
+     "selection": "Michael Thorbjornsen",
      "band": "LOW",
      "status": "MISS"
     },
@@ -5916,7 +5916,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Pierceson Coody",
+     "selection": "Michael Thorbjornsen",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6004,7 +6004,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Calum Hill",
+     "selection": "Marco Penge",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6092,9 +6092,9 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Richard Sterne",
+     "selection": "Marco Penge",
      "band": "LOW",
-     "status": "MISS"
+     "status": "HIT"
     },
     "top_european": {
      "selection": "Jacob Skov Olesen",
@@ -6180,7 +6180,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Patrick Rodgers",
+     "selection": "Alex Noren",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6224,7 +6224,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Patrick Rodgers",
+     "selection": "Matt Fitzpatrick",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6268,7 +6268,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Ryan Gerard",
+     "selection": "Haotong Li",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6312,7 +6312,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Patrick Rodgers",
+     "selection": "Matt Fitzpatrick",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6356,7 +6356,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Ricky Castillo",
+     "selection": "Scottie Scheffler",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6400,7 +6400,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Tom Vaillant",
+     "selection": "Harry Hall",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6444,9 +6444,9 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": null,
-     "band": null,
-     "status": "NO SELECTION"
+     "selection": "Matt Fitzpatrick",
+     "band": "LOW",
+     "status": "MISS"
     },
     "top_european": {
      "selection": "Tommy Fleetwood",
@@ -6488,7 +6488,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Ricky Castillo",
+     "selection": "Matt Wallace",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6532,7 +6532,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Joel Girrbach",
+     "selection": "Oliver Lindell",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6576,7 +6576,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Emiliano Grillo",
+     "selection": "Alex Noren",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6664,7 +6664,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Frederic LaCroix",
+     "selection": "Casey Jarvis",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6708,7 +6708,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Ricky Castillo",
+     "selection": "Alex Noren",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6796,7 +6796,7 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Ricky Castillo",
+     "selection": "Ben Griffin",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6884,7 +6884,7 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Paul Peterson",
+     "selection": "Thorbjørn Olesen",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6928,7 +6928,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Noah Goodwin",
+     "selection": "William Mouw",
      "band": "LOW",
      "status": "MISS"
     },
@@ -6962,23 +6962,23 @@
    "event": "BMW Australian PGA Championship",
    "picks": {
     "outright": {
-     "selection": "Min Woo Lee",
-     "band": "HIGH",
+     "selection": "Marc Leishman",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Min Woo Lee",
-     "band": "HIGH",
+     "selection": "Marc Leishman",
+     "band": "MEDIUM",
      "status": "HIT"
     },
     "frl": {
-     "selection": "Daniel Hillier",
+     "selection": "Marco Penge",
      "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
      "selection": "Alex Fitzpatrick",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_american": {
@@ -6987,8 +6987,8 @@
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Alex Fitzpatrick",
-     "band": "HIGH",
+     "selection": "Marco Penge",
+     "band": "LOW",
      "status": "MISS"
     }
    },
@@ -7050,33 +7050,33 @@
    "event": "Crown Australian Open",
    "picks": {
     "outright": {
-     "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "selection": "Lucas Herbert",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top6": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "frl": {
-     "selection": "Matt McCarty",
+     "selection": "Daniel Hillier",
      "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_american": {
      "selection": "Matt McCarty",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "HIT"
     },
     "top_british_irish": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "HIT"
     }
    },
@@ -7094,14 +7094,14 @@
    "event": "Nedbank Golf Challenge",
    "picks": {
     "outright": {
-     "selection": "Christiaan Bezuidenhout",
-     "band": "MEDIUM",
+     "selection": "Thorbjørn Olesen",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Viktor Hovland",
-     "band": "HIGH",
-     "status": "MISS"
+     "selection": null,
+     "band": null,
+     "status": "NO SELECTION"
     },
     "frl": {
      "selection": "Oliver Lindell",
@@ -7109,8 +7109,8 @@
      "status": "MISS"
     },
     "top_european": {
-     "selection": "Viktor Hovland",
-     "band": "HIGH",
+     "selection": "Thorbjørn Olesen",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_american": {
@@ -7120,7 +7120,7 @@
     },
     "top_british_irish": {
      "selection": "Jordan Smith",
-     "band": "HIGH",
+     "band": "LOW",
      "status": "MISS"
     }
    },
@@ -7138,22 +7138,22 @@
    "event": "Alfred Dunhill Championship",
    "picks": {
     "outright": {
-     "selection": "Christiaan Bezuidenhout",
-     "band": "HIGH",
+     "selection": "Angel Ayora",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Christiaan Bezuidenhout",
-     "band": "HIGH",
+     "selection": "Angel Ayora",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "frl": {
-     "selection": "Christiaan Bezuidenhout",
+     "selection": "Richard Sterne",
      "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
-     "selection": "John Parry",
+     "selection": "Angel Ayora",
      "band": "MEDIUM",
      "status": "MISS"
     },
@@ -7164,7 +7164,7 @@
     },
     "top_british_irish": {
      "selection": "John Parry",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "HIT"
     }
    },
@@ -7192,9 +7192,9 @@
      "status": "NO SELECTION"
     },
     "frl": {
-     "selection": null,
-     "band": null,
-     "status": "NO SELECTION"
+     "selection": "Trevor Cone",
+     "band": "LOW",
+     "status": "MISS"
     },
     "top_european": {
      "selection": "Henrik Norlander",
@@ -7226,9 +7226,9 @@
    "event": "AfrAsia Bank Mauritius Open",
    "picks": {
     "outright": {
-     "selection": "John Parry",
-     "band": "HIGH",
-     "status": "MISS"
+     "selection": "Jayden Schaper",
+     "band": "MEDIUM",
+     "status": "HIT"
     },
     "top6": {
      "selection": "Jayden Schaper",
@@ -7236,23 +7236,23 @@
      "status": "HIT"
     },
     "frl": {
-     "selection": "Mikael Lindberg",
-     "band": "LOW",
-     "status": "MISS"
-    },
-    "top_european": {
-     "selection": "John Parry",
-     "band": "HIGH",
-     "status": "MISS"
-    },
-    "top_american": {
-     "selection": "Ryan Gerard",
+     "selection": "Casey Jarvis",
      "band": "LOW",
      "status": "HIT"
     },
+    "top_european": {
+     "selection": "John Parry",
+     "band": "MEDIUM",
+     "status": "MISS"
+    },
+    "top_american": {
+     "selection": "Alexander Levy",
+     "band": "LOW",
+     "status": "MISS"
+    },
     "top_british_irish": {
      "selection": "John Parry",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "HIT"
     }
    },
@@ -7280,7 +7280,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Robert MacIntyre",
+     "selection": "Russell Henley",
      "band": "MEDIUM",
      "status": "MISS"
     },
@@ -7315,17 +7315,17 @@
    "picks": {
     "outright": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top6": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "HIT"
     },
     "frl": {
      "selection": "Tommy Fleetwood",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
@@ -7340,7 +7340,7 @@
     },
     "top_british_irish": {
      "selection": "Tommy Fleetwood",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     }
    },
@@ -7403,22 +7403,22 @@
    "picks": {
     "outright": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top6": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "frl": {
      "selection": "Rory McIlroy",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_american": {
@@ -7428,7 +7428,7 @@
     },
     "top_british_irish": {
      "selection": "Rory McIlroy",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     }
    },
@@ -7603,7 +7603,7 @@
      "status": "HIT"
     },
     "top_british_irish": {
-     "selection": "Matt Wallace",
+     "selection": "Andy Sullivan",
      "band": "LOW",
      "status": "MISS"
     }
@@ -7735,8 +7735,8 @@
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Alex Fitzpatrick",
-     "band": "MEDIUM",
+     "selection": "Calum Hill",
+     "band": "LOW",
      "status": "MISS"
     }
    },
@@ -7823,7 +7823,7 @@
      "status": "HIT"
     },
     "top_british_irish": {
-     "selection": "Alex Fitzpatrick",
+     "selection": "Andy Sullivan",
      "band": "LOW",
      "status": "MISS"
     }
@@ -7887,32 +7887,32 @@
    "picks": {
     "outright": {
      "selection": "Rasmus Neergaard-Petersen",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
      "selection": "Rasmus Neergaard-Petersen",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "frl": {
-     "selection": "Séamus Power",
-     "band": "MEDIUM",
+     "selection": "Jackson Suber",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
      "selection": "Rasmus Højgaard",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_american": {
      "selection": "Michael Brennan",
-     "band": "HIGH",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_british_irish": {
      "selection": "Matt Wallace",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "MISS"
     }
    },
@@ -7955,7 +7955,7 @@
      "status": "HIT"
     },
     "top_british_irish": {
-     "selection": "Alex Fitzpatrick",
+     "selection": "Calum Hill",
      "band": "LOW",
      "status": "MISS"
     }
@@ -7986,7 +7986,7 @@
     "frl": {
      "selection": "Maverick McNealy",
      "band": "MEDIUM",
-     "status": "MISS"
+     "status": "HIT"
     },
     "top_european": {
      "selection": "Rory McIlroy",
@@ -8151,33 +8151,33 @@
    "picks": {
     "outright": {
      "selection": "Akshay Bhatia",
-     "band": "HIGH",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Akshay Bhatia",
-     "band": "HIGH",
+     "selection": "Angel Ayora",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "frl": {
-     "selection": "Akshay Bhatia",
+     "selection": "Casey Jarvis",
      "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
-     "selection": "Alex Fitzpatrick",
+     "selection": "Marcus Armitage",
      "band": "LOW",
-     "status": "HIT"
+     "status": "MISS"
     },
     "top_american": {
      "selection": "Akshay Bhatia",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Alex Fitzpatrick",
+     "selection": "Marcus Armitage",
      "band": "LOW",
-     "status": "HIT"
+     "status": "MISS"
     }
    },
    "actual": {
@@ -8644,7 +8644,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Collin Morikawa",
+     "selection": "Rory McIlroy",
      "band": "LOW",
      "status": "MISS"
     },
@@ -8810,14 +8810,14 @@
    "event": "Austrian Alpine Open pres. by Kitzbühel Tirol",
    "picks": {
     "outright": {
-     "selection": "Sepp Straka",
-     "band": "HIGH",
+     "selection": "Guido Migliozzi",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Sepp Straka",
-     "band": "HIGH",
-     "status": "MISS"
+     "selection": null,
+     "band": null,
+     "status": "NO SELECTION"
     },
     "frl": {
      "selection": "Jacob Skov Olesen",
@@ -8825,8 +8825,8 @@
      "status": "MISS"
     },
     "top_european": {
-     "selection": "Sepp Straka",
-     "band": "HIGH",
+     "selection": "Guido Migliozzi",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_american": {
@@ -9030,9 +9030,9 @@
    "event": "DS Automobiles 83° Open d'Italia",
    "picks": {
     "outright": {
-     "selection": "Adrien Saddier",
-     "band": "MEDIUM",
-     "status": "MISS"
+     "selection": "Eugenio Chacarra",
+     "band": "LOW",
+     "status": "HIT"
     },
     "top6": {
      "selection": "Patrick Reed",
@@ -9055,9 +9055,9 @@
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Matt Wallace",
-     "band": "MEDIUM",
-     "status": "HIT"
+     "selection": "Dan Bradbury",
+     "band": "LOW",
+     "status": "MISS"
     }
    },
    "actual": {
@@ -9162,8 +9162,8 @@
    "event": "BMW International Open",
    "picks": {
     "outright": {
-     "selection": "Matti Schmid",
-     "band": "MEDIUM",
+     "selection": "Davis Bryant",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
@@ -9187,9 +9187,9 @@
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Marco Penge",
+     "selection": "Marcus Armitage",
      "band": "LOW",
-     "status": "HIT"
+     "status": "MISS"
     }
    },
    "actual": {
@@ -9216,7 +9216,7 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Eric Cole",
+     "selection": "Scottie Scheffler",
      "band": "MEDIUM",
      "status": "MISS"
     },
@@ -9250,8 +9250,8 @@
    "event": "ISCO Championship",
    "picks": {
     "outright": {
-     "selection": "Lee Hodges",
-     "band": "MEDIUM",
+     "selection": "Jackson Koivun",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
@@ -9260,13 +9260,13 @@
      "status": "MISS"
     },
     "frl": {
-     "selection": "Patrick Fishburn",
-     "band": "MEDIUM",
+     "selection": "Ben Kohles",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
      "selection": "Stephan Jaeger",
-     "band": "MEDIUM",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_american": {
@@ -9338,18 +9338,18 @@
    "event": "Corales Puntacana Championship",
    "picks": {
     "outright": {
-     "selection": "Joel Dahmen",
-     "band": "MEDIUM",
+     "selection": "Taylor Pendrith",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Joel Dahmen",
-     "band": "HIGH",
-     "status": "MISS"
+     "selection": null,
+     "band": null,
+     "status": "NO SELECTION"
     },
     "frl": {
-     "selection": "Austin Eckroat",
-     "band": "MEDIUM",
+     "selection": "Jacob Skov Olesen",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_european": {
@@ -9358,14 +9358,14 @@
      "status": "MISS"
     },
     "top_american": {
-     "selection": "Joel Dahmen",
-     "band": "MEDIUM",
+     "selection": "Blades Brown",
+     "band": "LOW",
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Séamus Power",
+     "selection": "Todd Clements",
      "band": "LOW",
-     "status": "MISS"
+     "status": "HIT"
     }
    },
    "actual": {
@@ -9558,13 +9558,13 @@
    "event": "Danish Golf Championship",
    "picks": {
     "outright": {
-     "selection": "Rasmus Højgaard",
-     "band": "HIGH",
+     "selection": "Gregorio De Leo",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Rasmus Højgaard",
-     "band": "HIGH",
+     "selection": "Oliver Lindell",
+     "band": "MEDIUM",
      "status": "HIT"
     },
     "frl": {
@@ -9574,7 +9574,7 @@
     },
     "top_european": {
      "selection": "Rasmus Højgaard",
-     "band": "HIGH",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_american": {
@@ -9734,13 +9734,13 @@
    "event": "Husqvarna British Masters hosted by Sir Nick Faldo",
    "picks": {
     "outright": {
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "LOW",
      "status": "MISS"
     },
     "top6": {
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "frl": {
@@ -9749,8 +9749,8 @@
      "status": "MISS"
     },
     "top_european": {
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "MEDIUM",
      "status": "MISS"
     },
     "top_american": {
@@ -9759,8 +9759,8 @@
      "status": "MISS"
     },
     "top_british_irish": {
-     "selection": "Matt Wallace",
-     "band": "HIGH",
+     "selection": "Tyrrell Hatton",
+     "band": "MEDIUM",
      "status": "MISS"
     }
    },

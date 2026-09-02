@@ -14,9 +14,9 @@
 
 import {
   buildResultsIndex, buildGolfProfile, buildFieldContext, nameKeys, normName,
-  selectGolfEvents, eventCoversDate, matchGolfOlbg,
+  selectGolfEvents, eventCoversDate, matchGolfOlbg, applySgCoverageFloor, classifyRegion, isStrokePlayRound,
 } from './golf_data.js';
-import { scoreGolfEvent } from './golf_engine.js';
+import { scoreGolfEvent, CONFIDENCE, MARKET_ORDER } from './golf_engine.js';
 import { writeGolfCard, validateGolfCard } from './golf_writer.js';
 
 /* ------------------------------------------------------------------ *
@@ -103,26 +103,32 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
   const sg = docs.sg || sgLookup(statsDoc);
 
   const field = (event.field || []).filter((p) => p && p.athleteId);
-  const profiles = field.map((player) => {
+  const useSg = sg.available && !docs.noStrokesGained;
+  const rawProfiles = field.map((player) => {
     const ranking = matchOwgr(owgr, player.name);
     const statRow = stats.byId.get(String(player.athleteId)) || null;
-    const sgRow = event.tour === 'pga' || (sg.available && matchSg(sg, player.name)) ? matchSg(sg, player.name) : null;
+    const sgRow = useSg ? matchSg(sg, player.name) : null;
     return buildGolfProfile({
       index, player, event, asOfISO: asOf, ranking,
       stats: statRow, sg: sgRow, statsDist: { distanceQ1: stats.distanceQ1, distanceQ3: stats.distanceQ3 },
     });
   });
+  const floor = applySgCoverageFloor(rawProfiles);
+  const profiles = floor.profiles;
 
   const weather = weatherDoc?.events?.[String(event.id)] || null;
   const ctx = buildFieldContext({ event, profiles, index, weather, asOfISO: asOf });
   ctx.priorEditionsInTape = [...index.events.values()].filter((e) => event.tournamentId && e.tournamentId === String(event.tournamentId) && e.endDate && e.endDate < asOf).length;
   ctx.owgrMatched = profiles.filter((p) => p.owgr).length;
   ctx.statsMatched = profiles.filter((p) => p.stats).length;
+  ctx.sgSuppressed = floor.suppressed;
+  ctx.sgSourceAvailable = useSg;
 
   const scored = scoreGolfEvent(event, profiles, ctx);
   const written = scored.unscored ? null : writeGolfCard(scored, event, weather);
   const validation = written ? validateGolfCard(written) : null;
   const olbg = slateDoc ? matchGolfOlbg(event, slateDoc) : [];
+  const grades = !scored.unscored && event.state === 'post' ? gradeGolfSelections(scored, field) : null;
 
   const coverage = {
     field: field.length,
@@ -131,7 +137,9 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
     withHistory: profiles.filter((p) => p.historyStarts > 0).length,
     owgrMatched: ctx.owgrMatched,
     statsMatched: ctx.statsMatched,
-    sgMatched: ctx.sgCoverage,
+    sgMatched: floor.matched,
+    sgScored: ctx.sgCoverage,
+    sgSuppressed: floor.suppressed,
     teeTimes: profiles.filter((p) => p.teeTime).length,
     priorEditionsInTape: ctx.priorEditionsInTape,
     weather: Boolean(weather?.available),
@@ -139,16 +147,68 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
   };
 
   return {
-    event, asOf, profiles, ctx, scored, written, validation, olbg, coverage,
+    event, asOf, profiles, ctx, scored, written, validation, olbg, coverage, grades,
     sources: buildSources(event, docs, coverage),
   };
+}
+
+/* ------------------------------------------------------------------ *
+ * grading (shared by the backtest and the retrospective view)
+ * ------------------------------------------------------------------ */
+
+const finished = (p) => p && p.position !== null && p.position !== undefined && (p.result === 'F' || p.result === 'MDF');
+const r1Of = (p) => (Number.isFinite(p?.r1) ? p.r1 : (p?.rounds?.find?.((r) => r.period === 1)?.strokes ?? null));
+
+/**
+ * Grade the headline selection of every market against a final field.
+ * `field` rows need {athleteId, position, result, country, countryCode} and
+ * either r1 or rounds[] for the first-round-leader market.
+ */
+export function gradeGolfSelections(scored, field) {
+  const byId = new Map((field || []).map((p) => [String(p.athleteId), p]));
+  const out = {};
+  for (const key of MARKET_ORDER) {
+    const market = scored?.markets?.[key];
+    const sel = market?.selections?.[0] || null;
+    if (!sel || sel.band === CONFIDENCE.SKIP) { out[key] = { status: 'NO SELECTION', hit: null, selection: null, band: null }; continue; }
+    const me = byId.get(String(sel.athleteId));
+    if (!me) { out[key] = { status: 'UNVERIFIED', hit: null, selection: sel.name, band: sel.band }; continue; }
+    let hit = null;
+    if (key === 'outright') hit = finished(me) && me.position === 1;
+    else if (key === 'top6') hit = finished(me) && me.position <= 6;
+    else if (key === 'frl') {
+      const r1s = (field || []).map(r1Of).filter(isStrokePlayRound);
+      const mine = r1Of(me);
+      // Fewer than twenty real opening rounds means a Stableford or abandoned
+      // round; the market cannot be graded from this tape.
+      if (r1s.length < 20 || !isStrokePlayRound(mine)) { out[key] = { status: 'UNVERIFIED', hit: null, selection: sel.name, band: sel.band }; continue; }
+      hit = mine === Math.min(...r1s);
+    } else {
+      const flag = key === 'top_european' ? 'european' : key === 'top_american' ? 'american' : 'britishIrish';
+      const eligible = (field || []).filter((p) => classifyRegion({ country: p.country, countryCode: p.countryCode })[flag] && finished(p));
+      if (!eligible.length) { out[key] = { status: 'UNVERIFIED', hit: null, selection: sel.name, band: sel.band }; continue; }
+      hit = finished(me) && me.position === Math.min(...eligible.map((p) => p.position));
+    }
+    out[key] = { status: hit ? 'HIT' : 'MISS', hit, selection: sel.name, band: sel.band, valuePick: sel.valuePick === true };
+  }
+  const t6 = scored?.markets?.top6?.selections || [];
+  out._top6List = { selections: t6.length, hits: t6.filter((s) => { const p = byId.get(String(s.athleteId)); return finished(p) && p.position <= 6; }).length };
+  return out;
 }
 
 function buildSources(event, docs, coverage) {
   const out = [];
   if (event?.sources?.espnLeaderboard) out.push({ label: 'ESPN leaderboard (field, tee times, results)', url: event.sources.espnLeaderboard });
   if (event?.sources?.api) out.push({ label: 'ESPN leaderboard JSON', url: event.sources.api });
-  if (docs?.resultsDoc?.source?.url) out.push({ label: 'Results tape source', url: docs.resultsDoc.source.url });
+  if (docs?.resultsDoc?.source?.url) {
+    // The tape's source is a URL template; the review link must be a real page,
+    // so it resolves to this event (or, failing that, the tour's schedule page).
+    const tpl = String(docs.resultsDoc.source.url);
+    const resolved = tpl.includes('{') && event?.tour && event?.id ? tpl.replace('{league}', event.tour).replace('{eventId}', event.id) : tpl;
+    const url = resolved.includes('{') ? `https://www.espn.com/golf/schedule/_/tour/${event?.tour || 'pga'}` : resolved;
+    if (!out.some((x) => x.url === url)) out.push({ label: 'Results tape source (every history row links its own ESPN leaderboard)', url });
+  }
+  if (event?.tour) out.push({ label: 'ESPN schedule and results for this tour', url: `https://www.espn.com/golf/schedule/_/tour/${event.tour}` });
   if (docs?.rankingsDoc?.source?.url) out.push({ label: `Official World Golf Ranking (${docs.rankingsDoc.weekLabel || docs.rankingsDoc.fetched_at_utc || ''})`, url: docs.rankingsDoc.source.url });
   if (docs?.statsDoc?.espn?.source?.url) out.push({ label: 'ESPN season statistics', url: docs.statsDoc.espn.source.url });
   if (docs?.statsDoc?.sg?.available && docs.statsDoc.sg.source) out.push({ label: 'PGA TOUR strokes gained (ShotLink)', url: docs.statsDoc.sg.source });

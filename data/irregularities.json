@@ -136,6 +136,18 @@
     "https://www.pgatour.com/stats/detail/02568",
     "https://apiweb.owgr.com/api/owgr/rankings/getRankings?pageSize=1000&pageNumber=1&countryId=0&sortString=Rank+ASC"
    ]
+  },
+  {
+   "id": "U-14",
+   "title": "Golf: first real collection exposed three scoring hazards (SG coverage, Stableford/WD rounds, geocoding)",
+   "detail": "On the first golf-collect.yml run (2026-09-02) strokes gained was available for 11 of 154 players in the Omega European Masters field, ranking those eleven within the field and lifting an otherwise MEDIUM card to HIGH; the ESPN tape carries modified-Stableford point totals (Barracuda Championship) and partial withdrawn rounds (e.g. 23 strokes) that read as record-low opening rounds in 22 of 230 events; and Open-Meteo could not geocode ESPN's 'Crans Montana' spelling.",
+   "status": "FIXED — disclosed",
+   "effect": "Strokes gained is scored only when at least half the non-amateur field carries a row (otherwise missing for everyone, no market can read HIGH, and the card says 'only N of M players'); opening-round measurements and first-round-leader grading accept completed stroke-play rounds only (55-100 strokes) and Stableford events grade as UNVERIFIED; the weather collector tries hyphenated/Saint/first-token city variants. Register entries IR-GOLF-14/15/16 in docs/GOLF_IRREGULARITIES.md.",
+   "links": [
+    "https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=eur&event=401822700",
+    "https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga&event=401703522",
+    "https://geocoding-api.open-meteo.com/v1/search?name=Crans-Montana&count=5&language=en&format=json"
+   ]
   }
  ]
 }

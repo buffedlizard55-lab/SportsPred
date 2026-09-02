@@ -101,6 +101,18 @@ export function madeCut(row) {
   return row?.result === 'F' || row?.result === 'MDF';
 }
 
+/**
+ * A completed stroke-play round. ESPN publishes partial rounds for withdrawn
+ * players (e.g. 23 strokes through nine holes) and Stableford points for the
+ * modified-Stableford event, and both would otherwise read as record-low
+ * opening rounds. Only whole rounds between 55 and 100 strokes count.
+ */
+export const R1_MIN_STROKES = 55;
+export const R1_MAX_STROKES = 100;
+export function isStrokePlayRound(v) {
+  return Number.isFinite(v) && v >= R1_MIN_STROKES && v <= R1_MAX_STROKES;
+}
+
 export function missedCut(row) {
   return row?.result === 'CUT';
 }
@@ -228,7 +240,7 @@ export function eventHistory(rows, tournamentId) {
 
 /** Opening-round scoring from the last eight starts. */
 export function r1Profile(rows) {
-  const opened = rows.filter((r) => Number.isFinite(r.rounds?.[0]) && Number.isFinite(r.par));
+  const opened = rows.filter((r) => isStrokePlayRound(r.rounds?.[0]) && Number.isFinite(r.par));
   const last8 = opened.slice(0, 8);
   const toPar = last8.map((r) => r.rounds[0] - r.par);
   const last5 = opened.slice(0, 5);
@@ -325,6 +337,34 @@ export function buildGolfProfile({ index, player, event, asOfISO, ranking = null
 }
 
 /* ------------------------------------------------------------------ *
+ * strokes-gained coverage floor
+ * ------------------------------------------------------------------ */
+
+/**
+ * The prompt ranks strokes gained WITHIN THE FIELD. When only a small share of
+ * the field has a strokes-gained row (a DP World Tour field where a handful of
+ * PGA TOUR members carry season averages), ranking those few against each
+ * other would hand them up to thirty-three points nobody else could earn. So
+ * strokes gained is scored only when at least SG_COVERAGE_FLOOR of the
+ * non-amateur field is covered; below that it is missing for everyone and the
+ * event-level missing[] says so (IR-GOLF-14).
+ */
+export const SG_COVERAGE_FLOOR = 0.5;
+
+export function applySgCoverageFloor(profiles, { floor = SG_COVERAGE_FLOOR } = {}) {
+  const scored = (profiles || []).filter((p) => p && !p.amateur);
+  const matched = scored.filter((p) => p.sg && p.sg.app).length;
+  if (!scored.length || matched === 0) return { profiles, suppressed: null, matched, scored: scored.length };
+  if (matched / scored.length >= floor) return { profiles, suppressed: null, matched, scored: scored.length };
+  return {
+    profiles: profiles.map((p) => (p && p.sg ? { ...p, sg: null, sgSuppressed: true } : p)),
+    suppressed: { matched, scored: scored.length, floor },
+    matched,
+    scored: scored.length,
+  };
+}
+
+/* ------------------------------------------------------------------ *
  * field context (ranks within the field, layout facts, weather)
  * ------------------------------------------------------------------ */
 
@@ -348,7 +388,7 @@ export function priorEditionR1Mean(index, tournamentId, asOfISO) {
   const vals = [];
   for (const rows of index.rowsByPlayer.values()) {
     for (const r of rows) {
-      if (r.eventId === last.eventId && Number.isFinite(r.rounds?.[0])) vals.push(r.rounds[0] - last.par);
+      if (r.eventId === last.eventId && isStrokePlayRound(r.rounds?.[0])) vals.push(r.rounds[0] - last.par);
     }
   }
   if (vals.length < 20) return null;
