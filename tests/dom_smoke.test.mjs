@@ -629,14 +629,24 @@ test('volleyball.html boots NCAA rows, set linescores and the Generate button', 
   } finally { cleanup(); }
 });
 
-test('volleyball.html on 3 September shows EuroVolley QFs, not NCAA form labels as EuroVolley sides', { skip: !JSDOM }, async () => {
+test('volleyball.html on 3 September renders EuroVolley QFs and separate NCAA rows without bleed', { skip: !JSDOM }, async () => {
   const { document } = await bootPage('volleyball.html', { search: '?date=2026-09-03' });
   try {
     const text = document.body.textContent;
     assert.match(text, /Poland/);
     assert.match(text, /Netherlands/);
     assert.match(text, /EuroVolley/);
-    assert.ok(!/Nebraska Cornhuskers/.test(text), 'NCAA sides must not appear on the EuroVolley date from the committed tape');
+    // The refreshed committed tape legitimately carries NCAA fixtures on
+    // 2026-09-03 as well; they must render in their own family rows, never
+    // as form/data on the EuroVolley sides.
+    const rows = [...document.querySelectorAll('#board .match')];
+    const euro = rows.find((r) => r.textContent.includes('Poland') && r.textContent.includes('Netherlands'));
+    assert.ok(euro, 'EuroVolley fixture renders');
+    assert.match(euro.querySelector('.meta-line').textContent, /EuroVolley tape/);
+    assert.ok(!/Nebraska Cornhuskers/.test(euro.textContent), 'EuroVolley card carries no NCAA side');
+    const ncaa = rows.find((r) => r.textContent.includes('Nebraska Cornhuskers'));
+    assert.ok(ncaa, 'the committed NCAA fixture on this date renders in its own row');
+    assert.match(ncaa.querySelector('.meta-line').textContent, /NCAA \/ ESPN/);
     const toggle = document.querySelector('[data-toggle]');
     assert.ok(toggle, 'analysis toggle exists');
   } finally { cleanup(); }
