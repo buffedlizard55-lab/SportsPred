@@ -91,6 +91,23 @@ export const SUPPORTED_SPORTS = [
     liveSourceUrl: 'https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard',
     leagues: ['All Races', '2026 Season', 'Sprint Weekends', 'Power Circuits', 'Street Circuits'],
   },
+  {
+    id: 'volleyball',
+    name: 'Volleyball',
+    promptVersion: 'v1.0',
+    rulesetVersion: 'v1.0',
+    icon: '🏐',
+    description: 'NCAA (ESPN) and EuroVolley Women 2026 (committed CEV tape) — WIN MATCH and SET SCORE only',
+    markets: ['WIN MATCH', 'SET SCORE'],
+    dataFile: 'data/volleyball_matches.json',
+    slateFile: 'data/volleyball_slate.json',
+    tapeFile: 'data/volleyball_tape.json',
+    provenanceFile: 'data/volleyball_provenance.json',
+    predictionsFile: 'data/volleyball_predictions.json',
+    sourceUrl: 'https://www.olbg.com/betting-tips/Volleyball/21',
+    liveSourceUrl: 'https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard',
+    leagues: ['All competitions', "NCAA Women's Volleyball", "NCAA Men's Volleyball", 'EuroVolley Women 2026'],
+  },
 ];
 
 export function getSportConfig(sportId) {

@@ -111,6 +111,25 @@ async function boot() {
     }
   }
 
+  const vb = await loadStatic('data/volleyball_provenance.json');
+  const vbox = $('#vb-irr');
+  if (vbox) {
+    if (!vb.data) {
+      vbox.innerHTML = '<div class="note">Volleyball register unavailable (data/volleyball_provenance.json).</div>';
+    } else {
+      vbox.innerHTML = `<table class="data">
+        <thead><tr><th>Id</th><th>Finding</th><th>Status</th><th>Effect on output</th><th>Verify it yourself</th></tr></thead>
+        <tbody>${(vb.data.irregularities || []).map((r) => `<tr>
+          <td><code>${esc(r.id)}</code></td>
+          <td><strong>${esc(r.title)}</strong><div class="meta-line">${esc(r.detail)}</div></td>
+          <td>${esc(r.status)}</td>
+          <td>${esc(r.effect_on_output)}</td>
+          <td>${(r.sources || []).map((l) => `<a href="${esc(l)}" target="_blank" rel="noopener noreferrer">link ↗</a>`).join(' ')}</td>
+        </tr>`).join('')}</tbody></table>
+        <p class="meta-line">Register generated ${esc(vb.data.generated_at_utc || '')}. See <a href="volleyball.html">the volleyball scoreboard</a>.</p>`;
+    }
+  }
+
   // ---- sport source list ----
   $('#sport-sources').innerHTML = `<table class="data">
     <thead><tr><th>Sport</th><th>OLBG index</th><th>Statistics feed</th><th>Status</th><th>Official references</th></tr></thead>

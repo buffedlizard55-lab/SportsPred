@@ -23,6 +23,7 @@ const FEATURED = {
   'ice-hockey': ['nhl'],
   'rugby-league': [],
   'rugby-union': [],
+  volleyball: ['womens-college-volleyball'],
 };
 
 const date = todayISO();

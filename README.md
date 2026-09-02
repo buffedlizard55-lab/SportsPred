@@ -18,6 +18,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`method.html`](method.html) | The method, the facts-vs-hyperparameters split, the output rules, and the backtest. |
 | [`pro.html`](pro.html) | The specialist engine console (cricket · handball · tennis · F1) with the per-sport master prompts. |
 | [`greyhounds.html`](greyhounds.html) | Greyhound racing: daily GBGB racecards, results and month calendar with form/trap/distance/grade analysis and the written WIN tips generated per the GREYHOUND RACING PREDICTION MASTER PROMPT v1.0. |
+| [`volleyball.html`](volleyball.html) | Volleyball: NCAA scoreboard from ESPN plus EuroVolley Women 2026 from a committed CEV tape. WIN MATCH and SET SCORE tips per the volleyball master prompt — college form is never applied to internationals. |
 | [`golf.html`](golf.html) | Golf: PGA TOUR / DP World Tour / LPGA / Champions leaderboards and calendars, and the six-market golf card (outright, top six, first round leader, top European, top American, top British & Irish) generated for every men's-tour event on the board. |
 
 Every sport is reachable from the rail in the masthead on every page.

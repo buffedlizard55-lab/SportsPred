@@ -7,6 +7,7 @@ describe('Multi-Sport Coordinator', () => {
     const ids = SUPPORTED_SPORTS.map((s) => s.id);
     assert.ok(ids.includes('handball'));
     assert.ok(ids.includes('tennis'));
+    assert.ok(ids.includes('volleyball'));
   });
 
   it('getSportConfig returns configuration for handball and tennis', () => {

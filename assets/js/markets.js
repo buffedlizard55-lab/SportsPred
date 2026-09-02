@@ -14,6 +14,7 @@ const SNAPSHOTS = [
   { key: 'tennis', label: 'Tennis', path: 'data/slate.json' },
   { key: 'motor-racing', label: 'Motor Racing', path: 'data/f1_slate.json' },
   { key: 'golf', label: 'Golf', path: 'data/golf_slate.json' },
+  { key: 'volleyball', label: 'Volleyball', path: 'data/volleyball_slate.json' },
 ];
 
 async function boot() {

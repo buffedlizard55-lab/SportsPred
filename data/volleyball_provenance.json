@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "sport": "Volleyball",
+  "generated_at_utc": "2026-09-02T20:00:00Z",
+  "irregularities": [
+    {
+      "id": "IR-VB-01",
+      "severity": "high",
+      "status": "open",
+      "title": "ESPN volleyball is college-only; OLBG's open card is EuroVolley",
+      "detail": "On 2026-09-02 the OLBG Volleyball/21 index listed Poland W vs Netherlands W and Germany W vs Turkey W (EuroVolley Women quarter-finals in Istanbul). ESPN site.api volleyball/womens-college-volleyball is NCAA. Those sides are never joined.",
+      "sources": [
+        "https://www.olbg.com/betting-tips/Volleyball/21",
+        "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260902",
+        "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship"
+      ],
+      "effect_on_output": "EuroVolley fixtures are scored only from the committed CEV tape. NCAA fixtures are scored only from ESPN. Internationals without a sourced tape are listed and SKIPPED."
+    },
+    {
+      "id": "IR-VB-02",
+      "severity": "high",
+      "status": "open",
+      "title": "No free multi-book volleyball moneyline",
+      "detail": "ESPN NCAA volleyball on 2026-09-02 had oddsSeen false. OLBG HTML carries no structured prices. The prompt requires odds from at least two bookmakers.",
+      "sources": [
+        "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260902",
+        "https://www.olbg.com/betting-tips/Volleyball/21"
+      ],
+      "effect_on_output": "Odds component marked missing; LIVE_CAP prevents HIGH confidence on a live card."
+    },
+    {
+      "id": "IR-VB-03",
+      "severity": "medium",
+      "status": "open",
+      "title": "Kills/blocks per set have no key-less feed",
+      "detail": "The attacking-quality block of the master prompt needs kills per set and blocks per set. ESPN scoreboard linescores are set points, not those rates.",
+      "sources": [
+        "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard"
+      ],
+      "effect_on_output": "Attacking quality scores 0 and is listed in missing[]."
+    },
+    {
+      "id": "IR-VB-04",
+      "severity": "medium",
+      "status": "open",
+      "title": "Germany 3-0 Hungary 25 August has an incomplete set line",
+      "detail": "the-sports.org prints (25-17, 7-4) for a listed 3-0. The fifth-ball 7-4 cannot be a completed set.",
+      "sources": [
+        "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
+      ],
+      "effect_on_output": "Match counts as a Germany win for form.last5. Set-score components ignore it (setsIncomplete)."
+    },
+    {
+      "id": "IR-VB-05",
+      "severity": "medium",
+      "status": "open",
+      "title": "Belgium vs Spain 22 August listing disagrees with the printed sets",
+      "detail": "Listed Belgium 3-2 with sets (15-25, 25-18, 25-23, 17-25, 8-15). The fifth set 8-15 would be a Spain win, i.e. 2-3.",
+      "sources": [
+        "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
+      ],
+      "effect_on_output": "Match omitted from the tape. Not invented."
+    },
+    {
+      "id": "IR-VB-06",
+      "severity": "low",
+      "status": "open",
+      "title": "OLBG volleyball kickoff times are untrusted",
+      "detail": "U-02: OLBG printed 09:00 and 12:00 for the Istanbul quarter-finals. Wikipedia lists 16:00 and 19:00 local.",
+      "sources": [
+        "https://www.olbg.com/betting-tips/Volleyball/21",
+        "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship"
+      ],
+      "effect_on_output": "Calendar date comes from Wikipedia (3 September). startUtc is null."
+    }
+  ]
+}

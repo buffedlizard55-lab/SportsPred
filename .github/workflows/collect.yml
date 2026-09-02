@@ -153,6 +153,32 @@ jobs:
         continue-on-error: true
         run: node scripts/backtest_golf.mjs
 
+      - name: Collect OLBG volleyball slate
+        id: collect-volleyball-olbg
+        continue-on-error: true
+        run: python3 scripts/collect_volleyball_olbg.py
+
+      - name: Report a failed volleyball OLBG collection
+        if: steps.collect-volleyball-olbg.outcome == 'failure'
+        run: echo "::warning::OLBG volleyball collection failed. data/volleyball_slate.json is unchanged."
+
+      - name: Collect ESPN NCAA volleyball
+        id: collect-volleyball-espn
+        continue-on-error: true
+        run: node scripts/collect_volleyball_espn.mjs
+
+      - name: Report a failed volleyball ESPN collection
+        if: steps.collect-volleyball-espn.outcome == 'failure'
+        run: echo "::warning::ESPN volleyball collection failed. Recorded volleyball data is unchanged."
+
+      - name: Record volleyball predictions
+        continue-on-error: true
+        run: node scripts/record_volleyball_predictions.mjs
+
+      - name: Volleyball walk-forward backtest
+        continue-on-error: true
+        run: node scripts/backtest_volleyball.mjs
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs

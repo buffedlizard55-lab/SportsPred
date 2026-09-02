@@ -109,6 +109,7 @@ async function loadOlbg() {
   const map = {
     football: null, cricket: 'data/cricket_slate.json', handball: 'data/handball_slate.json',
     tennis: 'data/slate.json', 'motor-racing': 'data/f1_slate.json', golf: 'data/golf_slate.json',
+    volleyball: 'data/volleyball_slate.json',
   };
   const path = map[state.sport.key];
   const box = $('#olbg-box');

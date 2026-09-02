@@ -38,7 +38,7 @@
   {
    "id": "U-04",
    "title": "Seven OLBG sports have no key-less statistics feed",
-   "detail": "Horse Racing, Greyhounds, Darts, Snooker, Gaelic Football, Cycling and Handball have no free, key-less structured results feed on ESPN. Boxing/MMA has fight cards but no structured fighter-form feed, and Golf is an outright market across a full field rather than a two-competitor contest.",
+   "detail": "Horse Racing, Darts, Snooker, Gaelic Football and Cycling have no free, key-less structured results feed on ESPN. Greyhounds run on the GBGB specialist engine. Handball runs on a committed competition dataset. Volleyball runs on a specialist engine: NCAA from ESPN, EuroVolley Women from a committed CEV tape (never mixed). Boxing/MMA has fight cards but no structured fighter-form feed, and Golf is an outright market across a full field rather than a two-competitor contest.",
    "status": "OPEN — by design",
    "effect": "These sports are listed in the market directory with links to their OLBG index and their governing body, and never receive a generated prediction. Handball is the exception: it runs on the committed, source-tagged competition dataset and the specialist handball engine rather than on a live feed.",
    "links": [
