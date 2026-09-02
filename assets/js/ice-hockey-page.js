@@ -54,8 +54,22 @@ async function boot() {
   wireControls();
   await loadDocs();
   buildAllCards();
+  // Respect an explicit ?date=, otherwise land on the nearest day with games.
+  if (!qs('date') && state.cards.size && !state.cards.has(state.date)) {
+    const near = nearestDateWithFixtures(state.date);
+    if (near && near !== state.date) {
+      state.feedNote = state.feedNote || [];
+      state.date = near;
+      $('#date-input').value = near;
+      setQS({ date: near });
+      state.movedFromDate = todayISO();
+    }
+  }
   renderDay(state.date);
   setProgress(100, '');
+  if (state.movedFromDate) {
+    toast(`No ice hockey fixtures on ${state.movedFromDate} (NHL off-season) — showing ${state.date}`);
+  }
 }
 
 function renderStatic() {
@@ -99,6 +113,24 @@ async function loadDocs() {
   renderCoverage();
   renderBacktest();
   renderSources();
+}
+
+/**
+ * The NHL calendar has gaps — off-season, all-star break, no games on some
+ * weekdays. Opening on a date with nothing on it reads as a broken page, so the
+ * default date moves to the nearest date that has fixtures (next first, then
+ * back). An explicit ?date= in the URL is always respected.
+ */
+function nearestDateWithFixtures(dateISO) {
+  const dates = [...(state.docs?.fixtures?.fixtures || [])]
+    .map((f) => f.dateISO)
+    .filter(Boolean)
+    .sort();
+  if (!dates.length) return null;
+  if (dates.includes(dateISO)) return dateISO;
+  const next = dates.find((d) => d > dateISO);
+  if (next) return next;
+  return dates[dates.length - 1];
 }
 
 /** All fixtures known to the committed documents, newest window first. */
