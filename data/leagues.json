@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-02T18:36:48.326Z",
+  "generated_at_utc": "2026-09-02T19:46:07.659Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -1249,7 +1249,7 @@
     "greyhounds": {
       "espnSport": null,
       "leagues": [],
-      "note": "Market rows only."
+      "note": "Greyhounds run on the official GBGB results API (meetings, draws, results and per-dog histories) plus the Sporting Life racecard index, scored by the GREYHOUND RACING PREDICTION MASTER PROMPT v1.0. Live win odds have no free key-less feed, so the odds component is scored as missing and live confidence is capped at MEDIUM; see docs/GREYHOUND_IRREGULARITIES.md."
     },
     "cycling": {
       "espnSport": null,
