@@ -1,13 +1,27 @@
 # SportsPred
 
-A tennis scoreboard and three-market prediction engine, built around one rule:
-**nothing is published without a source.**
+A multi-sport scoreboard and prediction engine (**Cricket**, Handball, Tennis),
+built around one rule: **nothing is published without a source.**
 
-The site collects live tennis matches, results and rankings from ESPN's public
-key-less endpoints, resolves each tournament's court surface from recorded match
-data, overlays matching OLBG event rows for market review, scores every match
-across Win Match, First Set Winner and Games Handicap, and writes copy-ready
-predictions. Every one of those steps is machine-checked.
+The site collects live matches, results and statistics from ESPN's public
+key-less endpoints, overlays matching OLBG market rows for review, scores every
+match under each sport's master prompt, and writes copy-ready predictions.
+Every step is machine-checked.
+
+**Cricket** (`CRICKET PREDICTION MASTER PROMPT v1.0`) covers four markets per
+match — **Win Match, Man of the Match, Top Team 1 Batsman, Top Team 2 Batsman**
+— with all-rounder elevation, spin/pace matchup, powerplay and odds value-zone
+rules. It reads T20/ODI/Test fixtures, confirmed XIs, batting positions, runs,
+strike rates, wickets and economy from ESPN's scorepanel + summary endpoints,
+and overlays OLBG cricket markets (Win Match, Man Of The Match, Draw No Bet).
+See [`docs/CRICKET_PROMPT_REVIEW.md`](docs/CRICKET_PROMPT_REVIEW.md),
+[`docs/CRICKET_SOURCES.md`](docs/CRICKET_SOURCES.md) and
+[`docs/CRICKET_IRREGULARITIES.md`](docs/CRICKET_IRREGULARITIES.md).
+
+Handball uses its three-market prompt and tennis its three-market prompt; pick
+any sport with the pills in the header. With **no free key-less odds feed**,
+odds-dependent factors are scored as *missing* and those markets SKIP rather
+than being guessed.
 
 Pick any date on the calendar — past, today, or upcoming — and the scoreboard
 loads that day's real card. Each match card shows sourced rank trajectory,
@@ -50,17 +64,25 @@ implemented rather than promised:
 
 ```
 engine/                 the model — pure functions, no I/O
-  engine.js             Step 2 scoring and Step 3 decision rules
-  writer.js             Step 4 tip writing and the output-rule validator
+  cricket_engine.js     Cricket Step 2 scoring (4 markets) + Step 3 rules
+  cricket_writer.js     Cricket Step 4 tip writer + output-rule validator
+  cricket_data.js       Cricket slate/fixtures -> scored & written card
+  handball_engine.js    Handball Step 2 scoring + Step 3 rules
+  handball_writer.js    Handball Step 4 writer + validator
+  engine.js             Tennis Step 2 scoring and Step 3 decision rules
+  writer.js             Tennis Step 4 tip writing and validator
   espn.js               ESPN payload parsers + player-stat derivation
   olbg.js               OLBG snapshot/date/market helpers for the site
+  multi_sport.js        sport registry and shared configuration
   surface.js            tournament -> court surface, or null with a reason
   tournament.js         tour level / round coding, H2H orientation
   join.js               slate -> engine input; never fills a gap
 assets/js/
-  collector.js          live browser collection from ESPN (no key, no server)
-  app.js                controller: scoreboard, calendar, OLBG overlay, copy buttons
+  app.js                multi-sport controller (scoreboard, calendar, markets, copy)
+  cricket-collector.js  live browser collection for cricket (scorepanel + summary)
+  collector.js          live browser collection for tennis from ESPN (no key)
 data/
+  cricket_*.json        cricket fixtures / OLBG slate / provenance / predictions
   surfaces.json         tournament -> surface, built from recorded match rows
   slate.json            an OLBG slate snapshot, with source URL and fetch time
   players.json          player statistics + per-factor collection status
@@ -68,7 +90,9 @@ data/
   results.json          settled outcomes (empty — see IR-02)
   provenance.json       the irregularity register
 scripts/
-  collect_olbg.py       OLBG slate collector (stdlib only)
+  collect_cricket_olbg.py  OLBG cricket slate collector (stdlib only)
+  collect_olbg.py       OLBG tennis/handball slate collector (stdlib only)
+  record_cricket_predictions.mjs  cricket forward-collection ledger validation
   collect_players.py    statistics collector; refuses to write estimates
   record_predictions.mjs  forward collection
   backtest.mjs          grading of recorded picks: hit rate, Brier, log loss, ROI
@@ -80,7 +104,7 @@ scripts/
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
 .github/workflows/      installed Pages deploy + scheduled collection workflows
-tests/                  129 Node tests + 23 Python tests
+tests/                  179 Node tests + 35 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt

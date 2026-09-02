@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "sport": "Cricket",
+  "generated_at_utc": "2026-09-01T23:30:00Z",
+  "official_sources": [
+    {
+      "id": "espn-scorepanel",
+      "name": "ESPN public scorepanel API (no key)",
+      "url": "https://site.web.api.espn.com/apis/site/v2/sports/cricket/scorepanel",
+      "verification_status": "Verified 2026-09-01 — returns fixtures, scores, winners, venue, format (class.eventType), status per date",
+      "fields_provided": ["fixtures", "live scores", "results", "venue", "format", "match status", "team identities"]
+    },
+    {
+      "id": "espn-summary",
+      "name": "ESPN match summary API (no key)",
+      "url": "https://site.web.api.espn.com/apis/site/v2/sports/cricket/{leagueId}/summary?event={eventId}",
+      "verification_status": "Verified 2026-09-01 — returns confirmed rosters, batting positions, runs, strike rates, fours/sixes, wickets, economy, venue and toss",
+      "fields_provided": ["confirmed playing XI", "batting position", "runs", "strike rate", "wickets", "economy", "bowling style", "batting style"]
+    },
+    {
+      "id": "espn-header",
+      "name": "ESPN personalized scoreboard header (active series discovery)",
+      "url": "https://site.api.espn.com/apis/personalized/v2/scoreboard/header?sport=cricket",
+      "verification_status": "Verified 2026-09-01 — lists every active cricket series with league id, events, venue and status",
+      "fields_provided": ["active series list", "league ids", "event ids", "smart dates"]
+    },
+    {
+      "id": "espncricinfo",
+      "name": "ESPNcricinfo live score / schedule / results (manual review)",
+      "url": "https://www.espncricinfo.com/live-cricket-score",
+      "verification_status": "Verified 2026-09-01 — cross-check for fixtures, scores and results",
+      "fields_provided": ["manual review links", "scorecards", "reports"]
+    },
+    {
+      "id": "olbg-cricket",
+      "name": "OLBG Cricket Betting Tips index",
+      "url": "https://www.olbg.com/betting-tips/Cricket/16",
+      "verification_status": "Verified 2026-09-01 — lists match tips (Win Match, Man Of The Match, Draw No Bet) and outrights with tipster consensus counts; no bookmaker odds",
+      "fields_provided": ["market availability", "tipster consensus", "event links"]
+    }
+  ],
+  "irregularities": [
+    {
+      "id": "CR-IR-01",
+      "title": "No free key-less odds source for cricket",
+      "detail": "ESPN returns an empty odds array for cricket competitions. OLBG shows tipster consensus counts, not bookmaker prices. The Odds API / Betfair require a key. The prompt's odds factors (win price, MoTM price, top-batsman price) therefore cannot be sourced without a key.",
+      "mitigation": "Every odds factor is scored as missing and recorded in missing[]; the writer withholds odds-dependent confidence. Supplying an Odds API key unlocks the already-written odds rules."
+    },
+    {
+      "id": "CR-IR-02",
+      "title": "Pitch reports and weather forecasts have no free structured source",
+      "detail": "The prompt weights pitch (spin/pace/batting) and rain heavily. No key-less JSON source publishes a machine-readable pitch report. ESPN/ESPNcricinfo editorial mentions surfaces but not a per-match structured field.",
+      "mitigation": "match.pitch is left null; pitch-dependent bonuses and the spin/pace matchup are recorded missing rather than guessed. Manually verified pitch notes could be added with a source link."
+    },
+    {
+      "id": "CR-IR-03",
+      "title": "Last-5 player aggregates are not exposed key-less",
+      "detail": "The summary endpoint gives full per-match scorecard data, but a single key-less call does not return a player's rolling last-5 runs/wickets. Building it requires walking prior events per player (many requests).",
+      "mitigation": "The live collector derives single-match figures and team form/H2H from the 30-day scorepanel tape; player last-5 aggregates are scored missing until a player-tape pass is enabled."
+    },
+    {
+      "id": "CR-IR-04",
+      "title": "Injuries, squad availability and social/analyst sentiment have no free structured source",
+      "detail": "The prompt asks for injury impact and X/ESPNcricinfo analyst sentiment used internally. There is no key-less structured feed for either.",
+      "mitigation": "Confirmed XIs come from the match summary roster (starters). Injury and sentiment factors are never guessed; they are omitted and listed missing."
+    },
+    {
+      "id": "CR-IR-05",
+      "title": "OLBG and ESPN fixtures use different team naming",
+      "detail": "OLBG lists short/county names (e.g. 'Northants', 'E Lewis') while ESPN uses full names; not every OLBG event maps to an ESPN event id automatically.",
+      "mitigation": "The OLBG overlay is matched on normalised team names with a tolerant includes() comparison; unmatched OLBG events still display on the Markets tab with their own review link rather than being force-joined."
+    },
+    {
+      "id": "CR-IR-06",
+      "title": "Odds are Americanised in the engine but absent in data",
+      "detail": "The prompt states thresholds in American odds (-250, +400..+900). The engine converts decimal to American and applies the prompt bands; with no prices present, those branches are inert until CR-IR-01 is resolved.",
+      "mitigation": "normaliseOdds() is unit-tested for decimal/American conversion; once a price feed exists the rules activate with no engine change."
+    }
+  ]
+}
