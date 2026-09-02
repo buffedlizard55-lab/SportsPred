@@ -4,7 +4,7 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "fetched_at_utc": "2026-09-02T17:49:16Z",
+    "fetched_at_utc": "2026-09-02T20:54:14Z",
     "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
@@ -37,10 +37,10 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Trinbago Knight Riders",
-        "tips_for": 11,
-        "tips_total": 15,
-        "pct": 73,
-        "comments": 7,
+        "tips_for": 16,
+        "tips_total": 24,
+        "pct": 67,
+        "comments": 9,
         "experts": 1
       }
     },
@@ -59,10 +59,10 @@
       "consensus": {
         "market": "Win Match",
         "selection": "England W",
-        "tips_for": 11,
-        "tips_total": 11,
-        "pct": 100,
-        "comments": 8,
+        "tips_for": 12,
+        "tips_total": 13,
+        "pct": 92,
+        "comments": 9,
         "experts": 1
       }
     },
@@ -81,10 +81,10 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Rwanda",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
+        "tips_for": 4,
+        "tips_total": 6,
+        "pct": 67,
+        "comments": 3,
         "experts": 0
       }
     },
@@ -103,8 +103,52 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Uganda",
-        "tips_for": 1,
-        "tips_total": 1,
+        "tips_for": 3,
+        "tips_total": 5,
+        "pct": 60,
+        "comments": 2,
+        "experts": 0
+      }
+    },
+    {
+      "event_id": "188615",
+      "sport": "Cricket",
+      "type": "match",
+      "home": "Tanzania",
+      "away": "Botswana",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Tanzania_vs_Botswana_T20/7?event_id=188615",
+      "slug": "Tanzania_vs_Botswana_T20",
+      "display_date": "20 Tomorrow",
+      "display_time": "12:30",
+      "resolved_date": null,
+      "date_basis": "unknown",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Tanzania",
+        "tips_for": 2,
+        "tips_total": 4,
+        "pct": 50,
+        "comments": 1,
+        "experts": 0
+      }
+    },
+    {
+      "event_id": "188616",
+      "sport": "Cricket",
+      "type": "match",
+      "home": "Kenya",
+      "away": "Nigeria",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Kenya_vs_Nigeria_T20/7?event_id=188616",
+      "slug": "Kenya_vs_Nigeria_T20",
+      "display_date": "20 Tomorrow",
+      "display_time": "13:00",
+      "resolved_date": null,
+      "date_basis": "unknown",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Nigeria",
+        "tips_for": 2,
+        "tips_total": 2,
         "pct": 100,
         "comments": 1,
         "experts": 0
@@ -126,8 +170,8 @@
         "market": "Win Match",
         "selection": "St Lucia Kings",
         "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
+        "tips_total": 2,
+        "pct": 50,
         "comments": 1,
         "experts": 0
       }
