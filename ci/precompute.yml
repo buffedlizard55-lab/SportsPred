@@ -10,6 +10,16 @@ name: Build precomputed data
 # and the site verifier is clean.
 
 on:
+  # Also runs on pull requests so the builders can be proven before the workflow
+  # ever reaches the default branch (workflow_dispatch is unavailable until it
+  # is merged there).
+  pull_request:
+    paths:
+      - 'scripts/build_league_registry.mjs'
+      - 'scripts/build_league_context.mjs'
+      - 'scripts/backtest_universal.mjs'
+      - 'engine/registry.js'
+      - '.github/workflows/precompute.yml'
   schedule:
     - cron: '17 4 * * *'
   workflow_dispatch:
@@ -32,6 +42,8 @@ jobs:
     timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
 
       - uses: actions/setup-node@v4
         with:
@@ -91,7 +103,7 @@ jobs:
             echo 'no data changes'
           else
             git commit -m "data: rebuild league registry, baselines and backtest [skip ci]"
-            git push origin HEAD:${{ github.ref_name }}
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
           fi
 
       - name: Upload the artifacts for inspection
