@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at_utc": "2026-09-02T04:11:20Z",
+  "fetched_at_utc": "2026-09-02T08:46:29Z",
   "source": {
     "name": "OLBG betting tips sitemap + sport indexes",
     "url": "https://www.olbg.com/sitemap-betting-tips.xml",
@@ -17,11 +17,11 @@
       "url": "https://www.olbg.com/betting-tips/American_Football/11",
       "covered_by_engine": null,
       "events": 0,
-      "tip_rows": 19,
+      "tip_rows": 20,
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Baseball",
@@ -30,9 +30,11 @@
       "url": "https://www.olbg.com/betting-tips/Baseball/12",
       "covered_by_engine": null,
       "events": 0,
-      "tip_rows": 0,
-      "markets_seen": [],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "tip_rows": 2,
+      "markets_seen": [
+        "Money Line"
+      ],
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Basketball",
@@ -40,12 +42,12 @@
       "olbg_id": "4",
       "url": "https://www.olbg.com/betting-tips/Basketball/4",
       "covered_by_engine": null,
-      "events": 1,
-      "tip_rows": 13,
+      "events": 3,
+      "tip_rows": 15,
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Boxing",
@@ -53,10 +55,10 @@
       "olbg_id": "16",
       "url": "https://www.olbg.com/betting-tips/Boxing/16",
       "covered_by_engine": null,
-      "events": 23,
+      "events": 29,
       "tip_rows": 20,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Cricket",
@@ -64,13 +66,13 @@
       "olbg_id": "7",
       "url": "https://www.olbg.com/betting-tips/Cricket/7",
       "covered_by_engine": "Cricket",
-      "events": 14,
-      "tip_rows": 13,
+      "events": 16,
+      "tip_rows": 15,
       "markets_seen": [
         "Draw No Bet",
         "Win Match"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Cycling",
@@ -81,7 +83,7 @@
       "events": 0,
       "tip_rows": 0,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Darts",
@@ -94,7 +96,7 @@
       "markets_seen": [
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Football",
@@ -107,7 +109,7 @@
       "markets_seen": [
         "Full Time Result"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Gaelic_Football",
@@ -118,7 +120,7 @@
       "events": 3,
       "tip_rows": 3,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Golf",
@@ -131,7 +133,7 @@
       "markets_seen": [
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Greyhounds",
@@ -140,9 +142,9 @@
       "url": "https://www.olbg.com/betting-tips/Greyhounds/28",
       "covered_by_engine": null,
       "events": 0,
-      "tip_rows": 12,
+      "tip_rows": 27,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Handball",
@@ -150,12 +152,12 @@
       "olbg_id": "20",
       "url": "https://www.olbg.com/betting-tips/Handball/20",
       "covered_by_engine": "Handball",
-      "events": 42,
+      "events": 49,
       "tip_rows": 20,
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Horse_Racing",
@@ -168,7 +170,7 @@
       "markets_seen": [
         "Daily Racing"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Ice_Hockey",
@@ -176,12 +178,12 @@
       "olbg_id": "13",
       "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
       "covered_by_engine": null,
-      "events": 10,
-      "tip_rows": 1,
+      "events": 11,
+      "tip_rows": 2,
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Motor_Racing",
@@ -189,13 +191,13 @@
       "olbg_id": "14",
       "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
       "covered_by_engine": "Formula 1",
-      "events": 2,
-      "tip_rows": 2,
+      "events": 3,
+      "tip_rows": 3,
       "markets_seen": [
         "Fastest Qualifier",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Rugby_League",
@@ -209,7 +211,7 @@
         "To Win",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Rugby_Union",
@@ -217,12 +219,13 @@
       "olbg_id": "9",
       "url": "https://www.olbg.com/betting-tips/Rugby_Union/9",
       "covered_by_engine": null,
-      "events": 16,
-      "tip_rows": 16,
+      "events": 17,
+      "tip_rows": 17,
       "markets_seen": [
-        "To Win"
+        "To Win",
+        "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Snooker",
@@ -230,13 +233,13 @@
       "olbg_id": "8",
       "url": "https://www.olbg.com/betting-tips/Snooker/8",
       "covered_by_engine": null,
-      "events": 32,
-      "tip_rows": 13,
+      "events": 33,
+      "tip_rows": 14,
       "markets_seen": [
         "Win Match",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Tennis",
@@ -244,12 +247,12 @@
       "olbg_id": "3",
       "url": "https://www.olbg.com/betting-tips/Tennis/3",
       "covered_by_engine": "Tennis",
-      "events": 46,
+      "events": 55,
       "tip_rows": 20,
       "markets_seen": [
         "Win Match"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     },
     {
       "sport": "Volleyball",
@@ -262,7 +265,7 @@
       "markets_seen": [
         "Win Match"
       ],
-      "fetched_at_utc": "2026-09-02T04:11:20Z"
+      "fetched_at_utc": "2026-09-02T08:46:29Z"
     }
   ]
 }
