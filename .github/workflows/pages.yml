@@ -37,6 +37,16 @@ jobs:
       - name: Run Node tests before publishing
         run: npm test
 
+      - name: Debug Node test failure
+        if: failure()
+        run: |
+          echo "=== node version ==="
+          node --version
+          echo "=== list test files ==="
+          ls tests/*.test.mjs
+          echo "=== run with diagnostics ==="
+          node --test tests/*.test.mjs 2>&1 | head -80 || true
+
       - name: Run Python tests before publishing
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
 
