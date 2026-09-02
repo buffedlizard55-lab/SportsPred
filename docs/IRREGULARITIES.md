@@ -11,7 +11,22 @@ Verified 2026-08-31.
 
 ## Blockers
 
-### IR-01 — OLBG exposes no structured odds · HIGH · OPEN
+### IR-01 — OLBG exposes no structured odds · HIGH · SUPERSEDED for the universal engine (2026-09-02)
+> **Update.** This entry remains true *of OLBG*, and it still binds the three
+> specialist prompts (cricket, handball, tennis) on `pro.html`, which are written
+> against OLBG market rows. It is **no longer true of the site as a whole**: the
+> ESPN scoreboard payload republishes a sportsbook's moneyline, spread and total
+> in `competitions[0].odds[0]`, verified live on 2026-09-02 for `soccer/eng.1`
+> event `401879286`. The universal engine consumes that price, de-vigs it and
+> blends it at `marketWeight = 0.55`.
+>
+> The narrower, accurate limitation is recorded as **U-03** in
+> [`../data/irregularities.json`](../data/irregularities.json) and rendered on
+> [sources.html](../sources.html#irregularities): the ESPN price is a *single
+> book* (DraftKings), not a consensus, so the two-bookmaker cross-reference the
+> master prompts ask for is still unmet. It is attributed by name everywhere it
+> is shown.
+
 The tips index and event pages are server-rendered, but prices are injected
 client-side into the betslip. The only price text found anywhere was inside
 free-text tipster commentary on event 899350 ("Alcaraz is favored at 1.20,

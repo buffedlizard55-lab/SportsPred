@@ -1,39 +1,120 @@
 # SportsPred
 
-A multi-sport scoreboard and prediction engine (**Cricket**, Handball, Tennis),
-built around one rule: **nothing is published without a source.**
+A multi-sport scoreboard, OLBG market directory and source-linked prediction
+engine, built around one rule: **nothing is published without a source.**
 
-The site collects live matches, results and statistics from ESPN's public
-key-less endpoints, overlays matching OLBG market rows for review, scores every
-match under each sport's master prompt, and writes copy-ready predictions.
-Every step is machine-checked.
+**Live site:** <https://buffedlizard55-lab.github.io/SportsPred/>
+**Local preview:** `npm run serve` then open <http://localhost:8000>.
 
-**Cricket** (`CRICKET PREDICTION MASTER PROMPT v1.0`) covers four markets per
-match — **Win Match, Man of the Match, Top Team 1 Batsman, Top Team 2 Batsman**
-— with all-rounder elevation, spin/pace matchup, powerplay and odds value-zone
-rules. It reads T20/ODI/Test fixtures, confirmed XIs, batting positions, runs,
-strike rates, wickets and economy from ESPN's scorepanel + summary endpoints,
-and overlays OLBG cricket markets (Win Match, Man Of The Match, Draw No Bet).
-See [`docs/CRICKET_PROMPT_REVIEW.md`](docs/CRICKET_PROMPT_REVIEW.md),
-[`docs/CRICKET_SOURCES.md`](docs/CRICKET_SOURCES.md) and
-[`docs/CRICKET_IRREGULARITIES.md`](docs/CRICKET_IRREGULARITIES.md).
+## What the site is
 
-Handball uses its three-market prompt and tennis its three-market prompt; pick
-any sport with the pills in the header. With **no free key-less odds feed**,
-odds-dependent factors are scored as *missing* and those markets SKIP rather
-than being guessed.
+| Page | What it does |
+|---|---|
+| [`index.html`](index.html) | Hub. Every OLBG sport as a tile, today's cross-sport card, jump-off points. |
+| [`sport.html?sport=…`](sport.html) | Per-sport scoreboard. Date strip + month calendar, leagues grouped, past results / live / upcoming, per-match analysis panel. |
+| [`predictions.html`](predictions.html) | Cross-sport generator. One button, every upcoming match on the slate, each tip copy-pasteable with a confidence score. |
+| [`markets.html`](markets.html) | The OLBG directory — all 22 sports, their index URLs, whether this site predicts them or only links them for review. |
+| [`sources.html`](sources.html) | Every feed, per sport, with the official governing-body link; the machine-verification report; the irregularity register. |
+| [`method.html`](method.html) | The method, the facts-vs-hyperparameters split, the output rules, and the backtest. |
+| [`pro.html`](pro.html) | The specialist engine console (cricket · handball · tennis · F1) with the per-sport master prompts. |
 
-Pick any date on the calendar — past, today, or upcoming — and the scoreboard
-loads that day's real card. Each match card shows sourced rank trajectory,
-recent form, surface record, and manual-review links back to ESPN/OLBG where
-available. One button turns the card into written tips you can copy.
+Every sport is reachable from the rail in the masthead on every page.
 
-**Live site:** GitHub Pages is already enabled for this repository at
-<https://buffedlizard55-lab.github.io/SportsPred/>. Workflow files are present
-on this branch under `.github/workflows/` and mirrored in [`ci/`](ci/README.md).
-At the time of writing, the public Pages site is still configured in **legacy**
-mode from `main` until the repository Pages source is switched to **GitHub Actions**.
-**Local preview:** `python3 scripts/serve.py 8000` then open <http://localhost:8000>.
+## Coverage
+
+20 OLBG sports are catalogued in [`engine/registry.js`](engine/registry.js).
+For each, the registry records the OLBG index id and slug, the official
+governing-body links, and — where one exists — the key-less ESPN feed and its
+candidate leagues.
+
+Sports with a structured feed are **predicted**. Sports without one (horse
+racing, greyhounds, darts, snooker, Gaelic football, cycling, boxing, golf) are
+**listed and linked for manual review** and produce no output at all. Aussie
+Rules and eSports carry OLBG tipster content but no market feed we can reach.
+That split is stated on [`markets.html`](markets.html) per sport, not buried.
+
+## The universal engine
+
+For any two-competitor sport, the flow is:
+
+    ESPN scoreboard  →  parse  →  measure league baseline  →  score signals
+                     →  de-vig and blend the published price  →  confidence + cap
+                     →  write  →  validate  →  publish or withhold
+
+Six signals (league baseline, form, season record, ranking, head-to-head, rest),
+four markets (result, double chance, handicap, total), hard confidence caps when
+evidence is missing, and a writer that can only reference signals the engine
+actually sourced. Full line-by-line review:
+[`docs/UNIVERSAL_ENGINE.md`](docs/UNIVERSAL_ENGINE.md).
+
+**Odds are now available.** ESPN republishes a sportsbook's moneyline, spread
+and total inside the scoreboard payload, which retires the long-standing
+"no key-less odds feed" blocker for the universal engine. It is one book
+(DraftKings), not a consensus — attributed everywhere it is shown, and recorded
+as `U-03`.
+
+## Speed
+
+The site is static. Nothing heavyweight runs at load:
+
+- Per-league baselines and the backtest are **precomputed in CI**
+  (`.github/workflows/precompute.yml`) and committed as JSON.
+- [`assets/js/data-client.js`](assets/js/data-client.js) memoises every fetch in
+  memory and in `localStorage` with age-appropriate TTLs (live 45s, today 3m,
+  future 30m, past 24h), de-duplicates concurrent requests, and serves stale
+  data instantly while revalidating.
+- Requests are pooled so switching sport fires a bounded number of parallel
+  fetches, not one per league serially.
+
+## Verification
+
+```bash
+npm run verify:all
+```
+
+runs, in order:
+
+| Check | What it proves |
+|---|---|
+| `node --test tests/*.test.mjs` | 266 Node tests — engines, parsers, writers, registry, plus 11 jsdom tests that boot each real page and click the buttons |
+| `python3 -m unittest discover -s tests` | 40 Python tests — collectors and parsers |
+| `node scripts/verify_site.mjs` | Static site audit: every page's module import graph, every `$('#id')` resolves to an id that page actually has, id uniqueness, every local `href`/`src` exists on disk, external links are https and carry `rel=noopener`, every JS parses, every JSON parses |
+| `python3 scripts/build_data.py --strict` | The committed data layer is internally consistent |
+
+The DOM suite is the answer to "does the button work" — it asserts that clearing
+the results and clicking Generate repopulates them, that the analysis panel
+exposes the written tip, the price attribution, the market table, at least two
+https review links, and an explicit list of what could not be sourced.
+
+## What the first live run measured (2026-09-02)
+
+The three builders ran for the first time in CI and produced real numbers, not
+assumptions. Two of those numbers contradicted things this repository had
+previously assumed, and both are now recorded rather than smoothed over:
+
+- **96 endpoints checked, 95 live.** The one failure, `soccer/kor.1` (Korean K
+  League 1), returns HTTP 400 and is absent from ESPN's full 218-league soccer
+  index — it was never a valid slug. Removed from the registry and logged as
+  `U-11`, with a test that fails if any endpoint the verifier proved dead is
+  still listed. The follow-up run is **95 of 95 clean**.
+- **90 leagues measured, 55 with enough history** for a baseline. The other 35
+  are out of season or cup competitions; they get no baseline, no HIGH-confidence
+  tip is possible for them, and the split is published (`U-12`).
+- **1214 graded predictions over 120 days.** Hit rate by confidence band is
+  **monotonic** — HIGH 64.1%, MEDIUM 61.8%, LOW 49.5% — which is the one thing a
+  confidence scale must get right.
+- **No ROI, and none is shown.** The repo had assumed the feed retains a closing
+  price for finished matches. It does not: ESPN strips the odds block once an
+  event is final, and *zero* of the 1214 graded fixtures carried a price. So the
+  backtest grades the model probability only, the market-blend leg is untested by
+  it, and `method.html` drops the ROI column and says why (`U-06`).
+
+## Irregularities
+
+Machine-readable: [`data/irregularities.json`](data/irregularities.json),
+rendered at [sources.html#irregularities](sources.html#irregularities).
+12 open or resolved entries, `U-01`…`U-12`, each with its effect on output and
+its links. Prose registers per sport live in [`docs/`](docs/).
 
 ---
 

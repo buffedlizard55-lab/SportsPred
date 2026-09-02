@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sources &amp; verification — SportsPred</title>
+<meta name="description" content="Every data source with its verification status, the machine-verified league registry, measured league baselines, and the register of everything that did not check out.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title">Sources &amp; verification</h1>
+      <p class="page-sub">Nothing on this site is published without a source. This page is generated from the same committed files the engine reads, so it cannot claim more than the data supports.</p>
+      <p class="meta-line">Registry version <code id="reg-version">—</code> · OLBG sport ids from <span id="sitemap"></span></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Sport-by-sport source list</h2></div>
+    <div class="card-body tight" id="sport-sources"><div class="empty"><span class="spin"></span> Loading…</div></div>
+  </div>
+
+  <div class="card" id="registry">
+    <div class="card-head"><h2>League registry — machine verification report</h2></div>
+    <div class="card-body tight" id="registry-report"><div class="empty"><span class="spin"></span> Loading…</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Measured league baselines</h2>
+      <span class="sp"></span><span class="meta-line">no home-advantage constant is assumed anywhere</span></div>
+    <div class="card-body tight" id="context-report"><div class="empty"><span class="spin"></span> Loading…</div></div>
+  </div>
+
+  <div class="card" id="irregularities">
+    <div class="card-head"><h2>Irregularities register</h2>
+      <span class="sp"></span><span class="meta-line">everything that did not check out</span></div>
+    <div class="card-body tight" id="irr"><div class="empty"><span class="spin"></span> Loading…</div></div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2>Sport-specific registers</h2></div>
+    <div class="card-body">
+      <p>The specialist engines keep their own line-by-line reviews and source tables in the repository:</p>
+      <ul>
+        <li><a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/SOURCES.md" target="_blank" rel="noopener noreferrer">Tennis sources</a> · <a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/IRREGULARITIES.md" target="_blank" rel="noopener noreferrer">tennis irregularities</a></li>
+        <li><a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/CRICKET_SOURCES.md" target="_blank" rel="noopener noreferrer">Cricket sources</a> · <a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/CRICKET_IRREGULARITIES.md" target="_blank" rel="noopener noreferrer">cricket irregularities</a></li>
+        <li><a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/HANDBALL_SOURCES.md" target="_blank" rel="noopener noreferrer">Handball sources</a> · <a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/HANDBALL_IRREGULARITIES.md" target="_blank" rel="noopener noreferrer">handball irregularities</a></li>
+        <li><a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/F1_SOURCES.md" target="_blank" rel="noopener noreferrer">Formula 1 sources</a> · <a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/F1_IRREGULARITIES.md" target="_blank" rel="noopener noreferrer">F1 irregularities</a></li>
+        <li><a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/UNIVERSAL_ENGINE.md" target="_blank" rel="noopener noreferrer">Universal engine — line-by-line review</a></li>
+      </ul>
+    </div>
+  </div>
+</main>
+<script type="module" src="assets/js/sources.js"></script>
+</body>
+</html>

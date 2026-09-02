@@ -81,3 +81,30 @@ ESPN is unreachable.
 
 **Mitigation:** every snapshot row carries an ESPNcricinfo/ESPN source URL; the
 site labels whether a card used live data or the verified snapshot.
+
+---
+
+## Cricket OLBG index id corrected — 2026-09-02 · FIXED
+
+The repository addressed the OLBG cricket tips index as
+`https://www.olbg.com/betting-tips/Cricket/16`. OLBG resolves these URLs by the
+**slug**, not the numeric id, so `/16` still rendered a page titled "Cricket
+Tips" and the error was invisible: the id was wrong but the page looked right.
+
+Fetching it on 2026-09-02 showed the giveaway — every event link on that page
+carried `/7`, and the sidebar article rail was boxing content. The canonical
+cricket index is:
+
+    https://www.olbg.com/betting-tips/Cricket/7
+
+Corrected in `engine/registry.js` (`olbgId: 7`). A test in
+`tests/universal.test.mjs` asserts the cricket entry is `7`, and a DOM test in
+`tests/dom_smoke.test.mjs` asserts the rendered market directory links to
+`/betting-tips/Cricket/7` and never to `/16`. Tracked as **U-01** in
+[`../data/irregularities.json`](../data/irregularities.json).
+
+A second observation from the same fetch, tracked as **U-02**: the index mixes
+absolute datetimes ("05 Sept 06:00") and relative ones ("Tomorrow 19:00") in the
+same list, so an index row's date is only meaningful relative to the moment the
+page was fetched. Relative rows are tagged `date_basis: 'derived'` and are never
+used to place a match on the calendar.

@@ -1,5 +1,5 @@
 """Tests for the pure cricket OLBG parser, using a reconstructed fixture
-built from a live fetch of https://www.olbg.com/betting-tips/Cricket/16 on
+built from a live fetch of https://www.olbg.com/betting-tips/Cricket/7 on
 2026-09-01."""
 
 import os

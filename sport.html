@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sport scoreboard &amp; predictions — SportsPred</title>
+<meta name="description" content="Live scoreboard, calendar and automatically generated, source-linked predictions for every upcoming match.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preconnect" href="https://site.api.espn.com" crossorigin>
+<link rel="dns-prefetch" href="https://a.espncdn.com">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Loading…</h1>
+      <p class="page-sub" id="page-sub"></p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+  <div id="registry-note"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="league-filter" aria-label="Filter by competition"></select>
+
+          <span class="seg" id="phase-filter" role="group" aria-label="Filter by status">
+            <button data-phase="all" class="on">All</button>
+            <button data-phase="upcoming">Upcoming</button>
+            <button data-phase="live">In play</button>
+            <button data-phase="results">Final</button>
+          </span>
+
+          <input type="search" id="search" placeholder="Search team, venue…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+          <button class="btn sm" id="refresh" title="Clear the local cache and refetch from source">↻ Refetch</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers show how many competitions have a fixture date registered on the ESPN calendar for that day. Pick any date — past, today or upcoming.</div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Top predictions today</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG market slate</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Session</h3></div>
+        <div class="card-body meta-line" id="meta"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p><span class="badge HIGH">HIGH</span> 72+ · <span class="badge MEDIUM">MEDIUM</span> 58–71 ·
+             <span class="badge LOW">LOW</span> 46–57 · <span class="badge SKIP">SKIP</span> below that or not enough sourced evidence.</p>
+          <p>Confidence is capped when the league baseline could not be measured, when no price is published, or when fewer than three
+             independent signals fired. A capped card can never read HIGH.</p>
+          <p>Open <strong>Analysis</strong> on any match to see every rule that fired, the points it contributed, its source, and
+             the list of factors that were <em>not</em> available.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/sport-page.js"></script>
+</body>
+</html>

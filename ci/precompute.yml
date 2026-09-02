@@ -1,0 +1,117 @@
+name: Build precomputed data
+
+# Builds the three artifacts that make the site fast and verifiable:
+#   data/leagues.json           machine-verified league registry (HTTP status per endpoint)
+#   data/league_context.json    measured per-league baselines (removes the browser-side history scan)
+#   data/universal_backtest.json leak-controlled walk-forward backtest
+#
+# These need outbound network, which the development sandbox does not have, so
+# this is where they are produced. Nothing is committed unless the tests pass
+# and the site verifier is clean.
+
+on:
+  # Also runs on pull requests so the builders can be proven before the workflow
+  # ever reaches the default branch (workflow_dispatch is unavailable until it
+  # is merged there).
+  pull_request:
+    paths:
+      - 'scripts/build_league_registry.mjs'
+      - 'scripts/build_league_context.mjs'
+      - 'scripts/backtest_universal.mjs'
+      - 'engine/registry.js'
+      - '.github/workflows/precompute.yml'
+  schedule:
+    - cron: '17 4 * * *'
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'History window in days for baselines and backtest'
+        required: false
+        default: '120'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: precompute-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  precompute:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tests must pass before anything is written
+        run: |
+          node --test tests/*.test.mjs
+          python3 -m unittest discover -s tests -p 'test_*.py'
+
+      - name: Static site verification (selectors, links, JSON, module graph)
+        run: node scripts/verify_site.mjs
+
+      - name: Build the verified league registry
+        run: node scripts/build_league_registry.mjs --out data/leagues.json
+
+      - name: Show what the registry proved
+        run: |
+          python3 - <<'PY'
+          import json
+          d = json.load(open('data/leagues.json'))
+          print(f"checked {d['summary']['checked']}, ok {d['summary']['ok']}, failed {d['summary']['failed']}")
+          for sport, block in d['sports'].items():
+              ok = [l for l in block.get('leagues', []) if l['ok']]
+              bad = [l for l in block.get('leagues', []) if not l['ok']]
+              print(f"  {sport:20s} ok={len(ok):3d} failed={len(bad):3d}")
+              for l in bad:
+                  print(f"      FAILED {l['slug']:28s} status={l['status']} {l.get('error')}")
+          PY
+
+      - name: Measure the league baselines
+        run: node scripts/build_league_context.mjs --days ${{ github.event.inputs.days || '120' }} --out data/league_context.json
+
+      - name: Walk-forward backtest
+        continue-on-error: true
+        run: node scripts/backtest_universal.mjs --days ${{ github.event.inputs.days || '120' }} --out data/universal_backtest.json
+
+      - name: Refresh the OLBG sport directory
+        continue-on-error: true
+        run: python3 scripts/collect_olbg_sports.py || true
+
+      - name: Re-run tests against the freshly built data
+        run: |
+          node --test tests/*.test.mjs
+          node scripts/verify_site.mjs
+
+      - name: Commit only if something actually changed
+        run: |
+          git config user.name  'github-actions[bot]'
+          git config user.email 'github-actions[bot]@users.noreply.github.com'
+          git add data/leagues.json data/league_context.json data/universal_backtest.json data/olbg_sports.json 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo 'no data changes'
+          else
+            git commit -m "data: rebuild league registry, baselines and backtest [skip ci]"
+            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+          fi
+
+      - name: Upload the artifacts for inspection
+        uses: actions/upload-artifact@v4
+        with:
+          name: precomputed-data
+          path: |
+            data/leagues.json
+            data/league_context.json
+            data/universal_backtest.json
+          if-no-files-found: warn

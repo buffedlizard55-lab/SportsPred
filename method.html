@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Method &amp; backtest — SportsPred</title>
+<meta name="description" content="Exactly how a SportsPred prediction is produced: measured signals, declared hyperparameters, de-vigged prices, confidence caps, output rules and a leak-controlled walk-forward backtest.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title">How a prediction is made</h1>
+      <p class="page-sub">Six steps, all of them inspectable. <span id="versions"></span></p>
+    </div>
+  </div>
+
+  <div class="cols">
+    <div>
+      <div class="card">
+        <div class="card-head"><h2>The pipeline</h2></div>
+        <div class="card-body">
+          <p><strong>1 · Collect.</strong> The day's fixtures for every verified competition are pulled from ESPN's public
+             key-less scoreboard endpoint. One request per competition, cached in the browser with a time-to-live that depends on
+             whether the day is finished, live or scheduled.</p>
+          <p><strong>2 · Measure the league.</strong> Home-win rate, draw rate and mean combined score are measured from the
+             league's own completed matches. This is the baseline the model starts from, and it is the reason no
+             home-advantage constant appears anywhere in the code. A league with fewer than ten completed matches gets no
+             baseline at all, and every prediction in it is capped below the HIGH band.</p>
+          <p><strong>3 · Score the signals.</strong> Recent form, season record, curated ranking, head-to-head and rest are each
+             turned into a log-odds adjustment. Every one records its rule id, the value that triggered it, the points it
+             contributed and the endpoint it came from. A signal with no data contributes nothing and is written into the
+             match's <em>not available</em> list.</p>
+          <p><strong>4 · Blend with the market.</strong> Where ESPN republishes a price, the three-way (or two-way) implied
+             probabilities are de-vigged proportionally and blended with the model. Where no price exists, the price rules are
+             skipped and the confidence ceiling drops — they are never guessed.</p>
+          <p><strong>5 · Cap and band.</strong> Confidence is the probability plus evidence completeness plus a small market
+             agreement term, then clipped by a cap derived from what was missing.</p>
+          <p><strong>6 · Write and validate.</strong> The tip is assembled only from signals that actually fired, then run
+             through the output validator. A tip that fails any rule is withheld and the violation is displayed instead.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Facts versus hyperparameters</h2></div>
+        <div class="card-body">
+          <p>The league baseline, form, records, rankings, head-to-head, rest and prices are <strong>measured facts</strong>
+             with an endpoint behind each one. The numbers that combine them are <strong>chosen</strong>. Being explicit about
+             the difference is the point:</p>
+          <div id="weights"></div>
+          <p class="meta-line">These are exported as a frozen object from <code>engine/universal_engine.js</code> so a test can
+             assert they have not silently changed, and so the backtest below can be read as evidence about them.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Walk-forward backtest</h2></div>
+        <div class="card-body" id="backtest"><div class="empty"><span class="spin"></span> Loading…</div></div>
+      </div>
+    </div>
+
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Confidence bands</h3></div>
+        <div class="card-body" style="font-size:13px"><p id="bands"></p>
+          <p>Ceilings that apply before banding:</p>
+          <ul style="font-size:12.5px">
+            <li>no measured league baseline → capped at 62</li>
+            <li>no published price → capped at 74</li>
+            <li>fewer than three signals → capped at 66</li>
+            <li>fewer than two signals → not published at all</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Output rules</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <ul>
+            <li>the selection must be bolded inside the opening sentence</li>
+            <li>55–170 words</li>
+            <li>the bolded text must equal the scored selection</li>
+            <li>no guarantee language</li>
+            <li>a SKIP market can never be written up</li>
+          </ul>
+          <p>Rejected filler:</p>
+          <p id="banned" style="font-size:11.5px;line-height:2"></p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Specialist engines</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p>Cricket, handball, tennis and Formula 1 have their own multi-market prompt engines with sport-specific rules
+             (all-rounder elevation, spin/pace matchups, surface splits, grid-position effects).</p>
+          <p><a href="pro.html">Open the specialist engine console →</a></p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+<script type="module" src="assets/js/method.js"></script>
+</body>
+</html>

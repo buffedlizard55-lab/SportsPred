@@ -19,7 +19,7 @@ export const SUPPORTED_SPORTS = [
     slateFile: 'data/cricket_slate.json',
     provenanceFile: 'data/cricket_provenance.json',
     predictionsFile: 'data/cricket_predictions.json',
-    sourceUrl: 'https://www.olbg.com/betting-tips/Cricket/16',
+    sourceUrl: 'https://www.olbg.com/betting-tips/Cricket/7',
     liveSourceUrl: 'https://www.espncricinfo.com/live-cricket-score',
     leagues: [
       'All Competitions',
