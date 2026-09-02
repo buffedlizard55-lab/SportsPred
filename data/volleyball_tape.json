@@ -562,6 +562,40 @@
       "venue": "Istanbul",
       "round": "Round of 16",
       "source_url": "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship"
+    },
+    {
+      "id": "401883477",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-02",
+      "startUtc": "2026-09-02T20:00Z",
+      "home": "Michigan State Spartans",
+      "away": "South Carolina Gamecocks",
+      "winner": "Michigan State Spartans",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 14,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 12,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 13,
+          "winner": "home"
+        }
+      ],
+      "venue": "Crisler Center",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260902"
     }
   ]
 }
