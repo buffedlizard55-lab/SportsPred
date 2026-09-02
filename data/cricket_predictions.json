@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "sport": "Cricket",
+  "ruleset": "v1.0",
+  "generated_at_utc": "2026-09-01T23:30:00Z",
+  "note": "Append-only forward-collection ledger. Predictions are recorded before the match and settled from ESPN scorepanel results. Empty until the scheduled collector runs; see scripts/record_cricket_predictions.mjs and docs/CRICKET_BACKTEST.md.",
+  "predictions": []
+}

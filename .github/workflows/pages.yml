@@ -29,11 +29,26 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Run tests before publishing
+      - name: Show environment
         run: |
+          echo "Node: $(node --version)"
+          echo "npm: $(npm --version)"
+          echo "Python: $(python3 --version)"
+          ls -la data/ | grep cricket || true
+
+      - name: Run Node tests before publishing
+        run: |
+          node --version
           npm test
+        shell: bash
+
+      - name: Run Python tests before publishing
+        run: |
+          python3 --version
           python3 -m unittest discover -s tests -p 'test_*.py' -v
-          python3 scripts/build_data.py --strict
+
+      - name: Validate committed data layer
+        run: python3 scripts/build_data.py --strict
 
       - name: Assemble site artifact
         run: |
