@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "fetched_at_utc": "2026-09-02T13:33:35.935Z",
+  "fetched_at_utc": "2026-09-02T17:49:50.208Z",
   "method": "Open-Meteo geocoding + daily forecast APIs (free, key-less)",
   "note": "Weather is a permitted external reference only; it never feeds internal scoring beyond a weather-dependence flag.",
   "events": {
@@ -12,9 +12,9 @@
       "city": "Monza",
       "country": "Italy",
       "raceDate": "2026-09-06",
-      "tempMaxC": 32.4,
+      "tempMaxC": 32,
       "precipProbPct": 0,
-      "windMaxKmh": 9.1,
+      "windMaxKmh": 9.3,
       "sourceUrl": "https://api.open-meteo.com/v1/forecast?latitude=45.58005&longitude=9.27246&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max&timezone=UTC&start_date=2026-09-06&end_date=2026-09-06",
       "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Monza&count=1&language=en&format=json",
       "note": null
