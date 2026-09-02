@@ -38,30 +38,11 @@ jobs:
         shell: bash
         run: |
           node --version
-          rc=0
-          : > /tmp/node-test.log
-          for f in tests/*.test.mjs; do
-            echo "===== $f =====" | tee -a /tmp/node-test.log
-            if node --test "$f" >> /tmp/node-test.log 2>&1; then
-              echo "PASS $f" | tee -a /tmp/node-test.log
-            else
-              echo "::error::TEST_FAILURE in $f"
-              echo "FAIL $f" | tee -a /tmp/node-test.log
-              grep -E "not ok|# fail|Error:|Cannot find|SyntaxError|ReferenceError|TypeError|ERR_TEST_FAILURE|code:|message:|exitCode" /tmp/node-test.log | head -20
-              rc=1
-            fi
-          done
-          echo "----- SUMMARY -----" | tee -a /tmp/node-test.log
-          grep -E "^# (tests|pass|fail)" /tmp/node-test.log | tail -20 | tee -a /tmp/node-test.log
-          exit $rc
-
-      - name: Upload Node test log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: node-test-log
-          path: /tmp/node-test.log
-          if-no-files-found: ignore
+          # Run every test file in a SINGLE node --test process. Top-level-await
+          # tests (olbg/integration) load correctly in one invocation and across
+          # Node 20/22/24; running each file in its own subprocess breaks TLA on
+          # the forced Node 24 runners.
+          node --test tests/*.test.mjs
 
       - name: Run Python tests before publishing
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
