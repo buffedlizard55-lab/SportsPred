@@ -103,6 +103,10 @@ jobs:
             echo 'no data changes'
           else
             git commit -m "data: rebuild league registry, baselines and backtest [skip ci]"
+            # Another workflow (the golf collector) may have pushed to this branch
+            # while we were building; replay our commit on top instead of failing
+            # with a non-fast-forward rejection. The data files never overlap.
+            git pull --rebase origin "${{ github.head_ref || github.ref_name }}"
             git push origin HEAD:${{ github.head_ref || github.ref_name }}
           fi
 
