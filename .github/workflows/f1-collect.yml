@@ -1,8 +1,15 @@
-name: Collect slate
+name: Collect F1 data
+
+# Collects the Formula 1 layer (OLBG Motor Racing slate, ESPN events/standings,
+# Open-Meteo weather, OLBG sports directory) and commits the refreshed data.
+#
+# Runs on every push to the F1 work branch so the data files can be generated
+# and reviewed before merge, and on the default branch schedule via the main
+# collect.yml (this file is kept branch-scoped to avoid double collection).
 
 on:
-  schedule:
-    - cron: '*/30 * * * *'
+  push:
+    branches: [arena/01a05fce-sportspred]
   workflow_dispatch: {}
 
 permissions:
@@ -27,51 +34,6 @@ jobs:
           npm test
           python3 -m unittest discover -s tests -p 'test_*.py'
           python3 scripts/build_data.py --strict
-
-      - name: Rebuild the surface map from source match data
-        continue-on-error: true
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        run: node scripts/build_surface_map.mjs
-
-      - name: Collect OLBG slate
-        id: collect
-        continue-on-error: true
-        run: |
-          python3 scripts/collect_olbg.py \
-            --save-html tests/fixtures/captures \
-            --enrich \
-            --enrich-limit 25
-
-      - name: Report a failed collection without failing the run
-        if: steps.collect.outcome == 'failure'
-        run: echo "::warning::OLBG collection failed. data/slate.json is unchanged."
-
-      - name: Collect OLBG cricket slate
-        id: collect-cricket
-        continue-on-error: true
-        run: python3 scripts/collect_cricket_olbg.py
-
-      - name: Report a failed cricket collection
-        if: steps.collect-cricket.outcome == 'failure'
-        run: echo "::warning::OLBG cricket collection failed. data/cricket_slate.json is unchanged."
-
-      - name: Validate cricket prediction ledger
-        continue-on-error: true
-        run: node scripts/record_cricket_predictions.mjs
-
-      - name: Collect player statistics
-        continue-on-error: true
-        run: python3 scripts/collect_players.py --from-slate || true
-
-      - name: Collect from ESPN and settle results
-        id: espn
-        continue-on-error: true
-        run: node scripts/collect_espn.mjs
-
-      - name: Report a failed ESPN collection
-        if: steps.espn.outcome == 'failure'
-        run: echo "::warning::ESPN collection failed. Recorded data is unchanged."
 
       - name: Collect OLBG sports directory
         id: olbg-sports
@@ -113,24 +75,18 @@ jobs:
         continue-on-error: true
         run: node scripts/backtest_f1.mjs
 
-      - name: Record predictions against the OLBG slate
-        continue-on-error: true
-        run: node scripts/record_predictions.mjs
+      - name: Validate the F1 layer
+        run: python3 scripts/build_data.py --strict
 
-      - name: Backtest report
-        run: |
-          node scripts/backtest.mjs
-          python3 scripts/build_data.py --strict
-
-      - name: Commit data changes
+      - name: Commit F1 data changes
         run: |
           git config user.name "sportspred-collector[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
           git reset -q tests/fixtures/captures 2>/dev/null || true
           if git diff --cached --quiet; then
-            echo "No data changes to commit."
+            echo "No F1 data changes to commit."
           else
-            git commit -m "chore(data): refresh slate and recorded predictions"
+            git commit -m "chore(data): refresh F1 slate, events, standings and weather"
             git push
           fi

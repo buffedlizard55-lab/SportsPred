@@ -29,6 +29,15 @@ RESULTS = os.path.join(DATA, 'results.json')
 PROVENANCE = os.path.join(DATA, 'provenance.json')
 SURFACES = os.path.join(DATA, 'surfaces.json')
 
+# Formula 1 files (optional until the first CI collection completes)
+F1_EVENTS = os.path.join(DATA, 'f1_events.json')
+F1_STANDINGS = os.path.join(DATA, 'f1_standings.json')
+F1_SLATE = os.path.join(DATA, 'f1_slate.json')
+F1_WEATHER = os.path.join(DATA, 'f1_weather.json')
+F1_PROVENANCE = os.path.join(DATA, 'f1_provenance.json')
+F1_PREDICTIONS = os.path.join(DATA, 'f1_predictions.json')
+OLBG_SPORTS = os.path.join(DATA, 'olbg_sports.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -156,6 +165,63 @@ def validate_handball_teams(doc):
     return problems, len(teams)
 
 
+def validate_f1_events(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['f1_events.events is not a list'], 0
+    ids = [e.get('id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event ids in f1_events: {sorted(dups)}')
+    for e in events:
+        for field in ('id', 'name', 'startDate'):
+            if not e.get(field):
+                problems.append(f'f1 event missing "{field}": {e}')
+        if e.get('state') == 'post' and not e.get('race', {}).get('result'):
+            problems.append(f'completed f1 event {e.get("id")} has no race result')
+        if e.get('circuit') and not e.get('circuit', {}).get('fullName'):
+            problems.append(f'f1 event {e.get("id")} circuit record incomplete')
+    return problems, len(events)
+
+
+def validate_f1_standings(doc):
+    problems = []
+    drivers = doc.get('drivers', [])
+    constructors = doc.get('constructors', [])
+    if not isinstance(drivers, list) or not drivers:
+        return ['f1_standings.drivers empty or not a list'], 0
+    if not isinstance(constructors, list) or not constructors:
+        problems.append('f1_standings.constructors empty or not a list')
+    ranks = [d.get('rank') for d in drivers]
+    if any(r is None for r in ranks):
+        problems.append('a driver entry is missing rank')
+    if not doc.get('source', {}).get('url'):
+        problems.append('f1_standings.source.url missing')
+    return problems, len(drivers)
+
+
+def validate_f1_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['f1_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('f1_slate.source.url missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in f1 slate: {sorted(dups)}')
+    for e in events:
+        for field in ('event_id', 'event_name', 'url'):
+            if not e.get(field):
+                problems.append(f'f1 slate row missing "{field}": {e}')
+        for key in ('odds', 'price', 'american', 'decimal'):
+            if key in e:
+                problems.append(f'f1 slate row {e.get("event_id")} contains price-like field "{key}"')
+    return problems, len(events)
+
+
 def validate_handball_matches(doc):
     problems = []
     matches = doc.get('matches', [])
@@ -251,6 +317,27 @@ def main():
         blob = load(path)
         if blob is None:
             print(f'  [MISSING] {name}'); total += 1
+        else:
+            total += report(name, [], 0)
+
+    # Formula 1 Validation (optional until first collection; a missing file is
+    # not an error — it is reported so the deploy/PR log shows the gap).
+    print('\n--- Formula 1 Data Layer ---')
+    f1_names = [('data/f1_events.json', F1_EVENTS, validate_f1_events),
+                ('data/f1_standings.json', F1_STANDINGS, validate_f1_standings),
+                ('data/f1_slate.json', F1_SLATE, validate_f1_slate),
+                ('data/f1_weather.json', F1_WEATHER, None),
+                ('data/f1_provenance.json', F1_PROVENANCE, None),
+                ('data/f1_predictions.json', F1_PREDICTIONS, None),
+                ('data/olbg_sports.json', OLBG_SPORTS, None)]
+    for name, path, fn in f1_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the scheduled F1 collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
         else:
             total += report(name, [], 0)
 

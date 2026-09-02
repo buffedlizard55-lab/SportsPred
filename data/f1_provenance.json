@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "sport": "Formula 1",
+  "fetched_at_utc": "2026-09-02T02:57:37.689Z",
+  "environment": {
+    "collector": "scripts/collect_f1_espn.mjs",
+    "node": "v22.23.2"
+  },
+  "official_sources": [
+    {
+      "id": "ESPN-F1",
+      "name": "ESPN Formula 1 public JSON endpoints",
+      "urls": [
+        "https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard?dates=YYYYMMDD-YYYYMMDD",
+        "https://site.api.espn.com/apis/v2/sports/racing/f1/standings",
+        "https://sports.core.api.espn.com/v2/sports/racing/leagues/f1/events/{eventId}",
+        "https://sports.core.api.espn.com/v2/sports/racing/leagues/f1/circuits/{circuitId}"
+      ],
+      "verified": "2026-09-02 via live hosted fetch",
+      "note": "Key-less, CORS-enabled, undocumented and unversioned (same status as the tennis endpoints).",
+      "fields_provided": [
+        "calendar",
+        "session classifications",
+        "finishing order",
+        "grid order",
+        "team/car",
+        "circuit facts",
+        "driver/constructor standings",
+        "per-race points",
+        "race stats (pits, laps, pole, place)"
+      ]
+    },
+    {
+      "id": "OLBG-MOTOR",
+      "name": "OLBG Motor Racing tips pages",
+      "url": "https://www.olbg.com/betting-tips/Motor_Racing/14",
+      "verified": "2026-09-02 via hosted page fetch",
+      "note": "Tipster consensus + factual track history; no structured odds in server HTML.",
+      "fields_provided": [
+        "race markets (Win Race, Fastest Qualifier, Win Tournament)",
+        "consensus counts",
+        "past winners",
+        "fastest lap lists"
+      ]
+    },
+    {
+      "id": "OPEN-METEO",
+      "name": "Open-Meteo forecast API (key-less)",
+      "url": "https://api.open-meteo.com/v1/forecast",
+      "verified": "2026-09-02",
+      "note": "Free, no key, documented; used for the permitted weather reference only.",
+      "fields_provided": [
+        "daily precipitation probability",
+        "temperature",
+        "wind"
+      ]
+    }
+  ],
+  "irregularities": [
+    {
+      "id": "IR-F1-01",
+      "title": "No structured bookmaker odds on any free key-less feed",
+      "detail": "ESPN F1 publishes no odds; OLBG server HTML contains consensus tip counts but no prices (prices are injected client-side). The Odds and Market Value component is therefore always unscored.",
+      "mitigation": "Component recorded missing; market band capped and never promoted to HIGH on partial data."
+    },
+    {
+      "id": "IR-F1-02",
+      "title": "No per-race fastest-lap data from ESPN",
+      "detail": "ESPN competitor statistics expose place/pole/laps/pits but not the fastest lap of a race. ESPN circuit endpoint publishes the current lap record only.",
+      "mitigation": "Fastest-lap evidence comes from OLBG event-page year lists (secondary source) and, where identical, cross-checked against the ESPN circuit record (2025 Monza 1:20.901 = Lando Norris — verified on both)."
+    },
+    {
+      "id": "IR-F1-03",
+      "title": "DNF classification requires per-driver status fetches",
+      "detail": "The scoreboard payload has competitor statuses as $refs; DNF is only known when the status endpoint is fetched (STATUS_RETIRED verified). History seasons are stored without status data to bound request volume.",
+      "mitigation": "last-5 DNF counts are only as complete as the statuses fetched; partial samples are flagged in missing[] and scored conservatively."
+    },
+    {
+      "id": "IR-F1-04",
+      "title": "Tyre strategy and pit-lap timing not published",
+      "detail": "Only pitsTaken counts exist; whether a driver pitted in the final five laps is unknown on any free feed.",
+      "mitigation": "Fastest-lap tyre strategy component always missing → market SKIPped per Step 3."
+    },
+    {
+      "id": "IR-F1-05",
+      "title": "No overtake counts or rankings",
+      "detail": "No free structured overtake statistic verified.",
+      "mitigation": "Overtaking ability and traffic-skill components scored as missing."
+    },
+    {
+      "id": "IR-F1-06",
+      "title": "Safety-car frequency and overtaking difficulty are not published",
+      "detail": "The prompt names circuit classes; data for frequency/difficulty is not available on free feeds.",
+      "mitigation": "Circuit classifications from the prompt are applied only as structural context; multipliers that need numeric frequency are missing."
+    },
+    {
+      "id": "IR-F1-07",
+      "title": "Upgrade packages / lap-time deltas not published",
+      "detail": "No source for floor/wing/PU upgrades or consistent lap-time improvement.",
+      "mitigation": "Car upgrade trajectory component scored as missing."
+    },
+    {
+      "id": "IR-F1-08",
+      "title": "Weather is forward-looking and volatile",
+      "detail": "Open-Meteo forecasts are used with source URL; forecasts change. >30% rain flags predictions as weather-dependent.",
+      "mitigation": "Weather influence surfaces only as a permitted external data point and a weather-dependence flag."
+    }
+  ]
+}
