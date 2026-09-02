@@ -179,6 +179,15 @@ jobs:
         continue-on-error: true
         run: node scripts/backtest_volleyball.mjs
 
+      - name: Collect OLBG rugby league slate
+        id: collect-rugby-league-olbg
+        continue-on-error: true
+        run: python3 scripts/collect_rugby_league_olbg.py --enrich
+
+      - name: Report a failed rugby league OLBG collection
+        if: steps.collect-rugby-league-olbg.outcome == 'failure'
+        run: echo "::warning::OLBG rugby league collection failed. data/rugby_league_slate.json is unchanged."
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs

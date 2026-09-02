@@ -213,17 +213,20 @@ export const SPORTS = [
     icon: '🏉',
     olbgSlug: 'Rugby_League',
     olbgId: 10,
-    espnSport: 'rugby-league',
+    espnSport: null,
     threeWay: false,
     predictable: true,
     unit: 'points',
+    specialistEngine: 'rugby-league',
+    page: 'rugby-league.html',
     officialLinks: [
+      { label: 'NRL Official Ladder', url: 'https://www.nrl.com/ladder/' },
+      { label: 'Super League Standings', url: 'https://www.superleague.co.uk/standings' },
       { label: 'ESPN Rugby League', url: 'https://www.espn.com/rugby-league/' },
       { label: 'OLBG Rugby League Tips', url: olbgUrl('Rugby_League', 10) },
     ],
-    /** Rugby league ids are numeric on ESPN; discovered at build time. */
     candidateLeagues: [],
-    discover: { core: 'rugby-league' },
+    notes: ['Rugby League runs on the committed, source-tagged OLBG market slate plus the official NRL and Super League tables, scored by the RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0. No free key-less price feed is used; odds are derived from the official ladders and are cross-referenced where available. Predictions are written as three tips per match (WIN MATCH, HANDICAP, GAME TOTAL) with the league-specific weightings and thresholds documented in docs/RUGBY_LEAGUE_PROMPT_REVIEW.md.'],
   },
   {
     key: 'rugby-union',

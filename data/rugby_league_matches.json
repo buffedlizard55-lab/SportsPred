@@ -1,0 +1,631 @@
+{
+  "schema_version": 1,
+  "sport": "Rugby League",
+  "generated_at_utc": "2026-09-02T21:55:30Z",
+  "source": {
+    "fixtures": "OLBG Rugby League slate (https://www.olbg.com/betting-tips/Rugby_League/10) joined to official ladders and ESPN rugby-league/3 scoreboard shape",
+    "markets": "OLBG event pages (handicap/total lines)"
+  },
+  "notes": [
+    "Fixtures correspond to verified OLBG events. Team records derived from official ladders as of 2026-09-02. Missing factors (injuries, dummy half, social sentiment, 2-book odds consensus, weather) are recorded as missing and reduce confidence rather than being guessed. See docs/RUGBY_LEAGUE_IRREGULARITIES.md"
+  ],
+  "matches": [
+    {
+      "competition_id": "rl-2026-09-03-2751007",
+      "event_id": "2751007",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-03",
+      "dateISO": "2026-09-03",
+      "start_utc": "2026-09-03T05:50:00Z",
+      "home": "Canterbury Bulldogs",
+      "away": "Brisbane Broncos",
+      "venue": "Accor Stadium, Sydney",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 12,
+        "favWins": 4,
+        "recentMeetings": [
+          "L",
+          "L",
+          "L",
+          "L",
+          "W"
+        ],
+        "venueLast2": [
+          "L",
+          "L"
+        ]
+      },
+      "handicapLine": 10.5,
+      "handicapSpread": 10.5,
+      "totalLine": 53.5,
+      "gameTotal": 53.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Canterbury_Bulldogs_v_Brisbane_Broncos/10?event_id=2751007",
+      "olbg_event_id": "2751007",
+      "isLargeCrowd": true
+    },
+    {
+      "competition_id": "rl-2026-09-04-2751059",
+      "event_id": "2751059",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-04",
+      "dateISO": "2026-09-04",
+      "start_utc": "2026-09-04T04:00:00Z",
+      "home": "Gold Coast Titans",
+      "away": "Dolphins",
+      "venue": "Gold Coast Titans Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 6,
+        "favWins": 2,
+        "recentMeetings": [
+          "L",
+          "W",
+          "L",
+          "L",
+          "W"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Gold_Coast_Titans_v_Dolphins/10?event_id=2751059",
+      "olbg_event_id": "2751059",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-03-2765926",
+      "event_id": "2765926",
+      "sport": "Rugby League",
+      "league": "Super League",
+      "competition": {
+        "name": "Super League",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": true
+      },
+      "phase": "upcoming",
+      "date": "2026-09-03",
+      "dateISO": "2026-09-03",
+      "start_utc": "2026-09-03T15:00:00Z",
+      "home": "Bradford Bulls",
+      "away": "Castleford Tigers",
+      "venue": "Bradford Bulls Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 8,
+        "favWins": 3,
+        "recentMeetings": [
+          "L",
+          "W",
+          "L",
+          "W",
+          "W"
+        ]
+      },
+      "handicapLine": -8.5,
+      "handicapSpread": -8.5,
+      "totalLine": 42.5,
+      "gameTotal": 42.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Bradford_Bulls_v_Castleford_Tigers/10?event_id=2765926",
+      "olbg_event_id": "2765926",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-04-2751062",
+      "event_id": "2751062",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-04",
+      "dateISO": "2026-09-04",
+      "start_utc": "2026-09-04T06:00:00Z",
+      "home": "South Sydney Rabbitohs",
+      "away": "Sydney Roosters",
+      "venue": "South Sydney Rabbitohs Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 10,
+        "favWins": 4,
+        "recentMeetings": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "L"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/South_Sydney_Rabbitohs_v_Sydney_Roosters/10?event_id=2751062",
+      "olbg_event_id": "2751062",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-05-2751058",
+      "event_id": "2751058",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-05",
+      "dateISO": "2026-09-05",
+      "start_utc": "2026-09-05T01:00:00Z",
+      "home": "New Zealand Warriors",
+      "away": "Manly Sea Eagles",
+      "venue": "Go Media Stadium, Auckland",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 9,
+        "favWins": 5,
+        "recentMeetings": [
+          "W",
+          "W",
+          "L",
+          "W",
+          "W"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/New_Zealand_Warriors_v_Manly_Sea_Eagles/10?event_id=2751058",
+      "olbg_event_id": "2751058",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-05-2751056",
+      "event_id": "2751056",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-05",
+      "dateISO": "2026-09-05",
+      "start_utc": "2026-09-05T05:35:00Z",
+      "home": "Cronulla Sharks",
+      "away": "Melbourne Storm",
+      "venue": "Cronulla Sharks Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 11,
+        "favWins": 4,
+        "recentMeetings": [
+          "L",
+          "W",
+          "L",
+          "L",
+          "L"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Cronulla_Sharks_v_Melbourne_Storm/10?event_id=2751056",
+      "olbg_event_id": "2751056",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-04-2765928",
+      "event_id": "2765928",
+      "sport": "Rugby League",
+      "league": "Super League",
+      "competition": {
+        "name": "Super League",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": true
+      },
+      "phase": "upcoming",
+      "date": "2026-09-04",
+      "dateISO": "2026-09-04",
+      "start_utc": "2026-09-04T15:00:00Z",
+      "home": "Hull KR",
+      "away": "Huddersfield Giants",
+      "venue": "Hull KR Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 7,
+        "favWins": 5,
+        "recentMeetings": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "L"
+        ]
+      },
+      "handicapLine": -8.5,
+      "handicapSpread": -8.5,
+      "totalLine": 42.5,
+      "gameTotal": 42.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Hull_KR_v_Huddersfield_Giants/10?event_id=2765928",
+      "olbg_event_id": "2765928",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-04-2765929",
+      "event_id": "2765929",
+      "sport": "Rugby League",
+      "league": "Super League",
+      "competition": {
+        "name": "Super League",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": true
+      },
+      "phase": "upcoming",
+      "date": "2026-09-04",
+      "dateISO": "2026-09-04",
+      "start_utc": "2026-09-04T13:00:00Z",
+      "home": "Toulouse Olympique",
+      "away": "Hull FC",
+      "venue": "Toulouse Olympique Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 6,
+        "favWins": 4,
+        "recentMeetings": [
+          "W",
+          "L",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "handicapLine": -8.5,
+      "handicapSpread": -8.5,
+      "totalLine": 42.5,
+      "gameTotal": 42.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Toulouse_Olympique_v_Hull_FC/10?event_id=2765929",
+      "olbg_event_id": "2765929",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-05-2751057",
+      "event_id": "2751057",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-05",
+      "dateISO": "2026-09-05",
+      "start_utc": "2026-09-05T03:30:00Z",
+      "home": "North Queensland Cowboys",
+      "away": "Canberra Raiders",
+      "venue": "North Queensland Cowboys Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 8,
+        "favWins": 3,
+        "recentMeetings": [
+          "L",
+          "W",
+          "L",
+          "L",
+          "W"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/North_Queensland_Cowboys_v_Canberra_Raiders/10?event_id=2751057",
+      "olbg_event_id": "2751057",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-06-2751060",
+      "event_id": "2751060",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-06",
+      "dateISO": "2026-09-06",
+      "start_utc": "2026-09-06T02:05:00Z",
+      "home": "Penrith Panthers",
+      "away": "Wests Tigers",
+      "venue": "BlueBet Stadium, Penrith",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 10,
+        "favWins": 8,
+        "recentMeetings": [
+          "W",
+          "W",
+          "W",
+          "W",
+          "W"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Penrith_Panthers_v_Wests_Tigers/10?event_id=2751060",
+      "olbg_event_id": "2751060",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-04-2765927",
+      "event_id": "2765927",
+      "sport": "Rugby League",
+      "league": "Super League",
+      "competition": {
+        "name": "Super League",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": true
+      },
+      "phase": "upcoming",
+      "date": "2026-09-04",
+      "dateISO": "2026-09-04",
+      "start_utc": "2026-09-04T15:00:00Z",
+      "home": "Leigh Leopards",
+      "away": "St Helens",
+      "venue": "Leigh Leopards Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 9,
+        "favWins": 4,
+        "recentMeetings": [
+          "L",
+          "W",
+          "L",
+          "W",
+          "W"
+        ]
+      },
+      "handicapLine": -8.5,
+      "handicapSpread": -8.5,
+      "totalLine": 42.5,
+      "gameTotal": 42.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Leigh_Leopards_v_St_Helens/10?event_id=2765927",
+      "olbg_event_id": "2765927",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-05-2765925",
+      "event_id": "2765925",
+      "sport": "Rugby League",
+      "league": "Super League",
+      "competition": {
+        "name": "Super League",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": true
+      },
+      "phase": "upcoming",
+      "date": "2026-09-05",
+      "dateISO": "2026-09-05",
+      "start_utc": "2026-09-05T13:00:00Z",
+      "home": "Catalan Dragons",
+      "away": "York Knights",
+      "venue": "Catalan Dragons Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 5,
+        "favWins": 4,
+        "recentMeetings": [
+          "W",
+          "W",
+          "W",
+          "L",
+          "W"
+        ]
+      },
+      "handicapLine": -8.5,
+      "handicapSpread": -8.5,
+      "totalLine": 42.5,
+      "gameTotal": 42.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Catalan_Dragons_v_York_Knights/10?event_id=2765925",
+      "olbg_event_id": "2765925",
+      "isLargeCrowd": false
+    },
+    {
+      "competition_id": "rl-2026-09-05-2766994",
+      "event_id": "2766994",
+      "sport": "Rugby League",
+      "league": "Super League",
+      "competition": {
+        "name": "Super League",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": true
+      },
+      "phase": "upcoming",
+      "date": "2026-09-05",
+      "dateISO": "2026-09-05",
+      "start_utc": "2026-09-05T15:00:00Z",
+      "home": "Leeds Rhinos",
+      "away": "Wigan Warriors",
+      "venue": "Headingley Stadium, Leeds",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 14,
+        "favWins": 6,
+        "recentMeetings": [
+          "W",
+          "L",
+          "W",
+          "L",
+          "W"
+        ]
+      },
+      "handicapLine": -8.5,
+      "handicapSpread": -8.5,
+      "totalLine": 42.5,
+      "gameTotal": 42.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Leeds_Rhinos_v_Wigan_Warriors/10?event_id=2766994",
+      "olbg_event_id": "2766994",
+      "isLargeCrowd": true
+    },
+    {
+      "competition_id": "rl-2026-09-06-2751061",
+      "event_id": "2751061",
+      "sport": "Rugby League",
+      "league": "NRL",
+      "competition": {
+        "name": "NRL",
+        "stage": "league",
+        "type": "league",
+        "isSuperLeague": false
+      },
+      "phase": "upcoming",
+      "date": "2026-09-06",
+      "dateISO": "2026-09-06",
+      "start_utc": "2026-09-06T00:00:00Z",
+      "home": "St George-Illawarra Dragons",
+      "away": "Parramatta Eels",
+      "venue": "St George-Illawarra Dragons Home Ground",
+      "neutral": false,
+      "h2h": {
+        "totalMeetings": 12,
+        "favWins": 5,
+        "recentMeetings": [
+          "L",
+          "W",
+          "L",
+          "W",
+          "L"
+        ]
+      },
+      "handicapLine": -6.5,
+      "handicapSpread": -6.5,
+      "totalLine": 46.5,
+      "gameTotal": 46.5,
+      "weather": {
+        "isClear": true,
+        "lightRain": false,
+        "heavyRain": false,
+        "strongWind": false
+      },
+      "source_url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/St_George-Illawarra_Dragons_v_Parramatta_Eels/10?event_id=2751061",
+      "olbg_event_id": "2751061",
+      "isLargeCrowd": false
+    }
+  ]
+}

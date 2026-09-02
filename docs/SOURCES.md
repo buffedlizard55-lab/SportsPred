@@ -92,6 +92,15 @@ verified reachable and are used **for historical backtesting only**:
 - **Used for:** verifying the mirrors above and for downloading the backtest
   CSVs.
 
+### Rugby League — NRL & Super League (specialist engine)
+
+- **OLBG Rugby League index:** <https://www.olbg.com/betting-tips/Rugby_League/10> — 15 events (14 matches across NRL + Super League plus one outright) server-rendered with event anchors, kick-off labels, consensus percentages, handicap/total selection strings where priced. Snapshot `data/rugby_league_slate.json` verified 2026-09-02.
+- **NRL Telstra Premiership ladder:** <https://www.nrl.com/ladder/> — official ladder (17 clubs, PF/PA/PD/Pts) used for points-per-game, conceded-per-game, attack/defense ranks. Cross-checked against Fox Sports NRL table.
+- **Super League standings:** <https://www.superleague.co.uk/standings> (official) and <https://en.wikipedia.org/wiki/2026_Super_League_season> (complete PF/PA snapshot 2026-08-28) — both supply PF/PA for 14 clubs (e.g. Wigan 761-419, Leeds 850-362). Sky Sports table `<https://www.skysports.com/rugby-league/competitions/betfred-super-league/table>` confirms ordering.
+- **ESPN Rugby League scoreboard (league 3):** `https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard?dates=YYYYMMDD` — 100 completed matches sampled for league baseline (home win 61 %, mean total 45.45) in `data/league_context.json`.
+- **Open-Meteo forecast:** `https://api.open-meteo.com/v1/forecast` — daily precipitation + wind for match venues; placeholder clear/dry in committed weather file (IR-RUGBY-04).
+- **Team profiles + matches:** derived from the tables above into `data/rugby_league_teams.json` (32 profiles) and `data/rugby_league_matches.json` (14 fixtures) with H2H, lines and venue — every field is source-tagged in `data/rugby_league_provenance.json`. Detail lives in `docs/RUGBY_LEAGUE_SOURCES.md`.
+
 ---
 
 ## Checked and rejected / unreachable for machine use
