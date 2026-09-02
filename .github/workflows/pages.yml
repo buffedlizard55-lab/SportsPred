@@ -29,11 +29,26 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
-      - name: Run tests before publishing
+      - name: Show environment
         run: |
-          npm test
-          python3 -m unittest discover -s tests -p 'test_*.py' -v
-          python3 scripts/build_data.py --strict
+          echo "Node: $(node --version)"
+          echo "Python: $(python3 --version)"
+
+      - name: Run Node tests before publishing
+        shell: bash
+        run: |
+          node --version
+          # Run every test file in a SINGLE node --test process. Top-level-await
+          # tests (olbg/integration) load correctly in one invocation and across
+          # Node 20/22/24; running each file in its own subprocess breaks TLA on
+          # the forced Node 24 runners.
+          node --test tests/*.test.mjs
+
+      - name: Run Python tests before publishing
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
+
+      - name: Validate committed data layer
+        run: python3 scripts/build_data.py --strict
 
       - name: Assemble site artifact
         run: |

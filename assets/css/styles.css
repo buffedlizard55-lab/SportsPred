@@ -1020,3 +1020,26 @@ pre {
   color: #38bdf8;
   margin-top: 10px;
 }
+
+/* ------------------------------------------------------------------ *
+ * Cricket-specific styling
+ * ------------------------------------------------------------------ */
+.cricket-card .league-badge { flex-wrap: wrap; gap: 6px; }
+.cricket-scores {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin: 6px 0;
+  font-size: 13px;
+}
+.cricket-scores span { color: var(--text-muted, #94a3b8); }
+.cricket-scores strong { color: var(--text-main, #e2e8f0); font-weight: 700; }
+.cricket-card .markets-chips {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.sport-switcher { flex-wrap: wrap; }
+@media (max-width: 720px) {
+  .cricket-card .market-chip { font-size: 12px; }
+}

@@ -47,6 +47,19 @@ jobs:
         if: steps.collect.outcome == 'failure'
         run: echo "::warning::OLBG collection failed. data/slate.json is unchanged."
 
+      - name: Collect OLBG cricket slate
+        id: collect-cricket
+        continue-on-error: true
+        run: python3 scripts/collect_cricket_olbg.py
+
+      - name: Report a failed cricket collection
+        if: steps.collect-cricket.outcome == 'failure'
+        run: echo "::warning::OLBG cricket collection failed. data/cricket_slate.json is unchanged."
+
+      - name: Validate cricket prediction ledger
+        continue-on-error: true
+        run: node scripts/record_cricket_predictions.mjs
+
       - name: Collect player statistics
         continue-on-error: true
         run: python3 scripts/collect_players.py --from-slate || true

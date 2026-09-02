@@ -23,6 +23,19 @@ import {
 } from '../../engine/handball_data.js';
 import { SUPPORTED_SPORTS, getSportConfig } from '../../engine/multi_sport.js';
 
+// Cricket Engine imports for cricket mode
+import { scoreCricketMatch, scoreCricketCard, RULESET_VERSION as CR_RULESET_VERSION } from '../../engine/cricket_engine.js';
+import {
+  writeCricketCard,
+  buildCricketFormattedCardText,
+} from '../../engine/cricket_writer.js';
+import {
+  buildCricketCardForDate,
+  buildCricketCardFromLive,
+  enrichCricketMatch,
+} from '../../engine/cricket_data.js';
+import { collectCard as collectCricketCard } from './cricket-collector.js';
+
 // Tennis Engine imports for tennis mode
 import { scoreMatch as scoreTennisMatch, scoreCard as scoreTennisCard, RULESET_VERSION as TENNIS_RULESET_VERSION } from '../../engine/engine.js';
 import { writeCard as writeTennisCard } from '../../engine/writer.js';
@@ -36,13 +49,21 @@ const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
 const todayISO = () => '2026-09-01'; // Workspace local date anchor
 
 const state = {
-  sport: 'handball',
+  sport: 'cricket',
   date: todayISO(),
   calMonth: new Date('2026-09-01T12:00:00Z'),
   phase: 'all',
   league: 'all',
   search: '',
   loading: false,
+
+  // Cricket data stores
+  cricketMatches: null,
+  cricketSlate: null,
+  cricketProvenance: null,
+  cricketPredictions: null,
+  cricketLiveCard: null,
+  cricketUseLive: false,
 
   // Handball data stores
   handballMatches: null,
@@ -78,6 +99,12 @@ async function boot() {
   $('#date-input').value = state.date;
 
   try {
+    // Load Cricket data
+    state.cricketMatches = await loadJSON('data/cricket_matches.json');
+    state.cricketSlate = await loadJSON('data/cricket_slate.json');
+    state.cricketProvenance = await loadJSON('data/cricket_provenance.json');
+    state.cricketPredictions = await loadJSON('data/cricket_predictions.json').catch(() => null);
+
     // Load Handball data
     state.handballMatches = await loadJSON('data/handball_matches.json');
     state.handballTeams = await loadJSON('data/handball_teams.json');
@@ -114,7 +141,10 @@ function updateHeaderPills() {
   $('#snapshot-pill').textContent = 'verified slate loaded';
 
   const srcLink = $('#source-link');
-  if (state.sport === 'handball') {
+  if (state.sport === 'cricket') {
+    srcLink.href = 'https://www.espncricinfo.com/live-cricket-score';
+    srcLink.textContent = 'ESPNcricinfo Live ↗';
+  } else if (state.sport === 'handball') {
     srcLink.href = 'https://www.olbg.com/betting-tips/Handball/20';
     srcLink.textContent = 'OLBG Handball ↗';
   } else {
@@ -160,7 +190,9 @@ async function loadDate(dateISO) {
   state.loading = true;
   showProgress(`Loading ${dateISO} for ${getSportConfig(state.sport).name}…`, 25);
 
-  if (state.sport === 'handball') {
+  if (state.sport === 'cricket') {
+    await loadCricketDate(dateISO);
+  } else if (state.sport === 'handball') {
     loadHandballDate(dateISO);
   } else {
     await loadTennisDate(dateISO);
@@ -186,6 +218,37 @@ function loadHandballDate(dateISO) {
   state.currentMatches = cardData.matches;
   state.scoredCard = cardData.scored;
   state.writtenCard = cardData.written;
+}
+
+/* ------------------------------------------------------------------ *
+ * Cricket date loading — live ESPN collector with committed-snapshot fallback
+ * ------------------------------------------------------------------ */
+
+async function loadCricketDate(dateISO) {
+  // First, load the committed verified snapshot so the page always works,
+  // even offline / on GitHub Pages if ESPN is unreachable.
+  const snapshotCard = buildCricketCardForDate(dateISO, state.cricketMatches, state.cricketSlate);
+  state.currentMatches = snapshotCard.matches;
+  state.scoredCard = snapshotCard.scored;
+  state.writtenCard = snapshotCard.written;
+  state.cricketUseLive = false;
+
+  // Attempt live collection from ESPN (browser-side, no key). On any failure
+  // we keep the snapshot; on success we replace with the richer live card.
+  try {
+    showProgress('Collecting live cricket card from ESPN…', 20);
+    const live = await collectCricketCard(dateISO, (msg, pct) => showProgress(msg, pct));
+    if (live && Array.isArray(live.matches) && live.matches.length) {
+      const built = buildCricketCardFromLive(live, state.cricketSlate);
+      state.currentMatches = built.matches;
+      state.scoredCard = built.scored;
+      state.writtenCard = built.written;
+      state.cricketLiveCard = live;
+      state.cricketUseLive = true;
+    }
+  } catch (e) {
+    console.warn('Cricket live collection failed; using snapshot:', e);
+  }
 }
 
 async function loadTennisDate(dateISO) {
@@ -228,7 +291,16 @@ function renderScoreboard() {
   const q = state.search.toLowerCase();
   const filtered = matches.filter((m) => {
     if (state.phase !== 'all' && m.phase !== state.phase) return false;
-    if (state.league !== 'all' && state.league !== 'All Competitions' && state.league !== 'All Leagues' && m.league !== state.league) return false;
+    const leagueVal = state.league.toLowerCase();
+    if (state.league !== 'all' && state.league !== 'All Competitions' && state.league !== 'All Leagues') {
+      // Cricket uses grouped format filters; others exact league match.
+      if (state.sport === 'cricket') {
+        if (leagueVal.includes('t20') && !(m.format === 'T20' || /t20|twenty20/i.test(m.league || ''))) return false;
+        else if (leagueVal.includes('odi') && !(m.format === 'ODI' || /odi|one-day/i.test(m.league || ''))) return false;
+        else if (leagueVal.includes('test') && !(m.format === 'TEST' || /test|first-class|county championship/i.test(m.league || ''))) return false;
+        else if (!String(m.league || '').toLowerCase().includes(leagueVal.replace(/[^a-z ]/g, '').trim())) return false;
+      } else if (m.league !== state.league) return false;
+    }
     const matchText = `${m.home || m.players?.[0]?.name || ''} ${m.away || m.players?.[1]?.name || ''} ${m.league || m.tour || ''}`.toLowerCase();
     if (q && !matchText.includes(q)) return false;
     return true;
@@ -246,7 +318,9 @@ function renderScoreboard() {
     return;
   }
 
-  if (state.sport === 'handball') {
+  if (state.sport === 'cricket') {
+    list.innerHTML = filtered.map((m) => renderCricketMatchCard(m)).join('');
+  } else if (state.sport === 'handball') {
     list.innerHTML = filtered.map((m) => renderHandballMatchCard(m)).join('');
   } else {
     list.innerHTML = filtered.map((m) => renderTennisMatchCard(m)).join('');
@@ -354,6 +428,108 @@ function renderHandballMatchCard(m) {
   `;
 }
 
+function renderCricketMatchCard(m) {
+  const home = m.homeTeamObj || { name: m.home };
+  const away = m.awayTeamObj || { name: m.away };
+  const isFinished = m.phase === 'results';
+  const isLive = m.phase === 'live';
+
+  // Score the match (engine is pure and cheap; card already holds it too).
+  const scoredResult = scoreCricketMatch(m);
+  const wm = scoredResult.markets.win_match;
+  const mom = scoredResult.markets.man_of_the_match;
+  const tb1 = scoredResult.markets.top_team1_batsman;
+  const tb2 = scoredResult.markets.top_team2_batsman;
+
+  const timeStr = (m.start_utc || '').slice(11, 16) || 'TBC';
+  const statusBadge = isFinished
+    ? '<span class="status-badge results">FT</span>'
+    : isLive
+      ? '<span class="status-badge live">LIVE</span>'
+      : `<span class="status-badge upcoming">${esc(timeStr)}</span>`;
+
+  const fmt = m.format ? `<span class="mini-pill">${esc(m.format)}</span>` : '';
+  const s = m.score;
+  const scoreLine = s
+    ? `<div class="cricket-scores">
+         <span class="${s.home && !(s.away) ? '' : ''}">${esc(m.home)}: <strong>${esc(s.home || '')}</strong></span>
+         <span>${esc(m.away)}: <strong>${esc(s.away || '')}</strong></span>
+       </div>`
+    : '';
+
+  const formBubbles = (t) => {
+    const list = t?.form?.last5 || [];
+    if (!list.length) return '';
+    return `<div class="form-bubbles">${list.filter(Boolean).map((r) => `<span class="form-bubble ${r.toLowerCase()}">${esc(r)}</span>`).join('')}</div>`;
+  };
+
+  const olbg = m.olbg;
+  const olbgText = olbg?.consensus?.selection
+    ? `OLBG: <strong>${esc(olbg.consensus.market)}</strong> → ${esc(olbg.consensus.selection)} (${olbg.consensus.tips_for}/${olbg.consensus.tips_total})`
+    : 'Markets: Win Match · Man of the Match · Top Batsman';
+
+  return `
+    <div class="match-card cricket-card" data-id="${esc(m.competition_id)}">
+      <div class="match-header">
+        <div class="league-badge">${esc(m.league || 'Cricket Match')} · ${fmt} <span class="hint">${esc(m.round || '')}</span></div>
+        ${statusBadge}
+      </div>
+
+      <div class="match-body-grid">
+        <div class="teams-container">
+          <div class="team-row">
+            <div class="team-name-area">
+              <span class="team-name">${esc(m.home)}</span>
+              ${formBubbles(home)}
+            </div>
+          </div>
+          <div class="team-row">
+            <div class="team-name-area">
+              <span class="team-name">${esc(m.away)}</span>
+              ${formBubbles(away)}
+            </div>
+          </div>
+          ${scoreLine ? `<div class="hint">${scoreLine}</div>` : ''}
+          ${m.result_text ? `<div class="hint" style="color:var(--color-win)">${esc(m.result_text)}</div>` : ''}
+          ${m.venue ? `<div class="hint">📍 ${esc(m.venue)}</div>` : ''}
+        </div>
+
+        <div class="markets-chips">
+          <div class="market-chip" title="Win Match Market">
+            <span class="market-chip-name">Win Match:</span>
+            <span class="market-chip-val">${esc(wm?.band === 'SKIP' ? 'SKIP' : wm?.selection || '—')} <span class="badge ${wm?.band}">${wm?.band}</span></span>
+          </div>
+          <div class="market-chip" title="Man of the Match Market">
+            <span class="market-chip-name">Man of Match:</span>
+            <span class="market-chip-val">${esc(mom?.band === 'SKIP' ? 'SKIP' : mom?.selection || '—')} <span class="badge ${mom?.band}">${mom?.band}</span>${mom?.valueFlag ? ' <span class="mini-pill" style="color:var(--accent-primary)">VALUE</span>' : ''}</span>
+          </div>
+          <div class="market-chip" title="Top Team 1 Batsman">
+            <span class="market-chip-name">Top ${esc((m.home || '').split(' ')[0])} Batter:</span>
+            <span class="market-chip-val">${esc(tb1?.band === 'SKIP' ? 'SKIP' : tb1?.selection || '—')} <span class="badge ${tb1?.band}">${tb1?.band}</span></span>
+          </div>
+          <div class="market-chip" title="Top Team 2 Batsman">
+            <span class="market-chip-name">Top ${esc((m.away || '').split(' ')[0])} Batter:</span>
+            <span class="market-chip-val">${esc(tb2?.band === 'SKIP' ? 'SKIP' : tb2?.selection || '—')} <span class="badge ${tb2?.band}">${tb2?.band}</span></span>
+          </div>
+        </div>
+
+        <div class="card-action-area">
+          <button class="btn primary-btn" data-predict-id="${esc(m.competition_id)}">🎯 View Prediction</button>
+        </div>
+      </div>
+
+      <div class="match-footer-links">
+        <div class="olbg-hint">${olbgText}</div>
+        <div class="review-links-group">
+          ${m.source_url ? `<a href="${esc(m.source_url)}" target="_blank" rel="noopener noreferrer">Scorecard ↗</a>` : ''}
+          ${olbg?.url ? `<a href="${esc(olbg.url)}" target="_blank" rel="noopener noreferrer">OLBG Event ↗</a>` : ''}
+          <a href="https://www.espncricinfo.com/live-cricket-score" target="_blank" rel="noopener noreferrer">Live Scores ↗</a>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
 function renderTennisMatchCard(m) {
   const p1 = m.players?.[0]?.name || 'Player 1';
   const p2 = m.players?.[1]?.name || 'Player 2';
@@ -398,6 +574,11 @@ function renderCalendar() {
   const matchCounts = new Map();
   if (state.sport === 'handball') {
     const all = state.handballMatches?.matches || [];
+    for (const m of all) {
+      matchCounts.set(m.date, (matchCounts.get(m.date) || 0) + 1);
+    }
+  } else if (state.sport === 'cricket') {
+    const all = state.cricketMatches?.matches || [];
     for (const m of all) {
       matchCounts.set(m.date, (matchCounts.get(m.date) || 0) + 1);
     }
@@ -450,6 +631,11 @@ function renderOlbg() {
   const eventsEl = $('#olbg-events');
   const openBtn = $('#olbg-open-source');
   const titleEl = $('#olbg-title');
+
+  if (state.sport === 'cricket') {
+    renderCricketOlbg(summaryEl, eventsEl, openBtn, titleEl);
+    return;
+  }
 
   if (state.sport === 'handball') {
     const slate = state.handballSlate;
@@ -520,11 +706,69 @@ function renderOlbg() {
   }
 }
 
+function renderCricketOlbg(summaryEl, eventsEl, openBtn, titleEl) {
+  const slate = state.cricketSlate;
+  const events = slate?.events || [];
+  const outrights = slate?.outrights || [];
+  titleEl.textContent = `OLBG Cricket Markets — Verified Slate (${events.length} fixtures, ${outrights.length} outrights)`;
+  openBtn.onclick = () => window.open(slate?.source?.url || 'https://www.olbg.com/betting-tips/Cricket/16', '_blank', 'noopener,noreferrer');
+
+  summaryEl.innerHTML = `
+    <div class="stat-grid">
+      <div class="stat-card"><strong>${events.length}</strong><span>Match Events on OLBG</span></div>
+      <div class="stat-card"><strong>${outrights.length}</strong><span>Outright / Tournament Markets</span></div>
+      <div class="stat-card"><strong>4</strong><span>Scored Markets (Win, MoTM, Top Batter ×2)</span></div>
+      <div class="stat-card"><strong>0</strong><span>Fabricated Odds</span></div>
+    </div>
+    <div class="info-box">Openly available OLBG cricket markets are gathered below. OLBG publishes tipster consensus counts (not bookmaker odds): Win Match, <strong>Man Of The Match</strong>, Draw No Bet and outright tournament winners. Event pages carry Top Batsman and Total Runs. Every row links to OLBG for manual review.</div>
+  `;
+
+  eventsEl.innerHTML = `
+    <h2>Available Cricket Match Markets on OLBG</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th><th>Match</th><th>Consensus Market</th><th>Consensus Pick</th><th>Tips</th><th>Review</th><th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${events.map((ev) => `
+          <tr>
+            <td><strong>${esc(ev.resolved_date || ev.display_date || '')}</strong><br><span class="hint">${esc(ev.display_time || '')}</span></td>
+            <td><strong>${esc(ev.home)}</strong> v <strong>${esc(ev.away)}</strong></td>
+            <td>${esc(ev.consensus?.market || '—')}</td>
+            <td><span class="mini-pill">${esc(ev.consensus?.selection || '—')}</span></td>
+            <td>${ev.consensus ? `${ev.consensus.tips_for}/${ev.consensus.tips_total}${ev.consensus.pct != null ? ' · ' + ev.consensus.pct + '%' : ''}` : '—'}</td>
+            <td><a href="${esc(ev.url)}" target="_blank" rel="noopener noreferrer">OLBG Event ↗</a></td>
+            <td><button class="btn secondary-btn" data-cricket-olbg-date="${esc(ev.resolved_date || '')}">Go to Card</button></td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+  `;
+
+  $$('#olbg-events [data-cricket-olbg-date]').forEach((btn) => {
+    btn.addEventListener('click', async () => {
+      const iso = btn.dataset.cricketOlgDate;
+      if (iso) {
+        $('#date-input').value = iso;
+        state.calMonth = new Date(`${iso}T12:00:00Z`);
+        switchTab('scoreboard');
+        await loadDate(iso);
+      }
+    });
+  });
+}
+
 /* ------------------------------------------------------------------ *
  * Predictions Generator & Output
  * ------------------------------------------------------------------ */
 
 function autoGeneratePredictions() {
+  if (state.sport === 'cricket') {
+    renderCricketPredictions();
+    return;
+  }
   if (state.sport === 'handball') {
     if (!state.currentMatches.length) {
       $('#pred-out').innerHTML = '<div class="empty">No matches to score on this date.</div>';
@@ -542,6 +786,16 @@ function autoGeneratePredictions() {
 
 function generateForMatch(competitionId) {
   switchTab('predictions');
+  if (state.sport === 'cricket') {
+    const match = state.currentMatches.find((m) => m.competition_id === competitionId);
+    if (match) {
+      const scored = scoreCricketCard([match]);
+      state.scoredCard = scored;
+      state.writtenCard = writeCricketCard(scored.results);
+    }
+    renderCricketPredictions();
+    return;
+  }
   if (state.sport === 'handball') {
     const match = state.currentMatches.find((m) => m.competition_id === competitionId);
     if (!match) return;
@@ -552,6 +806,100 @@ function generateForMatch(competitionId) {
   } else {
     autoGeneratePredictions();
   }
+}
+
+function renderCricketPredictions() {
+  const out = $('#pred-out');
+  const tableEl = $('#pred-table');
+  const warns = $('#pred-warnings');
+  const hint = $('#pred-hint');
+
+  const written = state.writtenCard;
+  if (!state.currentMatches?.length) {
+    out.innerHTML = '<div class="empty">No matches to score on this date. Pick another day on the calendar.</div>';
+    tableEl.innerHTML = '';
+    warns.innerHTML = '';
+    hint.textContent = '';
+    return;
+  }
+  if (!written || !written.tips?.length) {
+    out.innerHTML = '<div class="empty">No predictions generated yet. Click "Generate Predictions".</div>';
+    tableEl.innerHTML = '';
+    return;
+  }
+
+  const tips = written.tips || [];
+  const validTips = tips.filter((t) => t.ok && !t.skip);
+  const skips = tips.filter((t) => t.ok && t.skip);
+
+  hint.textContent = `${validTips.length} tips generated · ${skips.length} SKIPs · min 40 words · ruleset ${CR_RULESET_VERSION}${state.cricketUseLive ? ' · live ESPN data' : ' · verified snapshot'}`;
+
+  warns.innerHTML = `
+    <div class="info-box">
+      <strong>Step 4 Compliance Enforced:</strong> Four tips per match in exact order (Win Match, Man of the Match, Top Team 1 Batsman, Top Team 2 Batsman).
+      Every tip is 40+ words with the bolded pick in the first 20 words, zero digits/odds/venues/dates, unique opening angles, and no banned phrases.
+      Unsourceable factors (bookmaker odds, pitch reports, injuries) are never guessed — they are scored as missing and the tip is SKIPped rather than fabricated.
+    </div>
+  `;
+
+  out.innerHTML = tips.map((t, idx) => {
+    if (!t.ok) {
+      return `<div class="tip"><div class="tip-head"><span>Failed Validation</span></div><p>${esc(JSON.stringify(t.violations || []))}</p></div>`;
+    }
+    const wc = t.text.split(/\s+/).filter(Boolean).length;
+    return `
+      <div class="tip ${t.skip ? 'skip' : ''}">
+        <div class="tip-head">
+          <span class="tip-title">${esc(t.match)} · <span style="color:var(--accent-primary)">${esc(t.marketLabel)}</span>${t.valueFlag ? ' <span class="mini-pill" style="color:var(--accent-primary)">VALUE FLAG</span>' : ''}</span>
+          <div class="tip-acts">
+            <span class="badge ${t.band}">${esc(t.band)}</span>
+            ${t.skip ? '' : `<span class="words">${wc} words</span>`}
+            <button class="btn secondary-btn" data-copy-idx="${idx}">📋 Copy</button>
+          </div>
+        </div>
+        <p>${renderTipProse(t.text)}</p>
+      </div>
+    `;
+  }).join('');
+
+  // Summary table
+  const rows = (state.scoredCard?.results || []).map(({ match, result }) => {
+    const mk = (k) => {
+      const m = result.markets?.[k];
+      if (!m || m.band === 'SKIP' || !m.selection) return '<span class="badge SKIP">SKIP</span>';
+      return `${esc(m.selection)} <span class="badge ${m.band}">${m.band}</span>`;
+    };
+    return `
+      <tr>
+        <td><strong>${esc(match.home)} v ${esc(match.away)}</strong><br><span class="hint">${esc(match.format || '')} · ${esc(match.league || '')}</span></td>
+        <td>${mk('win_match')}</td>
+        <td>${mk('man_of_the_match')}</td>
+        <td>${mk('top_team1_batsman')}</td>
+        <td>${mk('top_team2_batsman')}</td>
+      </tr>
+    `;
+  }).join('');
+
+  tableEl.innerHTML = `
+    <h2>Cricket Predictions Summary Table</h2>
+    <table>
+      <thead>
+        <tr><th>Match</th><th>Win Match</th><th>Man of the Match</th><th>Top Team 1 Batter</th><th>Top Team 2 Batter</th></tr>
+      </thead>
+      <tbody>${rows}</tbody>
+    </table>
+    <div class="info-box" style="margin-top:16px;">
+      <strong>Responsible Gambling.</strong> Nothing here is betting advice or a guarantee of any outcome. Predictions are generated mechanically from sourced data and are fallible. Only bet what you can afford to lose. 18+.
+    </div>
+  `;
+
+  $$('#pred-out [data-copy-idx]').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const idx = Number(btn.dataset.copyIdx);
+      const tip = written.tips[idx];
+      if (tip?.text) copyToClipboard(tip.text.replace(/\*\*/g, ''));
+    });
+  });
 }
 
 function renderHandballPredictions() {
@@ -684,6 +1032,13 @@ function renderTipProse(text) {
     .join('');
 }
 
+function cricketFormBubbles(t) {
+  const list = t?.form?.last5 || [];
+  const decided = list.filter(Boolean);
+  if (!decided.length) return '<span class="hint">—</span>';
+  return `<div class="form-bubbles">${decided.map((r) => `<span class="form-bubble ${r.toLowerCase()}">${esc(r)}</span>`).join('')}</div>`;
+}
+
 /* ------------------------------------------------------------------ *
  * Standings & Team Stats View
  * ------------------------------------------------------------------ */
@@ -691,6 +1046,28 @@ function renderTipProse(text) {
 function renderStandings() {
   const el = $('#standings-out');
   const sel = $('#standings-league-select');
+
+  if (state.sport === 'cricket') {
+    el.innerHTML = `
+      <div class="info-box">
+        Cricket team standings and series points tables are published per-series by ESPN/ESPNcricinfo.
+        Current cards show live results head-to-head on the Scoreboard tab. Series standings will be wired
+        to the live collector in a follow-up pass; meanwhile every result links directly to its verified source.
+      </div>
+      <div class="table-card">
+        <h2>Teams on the Current Card</h2>
+        <table>
+          <thead><tr><th>Team</th><th>Format</th><th>Recent Form</th><th>Source</th></tr></thead>
+          <tbody>
+            ${(state.currentMatches || []).flatMap((m) => [
+              `<tr><td><strong>${esc(m.home)}</strong></td><td>${esc(m.format || '—')}</td><td>${cricketFormBubbles(m.homeTeamObj)}</td><td><a href="${esc(m.source_url || '#')}" target="_blank" rel="noopener noreferrer">Scorecard ↗</a></td></tr>`,
+              `<tr><td><strong>${esc(m.away)}</strong></td><td>${esc(m.format || '—')}</td><td>${cricketFormBubbles(m.awayTeamObj)}</td><td><a href="${esc(m.source_url || '#')}" target="_blank" rel="noopener noreferrer">Scorecard ↗</a></td></tr>`,
+            ]).join('')}
+          </tbody>
+        </table>
+      </div>`;
+    return;
+  }
 
   if (state.sport === 'handball') {
     const teamsDoc = state.handballTeams;
@@ -771,6 +1148,40 @@ function renderStandings() {
 
 function renderBacktest() {
   const el = $('#backtest-out');
+  if (state.sport === 'cricket') {
+    const preds = state.cricketPredictions?.predictions || [];
+    const settled = preds.filter((p) => p.settled);
+    const live = state.cricketLiveCard;
+    el.innerHTML = `
+      <div class="stat-grid">
+        <div class="stat-card"><strong>${preds.length}</strong><span>Tracked Predictions</span></div>
+        <div class="stat-card"><strong>${settled.length}</strong><span>Settled Matches</span></div>
+        <div class="stat-card"><strong>${live?.tape_matches ?? '—'}</strong><span>Form-Tape Matches (live)</span></div>
+        <div class="stat-card"><strong>${live?.roster_confirmed ?? '—'}</strong><span>Confirmed XIs (live)</span></div>
+      </div>
+      <div class="table-card">
+        <h2>Settlement &amp; Backtest Method</h2>
+        <p class="hint" style="line-height:1.7">
+          Cricket predictions are recorded before the toss and settled mechanically from ESPN's scorepanel
+          (confirmed winners). The backtest ledger populates via the scheduled collector. With bookmaker odds
+          unavailable on a free feed (CR-IR-01), odds-dependent factors are scored as missing rather than
+          estimated, so confidence is capped honestly. The live collector above reports how many matches are in
+          the rolling form tape and how many XIs were confirmed for the current card.
+        </p>
+        <table>
+          <thead><tr><th>Date</th><th>Match</th><th>Win Pick</th><th>Result</th><th>Status</th></tr></thead>
+          <tbody>
+            ${settled.length ? settled.map((p) => `
+              <tr><td>${esc(p.date)}</td><td><strong>${esc(p.match)}</strong></td>
+              <td>${esc(p.markets?.win_match?.selection || '—')}</td>
+              <td>${esc(p.result_text || '—')}</td>
+              <td><span class="mini-pill" style="color:var(--color-win)">Settled</span></td></tr>`).join('')
+              : '<tr><td colspan="5" class="hint">No settled predictions recorded yet — the ledger fills as the scheduled collector runs.</td></tr>'}
+          </tbody>
+        </table>
+      </div>`;
+    return;
+  }
   if (state.sport === 'handball') {
     const preds = state.handballPredictions?.predictions || [];
     const settled = preds.filter((p) => p.markets?.win_match?.settled);
@@ -824,6 +1235,43 @@ function renderBacktest() {
 
 function renderQuality() {
   const el = $('#quality-out');
+  if (state.sport === 'cricket') {
+    const prov = state.cricketProvenance;
+    el.innerHTML = `
+      <div class="info-box">
+        <strong>Honesty guarantee:</strong> nothing is inferred without a verified source. Where a factor the
+        prompt asks for has no free, key-less feed, it is catalogued below, scored as <code>missing</code> with a
+        confidence penalty, and the market is SKIPped rather than guessed.
+      </div>
+      <h2>Cricket Verified Sources</h2>
+      <table>
+        <thead><tr><th>Source ID</th><th>Organization</th><th>Provides</th><th>Verification</th><th>Review Link</th></tr></thead>
+        <tbody>
+          ${(prov?.official_sources || []).map((s) => `
+            <tr>
+              <td><code>${esc(s.id)}</code></td>
+              <td><strong>${esc(s.name)}</strong></td>
+              <td>${s.fields_provided.map((f) => `<span class="mini-pill">${esc(f)}</span>`).join(' ')}</td>
+              <td><span class="mini-pill" style="color:var(--color-win)">${esc(s.verification_status.split('—')[0])}</span><br><span class="hint">${esc(s.verification_status.split('—')[1] || '')}</span></td>
+              <td><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">Official ↗</a></td>
+            </tr>`).join('')}
+        </tbody>
+      </table>
+      <h2 style="margin-top:24px;">Irregularity Register (what we refuse to fabricate)</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Issue</th><th>Detail</th><th>Mitigation</th></tr></thead>
+        <tbody>
+          ${(prov?.irregularities || []).map((i) => `
+            <tr>
+              <td><code>${esc(i.id)}</code></td>
+              <td><strong>${esc(i.title)}</strong></td>
+              <td><p class="hint">${esc(i.detail)}</p></td>
+              <td>${esc(i.mitigation)}</td>
+            </tr>`).join('')}
+        </tbody>
+      </table>`;
+    return;
+  }
   if (state.sport === 'handball') {
     const prov = state.handballProvenance;
     el.innerHTML = `
@@ -868,25 +1316,30 @@ function renderAbout() {
     <h2>About SportsPred</h2>
     <p class="lede">
       SportsPred is a multi-sport prediction and scoreboard platform implementing strict master prompts
-      for <strong>Handball</strong> (v1.0) and <strong>Tennis</strong> (v1.0/v1.1).
+      for <strong>Cricket</strong> (v1.0 — Win Match, Man of the Match, Top Team Batsman),
+      <strong>Handball</strong> (v1.0) and <strong>Tennis</strong> (v1.0/v1.1).
       Every prediction is built on verified, machine-checked data with zero hallucinations.
     </p>
 
     <h2 style="margin-top:20px;">Features</h2>
     <ul class="tight" style="line-height:1.8; margin-left:20px; margin-bottom:20px;">
-      <li><strong>Active Scoreboard:</strong> Real-time and scheduled cards across all top European handball leagues and tennis tours.</li>
-      <li><strong>OLBG Market Directory:</strong> Complete collection of openly available OLBG betting markets with consensus and lines.</li>
-      <li><strong>Three-Market Engine:</strong> Independent scoring for Win Match, Point Spread / Handicap, and Game Total.</li>
-      <li><strong>Step 4 Prose Writer:</strong> Generates unique, high-quality analytical write-ups with bolded outcomes, zero numeral leaks, and no banned phrases.</li>
-      <li><strong>One-Click Copy:</strong> Copy individual tips or formatted cards directly to clipboard.</li>
+      <li><strong>Active Scoreboard:</strong> Live, scheduled and completed cards for cricket (T20, ODI, Test), handball leagues and tennis tours.</li>
+      <li><strong>Cricket Four-Market Engine:</strong> Independent scoring for Win Match, Man of the Match and each team's Top Batsman, with all-rounder elevation, spin/pace matchup, powerplay and value-zone rules.</li>
+      <li><strong>Live Collection:</strong> The browser pulls fixtures, confirmed XIs, scores and player figures directly from ESPN's key-less public endpoints; a verified snapshot is the offline fallback.</li>
+      <li><strong>OLBG Market Directory:</strong> Openly available OLBG markets with tipster consensus and manual-review links.</li>
+      <li><strong>Step 4 Prose Writer:</strong> Unique analytical 40+ word write-ups with bolded picks in the first 20 words, zero numeral/odds leaks and no banned phrases — each in a different analyst voice.</li>
+      <li><strong>One-Click Copy:</strong> Copy individual tips or a full formatted card (summary table + value flag + responsible-gambling note) to clipboard.</li>
     </ul>
 
     <h2>Official Documentation</h2>
     <p class="hint">Check the repository docs directory for detailed reports:</p>
-    <pre>docs/HANDBALL_PROMPT_REVIEW.md
-docs/HANDBALL_FEATURE_MATRIX.md
-docs/HANDBALL_SOURCES.md
-docs/HANDBALL_BACKTEST.md</pre>
+    <pre>docs/CRICKET_PROMPT_REVIEW.md
+docs/CRICKET_FEATURE_MATRIX.md
+docs/CRICKET_SOURCES.md
+docs/CRICKET_IRREGULARITIES.md
+docs/CRICKET_BACKTEST.md
+docs/HANDBALL_PROMPT_REVIEW.md
+docs/PROMPT_REVIEW.md</pre>
   `;
 }
 
@@ -1005,20 +1458,16 @@ $('#generate-all').addEventListener('click', () => {
 });
 
 $('#copy-all').addEventListener('click', () => {
-  if (state.sport === 'handball') {
-    const tips = state.writtenCard?.tips?.filter((t) => t.ok) || [];
-    if (!tips.length) { showToast('Generate predictions first'); return; }
-    const fullText = tips.map((t) => t.text.replace(/\*\*/g, '')).join('\n\n');
-    copyToClipboard(fullText);
-  } else {
-    const tips = state.writtenCard?.tips?.filter((t) => t.ok) || [];
-    if (!tips.length) { showToast('Generate predictions first'); return; }
-    copyToClipboard(tips.map((t) => t.text.replace(/\*\*/g, '')).join('\n\n'));
-  }
+  const tips = state.writtenCard?.tips?.filter((t) => t.ok && !t.skip) || [];
+  if (!tips.length) { showToast('Generate predictions first'); return; }
+  copyToClipboard(tips.map((t) => t.text.replace(/\*\*/g, '')).join('\n\n'));
 });
 
 $('#copy-card').addEventListener('click', () => {
-  if (state.sport === 'handball') {
+  if (state.sport === 'cricket') {
+    const text = buildCricketFormattedCardText(state.scoredCard?.results || [], state.date);
+    copyToClipboard(text);
+  } else if (state.sport === 'handball') {
     const text = buildHandballFormattedCardText(state.scoredCard?.results || [], state.date);
     copyToClipboard(text);
   } else {
