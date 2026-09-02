@@ -29,11 +29,28 @@ export const PROMPT_VERSION = 'v1.0';
 
 export const CONFIDENCE = { HIGH: 'HIGH', MEDIUM: 'MEDIUM', LOW: 'LOW', SKIP: 'SKIP', UNSCORED: 'UNSCORED' };
 
-/** Prompt-named circuit classifications, applied structurally only. */
-export const LOW_OVERTAKING_CIRCUITS = new Set(['MON', 'HUN', 'ZAN']);
-export const POWER_SENSITIVE_CIRCUITS = new Set(['MON', 'AZE', 'BEL']);
+/**
+ * Prompt-named circuit classifications, applied structurally only.
+ *
+ * Keys are ESPN event abbreviations, verified from the live standings payload
+ * (https://site.api.espn.com/apis/v2/sports/racing/f1/standings, 2026-09-02),
+ * which publishes the full code list:
+ *   AUS CHN JPN BRN SAU MIA CAN MCO BAR AUT GBR BEL HUN NLD ITA ESP AZE MYS
+ *   SGP USA MEX BRA LAS QAT UAE
+ * The prompt names venues in prose ("Monaco, Hungary, Zandvoort"; "Monza,
+ * Baku, Spa"); those are mapped to the verified codes here — Monaco = MCO,
+ * Zandvoort = NLD (Dutch GP), Monza = ITA (Italian GP), Baku = AZE, Spa = BEL.
+ * These are classifications from the prompt, NOT measured data; see IR-F1-06.
+ */
+export const LOW_OVERTAKING_CIRCUITS = new Set(['MCO', 'HUN', 'NLD']);
+export const POWER_SENSITIVE_CIRCUITS = new Set(['ITA', 'AZE', 'BEL']);
+/**
+ * "Street circuits and Spa" per the prompt, restricted to venues that are
+ * unambiguously street or semi-permanent street layouts on the verified 2026
+ * calendar, plus Spa (BEL) which the prompt names explicitly.
+ */
 export const HIGH_SC_FREQUENCY_CIRCUITS = new Set(
-  ['MON', 'SGP', 'AZE', 'BEL', 'MEX', 'MIA', 'LAS', 'USA', 'CAN'], // street/high-variance venues
+  ['MCO', 'SGP', 'AZE', 'LAS', 'MIA', 'CAN', 'BEL'],
 );
 
 function comp(id, label, points, detail, { max = null, missing = false } = {}) {
@@ -334,8 +351,20 @@ function scoreTop6(profile, ctx, missing) {
   else if (ctx.grid <= 15) out.push(comp('t6_grid', 'Starting grid position modifier: 11th-15th', 0, `P${ctx.grid}`));
   else out.push(comp('t6_grid', 'Starting grid position modifier: 16th or lower', -10, `P${ctx.grid}`));
 
-  missing.push('overtakingDifficulty (no sourced circuit overtaking-difficulty metric)');
+  // Dark horse modifier (prompt, TOP 6 FINISH): starting 7th-10th at a circuit
+  // with HIGH overtaking difficulty = +10pts, because track position becomes
+  // critical. Overtaking difficulty is taken from the prompt's named
+  // low-overtaking venues (Monaco/Hungary/Zandvoort → MCO/HUN/NLD), not from a
+  // measured metric — see IR-F1-06.
+  if (ctx.lowOvertaking === true && ctx.grid != null && ctx.grid >= 7 && ctx.grid <= 10) {
+    out.push(comp('t6_darkhorse', 'Dark horse modifier: mid-grid start at a high-overtaking-difficulty circuit', 10,
+      `P${ctx.grid} at ${ctx.circuit}`, { max: 10 }));
+  } else if (ctx.lowOvertaking == null) {
+    missing.push('overtakingDifficulty (circuit not classified; dark-horse modifier unscored)');
+  }
+
   missing.push('teamStrategySOPHISTICATION (no sourced undercut-strategy classification)');
+
   if ((ctx.weatherPrecipPct ?? 0) >= 30) {
     missing.push('driver.wetWeatherRecord (rain forecast but no sourced wet-weather record)');
     out.push(comp('t6_weather', 'Weather wildcard: rain forecast, wet record not sourced', 0, `${ctx.weatherPrecipPct}% rain forecast`, { max: 5, missing: true }));

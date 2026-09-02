@@ -7,7 +7,10 @@
  */
 
 import { raceLog, buildDriverProfile, withTrack, circuitKey, matchF1Olbg } from './f1_data.js';
-import { scoreF1Race, scoreF1Card } from './f1_engine.js';
+import {
+  scoreF1Race, scoreF1Card,
+  HIGH_SC_FREQUENCY_CIRCUITS, LOW_OVERTAKING_CIRCUITS, POWER_SENSITIVE_CIRCUITS,
+} from './f1_engine.js';
 import { writeF1RaceCard, buildF1CardText, validateF1Card } from './f1_writer.js';
 
 function isoOf(s) {
@@ -97,8 +100,20 @@ export function buildF1Ctx(event, standingsDoc, eventsDoc, weatherDoc) {
   } else if (race?.completed && race?.grid?.length) {
     grid = race.grid.map((c) => ({ athleteId: c.athleteId, name: c.name, grid: c.grid }));
   }
+  const circuit = event?.abbreviation || circuitKey(event);
+  const sessions = event?.sessions || [];
   return {
-    circuit: event?.abbreviation || circuitKey(event),
+    circuit,
+    // Prompt-named circuit classifications (IR-F1-06: classifications, not
+    // measured metrics). Null when the circuit code is unknown, so the engine
+    // records the gap instead of assuming "not a street circuit".
+    highSafetyCar: circuit ? HIGH_SC_FREQUENCY_CIRCUITS.has(circuit) : null,
+    lowOvertaking: circuit ? LOW_OVERTAKING_CIRCUITS.has(circuit) : null,
+    powerSensitive: circuit ? POWER_SENSITIVE_CIRCUITS.has(circuit) : null,
+    // Sprint weekends run a separate Sprint Shootout; the prompt asks that the
+    // format be noted because the two qualifying sessions differ in what they
+    // predict for race day.
+    isSprintWeekend: sessions.some((s) => s.type === 'Sprint' || s.type === 'Sprint Shootout'),
     leaderPoints: leaderPoints(standingsDoc),
     teamPerRace: teamPer,
     grid,

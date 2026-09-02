@@ -124,6 +124,7 @@ async function fetchStats(eventId, compId, athleteId) {
 async function buildEvents(scoreboards, { withStatus = true } = {}) {
   const events = [];
   const circuits = {};
+  const unclassified = [];
   let completedCount = 0;
 
   const all = [];
@@ -158,14 +159,25 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
     const raceComp = sessions.find((s) => s.type === 'Race') || null;
 
     const raceSession = raceComp || null;
-    const completed = raceSession?.completed === true || ev.raceCompleted === true;
+    // Completion, in priority order:
+    //  1. inline status from the SITE scoreboard (authoritative: STATUS_FINAL);
+    //  2. a race date in the past for which ESPN already publishes a finishing
+    //     order. Year-range scoreboard queries (used for history seasons) omit
+    //     the inline status block but still return classified `order` values,
+    //     so this is a read of published data, not an assumption.
+    const raceDateISO = String(raceSession?.date || ev.raceDate || ev.endDate || '').slice(0, 10);
+    const isPast = raceDateISO && raceDateISO < new Date().toISOString().slice(0, 10);
+    const hasClassifiedOrder = (raceSession?.competitors || []).some((c) => c.order != null);
+    const completed = raceSession?.completed === true ||
+      ev.raceCompleted === true ||
+      (isPast && hasClassifiedOrder);
 
     let result = [];
     let grid = [];
     if (completed && raceSession) {
       result = resultFromRace(raceSession);
       grid = gridFromRace(raceSession);
-      completedCount += 1;
+      if (result.length) completedCount += 1;
       const deep = withStatus && String(ev.seasonYear) === String(currentSeason);
       if (deep && raceComp) {
         // Fetch per-driver status + statistics with bounded concurrency. DNF is
@@ -211,6 +223,15 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
     const top10 = result.filter((r) => r.position >= 1 && r.position <= 10).map((r) => r.athleteId);
     const top6 = result.filter((r) => r.position >= 1 && r.position <= 6).map((r) => r.athleteId);
 
+    // A weekend is only published as 'post' when a classification actually
+    // exists. A finished race we could not classify stays 'pre' and is flagged,
+    // so the site never shows a completed race with no result.
+    const classified = completed && result.length > 0;
+    if (completed && !classified) {
+      unclassified.push({ id: ev.id, name: ev.name, raceDate: raceDateISO });
+      console.warn(`  ${ev.name}: race is over but ESPN published no classification — flagged, not published as completed`);
+    }
+
     events.push({
       id: ev.id,
       name: ev.name,
@@ -220,7 +241,8 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
       startDate: ev.startDate,
       endDate: ev.endDate,
       raceDate: raceSession?.date || ev.raceDate || ev.endDate,
-      state: completed ? 'post' : 'pre',
+      state: classified ? 'post' : 'pre',
+      resultUnavailable: completed && !classified ? true : undefined,
       circuitId,
       circuit: circuit ? {
         fullName: circuit.fullName,
@@ -284,6 +306,9 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
       fetched_events: events.length,
       completed_events: completedCount,
     },
+    // Races that have finished but for which ESPN published no classification.
+    // Recorded for manual review rather than silently dropped (IR-F1-03).
+    unclassified_finished_races: unclassified,
     circuits,
     events,
   };

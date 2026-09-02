@@ -6,6 +6,7 @@ import assert from 'node:assert/strict';
 
 import {
   scoreF1Race, scoreF1Card, RULESET_VERSION, CONFIDENCE,
+  LOW_OVERTAKING_CIRCUITS, POWER_SENSITIVE_CIRCUITS, HIGH_SC_FREQUENCY_CIRCUITS,
 } from '../engine/f1_engine.js';
 
 function profile(over = {}) {
@@ -132,4 +133,61 @@ test('a driver with no recent wins is scored at the zero-form tier, not guessed'
   const r = scoreF1Race({ id: 'e1' }, new Map([['p1', badProfile()]]), ctx);
   const c = r.markets.race_winner.components.find((x) => x.id === 'rw_form');
   assert.equal(c.points, 0);
+});
+
+test('circuit classifications use ESPN abbreviations verified from the standings payload', () => {
+  // REGRESSION: these sets previously used invented codes (MON/ZAN) that never
+  // match ESPN, so every F1-specific adjustment was dead code. The verified
+  // code list is published in the standings per-race stats.
+  assert.ok(LOW_OVERTAKING_CIRCUITS.has('MCO'), 'Monaco is MCO');
+  assert.ok(LOW_OVERTAKING_CIRCUITS.has('NLD'), 'Zandvoort is the Dutch GP, NLD');
+  assert.ok(LOW_OVERTAKING_CIRCUITS.has('HUN'));
+  assert.ok(!LOW_OVERTAKING_CIRCUITS.has('MON'), 'MON is not an ESPN F1 code');
+  assert.ok(!LOW_OVERTAKING_CIRCUITS.has('ZAN'), 'ZAN is not an ESPN F1 code');
+
+  assert.ok(POWER_SENSITIVE_CIRCUITS.has('ITA'), 'Monza is the Italian GP, ITA');
+  assert.ok(POWER_SENSITIVE_CIRCUITS.has('AZE'), 'Baku');
+  assert.ok(POWER_SENSITIVE_CIRCUITS.has('BEL'), 'Spa');
+
+  assert.ok(HIGH_SC_FREQUENCY_CIRCUITS.has('MCO'));
+  assert.ok(HIGH_SC_FREQUENCY_CIRCUITS.has('SGP'));
+  assert.ok(HIGH_SC_FREQUENCY_CIRCUITS.has('BEL'), 'the prompt names Spa explicitly');
+});
+
+test('safety-car modifier applies to a mid-grid start at a high-SC circuit', () => {
+  const r = scoreF1Race({ id: 'e1' }, new Map([['p1', profile()]]), {
+    ...ctx, circuit: 'MCO', highSafetyCar: true, grid: [{ athleteId: 'p1', grid: 6 }],
+  });
+  const pod = r.markets.podium_finish;
+  assert.ok(pod.components.some((c) => c.id === 'pod_sc' && c.points === 5));
+});
+
+test('safety-car modifier does NOT apply at a normal circuit or a front-row start', () => {
+  const front = scoreF1Race({ id: 'e1' }, new Map([['p1', profile()]]), {
+    ...ctx, circuit: 'MCO', highSafetyCar: true, grid: [{ athleteId: 'p1', grid: 2 }],
+  });
+  assert.ok(!front.markets.podium_finish.components.some((c) => c.id === 'pod_sc'));
+
+  const normal = scoreF1Race({ id: 'e1' }, new Map([['p1', profile()]]), {
+    ...ctx, circuit: 'ITA', highSafetyCar: false, grid: [{ athleteId: 'p1', grid: 6 }],
+  });
+  assert.ok(!normal.markets.podium_finish.components.some((c) => c.id === 'pod_sc'));
+});
+
+test('top-6 dark horse modifier applies at high-overtaking-difficulty circuits only', () => {
+  const dark = scoreF1Race({ id: 'e1' }, new Map([['p1', profile()]]), {
+    ...ctx, circuit: 'MCO', lowOvertaking: true, grid: [{ athleteId: 'p1', grid: 8 }],
+  });
+  assert.ok(dark.markets.top6_finish.components.some((c) => c.id === 't6_darkhorse' && c.points === 10));
+
+  const easy = scoreF1Race({ id: 'e1' }, new Map([['p1', profile()]]), {
+    ...ctx, circuit: 'ITA', lowOvertaking: false, grid: [{ athleteId: 'p1', grid: 8 }],
+  });
+  assert.ok(!easy.markets.top6_finish.components.some((c) => c.id === 't6_darkhorse'));
+
+  // Unknown classification is recorded as missing, never assumed false.
+  const unknown = scoreF1Race({ id: 'e1' }, new Map([['p1', profile()]]), {
+    ...ctx, circuit: null, lowOvertaking: null, grid: [{ athleteId: 'p1', grid: 8 }],
+  });
+  assert.ok(unknown.markets.top6_finish.missing.some((m) => m.includes('overtakingDifficulty')));
 });
