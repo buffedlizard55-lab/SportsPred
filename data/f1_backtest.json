@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "generated_at_utc": "2026-09-02T02:51:55.619Z",
+  "generated_at_utc": "2026-09-02T02:57:40.269Z",
   "method": "Walk-forward: each race is scored only on data completed before that weekend.",
   "races": [
     {
