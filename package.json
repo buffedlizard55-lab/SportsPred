@@ -5,7 +5,7 @@
   "description": "Tennis prediction engine, OLBG slate collector and static scoreboard site",
   "type": "module",
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
+    "test": "node --test",
     "build:data": "python3 scripts/build_data.py",
     "collect": "python3 scripts/collect_olbg.py",
     "collect:cricket": "python3 scripts/collect_cricket_olbg.py",
