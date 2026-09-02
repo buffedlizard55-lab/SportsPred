@@ -1,0 +1,92 @@
+name: Collect F1 data
+
+# Collects the Formula 1 layer (OLBG Motor Racing slate, ESPN events/standings,
+# Open-Meteo weather, OLBG sports directory) and commits the refreshed data.
+#
+# Runs on every push to the F1 work branch so the data files can be generated
+# and reviewed before merge, and on the default branch schedule via the main
+# collect.yml (this file is kept branch-scoped to avoid double collection).
+
+on:
+  push:
+    branches: [arena/01a05fce-sportspred]
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tests must pass before collecting
+        run: |
+          npm test
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/build_data.py --strict
+
+      - name: Collect OLBG sports directory
+        id: olbg-sports
+        continue-on-error: true
+        run: python3 scripts/collect_olbg_sports.py
+
+      - name: Collect F1 OLBG slate
+        id: collect-f1-olbg
+        continue-on-error: true
+        run: |
+          python3 scripts/collect_f1_olbg.py \
+            --save-html tests/fixtures/captures \
+            --enrich \
+            --enrich-limit 25
+
+      - name: Report a failed F1 OLBG collection
+        if: steps.collect-f1-olbg.outcome == 'failure'
+        run: echo "::warning::F1 OLBG collection failed. data/f1_slate.json is unchanged."
+
+      - name: Collect F1 ESPN events & standings
+        id: collect-f1-espn
+        continue-on-error: true
+        run: node scripts/collect_f1_espn.mjs
+
+      - name: Report a failed F1 ESPN collection
+        if: steps.collect-f1-espn.outcome == 'failure'
+        run: echo "::warning::F1 ESPN collection failed. Recorded F1 data is unchanged."
+
+      - name: Collect F1 weather
+        id: collect-f1-weather
+        continue-on-error: true
+        run: node scripts/collect_f1_weather.mjs
+
+      - name: Report a failed F1 weather collection
+        if: steps.collect-f1-weather.outcome == 'failure'
+        run: echo "::warning::F1 weather collection failed. data/f1_weather.json is unchanged."
+
+      - name: F1 walk-forward backtest and ledger
+        continue-on-error: true
+        run: node scripts/backtest_f1.mjs
+
+      - name: Validate the F1 layer
+        run: python3 scripts/build_data.py --strict
+
+      - name: Commit F1 data changes
+        run: |
+          git config user.name "sportspred-collector[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          git reset -q tests/fixtures/captures 2>/dev/null || true
+          if git diff --cached --quiet; then
+            echo "No F1 data changes to commit."
+          else
+            git commit -m "chore(data): refresh F1 slate, events, standings and weather"
+            git push
+          fi
