@@ -95,10 +95,23 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
           git reset -q tests/fixtures/captures 2>/dev/null || true
-          if git diff --cached --quiet; then
-            echo "No golf data changes to commit."
+          # Timestamp-only churn (fetched_at_utc / generated_at_utc / verified) is
+          # not a data change; committing it every run would bury the real
+          # refreshes. scripts/data_changed.mjs compares against HEAD ignoring
+          # timestamp keys and exits 1 when nothing substantive moved.
+          if git diff --cached --quiet || ! node scripts/data_changed.mjs $(git diff --cached --name-only); then
+            echo "No golf data changes to commit (unchanged or timestamps only)."
+            git reset -q
           else
             git commit -m "chore(data): refresh golf slate, events, results tape, rankings, stats and weather"
-            git pull --rebase origin ${GITHUB_REF_NAME}
-            git push
+            # Other workflows (precompute, the main collector) push to this branch
+            # too; they touch different files, so rebase and retry on a rejected push.
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt ${attempt} rejected by a concurrent data commit; retrying"
+              sleep $((attempt * 5))
+            done
+            [ "${pushed}" = 1 ]
           fi

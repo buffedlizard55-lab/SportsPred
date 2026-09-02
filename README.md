@@ -187,6 +187,7 @@ scripts/
   collect_golf_olbg.py  OLBG golf slate collector (stdlib only)
   collect_golf_weather.mjs  Open-Meteo four-day + round-one trend per event
   backtest_golf.mjs     golf walk-forward backtest + ledger
+  data_changed.mjs      collector commit guard: exit 1 when only timestamps moved
   collect_cricket_olbg.py  OLBG cricket slate collector (stdlib only)
   collect_olbg.py       OLBG tennis/handball slate collector (stdlib only)
   record_cricket_predictions.mjs  cricket forward-collection ledger validation
