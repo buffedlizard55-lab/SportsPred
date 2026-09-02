@@ -160,7 +160,8 @@ function makeFetch(counters) {
     if (u.includes('data/olbg_sports.json') || u.includes('_slate.json') || u.includes('data/slate.json')
         || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
         || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
-        || u.includes('data/volleyball_')) {
+        || u.includes('data/volleyball_')
+        || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
       return { ok: false, status: 404, json: async () => ({}) };
@@ -414,6 +415,12 @@ test('sources.html renders the verification report and the irregularities regist
     assert.match(irr, /U-01/);
     assert.match(irr, /Cricket/);
     assert.ok(document.querySelectorAll('#sport-sources tbody tr').length >= 20);
+    const sn = document.querySelector('#sn-irr').textContent;
+    assert.match(sn, /IR-SNOOKER-01/, 'snooker register row renders');
+    assert.ok(document.querySelector('#sn-irr a[href*="snooker.html"]'), 'snooker register links to the scoreboard');
+    const links = [...document.querySelectorAll('#sn-irr a[href^="https://"]')];
+    assert.ok(links.length >= 2, `snooker register carries review links (got ${links.length})`);
+    for (const l of links) assert.ok(l.href.startsWith('https://'), 'review links are https');
   } finally { cleanup(); }
 });
 
@@ -536,6 +543,62 @@ test('greyhound Analysis exposes fired rules and at least two https review links
   assert.match(text, /odds/i, 'the odds category is reported (as not available live)');
 });
 
+test('snooker.html boots, renders the fixture and auto-generates a written prediction', { skip: !JSDOM }, async () => {
+  const { document, counters } = await bootPage('snooker.html', { search: '?date=2026-09-02' });
+
+  // Masthead + rail entry.
+  assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+  assert.ok(document.querySelector('.sportrail a[data-sport="snooker"]'), 'snooker is in the rail');
+
+  // The slate fixture renders with a written prediction.
+  const text = document.body.textContent;
+  assert.match(text, /Pang Junxu v Mark Joyce/, 'fixture renders');
+  const tipText = document.querySelector('.tip-text');
+  assert.ok(tipText, 'a written prediction box renders');
+  const tip = tipText.textContent;
+  assert.match(tip, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/, 'prediction declares confidence');
+  const words = tip.trim().split(/\s+/).length;
+  assert.ok(words >= 25 && words <= 40, `prediction is 25-40 words, got ${words}`);
+  assert.ok(!/\d/.test(tip.replace(/\s+/g, ' ')), `no numerals in prediction prose: ${tip.slice(0, 80)}`);
+  // Odds shortage must be disclosed, not hidden or invented.
+  assert.match(text, /no free key-less price|no price feed|IR-SNOOKER/i);
+  assert.match(text, /SKIP/, 'live card resolves to SKIP on the odds gate');
+});
+
+test('the snooker Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('snooker.html', { search: '?date=2026-09-02' });
+  document.querySelector('#rail-preds').innerHTML = '';
+  const before = document.querySelector('.tip-text')?.textContent || '';
+  const btn = document.querySelector('#generate');
+  assert.ok(btn, 'generate button exists');
+  btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+  for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+  const after = document.querySelector('.tip-text')?.textContent || '';
+  assert.ok(after, 'prediction present after Generate click');
+  assert.match(after, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/);
+  assert.equal(before, after, 'regenerated prediction is deterministic');
+});
+
+test('snooker Analysis exposes fired rules and at least two https review links', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('snooker.html', { search: '?date=2026-09-02' });
+  const details = document.querySelector('.analysis details');
+  assert.ok(details, 'an analysis panel exists');
+  details.setAttribute('open', '');
+  const atext = details.textContent;
+  assert.match(atext, /Factor|form|ranking|h2h|stage/i, 'analysis names scored factors');
+  const links = [...details.querySelectorAll('a[href^="https://"]')];
+  assert.ok(links.length >= 2, `at least two https review links, saw ${links.length}`);
+  assert.match(atext, /odds/i, 'odds category is reported (as not available live)');
+});
+
+test('registry: snooker is predicted on its own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const s = SPORTS.find((x) => x.key === 'snooker');
+  assert.equal(s.predictable, true);
+  assert.equal(s.page, 'snooker.html');
+  assert.equal(s.specialistEngine, 'snooker');
+});
+
 test('registry: greyhounds are predicted on their own specialist page', async () => {
   const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
   const g = SPORTS.find((s) => s.key === 'greyhounds');
@@ -566,14 +629,24 @@ test('volleyball.html boots NCAA rows, set linescores and the Generate button', 
   } finally { cleanup(); }
 });
 
-test('volleyball.html on 3 September shows EuroVolley QFs, not NCAA form labels as EuroVolley sides', { skip: !JSDOM }, async () => {
+test('volleyball.html on 3 September renders EuroVolley QFs and separate NCAA rows without bleed', { skip: !JSDOM }, async () => {
   const { document } = await bootPage('volleyball.html', { search: '?date=2026-09-03' });
   try {
     const text = document.body.textContent;
     assert.match(text, /Poland/);
     assert.match(text, /Netherlands/);
     assert.match(text, /EuroVolley/);
-    assert.ok(!/Nebraska Cornhuskers/.test(text), 'NCAA sides must not appear on the EuroVolley date from the committed tape');
+    // The refreshed committed tape legitimately carries NCAA fixtures on
+    // 2026-09-03 as well; they must render in their own family rows, never
+    // as form/data on the EuroVolley sides.
+    const rows = [...document.querySelectorAll('#board .match')];
+    const euro = rows.find((r) => r.textContent.includes('Poland') && r.textContent.includes('Netherlands'));
+    assert.ok(euro, 'EuroVolley fixture renders');
+    assert.match(euro.querySelector('.meta-line').textContent, /EuroVolley tape/);
+    assert.ok(!/Nebraska Cornhuskers/.test(euro.textContent), 'EuroVolley card carries no NCAA side');
+    const ncaa = rows.find((r) => r.textContent.includes('Nebraska Cornhuskers'));
+    assert.ok(ncaa, 'the committed NCAA fixture on this date renders in its own row');
+    assert.match(ncaa.querySelector('.meta-line').textContent, /NCAA \/ ESPN/);
     const toggle = document.querySelector('[data-toggle]');
     assert.ok(toggle, 'analysis toggle exists');
   } finally { cleanup(); }

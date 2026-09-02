@@ -1,0 +1,562 @@
+{
+  "schema_version": 1,
+  "sport": "Snooker",
+  "generated_at_utc": "2026-09-02T21:13:39Z",
+  "method": "Walk-forward over committed source-linked tape rows. Every match is scored only from matches recorded strictly before it. No odds tier is ever tested: there is no free price feed (IR-SNOOKER-01), so the output measures model lean accuracy only and is NOT a betting record.",
+  "events": 27,
+  "summary": [
+    {
+      "market": "match_lean",
+      "graded": 13,
+      "hits": 7,
+      "hitRate": 0.5385
+    },
+    {
+      "market": "bet_tiers",
+      "graded": 0,
+      "hits": 0,
+      "hitRate": null,
+      "note": "untestable without a price feed (IR-SNOOKER-01)"
+    }
+  ],
+  "rows": [
+    {
+      "id": "pa-chinaopenqual-r3",
+      "date": "2026-06-14",
+      "event": "China Open Qual",
+      "round": "Qualifying Round 3",
+      "matchId": "pa-chinaopenqual-r3",
+      "match": "Pang Junxu v Dylan Emery",
+      "actualWinner": "Pang Junxu",
+      "score": "6-0",
+      "lean": "Pang Junxu",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Pang Junxu: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Dylan Emery: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Dylan Emery)"
+      ]
+    },
+    {
+      "id": "pa-chinaopenqual-r4",
+      "date": "2026-06-14",
+      "event": "China Open Qual",
+      "round": "Qualifying Round 4",
+      "matchId": "pa-chinaopenqual-r4",
+      "match": "Pang Junxu v Fan Zhengyi",
+      "actualWinner": "Pang Junxu",
+      "score": "6-4",
+      "lean": "Pang Junxu",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Pang Junxu: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Fan Zhengyi: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Fan Zhengyi)"
+      ]
+    },
+    {
+      "id": "mj-chinaopenqual-r1",
+      "date": "2026-06-14",
+      "event": "China Open Qual",
+      "round": "Qualifying Round 1",
+      "matchId": "mj-chinaopenqual-r1",
+      "match": "Mark Joyce v Wang Xinbo",
+      "actualWinner": "Mark Joyce",
+      "score": "6-3",
+      "lean": "Mark Joyce",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Mark Joyce: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Wang Xinbo: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Wang Xinbo)"
+      ]
+    },
+    {
+      "id": "mj-chinaopenqual-r2",
+      "date": "2026-06-14",
+      "event": "China Open Qual",
+      "round": "Qualifying Round 2",
+      "matchId": "mj-chinaopenqual-r2",
+      "match": "Michael Holt v Mark Joyce",
+      "actualWinner": "Michael Holt",
+      "score": "6-1",
+      "lean": "Michael Holt",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Michael Holt: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Michael Holt)",
+        "Mark Joyce: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Mark Joyce)"
+      ]
+    },
+    {
+      "id": "pa-wuhanqual-r1",
+      "date": "2026-06-18",
+      "event": "Wuhan Open Qual",
+      "round": "Qualifying Round 1",
+      "matchId": "pa-wuhanqual-r1",
+      "match": "Pang Junxu v Oliver Sykes",
+      "actualWinner": "Pang Junxu",
+      "score": "5-3",
+      "lean": "Pang Junxu",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Oliver Sykes: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Oliver Sykes)"
+      ]
+    },
+    {
+      "id": "pa-cl1-grp-quinn",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage One Group 15",
+      "round": "Group",
+      "matchId": "pa-cl1-grp-quinn",
+      "match": "Pang Junxu v Fergal Quinn",
+      "actualWinner": "Pang Junxu",
+      "score": "3-0",
+      "lean": "Pang Junxu",
+      "modelScore": 10,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Fergal Quinn: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Fergal Quinn)"
+      ]
+    },
+    {
+      "id": "pa-cl2-grp-burns",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage Two Group B",
+      "round": "Group",
+      "matchId": "pa-cl2-grp-burns",
+      "match": "Ian Burns v Pang Junxu",
+      "actualWinner": "Ian Burns",
+      "score": "3-1",
+      "lean": "Pang Junxu",
+      "modelScore": 10,
+      "band": "SKIP",
+      "hit": false,
+      "decision": "SKIP",
+      "missing": [
+        "Ian Burns: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Ian Burns)",
+        "head-to-head (no completed meetings between b and Pang Junxu)"
+      ]
+    },
+    {
+      "id": "mj-cl1-grp-bingham",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage One Group 11",
+      "round": "Group",
+      "matchId": "mj-cl1-grp-bingham",
+      "match": "Mark Joyce v Stuart Bingham",
+      "actualWinner": "Mark Joyce",
+      "score": "3-1",
+      "lean": "Stuart Bingham",
+      "modelScore": 5,
+      "band": "SKIP",
+      "hit": false,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Stuart Bingham: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Stuart Bingham)"
+      ]
+    },
+    {
+      "id": "mj-cl1-grp-brown",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage One Group 11",
+      "round": "Group",
+      "matchId": "mj-cl1-grp-brown",
+      "match": "Mark Joyce v Jordan Brown",
+      "actualWinner": "Mark Joyce",
+      "score": "3-0",
+      "lean": "Mark Joyce",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Jordan Brown: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Jordan Brown)"
+      ]
+    },
+    {
+      "id": "mj-cl1-grp-baranowski",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage One Group 11",
+      "round": "Group",
+      "matchId": "mj-cl1-grp-baranowski",
+      "match": "Mateusz Baranowski v Mark Joyce",
+      "actualWinner": "Mateusz Baranowski",
+      "score": "3-1",
+      "lean": "Mateusz Baranowski",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Mateusz Baranowski: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Mateusz Baranowski)",
+        "head-to-head (no completed meetings between b and Mark Joyce)"
+      ]
+    },
+    {
+      "id": "mj-cl2-grp-chang",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage Two Group F",
+      "round": "Group",
+      "matchId": "mj-cl2-grp-chang",
+      "match": "Chang Bingyu v Mark Joyce",
+      "actualWinner": "Chang Bingyu",
+      "score": "3-0",
+      "lean": "Chang Bingyu",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Chang Bingyu: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Chang Bingyu)",
+        "head-to-head (no completed meetings between b and Mark Joyce)"
+      ]
+    },
+    {
+      "id": "mj-cl2-grp-fu",
+      "date": "2026-07-15",
+      "event": "Championship League — Stage Two Group F",
+      "round": "Group",
+      "matchId": "mj-cl2-grp-fu",
+      "match": "Marco Fu v Mark Joyce",
+      "actualWinner": "Marco Fu",
+      "score": "3-0",
+      "lean": "Marco Fu",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Marco Fu: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Marco Fu)",
+        "head-to-head (no completed meetings between b and Mark Joyce)"
+      ]
+    },
+    {
+      "id": "pa-shenzhenqual-r1",
+      "date": "2026-07-22",
+      "event": "Shenzhen Open Qual",
+      "round": "Qualifying Round 1",
+      "matchId": "pa-shenzhenqual-r1",
+      "match": "Pang Junxu v Luca Brecel",
+      "actualWinner": "Pang Junxu",
+      "score": "5-2",
+      "lean": "Pang Junxu",
+      "modelScore": 18,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Luca Brecel: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Luca Brecel)"
+      ]
+    },
+    {
+      "id": "pa-shanghai-r1",
+      "date": "2026-08-02",
+      "event": "Shanghai Masters",
+      "round": "Round 1",
+      "matchId": "pa-shanghai-r1",
+      "match": "Si Jiahui v Pang Junxu",
+      "actualWinner": "Si Jiahui",
+      "score": "6-4",
+      "lean": "Pang Junxu",
+      "modelScore": 13,
+      "band": "SKIP",
+      "hit": false,
+      "decision": "SKIP",
+      "missing": [
+        "Si Jiahui: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Si Jiahui)",
+        "head-to-head (no completed meetings between b and Pang Junxu)"
+      ]
+    },
+    {
+      "id": "pa-chinaopen-r1",
+      "date": "2026-08-16",
+      "event": "China Open",
+      "round": "Round 1",
+      "matchId": "pa-chinaopen-r1",
+      "match": "Mark Selby v Pang Junxu",
+      "actualWinner": "Mark Selby",
+      "score": "6-3",
+      "lean": "Mark Selby",
+      "modelScore": 15,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Mark Selby: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Mark Selby)",
+        "head-to-head (no completed meetings between b and Pang Junxu)"
+      ]
+    },
+    {
+      "id": "pa-wuhan-r2",
+      "date": "2026-08-29",
+      "event": "Wuhan Open",
+      "round": "Round 2",
+      "matchId": "pa-wuhan-r2",
+      "match": "Pang Junxu v Shaun Murphy",
+      "actualWinner": "Pang Junxu",
+      "score": "5-3",
+      "lean": "Shaun Murphy",
+      "modelScore": 10,
+      "band": "SKIP",
+      "hit": false,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Shaun Murphy: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Shaun Murphy)"
+      ]
+    },
+    {
+      "id": "pa-wuhan-r3",
+      "date": "2026-08-29",
+      "event": "Wuhan Open",
+      "round": "Round 3",
+      "matchId": "pa-wuhan-r3",
+      "match": "Mark Selby v Pang Junxu",
+      "actualWinner": "Mark Selby",
+      "score": "5-4",
+      "lean": "Mark Selby",
+      "modelScore": 35,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Mark Selby: last-five form (fewer than two completed matches in the sourced tape)"
+      ]
+    },
+    {
+      "id": "mj-qtour1-r2",
+      "date": "2026-08-30",
+      "event": "Q Tour 1",
+      "round": "Round 2",
+      "matchId": "mj-qtour1-r2",
+      "match": "Mark Joyce v Neal Jones",
+      "actualWinner": "Mark Joyce",
+      "score": "4-3",
+      "lean": "Mark Joyce",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Neal Jones: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Neal Jones)"
+      ]
+    },
+    {
+      "id": "mj-qtour1-r3",
+      "date": "2026-08-30",
+      "event": "Q Tour 1",
+      "round": "Round 3",
+      "matchId": "mj-qtour1-r3",
+      "match": "Mark Joyce v Daniel Boyes",
+      "actualWinner": "Mark Joyce",
+      "score": "4-1",
+      "lean": "Mark Joyce",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Daniel Boyes: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Daniel Boyes)"
+      ]
+    },
+    {
+      "id": "mj-qtour1-r4",
+      "date": "2026-08-30",
+      "event": "Q Tour 1",
+      "round": "Round 4",
+      "matchId": "mj-qtour1-r4",
+      "match": "Mark Joyce v Alfie Davies",
+      "actualWinner": "Mark Joyce",
+      "score": "4-2",
+      "lean": "Mark Joyce",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Alfie Davies: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Alfie Davies)"
+      ]
+    },
+    {
+      "id": "mj-qtour1-r5",
+      "date": "2026-08-30",
+      "event": "Q Tour 1",
+      "round": "Round 5",
+      "matchId": "mj-qtour1-r5",
+      "match": "Mark Joyce v Sebastian Milewski",
+      "actualWinner": "Mark Joyce",
+      "score": "4-3",
+      "lean": "Mark Joyce",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Sebastian Milewski: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Sebastian Milewski)"
+      ]
+    },
+    {
+      "id": "mj-qtour1-qf",
+      "date": "2026-08-30",
+      "event": "Q Tour 1",
+      "round": "Quarter-final",
+      "matchId": "mj-qtour1-qf",
+      "match": "Mark Joyce v Patrick Whelan",
+      "actualWinner": "Mark Joyce",
+      "score": "4-1",
+      "lean": "Mark Joyce",
+      "modelScore": 7,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Mark Joyce)",
+        "Patrick Whelan: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Patrick Whelan)"
+      ]
+    },
+    {
+      "id": "mj-qtour1-sf",
+      "date": "2026-08-30",
+      "event": "Q Tour 1",
+      "round": "Semi-final",
+      "matchId": "mj-qtour1-sf",
+      "match": "Sanderson Lam v Mark Joyce",
+      "actualWinner": "Sanderson Lam",
+      "score": "4-0",
+      "lean": "Sanderson Lam",
+      "modelScore": 10,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Sanderson Lam: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between a and Sanderson Lam)",
+        "head-to-head (no completed meetings between b and Mark Joyce)"
+      ]
+    },
+    {
+      "id": "pa-boqual-r1",
+      "date": "2026-08-31",
+      "event": "Unibet British Open 2026",
+      "round": "Qualifying Round 1",
+      "matchId": "pa-boqual-r1",
+      "match": "Pang Junxu v Neil Robertson",
+      "actualWinner": "Pang Junxu",
+      "score": "4-1",
+      "lean": "Neil Robertson",
+      "modelScore": 15,
+      "band": "SKIP",
+      "hit": false,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Neil Robertson: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Neil Robertson)"
+      ]
+    },
+    {
+      "id": "mj-boqual-r1",
+      "date": "2026-08-31",
+      "event": "Unibet British Open 2026",
+      "round": "Qualifying Round 1",
+      "matchId": "mj-boqual-r1",
+      "match": "Mark Joyce v Mateusz Baranowski",
+      "actualWinner": "Mark Joyce",
+      "score": "4-1",
+      "lean": "Mateusz Baranowski",
+      "modelScore": 20,
+      "band": "SKIP",
+      "hit": false,
+      "decision": "SKIP",
+      "missing": [
+        "Mateusz Baranowski: last-five form (fewer than two completed matches in the sourced tape)"
+      ]
+    },
+    {
+      "id": "pa-bo-r2",
+      "date": "2026-09-01",
+      "event": "Unibet British Open 2026",
+      "round": "Round 2",
+      "matchId": "pa-bo-r2",
+      "match": "Pang Junxu v Liam Graham",
+      "actualWinner": "Pang Junxu",
+      "score": "4-2",
+      "lean": "Pang Junxu",
+      "modelScore": 0,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "head-to-head (no completed meetings between a and Pang Junxu)",
+        "Liam Graham: last-five form (fewer than two completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between b and Liam Graham)"
+      ]
+    },
+    {
+      "id": "mj-bo-r2",
+      "date": "2026-09-01",
+      "event": "Unibet British Open 2026",
+      "round": "Round 2",
+      "matchId": "mj-bo-r2",
+      "match": "Mark Joyce v Jordan Brown",
+      "actualWinner": "Mark Joyce",
+      "score": "4-0",
+      "lean": "Mark Joyce",
+      "modelScore": 38,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Jordan Brown: last-five form (fewer than two completed matches in the sourced tape)"
+      ]
+    }
+  ]
+}

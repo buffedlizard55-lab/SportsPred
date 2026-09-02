@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "sport": "Snooker",
+  "predictions": [
+    {
+      "matchId": "olbg-9573",
+      "matchTitle": "Pang Junxu v Mark Joyce",
+      "event": "Unibet British Open 2026",
+      "round": "Round 3 (Last 32)",
+      "dateISO": "2026-09-02",
+      "venue": "The Centaur, Cheltenham",
+      "predictedWinner": "Mark Joyce",
+      "confidence": "SKIP",
+      "modelScore": 18,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Mark Joyce** (18/100)",
+      "paragraph": "**Mark Joyce** carries the sharper scoring profile here, backed by a commanding recent record. That profile should hold against this opposition. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-02T21:19:26Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Pang_Junxu_v_Mark_Joyce/8?event_id=9573",
+        "https://www.olbg.com/betting-tips/Snooker/8"
+      ],
+      "status": "pending",
+      "settlement": null
+    }
+  ],
+  "updatedAtUtc": "2026-09-02T21:19:26Z",
+  "notes": [
+    "Writers/engine output recorded by scripts/record_snooker_predictions.mjs from the committed source-linked documents.",
+    "Settlement runs in CI from the official results tape; values are matched by player names and confirmed via WST match-centre URLs present in the tape rows.",
+    "Nothing in this ledger is hand-written; every verdict object comes from the tested engine and writer."
+  ]
+}

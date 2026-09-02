@@ -1,0 +1,107 @@
+{
+ "schema_version": 1,
+ "sport": "Snooker",
+ "as_of_utc": "2026-09-02T20:50:00Z",
+ "register": [
+  {
+   "id": "IR-SNOOKER-01",
+   "title": "No free, key-less structured odds feed for snooker",
+   "status": "open",
+   "what_was_checked": "OLBG index + event page (2026-09-02), WST match centre, snooker.org, ESPN site API (no snooker coverage), The Odds API requires a key.",
+   "finding": "OLBG server-rendered pages expose tipster vote counts, never prices. WST/snooker.org publish no price data. No public key-less price feed exists.",
+   "effect_on_output": "The 30-pt Odds Strength component is recorded as missing on every live card; Step 3's price-gated rules (Full Bet / Small Bet / profitability check) resolve to SKIP; written verdicts and confidence are still produced from sourced factors; HIGH is impossible on a live card.",
+   "review_links": [
+    "https://www.olbg.com/betting-tips/Snooker/8",
+    "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Pang_Junxu_v_Mark_Joyce/8?event_id=9573",
+    "https://www.wst.tv/match-centre/4e7a310c-d41f-4042-bec2-77f20b24dd04"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-02",
+   "title": "Amateur replacement in the draw — Mark Joyce replaced Ronnie O'Sullivan",
+   "status": "open",
+   "what_was_checked": "snooker.org British Open pages and player page 48; WST ranking list; BBC results.",
+   "finding": "Joyce is an amateur (last pro season 2023, career-best ranking 29) and entered the British Open as O'Sullivan's replacement. He is NOT on the official WST ranking list. Patrick Whelan likewise replaced Mark Allen.",
+   "effect_on_output": "Joyce's World Ranking component is 0 pts (unranked) and carries the -5 opponent-ranked-higher deduction. Any 'upset' narrative is never invented; the ranking factor simply scores what the official list shows.",
+   "review_links": [
+    "https://www.snooker.org/res/index.asp?player=48&season=2026",
+    "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+    "https://www.bbc.com/sport/snooker/results"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-03",
+   "title": "Match start time disagrees across public sources",
+   "status": "open",
+   "what_was_checked": "WST venue match centre (15:00), OLBG event page (17:00), BBC Sport results page (21:00), snooker.org live page (Est. 16:00 America/New_York).",
+   "finding": "No two sources agree; snooker.org labels its time an estimate and renders in America/New_York, so 16:00 ET = 21:00 BST agrees with BBC. WST's 15:00 may be the pre-update schedule.",
+   "effect_on_output": "The slate records display_time per source and start_utc: null. The calendar never infers a start time; collectors must capture the WST match-centre value as the venue reference.",
+   "review_links": [
+    "https://www.wst.tv/match-centre/4e7a310c-d41f-4042-bec2-77f20b24dd04",
+    "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Pang_Junxu_v_Mark_Joyce/8?event_id=9573",
+    "https://www.snooker.org/res/index.asp?template=21&event=2547",
+    "https://www.bbc.com/sport/snooker/results"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-04",
+   "title": "api.snooker.org and /players/{name} on wst.tv are not usable key-less",
+   "status": "open",
+   "what_was_checked": "api.snooker.org/?t=0&st=1 (HTTP 401.5 access denied from this environment), wst.tv/players/pang-junxu (404), cuetracker.net player/H2H pages (client-rendered shells).",
+   "finding": "The snooker.org REST API requires credentials; WST player pages use UUID routes; CueTracker renders content via JavaScript and serves no static HTML.",
+   "effect_on_output": "Collectors read the public snooker.org HTML pages (results/upcoming/player) and the WST match-centre URLs, with reconstructed-fixture parser tests. CueTracker is referenced for manual review only (IR-SNOOKER-06).",
+   "review_links": [
+    "https://www.snooker.org/res/index.asp?template=22&event=2547",
+    "https://www.wst.tv/match-centre/4e7a310c-d41f-4042-bec2-77f20b24dd04",
+    "https://cuetracker.net/head-to-head/pang-junxu/mark-joyce"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-05",
+   "title": "snooker.org player pages order rows by event/round, not by match date",
+   "status": "open",
+   "what_was_checked": "Player pages 1257 and 48 for the 2026-27 season; cross-checked dates via the British Open results stream and BBC.",
+   "finding": "Rows outside the observed British Open stream carry no per-match date; the tape therefore records event windows and explicit round_index (knock-out round order = chronological order). Two British Open rows carry observed dates (31 Aug / 01 Sep).",
+   "effect_on_output": "Profile ordering is deterministic and leak-free, but precise day-level ordering inside an event window relies on round_index; the collector upgrades date_basis to observed as the stream supplies it.",
+   "review_links": [
+    "https://www.snooker.org/res/index.asp?player=1257&season=2026",
+    "https://www.snooker.org/res/index.asp?player=48&season=2026"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-06",
+   "title": "CueTracker is a manual-review link only",
+   "status": "open",
+   "what_was_checked": "cuetracker.net/players/pang-junxu, /players/mark-joyce/season/2026-2027, /head-to-head/pang-junxu/mark-joyce.",
+   "finding": "Pages render via JavaScript; static extraction returns shells. Only the snooker.org H2H page renders statically and was used for the verified zero-meeting H2H.",
+   "effect_on_output": "CueTracker appears in source lists for human review; it is never fetched by collectors.",
+   "review_links": [
+    "https://cuetracker.net/head-to-head/pang-junxu/mark-joyce",
+    "https://www.snooker.org/res/index.asp?player1=1257&player2=48&season=-1"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-07",
+   "title": "Pang Junxu v Mark Joyce — zero completed meetings (verified)",
+   "status": "resolved",
+   "what_was_checked": "snooker.org dedicated H2H page (player1=1257, player2=48, all seasons).",
+   "finding": "The page lists only the upcoming British Open Round 3 fixture — no prior meeting exists.",
+   "effect_on_output": "The 20-pt H2H component is recorded as missing (0 pts) on this fixture rather than guessed as 'roughly even' (substitution S-06). The tape covers only the 2026-27 season, so H2H for other pairings awaits tape growth.",
+   "review_links": [
+    "https://www.snooker.org/res/index.asp?player1=1257&player2=48&season=-1"
+   ]
+  },
+  {
+   "id": "IR-SNOOKER-08",
+   "title": "snooker.org registers results in America/New_York and registration time ≠ start time",
+   "status": "open",
+   "what_was_checked": "British Open results stream headings and times; WST venue schedule.",
+   "finding": "Times on the results stream are registrations in America/New_York (e.g. Pang-Robertson 18:43 NY = 01 Sep UK late session while the venue day was 31 Aug/01 Sep).",
+   "effect_on_output": "The tape uses the registered DAY (cross-checked with WST/BBC) and never derives start times; collectors must not convert registration times into kick-off times.",
+   "review_links": [
+    "https://www.snooker.org/res/index.asp?template=22&event=2547",
+    "https://www.bbc.com/sport/snooker/results"
+   ]
+  }
+ ]
+}
