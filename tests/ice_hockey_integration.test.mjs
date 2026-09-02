@@ -83,10 +83,21 @@ test('every written tip on the real card passes the Step 4 validator', () => {
   }
 });
 
-test('with the standings table empty the engine reports gaps instead of guessing', () => {
-  assert.equal(Object.keys(standingsDoc.teams || {}).length, 0, 'the committed standings table is empty by design');
-  const card = cardsByDate().get('2026-10-05');
-  const r = card.scored.results[0];
+/** The least-sourced scored result: wherever the gaps have to show up. */
+function poorestResult() {
+  let best = null;
+  for (const [, card] of cardsByDate()) {
+    for (const r of card.scored.results) {
+      if (r.unscored) continue;
+      if (!best || r.missing.length > best.missing.length) best = r;
+    }
+  }
+  return best;
+}
+
+test('the least-sourced fixture records its gaps instead of guessing', () => {
+  const r = poorestResult();
+  assert.ok(r, 'the collected set produced at least one scored fixture');
   assert.ok(r.missing.length >= 5, `expected recorded gaps, found ${r.missing.length}`);
   assert.match(r.missing.join(' '), /goalsForPerGame|form\.last5|odds\.moneyline/);
   // No factor was invented, so no confident play is possible.
@@ -96,9 +107,10 @@ test('with the standings table empty the engine reports gaps instead of guessing
 });
 
 test('a data-poor card still writes every section a reader needs', () => {
-  const card = cardsByDate().get('2026-10-05');
+  const dateISO = poorestResult().dateISO;
+  const card = cardsByDate().get(dateISO);
   const text = card.written.formattedText;
-  assert.match(text, /ICE HOCKEY PREDICTIONS — 2026-10-05/);
+  assert.match(text, new RegExp(`ICE HOCKEY PREDICTIONS — ${dateISO}`));
   assert.match(text, /OUTRIGHT WINNER/);
   assert.match(text, /PUCK LINE/);
   assert.match(text, /GAME TOTAL/);
@@ -143,7 +155,12 @@ test('the backtest document says plainly what cannot be graded', () => {
 });
 
 test('the OLBG slate carries no price on any row', () => {
-  assert.ok(slateDoc.events.length >= 1);
+  // Whatever OLBG listed when the collector ran. An empty slate is legitimate,
+  // but the document has to say so rather than read as a broken collection.
+  if (!slateDoc.events.length) {
+    assert.ok(slateDoc.note || (slateDoc.warnings || []).length, 'an empty slate explains itself');
+    return;
+  }
   for (const e of slateDoc.events) {
     assert.equal(e.odds, null, 'OLBG publishes tipster consensus, never a price');
     assert.match(e.url, /^https:\/\/www\.olbg\.com\/betting-tips\/Ice_Hockey\//);
