@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "sport": "Formula 1",
+  "fetched_at_utc": "2026-09-02T02:22:02.717Z",
+  "method": "Open-Meteo geocoding + daily forecast APIs (free, key-less)",
+  "note": "Weather is a permitted external reference only; it never feeds internal scoring beyond a weather-dependence flag.",
+  "events": {
+    "600057442": {
+      "available": false,
+      "reason": "circuit city/country not sourced"
+    },
+    "600057443": {
+      "available": false,
+      "reason": "circuit city/country not sourced"
+    },
+    "600057444": {
+      "available": false,
+      "reason": "circuit city/country not sourced"
+    },
+    "600060990": {
+      "available": false,
+      "reason": "circuit city/country not sourced"
+    }
+  }
+}
