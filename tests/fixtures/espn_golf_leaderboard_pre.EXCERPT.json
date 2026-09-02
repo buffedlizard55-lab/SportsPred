@@ -1,0 +1,90 @@
+{
+  "_fixture_provenance": {
+    "what": "Trimmed EXCERPT of a real response from the ESPN golf leaderboard endpoint for an UPCOMING DP World Tour event (field + tee times published, no scores).",
+    "fetched_utc": "2026-09-02T12:00:00Z",
+    "urls": [
+      "https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=eur&event=401822700",
+      "https://www.espn.com/golf/leaderboard?tournamentId=401822700"
+    ],
+    "honesty_note": "Field names, nesting and values are copied verbatim from the live response. Of the ~150 competitors four are retained. Nothing was added or altered. Note that status.type.id is \"0\"/STATUS_SCHEDULED with state 'pre', score.displayValue is '-', and linescores carry only period + teeTime.",
+    "excluded": "The rest of the field, sportscenter links."
+  },
+  "events": [
+    {
+      "id": "401822700",
+      "uid": "s:1100~l:7002~e:401822700",
+      "date": "2026-09-03T04:00Z",
+      "endDate": "2026-09-06T04:00Z",
+      "name": "Omega European Masters",
+      "shortName": "Omega European Masters",
+      "primary": true,
+      "hasPlayerStats": false,
+      "hasCourseStats": false,
+      "purse": 3250000,
+      "displayPurse": "$3,250,000",
+      "league": { "id": "7002", "name": "DP World Tour", "abbreviation": "EUR", "shortName": "DP World", "slug": "eur" },
+      "season": { "year": 2026 },
+      "seasonType": { "id": "2", "name": "Regular Season" },
+      "links": [
+        { "language": "en-US", "rel": ["summary", "desktop", "event"], "href": "https://www.espn.com/golf/leaderboard?tournamentId=401822700", "text": "Leaderboard", "shortText": "Summary", "isExternal": false, "isPremium": false, "isHidden": false }
+      ],
+      "tournament": { "id": "3383", "displayName": "European Masters", "major": false, "scoringSystem": { "id": "1", "name": "Medal" }, "numberOfRounds": 4, "cutRound": 2, "cutScore": 0, "cutCount": 0 },
+      "status": { "type": { "id": "1", "name": "STATUS_SCHEDULED", "state": "pre", "completed": false, "description": "Scheduled" } },
+      "defendingChampion": { "athlete": { "id": "9240", "displayName": "Thriston Lawrence", "amateur": false }, "displayName": "" },
+      "playoffType": { "id": -1, "description": "None", "minimumHoles": 0 },
+      "competitions": [
+        {
+          "id": "401822700",
+          "uid": "s:1100~l:7002~e:401822700~c:401822700",
+          "date": "2026-09-03T04:00Z",
+          "endDate": "2026-09-06T04:00Z",
+          "recent": true,
+          "onWatchESPN": false,
+          "dataFormat": "API",
+          "status": { "period": 0, "type": { "id": "1", "name": "STATUS_SCHEDULED", "state": "pre", "description": "Scheduled", "detail": "September 3 - 6", "shortDetail": "9/3 - 9/6" } },
+          "competitors": [
+            {
+              "id": "10020", "uid": "s:1100~a:10020", "movement": 0, "earnings": 0.0, "sortOrder": 62, "amateur": false, "featured": false,
+              "status": { "displayValue": "2026-09-03T07:10:00Z", "period": 1, "teeTime": "2026-09-03T07:10Z", "startHole": 1, "thru": 0, "playoff": false, "behindCurrentRound": false, "detail": "3:10 AM ET", "type": { "id": "0", "name": "STATUS_SCHEDULED", "state": "pre", "completed": false, "description": "Scheduled", "detail": "Scheduled", "shortDetail": "Scheduled" }, "position": { "id": "0", "displayName": "-", "isTie": false } },
+              "score": { "value": 0.0, "displayValue": "-" },
+              "linescores": [ { "period": 1, "teeTime": "2026-09-03T07:10Z", "hasStream": false, "isPlayoff": false }, { "period": 2, "teeTime": "2026-09-04T12:25Z", "hasStream": false, "isPlayoff": false } ],
+              "statistics": [ { "name": "scoreToPar", "value": 0.0, "displayValue": "-" }, { "name": "officialAmount", "displayValue": "--" } ],
+              "athlete": { "id": "10020", "uid": "s:1100~a:10020", "guid": "326927c5-417e-ed59-fccc-7c16dc94171a", "displayName": "Simon Forsström", "shortName": "S. Forsström", "lastName": "Forsström", "amateur": false, "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/swe.png", "alt": "Sweden" }, "birthPlace": { "countryAbbreviation": "SWE" }, "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10020/simon-forsstrom", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ] }
+            },
+            {
+              "id": "10060", "uid": "s:1100~a:10060", "movement": 0, "earnings": 0.0, "sortOrder": 131, "amateur": false, "featured": false,
+              "status": { "displayValue": "2026-09-03T12:05:00Z", "period": 1, "teeTime": "2026-09-03T12:05Z", "startHole": 10, "thru": 0, "playoff": false, "behindCurrentRound": false, "detail": "8:05 AM ET", "type": { "id": "0", "name": "STATUS_SCHEDULED", "state": "pre", "completed": false, "description": "Scheduled", "detail": "Scheduled", "shortDetail": "Scheduled" }, "position": { "id": "0", "displayName": "-", "isTie": false } },
+              "score": { "value": 0.0, "displayValue": "-" },
+              "linescores": [ { "period": 1, "teeTime": "2026-09-03T12:05Z", "hasStream": false, "isPlayoff": false }, { "period": 2, "teeTime": "2026-09-04T06:50Z", "hasStream": false, "isPlayoff": false } ],
+              "statistics": [ { "name": "scoreToPar", "value": 0.0, "displayValue": "-" }, { "name": "officialAmount", "displayValue": "--" } ],
+              "athlete": { "id": "10060", "uid": "s:1100~a:10060", "guid": "c6488083-e05b-6bac-7fb8-e33938af6f85", "displayName": "Yannik Paul", "shortName": "Y. Paul", "lastName": "Paul", "amateur": false, "headshot": { "href": "https://a.espncdn.com/i/headshots/golf/players/full/10060.png" }, "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/ger.png", "alt": "Germany" }, "birthPlace": { "countryAbbreviation": "GER" }, "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10060/yannik-paul", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ] }
+            },
+            {
+              "id": "10099", "uid": "s:1100~a:10099", "movement": 0, "earnings": 0.0, "sortOrder": 46, "amateur": false, "featured": false,
+              "status": { "displayValue": "2026-09-03T06:40:00Z", "period": 1, "teeTime": "2026-09-03T06:40Z", "startHole": 10, "thru": 0, "playoff": false, "behindCurrentRound": false, "detail": "2:40 AM ET", "type": { "id": "0", "name": "STATUS_SCHEDULED", "state": "pre", "completed": false, "description": "Scheduled", "detail": "Scheduled", "shortDetail": "Scheduled" }, "position": { "id": "0", "displayName": "-", "isTie": false } },
+              "score": { "value": 0.0, "displayValue": "-" },
+              "linescores": [ { "period": 1, "teeTime": "2026-09-03T06:40Z", "hasStream": false, "isPlayoff": false }, { "period": 2, "teeTime": "2026-09-04T11:55Z", "hasStream": false, "isPlayoff": false } ],
+              "statistics": [ { "name": "scoreToPar", "value": 0.0, "displayValue": "-" }, { "name": "officialAmount", "displayValue": "--" } ],
+              "athlete": { "id": "10099", "uid": "s:1100~a:10099", "guid": "a32ccc78-2e01-ce7b-29fd-1a2effe62ffd", "displayName": "Romain Langasque", "shortName": "R. Langasque", "lastName": "Langasque", "amateur": false, "headshot": { "href": "https://a.espncdn.com/i/headshots/golf/players/full/10099.png" }, "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png", "alt": "France" }, "birthPlace": { "countryAbbreviation": "FRA" }, "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10099/romain-langasque", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ] }
+            },
+            {
+              "id": "10102", "uid": "s:1100~a:10102", "movement": 0, "earnings": 0.0, "sortOrder": 124, "amateur": false, "featured": false,
+              "status": { "displayValue": "2026-09-03T11:55:00Z", "period": 1, "teeTime": "2026-09-03T11:55Z", "startHole": 1, "thru": 0, "playoff": false, "behindCurrentRound": false, "detail": "7:55 AM ET", "type": { "id": "0", "name": "STATUS_SCHEDULED", "state": "pre", "completed": false, "description": "Scheduled", "detail": "Scheduled", "shortDetail": "Scheduled" }, "position": { "id": "0", "displayName": "-", "isTie": false } },
+              "score": { "value": 0.0, "displayValue": "-" },
+              "linescores": [ { "period": 1, "teeTime": "2026-09-03T11:55Z", "hasStream": false, "isPlayoff": false }, { "period": 2, "teeTime": "2026-09-04T06:40Z", "hasStream": false, "isPlayoff": false } ],
+              "statistics": [ { "name": "scoreToPar", "value": 0.0, "displayValue": "-" }, { "name": "officialAmount", "displayValue": "--" } ],
+              "athlete": { "id": "10102", "uid": "s:1100~a:10102", "guid": "c1d15345-97ab-39f1-8408-36cd11a532ea", "displayName": "Calum Hill", "shortName": "C. Hill", "lastName": "Hill", "amateur": false, "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/sct.png", "alt": "Scotland" }, "birthPlace": { "countryAbbreviation": "SCT" }, "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10102/calum-hill", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ] }
+            }
+          ]
+        }
+      ],
+      "courses": [
+        {
+          "id": "10866", "name": "Crans-sur-Sierre Golf Club", "totalYards": 6830, "shotsToPar": 70, "parIn": 35, "parOut": 35, "host": true,
+          "holes": [ { "number": 1, "shotsToPar": 4, "totalYards": 530 }, { "number": 9, "shotsToPar": 5, "totalYards": 633 }, { "number": 18, "shotsToPar": 4, "totalYards": 402 } ],
+          "address": { "city": "Crans Montana", "country": "Switzerland" }
+        }
+      ]
+    }
+  ]
+}

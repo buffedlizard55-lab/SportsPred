@@ -53,7 +53,7 @@ const PAGES = [
 /** Render the masthead + sport rail into <body>, before the main element. */
 export function renderShell({ activeSport = null, activePage = 'index.html' } = {}) {
   const railLinks = SPORTS.map((s) => `
-    <a href="${siteUrl(`sport.html?sport=${s.key}`)}" class="${activeSport === s.key ? 'on' : ''}" data-sport="${esc(s.key)}">
+    <a href="${siteUrl(s.page || `sport.html?sport=${s.key}`)}" class="${activeSport === s.key ? 'on' : ''}" data-sport="${esc(s.key)}">
       <span class="ico" aria-hidden="true">${s.icon}</span>${esc(s.short || s.name)}
       ${s.predictable ? '' : '<span class="nofeed" title="No key-less statistics feed: markets are listed for review but never predicted">markets only</span>'}
     </a>`).join('');

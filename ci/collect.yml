@@ -109,6 +109,50 @@ jobs:
         if: steps.collect-f1-weather.outcome == 'failure'
         run: echo "::warning::F1 weather collection failed. data/f1_weather.json is unchanged."
 
+      - name: F1 walk-forward backtest and ledger
+        continue-on-error: true
+        run: node scripts/backtest_f1.mjs
+
+      - name: Collect OLBG golf slate
+        id: collect-golf-olbg
+        continue-on-error: true
+        run: |
+          python3 scripts/collect_golf_olbg.py \
+            --save-html tests/fixtures/captures \
+            --enrich \
+            --enrich-limit 25
+
+      - name: Report a failed golf OLBG collection
+        if: steps.collect-golf-olbg.outcome == 'failure'
+        run: echo "::warning::Golf OLBG collection failed. data/golf_slate.json is unchanged."
+
+      - name: Collect golf events, results tape, rankings and statistics
+        id: collect-golf-espn
+        continue-on-error: true
+        run: |
+          if [ ! -f data/golf_results.json ]; then
+            node scripts/collect_golf_espn.mjs --history
+          else
+            node scripts/collect_golf_espn.mjs
+          fi
+
+      - name: Report a failed golf ESPN collection
+        if: steps.collect-golf-espn.outcome == 'failure'
+        run: echo "::warning::Golf ESPN/OWGR collection failed. Recorded golf data is unchanged."
+
+      - name: Collect golf weather
+        id: collect-golf-weather
+        continue-on-error: true
+        run: node scripts/collect_golf_weather.mjs
+
+      - name: Report a failed golf weather collection
+        if: steps.collect-golf-weather.outcome == 'failure'
+        run: echo "::warning::Golf weather collection failed. data/golf_weather.json is unchanged."
+
+      - name: Golf walk-forward backtest and ledger
+        continue-on-error: true
+        run: node scripts/backtest_golf.mjs
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs
@@ -128,5 +172,12 @@ jobs:
             echo "No data changes to commit."
           else
             git commit -m "chore(data): refresh slate and recorded predictions"
-            git push
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt ${attempt} rejected by a concurrent data commit; retrying"
+              sleep $((attempt * 5))
+            done
+            [ "${pushed}" = 1 ]
           fi

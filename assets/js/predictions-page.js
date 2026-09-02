@@ -24,7 +24,8 @@ const state = {
   running: false,
 };
 
-const PREDICTABLE = SPORTS.filter((s) => s.predictable && s.espnSport);
+const PREDICTABLE = SPORTS.filter((s) => s.predictable && s.espnSport && !s.page);
+const OWN_PAGE = SPORTS.filter((s) => s.predictable && s.page);
 
 async function boot() {
   renderShell({ activeSport: null, activePage: 'predictions.html' });
@@ -39,7 +40,8 @@ async function boot() {
   $('#sport-picks').innerHTML = PREDICTABLE.map((s) => `
     <label class="btn sm" style="cursor:pointer">
       <input type="checkbox" value="${esc(s.key)}" ${state.sports.has(s.key) ? 'checked' : ''}> ${s.icon} ${esc(s.name)}
-    </label>`).join('');
+    </label>`).join('') + OWN_PAGE.map((s) => `
+    <a class="btn sm" href="${esc(s.page)}?date=${esc(state.date)}" title="${esc(s.name)} runs on its own specialist page">${s.icon} ${esc(s.name)} →</a>`).join('');
 
   $$('#sport-picks input').forEach((cb) => cb.addEventListener('change', () => {
     if (cb.checked) state.sports.add(cb.value); else state.sports.delete(cb.value);

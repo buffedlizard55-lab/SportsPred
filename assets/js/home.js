@@ -49,7 +49,7 @@ async function boot() {
 
 function renderTiles() {
   $('#tiles').innerHTML = SPORTS.map((s) => `
-    <a class="tile" href="sport.html?sport=${esc(s.key)}">
+    <a class="tile" href="${esc(s.page || `sport.html?sport=${s.key}`)}">
       <div class="t-ico">${s.icon}</div>
       <div class="t-name">${esc(s.name)}</div>
       <div class="t-meta">OLBG index ${esc(String(s.olbgId))}${s.candidateLeagues?.length ? ` · ${s.candidateLeagues.length} competitions` : ''}</div>

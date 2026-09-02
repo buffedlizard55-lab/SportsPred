@@ -17,6 +17,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`sources.html`](sources.html) | Every feed, per sport, with the official governing-body link; the machine-verification report; the irregularity register. |
 | [`method.html`](method.html) | The method, the facts-vs-hyperparameters split, the output rules, and the backtest. |
 | [`pro.html`](pro.html) | The specialist engine console (cricket · handball · tennis · F1) with the per-sport master prompts. |
+| [`golf.html`](golf.html) | Golf: PGA TOUR / DP World Tour / LPGA / Champions leaderboards and calendars, and the six-market golf card (outright, top six, first round leader, top European, top American, top British & Irish) generated for every men's-tour event on the board. |
 
 Every sport is reachable from the rail in the masthead on every page.
 
@@ -28,8 +29,11 @@ governing-body links, and — where one exists — the key-less ESPN feed and it
 candidate leagues.
 
 Sports with a structured feed are **predicted**. Sports without one (horse
-racing, greyhounds, darts, snooker, Gaelic football, cycling, boxing, golf) are
-**listed and linked for manual review** and produce no output at all. Aussie
+racing, greyhounds, darts, snooker, Gaelic football, cycling, boxing) are
+**listed and linked for manual review** and produce no output at all. Golf is
+an outright sport, so it bypasses the two-competitor universal engine and runs
+on its own specialist page (`golf.html`) driven by the GOLF TOURNAMENT
+PREDICTION MASTER PROMPT v1.0 (`docs/GOLF_MASTER_PROMPT.md`). Aussie
 Rules and eSports carry OLBG tipster content but no market feed we can reach.
 That split is stated on [`markets.html`](markets.html) per sport, not buried.
 
@@ -158,7 +162,14 @@ engine/                 the model — pure functions, no I/O
   surface.js            tournament -> court surface, or null with a reason
   tournament.js         tour level / round coding, H2H orientation
   join.js               slate -> engine input; never fills a gap
+  golf_engine.js        Golf Step 2 scoring (six markets) + Step 3 rules
+  golf_writer.js        Golf Step 4 writer (five blocks, table, weather, RG) + validator
+  golf_data.js          Golf results tape -> per-player profiles (leak-free)
+  golf_card.js          Golf documents -> scored & written card
+  golf_espn.js          ESPN golf / OWGR / PGA TOUR / ESPN-stats parsers
 assets/js/
+  golf-page.js          golf page controller (leaderboards, calendar, cards, button)
+  golf-collector.js     live browser collection for golf from ESPN (no key)
   app.js                multi-sport controller (scoreboard, calendar, markets, copy)
   cricket-collector.js  live browser collection for cricket (scorepanel + summary)
   collector.js          live browser collection for tennis from ESPN (no key)
@@ -170,7 +181,13 @@ data/
   predictions.json      append-only record of every selection made
   results.json          settled outcomes (empty — see IR-02)
   provenance.json       the irregularity register
+  golf_*.json           golf events / results tape / OWGR / stats / weather / slate / backtest / provenance (built in CI)
 scripts/
+  collect_golf_espn.mjs golf events, results tape, OWGR, ESPN stats, PGA TOUR SG
+  collect_golf_olbg.py  OLBG golf slate collector (stdlib only)
+  collect_golf_weather.mjs  Open-Meteo four-day + round-one trend per event
+  backtest_golf.mjs     golf walk-forward backtest + ledger
+  data_changed.mjs      collector commit guard: exit 1 when only timestamps moved
   collect_cricket_olbg.py  OLBG cricket slate collector (stdlib only)
   collect_olbg.py       OLBG tennis/handball slate collector (stdlib only)
   record_cricket_predictions.mjs  cricket forward-collection ledger validation
@@ -185,7 +202,7 @@ scripts/
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
 .github/workflows/      installed Pages deploy + scheduled collection workflows
-tests/                  179 Node tests + 35 Python tests
+tests/                  311 Node tests + 47 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
@@ -193,6 +210,11 @@ docs/
   SOURCES.md            every source with its verification status
   IRREGULARITIES.md     everything that did not check out
   BACKTEST.md           historical backtest method + results
+  GOLF_MASTER_PROMPT.md the golf prompt (spec of record)
+  GOLF_PROMPT_REVIEW.md prompt line -> code -> test, with every substitution named
+  GOLF_FEATURE_MATRIX.md what the golf layer delivers and how it is proven
+  GOLF_SOURCES.md       every golf endpoint, verified, with review links
+  GOLF_IRREGULARITIES.md IR-GOLF-01..16
 ```
 
 The engine is imported directly by the browser **and** by the tests. There is no

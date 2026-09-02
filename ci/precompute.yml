@@ -103,7 +103,18 @@ jobs:
             echo 'no data changes'
           else
             git commit -m "data: rebuild league registry, baselines and backtest [skip ci]"
-            git push origin HEAD:${{ github.head_ref || github.ref_name }}
+            # Another workflow (the golf collector) may push to this branch while
+            # we build; the data files never overlap, so rebase and retry instead
+            # of failing on a non-fast-forward rejection.
+            BRANCH="${{ github.head_ref || github.ref_name }}"
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin "${BRANCH}" && git push origin "HEAD:${BRANCH}"; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt ${attempt} rejected by a concurrent data commit; retrying"
+              sleep $((attempt * 5))
+            done
+            [ "${pushed}" = 1 ]
           fi
 
       - name: Upload the artifacts for inspection
