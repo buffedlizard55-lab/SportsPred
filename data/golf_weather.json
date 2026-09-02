@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "sport": "Golf",
+  "fetched_at_utc": "2026-09-02T17:17:23.485Z",
+  "method": "Open-Meteo geocoding + daily/hourly forecast APIs (free, key-less)",
+  "note": "Weather feeds only the first-round-leader tee-time rule (round-one trend) and the written weather note. Forecasts are collected inside seven days of the first round.",
+  "events": {
+    "401822700": {
+      "available": false,
+      "reason": "geocoding failed for Crans Montana"
+    }
+  }
+}
