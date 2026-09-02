@@ -35,27 +35,7 @@ jobs:
           echo "Python: $(python3 --version)"
 
       - name: Run Node tests before publishing
-        run: |
-          set +e
-          node --version
-          {
-            echo "=== node version ==="; node --version
-            echo "=== npm test ==="; npm test 2>&1
-            echo "=== per-file run ==="
-            for f in tests/*.test.mjs; do
-              echo "--- $f ---"
-              node --test "$f" 2>&1 | tail -15
-            done
-          } | tee /tmp/ci-debug.log
-          exit ${PIPESTATUS[0]}
-
-      - name: Upload CI debug log
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: ci-debug-log
-          path: /tmp/ci-debug.log
-          if-no-files-found: ignore
+        run: npm test
 
       - name: Run Python tests before publishing
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
