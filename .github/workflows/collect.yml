@@ -73,6 +73,46 @@ jobs:
         if: steps.espn.outcome == 'failure'
         run: echo "::warning::ESPN collection failed. Recorded data is unchanged."
 
+      - name: Collect OLBG sports directory
+        id: olbg-sports
+        continue-on-error: true
+        run: python3 scripts/collect_olbg_sports.py
+
+      - name: Collect F1 OLBG slate
+        id: collect-f1-olbg
+        continue-on-error: true
+        run: |
+          python3 scripts/collect_f1_olbg.py \
+            --save-html tests/fixtures/captures \
+            --enrich \
+            --enrich-limit 25
+
+      - name: Report a failed F1 OLBG collection
+        if: steps.collect-f1-olbg.outcome == 'failure'
+        run: echo "::warning::F1 OLBG collection failed. data/f1_slate.json is unchanged."
+
+      - name: Collect F1 ESPN events & standings
+        id: collect-f1-espn
+        continue-on-error: true
+        run: node scripts/collect_f1_espn.mjs
+
+      - name: Report a failed F1 ESPN collection
+        if: steps.collect-f1-espn.outcome == 'failure'
+        run: echo "::warning::F1 ESPN collection failed. Recorded F1 data is unchanged."
+
+      - name: Collect F1 weather
+        id: collect-f1-weather
+        continue-on-error: true
+        run: node scripts/collect_f1_weather.mjs
+
+      - name: Report a failed F1 weather collection
+        if: steps.collect-f1-weather.outcome == 'failure'
+        run: echo "::warning::F1 weather collection failed. data/f1_weather.json is unchanged."
+
+      - name: F1 walk-forward backtest and ledger
+        continue-on-error: true
+        run: node scripts/backtest_f1.mjs
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs

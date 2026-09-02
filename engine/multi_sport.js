@@ -73,6 +73,24 @@ export const SUPPORTED_SPORTS = [
     predictionsFile: 'data/predictions.json',
     leagues: ['All Tours', 'ATP', 'WTA', 'Grand Slam', 'Challenger', 'ITF'],
   },
+  {
+    id: 'f1',
+    name: 'Formula 1',
+    promptVersion: 'v1.0',
+    rulesetVersion: 'v1.0',
+    icon: '🏎️',
+    description: 'F1 GRAND PRIX PREDICTION MASTER PROMPT v1.0 — five markets: Race Winner, Podium, Fastest Lap, Points Finish, Top 6',
+    markets: ['RACE WINNER', 'PODIUM FINISH', 'FASTEST LAP', 'POINTS FINISH (TOP 10)', 'TOP 6 FINISH'],
+    dataFile: 'data/f1_events.json',
+    slateFile: 'data/f1_slate.json',
+    standingsFile: 'data/f1_standings.json',
+    weatherFile: 'data/f1_weather.json',
+    predictionsFile: 'data/f1_predictions.json',
+    sportsDirFile: 'data/olbg_sports.json',
+    sourceUrl: 'https://www.olbg.com/betting-tips/Motor_Racing/14',
+    liveSourceUrl: 'https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard',
+    leagues: ['All Races', '2026 Season', 'Sprint Weekends', 'Power Circuits', 'Street Circuits'],
+  },
 ];
 
 export function getSportConfig(sportId) {
