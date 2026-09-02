@@ -8,7 +8,7 @@ import {
   enrichCricketMatch,
   buildCricketCardFromLive,
 } from '../engine/cricket_data.js';
-import { parsePanelEvent, parseSummary, classifyFormat } from '../assets/js/cricket-collector.js';
+import { parsePanelEvent, parseSummary, classifyFormat } from '../engine/cricket_espn.js';
 
 const matches = JSON.parse(readFileSync('data/cricket_matches.json', 'utf8'));
 const slate = JSON.parse(readFileSync('data/cricket_slate.json', 'utf8'));

@@ -8,24 +8,36 @@
  * live slate directly. That keeps the site a static GitHub Page while still
  * showing the real card for any date.
  *
+ * Pure parsing lives in engine/cricket_espn.js (imported here AND by the Node
+ * test suite); this module only does fetching, caching and collection.
+ *
  * VERIFIED ENDPOINTS (see docs/CRICKET_SOURCES.md):
  *   - Scorepanel (per-date fixtures, scores, winners, venue, format):
  *     https://site.web.api.espn.com/apis/site/v2/sports/cricket/scorepanel?dates=YYYYMMDD
  *   - Match summary (confirmed rosters, batting positions, runs, SR, wickets,
  *     economy, venue, toss, format):
  *     https://site.web.api.espn.com/apis/site/v2/sports/cricket/{leagueId}/summary?event={eventId}
- *   - Active series discovery (nav state):
- *     https://site.api.espn.com/apis/personalized/v2/scoreboard/header?sport=cricket
  *
  * WHAT IS NEVER COLLECTED, AND WHY
- *   - Odds / prices. ESPN ships odds:[] for cricket and no key-less,
- *     cross-origin odds source was verified. Every odds-dependent factor
- *     stays unsourced (recorded in missing[]).
+ *   - Odds / prices. ESPN ships odds:[] for cricket and no key-less cross-origin
+ *     odds source was verified; every odds-dependent factor stays unsourced.
  *   - Pitch reports and weather. No free structured source; never guessed.
  *   - Injuries / social sentiment. No free structured source.
  *
  * Results are cached in localStorage so a reload does not re-hammer ESPN.
  */
+
+import {
+  parsePanelEvent as _parsePanelEvent,
+  parseSummary,
+  bowlingSpinPace,
+} from '../../engine/cricket_espn.js';
+
+// Re-export the pure parsers so existing importers (and tests) keep working.
+export { classifyFormat, bowlingSpinPace, parseSummary } from '../../engine/cricket_espn.js';
+export function parsePanelEvent(ev, leagueId) {
+  return _parsePanelEvent(ev, leagueId);
+}
 
 const PANEL = 'https://site.web.api.espn.com/apis/site/v2/sports/cricket/scorepanel';
 const SUMMARY = 'https://site.web.api.espn.com/apis/site/v2/sports/cricket';
@@ -79,75 +91,6 @@ export function yyyymmdd(d) {
 export function isoDate(d) { return d.toISOString().slice(0, 10); }
 function addDays(d, n) { return new Date(d.getTime() + n * 86400000); }
 
-export function classifyFormat(eventType, description) {
-  const t = (eventType || '').toUpperCase();
-  const d = (description || '').toLowerCase();
-  if (t === 'T20' || d.includes('twenty20') || d.includes('t20')) return 'T20';
-  if (t === 'ODI' || d.includes('odi') || d.includes('one-day') || d.includes('list a')) return 'ODI';
-  if (t === 'TEST' || d.includes('test') || d.includes('first-class') || d.includes('4-day') || d.includes('4 day')) return 'TEST';
-  return 'OTHER';
-}
-
-function phaseFromState(state, dateISO) {
-  if (state === 'in') return 'live';
-  if (state === 'post') return 'results';
-  // Scheduled/pre.
-  const today = new Date().toISOString().slice(0, 10);
-  return dateISO < today ? 'results' : 'upcoming';
-}
-
-/** Parse one scorepanel event into a normalised match row. */
-export function parsePanelEvent(ev, leagueId) {
-  const comp = ev?.competitions?.[0] || {};
-  const competitors = comp.competitors || [];
-  const home = competitors.find((c) => c.homeAway === 'home') || competitors[0];
-  const away = competitors.find((c) => c.homeAway === 'away') || competitors[1];
-
-  const dateISO = (ev.date || comp.date || '').slice(0, 10);
-  const state = comp?.status?.type?.state || ev?.status?.type?.state || 'pre';
-
-  const team = (c) => c?.team ? {
-    id: c.team.id,
-    name: c.team.displayName || c.team.name,
-    abbreviation: c.team.abbreviation,
-    logo: c.team.logos?.[0]?.href || c.team.logo || null,
-    score: c.score || '',
-    winner: c.winner === true,
-    homeAway: c.homeAway,
-  } : null;
-
-  const leagueName = ev?.leagues?.[0]?.name || comp?.leagues?.[0]?.name || '';
-  const cls = comp?.class || ev?.class || {};
-
-  return {
-    competition_id: `cr-${ev.id}`,
-    espn_event_id: String(ev.id),
-    espn_league_id: String(leagueId ?? ev?.leagues?.[0]?.id ?? ''),
-    sport: 'Cricket',
-    league: leagueName,
-    series: leagueName,
-    phase: phaseFromState(state, dateISO),
-    date: dateISO,
-    start_utc: ev.date || comp.date || null,
-    description: ev.description || comp.description || '',
-    round: comp.description || '',
-    format: classifyFormat(cls.eventType, ev.description || comp.description),
-    eventType: cls.eventType || cls.generalClassCard || '',
-    venue: comp?.venue?.fullName || ev?.venue?.fullName || null,
-    venue_city: comp?.venue?.address?.city || null,
-    venue_country: comp?.venue?.address?.country || null,
-    neutral: comp.neutralSite === true,
-    home: team(home)?.name || home?.team?.name || 'Home',
-    away: team(away)?.name || away?.team?.name || 'Away',
-    homeTeamObj: team(home) ? { ...team(home) } : null,
-    awayTeamObj: team(away) ? { ...team(away) } : null,
-    status_text: comp?.status?.summary || '',
-    source_url: ev?.links?.find((l) => (l.rel || []).includes('summary'))?.href
-      || `https://www.espncricinfo.com/series/${leagueId}/match/${ev.id}`,
-    cricinfo_url: ev?.links?.find((l) => (l.rel || []).includes('summary'))?.href || null,
-  };
-}
-
 /** Fetch and parse the scorepanel for one date. */
 export async function collectDate(dateISO) {
   const d = new Date(`${dateISO}T12:00:00Z`);
@@ -167,79 +110,6 @@ export async function collectDate(dateISO) {
 }
 
 /**
- * Parse a match summary into confirmed rosters with batting position, role,
- * and (for finished/live matches) runs, strike rate, wickets, economy.
- * Returns { playersByTeam: {teamId: [player...] } } or null.
- */
-export function parseSummary(payload) {
-  if (!payload?.rosters) return null;
-  const playersByTeam = {};
-  for (const roster of payload.rosters) {
-    const teamId = roster?.team?.id != null ? String(roster.team.id) : roster.homeAway;
-    const list = [];
-    for (const entry of roster.roster || []) {
-      const a = entry.athlete || {};
-      // Batting stats live in linescores -> batting statistics categories.
-      let battingPosition = null, runs = null, strikeRate = null, ballsFaced = null, fours = null, sixes = null, fiftyPlus = null;
-      let wickets = null, economy = null, ballsBowled = null;
-      for (const ls of entry.linescores || []) {
-        for (const sub of ls.linescores || []) {
-          const stats = sub?.statistics?.categories || [];
-          for (const cat of stats) {
-            for (const s of cat.stats || []) {
-              const v = Number(s.value);
-              if (!isFinite(v)) continue;
-              if (s.name === 'battingPosition') battingPosition = v;
-              if (s.name === 'runs' && cat.name === 'general' && ls.period != null) runs = Math.max(runs || 0, v);
-              if (s.name === 'strikeRate') strikeRate = v;
-              if (s.name === 'ballsFaced') ballsFaced = Math.max(ballsFaced || 0, v);
-              if (s.name === 'fours') fours = Math.max(fours || 0, v);
-              if (s.name === 'sixes') sixes = Math.max(sixes || 0, v);
-              if (s.name === 'fiftyPlus') fiftyPlus = Math.max(fiftyPlus || 0, v);
-              if (s.name === 'dismissals' || s.name === 'wickets') wickets = Math.max(wickets || 0, v);
-              if (s.name === 'economyRate' && v > 0) economy = v;
-              if (s.name === 'balls') ballsBowled = Math.max(ballsBowled || 0, v);
-            }
-          }
-        }
-      }
-      const styles = (a.style || []);
-      const battingStyle = styles.find((x) => x.type === 'batting')?.shortDescription || null;
-      const bowlingStyle = styles.find((x) => x.type === 'bowling')?.shortDescription || null;
-      const role = entry?.position?.name || a?.position?.name || '';
-      list.push({
-        id: String(a.id || a.guid || Math.random().toString(36).slice(2)),
-        name: a.displayName || a.battingName || a.fullName || 'Unknown',
-        battingName: a.battingName || null,
-        battingPosition,
-        battingStyle: battingStyle ? (battingStyle.includes('Lhb') ? 'left' : 'right') : null,
-        bowlingStyle, // e.g. 'Lb' (legbreak), 'Rfm' etc — mapped to spin/pace upstream
-        role: role.toLowerCase().includes('all') ? 'allrounder'
-          : role.toLowerCase().includes('bowl') || (bowlingStyle && !battingPosition) ? 'bowler'
-          : role.toLowerCase().includes('bat') || battingPosition ? 'batsman' : 'unknown',
-        starter: entry.starter !== false,
-        // this-match numbers (single match, not last-5):
-        matchStats: { runs, strikeRate, ballsFaced, fours, sixes, fiftyPlus, wickets, economy, ballsBowled },
-        cricinfo_url: a?.links?.find((l) => (l.rel || []).includes('playercard'))?.href || null,
-      });
-    }
-    playersByTeam[teamId] = list;
-  }
-  const venue = payload?.gameInfo?.venue?.fullName || null;
-  return { playersByTeam, venue };
-}
-
-function bowlingSpinPace(short) {
-  if (!short) return null;
-  const s = short.toLowerCase();
-  // Spin: legbreak (lb), offbreak (ob), slow left-arm (sla), orthodox, wrist-spin.
-  if (s.includes('lb') || s.includes('ob') || s.includes('sla') || s.includes('slow') || s.includes('spin') || s.includes('orth')) return 'spin';
-  // Pace: anything with fm/f (fast/medium) or seam.
-  if (s.includes('fm') || s.includes('f') || s.includes('m') || s.includes('seam') || s.includes('fast')) return 'pace';
-  return null;
-}
-
-/**
  * Attach confirmed rosters + this-match stats to a match row from its summary.
  * Derives team-level signals only from confirmed data; never fills gaps.
  */
@@ -256,7 +126,7 @@ export function enrichWithSummary(match, summary) {
     const paceBowlers = bowlers.filter((p) => bowlingSpinPace(p.bowlingStyle) === 'pace').length;
     const primaryStyle = spinBowlers > paceBowlers ? 'spin' : paceBowlers > spinBowlers ? 'pace' : (bowlers.length ? 'mixed' : null);
 
-    // Confirmed starters only (roster entry starter !== false), batting positions known.
+    // Confirmed starters only (roster entry starter !== false), with a role.
     const confirmed = players.filter((p) => p.starter && (p.battingPosition != null || p.bowlingStyle));
 
     return {
@@ -264,11 +134,7 @@ export function enrichWithSummary(match, summary) {
       players: confirmed,
       confirmedXi: confirmed.length >= 11,
       battingOrder: batsmen.map((p) => ({ name: p.name, position: p.battingPosition })),
-      bowling: {
-        style: primaryStyle,
-        spinBowlers,
-        paceBowlers,
-      },
+      bowling: { style: primaryStyle, spinBowlers, paceBowlers },
       momCandidates: confirmed.map((p) => ({
         id: p.id,
         name: p.name,
@@ -277,10 +143,9 @@ export function enrichWithSummary(match, summary) {
         bowlingStyle: bowlingSpinPace(p.bowlingStyle),
         opensBowling: p.role === 'bowler' || p.role === 'allrounder',
         battingStyle: p.matchStats?.strikeRate != null && p.matchStats.strikeRate >= 140 ? 'aggressive' : null,
-        odds: null, // never sourced
-        recent: null, // last-5 form not available from single summary
+        odds: null,       // never sourced — see CR-IR-01
+        recent: null,     // last-5 form not available from a single summary
         strikeRateVsTeamAvg: null,
-        // carry this-match numbers for the scoreboard display
         thisMatch: p.matchStats,
       })),
       batsmanCandidates: batsmen.filter((p) => p.battingPosition <= 6).map((p) => ({
@@ -293,7 +158,6 @@ export function enrichWithSummary(match, summary) {
         strikeRateVsTeamAvg: p.matchStats?.strikeRate != null
           ? (p.matchStats.strikeRate >= 140 ? 'above' : p.matchStats.strikeRate >= 115 ? 'slightly_above' : 'average')
           : null,
-        powerplayRecord: p.battingPosition <= 2 ? null : null, // not sourced
         thisMatch: p.matchStats,
       })),
     };
@@ -308,10 +172,7 @@ export function enrichWithSummary(match, summary) {
   };
 }
 
-/**
- * Build a results tape over the last N days — used for team form and H2H.
- * Only uses confirmed winners from the scorepanel (finished matches).
- */
+/** Build a results tape over the last N days — used for team form and H2H. */
 export async function collectTape(endISO, days = TAPE_DAYS, onProgress) {
   const dates = [];
   const end = new Date(`${endISO}T12:00:00Z`);
@@ -347,7 +208,7 @@ export function teamForm(teamName, tape) {
   };
 }
 
-/** Derive head-to-head between two teams from the tape (and any longer window). */
+/** Derive head-to-head between two teams from the tape. */
 export function h2h(teamA, teamB, tape) {
   const norm = (s) => (s || '').toLowerCase().replace(/[^a-z0-9]/g, '');
   const a = norm(teamA), b = norm(teamB);
@@ -369,10 +230,7 @@ export function h2h(teamA, teamB, tape) {
   };
 }
 
-/**
- * Full collection for one card date.
- * @returns {object} { date, matches, tape, quality }
- */
+/** Full collection for one card date. */
 export async function collectCard(dateISO, onProgress) {
   const report = (msg, pct) => onProgress && onProgress(msg, pct);
 
@@ -384,13 +242,11 @@ export async function collectCard(dateISO, onProgress) {
     report(`Building recent-form history… day ${d} of ${t}`, 30 + Math.round((d / t) * 40)));
 
   report('Confirming playing XIs and match stats…', 75);
-  // Enrich the day's matches with confirmed rosters (summary endpoint).
   const enriched = await pool(day.rows, 4, async (m) => {
     if (!m.espn_event_id || !m.espn_league_id) return m;
     const payload = await getJSON(`${SUMMARY}/${m.espn_league_id}/summary?event=${m.espn_event_id}&lang=en&region=in`);
     const parsed = parseSummary(payload);
     let withRoster = enrichWithSummary(m, parsed);
-    // Attach derived form / H2H from tape.
     const hf = teamForm(m.home, tape);
     const af = teamForm(m.away, tape);
     const h2hRec = h2h(m.home, m.away, tape);

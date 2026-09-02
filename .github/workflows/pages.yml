@@ -32,23 +32,13 @@ jobs:
       - name: Show environment
         run: |
           echo "Node: $(node --version)"
-          echo "npm: $(npm --version)"
           echo "Python: $(python3 --version)"
-          ls -la data/ | grep cricket || true
 
       - name: Run Node tests before publishing
-        run: |
-          node --version
-          echo "--- glob expansion of tests/*.test.mjs ---"
-          ls tests/*.test.mjs | wc -l
-          echo "--- running node --test directly ---"
-          node --test tests/*.test.mjs 2>&1 | tail -40
-        shell: bash
+        run: npm test
 
       - name: Run Python tests before publishing
-        run: |
-          python3 --version
-          python3 -m unittest discover -s tests -p 'test_*.py' -v
+        run: python3 -m unittest discover -s tests -p 'test_*.py' -v
 
       - name: Validate committed data layer
         run: python3 scripts/build_data.py --strict
