@@ -27,7 +27,7 @@ import { parseNhlScoreboard, parseNhlStandings, parseEspnHockeyInjuries, NHL_SCO
 import { loadStatic, clearCache, addDays, getJSON, TTL } from './data-client.js';
 import {
   $, $$, esc, todayISO, fmtDateLong, fmtTime, relTime, renderShell, renderFooter,
-  toast, copyText, confBar, qs, setQS,
+  toast, copyText, qs, setQS,
 } from './ui.js';
 
 const state = {
