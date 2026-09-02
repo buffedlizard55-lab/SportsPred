@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "sport": "Snooker",
+  "ranking_name": "Johnstone's Paint World Rankings (official)",
+  "as_of_utc": "2026-09-02T20:45:00Z",
+  "source": {
+    "name": "World Snooker Tour — official rankings",
+    "url": "https://www.wst.tv/rankings/abfba8fe-1423-5a2a-a96b-d77e8b413ca8?showLive=false",
+    "index_url": "https://www.wst.tv/rankings",
+    "fetched_at_utc": "2026-09-02T20:45:00Z",
+    "method": "Public server-rendered page fetched 2026-09-02 and transcribed; ranks 1-36 present in the captured view.",
+    "licence_note": "Official governing-body ranking list, quoted for review."
+  },
+  "scope_notes": [
+    "Snapshot captures the top 36 of the official list from the 2026-09-02 fetch. The visible page ends at rank 36 in the captured chunk; ranks below are refreshed by the CI collector (scripts/collect_snooker.mjs).",
+    "Figures are ranking money (GBP), not rankings points; they are recorded for review only and never used by the scorer.",
+    "Mark Joyce is not on the official list — he is an amateur who replaced Ronnie O'Sullivan after his withdrawal (snooker.org British Open note; IR-SNOOKER-02).",
+    "Seed numbers shown on event draws (Pang [25]) differ from the live official rank (27) because seeds use the ranking cut before the event; the engine uses the official rank unless a match row carries an explicit rank."
+  ],
+  "entries": [
+    { "rank": 1, "name": "Zhao Xintong", "winnings": "£1,253,550" },
+    { "rank": 2, "name": "Neil Robertson", "winnings": "£1,198,200" },
+    { "rank": 3, "name": "Wu Yize", "winnings": "£1,109,900" },
+    { "rank": 4, "name": "Mark Selby", "winnings": "£1,107,350" },
+    { "rank": 5, "name": "Judd Trump", "winnings": "£1,101,550" },
+    { "rank": 6, "name": "John Higgins", "winnings": "£962,000" },
+    { "rank": 7, "name": "Shaun Murphy", "winnings": "£875,400" },
+    { "rank": 8, "name": "Kyren Wilson", "winnings": "£711,100" },
+    { "rank": 9, "name": "Mark Williams", "winnings": "£702,400" },
+    { "rank": 10, "name": "Barry Hawkins", "winnings": "£675,000" },
+    { "rank": 11, "name": "Xiao Guodong", "winnings": "£647,500" },
+    { "rank": 12, "name": "Chris Wakelin", "winnings": "£591,800" },
+    { "rank": 13, "name": "Mark Allen", "winnings": "£573,750" },
+    { "rank": 14, "name": "Ronnie O'Sullivan", "winnings": "£513,750" },
+    { "rank": 15, "name": "Ding Junhui", "winnings": "£464,850" },
+    { "rank": 16, "name": "Jack Lisowski", "winnings": "£362,100" },
+    { "rank": 17, "name": "Si Jiahui", "winnings": "£355,000" },
+    { "rank": 18, "name": "Zhou Yuelong", "winnings": "£348,900" },
+    { "rank": 19, "name": "Zhang Anda", "winnings": "£348,600" },
+    { "rank": 20, "name": "Stuart Bingham", "winnings": "£348,300" },
+    { "rank": 21, "name": "Thepchaiya Un-Nooh", "winnings": "£334,200" },
+    { "rank": 22, "name": "Chang Bingyu", "winnings": "£334,100" },
+    { "rank": 23, "name": "Elliot Slessor", "winnings": "£330,700" },
+    { "rank": 24, "name": "Ali Carter", "winnings": "£320,550" },
+    { "rank": 25, "name": "Gary Wilson", "winnings": "£282,800" },
+    { "rank": 26, "name": "Lei Peifan", "winnings": "£268,800" },
+    { "rank": 27, "name": "Pang Junxu", "winnings": "£266,500" },
+    { "rank": 28, "name": "Hossein Vafaei", "winnings": "£250,600" },
+    { "rank": 29, "name": "Noppon Saengkham", "winnings": "£250,500" },
+    { "rank": 30, "name": "Joe O'Connor", "winnings": "£241,850" },
+    { "rank": 31, "name": "Jak Jones", "winnings": "£239,300" },
+    { "rank": 32, "name": "Stephen Maguire", "winnings": "£237,600" },
+    { "rank": 33, "name": "David Gilbert", "winnings": "£221,350" },
+    { "rank": 34, "name": "Yuan Sijun", "winnings": "£217,400" },
+    { "rank": 35, "name": "Tom Ford", "winnings": "£196,200" },
+    { "rank": 36, "name": "Jackson Page", "winnings": "£192,250" }
+  ],
+  "irregularities": [
+    "IR-SNOOKER-03: start-time sources disagree for Pang v Joyce — WST venue page 15:00, OLBG 17:00, BBC Sport 21:00, snooker.org estimate 16:00 ET. Exact scheduled time is recorded as observed per source, never averaged."
+  ]
+}

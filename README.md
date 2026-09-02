@@ -20,6 +20,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`greyhounds.html`](greyhounds.html) | Greyhound racing: daily GBGB racecards, results and month calendar with form/trap/distance/grade analysis and the written WIN tips generated per the GREYHOUND RACING PREDICTION MASTER PROMPT v1.0. |
 | [`volleyball.html`](volleyball.html) | Volleyball: NCAA scoreboard from ESPN plus EuroVolley Women 2026 from a committed CEV tape. WIN MATCH and SET SCORE tips per the volleyball master prompt — college form is never applied to internationals. |
 | [`golf.html`](golf.html) | Golf: PGA TOUR / DP World Tour / LPGA / Champions leaderboards and calendars, and the six-market golf card (outright, top six, first round leader, top European, top American, top British & Irish) generated for every men's-tour event on the board. |
+| [`snooker.html`](snooker.html) | Snooker: match scoreboard + month calendar over the OLBG market slate joined to the official WST ranking table and the public snooker.org results database. 100-point scoring (odds, form, H2H, ranking, stage) and 25-40 word written predictions per the SNOOKER PREDICTION MASTER PROMPT v3.0; no free price feed exists, so the odds factor is honestly recorded as missing and live bets resolve to SKIP. |
 
 Every sport is reachable from the rail in the masthead on every page.
 
@@ -30,9 +31,13 @@ For each, the registry records the OLBG index id and slug, the official
 governing-body links, and — where one exists — the key-less ESPN feed and its
 candidate leagues.
 
-Sports with a structured feed are **predicted**. Sports without one (horse
-racing, darts, snooker, Gaelic football, cycling, boxing) are **listed and
-linked for manual review** and produce no output at all. Golf is an outright
+Sports with a structured feed are **predicted**. Sports without a usable
+statistics feed (horse racing, darts, Gaelic football, cycling, boxing) are
+**listed and linked for manual review** and produce no output at all. Snooker
+is predicted on its own page from the OLBG slate, the official WST ranking
+table and the public snooker.org results database — the odds factor is the one
+unsourced input, recorded as missing rather than guessed
+(`docs/SNOOKER_SOURCES.md`, `docs/SNOOKER_IRREGULARITIES.md`). Golf is an outright
 sport, so it bypasses the two-competitor universal engine and runs on its own
 specialist page (`golf.html`) driven by the GOLF TOURNAMENT PREDICTION MASTER
 PROMPT v1.0 (`docs/GOLF_MASTER_PROMPT.md`). Greyhounds likewise run on their
@@ -222,7 +227,7 @@ scripts/
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
 .github/workflows/      installed Pages deploy + scheduled collection workflows
-tests/                  311 Node tests + 47 Python tests
+tests/                 408 Node tests + 59 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
@@ -235,6 +240,9 @@ docs/
   GOLF_FEATURE_MATRIX.md what the golf layer delivers and how it is proven
   GOLF_SOURCES.md       every golf endpoint, verified, with review links
   GOLF_IRREGULARITIES.md IR-GOLF-01..16
+  SNOOKER_SOURCES.md    every snooker source, verified, with review links
+  SNOOKER_IRREGULARITIES.md IR-SNOOKER-01..08
+  SNOOKER_PROMPT_REVIEW.md prompt line -> code -> test, with every substitution named
 ```
 
 The engine is imported directly by the browser **and** by the tests. There is no
@@ -245,7 +253,7 @@ copy of the scoring logic, so the site cannot drift from what is tested.
 ## Running it
 
 ```bash
-npm test                                          # 120 tests: engine, writer, ESPN parsers, OLBG helpers, join, pipeline
+npm test                                          # 404 tests: engines, writers, ESPN parsers, OLBG helpers, join, pipeline, DOM smoke
 python3 -m unittest discover -s tests -p 'test_*.py'   # OLBG parsers
 python3 scripts/build_data.py --strict            # validate the committed data layer
 python3 scripts/serve.py 8000                     # local preview

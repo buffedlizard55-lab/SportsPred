@@ -65,6 +65,14 @@ VOLLEYBALL_PROVENANCE = os.path.join(DATA, 'volleyball_provenance.json')
 VOLLEYBALL_PREDICTIONS = os.path.join(DATA, 'volleyball_predictions.json')
 VOLLEYBALL_BACKTEST = os.path.join(DATA, 'volleyball_backtest.json')
 
+# Snooker files
+SNOOKER_SLATE = os.path.join(DATA, 'snooker_slate.json')
+SNOOKER_RESULTS = os.path.join(DATA, 'snooker_results.json')
+SNOOKER_RANKINGS = os.path.join(DATA, 'snooker_rankings.json')
+SNOOKER_PROVENANCE = os.path.join(DATA, 'snooker_provenance.json')
+SNOOKER_PREDICTIONS = os.path.join(DATA, 'snooker_predictions.json')
+SNOOKER_BACKTEST = os.path.join(DATA, 'snooker_backtest.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -403,6 +411,69 @@ def validate_greyhound_history(doc):
     return problems, n_runs
 
 
+def validate_snooker_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['snooker_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('snooker_slate.source.url missing')
+    ids = []
+    for e in events:
+        ids.append(e.get('event_id'))
+        for field in ('event_id', 'url', 'matchup'):
+            if not e.get(field):
+                problems.append(f'snooker slate row missing "{field}": {e.get("event_id")}')
+        # Never carry a price the source does not publish.
+        for key in ('odds', 'price', 'decimal', 'american_odds', 'fractional'):
+            if key in e:
+                problems.append(f'snooker slate row {e.get("event_id")} contains price-like field "{key}"')
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in snooker slate: {sorted(dups)}')
+    return problems, len(events)
+
+
+def validate_snooker_results(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['snooker_results.matches is not a list'], 0
+    if not doc.get('source', {}).get('event_page'):
+        problems.append('snooker_results.source.event_page missing')
+    seen = set()
+    for m in matches:
+        mid = m.get('id')
+        if mid in seen:
+            problems.append(f'duplicate match id {mid}')
+        seen.add(mid)
+        for field in ('event', 'round', 'round_index', 'player_a', 'player_b', 'score_a', 'score_b'):
+            if m.get(field) is None:
+                problems.append(f'snooker result {mid} missing "{field}"')
+        if m.get('player_a', {}).get('name') is None or m.get('player_b', {}).get('name') is None:
+            problems.append(f'snooker result {mid} missing player name')
+        # Championship League group matches legitimately end level; a framed
+        # match with equal frames and no winner is a draw, not an error.
+        if m.get('winner') is None and m.get('score_a') == m.get('score_b'):
+            continue
+        if not m.get('source_urls'):
+            problems.append(f'snooker result {mid} has no source_urls (every row must be verifiable)')
+    return problems, len(matches)
+
+
+def validate_snooker_rankings(doc):
+    problems = []
+    entries = doc.get('entries', [])
+    if not isinstance(entries, list):
+        return ['snooker_rankings.entries is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('snooker_rankings.source.url missing')
+    for e in entries:
+        if e.get('rank') is None or not e.get('name'):
+            problems.append(f'snooker ranking row invalid: {e}')
+    return problems, len(entries)
+
+
 def validate_greyhound_slate(doc):
     problems = []
     events = doc.get('events', [])
@@ -636,6 +707,26 @@ def main():
         blob = load(path)
         if blob is None:
             print(f'  [PENDING] {name} (populated by the scheduled greyhound collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+        else:
+            total += report(name, [], 0)
+
+    # Snooker Validation (source-linked taper + official ranking snapshot;
+    # populated by the snooker collectors and the record script)
+    print('\n--- Snooker Data Layer ---')
+    sn_names = [('data/snooker_slate.json', SNOOKER_SLATE, validate_snooker_slate),
+                ('data/snooker_results.json', SNOOKER_RESULTS, validate_snooker_results),
+                ('data/snooker_rankings.json', SNOOKER_RANKINGS, validate_snooker_rankings),
+                ('data/snooker_provenance.json', SNOOKER_PROVENANCE, None),
+                ('data/snooker_predictions.json', SNOOKER_PREDICTIONS, None),
+                ('data/snooker_backtest.json', SNOOKER_BACKTEST, None)]
+    for name, path, fn in sn_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the scheduled snooker collector)')
             continue
         if fn:
             problems, n = fn(blob)

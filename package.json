@@ -22,6 +22,9 @@
     "collect:volleyball": "python3 scripts/collect_volleyball_olbg.py && node scripts/collect_volleyball_espn.mjs",
     "backtest:volleyball": "node scripts/backtest_volleyball.mjs",
     "record:volleyball": "node scripts/record_volleyball_predictions.mjs",
+    "collect:snooker": "python3 scripts/collect_snooker_olbg.py --enrich",
+    "record:snooker": "node scripts/record_snooker_predictions.mjs",
+    "backtest:snooker": "node scripts/backtest_snooker.mjs",
     "serve": "python3 scripts/serve.py 8000"
   },
   "engines": {

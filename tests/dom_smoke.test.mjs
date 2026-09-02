@@ -160,7 +160,8 @@ function makeFetch(counters) {
     if (u.includes('data/olbg_sports.json') || u.includes('_slate.json') || u.includes('data/slate.json')
         || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
         || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
-        || u.includes('data/volleyball_')) {
+        || u.includes('data/volleyball_')
+        || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
       return { ok: false, status: 404, json: async () => ({}) };
@@ -534,6 +535,62 @@ test('greyhound Analysis exposes fired rules and at least two https review links
   assert.ok(links.length >= 2, `at least two https review links, saw ${links.length}`);
   // No odds figures are claimed for a live card.
   assert.match(text, /odds/i, 'the odds category is reported (as not available live)');
+});
+
+test('snooker.html boots, renders the fixture and auto-generates a written prediction', { skip: !JSDOM }, async () => {
+  const { document, counters } = await bootPage('snooker.html', { search: '?date=2026-09-02' });
+
+  // Masthead + rail entry.
+  assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+  assert.ok(document.querySelector('.sportrail a[data-sport="snooker"]'), 'snooker is in the rail');
+
+  // The slate fixture renders with a written prediction.
+  const text = document.body.textContent;
+  assert.match(text, /Pang Junxu v Mark Joyce/, 'fixture renders');
+  const tipText = document.querySelector('.tip-text');
+  assert.ok(tipText, 'a written prediction box renders');
+  const tip = tipText.textContent;
+  assert.match(tip, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/, 'prediction declares confidence');
+  const words = tip.trim().split(/\s+/).length;
+  assert.ok(words >= 25 && words <= 40, `prediction is 25-40 words, got ${words}`);
+  assert.ok(!/\d/.test(tip.replace(/\s+/g, ' ')), `no numerals in prediction prose: ${tip.slice(0, 80)}`);
+  // Odds shortage must be disclosed, not hidden or invented.
+  assert.match(text, /no free key-less price|no price feed|IR-SNOOKER/i);
+  assert.match(text, /SKIP/, 'live card resolves to SKIP on the odds gate');
+});
+
+test('the snooker Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('snooker.html', { search: '?date=2026-09-02' });
+  document.querySelector('#rail-preds').innerHTML = '';
+  const before = document.querySelector('.tip-text')?.textContent || '';
+  const btn = document.querySelector('#generate');
+  assert.ok(btn, 'generate button exists');
+  btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+  for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+  const after = document.querySelector('.tip-text')?.textContent || '';
+  assert.ok(after, 'prediction present after Generate click');
+  assert.match(after, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/);
+  assert.equal(before, after, 'regenerated prediction is deterministic');
+});
+
+test('snooker Analysis exposes fired rules and at least two https review links', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('snooker.html', { search: '?date=2026-09-02' });
+  const details = document.querySelector('.analysis details');
+  assert.ok(details, 'an analysis panel exists');
+  details.setAttribute('open', '');
+  const atext = details.textContent;
+  assert.match(atext, /Factor|form|ranking|h2h|stage/i, 'analysis names scored factors');
+  const links = [...details.querySelectorAll('a[href^="https://"]')];
+  assert.ok(links.length >= 2, `at least two https review links, saw ${links.length}`);
+  assert.match(atext, /odds/i, 'odds category is reported (as not available live)');
+});
+
+test('registry: snooker is predicted on its own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const s = SPORTS.find((x) => x.key === 'snooker');
+  assert.equal(s.predictable, true);
+  assert.equal(s.page, 'snooker.html');
+  assert.equal(s.specialistEngine, 'snooker');
 });
 
 test('registry: greyhounds are predicted on their own specialist page', async () => {

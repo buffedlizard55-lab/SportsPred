@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Snooker scoreboard, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="Snooker match scoreboard and calendar with automatically generated, source-linked predictions from the official WST ranking table and the public snooker.org results database, every figure traceable to a reviewable source.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Snooker</h1>
+      <p class="page-sub" id="page-sub">Match scoreboard and calendar across the professional snooker season, with 100-point scoring from verified form, head-to-head, ranking and stage factors plus a written prediction for every upcoming fixture — every figure traceable to the official World Snooker Tour ranking table and the public snooker.org results database.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress" style="display:none"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="status-filter" aria-label="Filter by status">
+            <option value="all">All matches</option>
+            <option value="scheduled">Upcoming</option>
+            <option value="result">Results</option>
+            <option value="selected">Predictions only</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search player, event, venue…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+          <button class="btn sm" id="refresh" title="Clear the local cache and reload committed data">↻ Refresh</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers show how many matches were played or are scheduled that day, from the committed snooker results and OLBG slate. Pick any date to load that card.</div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Match predictions</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG snooker markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sources</h3></div>
+        <div class="card-body meta-line" id="sources">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a snooker card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p>Each player is scored on odds strength (30 pts), recent form (25 pts + 5 in-tournament bonus), head-to-head weighted to the last three years (20 pts), world ranking (15 pts, −5 when the opponent is ranked higher) and tournament stage (10 pts), exactly as the snooker master prompt specifies.</p>
+          <p>The public OLBG snooker pages publish tipster vote counts but <strong>no prices</strong>, and no free key-less odds feed exists for snooker, so the odds component is recorded as missing and Step 3 returns <span class="badge SKIP">SKIP</span> on live cards — HIGH confidence is impossible without a measured price. Every written prediction is still produced, with the verdict and the sourced reasons behind it.</p>
+          <p>Open <strong>Analysis</strong> on any match for every rule that fired, its points, the factors not available and the official review links.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/snooker-page.js"></script>
+</body>
+</html>

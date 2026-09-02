@@ -179,6 +179,23 @@ jobs:
         continue-on-error: true
         run: node scripts/backtest_volleyball.mjs
 
+      - name: Collect OLBG snooker slate
+        id: collect-snooker-olbg
+        continue-on-error: true
+        run: python3 scripts/collect_snooker_olbg.py --enrich
+
+      - name: Report a failed snooker OLBG collection
+        if: steps.collect-snooker-olbg.outcome == 'failure'
+        run: echo "::warning::OLBG snooker collection failed. data/snooker_slate.json is unchanged."
+
+      - name: Record snooker predictions (append-only forward ledger)
+        continue-on-error: true
+        run: node scripts/record_snooker_predictions.mjs
+
+      - name: Snooker walk-forward backtest
+        continue-on-error: true
+        run: node scripts/backtest_snooker.mjs
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs
