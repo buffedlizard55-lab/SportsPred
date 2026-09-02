@@ -74,6 +74,18 @@ class MemCache {
 
 const cache = new MemCache();
 
+/** Run `fn` over `items` with bounded concurrency (order-independent). */
+async function mapLimit(items, limit, fn) {
+  const queue = [...items];
+  const workers = Array.from({ length: Math.min(limit, queue.length) }, async () => {
+    while (queue.length) {
+      const item = queue.shift();
+      await fn(item);
+    }
+  });
+  await Promise.all(workers);
+}
+
 const seasonKey = (ev) => `${ev.seasonYear ?? ''}`;
 
 function loadExisting(path) {
@@ -122,8 +134,8 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
   const currentSeason = YEAR;
   const sorted = all.sort((a, b) => String(a.startDate).localeCompare(String(b.startDate)));
   for (const ev of sorted) {
-    const coreEvent = await fetchCoreEvent(ev.id);
-    const circuitId = coreEvent?.circuitId ?? null;
+    const core = parseCoreEvent(await fetchCoreEvent(ev.id));
+    const circuitId = core.circuitId ?? null;
     const circuitPayload = circuitId ? await fetchCircuit(circuitId) : null;
     const circuit = circuitPayload ? parseCircuit(circuitPayload) : null;
     if (circuitId && circuit && !circuits[circuitId]) circuits[circuitId] = circuit;
@@ -134,11 +146,19 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
     } catch (e) {
       console.warn(`  competitions unavailable for ${ev.id}: ${e.message}`);
     }
-    const raceComp = comps.find((c) => c.type === 'Race');
+    // Core competition payloads carry session status ONLY as a $ref, so the
+    // inline status from the site scoreboard (ev.sessions) is the authority
+    // for completion. The core payload is still preferred for competitor
+    // detail (startOrder, vehicle, winner flag); statuses are merged in.
+    const siteByType = new Map((ev.sessions || []).map((s) => [s.type, s]));
+    const sessions = (comps.length ? comps : (ev.sessions || [])).map((s) => {
+      const site = siteByType.get(s.type);
+      return site ? { ...s, completed: site.completed === true || s.completed === true, state: site.state || s.state } : s;
+    });
+    const raceComp = sessions.find((s) => s.type === 'Race') || null;
 
-    const sessions = comps.length ? comps : (ev.sessions || []);
-    const raceSession = raceComp || sessions.find((s) => s.type === 'Race') || null;
-    const completed = raceSession?.completed === true;
+    const raceSession = raceComp || null;
+    const completed = raceSession?.completed === true || ev.raceCompleted === true;
 
     let result = [];
     let grid = [];
@@ -148,10 +168,15 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
       completedCount += 1;
       const deep = withStatus && String(ev.seasonYear) === String(currentSeason);
       if (deep && raceComp) {
-        for (const row of result) {
+        // Fetch per-driver status + statistics with bounded concurrency. DNF is
+        // ONLY set from the status endpoint; a failed fetch leaves it null so
+        // the engine records the gap rather than assuming a finish.
+        await mapLimit(result, 6, async (row) => {
           try {
-            const st = parseStatus(await fetchStatus(ev.id, raceComp.id, row.athleteId));
-            const stats = parseStatistics(await fetchStats(ev.id, raceComp.id, row.athleteId));
+            const [st, stats] = await Promise.all([
+              fetchStatus(ev.id, raceComp.id, row.athleteId).then(parseStatus),
+              fetchStats(ev.id, raceComp.id, row.athleteId).then(parseStatistics),
+            ]);
             Object.assign(row, {
               dnf: st.retired,
               status: st.displayValue,
@@ -169,9 +194,16 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
           } catch (e) {
             console.warn(`  status/stats unavailable for ${row.name}: ${e.message}`);
           }
+        });
+      }
+      // Pole for this race comes from the completed Qualifying session order,
+      // which ESPN publishes even when per-driver statistics are unavailable.
+      const qual = sessions.find((s) => s.type === 'Qualifying' && s.completed);
+      const poleId = qual?.competitors?.find((c) => c.order === 1)?.athleteId ?? null;
+      if (poleId) {
+        for (const row of result) {
+          if (row.pole == null) row.pole = String(row.athleteId) === String(poleId) ? 1 : 0;
         }
-      } else if (raceComp) {
-        // History seasons: keep grid/order/team only — no status/stats fetches.
       }
     }
     const winner = result.find((r) => r.position === 1) || null;
@@ -183,7 +215,7 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
       id: ev.id,
       name: ev.name,
       shortName: ev.shortName,
-      abbreviation: coreEvent?.abbreviation ?? null,
+      abbreviation: core.abbreviation ?? null,
       seasonYear: ev.seasonYear,
       startDate: ev.startDate,
       endDate: ev.endDate,
@@ -205,8 +237,8 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
         fastestLapYear: circuit.fastestLapYear,
         diagramHrefs: circuit.diagramHrefs,
       } : null,
-      defendingChampionDriverId: coreEvent?.defendingChampionDriverId ?? null,
-      defendingChampionTeamId: coreEvent?.defendingChampionTeam ?? null,
+      defendingChampionDriverId: core.defendingChampionDriverId ?? null,
+      defendingChampionTeamId: core.defendingChampionTeam ?? null,
       sessions: sessions.map((s) => ({
         type: s.type, label: s.label, date: s.date, completed: s.completed,
         competitors: s.competitors.map((c) => ({

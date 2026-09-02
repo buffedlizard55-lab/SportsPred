@@ -140,6 +140,56 @@ test('parseCircuit and parseCoreEvent read verified ESPN fields', () => {
   assert.equal(ev.defendingChampionDriverId, '4665');
 });
 
+test('parseSiteEvent marks a race completed from the inline STATUS_FINAL status', () => {
+  // REGRESSION: the CORE competitions payload exposes session status only as a
+  // $ref, so the collector must take completion from the SITE scoreboard.
+  // Verified against the live Dutch GP payload (2026-08-23).
+  const p = parseF1Scoreboard({
+    leagues: [{ id: '2030', season: { year: 2026 }, calendar: [] }],
+    events: [{
+      id: '600057441', name: 'Heineken Dutch Grand Prix',
+      date: '2026-08-21T10:30Z', endDate: '2026-08-23T13:00Z', season: { year: 2026 },
+      competitions: [
+        {
+          id: '401839093', type: { abbreviation: 'FP1' }, date: '2026-08-21T10:30Z',
+          status: { period: 36, type: { id: '3', name: 'STATUS_FINAL', state: 'post', completed: true } },
+          competitors: [{ id: '5829', order: 1, athlete: { fullName: 'Kimi Antonelli' } }],
+        },
+        {
+          id: '401839097', type: { abbreviation: 'Race' }, date: '2026-08-23T13:00Z',
+          status: { type: { id: '3', name: 'STATUS_FINAL', state: 'post', completed: true } },
+          competitors: [
+            { id: '5579', order: 1, startOrder: 1, winner: true, athlete: { fullName: 'Lando Norris' }, vehicle: { manufacturer: 'McLaren', number: '1' } },
+            { id: '5829', order: 2, startOrder: 3, winner: false, athlete: { fullName: 'Kimi Antonelli' }, vehicle: { manufacturer: 'Mercedes', number: '12' } },
+          ],
+        },
+      ],
+    }],
+  });
+  const ev = p.events[0];
+  assert.equal(ev.raceCompleted, true, 'inline STATUS_FINAL must mark the race completed');
+  assert.equal(ev.race.completed, true);
+  assert.equal(ev.raceState, 'post');
+  const res = resultFromRace(ev.race);
+  assert.equal(res[0].name, 'Lando Norris');
+  assert.equal(res[0].team, 'McLaren');
+  const grid = gridFromRace(ev.race);
+  assert.equal(grid[1].grid, 3, 'grid comes from startOrder, not finishing order');
+});
+
+test('parseCoreEvent resolves circuitId from the $ref (never a raw field)', () => {
+  // REGRESSION: the collector previously read payload.circuitId, which ESPN
+  // does not publish — every event ended up with a null circuit.
+  const core = parseCoreEvent({
+    id: '600057442', abbreviation: 'ITA',
+    circuit: { $ref: 'http://sports.core.api.espn.com/v2/sports/racing/leagues/f1/circuits/615?lang=en' },
+    venues: [{ $ref: 'http://sports.core.api.espn.com/v2/sports/racing/venues/259?lang=en' }],
+  });
+  assert.equal(core.circuitId, '615');
+  assert.equal(core.venueId, '259');
+  assert.equal(parseCoreEvent({ id: '1' }).circuitId, null, 'absent circuit stays null, never guessed');
+});
+
 test('parseCompetitions handles a core competitions payload', () => {
   const p = parseCompetitions({
     count: 2,
