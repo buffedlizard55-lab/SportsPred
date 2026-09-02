@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-02T19:46:07.659Z",
+  "generated_at_utc": "2026-09-02T20:38:54.265Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
