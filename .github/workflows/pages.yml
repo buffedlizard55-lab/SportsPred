@@ -37,6 +37,22 @@ jobs:
       - name: Run Node tests before publishing
         run: npm test
 
+      - name: Diagnose which test file fails
+        if: failure()
+        run: |
+          node --version
+          echo "=== test files present ==="
+          ls -1 tests/*.test.mjs
+          echo "=== run each test file individually ==="
+          for f in tests/*.test.mjs; do
+            if node --test "$f" > /tmp/t.log 2>&1; then
+              echo "PASS  $f"
+            else
+              echo "FAIL  $f"
+              tail -30 /tmp/t.log
+            fi
+          done
+
       - name: Run Python tests before publishing
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
 
