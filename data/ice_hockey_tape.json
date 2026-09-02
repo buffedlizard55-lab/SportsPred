@@ -1,0 +1,387 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-02T23:22:53Z",
+ "collector": "scripts/collect_ice_hockey_nhl.mjs",
+ "endpoints": [
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-12",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-13",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-14",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-15",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-16",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-17",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-18",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-19",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-20",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-21",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-22",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-23",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-24",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-25",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-26",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-27",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-28",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-29",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-30",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-31",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-01",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-02",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-03",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-04",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-05",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-06",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-07",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-08",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-09",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-10",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-11",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-12",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-13",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-14",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-15",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-16",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-17",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-18",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-19",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-20",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-21",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-22",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-23",
+   "status": 200,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "sport": "Ice Hockey",
+ "league": "nhl",
+ "note": "Settled games only, used for form, back-to-back flags, head-to-head and puck line covers.",
+ "games": [
+  {
+   "id": "2025030414",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20252026,
+   "gameType": 3,
+   "dateISO": "2026-06-09",
+   "startUtc": "2026-06-10T00:00:00Z",
+   "phase": "results",
+   "venue": "T-Mobile Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/car-vs-vgk/2026/06/09/2025030414",
+   "home": {
+    "id": 54,
+    "abbrev": "VGK",
+    "name": "Vegas Golden Knights",
+    "record": null,
+    "recordSummary": null,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+   },
+   "away": {
+    "id": 12,
+    "abbrev": "CAR",
+    "name": "Carolina Hurricanes",
+    "record": null,
+    "recordSummary": null,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+   },
+   "score": {
+    "home": 3,
+    "away": 5
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2025030415",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20252026,
+   "gameType": 3,
+   "dateISO": "2026-06-11",
+   "startUtc": "2026-06-12T00:00:00Z",
+   "phase": "results",
+   "venue": "Lenovo Center",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/vgk-vs-car/2026/06/11/2025030415",
+   "home": {
+    "id": 12,
+    "abbrev": "CAR",
+    "name": "Carolina Hurricanes",
+    "record": null,
+    "recordSummary": null,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+   },
+   "away": {
+    "id": 54,
+    "abbrev": "VGK",
+    "name": "Vegas Golden Knights",
+    "record": null,
+    "recordSummary": null,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+   },
+   "score": {
+    "home": 4,
+    "away": 2
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2025030416",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20252026,
+   "gameType": 3,
+   "dateISO": "2026-06-14",
+   "startUtc": "2026-06-15T00:00:00Z",
+   "phase": "results",
+   "venue": "T-Mobile Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/car-vs-vgk/2026/06/14/2025030416",
+   "home": {
+    "id": 54,
+    "abbrev": "VGK",
+    "name": "Vegas Golden Knights",
+    "record": null,
+    "recordSummary": null,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+   },
+   "away": {
+    "id": 12,
+    "abbrev": "CAR",
+    "name": "Carolina Hurricanes",
+    "record": null,
+    "recordSummary": null,
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+   },
+   "score": {
+    "home": 0,
+    "away": 3
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  }
+ ],
+ "counts": {
+  "games": 3
+ }
+}

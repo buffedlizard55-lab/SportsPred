@@ -21,6 +21,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`volleyball.html`](volleyball.html) | Volleyball: NCAA scoreboard from ESPN plus EuroVolley Women 2026 from a committed CEV tape. WIN MATCH and SET SCORE tips per the volleyball master prompt — college form is never applied to internationals. |
 | [`golf.html`](golf.html) | Golf: PGA TOUR / DP World Tour / LPGA / Champions leaderboards and calendars, and the six-market golf card (outright, top six, first round leader, top European, top American, top British & Irish) generated for every men's-tour event on the board. |
 | [`snooker.html`](snooker.html) | Snooker: match scoreboard + month calendar over the OLBG market slate joined to the official WST ranking table and the public snooker.org results database. 100-point scoring (odds, form, H2H, ranking, stage) and 25-40 word written predictions per the SNOOKER PREDICTION MASTER PROMPT v3.0; no free price feed exists, so the odds factor is honestly recorded as missing and live bets resolve to SKIP. |
+| [`ice-hockey.html`](ice-hockey.html) | Ice hockey: scoreboard + month calendar over the NHL fixture list, scored by the ICE HOCKEY PREDICTION MASTER PROMPT v1.0. Three markets per match (outright winner, puck line, game total) behind a subagent risk layer that vetoes any play resting on an unsourced input. Fixtures, standings and goaltending from the official NHL API, prices from the ESPN odds block, OLBG slate for market context. |
 
 Every sport is reachable from the rail in the masthead on every page.
 
@@ -243,6 +244,10 @@ docs/
   SNOOKER_SOURCES.md    every snooker source, verified, with review links
   SNOOKER_IRREGULARITIES.md IR-SNOOKER-01..08
   SNOOKER_PROMPT_REVIEW.md prompt line -> code -> test, with every substitution named
+  ICE_HOCKEY_SOURCES.md every hockey endpoint, verified live, with review links
+  ICE_HOCKEY_IRREGULARITIES.md IR-HOCKEY-01..07 + the four prompt conflicts found
+  ICE_HOCKEY_PROMPT_REVIEW.md  prompt line -> code -> test for all three markets
+  ICE_HOCKEY_FEATURE_MATRIX.md what the hockey layer delivers and how it is proved
 ```
 
 The engine is imported directly by the browser **and** by the tests. There is no

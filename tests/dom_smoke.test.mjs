@@ -161,7 +161,8 @@ function makeFetch(counters) {
         || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
         || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/volleyball_')
-        || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)) {
+        || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)
+        || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
       return { ok: false, status: 404, json: async () => ({}) };
@@ -667,5 +668,58 @@ test('sport.html?sport=volleyball hands over to the dedicated volleyball page', 
     const a = document.querySelector('#handover');
     assert.ok(a, 'handover link rendered');
     assert.match(a.getAttribute('href'), /volleyball\.html\?date=2026-09-03/);
+  } finally { cleanup(); }
+});
+
+test('ice-hockey.html boots, auto-generates three tips per match and the button re-scores', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('ice-hockey.html', { search: '?date=2026-10-05' });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    assert.ok(document.querySelectorAll('.sportrail a').length >= 20, 'every sport is in the rail');
+
+    const rows = document.querySelectorAll('.match');
+    assert.ok(rows.length >= 1, `at least one match row rendered (found ${rows.length})`);
+    assert.match(document.body.textContent, /Ottawa Senators|Tampa Bay Lightning|Boston Bruins/);
+
+    // Predictions were generated automatically, without pressing anything.
+    const tips = [...document.querySelectorAll('.tipbox .tip-box')];
+    assert.ok(tips.length >= 3, `three markets written for the first match (found ${tips.length})`);
+    const labels = tips.slice(0, 3).map((t) => t.textContent);
+    assert.match(labels[0], /OUTRIGHT WINNER/);
+    assert.match(labels[1], /PUCK LINE/);
+    assert.match(labels[2], /GAME TOTAL/);
+
+    // Step 4 output rules hold on the rendered page, not just in the engine.
+    for (const tip of tips) {
+      const text = tip.querySelector('.tip-text')?.textContent || '';
+      assert.equal(/\d/.test(text.replace(/\*\*/g, '')), false, `no digits may leak into a tip: ${text.slice(0, 60)}`);
+      assert.match(text, /\b(HIGH|MEDIUM|LOW)\b|^SKIP/, 'confidence or SKIP stated');
+    }
+
+    // The Generate button works: clear the board, click it, board comes back.
+    document.querySelector('#board').innerHTML = '';
+    assert.equal(document.querySelectorAll('#board .match').length, 0, 'board cleared');
+    document.querySelector('#generate').click();
+    for (let i = 0; i < 20; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelectorAll('#board .match').length >= 1, 'Generate repopulated the board');
+    assert.ok(document.querySelectorAll('#board .tip-box').length >= 3, 'Generate rewrote the tips');
+
+    // Analysis panel: points, what could not be sourced, and https review links.
+    document.querySelector('.match-toggle').click();
+    const panel = document.querySelector('.analysis');
+    assert.ok(panel, 'analysis panel exists');
+    assert.match(panel.textContent, /Could not be sourced/);
+    assert.match(panel.textContent, /Estimated edge/);
+    const links = [...panel.querySelectorAll('a')];
+    assert.ok(links.length >= 3, 'review links present');
+    for (const l of links) assert.ok(l.href.startsWith('https://'), 'review links are https');
+
+    // The card text block is copy-paste ready.
+    assert.match(document.querySelector('#card-text').textContent, /ICE HOCKEY PREDICTIONS/);
+    assert.match(document.querySelector('#card-text').textContent, /gamble responsibly/i);
+
+    // Coverage and sources rails are populated from the committed provenance.
+    assert.match(document.querySelector('#coverage').textContent, /fixtures/);
+    assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
   } finally { cleanup(); }
 });

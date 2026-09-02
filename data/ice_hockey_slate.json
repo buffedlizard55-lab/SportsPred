@@ -1,0 +1,16 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "olbg_sport_id": "13",
+ "fetched_at_utc": "2026-09-02T23:22:54Z",
+ "source": {
+  "name": "OLBG Ice Hockey betting-tips index",
+  "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+  "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
+  "licence_note": "Publicly viewable listing of facts (fixture, league, kickoff, tip counts) recorded for manual review. No bookmaker price is published in this HTML, so no price field is produced."
+ },
+ "events": [],
+ "markets_seen": [],
+ "warnings": [],
+ "note": "Display-and-join context for the ice hockey engine. OLBG publishes tipster consensus, not odds, so this slate can never supply a price; prices come from the ESPN scoreboard odds block (one book, attributed) and the NHL API is used for fixtures, standings and goaltending."
+}

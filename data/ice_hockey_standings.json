@@ -1,0 +1,1878 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-02T23:22:49Z",
+ "collector": "scripts/collect_ice_hockey_nhl.mjs",
+ "endpoints": [
+  {
+   "url": "https://api-web.nhle.com/v1/standings/now",
+   "status": 200,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "sport": "Ice Hockey",
+ "league": "nhl",
+ "standings_date": "2026-09-02T23:22:45Z",
+ "teams": {
+  "COL": {
+   "abbrev": "COL",
+   "name": "Colorado Avalanche",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 121,
+   "pointsPctg": 0.737805,
+   "winPctg": 67.07,
+   "wins": 55,
+   "losses": 16,
+   "otLosses": 11,
+   "goalsForPerGame": 3.683,
+   "goalsAgainstPerGame": 2.476,
+   "goalDifferential": 99,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 26,
+    "losses": 9,
+    "otLosses": 6,
+    "goalsFor": 157,
+    "goalsAgainst": 108,
+    "winPctg": 63.41
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 29,
+    "losses": 7,
+    "otLosses": 5,
+    "goalsFor": 145,
+    "goalsAgainst": 95
+   },
+   "last10": {
+    "games": 10,
+    "wins": 7,
+    "losses": 2,
+    "otLosses": 1,
+    "goalsFor": 34,
+    "goalsAgainst": 20
+   },
+   "streak": {
+    "code": "W",
+    "count": 3
+   },
+   "ranks": {
+    "league": 1,
+    "division": 1,
+    "conference": 1,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "CAR": {
+   "abbrev": "CAR",
+   "name": "Carolina Hurricanes",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 113,
+   "pointsPctg": 0.689024,
+   "winPctg": 64.63,
+   "wins": 53,
+   "losses": 22,
+   "otLosses": 7,
+   "goalsForPerGame": 3.61,
+   "goalsAgainstPerGame": 2.927,
+   "goalDifferential": 56,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 29,
+    "losses": 10,
+    "otLosses": 2,
+    "goalsFor": 161,
+    "goalsAgainst": 126,
+    "winPctg": 70.73
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 12,
+    "otLosses": 5,
+    "goalsFor": 135,
+    "goalsAgainst": 114
+   },
+   "last10": {
+    "games": 10,
+    "wins": 7,
+    "losses": 2,
+    "otLosses": 1,
+    "goalsFor": 39,
+    "goalsAgainst": 27
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 2,
+    "division": 1,
+    "conference": 1,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "DAL": {
+   "abbrev": "DAL",
+   "name": "Dallas Stars",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 112,
+   "pointsPctg": 0.682927,
+   "winPctg": 60.98,
+   "wins": 50,
+   "losses": 20,
+   "otLosses": 12,
+   "goalsForPerGame": 3.402,
+   "goalsAgainstPerGame": 2.756,
+   "goalDifferential": 53,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 26,
+    "losses": 11,
+    "otLosses": 4,
+    "goalsFor": 135,
+    "goalsAgainst": 112,
+    "winPctg": 63.41
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 9,
+    "otLosses": 8,
+    "goalsFor": 144,
+    "goalsAgainst": 114
+   },
+   "last10": {
+    "games": 10,
+    "wins": 7,
+    "losses": 2,
+    "otLosses": 1,
+    "goalsFor": 34,
+    "goalsAgainst": 28
+   },
+   "streak": {
+    "code": "W",
+    "count": 5
+   },
+   "ranks": {
+    "league": 3,
+    "division": 2,
+    "conference": 2,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "BUF": {
+   "abbrev": "BUF",
+   "name": "Buffalo Sabres",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 109,
+   "pointsPctg": 0.664634,
+   "winPctg": 60.98,
+   "wins": 50,
+   "losses": 23,
+   "otLosses": 9,
+   "goalsForPerGame": 3.512,
+   "goalsAgainstPerGame": 2.939,
+   "goalDifferential": 47,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 26,
+    "losses": 10,
+    "otLosses": 5,
+    "goalsFor": 149,
+    "goalsAgainst": 119,
+    "winPctg": 63.41
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 13,
+    "otLosses": 4,
+    "goalsFor": 139,
+    "goalsAgainst": 122
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 3,
+    "otLosses": 1,
+    "goalsFor": 34,
+    "goalsAgainst": 30
+   },
+   "streak": {
+    "code": "OT",
+    "count": 1
+   },
+   "ranks": {
+    "league": 4,
+    "division": 1,
+    "conference": 2,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "TBL": {
+   "abbrev": "TBL",
+   "name": "Tampa Bay Lightning",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 106,
+   "pointsPctg": 0.646341,
+   "winPctg": 60.98,
+   "wins": 50,
+   "losses": 26,
+   "otLosses": 6,
+   "goalsForPerGame": 3.537,
+   "goalsAgainstPerGame": 2.817,
+   "goalDifferential": 59,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 26,
+    "losses": 14,
+    "otLosses": 1,
+    "goalsFor": 137,
+    "goalsAgainst": 115,
+    "winPctg": 63.41
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 12,
+    "otLosses": 5,
+    "goalsFor": 153,
+    "goalsAgainst": 116
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 5,
+    "otLosses": 0,
+    "goalsFor": 26,
+    "goalsAgainst": 30
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 5,
+    "division": 2,
+    "conference": 3,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "MTL": {
+   "abbrev": "MTL",
+   "name": "Montréal Canadiens",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 106,
+   "pointsPctg": 0.646341,
+   "winPctg": 58.54,
+   "wins": 48,
+   "losses": 24,
+   "otLosses": 10,
+   "goalsForPerGame": 3.451,
+   "goalsAgainstPerGame": 3.122,
+   "goalDifferential": 27,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 15,
+    "otLosses": 2,
+    "goalsFor": 137,
+    "goalsAgainst": 127,
+    "winPctg": 58.54
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 9,
+    "otLosses": 8,
+    "goalsFor": 146,
+    "goalsAgainst": 129
+   },
+   "last10": {
+    "games": 10,
+    "wins": 7,
+    "losses": 3,
+    "otLosses": 0,
+    "goalsFor": 28,
+    "goalsAgainst": 24
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 6,
+    "division": 3,
+    "conference": 4,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "MIN": {
+   "abbrev": "MIN",
+   "name": "Minnesota Wild",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 104,
+   "pointsPctg": 0.634146,
+   "winPctg": 56.1,
+   "wins": 46,
+   "losses": 24,
+   "otLosses": 12,
+   "goalsForPerGame": 3.317,
+   "goalsAgainstPerGame": 2.927,
+   "goalDifferential": 32,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 23,
+    "losses": 10,
+    "otLosses": 8,
+    "goalsFor": 130,
+    "goalsAgainst": 115,
+    "winPctg": 56.1
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 23,
+    "losses": 14,
+    "otLosses": 4,
+    "goalsFor": 142,
+    "goalsAgainst": 125
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 4,
+    "otLosses": 0,
+    "goalsFor": 36,
+    "goalsAgainst": 32
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 7,
+    "division": 3,
+    "conference": 3,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "BOS": {
+   "abbrev": "BOS",
+   "name": "Boston Bruins",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 100,
+   "pointsPctg": 0.609756,
+   "winPctg": 54.88,
+   "wins": 45,
+   "losses": 27,
+   "otLosses": 10,
+   "goalsForPerGame": 3.317,
+   "goalsAgainstPerGame": 3.049,
+   "goalDifferential": 22,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 29,
+    "losses": 11,
+    "otLosses": 1,
+    "goalsFor": 145,
+    "goalsAgainst": 105,
+    "winPctg": 70.73
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 16,
+    "losses": 16,
+    "otLosses": 9,
+    "goalsFor": 127,
+    "goalsAgainst": 145
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 3,
+    "otLosses": 2,
+    "goalsFor": 32,
+    "goalsAgainst": 26
+   },
+   "streak": {
+    "code": "W",
+    "count": 2
+   },
+   "ranks": {
+    "league": 8,
+    "division": 4,
+    "conference": 5,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "OTT": {
+   "abbrev": "OTT",
+   "name": "Ottawa Senators",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 99,
+   "pointsPctg": 0.603659,
+   "winPctg": 53.66,
+   "wins": 44,
+   "losses": 27,
+   "otLosses": 11,
+   "goalsForPerGame": 3.39,
+   "goalsAgainstPerGame": 3,
+   "goalDifferential": 32,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 23,
+    "losses": 12,
+    "otLosses": 6,
+    "goalsFor": 139,
+    "goalsAgainst": 108,
+    "winPctg": 56.1
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 15,
+    "otLosses": 5,
+    "goalsFor": 139,
+    "goalsAgainst": 138
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 3,
+    "otLosses": 1,
+    "goalsFor": 36,
+    "goalsAgainst": 26
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 9,
+    "division": 5,
+    "conference": 6,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "PIT": {
+   "abbrev": "PIT",
+   "name": "Pittsburgh Penguins",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 98,
+   "pointsPctg": 0.597561,
+   "winPctg": 50,
+   "wins": 41,
+   "losses": 25,
+   "otLosses": 16,
+   "goalsForPerGame": 3.573,
+   "goalsAgainstPerGame": 3.268,
+   "goalDifferential": 25,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 13,
+    "otLosses": 8,
+    "goalsFor": 150,
+    "goalsAgainst": 143,
+    "winPctg": 48.78
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 12,
+    "otLosses": 8,
+    "goalsFor": 143,
+    "goalsAgainst": 125
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 5,
+    "otLosses": 0,
+    "goalsFor": 46,
+    "goalsAgainst": 40
+   },
+   "streak": {
+    "code": "L",
+    "count": 3
+   },
+   "ranks": {
+    "league": 10,
+    "division": 2,
+    "conference": 7,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "PHI": {
+   "abbrev": "PHI",
+   "name": "Philadelphia Flyers",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 98,
+   "pointsPctg": 0.597561,
+   "winPctg": 52.44,
+   "wins": 43,
+   "losses": 27,
+   "otLosses": 12,
+   "goalsForPerGame": 3.049,
+   "goalsAgainstPerGame": 2.963,
+   "goalDifferential": 7,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 13,
+    "otLosses": 8,
+    "goalsFor": 111,
+    "goalsAgainst": 113,
+    "winPctg": 48.78
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 23,
+    "losses": 14,
+    "otLosses": 4,
+    "goalsFor": 139,
+    "goalsAgainst": 130
+   },
+   "last10": {
+    "games": 10,
+    "wins": 7,
+    "losses": 3,
+    "otLosses": 0,
+    "goalsFor": 36,
+    "goalsAgainst": 25
+   },
+   "streak": {
+    "code": "W",
+    "count": 3
+   },
+   "ranks": {
+    "league": 11,
+    "division": 3,
+    "conference": 8,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "WSH": {
+   "abbrev": "WSH",
+   "name": "Washington Capitals",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 95,
+   "pointsPctg": 0.579268,
+   "winPctg": 52.44,
+   "wins": 43,
+   "losses": 30,
+   "otLosses": 9,
+   "goalsForPerGame": 3.207,
+   "goalsAgainstPerGame": 2.976,
+   "goalDifferential": 19,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 25,
+    "losses": 11,
+    "otLosses": 5,
+    "goalsFor": 139,
+    "goalsAgainst": 109,
+    "winPctg": 60.98
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 18,
+    "losses": 19,
+    "otLosses": 4,
+    "goalsFor": 124,
+    "goalsAgainst": 135
+   },
+   "last10": {
+    "games": 10,
+    "wins": 8,
+    "losses": 2,
+    "otLosses": 0,
+    "goalsFor": 43,
+    "goalsAgainst": 33
+   },
+   "streak": {
+    "code": "W",
+    "count": 4
+   },
+   "ranks": {
+    "league": 12,
+    "division": 4,
+    "conference": 9,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "VGK": {
+   "abbrev": "VGK",
+   "name": "Vegas Golden Knights",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 95,
+   "pointsPctg": 0.579268,
+   "winPctg": 47.56,
+   "wins": 39,
+   "losses": 26,
+   "otLosses": 17,
+   "goalsForPerGame": 3.232,
+   "goalsAgainstPerGame": 3.049,
+   "goalDifferential": 15,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 12,
+    "otLosses": 9,
+    "goalsFor": 146,
+    "goalsAgainst": 127,
+    "winPctg": 48.78
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 19,
+    "losses": 14,
+    "otLosses": 8,
+    "goalsFor": 119,
+    "goalsAgainst": 123
+   },
+   "last10": {
+    "games": 10,
+    "wins": 7,
+    "losses": 0,
+    "otLosses": 3,
+    "goalsFor": 40,
+    "goalsAgainst": 25
+   },
+   "streak": {
+    "code": "W",
+    "count": 3
+   },
+   "ranks": {
+    "league": 13,
+    "division": 1,
+    "conference": 4,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "EDM": {
+   "abbrev": "EDM",
+   "name": "Edmonton Oilers",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 93,
+   "pointsPctg": 0.567073,
+   "winPctg": 50,
+   "wins": 41,
+   "losses": 30,
+   "otLosses": 11,
+   "goalsForPerGame": 3.439,
+   "goalsAgainstPerGame": 3.28,
+   "goalDifferential": 13,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 22,
+    "losses": 14,
+    "otLosses": 5,
+    "goalsFor": 143,
+    "goalsAgainst": 140,
+    "winPctg": 53.66
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 19,
+    "losses": 16,
+    "otLosses": 6,
+    "goalsFor": 139,
+    "goalsAgainst": 129
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 2,
+    "otLosses": 2,
+    "goalsFor": 32,
+    "goalsAgainst": 23
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 14,
+    "division": 2,
+    "conference": 5,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "UTA": {
+   "abbrev": "UTA",
+   "name": "Utah Mammoth",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 92,
+   "pointsPctg": 0.560976,
+   "winPctg": 52.44,
+   "wins": 43,
+   "losses": 33,
+   "otLosses": 6,
+   "goalsForPerGame": 3.268,
+   "goalsAgainstPerGame": 2.927,
+   "goalDifferential": 28,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 22,
+    "losses": 16,
+    "otLosses": 3,
+    "goalsFor": 137,
+    "goalsAgainst": 124,
+    "winPctg": 53.66
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 17,
+    "otLosses": 3,
+    "goalsFor": 131,
+    "goalsAgainst": 116
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 4,
+    "otLosses": 0,
+    "goalsFor": 43,
+    "goalsAgainst": 37
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 15,
+    "division": 4,
+    "conference": 6,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "DET": {
+   "abbrev": "DET",
+   "name": "Detroit Red Wings",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 92,
+   "pointsPctg": 0.560976,
+   "winPctg": 50,
+   "wins": 41,
+   "losses": 31,
+   "otLosses": 10,
+   "goalsForPerGame": 2.939,
+   "goalsAgainstPerGame": 3.146,
+   "goalDifferential": -17,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 16,
+    "otLosses": 4,
+    "goalsFor": 127,
+    "goalsAgainst": 137,
+    "winPctg": 51.22
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 15,
+    "otLosses": 6,
+    "goalsFor": 114,
+    "goalsAgainst": 121
+   },
+   "last10": {
+    "games": 10,
+    "wins": 2,
+    "losses": 6,
+    "otLosses": 2,
+    "goalsFor": 29,
+    "goalsAgainst": 45
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 16,
+    "division": 6,
+    "conference": 10,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "CBJ": {
+   "abbrev": "CBJ",
+   "name": "Columbus Blue Jackets",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 92,
+   "pointsPctg": 0.560976,
+   "winPctg": 48.78,
+   "wins": 40,
+   "losses": 30,
+   "otLosses": 12,
+   "goalsForPerGame": 3.085,
+   "goalsAgainstPerGame": 3.085,
+   "goalDifferential": 0,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 13,
+    "otLosses": 8,
+    "goalsFor": 135,
+    "goalsAgainst": 126,
+    "winPctg": 48.78
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 17,
+    "otLosses": 4,
+    "goalsFor": 118,
+    "goalsAgainst": 127
+   },
+   "last10": {
+    "games": 10,
+    "wins": 2,
+    "losses": 7,
+    "otLosses": 1,
+    "goalsFor": 21,
+    "goalsAgainst": 34
+   },
+   "streak": {
+    "code": "L",
+    "count": 2
+   },
+   "ranks": {
+    "league": 17,
+    "division": 5,
+    "conference": 11,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "ANA": {
+   "abbrev": "ANA",
+   "name": "Anaheim Ducks",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 92,
+   "pointsPctg": 0.560976,
+   "winPctg": 52.44,
+   "wins": 43,
+   "losses": 33,
+   "otLosses": 6,
+   "goalsForPerGame": 3.329,
+   "goalsAgainstPerGame": 3.512,
+   "goalDifferential": -15,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 24,
+    "losses": 13,
+    "otLosses": 4,
+    "goalsFor": 145,
+    "goalsAgainst": 143,
+    "winPctg": 58.54
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 19,
+    "losses": 20,
+    "otLosses": 2,
+    "goalsFor": 128,
+    "goalsAgainst": 145
+   },
+   "last10": {
+    "games": 10,
+    "wins": 2,
+    "losses": 6,
+    "otLosses": 2,
+    "goalsFor": 30,
+    "goalsAgainst": 41
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 18,
+    "division": 3,
+    "conference": 7,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "NYI": {
+   "abbrev": "NYI",
+   "name": "New York Islanders",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 91,
+   "pointsPctg": 0.554878,
+   "winPctg": 52.44,
+   "wins": 43,
+   "losses": 34,
+   "otLosses": 5,
+   "goalsForPerGame": 2.841,
+   "goalsAgainstPerGame": 2.939,
+   "goalDifferential": -8,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 22,
+    "losses": 17,
+    "otLosses": 2,
+    "goalsFor": 120,
+    "goalsAgainst": 122,
+    "winPctg": 53.66
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 17,
+    "otLosses": 3,
+    "goalsFor": 113,
+    "goalsAgainst": 119
+   },
+   "last10": {
+    "games": 10,
+    "wins": 3,
+    "losses": 7,
+    "otLosses": 0,
+    "goalsFor": 24,
+    "goalsAgainst": 35
+   },
+   "streak": {
+    "code": "L",
+    "count": 3
+   },
+   "ranks": {
+    "league": 19,
+    "division": 6,
+    "conference": 12,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "LAK": {
+   "abbrev": "LAK",
+   "name": "Los Angeles Kings",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 90,
+   "pointsPctg": 0.54878,
+   "winPctg": 42.68,
+   "wins": 35,
+   "losses": 27,
+   "otLosses": 20,
+   "goalsForPerGame": 2.744,
+   "goalsAgainstPerGame": 3.012,
+   "goalDifferential": -22,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 15,
+    "losses": 17,
+    "otLosses": 9,
+    "goalsFor": 108,
+    "goalsAgainst": 128,
+    "winPctg": 36.59
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 10,
+    "otLosses": 11,
+    "goalsFor": 117,
+    "goalsAgainst": 119
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 2,
+    "otLosses": 2,
+    "goalsFor": 32,
+    "goalsAgainst": 31
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 20,
+    "division": 4,
+    "conference": 8,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "NJD": {
+   "abbrev": "NJD",
+   "name": "New Jersey Devils",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 87,
+   "pointsPctg": 0.530488,
+   "winPctg": 51.22,
+   "wins": 42,
+   "losses": 37,
+   "otLosses": 3,
+   "goalsForPerGame": 2.805,
+   "goalsAgainstPerGame": 3.098,
+   "goalDifferential": -24,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 17,
+    "otLosses": 3,
+    "goalsFor": 121,
+    "goalsAgainst": 124,
+    "winPctg": 51.22
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 20,
+    "otLosses": 0,
+    "goalsFor": 109,
+    "goalsAgainst": 130
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 4,
+    "otLosses": 1,
+    "goalsFor": 31,
+    "goalsAgainst": 34
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 21,
+    "division": 7,
+    "conference": 13,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "STL": {
+   "abbrev": "STL",
+   "name": "St. Louis Blues",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 86,
+   "pointsPctg": 0.52439,
+   "winPctg": 45.12,
+   "wins": 37,
+   "losses": 33,
+   "otLosses": 12,
+   "goalsForPerGame": 2.817,
+   "goalsAgainstPerGame": 3.146,
+   "goalDifferential": -27,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 14,
+    "otLosses": 7,
+    "goalsFor": 116,
+    "goalsAgainst": 126,
+    "winPctg": 48.78
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 17,
+    "losses": 19,
+    "otLosses": 5,
+    "goalsFor": 115,
+    "goalsAgainst": 132
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 3,
+    "otLosses": 1,
+    "goalsFor": 40,
+    "goalsAgainst": 31
+   },
+   "streak": {
+    "code": "W",
+    "count": 4
+   },
+   "ranks": {
+    "league": 22,
+    "division": 5,
+    "conference": 9,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "NSH": {
+   "abbrev": "NSH",
+   "name": "Nashville Predators",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 86,
+   "pointsPctg": 0.52439,
+   "winPctg": 46.34,
+   "wins": 38,
+   "losses": 34,
+   "otLosses": 10,
+   "goalsForPerGame": 3.012,
+   "goalsAgainstPerGame": 3.28,
+   "goalDifferential": -22,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 17,
+    "otLosses": 3,
+    "goalsFor": 127,
+    "goalsAgainst": 132,
+    "winPctg": 51.22
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 17,
+    "losses": 17,
+    "otLosses": 7,
+    "goalsFor": 120,
+    "goalsAgainst": 137
+   },
+   "last10": {
+    "games": 10,
+    "wins": 4,
+    "losses": 5,
+    "otLosses": 1,
+    "goalsFor": 30,
+    "goalsAgainst": 30
+   },
+   "streak": {
+    "code": "L",
+    "count": 2
+   },
+   "ranks": {
+    "league": 23,
+    "division": 6,
+    "conference": 10,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "SJS": {
+   "abbrev": "SJS",
+   "name": "San Jose Sharks",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 86,
+   "pointsPctg": 0.52439,
+   "winPctg": 47.56,
+   "wins": 39,
+   "losses": 35,
+   "otLosses": 8,
+   "goalsForPerGame": 3.061,
+   "goalsAgainstPerGame": 3.561,
+   "goalDifferential": -41,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 21,
+    "losses": 14,
+    "otLosses": 6,
+    "goalsFor": 126,
+    "goalsAgainst": 142,
+    "winPctg": 51.22
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 18,
+    "losses": 21,
+    "otLosses": 2,
+    "goalsFor": 125,
+    "goalsAgainst": 150
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 4,
+    "otLosses": 1,
+    "goalsFor": 31,
+    "goalsAgainst": 35
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 24,
+    "division": 5,
+    "conference": 11,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "FLA": {
+   "abbrev": "FLA",
+   "name": "Florida Panthers",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 84,
+   "pointsPctg": 0.512195,
+   "winPctg": 48.78,
+   "wins": 40,
+   "losses": 38,
+   "otLosses": 4,
+   "goalsForPerGame": 3.061,
+   "goalsAgainstPerGame": 3.366,
+   "goalDifferential": -25,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 23,
+    "losses": 15,
+    "otLosses": 3,
+    "goalsFor": 133,
+    "goalsAgainst": 123,
+    "winPctg": 56.1
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 17,
+    "losses": 23,
+    "otLosses": 1,
+    "goalsFor": 118,
+    "goalsAgainst": 153
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 4,
+    "otLosses": 1,
+    "goalsFor": 36,
+    "goalsAgainst": 35
+   },
+   "streak": {
+    "code": "W",
+    "count": 3
+   },
+   "ranks": {
+    "league": 25,
+    "division": 7,
+    "conference": 14,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "WPG": {
+   "abbrev": "WPG",
+   "name": "Winnipeg Jets",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 82,
+   "pointsPctg": 0.5,
+   "winPctg": 42.68,
+   "wins": 35,
+   "losses": 35,
+   "otLosses": 12,
+   "goalsForPerGame": 2.817,
+   "goalsAgainstPerGame": 3.171,
+   "goalDifferential": -29,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 19,
+    "losses": 16,
+    "otLosses": 6,
+    "goalsFor": 124,
+    "goalsAgainst": 127,
+    "winPctg": 46.34
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 16,
+    "losses": 19,
+    "otLosses": 6,
+    "goalsFor": 107,
+    "goalsAgainst": 133
+   },
+   "last10": {
+    "games": 10,
+    "wins": 5,
+    "losses": 5,
+    "otLosses": 0,
+    "goalsFor": 26,
+    "goalsAgainst": 37
+   },
+   "streak": {
+    "code": "L",
+    "count": 4
+   },
+   "ranks": {
+    "league": 26,
+    "division": 7,
+    "conference": 12,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "SEA": {
+   "abbrev": "SEA",
+   "name": "Seattle Kraken",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 79,
+   "pointsPctg": 0.481707,
+   "winPctg": 41.46,
+   "wins": 34,
+   "losses": 37,
+   "otLosses": 11,
+   "goalsForPerGame": 2.756,
+   "goalsAgainstPerGame": 3.207,
+   "goalDifferential": -37,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 19,
+    "losses": 17,
+    "otLosses": 5,
+    "goalsFor": 121,
+    "goalsAgainst": 125,
+    "winPctg": 46.34
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 15,
+    "losses": 20,
+    "otLosses": 6,
+    "goalsFor": 105,
+    "goalsAgainst": 138
+   },
+   "last10": {
+    "games": 10,
+    "wins": 2,
+    "losses": 8,
+    "otLosses": 0,
+    "goalsFor": 20,
+    "goalsAgainst": 39
+   },
+   "streak": {
+    "code": "L",
+    "count": 3
+   },
+   "ranks": {
+    "league": 27,
+    "division": 6,
+    "conference": 13,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "TOR": {
+   "abbrev": "TOR",
+   "name": "Toronto Maple Leafs",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 78,
+   "pointsPctg": 0.47561,
+   "winPctg": 39.02,
+   "wins": 32,
+   "losses": 36,
+   "otLosses": 14,
+   "goalsForPerGame": 3.085,
+   "goalsAgainstPerGame": 3.646,
+   "goalDifferential": -46,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 18,
+    "losses": 15,
+    "otLosses": 8,
+    "goalsFor": 135,
+    "goalsAgainst": 145,
+    "winPctg": 43.9
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 14,
+    "losses": 21,
+    "otLosses": 6,
+    "goalsFor": 118,
+    "goalsAgainst": 154
+   },
+   "last10": {
+    "games": 10,
+    "wins": 2,
+    "losses": 7,
+    "otLosses": 1,
+    "goalsFor": 28,
+    "goalsAgainst": 47
+   },
+   "streak": {
+    "code": "L",
+    "count": 5
+   },
+   "ranks": {
+    "league": 28,
+    "division": 8,
+    "conference": 15,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "CGY": {
+   "abbrev": "CGY",
+   "name": "Calgary Flames",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 77,
+   "pointsPctg": 0.469512,
+   "winPctg": 41.46,
+   "wins": 34,
+   "losses": 39,
+   "otLosses": 9,
+   "goalsForPerGame": 2.585,
+   "goalsAgainstPerGame": 3.159,
+   "goalDifferential": -47,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 23,
+    "losses": 13,
+    "otLosses": 5,
+    "goalsFor": 120,
+    "goalsAgainst": 107,
+    "winPctg": 56.1
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 11,
+    "losses": 26,
+    "otLosses": 4,
+    "goalsFor": 92,
+    "goalsAgainst": 152
+   },
+   "last10": {
+    "games": 10,
+    "wins": 4,
+    "losses": 5,
+    "otLosses": 1,
+    "goalsFor": 30,
+    "goalsAgainst": 37
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 29,
+    "division": 7,
+    "conference": 14,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "NYR": {
+   "abbrev": "NYR",
+   "name": "New York Rangers",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 77,
+   "pointsPctg": 0.469512,
+   "winPctg": 41.46,
+   "wins": 34,
+   "losses": 39,
+   "otLosses": 9,
+   "goalsForPerGame": 2.902,
+   "goalsAgainstPerGame": 3.049,
+   "goalDifferential": -12,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 14,
+    "losses": 20,
+    "otLosses": 7,
+    "goalsFor": 106,
+    "goalsAgainst": 124,
+    "winPctg": 34.15
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 20,
+    "losses": 19,
+    "otLosses": 2,
+    "goalsFor": 132,
+    "goalsAgainst": 126
+   },
+   "last10": {
+    "games": 10,
+    "wins": 6,
+    "losses": 4,
+    "otLosses": 0,
+    "goalsFor": 36,
+    "goalsAgainst": 20
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 30,
+    "division": 8,
+    "conference": 16,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "CHI": {
+   "abbrev": "CHI",
+   "name": "Chicago Blackhawks",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 72,
+   "pointsPctg": 0.439024,
+   "winPctg": 35.37,
+   "wins": 29,
+   "losses": 39,
+   "otLosses": 14,
+   "goalsForPerGame": 2.598,
+   "goalsAgainstPerGame": 3.354,
+   "goalDifferential": -62,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 14,
+    "losses": 19,
+    "otLosses": 8,
+    "goalsFor": 107,
+    "goalsAgainst": 135,
+    "winPctg": 34.15
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 15,
+    "losses": 20,
+    "otLosses": 6,
+    "goalsFor": 106,
+    "goalsAgainst": 140
+   },
+   "last10": {
+    "games": 10,
+    "wins": 2,
+    "losses": 7,
+    "otLosses": 1,
+    "goalsFor": 25,
+    "goalsAgainst": 42
+   },
+   "streak": {
+    "code": "W",
+    "count": 1
+   },
+   "ranks": {
+    "league": 31,
+    "division": 8,
+    "conference": 15,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  },
+  "VAN": {
+   "abbrev": "VAN",
+   "name": "Vancouver Canucks",
+   "league": "nhl",
+   "seasonId": 20252026,
+   "standingsDate": "2026-04-17",
+   "gamesPlayed": 82,
+   "points": 58,
+   "pointsPctg": 0.353659,
+   "winPctg": 30.49,
+   "wins": 25,
+   "losses": 49,
+   "otLosses": 8,
+   "goalsForPerGame": 2.634,
+   "goalsAgainstPerGame": 3.854,
+   "goalDifferential": -100,
+   "home": {
+    "gamesPlayed": 41,
+    "wins": 9,
+    "losses": 27,
+    "otLosses": 5,
+    "goalsFor": 101,
+    "goalsAgainst": 160,
+    "winPctg": 21.95
+   },
+   "road": {
+    "gamesPlayed": 41,
+    "wins": 16,
+    "losses": 22,
+    "otLosses": 3,
+    "goalsFor": 115,
+    "goalsAgainst": 156
+   },
+   "last10": {
+    "games": 10,
+    "wins": 4,
+    "losses": 6,
+    "otLosses": 0,
+    "goalsFor": 31,
+    "goalsAgainst": 43
+   },
+   "streak": {
+    "code": "L",
+    "count": 1
+   },
+   "ranks": {
+    "league": 32,
+    "division": 8,
+    "conference": 16,
+    "leagueSize": 32
+   },
+   "shotsForPerGame": null,
+   "shotsAgainstPerGame": null,
+   "powerPlayPctg": null,
+   "penaltyKillPctg": null,
+   "powerPlayOpportunitiesPerGame": null,
+   "blockedShotsPerGame": null
+  }
+ },
+ "counts": {
+  "teams": 32
+ },
+ "note": "Shots for/against per game, power play % and penalty kill % are not published by this endpoint. They stay null and the engine records them as missing."
+}
