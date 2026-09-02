@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "fetched_at_utc": "2026-09-02T04:11:37.521Z",
+  "fetched_at_utc": "2026-09-02T08:58:29.042Z",
   "environment": {
     "collector": "scripts/collect_f1_espn.mjs",
     "node": "v22.23.2"

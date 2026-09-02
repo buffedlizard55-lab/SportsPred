@@ -7,7 +7,7 @@
       "https://www.olbg.com/betting-tips/Tennis/3",
       "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/3"
     ],
-    "fetched_at_utc": "2026-09-02T04:10:58Z",
+    "fetched_at_utc": "2026-09-02T08:57:58Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/SOURCES.md."
   },
@@ -20,23 +20,68 @@
   "collection_warnings": [],
   "events": [
     {
-      "event_id": "899287",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Fabian_Marozsan_vs_Michael_Zheng/3?event_id=899287",
-      "slug": "Fabian_Marozsan_vs_Michael_Zheng",
-      "display_date": "Today",
-      "display_time": "18:00",
+      "event_id": "899394",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Andrea_Guerrieri_vs_Alex_De_Minaur/3?event_id=899394",
+      "slug": "Andrea_Guerrieri_vs_Alex_De_Minaur",
+      "display_date": "Tomorrow",
+      "display_time": "16:00",
       "consensus": {
-        "market": "Total Games",
-        "selection": "Over 38.50",
-        "tips_for": 6,
-        "tips_total": 6,
-        "pct": 100,
-        "comments": 5,
+        "market": "Win Match",
+        "selection": "Alex De Minaur",
+        "tips_for": 11,
+        "tips_total": 12,
+        "pct": 92,
+        "comments": 4,
         "experts": 0
       },
       "type": "match",
-      "home": "Fabian Marozsan",
-      "away": "Michael Zheng",
+      "home": "Andrea Guerrieri",
+      "away": "Alex De Minaur",
+      "resolved_date": "2026-09-03",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -90.00",
+        "Days Profit -90.00",
+        "All Tips Annual Profit -48.00",
+        "Days Profit -8.00",
+        "Annual Profit -397.00",
+        "Days Profit -157.00",
+        "Days Profit -58.00",
+        "Days Profit -27.00",
+        "Hide Selections Andrea Guerrieri +9.50",
+        "Add Alex De Minaur -9.50",
+        "Annual Profit -48.00",
+        "Days Profit -8.00",
+        "Andrea Guerrieri +9.50",
+        "Alex De Minaur -9.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899453",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Sebastian_Gorzny/3?event_id=899453",
+      "slug": "Daniil_Medvedev_vs_Sebastian_Gorzny",
+      "display_date": "Today",
+      "display_time": "16:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Daniil Medvedev",
+        "tips_for": 10,
+        "tips_total": 11,
+        "pct": 91,
+        "comments": 4,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Daniil Medvedev",
+      "away": "Sebastian Gorzny",
       "resolved_date": "2026-09-02",
       "date_basis": "derived",
       "markets_on_event_page": [
@@ -47,19 +92,57 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Days Profit -55.00",
-        "Days Profit -55.00",
-        "Fábián Marozsán. Annual Profit -271.00",
-        "Days Profit -13.00",
-        "All Tips Annual Profit -64.00",
-        "Days Profit -206.00",
-        "All Tips Annual Profit -102.00",
-        "Cincinnati. Annual Profit -40.00",
-        "Hide Selections Fabian Marozsan +2.50",
-        "Add Michael Zheng -2.50",
-        "All Tips Annual Profit -40.00",
-        "Fabian Marozsan +2.50",
-        "Michael Zheng -2.50"
+        "Days Profit -90.00",
+        "Days Profit -90.00",
+        "Days Profit -27.00",
+        "Hide Selections Daniil Medvedev -8.50",
+        "Add Sebastian Gorzny +8.50",
+        "Daniil Medvedev -8.50",
+        "Sebastian Gorzny +8.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899290",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Zachary_Svajda_vs_Daniel_Altmaier/3?event_id=899290",
+      "slug": "Zachary_Svajda_vs_Daniel_Altmaier",
+      "display_date": "Today",
+      "display_time": "17:30",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Daniel Altmaier",
+        "tips_for": 10,
+        "tips_total": 16,
+        "pct": 63,
+        "comments": 7,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Zachary Svajda",
+      "away": "Daniel Altmaier",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Read More Annual Profit -9.00",
+        "All Tips Annual Profit -9.00",
+        "Days Profit -5.00",
+        "All Tips Annual Profit -126.00",
+        "Days Profit -10.00",
+        "Days Profit -5.00",
+        "Annual Profit -173.00",
+        "Days Profit -14.00",
+        "Hide Selections Daniel Altmaier +2.50",
+        "Add Zachary Svajda -2.50",
+        "Days Profit -12.00",
+        "Daniel Altmaier +2.50",
+        "Zachary Svajda -2.50"
       ],
       "markets_verified": true
     },
@@ -72,10 +155,10 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Jessica Pegula",
-        "tips_for": 4,
-        "tips_total": 4,
+        "tips_for": 9,
+        "tips_total": 9,
         "pct": 100,
-        "comments": 3,
+        "comments": 5,
         "experts": 0
       },
       "type": "match",
@@ -91,12 +174,318 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
-        "Hide Selections Jessica Pegula -6.50",
-        "Add Sofia Kenin +6.50",
-        "Jessica Pegula -6.50",
-        "Sofia Kenin +6.50"
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Hide Selections Sofia Kenin +6.50",
+        "Add Jessica Pegula -6.50",
+        "Sofia Kenin +6.50",
+        "Jessica Pegula -6.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899296",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Marcos_Giron_vs_Ignacio_Buse/3?event_id=899296",
+      "slug": "Marcos_Giron_vs_Ignacio_Buse",
+      "display_date": "Today",
+      "display_time": "17:30",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Ignacio Buse",
+        "tips_for": 9,
+        "tips_total": 12,
+        "pct": 75,
+        "comments": 5,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Marcos Giron",
+      "away": "Ignacio Buse",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Read More Annual Profit -58.00",
+        "Days Profit -28.00",
+        "All Tips Annual Profit -58.00",
+        "Days Profit -28.00",
+        "Annual Profit -152.00",
+        "Days Profit -128.00",
+        "Days Profit -11.00",
+        "Annual Profit -882.00",
+        "Annual Profit -397.00",
+        "Days Profit -157.00",
+        "Days Profit -58.00",
+        "Annual Profit -882.00",
+        "Hide Selections Ignacio Buse -2.50",
+        "Days Profit -50.00",
+        "Marcos Giron +2.50",
+        "Days Profit -12.00",
+        "Ignacio Buse -2.50",
+        "Marcos Giron +2.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899287",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Fabian_Marozsan_vs_Michael_Zheng/3?event_id=899287",
+      "slug": "Fabian_Marozsan_vs_Michael_Zheng",
+      "display_date": "Today",
+      "display_time": "18:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Michael Zheng",
+        "tips_for": 6,
+        "tips_total": 10,
+        "pct": 60,
+        "comments": 4,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Fabian Marozsan",
+      "away": "Michael Zheng",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -50.00",
+        "Days Profit -50.00",
+        "Fábián Marozsán. Annual Profit -291.00",
+        "Days Profit -33.00",
+        "Days Profit -20.00",
+        "All Tips Annual Profit -85.00",
+        "Days Profit -228.00",
+        "Days Profit -21.00",
+        "All Tips Annual Profit -126.00",
+        "Days Profit -10.00",
+        "Days Profit -5.00",
+        "Cincinnati. Annual Profit -48.00",
+        "Days Profit -8.00",
+        "Hide Selections Fabian Marozsan +2.50",
+        "Add Michael Zheng -2.50",
+        "All Tips Annual Profit -48.00",
+        "Days Profit -8.00",
+        "Days Profit -12.00",
+        "Fabian Marozsan +2.50",
+        "Michael Zheng -2.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899442",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katie_Boulter_vs_Karolina_Muchova/3?event_id=899442",
+      "slug": "Katie_Boulter_vs_Karolina_Muchova",
+      "display_date": "Today",
+      "display_time": "20:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Karolina Muchova",
+        "tips_for": 6,
+        "tips_total": 6,
+        "pct": 100,
+        "comments": 4,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Katie Boulter",
+      "away": "Karolina Muchova",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Hide Selections Katie Boulter +5.50",
+        "Add Karolina Muchova -5.50",
+        "Katie Boulter +5.50",
+        "Karolina Muchova -5.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899462",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Marta_Kostyuk_vs_Sloane_Stephens/3?event_id=899462",
+      "slug": "Marta_Kostyuk_vs_Sloane_Stephens",
+      "display_date": "Today",
+      "display_time": "18:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Marta Kostyuk",
+        "tips_for": 5,
+        "tips_total": 5,
+        "pct": 100,
+        "comments": 2,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Marta Kostyuk",
+      "away": "Sloane Stephens",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Hide Selections Marta Kostyuk -5.50",
+        "Add Sloane Stephens +5.50",
+        "Marta Kostyuk -5.50",
+        "Sloane Stephens +5.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899476",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Rafael_Jodar_vs_Yunchaokete_Bu/3?event_id=899476",
+      "slug": "Rafael_Jodar_vs_Yunchaokete_Bu",
+      "display_date": "Tomorrow",
+      "display_time": "16:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Rafael Jodar",
+        "tips_for": 5,
+        "tips_total": 5,
+        "pct": 100,
+        "comments": 4,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Rafael Jodar",
+      "away": "Yunchaokete Bu",
+      "resolved_date": "2026-09-03",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -90.00",
+        "Days Profit -90.00",
+        "Annual Profit -152.00",
+        "Days Profit -128.00",
+        "Days Profit -11.00",
+        "Annual Profit -434.00",
+        "Days Profit -140.00",
+        "Annual Profit -48.00",
+        "Days Profit -8.00",
+        "Hide Selections Yunchaokete Bu +7.50",
+        "Add Rafael Jodar -7.50",
+        "Days Profit -12.00",
+        "Yunchaokete Bu +7.50",
+        "Rafael Jodar -7.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899454",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniel_Merida_vs_Andrey_Rublev/3?event_id=899454",
+      "slug": "Daniel_Merida_vs_Andrey_Rublev",
+      "display_date": "Today",
+      "display_time": "16:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Andrey Rublev",
+        "tips_for": 4,
+        "tips_total": 4,
+        "pct": 100,
+        "comments": 4,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Daniel Merida",
+      "away": "Andrey Rublev",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -27.00",
+        "Days Profit -27.00",
+        "Annual Profit -574.00",
+        "Days Profit -203.00",
+        "Annual Profit -125.00",
+        "Hide Selections Andrey Rublev -1.50",
+        "Annual Profit -125.00",
+        "Daniel Merida +1.50",
+        "Andrey Rublev -1.50",
+        "Daniel Merida +1.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899443",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Aryna_Sabalenka_vs_Polina_Iatcenko/3?event_id=899443",
+      "slug": "Aryna_Sabalenka_vs_Polina_Iatcenko",
+      "display_date": "Tomorrow",
+      "display_time": "00:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Aryna Sabalenka",
+        "tips_for": 4,
+        "tips_total": 4,
+        "pct": 100,
+        "comments": 2,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Aryna Sabalenka",
+      "away": "Polina Iatcenko",
+      "resolved_date": "2026-09-03",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Days Profit -283.00",
+        "Days Profit -48.00",
+        "Days Profit -13.00",
+        "Hide Selections Polina Iatcenko +7.50",
+        "Add Aryna Sabalenka -7.50",
+        "Polina Iatcenko +7.50",
+        "Aryna Sabalenka -7.50"
       ],
       "markets_verified": true
     },
@@ -128,91 +517,12 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
+        "Days Profit -90.00",
+        "Days Profit -90.00",
         "Hide Selections Carlos Alcaraz -6.50",
         "Add Jaime Faria +6.50",
         "Carlos Alcaraz -6.50",
         "Jaime Faria +6.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899454",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniel_Merida_vs_Andrey_Rublev/3?event_id=899454",
-      "slug": "Daniel_Merida_vs_Andrey_Rublev",
-      "display_date": "Today",
-      "display_time": "16:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Andrey Rublev",
-        "tips_for": 3,
-        "tips_total": 3,
-        "pct": 100,
-        "comments": 3,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Daniel Merida",
-      "away": "Andrey Rublev",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Days Profit -46.00",
-        "Days Profit -46.00",
-        "Annual Profit -594.00",
-        "Days Profit -223.00",
-        "Annual Profit -131.00",
-        "Hide Selections Andrey Rublev -1.50",
-        "Annual Profit -131.00",
-        "Daniel Merida +1.50",
-        "Andrey Rublev -1.50",
-        "Daniel Merida +1.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899453",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Daniil_Medvedev_vs_Sebastian_Gorzny/3?event_id=899453",
-      "slug": "Daniil_Medvedev_vs_Sebastian_Gorzny",
-      "display_date": "Today",
-      "display_time": "16:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Daniil Medvedev",
-        "tips_for": 3,
-        "tips_total": 3,
-        "pct": 100,
-        "comments": 2,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Daniil Medvedev",
-      "away": "Sebastian Gorzny",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
-        "Days Profit -46.00",
-        "Hide Selections Daniil Medvedev -8.50",
-        "Add Sebastian Gorzny +8.50",
-        "Daniil Medvedev -8.50",
-        "Sebastian Gorzny +8.50"
       ],
       "markets_verified": true
     },
@@ -244,12 +554,49 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Annual Profit -131.00",
+        "Annual Profit -125.00",
         "Selections Luca Van Assche +2.50",
         "Add Denis Shapovalov -2.50",
-        "Annual Profit -131.00",
+        "Annual Profit -125.00",
         "Luca Van Assche +2.50",
         "Denis Shapovalov -2.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899465",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elina_Svitolina_vs_Maya_Joint/3?event_id=899465",
+      "slug": "Elina_Svitolina_vs_Maya_Joint",
+      "display_date": "Today",
+      "display_time": "22:30",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Elina Svitolina",
+        "tips_for": 3,
+        "tips_total": 3,
+        "pct": 100,
+        "comments": 0,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Elina Svitolina",
+      "away": "Maya Joint",
+      "resolved_date": "2026-09-02",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -10.00",
+        "Days Profit -10.00",
+        "Hide Selections Elina Svitolina -5.50",
+        "Add Maya Joint +5.50",
+        "Elina Svitolina -5.50",
+        "Maya Joint +5.50"
       ],
       "markets_verified": true
     },
@@ -281,88 +628,12 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Read More Annual Profit -400.00",
-        "Days Profit -1.00",
-        "Annual Profit -400.00",
-        "Days Profit -1.00",
+        "Read More Annual Profit -391.00",
+        "Annual Profit -391.00",
         "Hide Selections Lucrezia Stefanini +4.50",
         "Add Jasmine Paolini -4.50",
         "Lucrezia Stefanini +4.50",
         "Jasmine Paolini -4.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899462",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Marta_Kostyuk_vs_Sloane_Stephens/3?event_id=899462",
-      "slug": "Marta_Kostyuk_vs_Sloane_Stephens",
-      "display_date": "Today",
-      "display_time": "18:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Marta Kostyuk",
-        "tips_for": 2,
-        "tips_total": 2,
-        "pct": 100,
-        "comments": 1,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Marta Kostyuk",
-      "away": "Sloane Stephens",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Read More Annual Profit -118.00",
-        "Annual Profit -118.00",
-        "Hide Selections Marta Kostyuk -5.50",
-        "Add Sloane Stephens +5.50",
-        "Marta Kostyuk -5.50",
-        "Sloane Stephens +5.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899442",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Katie_Boulter_vs_Karolina_Muchova/3?event_id=899442",
-      "slug": "Katie_Boulter_vs_Karolina_Muchova",
-      "display_date": "Today",
-      "display_time": "20:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Karolina Muchova",
-        "tips_for": 2,
-        "tips_total": 2,
-        "pct": 100,
-        "comments": 2,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Katie Boulter",
-      "away": "Karolina Muchova",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
-        "Hide Selections Katie Boulter +5.50",
-        "Add Karolina Muchova -5.50",
-        "Katie Boulter +5.50",
-        "Karolina Muchova -5.50"
       ],
       "markets_verified": true
     },
@@ -402,44 +673,6 @@
       "markets_verified": true
     },
     {
-      "event_id": "899443",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Aryna_Sabalenka_vs_Polina_Iatcenko/3?event_id=899443",
-      "slug": "Aryna_Sabalenka_vs_Polina_Iatcenko",
-      "display_date": "Tomorrow",
-      "display_time": "00:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Aryna Sabalenka",
-        "tips_for": 2,
-        "tips_total": 2,
-        "pct": 100,
-        "comments": 1,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Aryna Sabalenka",
-      "away": "Polina Iatcenko",
-      "resolved_date": "2026-09-03",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
-        "Days Profit -5.00",
-        "Hide Selections Polina Iatcenko +7.50",
-        "Add Aryna Sabalenka -7.50",
-        "Polina Iatcenko +7.50",
-        "Aryna Sabalenka -7.50"
-      ],
-      "markets_verified": true
-    },
-    {
       "event_id": "899451",
       "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Lilli_Tagger_vs_Amanda_Anisimova/3?event_id=899451",
       "slug": "Lilli_Tagger_vs_Amanda_Anisimova",
@@ -467,12 +700,88 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Days Profit -46.00",
-        "Days Profit -46.00",
+        "Days Profit -27.00",
+        "Days Profit -27.00",
         "Hide Selections Lilli Tagger +5.50",
         "Add Amanda Anisimova -5.50",
         "Lilli Tagger +5.50",
         "Amanda Anisimova -5.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899477",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Madison_Keys_vs_Anna_Bondar/3?event_id=899477",
+      "slug": "Madison_Keys_vs_Anna_Bondar",
+      "display_date": "Tomorrow",
+      "display_time": "16:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Madison Keys",
+        "tips_for": 2,
+        "tips_total": 2,
+        "pct": 100,
+        "comments": 1,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Madison Keys",
+      "away": "Anna Bondar",
+      "resolved_date": "2026-09-03",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Days Profit -90.00",
+        "Days Profit -90.00",
+        "Hide Selections Madison Keys -5.50",
+        "Add Anna Bondar +5.50",
+        "Madison Keys -5.50",
+        "Anna Bondar +5.50"
+      ],
+      "markets_verified": true
+    },
+    {
+      "event_id": "899475",
+      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Naomi_Osaka_vs_Katerina_Siniakova/3?event_id=899475",
+      "slug": "Naomi_Osaka_vs_Katerina_Siniakova",
+      "display_date": "Tomorrow",
+      "display_time": "16:00",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Naomi Osaka",
+        "tips_for": 2,
+        "tips_total": 2,
+        "pct": 100,
+        "comments": 0,
+        "experts": 0
+      },
+      "type": "match",
+      "home": "Naomi Osaka",
+      "away": "Katerina Siniakova",
+      "resolved_date": "2026-09-03",
+      "date_basis": "derived",
+      "markets_on_event_page": [
+        "1st Set Winner",
+        "Win Match",
+        "Games Won",
+        "Total Games",
+        "Set Betting"
+      ],
+      "games_won_selections": [
+        "Tip Naomi Osaka -4.50",
+        "Read More Annual Profit -125.00",
+        "Hide Selections Naomi Osaka -4.50",
+        "Annual Profit -125.00",
+        "Katerina Siniakova +4.50",
+        "Naomi Osaka -4.50",
+        "Katerina Siniakova +4.50",
+        "Naomi Osaka -4.50"
       ],
       "markets_verified": true
     },
@@ -504,12 +813,12 @@
         "Set Betting"
       ],
       "games_won_selections": [
-        "Read More Annual Profit -131.00",
-        "Annual Profit -131.00",
-        "Hide Selections Alex Michelsen +3.50",
-        "Add Brandon Nakashima -3.50",
-        "Alex Michelsen +3.50",
-        "Brandon Nakashima -3.50"
+        "Read More Annual Profit -125.00",
+        "Annual Profit -125.00",
+        "Hide Selections Brandon Nakashima -3.50",
+        "Add Alex Michelsen +3.50",
+        "Brandon Nakashima -3.50",
+        "Alex Michelsen +3.50"
       ],
       "markets_verified": true
     },
@@ -522,10 +831,10 @@
       "consensus": {
         "market": "Total Games",
         "selection": "Under 20.50",
-        "tips_for": 1,
-        "tips_total": 1,
+        "tips_for": 2,
+        "tips_total": 2,
         "pct": 100,
-        "comments": 0,
+        "comments": 1,
         "experts": 0
       },
       "type": "match",
@@ -545,259 +854,6 @@
         "Add Karolina Pliskova +4.50",
         "Diana Shnaider -4.50",
         "Karolina Pliskova +4.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899432",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Dino_Prizmic_vs_Tommy_Paul/3?event_id=899432",
-      "slug": "Dino_Prizmic_vs_Tommy_Paul",
-      "display_date": "Today",
-      "display_time": "19:30",
-      "consensus": {
-        "market": "Set Betting",
-        "selection": "Tommy Paul to win 3 - 1",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Dino Prizmic",
-      "away": "Tommy Paul",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Hide Selections Dino Prizmic +6.50",
-        "Add Tommy Paul -6.50",
-        "Dino Prizmic +6.50",
-        "Tommy Paul -6.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899463",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Matteo_Berrettini_vs_Mariano_Navone/3?event_id=899463",
-      "slug": "Matteo_Berrettini_vs_Mariano_Navone",
-      "display_date": "Today",
-      "display_time": "20:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Matteo Berrettini",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Matteo Berrettini",
-      "away": "Mariano Navone",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Read More Annual Profit -131.00",
-        "Annual Profit -131.00",
-        "Hide Selections Matteo Berrettini -3.50",
-        "Add Mariano Navone +3.50",
-        "Matteo Berrettini -3.50",
-        "Mariano Navone +3.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899439",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Alexander_Bublik_vs_Adrian_Mannarino/3?event_id=899439",
-      "slug": "Alexander_Bublik_vs_Adrian_Mannarino",
-      "display_date": "Today",
-      "display_time": "21:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Alexander Bublik",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Alexander Bublik",
-      "away": "Adrian Mannarino",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Hide Selections Adrian Mannarino +5.50",
-        "Add Alexander Bublik -5.50",
-        "Adrian Mannarino +5.50",
-        "Alexander Bublik -5.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899464",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Ann_Li_vs_Donna_Vekic/3?event_id=899464",
-      "slug": "Ann_Li_vs_Donna_Vekic",
-      "display_date": "Today",
-      "display_time": "21:30",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Ann Li",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Ann Li",
-      "away": "Donna Vekic",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Read More Annual Profit -131.00",
-        "Annual Profit -131.00",
-        "Hide Selections Ann Li -2.50",
-        "Add Donna Vekic +2.50",
-        "Ann Li -2.50",
-        "Donna Vekic +2.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899465",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Elina_Svitolina_vs_Maya_Joint/3?event_id=899465",
-      "slug": "Elina_Svitolina_vs_Maya_Joint",
-      "display_date": "Today",
-      "display_time": "22:30",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Elina Svitolina",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Elina Svitolina",
-      "away": "Maya Joint",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Hide Selections Elina Svitolina -5.50",
-        "Add Maya Joint +5.50",
-        "Elina Svitolina -5.50",
-        "Maya Joint +5.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899477",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Madison_Keys_vs_Anna_Bondar/3?event_id=899477",
-      "slug": "Madison_Keys_vs_Anna_Bondar",
-      "display_date": "Tomorrow",
-      "display_time": "16:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Madison Keys",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Madison Keys",
-      "away": "Anna Bondar",
-      "resolved_date": "2026-09-03",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
-        "Hide Selections Anna Bondar +5.50",
-        "Add Madison Keys -5.50",
-        "Anna Bondar +5.50",
-        "Madison Keys -5.50"
-      ],
-      "markets_verified": true
-    },
-    {
-      "event_id": "899479",
-      "url": "https://www.olbg.com/betting-tips/Tennis/All_Tennis/All_Events/Taylor_Fritz_vs_Mattia_Bellucci/3?event_id=899479",
-      "slug": "Taylor_Fritz_vs_Mattia_Bellucci",
-      "display_date": "Tomorrow",
-      "display_time": "16:00",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Taylor Fritz",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
-        "experts": 0
-      },
-      "type": "match",
-      "home": "Taylor Fritz",
-      "away": "Mattia Bellucci",
-      "resolved_date": "2026-09-03",
-      "date_basis": "derived",
-      "markets_on_event_page": [
-        "1st Set Winner",
-        "Win Match",
-        "Games Won",
-        "Total Games",
-        "Set Betting"
-      ],
-      "games_won_selections": [
-        "Days Profit -93.00",
-        "Days Profit -93.00",
-        "Hide Selections Taylor Fritz -6.50",
-        "Add Mattia Bellucci +6.50",
-        "Taylor Fritz -6.50",
-        "Mattia Bellucci +6.50"
       ],
       "markets_verified": true
     }
