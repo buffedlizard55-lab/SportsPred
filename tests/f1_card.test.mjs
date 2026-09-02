@@ -171,6 +171,29 @@ test('buildF1DateCard selects the weekend covering the date and the nearest upco
   assert.ok(off.card, 'nearest upcoming event gets a full card');
 });
 
+test('a finished-but-unclassified race is never offered as the upcoming race', () => {
+  // REGRESSION: `upcoming` took the first event still flagged 'pre'. A race
+  // that has been run but which the source never classified (IR-F1-03) stays
+  // 'pre' forever, so a race from April was presented as next up in September.
+  const withStale = {
+    ...eventsDoc,
+    events: [
+      {
+        id: 'bhr2026', name: 'Gulf Air Bahrain Grand Prix', abbreviation: 'BRN',
+        seasonYear: 2026, state: 'pre', resultUnavailable: true,
+        startDate: '2026-04-10T12:00Z', endDate: '2026-04-12T15:00Z', raceDate: '2026-04-12T15:00Z',
+        sessions: [], race: { completed: false, result: [], grid: [] },
+      },
+      ...eventsDoc.events,
+    ],
+  };
+  const out = buildF1DateCard(withStale, standingsDoc, slateDoc, weatherDoc, '2026-09-02');
+  assert.equal(out.upcoming?.id, 'ita2026', 'upcoming must be ahead of the viewed date');
+  assert.notEqual(out.upcoming?.id, 'bhr2026');
+  assert.deepEqual(out.unresolved.map((e) => e.id), ['bhr2026'],
+    'the unclassified race is surfaced for review, not silently dropped');
+});
+
 test('selectF1Event falls back to closest event with a note', () => {
   const sel = selectF1Event(eventsDoc.events, '2026-09-01');
   assert.equal(sel.event.id, 'ita2026');

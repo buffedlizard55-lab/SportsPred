@@ -176,8 +176,15 @@ export function buildF1DateCard(eventsDoc, standingsDoc, slateDoc, weatherDoc, d
 
   const all = (eventsDoc?.events || []).filter((e) => e?.startDate)
     .sort((a, b) => String(a.startDate).localeCompare(String(b.startDate)));
-  const upcoming = all.find((e) => e.state === 'pre');
+  // "Upcoming" must be genuinely ahead of the date being viewed. Selecting the
+  // first event still flagged 'pre' picked up races that have already been run
+  // but which ESPN never classified (IR-F1-03) — so an April race showed as
+  // next up in September.
+  const upcoming = all.find((e) => e.state === 'pre' && isoOf(e.endDate) >= isoOf(dateISO));
   const lastCompleted = [...all].reverse().find((e) => e.state === 'post');
+  // Finished races carrying no published classification, so a reviewer can see
+  // why they are absent from both the results list and the upcoming slot.
+  const unresolved = all.filter((e) => e.resultUnavailable === true && isoOf(e.endDate) < isoOf(dateISO));
 
   return {
     date: dateISO,
@@ -186,6 +193,7 @@ export function buildF1DateCard(eventsDoc, standingsDoc, slateDoc, weatherDoc, d
     card,
     upcoming,
     lastCompleted,
+    unresolved,
     neighbors: { prev: sel.prev, next: sel.next },
   };
 }

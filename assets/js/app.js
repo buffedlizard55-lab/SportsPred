@@ -1603,14 +1603,26 @@ function renderBacktest() {
   if (state.sport === 'f1') {
     const events = state.f1Events?.events || [];
     const completed = events.filter((e) => e.state === 'post');
-    const next = events.find((e) => e.state === 'pre');
+    // Next race must be ahead of today. A race that has been run but which
+    // ESPN never classified stays 'pre' (IR-F1-03), so filtering on state
+    // alone surfaced a months-old race as "next up".
+    const todayISO = new Date().toISOString().slice(0, 10);
+    const next = events
+      .filter((e) => e.state === 'pre' && String(e.endDate || e.raceDate || '').slice(0, 10) >= todayISO)
+      .sort((a, b) => String(a.raceDate).localeCompare(String(b.raceDate)))[0];
+    const unresolved = events.filter((e) => e.resultUnavailable === true);
+    const seasonYear = Math.max(...events.map((e) => e.seasonYear || 0), 0);
+    const thisSeason = events.filter((e) => e.seasonYear === seasonYear);
+    const completedThisSeason = thisSeason.filter((e) => e.state === 'post');
     el.innerHTML = `
       <div class="stat-grid">
-        <div class="stat-card"><strong>${completed.length}</strong><span>Completed 2026 Races</span></div>
+        <div class="stat-card"><strong>${completedThisSeason.length}</strong><span>Completed ${seasonYear} Races</span></div>
         <div class="stat-card"><strong>${next ? esc(next.name) : '—'}</strong><span>Next Race</span></div>
-        <div class="stat-card"><strong>${events.length}</strong><span>Season Calendar Verified</span></div>
+        <div class="stat-card"><strong>${thisSeason.length}</strong><span>${seasonYear} Calendar Verified</span></div>
+        <div class="stat-card"><strong>${completed.length}</strong><span>Races In Backtest Sample</span></div>
         <div class="stat-card"><strong>${esc((state.f1Events?.fetched_at_utc || '').slice(0, 16))}</strong><span>Data Snapshot</span></div>
       </div>
+      ${unresolved.length ? `<div class="warnings">${unresolved.length} finished race${unresolved.length > 1 ? 's have' : ' has'} no classification published by the source, so ${unresolved.length > 1 ? 'they are' : 'it is'} excluded from results and from the backtest: ${unresolved.map((e) => esc(e.name)).join(', ')}. See IR-F1-03.</div>` : ''}
       <div class="table-card">
         <h2>Walk-Forward Backtest Method (Formula 1)</h2>
         <p class="hint" style="line-height:1.7">
