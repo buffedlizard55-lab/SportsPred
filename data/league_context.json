@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-02T23:09:04.530Z",
+  "generated_at_utc": "2026-09-02T23:13:45.546Z",
   "generator": "scripts/build_league_context.mjs",
   "window": {
     "days": 120,
@@ -9,20 +9,6 @@
   },
   "method": "Home-win rate, draw rate and mean combined score MEASURED from completed matches returned by the ESPN scoreboard over the window above. A league with fewer than 10 completed matches is written with sufficient:false and receives no baseline.",
   "leagues": {
-    "football:aut.1": {
-      "sample": 45,
-      "homeWinRate": 0.511111,
-      "drawRate": 0.155556,
-      "awayWinRate": 0.333333,
-      "meanTotal": 2.9111,
-      "sufficient": true,
-      "leagueName": "Austrian Bundesliga",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 45,
-      "pricedMatches": 0
-    },
     "football:aus.1": {
       "sample": 5,
       "homeWinRate": null,
@@ -35,20 +21,6 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 5,
-      "pricedMatches": 0
-    },
-    "football:bel.1": {
-      "sample": 61,
-      "homeWinRate": 0.47541,
-      "drawRate": 0.278689,
-      "awayWinRate": 0.245902,
-      "meanTotal": 3.0328,
-      "sufficient": true,
-      "leagueName": "Belgian Pro League",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 61,
       "pricedMatches": 0
     },
     "football:arg.1": {
@@ -65,18 +37,18 @@
       "completedMatches": 100,
       "pricedMatches": 0
     },
-    "football:club.friendly": {
-      "sample": 98,
-      "homeWinRate": 0.459184,
-      "drawRate": 0.193878,
-      "awayWinRate": 0.346939,
-      "meanTotal": 3.0612,
+    "football:aut.1": {
+      "sample": 45,
+      "homeWinRate": 0.511111,
+      "drawRate": 0.155556,
+      "awayWinRate": 0.333333,
+      "meanTotal": 2.9111,
       "sufficient": true,
-      "leagueName": "Club Friendly",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/club.friendly/scoreboard?dates=20260505-20260902",
+      "leagueName": "Austrian Bundesliga",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 98,
+      "completedMatches": 45,
       "pricedMatches": 0
     },
     "football:bra.1": {
@@ -93,6 +65,20 @@
       "completedMatches": 100,
       "pricedMatches": 0
     },
+    "football:bel.1": {
+      "sample": 61,
+      "homeWinRate": 0.47541,
+      "drawRate": 0.278689,
+      "awayWinRate": 0.245902,
+      "meanTotal": 3.0328,
+      "sufficient": true,
+      "leagueName": "Belgian Pro League",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 61,
+      "pricedMatches": 0
+    },
     "football:concacaf.champions_cup": {
       "sample": 0,
       "homeWinRate": null,
@@ -105,20 +91,6 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
-      "pricedMatches": 0
-    },
-    "football:conmebol.libertadores": {
-      "sample": 64,
-      "homeWinRate": 0.453125,
-      "drawRate": 0.3125,
-      "awayWinRate": 0.234375,
-      "meanTotal": 2.1875,
-      "sufficient": true,
-      "leagueName": "CONMEBOL Libertadores",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.libertadores/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 64,
       "pricedMatches": 0
     },
     "football:chn.1": {
@@ -135,32 +107,18 @@
       "completedMatches": 100,
       "pricedMatches": 0
     },
-    "football:conmebol.sudamericana": {
-      "sample": 80,
-      "homeWinRate": 0.4125,
+    "football:conmebol.libertadores": {
+      "sample": 64,
+      "homeWinRate": 0.453125,
       "drawRate": 0.3125,
-      "awayWinRate": 0.275,
-      "meanTotal": 2.675,
+      "awayWinRate": 0.234375,
+      "meanTotal": 2.1875,
       "sufficient": true,
-      "leagueName": "CONMEBOL Sudamericana",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.sudamericana/scoreboard?dates=20260505-20260902",
+      "leagueName": "CONMEBOL Libertadores",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.libertadores/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 80,
-      "pricedMatches": 0
-    },
-    "football:eng.league_cup": {
-      "sample": 60,
-      "homeWinRate": 0.366667,
-      "drawRate": 0.2,
-      "awayWinRate": 0.433333,
-      "meanTotal": 2.8833,
-      "sufficient": true,
-      "leagueName": "English Carabao Cup",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 60,
+      "completedMatches": 64,
       "pricedMatches": 0
     },
     "football:den.1": {
@@ -177,6 +135,34 @@
       "completedMatches": 48,
       "pricedMatches": 0
     },
+    "football:conmebol.sudamericana": {
+      "sample": 80,
+      "homeWinRate": 0.4125,
+      "drawRate": 0.3125,
+      "awayWinRate": 0.275,
+      "meanTotal": 2.675,
+      "sufficient": true,
+      "leagueName": "CONMEBOL Sudamericana",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.sudamericana/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 80,
+      "pricedMatches": 0
+    },
+    "football:ned.1": {
+      "sample": 54,
+      "homeWinRate": 0.37037,
+      "drawRate": 0.203704,
+      "awayWinRate": 0.425926,
+      "meanTotal": 3.7222,
+      "sufficient": true,
+      "leagueName": "Dutch Eredivisie",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 54,
+      "pricedMatches": 0
+    },
     "football:eng.fa": {
       "sample": 1,
       "homeWinRate": null,
@@ -189,6 +175,48 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 1,
+      "pricedMatches": 0
+    },
+    "football:eng.league_cup": {
+      "sample": 60,
+      "homeWinRate": 0.366667,
+      "drawRate": 0.2,
+      "awayWinRate": 0.433333,
+      "meanTotal": 2.8833,
+      "sufficient": true,
+      "leagueName": "English Carabao Cup",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 60,
+      "pricedMatches": 0
+    },
+    "football:club.friendly": {
+      "sample": 98,
+      "homeWinRate": 0.459184,
+      "drawRate": 0.193878,
+      "awayWinRate": 0.346939,
+      "meanTotal": 3.0612,
+      "sufficient": true,
+      "leagueName": "Club Friendly",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/club.friendly/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 98,
+      "pricedMatches": 0
+    },
+    "football:eng.3": {
+      "sample": 52,
+      "homeWinRate": 0.423077,
+      "drawRate": 0.269231,
+      "awayWinRate": 0.307692,
+      "meanTotal": 2.9615,
+      "sufficient": true,
+      "leagueName": "English League One",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 52,
       "pricedMatches": 0
     },
     "football:eng.2": {
@@ -233,20 +261,6 @@
       "completedMatches": 61,
       "pricedMatches": 0
     },
-    "football:ned.1": {
-      "sample": 54,
-      "homeWinRate": 0.37037,
-      "drawRate": 0.203704,
-      "awayWinRate": 0.425926,
-      "meanTotal": 3.7222,
-      "sufficient": true,
-      "leagueName": "Dutch Eredivisie",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 54,
-      "pricedMatches": 0
-    },
     "football:eng.4": {
       "sample": 53,
       "homeWinRate": 0.45283,
@@ -259,48 +273,6 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 53,
-      "pricedMatches": 0
-    },
-    "football:fifa.worldq.uefa": {
-      "sample": 0,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "FIFA World Cup Qualifying - UEFA",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.uefa/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 0,
-      "pricedMatches": 0
-    },
-    "football:eng.3": {
-      "sample": 52,
-      "homeWinRate": 0.423077,
-      "drawRate": 0.269231,
-      "awayWinRate": 0.307692,
-      "meanTotal": 2.9615,
-      "sufficient": true,
-      "leagueName": "English League One",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 52,
-      "pricedMatches": 0
-    },
-    "football:fra.1": {
-      "sample": 38,
-      "homeWinRate": 0.368421,
-      "drawRate": 0.289474,
-      "awayWinRate": 0.342105,
-      "meanTotal": 2.7368,
-      "sufficient": true,
-      "leagueName": "French Ligue 1",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 38,
       "pricedMatches": 0
     },
     "football:fifa.world": {
@@ -317,18 +289,46 @@
       "completedMatches": 100,
       "pricedMatches": 0
     },
-    "football:ger.1": {
-      "sample": 27,
-      "homeWinRate": 0.62963,
-      "drawRate": 0.148148,
-      "awayWinRate": 0.222222,
-      "meanTotal": 3.6667,
-      "sufficient": true,
-      "leagueName": "German Bundesliga",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20260505-20260902",
+    "football:fifa.worldq.uefa": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "FIFA World Cup Qualifying - UEFA",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.uefa/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 27,
+      "completedMatches": 0,
+      "pricedMatches": 0
+    },
+    "football:fra.1": {
+      "sample": 38,
+      "homeWinRate": 0.368421,
+      "drawRate": 0.289474,
+      "awayWinRate": 0.342105,
+      "meanTotal": 2.7368,
+      "sufficient": true,
+      "leagueName": "French Ligue 1",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 38,
+      "pricedMatches": 0
+    },
+    "football:fra.2": {
+      "sample": 45,
+      "homeWinRate": 0.377778,
+      "drawRate": 0.333333,
+      "awayWinRate": 0.288889,
+      "meanTotal": 2.6444,
+      "sufficient": true,
+      "leagueName": "French Ligue 2",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 45,
       "pricedMatches": 0
     },
     "football:gre.1": {
@@ -359,18 +359,60 @@
       "completedMatches": 45,
       "pricedMatches": 0
     },
-    "football:fra.2": {
-      "sample": 45,
-      "homeWinRate": 0.377778,
-      "drawRate": 0.333333,
-      "awayWinRate": 0.288889,
-      "meanTotal": 2.6444,
+    "football:ita.1": {
+      "sample": 50,
+      "homeWinRate": 0.34,
+      "drawRate": 0.12,
+      "awayWinRate": 0.54,
+      "meanTotal": 2.56,
       "sufficient": true,
-      "leagueName": "French Ligue 2",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/scoreboard?dates=20260505-20260902",
+      "leagueName": "Italian Serie A",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 45,
+      "completedMatches": 50,
+      "pricedMatches": 0
+    },
+    "football:jpn.1": {
+      "sample": 100,
+      "homeWinRate": 0.42,
+      "drawRate": 0.23,
+      "awayWinRate": 0.35,
+      "meanTotal": 2.89,
+      "sufficient": true,
+      "leagueName": "Japanese J.League",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 100,
+      "pricedMatches": 0
+    },
+    "football:fifa.friendly": {
+      "sample": 100,
+      "homeWinRate": 0.55,
+      "drawRate": 0.27,
+      "awayWinRate": 0.18,
+      "meanTotal": 2.6,
+      "sufficient": true,
+      "leagueName": "International Friendly",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 100,
+      "pricedMatches": 0
+    },
+    "football:ger.1": {
+      "sample": 27,
+      "homeWinRate": 0.62963,
+      "drawRate": 0.148148,
+      "awayWinRate": 0.222222,
+      "meanTotal": 3.6667,
+      "sufficient": true,
+      "leagueName": "German Bundesliga",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 27,
       "pricedMatches": 0
     },
     "football:ita.2": {
@@ -387,29 +429,15 @@
       "completedMatches": 40,
       "pricedMatches": 0
     },
-    "football:ita.1": {
-      "sample": 50,
-      "homeWinRate": 0.34,
-      "drawRate": 0.12,
-      "awayWinRate": 0.54,
-      "meanTotal": 2.56,
-      "sufficient": true,
-      "leagueName": "Italian Serie A",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 50,
-      "pricedMatches": 0
-    },
-    "football:fifa.friendly": {
+    "football:usa.1": {
       "sample": 100,
-      "homeWinRate": 0.55,
-      "drawRate": 0.27,
-      "awayWinRate": 0.18,
-      "meanTotal": 2.6,
+      "homeWinRate": 0.5,
+      "drawRate": 0.24,
+      "awayWinRate": 0.26,
+      "meanTotal": 3.4,
       "sufficient": true,
-      "leagueName": "International Friendly",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/scoreboard?dates=20260505-20260902",
+      "leagueName": "MLS",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 100,
@@ -429,32 +457,18 @@
       "completedMatches": 64,
       "pricedMatches": 0
     },
-    "football:jpn.1": {
+    "football:usa.nwsl": {
       "sample": 100,
-      "homeWinRate": 0.42,
-      "drawRate": 0.23,
-      "awayWinRate": 0.35,
-      "meanTotal": 2.89,
+      "homeWinRate": 0.5,
+      "drawRate": 0.18,
+      "awayWinRate": 0.32,
+      "meanTotal": 2.79,
       "sufficient": true,
-      "leagueName": "Japanese J.League",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/scoreboard?dates=20260505-20260902",
+      "leagueName": "NWSL",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 100,
-      "pricedMatches": 0
-    },
-    "football:nor.1": {
-      "sample": 87,
-      "homeWinRate": 0.505747,
-      "drawRate": 0.195402,
-      "awayWinRate": 0.298851,
-      "meanTotal": 3.1494,
-      "sufficient": true,
-      "leagueName": "Norwegian Eliteserien",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 87,
       "pricedMatches": 0
     },
     "football:ksa.1": {
@@ -471,62 +485,6 @@
       "completedMatches": 66,
       "pricedMatches": 0
     },
-    "football:por.1": {
-      "sample": 52,
-      "homeWinRate": 0.423077,
-      "drawRate": 0.307692,
-      "awayWinRate": 0.269231,
-      "meanTotal": 2.5769,
-      "sufficient": true,
-      "leagueName": "Portuguese Primeira Liga",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 52,
-      "pricedMatches": 0
-    },
-    "football:usa.nwsl": {
-      "sample": 100,
-      "homeWinRate": 0.5,
-      "drawRate": 0.18,
-      "awayWinRate": 0.32,
-      "meanTotal": 2.79,
-      "sufficient": true,
-      "leagueName": "NWSL",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 100,
-      "pricedMatches": 0
-    },
-    "football:sco.2": {
-      "sample": 20,
-      "homeWinRate": 0.45,
-      "drawRate": 0.35,
-      "awayWinRate": 0.2,
-      "meanTotal": 1.75,
-      "sufficient": true,
-      "leagueName": "Scottish Championship",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.2/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 20,
-      "pricedMatches": 0
-    },
-    "football:usa.1": {
-      "sample": 100,
-      "homeWinRate": 0.5,
-      "drawRate": 0.24,
-      "awayWinRate": 0.26,
-      "meanTotal": 3.4,
-      "sufficient": true,
-      "leagueName": "MLS",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 100,
-      "pricedMatches": 0
-    },
     "football:sco.1": {
       "sample": 42,
       "homeWinRate": 0.404762,
@@ -539,20 +497,6 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 42,
-      "pricedMatches": 0
-    },
-    "football:esp.2": {
-      "sample": 83,
-      "homeWinRate": 0.421687,
-      "drawRate": 0.240964,
-      "awayWinRate": 0.337349,
-      "meanTotal": 2.4217,
-      "sufficient": true,
-      "leagueName": "Spanish LALIGA 2",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 83,
       "pricedMatches": 0
     },
     "football:esp.1": {
@@ -569,6 +513,48 @@
       "completedMatches": 70,
       "pricedMatches": 0
     },
+    "football:sco.2": {
+      "sample": 20,
+      "homeWinRate": 0.45,
+      "drawRate": 0.35,
+      "awayWinRate": 0.2,
+      "meanTotal": 1.75,
+      "sufficient": true,
+      "leagueName": "Scottish Championship",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.2/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 20,
+      "pricedMatches": 0
+    },
+    "football:nor.1": {
+      "sample": 87,
+      "homeWinRate": 0.505747,
+      "drawRate": 0.195402,
+      "awayWinRate": 0.298851,
+      "meanTotal": 3.1494,
+      "sufficient": true,
+      "leagueName": "Norwegian Eliteserien",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 87,
+      "pricedMatches": 0
+    },
+    "football:esp.2": {
+      "sample": 83,
+      "homeWinRate": 0.421687,
+      "drawRate": 0.240964,
+      "awayWinRate": 0.337349,
+      "meanTotal": 2.4217,
+      "sufficient": true,
+      "leagueName": "Spanish LALIGA 2",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 83,
+      "pricedMatches": 0
+    },
     "football:sui.1": {
       "sample": 0,
       "homeWinRate": null,
@@ -581,48 +567,6 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
-      "pricedMatches": 0
-    },
-    "football:tur.1": {
-      "sample": 45,
-      "homeWinRate": 0.511111,
-      "drawRate": 0.177778,
-      "awayWinRate": 0.311111,
-      "meanTotal": 3,
-      "sufficient": true,
-      "leagueName": "Turkish Super Lig",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 45,
-      "pricedMatches": 0
-    },
-    "football:uefa.champions": {
-      "sample": 3,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "UEFA Champions League",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 3,
-      "pricedMatches": 0
-    },
-    "football:uefa.europa.conf": {
-      "sample": 3,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "UEFA Conference League",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 3,
       "pricedMatches": 0
     },
     "football:swe.1": {
@@ -639,6 +583,20 @@
       "completedMatches": 100,
       "pricedMatches": 0
     },
+    "football:uefa.champions": {
+      "sample": 3,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "UEFA Champions League",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 3,
+      "pricedMatches": 0
+    },
     "football:uefa.europa": {
       "sample": 3,
       "homeWinRate": null,
@@ -651,6 +609,20 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 3,
+      "pricedMatches": 0
+    },
+    "football:uefa.nations": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "UEFA Nations League",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.nations/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 0,
       "pricedMatches": 0
     },
     "american-football:nfl": {
@@ -667,18 +639,18 @@
       "completedMatches": 49,
       "pricedMatches": 0
     },
-    "american-football:college-football": {
-      "sample": 8,
+    "football:uefa.europa.conf": {
+      "sample": 3,
       "homeWinRate": null,
       "drawRate": null,
       "awayWinRate": null,
       "meanTotal": null,
       "sufficient": false,
-      "leagueName": "NCAA - Football",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260505-20260902",
+      "leagueName": "UEFA Conference League",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 8,
+      "completedMatches": 3,
       "pricedMatches": 0
     },
     "american-football:ufl": {
@@ -695,11 +667,6 @@
       "completedMatches": 19,
       "pricedMatches": 0
     },
-    "basketball:mens-college-basketball": {
-      "sufficient": false,
-      "error": "HTTP 404",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=20260505-20260902"
-    },
     "basketball:nba": {
       "sample": 35,
       "homeWinRate": 0.485714,
@@ -713,6 +680,11 @@
       "measuredTo": "2026-09-02",
       "completedMatches": 35,
       "pricedMatches": 0
+    },
+    "basketball:mens-college-basketball": {
+      "sufficient": false,
+      "error": "HTTP 404",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=20260505-20260902"
     },
     "basketball:nba-development": {
       "sample": 0,
@@ -728,6 +700,25 @@
       "completedMatches": 0,
       "pricedMatches": 0
     },
+    "basketball:wnba": {
+      "sample": 100,
+      "homeWinRate": 0.49,
+      "drawRate": 0,
+      "awayWinRate": 0.51,
+      "meanTotal": 170.8,
+      "sufficient": true,
+      "leagueName": "Women's National Basketball Association",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 100,
+      "pricedMatches": 0
+    },
+    "basketball:womens-college-basketball": {
+      "sufficient": false,
+      "error": "HTTP 404",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?dates=20260505-20260902"
+    },
     "baseball:mlb": {
       "sample": 100,
       "homeWinRate": 0.53,
@@ -740,6 +731,20 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 100,
+      "pricedMatches": 0
+    },
+    "rugby-union:289274": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "2020 Tri Nations",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289274/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 0,
       "pricedMatches": 0
     },
     "baseball:college-baseball": {
@@ -756,34 +761,15 @@
       "completedMatches": 200,
       "pricedMatches": 0
     },
-    "basketball:womens-college-basketball": {
-      "sufficient": false,
-      "error": "HTTP 404",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?dates=20260505-20260902"
-    },
-    "football:uefa.nations": {
+    "rugby-union:236461": {
       "sample": 0,
       "homeWinRate": null,
       "drawRate": null,
       "awayWinRate": null,
       "meanTotal": null,
       "sufficient": false,
-      "leagueName": "UEFA Nations League",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.nations/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 0,
-      "pricedMatches": 0
-    },
-    "rugby-union:289274": {
-      "sample": 0,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "2020 Tri Nations",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289274/scoreboard?dates=20260505-20260902",
+      "leagueName": "Anglo-Welsh Cup",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/236461/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
@@ -817,18 +803,18 @@
       "completedMatches": 0,
       "pricedMatches": 0
     },
-    "rugby-union:236461": {
-      "sample": 0,
+    "rugby-union:272073": {
+      "sample": 1,
       "homeWinRate": null,
       "drawRate": null,
       "awayWinRate": null,
       "meanTotal": null,
       "sufficient": false,
-      "leagueName": "Anglo-Welsh Cup",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/236461/scoreboard?dates=20260505-20260902",
+      "leagueName": "European Rugby Challenge Cup",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/272073/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 0,
+      "completedMatches": 1,
       "pricedMatches": 0
     },
     "rugby-union:271937": {
@@ -845,88 +831,18 @@
       "completedMatches": 1,
       "pricedMatches": 0
     },
-    "rugby-union:270559": {
-      "sample": 33,
-      "homeWinRate": 0.69697,
-      "drawRate": 0,
-      "awayWinRate": 0.30303,
-      "meanTotal": 62.8485,
-      "sufficient": true,
-      "leagueName": "French Top 14",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270559/scoreboard?dates=20260505-20260902",
+    "american-football:college-football": {
+      "sample": 8,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "NCAA - Football",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 33,
-      "pricedMatches": 0
-    },
-    "basketball:wnba": {
-      "sample": 100,
-      "homeWinRate": 0.49,
-      "drawRate": 0,
-      "awayWinRate": 0.51,
-      "meanTotal": 170.8,
-      "sufficient": true,
-      "leagueName": "Women's National Basketball Association",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 100,
-      "pricedMatches": 0
-    },
-    "rugby-union:289262": {
-      "sample": 18,
-      "homeWinRate": 0.611111,
-      "drawRate": 0,
-      "awayWinRate": 0.388889,
-      "meanTotal": 61.9444,
-      "sufficient": true,
-      "leagueName": "Major League Rugby",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289262/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 18,
-      "pricedMatches": 0
-    },
-    "rugby-union:17567": {
-      "sample": 18,
-      "homeWinRate": 0.5,
-      "drawRate": 0,
-      "awayWinRate": 0.5,
-      "meanTotal": 61.6111,
-      "sufficient": true,
-      "leagueName": "Nations Championship",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/17567/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 18,
-      "pricedMatches": 0
-    },
-    "rugby-union:267979": {
-      "sample": 23,
-      "homeWinRate": 0.782609,
-      "drawRate": 0,
-      "awayWinRate": 0.217391,
-      "meanTotal": 63.1739,
-      "sufficient": true,
-      "leagueName": "Gallagher Prem",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/267979/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 23,
-      "pricedMatches": 0
-    },
-    "rugby-union:270563": {
-      "sample": 35,
-      "homeWinRate": 0.628571,
-      "drawRate": 0,
-      "awayWinRate": 0.371429,
-      "meanTotal": 61.8286,
-      "sufficient": true,
-      "leagueName": "Mitre 10 Cup",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270563/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 35,
+      "completedMatches": 8,
       "pricedMatches": 0
     },
     "rugby-union:289234": {
@@ -943,18 +859,46 @@
       "completedMatches": 6,
       "pricedMatches": 0
     },
-    "rugby-union:164205": {
-      "sample": 0,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "Rugby World Cup",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/164205/scoreboard?dates=20260505-20260902",
+    "rugby-union:289262": {
+      "sample": 18,
+      "homeWinRate": 0.611111,
+      "drawRate": 0,
+      "awayWinRate": 0.388889,
+      "meanTotal": 61.9444,
+      "sufficient": true,
+      "leagueName": "Major League Rugby",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289262/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 0,
+      "completedMatches": 18,
+      "pricedMatches": 0
+    },
+    "rugby-union:270563": {
+      "sample": 35,
+      "homeWinRate": 0.628571,
+      "drawRate": 0,
+      "awayWinRate": 0.371429,
+      "meanTotal": 61.8286,
+      "sufficient": true,
+      "leagueName": "Mitre 10 Cup",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270563/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 35,
+      "pricedMatches": 0
+    },
+    "rugby-union:17567": {
+      "sample": 18,
+      "homeWinRate": 0.5,
+      "drawRate": 0,
+      "awayWinRate": 0.5,
+      "meanTotal": 61.6111,
+      "sufficient": true,
+      "leagueName": "Nations Championship",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/17567/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 18,
       "pricedMatches": 0
     },
     "rugby-union:282": {
@@ -971,15 +915,29 @@
       "completedMatches": 0,
       "pricedMatches": 0
     },
-    "rugby-union:289271": {
+    "rugby-union:283": {
       "sample": 0,
       "homeWinRate": null,
       "drawRate": null,
       "awayWinRate": null,
       "meanTotal": null,
       "sufficient": false,
-      "leagueName": "Super Rugby Aotearoa",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289271/scoreboard?dates=20260505-20260902",
+      "leagueName": "Olympic Women's Rugby Sevens",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/283/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 0,
+      "pricedMatches": 0
+    },
+    "rugby-union:164205": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "Rugby World Cup",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/164205/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
@@ -994,6 +952,34 @@
       "sufficient": false,
       "leagueName": "Six Nations",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/180659/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 0,
+      "pricedMatches": 0
+    },
+    "football:tur.1": {
+      "sample": 45,
+      "homeWinRate": 0.511111,
+      "drawRate": 0.177778,
+      "awayWinRate": 0.311111,
+      "meanTotal": 3,
+      "sufficient": true,
+      "leagueName": "Turkish Super Lig",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 45,
+      "pricedMatches": 0
+    },
+    "rugby-union:289271": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "Super Rugby Aotearoa",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289271/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
@@ -1027,20 +1013,6 @@
       "completedMatches": 25,
       "pricedMatches": 0
     },
-    "rugby-union:272073": {
-      "sample": 1,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "European Rugby Challenge Cup",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/272073/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 1,
-      "pricedMatches": 0
-    },
     "rugby-union:289277": {
       "sample": 0,
       "homeWinRate": null,
@@ -1069,32 +1041,18 @@
       "completedMatches": 0,
       "pricedMatches": 0
     },
-    "rugby-union:2009": {
-      "sample": 0,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "URBA Primera A",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/2009/scoreboard?dates=20260505-20260902",
+    "rugby-union:270557": {
+      "sample": 23,
+      "homeWinRate": 0.73913,
+      "drawRate": 0.086957,
+      "awayWinRate": 0.173913,
+      "meanTotal": 53.3478,
+      "sufficient": true,
+      "leagueName": "United Rugby Championship",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270557/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 0,
-      "pricedMatches": 0
-    },
-    "rugby-union:283": {
-      "sample": 0,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "Olympic Women's Rugby Sevens",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/283/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 0,
+      "completedMatches": 23,
       "pricedMatches": 0
     },
     "rugby-union:289279": {
@@ -1111,18 +1069,18 @@
       "completedMatches": 72,
       "pricedMatches": 0
     },
-    "rugby-union:270557": {
-      "sample": 23,
-      "homeWinRate": 0.73913,
-      "drawRate": 0.086957,
-      "awayWinRate": 0.173913,
-      "meanTotal": 53.3478,
-      "sufficient": true,
-      "leagueName": "United Rugby Championship",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270557/scoreboard?dates=20260505-20260902",
+    "rugby-union:2009": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "URBA Primera A",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/2009/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
-      "completedMatches": 23,
+      "completedMatches": 0,
       "pricedMatches": 0
     },
     "rugby-union:289237": {
@@ -1134,6 +1092,20 @@
       "sufficient": false,
       "leagueName": "Women's Rugby World Cup",
       "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289237/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 0,
+      "pricedMatches": 0
+    },
+    "tennis:atp": {
+      "sample": 0,
+      "homeWinRate": null,
+      "drawRate": null,
+      "awayWinRate": null,
+      "meanTotal": null,
+      "sufficient": false,
+      "leagueName": "ATP",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20260505-20260902",
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
@@ -1153,20 +1125,6 @@
       "completedMatches": 8,
       "pricedMatches": 0
     },
-    "tennis:atp": {
-      "sample": 0,
-      "homeWinRate": null,
-      "drawRate": null,
-      "awayWinRate": null,
-      "meanTotal": null,
-      "sufficient": false,
-      "leagueName": "ATP",
-      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20260505-20260902",
-      "measuredFrom": "2026-05-05",
-      "measuredTo": "2026-09-02",
-      "completedMatches": 0,
-      "pricedMatches": 0
-    },
     "tennis:wta": {
       "sample": 0,
       "homeWinRate": null,
@@ -1179,6 +1137,48 @@
       "measuredFrom": "2026-05-05",
       "measuredTo": "2026-09-02",
       "completedMatches": 0,
+      "pricedMatches": 0
+    },
+    "football:por.1": {
+      "sample": 52,
+      "homeWinRate": 0.423077,
+      "drawRate": 0.307692,
+      "awayWinRate": 0.269231,
+      "meanTotal": 2.5769,
+      "sufficient": true,
+      "leagueName": "Portuguese Primeira Liga",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 52,
+      "pricedMatches": 0
+    },
+    "rugby-union:270559": {
+      "sample": 33,
+      "homeWinRate": 0.69697,
+      "drawRate": 0,
+      "awayWinRate": 0.30303,
+      "meanTotal": 62.8485,
+      "sufficient": true,
+      "leagueName": "French Top 14",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270559/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 33,
+      "pricedMatches": 0
+    },
+    "rugby-union:267979": {
+      "sample": 23,
+      "homeWinRate": 0.782609,
+      "drawRate": 0,
+      "awayWinRate": 0.217391,
+      "meanTotal": 63.1739,
+      "sufficient": true,
+      "leagueName": "Gallagher Prem",
+      "sourceUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/267979/scoreboard?dates=20260505-20260902",
+      "measuredFrom": "2026-05-05",
+      "measuredTo": "2026-09-02",
+      "completedMatches": 23,
       "pricedMatches": 0
     }
   },
