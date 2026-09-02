@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "sport": "Golf",
-  "fetched_at_utc": "2026-09-02T18:37:17.504Z",
+  "fetched_at_utc": "2026-09-02T20:55:14.131Z",
   "method": "Open-Meteo geocoding + daily/hourly forecast APIs (free, key-less)",
   "note": "Weather feeds only the first-round-leader tee-time rule (round-one trend) and the written weather note. Forecasts are collected inside seven days of the first round.",
   "events": {
     "401822700": {
-      "available": true,
+      "available": false,
       "eventId": "401822700",
       "name": "Omega European Masters",
       "tour": "eur",
@@ -14,47 +14,8 @@
       "country": "Switzerland",
       "lat": 46.31316,
       "lon": 7.47914,
-      "days": [
-        {
-          "date": "2026-09-03",
-          "tempMaxC": 21.4,
-          "precipProbPct": 0,
-          "windMaxKmh": 12.7,
-          "gustMaxKmh": 24.8
-        },
-        {
-          "date": "2026-09-04",
-          "tempMaxC": 25.5,
-          "precipProbPct": 0,
-          "windMaxKmh": 11.8,
-          "gustMaxKmh": 27.4
-        },
-        {
-          "date": "2026-09-05",
-          "tempMaxC": 23,
-          "precipProbPct": 0,
-          "windMaxKmh": 14.1,
-          "gustMaxKmh": 34.6
-        },
-        {
-          "date": "2026-09-06",
-          "tempMaxC": 25.5,
-          "precipProbPct": 0,
-          "windMaxKmh": 11,
-          "gustMaxKmh": 25.9
-        }
-      ],
-      "r1": {
-        "trend": "stable",
-        "windAmKmh": 5.7,
-        "windPmKmh": 11.7,
-        "rainAmPct": 0,
-        "rainPmPct": 0
-      },
-      "timezone": "Europe/Zurich",
-      "sourceUrl": "https://api.open-meteo.com/v1/forecast?latitude=46.31316&longitude=7.47914&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&hourly=wind_speed_10m,precipitation_probability&timezone=auto&start_date=2026-09-03&end_date=2026-09-06",
       "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Crans-Montana&count=10&language=en&format=json",
-      "note": null
+      "note": "forecast failed for Crans Montana 2026-09-03"
     }
   }
 }

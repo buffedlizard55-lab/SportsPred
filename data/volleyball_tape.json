@@ -26,7 +26,20 @@
       "away": "Latvia",
       "winner": "Turkey",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 17}, {"home": 25, "away": 16}, {"home": 25, "away": 16}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 17
+        },
+        {
+          "home": 25,
+          "away": 16
+        },
+        {
+          "home": 25,
+          "away": 16
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -41,7 +54,20 @@
       "away": "Germany",
       "winner": "Slovenia",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 22}, {"home": 25, "away": 21}, {"home": 25, "away": 20}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 22
+        },
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 25,
+          "away": 20
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -56,7 +82,20 @@
       "away": "Hungary",
       "winner": "Poland",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 12}, {"home": 26, "away": 24}, {"home": 25, "away": 20}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 12
+        },
+        {
+          "home": 26,
+          "away": 24
+        },
+        {
+          "home": 25,
+          "away": 20
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -71,7 +110,28 @@
       "away": "Romania",
       "winner": "Netherlands",
       "setScore": "3-2",
-      "sets": [{"home": 25, "away": 21}, {"home": 26, "away": 28}, {"home": 25, "away": 15}, {"home": 22, "away": 25}, {"home": 15, "away": 9}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 26,
+          "away": 28
+        },
+        {
+          "home": 25,
+          "away": 15
+        },
+        {
+          "home": 22,
+          "away": 25
+        },
+        {
+          "home": 15,
+          "away": 9
+        }
+      ],
       "venue": "Baku",
       "round": "Pool C",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -86,7 +146,24 @@
       "away": "Latvia",
       "winner": "Germany",
       "setScore": "3-1",
-      "sets": [{"home": 25, "away": 15}, {"home": 25, "away": 18}, {"home": 13, "away": 25}, {"home": 25, "away": 15}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 15
+        },
+        {
+          "home": 25,
+          "away": 18
+        },
+        {
+          "home": 13,
+          "away": 25
+        },
+        {
+          "home": 25,
+          "away": 15
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -101,7 +178,24 @@
       "away": "Slovenia",
       "winner": "Turkey",
       "setScore": "3-1",
-      "sets": [{"home": 25, "away": 21}, {"home": 22, "away": 25}, {"home": 25, "away": 17}, {"home": 25, "away": 16}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 22,
+          "away": 25
+        },
+        {
+          "home": 25,
+          "away": 17
+        },
+        {
+          "home": 25,
+          "away": 16
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -116,7 +210,24 @@
       "away": "Latvia",
       "winner": "Poland",
       "setScore": "3-1",
-      "sets": [{"home": 25, "away": 19}, {"home": 23, "away": 25}, {"home": 25, "away": 22}, {"home": 26, "away": 24}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 19
+        },
+        {
+          "home": 23,
+          "away": 25
+        },
+        {
+          "home": 25,
+          "away": 22
+        },
+        {
+          "home": 26,
+          "away": 24
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -131,7 +242,20 @@
       "away": "Hungary",
       "winner": "Turkey",
       "setScore": "3-0",
-      "sets": [{"home": 26, "away": 24}, {"home": 25, "away": 21}, {"home": 25, "away": 14}],
+      "sets": [
+        {
+          "home": 26,
+          "away": 24
+        },
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 25,
+          "away": 14
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -146,7 +270,20 @@
       "away": "Portugal",
       "winner": "Netherlands",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 21}, {"home": 25, "away": 18}, {"home": 25, "away": 23}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 25,
+          "away": 18
+        },
+        {
+          "home": 25,
+          "away": 23
+        }
+      ],
       "venue": "Baku",
       "round": "Pool C",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -162,7 +299,16 @@
       "winner": "Germany",
       "setScore": "3-0",
       "setsIncomplete": true,
-      "sets": [{"home": 25, "away": 17}, {"home": 7, "away": 4}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 17
+        },
+        {
+          "home": 7,
+          "away": 4
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html",
@@ -178,7 +324,20 @@
       "away": "Slovenia",
       "winner": "Poland",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 14}, {"home": 28, "away": 26}, {"home": 25, "away": 18}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 14
+        },
+        {
+          "home": 28,
+          "away": 26
+        },
+        {
+          "home": 25,
+          "away": 18
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -193,7 +352,20 @@
       "away": "Spain",
       "winner": "Netherlands",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 13}, {"home": 25, "away": 11}, {"home": 25, "away": 16}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 13
+        },
+        {
+          "home": 25,
+          "away": 11
+        },
+        {
+          "home": 25,
+          "away": 16
+        }
+      ],
       "venue": "Baku",
       "round": "Pool C",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -208,7 +380,24 @@
       "away": "Germany",
       "winner": "Turkey",
       "setScore": "3-1",
-      "sets": [{"home": 25, "away": 21}, {"home": 25, "away": 27}, {"home": 25, "away": 20}, {"home": 25, "away": 19}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 25,
+          "away": 27
+        },
+        {
+          "home": 25,
+          "away": 20
+        },
+        {
+          "home": 25,
+          "away": 19
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -223,7 +412,20 @@
       "away": "Germany",
       "winner": "Poland",
       "setScore": "3-0",
-      "sets": [{"home": 25, "away": 19}, {"home": 25, "away": 23}, {"home": 26, "away": 24}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 19
+        },
+        {
+          "home": 25,
+          "away": 23
+        },
+        {
+          "home": 26,
+          "away": 24
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -238,7 +440,28 @@
       "away": "Belgium",
       "winner": "Belgium",
       "setScore": "3-2",
-      "sets": [{"home": 25, "away": 27}, {"home": 22, "away": 25}, {"home": 25, "away": 22}, {"home": 25, "away": 18}, {"home": 13, "away": 15}],
+      "sets": [
+        {
+          "home": 25,
+          "away": 27
+        },
+        {
+          "home": 22,
+          "away": 25
+        },
+        {
+          "home": 25,
+          "away": 22
+        },
+        {
+          "home": 25,
+          "away": 18
+        },
+        {
+          "home": 13,
+          "away": 15
+        }
+      ],
       "venue": "Baku",
       "round": "Pool C",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
@@ -253,7 +476,28 @@
       "away": "Turkey",
       "winner": "Poland",
       "setScore": "3-2",
-      "sets": [{"home": 15, "away": 25}, {"home": 25, "away": 21}, {"home": 25, "away": 22}, {"home": 16, "away": 25}, {"home": 15, "away": 10}],
+      "sets": [
+        {
+          "home": 15,
+          "away": 25
+        },
+        {
+          "home": 25,
+          "away": 21
+        },
+        {
+          "home": 25,
+          "away": 22
+        },
+        {
+          "home": 16,
+          "away": 25
+        },
+        {
+          "home": 15,
+          "away": 10
+        }
+      ],
       "venue": "Istanbul",
       "round": "Pool A",
       "source_url": "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"

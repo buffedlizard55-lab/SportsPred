@@ -8,7 +8,7 @@
       "https://www.olbg.com/betting-tips/Motor_Racing/14",
       "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/14"
     ],
-    "fetched_at_utc": "2026-09-02T17:49:42Z",
+    "fetched_at_utc": "2026-09-02T20:54:49Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/F1_SOURCES.md."
   },
@@ -31,9 +31,9 @@
       "consensus": {
         "market": "Fastest Qualifier",
         "selection": "Lando Norris",
-        "tips_for": 8,
-        "tips_total": 15,
-        "pct": 53,
+        "tips_for": 9,
+        "tips_total": 16,
+        "pct": 56,
         "comments": 5,
         "experts": 0
       },
@@ -56,9 +56,9 @@
       "consensus": {
         "market": "Win Race",
         "selection": "Lando Norris",
-        "tips_for": 6,
-        "tips_total": 19,
-        "pct": 32,
+        "tips_for": 8,
+        "tips_total": 21,
+        "pct": 38,
         "comments": 2,
         "experts": 0
       },

@@ -7,8 +7,8 @@
     "indexes": [
       "https://www.olbg.com/betting-tips/Volleyball/21"
     ],
-    "fetched_at_utc": "2026-09-02T20:00:00Z",
-    "method": "Hosted page fetch of the public OLBG Volleyball/21 index. Display times are recorded as printed and flagged untrusted (U-02).",
+    "fetched_at_utc": "2026-09-02T20:55:38Z",
+    "method": "Verified HTTP fetch of public OLBG Volleyball slate",
     "licence_note": "Publicly available event listing for factual review."
   },
   "markets_covered": [
@@ -16,56 +16,10 @@
     "Set Score"
   ],
   "notes": [
-    "OLBG also lists Total Points and Points Handicap on some event pages; those markets are out of scope for the volleyball master prompt and are not scored.",
-    "The two open events on 2026-09-02 were EuroVolley Women quarter-finals, not NCAA."
+    "Only Win Match and Set Score are scored by the volleyball engine.",
+    "OLBG Total Points and Points Handicap are review-only.",
+    "Display times are not used to place matches on the calendar (U-02 / IR-VB-06)."
   ],
-  "collection_warnings": [
-    "display_time is OLBG's printed clock and is not used to place the match on the calendar (U-02)."
-  ],
-  "events": [
-    {
-      "event_id": "36503",
-      "sport": "Volleyball",
-      "league": "EuroVolley Women 2026",
-      "home": "Poland W",
-      "away": "Netherlands W",
-      "event_name": "Poland W vs Netherlands W",
-      "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Poland_W_vs_Netherlands_W/21?event_id=36503",
-      "display_date": "Tomorrow",
-      "display_time": "09:00",
-      "resolved_date": "2026-09-03",
-      "date_basis": "relative:tomorrow",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Poland W",
-        "tips_for": 10,
-        "tips_total": 13,
-        "percentage": null
-      },
-      "markets_available": ["Win Match", "Set Score"],
-      "markets_verified": true
-    },
-    {
-      "event_id": "olbg-ger-tur",
-      "sport": "Volleyball",
-      "league": "EuroVolley Women 2026",
-      "home": "Germany W",
-      "away": "Turkey W",
-      "event_name": "Germany W vs Turkey W",
-      "url": "https://www.olbg.com/betting-tips/Volleyball/21",
-      "display_date": "Tomorrow",
-      "display_time": "12:00",
-      "resolved_date": "2026-09-03",
-      "date_basis": "relative:tomorrow",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Germany W",
-        "tips_for": 10,
-        "tips_total": 13,
-        "percentage": null
-      },
-      "markets_available": ["Win Match", "Set Score"],
-      "markets_verified": false
-    }
-  ]
+  "collection_warnings": [],
+  "events": []
 }
