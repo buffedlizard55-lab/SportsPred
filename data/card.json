@@ -1,20 +1,10 @@
 {
-  "generated_at_utc": "2026-09-02T20:55:39Z",
+  "generated_at_utc": "2026-09-02T23:14:24Z",
   "ruleset": "v1.1",
   "trimmed": false,
   "trimmedReason": null,
   "tips": [],
   "unscored": [
-    {
-      "event_id": "899443",
-      "match": "Aryna Sabalenka v Polina Iatcenko",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899465",
-      "match": "Elina Svitolina v Maya Joint",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
     {
       "event_id": "899452",
       "match": "Jaime Faria v Carlos Alcaraz",
@@ -26,38 +16,18 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899474",
-      "match": "Rei Sakamoto v Frances Tiafoe",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899479",
-      "match": "Taylor Fritz v Mattia Bellucci",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
       "event_id": "899477",
       "match": "Madison Keys v Anna Bondar",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899475",
-      "match": "Naomi Osaka v Katerina Siniakova",
+      "event_id": "899465",
+      "match": "Elina Svitolina v Maya Joint",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899481",
-      "match": "Dane Sweeny v Lorenzo Musetti",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899480",
-      "match": "Tristan Schoolkate v Flavio Cobolli",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899451",
-      "match": "Lilli Tagger v Amanda Anisimova",
+      "event_id": "899479",
+      "match": "Taylor Fritz v Mattia Bellucci",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -76,23 +46,18 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899483",
-      "match": "Maria Timofeeva v Elise Mertens",
+      "event_id": "899451",
+      "match": "Lilli Tagger v Amanda Anisimova",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899488",
-      "match": "Oleksandra Oliynykova v Alexandra Eala",
+      "event_id": "899481",
+      "match": "Dane Sweeny v Lorenzo Musetti",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899478",
-      "match": "Jan Lennard Struff v Francisco Cerundolo",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899440",
-      "match": "Lloyd Harris v Stefanos Tsitsipas",
+      "event_id": "899480",
+      "match": "Tristan Schoolkate v Flavio Cobolli",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -101,8 +66,53 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
+      "event_id": "899488",
+      "match": "Oleksandra Oliynykova v Alexandra Eala",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899475",
+      "match": "Naomi Osaka v Katerina Siniakova",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899466",
+      "match": "Luciano Darderi v Dalibor Svrcina",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
       "event_id": "899482",
       "match": "Maria Sakkari v Yuliia Starodubtseva",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899483",
+      "match": "Maria Timofeeva v Elise Mertens",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899478",
+      "match": "Jan Lennard Struff v Francisco Cerundolo",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899529",
+      "match": "Paula Badosa v Coco Gauff",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899440",
+      "match": "Lloyd Harris v Stefanos Tsitsipas",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899473",
+      "match": "Felix Auger Aliassime v Karen Khachanov",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899486",
+      "match": "Gael Monfils v Learner Tien",
       "reason": "no sourced price or ranking, so no market could be scored"
     }
   ],

@@ -4,7 +4,7 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "fetched_at_utc": "2026-09-02T20:54:14Z",
+    "fetched_at_utc": "2026-09-02T23:13:09Z",
     "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
@@ -23,28 +23,6 @@
   "collection_warnings": [],
   "events": [
     {
-      "event_id": "188601",
-      "sport": "Cricket",
-      "type": "match",
-      "home": "Trinbago Knight Riders",
-      "away": "Antigua and Barbuda Falcons",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Trinbago_Knight_Riders_vs_Antigua_and_Barbuda_Falcons_T20/7?event_id=188601",
-      "slug": "Trinbago_Knight_Riders_vs_Antigua_and_Barbuda_Falcons_T20",
-      "display_date": "20 Tomorrow",
-      "display_time": "00:00",
-      "resolved_date": null,
-      "date_basis": "unknown",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Trinbago Knight Riders",
-        "tips_for": 16,
-        "tips_total": 24,
-        "pct": 67,
-        "comments": 9,
-        "experts": 1
-      }
-    },
-    {
       "event_id": "188611",
       "sport": "Cricket",
       "type": "match",
@@ -52,17 +30,17 @@
       "away": "Ireland W",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_W_vs_Ireland_W_2nd_ODI/7?event_id=188611",
       "slug": "England_W_vs_Ireland_W_2nd_ODI",
-      "display_date": "Tomorrow",
+      "display_date": "Today",
       "display_time": "13:00",
-      "resolved_date": "2026-09-03",
+      "resolved_date": "2026-09-02",
       "date_basis": "derived",
       "consensus": {
         "market": "Win Match",
         "selection": "England W",
-        "tips_for": 12,
-        "tips_total": 13,
-        "pct": 92,
-        "comments": 9,
+        "tips_for": 14,
+        "tips_total": 15,
+        "pct": 93,
+        "comments": 11,
         "experts": 1
       }
     },
@@ -74,17 +52,17 @@
       "away": "Sierra Leone",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Rwanda_vs_Sierra_Leone_T20/7?event_id=188613",
       "slug": "Rwanda_vs_Sierra_Leone_T20",
-      "display_date": "20 Tomorrow",
+      "display_date": "20 Today",
       "display_time": "08:00",
       "resolved_date": null,
       "date_basis": "unknown",
       "consensus": {
         "market": "Win Match",
         "selection": "Rwanda",
-        "tips_for": 4,
-        "tips_total": 6,
-        "pct": 67,
-        "comments": 3,
+        "tips_for": 7,
+        "tips_total": 9,
+        "pct": 78,
+        "comments": 4,
         "experts": 0
       }
     },
@@ -96,17 +74,17 @@
       "away": "Malawi",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Uganda_vs_Malawi_T20/7?event_id=188614",
       "slug": "Uganda_vs_Malawi_T20",
-      "display_date": "20 Tomorrow",
+      "display_date": "20 Today",
       "display_time": "08:30",
       "resolved_date": null,
       "date_basis": "unknown",
       "consensus": {
         "market": "Win Match",
         "selection": "Uganda",
-        "tips_for": 3,
-        "tips_total": 5,
-        "pct": 60,
-        "comments": 2,
+        "tips_for": 5,
+        "tips_total": 7,
+        "pct": 71,
+        "comments": 3,
         "experts": 0
       }
     },
@@ -118,17 +96,17 @@
       "away": "Botswana",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Tanzania_vs_Botswana_T20/7?event_id=188615",
       "slug": "Tanzania_vs_Botswana_T20",
-      "display_date": "20 Tomorrow",
+      "display_date": "20 Today",
       "display_time": "12:30",
       "resolved_date": null,
       "date_basis": "unknown",
       "consensus": {
         "market": "Win Match",
         "selection": "Tanzania",
-        "tips_for": 2,
-        "tips_total": 4,
-        "pct": 50,
-        "comments": 1,
+        "tips_for": 4,
+        "tips_total": 6,
+        "pct": 67,
+        "comments": 2,
         "experts": 0
       }
     },
@@ -140,7 +118,7 @@
       "away": "Nigeria",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Kenya_vs_Nigeria_T20/7?event_id=188616",
       "slug": "Kenya_vs_Nigeria_T20",
-      "display_date": "20 Tomorrow",
+      "display_date": "20 Today",
       "display_time": "13:00",
       "resolved_date": null,
       "date_basis": "unknown",
@@ -148,8 +126,8 @@
         "market": "Win Match",
         "selection": "Nigeria",
         "tips_for": 2,
-        "tips_total": 2,
-        "pct": 100,
+        "tips_total": 3,
+        "pct": 67,
         "comments": 1,
         "experts": 0
       }
@@ -162,16 +140,16 @@
       "away": "St Lucia Kings",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/St_Kitts_and_Nevis_Patriots_vs_St_Lucia_Kings_T20/7?event_id=188612",
       "slug": "St_Kitts_and_Nevis_Patriots_vs_St_Lucia_Kings_T20",
-      "display_date": "04 Sept",
+      "display_date": "20 Tomorrow",
       "display_time": "00:00",
-      "resolved_date": "2026-09-04",
-      "date_basis": "observed",
+      "resolved_date": null,
+      "date_basis": "unknown",
       "consensus": {
         "market": "Win Match",
-        "selection": "St Lucia Kings",
-        "tips_for": 1,
-        "tips_total": 2,
-        "pct": 50,
+        "selection": "St Kitts and Nevis Patriots",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67,
         "comments": 1,
         "experts": 0
       }
@@ -188,43 +166,9 @@
       "consensus": {
         "market": "Outright Winner",
         "selection": "World Cup 2027",
-        "tips_for": 6,
+        "tips_for": 4,
         "tips_total": 12,
-        "pct": 50,
-        "comments": 1,
-        "experts": 0
-      }
-    },
-    {
-      "event_id": "187184",
-      "name": "Big Bash Women 2026",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Big_Bash_Women_2026/7?event_id=187184",
-      "display_date": "11 Dec",
-      "resolved_date": "2026-12-11",
-      "date_basis": "observed",
-      "consensus": {
-        "market": "Outright Winner",
-        "selection": "Big Bash Women 2026",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      }
-    },
-    {
-      "event_id": "187503",
-      "name": "T20 Big Bash 2026-27",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Big_Bash_2026-27/7?event_id=187503",
-      "display_date": "12 Dec",
-      "resolved_date": "2026-12-12",
-      "date_basis": "observed",
-      "consensus": {
-        "market": "Outright Winner",
-        "selection": "T20 Big Bash 2026-27",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
+        "pct": 33,
         "comments": 0,
         "experts": 0
       }
@@ -242,6 +186,40 @@
         "tips_for": 1,
         "tips_total": 1,
         "pct": 100,
+        "comments": 0,
+        "experts": 0
+      }
+    },
+    {
+      "event_id": "187184",
+      "name": "Big Bash Women 2026",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Big_Bash_Women_2026/7?event_id=187184",
+      "display_date": "11 Dec",
+      "resolved_date": "2026-12-11",
+      "date_basis": "observed",
+      "consensus": {
+        "market": "Outright Winner",
+        "selection": "Big Bash Women 2026",
+        "tips_for": 0,
+        "tips_total": 1,
+        "pct": null,
+        "comments": 0,
+        "experts": 0
+      }
+    },
+    {
+      "event_id": "187503",
+      "name": "T20 Big Bash 2026-27",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Big_Bash_2026-27/7?event_id=187503",
+      "display_date": "12 Dec",
+      "resolved_date": "2026-12-12",
+      "date_basis": "observed",
+      "consensus": {
+        "market": "Outright Winner",
+        "selection": "T20 Big Bash 2026-27",
+        "tips_for": 0,
+        "tips_total": 1,
+        "pct": null,
         "comments": 0,
         "experts": 0
       }
