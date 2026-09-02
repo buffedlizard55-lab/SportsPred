@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-02T03:39:29.846Z",
+  "generated_at_utc": "2026-09-02T03:45:39.300Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -367,18 +367,6 @@
           "eventsOnCheckDate": 10,
           "oddsSeen": true,
           "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/scoreboard?dates=20260902"
-        },
-        {
-          "slug": "kor.1",
-          "name": "Korean K League 1",
-          "candidateName": "Korean K League 1",
-          "espnLeagueId": null,
-          "ok": false,
-          "status": 400,
-          "error": "HTTP 400",
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/kor.1/scoreboard?dates=20260902"
         },
         {
           "slug": "mex.1",
@@ -1270,8 +1258,8 @@
     }
   },
   "summary": {
-    "checked": 96,
+    "checked": 95,
     "ok": 95,
-    "failed": 1
+    "failed": 0
   }
 }
