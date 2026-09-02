@@ -1,0 +1,1629 @@
+{
+  "schema_version": 1,
+  "sport": "Formula 1",
+  "generated_at_utc": "2026-09-02T02:46:50.768Z",
+  "method": "Walk-forward: each race is scored only on data completed before that weekend.",
+  "races": [
+    {
+      "eventId": "600052045",
+      "name": "Louis Vuitton Australian Grand Prix",
+      "date": "2025-03-16",
+      "abbreviation": "AUS",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052045"
+    },
+    {
+      "eventId": "600052046",
+      "name": "Heineken Chinese Grand Prix",
+      "date": "2025-03-23",
+      "abbreviation": "CHN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052046"
+    },
+    {
+      "eventId": "600052047",
+      "name": "Lenovo Japanese Grand Prix",
+      "date": "2025-04-06",
+      "abbreviation": "JPN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052047"
+    },
+    {
+      "eventId": "600052048",
+      "name": "Gulf Air Bahrain Grand Prix",
+      "date": "2025-04-13",
+      "abbreviation": "BRN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052048"
+    },
+    {
+      "eventId": "600052049",
+      "name": "STC Saudi Arabian Grand Prix",
+      "date": "2025-04-20",
+      "abbreviation": "SAU",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052049"
+    },
+    {
+      "eventId": "600052050",
+      "name": "Crypto.com Miami Grand Prix",
+      "date": "2025-05-04",
+      "abbreviation": "MIA",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052050"
+    },
+    {
+      "eventId": "600052051",
+      "name": "AWS Made in Italy Emilia Romagna Grand Prix",
+      "date": "2025-05-18",
+      "abbreviation": "ITA",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052051"
+    },
+    {
+      "eventId": "600052052",
+      "name": "Tag Heuer Monaco Grand Prix",
+      "date": "2025-05-25",
+      "abbreviation": "MON",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052052"
+    },
+    {
+      "eventId": "600052053",
+      "name": "Aramco Spanish Grand Prix",
+      "date": "2025-06-01",
+      "abbreviation": "ESP",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052053"
+    },
+    {
+      "eventId": "600052054",
+      "name": "Pirelli Canadian Grand Prix",
+      "date": "2025-06-15",
+      "abbreviation": "CAN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052054"
+    },
+    {
+      "eventId": "600052055",
+      "name": "MSC Cruises Austrian Grand Prix",
+      "date": "2025-06-29",
+      "abbreviation": "AUT",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Oscar Piastri",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052055"
+    },
+    {
+      "eventId": "600052056",
+      "name": "Qatar Airways British Grand Prix",
+      "date": "2025-07-06",
+      "abbreviation": "GBR",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052056"
+    },
+    {
+      "eventId": "600052057",
+      "name": "Moët & Chandon Belgian Grand Prix",
+      "date": "2025-07-27",
+      "abbreviation": "BEL",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052057"
+    },
+    {
+      "eventId": "600052058",
+      "name": "Lenovo Hungarian Grand Prix",
+      "date": "2025-08-03",
+      "abbreviation": "HUN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052058"
+    },
+    {
+      "eventId": "600052059",
+      "name": "Heineken Dutch Grand Prix",
+      "date": "2025-08-31",
+      "abbreviation": "NED",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052059"
+    },
+    {
+      "eventId": "600052060",
+      "name": "Pirelli Italian Grand Prix",
+      "date": "2025-09-07",
+      "abbreviation": "ITA2",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052060"
+    },
+    {
+      "eventId": "600052101",
+      "name": "Qatar Airways Azerbaijan Grand Prix",
+      "date": "2025-09-21",
+      "abbreviation": "AZB",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052101"
+    },
+    {
+      "eventId": "600052102",
+      "name": "Singapore Airlines Singapore Grand Prix",
+      "date": "2025-10-05",
+      "abbreviation": "SIN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052102"
+    },
+    {
+      "eventId": "600052103",
+      "name": "MSC Cruises United States Grand Prix",
+      "date": "2025-10-19",
+      "abbreviation": "USA",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052103"
+    },
+    {
+      "eventId": "600052104",
+      "name": "Mexico City Grand Prix",
+      "date": "2025-10-26",
+      "abbreviation": "MEX",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052104"
+    },
+    {
+      "eventId": "600052105",
+      "name": "MSC Cruises São Paulo Grand Prix",
+      "date": "2025-11-09",
+      "abbreviation": "BRA",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052105"
+    },
+    {
+      "eventId": "600052106",
+      "name": "Heineken Las Vegas Grand Prix",
+      "date": "2025-11-23",
+      "abbreviation": "LAS",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052106"
+    },
+    {
+      "eventId": "600052107",
+      "name": "Qatar Airways Qatar Grand Prix",
+      "date": "2025-11-30",
+      "abbreviation": "QAT",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052107"
+    },
+    {
+      "eventId": "600052108",
+      "name": "Etihad Airways Abu Dhabi Grand Prix",
+      "date": "2025-12-07",
+      "abbreviation": "ARE",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "George Russell",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600052108"
+    },
+    {
+      "eventId": "600057427",
+      "name": "Qatar Airways Australian Grand Prix",
+      "date": "2026-03-08",
+      "abbreviation": "AUS",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lando Norris",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057427"
+    },
+    {
+      "eventId": "600057428",
+      "name": "Heineken Chinese Grand Prix",
+      "date": "2026-03-15",
+      "abbreviation": "CHN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057428"
+    },
+    {
+      "eventId": "600057429",
+      "name": "Aramco Japanese Grand Prix",
+      "date": "2026-03-29",
+      "abbreviation": "JPN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Max Verstappen",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057429"
+    },
+    {
+      "eventId": "600057432",
+      "name": "Crypto.com Miami Grand Prix",
+      "date": "2026-05-03",
+      "abbreviation": "MIA",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057432"
+    },
+    {
+      "eventId": "600057433",
+      "name": "Lenovo Canadian Grand Prix",
+      "date": "2026-05-24",
+      "abbreviation": "CAN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057433"
+    },
+    {
+      "eventId": "600057434",
+      "name": "Monaco Grand Prix",
+      "date": "2026-06-07",
+      "abbreviation": "MCO",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057434"
+    },
+    {
+      "eventId": "600057435",
+      "name": "MSC Cruises Barcelona-Catalunya Grand Prix",
+      "date": "2026-06-14",
+      "abbreviation": "BAR",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057435"
+    },
+    {
+      "eventId": "600057436",
+      "name": "Lenovo Austrian Grand Prix",
+      "date": "2026-06-28",
+      "abbreviation": "AUT",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057436"
+    },
+    {
+      "eventId": "600057437",
+      "name": "Pirelli British Grand Prix",
+      "date": "2026-07-05",
+      "abbreviation": "GBR",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057437"
+    },
+    {
+      "eventId": "600057439",
+      "name": "Moët & Chandon Belgian Grand Prix",
+      "date": "2026-07-19",
+      "abbreviation": "BEL",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057439"
+    },
+    {
+      "eventId": "600057440",
+      "name": "AWS Hungarian Grand Prix",
+      "date": "2026-07-26",
+      "abbreviation": "HUN",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057440"
+    },
+    {
+      "eventId": "600057441",
+      "name": "Heineken Dutch Grand Prix",
+      "date": "2026-08-23",
+      "abbreviation": "NLD",
+      "winner": null,
+      "markets": {
+        "race_winner": {
+          "label": "RACE WINNER",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "LOW"
+        },
+        "podium_finish": {
+          "label": "PODIUM FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Kimi Antonelli",
+          "band": "MEDIUM"
+        },
+        "points_finish": {
+          "label": "POINTS FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "top6_finish": {
+          "label": "TOP 6 FINISH",
+          "status": "MISS",
+          "hit": false,
+          "selection": "Lewis Hamilton",
+          "band": "MEDIUM"
+        },
+        "fastest_lap": {
+          "label": "FASTEST LAP",
+          "status": "NO SELECTION",
+          "hit": null,
+          "missing": 3
+        }
+      },
+      "sourceUrl": "https://www.espn.com/f1/race/_/id/600057441"
+    }
+  ],
+  "summary": [
+    {
+      "market": "RACE WINNER",
+      "scored": 36,
+      "hit": 0,
+      "skipped": 0,
+      "hitRate": 0
+    },
+    {
+      "market": "PODIUM FINISH",
+      "scored": 36,
+      "hit": 0,
+      "skipped": 0,
+      "hitRate": 0
+    },
+    {
+      "market": "POINTS FINISH",
+      "scored": 36,
+      "hit": 0,
+      "skipped": 0,
+      "hitRate": 0
+    },
+    {
+      "market": "TOP 6 FINISH",
+      "scored": 36,
+      "hit": 0,
+      "skipped": 0,
+      "hitRate": 0
+    },
+    {
+      "market": "FASTEST LAP",
+      "scored": 0,
+      "hit": 0,
+      "skipped": 36,
+      "hitRate": null
+    }
+  ]
+}

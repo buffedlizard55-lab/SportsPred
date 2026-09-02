@@ -1,25 +1,55 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "fetched_at_utc": "2026-09-02T02:22:02.717Z",
+  "fetched_at_utc": "2026-09-02T02:46:48.388Z",
   "method": "Open-Meteo geocoding + daily forecast APIs (free, key-less)",
   "note": "Weather is a permitted external reference only; it never feeds internal scoring beyond a weather-dependence flag.",
   "events": {
     "600057442": {
-      "available": false,
-      "reason": "circuit city/country not sourced"
+      "available": true,
+      "circuitEvent": "600057442",
+      "name": "Pirelli Italian Grand Prix",
+      "city": "Monza",
+      "country": "Italy",
+      "raceDate": "2026-09-06",
+      "tempMaxC": 32.9,
+      "precipProbPct": 3,
+      "windMaxKmh": 8.6,
+      "sourceUrl": "https://api.open-meteo.com/v1/forecast?latitude=45.58005&longitude=9.27246&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max&timezone=UTC&start_date=2026-09-06&end_date=2026-09-06",
+      "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Monza&count=1&language=en&format=json",
+      "note": null
     },
     "600057443": {
-      "available": false,
-      "reason": "circuit city/country not sourced"
+      "available": true,
+      "circuitEvent": "600057443",
+      "name": "Tag Heuer Spanish Grand Prix",
+      "city": "Madrid",
+      "country": "Spain",
+      "raceDate": "2026-09-13",
+      "tempMaxC": 33.7,
+      "precipProbPct": 8,
+      "windMaxKmh": 13.7,
+      "sourceUrl": "https://api.open-meteo.com/v1/forecast?latitude=40.4165&longitude=-3.70256&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max&timezone=UTC&start_date=2026-09-13&end_date=2026-09-13",
+      "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Madrid&count=1&language=en&format=json",
+      "note": null
     },
     "600057444": {
       "available": false,
-      "reason": "circuit city/country not sourced"
+      "circuitEvent": "600057444",
+      "name": "Qatar Airways Azerbaijan Grand Prix",
+      "city": "Baku",
+      "country": "Azerbaijan",
+      "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Baku&count=1&language=en&format=json",
+      "note": "forecast failed for Baku 2026-09-26"
     },
     "600060990": {
       "available": false,
-      "reason": "circuit city/country not sourced"
+      "circuitEvent": "600060990",
+      "name": "Gulf Air Bahrain Grand Prix in Malaysia",
+      "city": "Kuala Lumpur",
+      "country": "Malaysia",
+      "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Kuala%20lumpur&count=1&language=en&format=json",
+      "note": "forecast failed for Kuala lumpur 2026-10-04"
     }
   }
 }
