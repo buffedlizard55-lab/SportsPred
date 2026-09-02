@@ -415,6 +415,12 @@ test('sources.html renders the verification report and the irregularities regist
     assert.match(irr, /U-01/);
     assert.match(irr, /Cricket/);
     assert.ok(document.querySelectorAll('#sport-sources tbody tr').length >= 20);
+    const sn = document.querySelector('#sn-irr').textContent;
+    assert.match(sn, /IR-SNOOKER-01/, 'snooker register row renders');
+    assert.ok(document.querySelector('#sn-irr a[href*="snooker.html"]'), 'snooker register links to the scoreboard');
+    const links = [...document.querySelectorAll('#sn-irr a[href^="https://"]')];
+    assert.ok(links.length >= 2, `snooker register carries review links (got ${links.length})`);
+    for (const l of links) assert.ok(l.href.startsWith('https://'), 'review links are https');
   } finally { cleanup(); }
 });
 

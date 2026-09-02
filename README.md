@@ -92,8 +92,8 @@ runs, in order:
 
 | Check | What it proves |
 |---|---|
-| `node --test tests/*.test.mjs` | 266 Node tests — engines, parsers, writers, registry, plus 11 jsdom tests that boot each real page and click the buttons |
-| `python3 -m unittest discover -s tests` | 40 Python tests — collectors and parsers |
+| `node --test tests/*.test.mjs` | 408 Node tests — engines, parsers, writers, registry, plus 27 jsdom tests that boot each real page and click the buttons |
+| `python3 -m unittest discover -s tests` | 59 Python tests — collectors and parsers |
 | `node scripts/verify_site.mjs` | Static site audit: every page's module import graph, every `$('#id')` resolves to an id that page actually has, id uniqueness, every local `href`/`src` exists on disk, external links are https and carry `rel=noopener`, every JS parses, every JSON parses |
 | `python3 scripts/build_data.py --strict` | The committed data layer is internally consistent |
 
