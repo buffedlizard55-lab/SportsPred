@@ -2,7 +2,7 @@
  "schema_version": 1,
  "sport": "Golf",
  "ruleset": "v1.0",
- "generated_at_utc": "2026-09-02T17:51:04.897Z",
+ "generated_at_utc": "2026-09-02T18:10:24.134Z",
  "method": "Walk-forward: each completed event is scored with results that ended before its first round only. Fields are reconstructed from the event result rows. Tee times and weather are not available historically, so the first-round-leader tee/weather category is missing for every past event. Strokes gained (season averages) is applied only to current-season events and only when at least half the field carries a strokes-gained row. First-round-leader grading uses completed stroke-play opening rounds only (Stableford events and partial withdrawn rounds are excluded). Grading uses the ESPN leaderboard linked on every row.",
  "leak_control": "historyBefore(asOfISO) filters strictly on endDate < first-round date.",
  "known_limitation": "The first 8 events of the tape are skipped because no history exists for them; early-tape events still carry thin history and are graded as such.",

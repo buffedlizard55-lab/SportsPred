@@ -8,7 +8,7 @@
       "https://www.olbg.com/betting-tips/Golf/5",
       "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/5"
     ],
-    "fetched_at_utc": "2026-09-02T17:50:51Z",
+    "fetched_at_utc": "2026-09-02T18:10:10Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/GOLF_SOURCES.md."
   },
@@ -31,10 +31,10 @@
       "consensus": {
         "market": "Win Tournament",
         "selection": "Ryan Gerard",
-        "tips_for": 3,
-        "tips_total": 10,
-        "pct": 30,
-        "comments": 0,
+        "tips_for": 4,
+        "tips_total": 11,
+        "pct": 36,
+        "comments": 1,
         "experts": 0
       },
       "markets_verified": true,
@@ -58,7 +58,7 @@
         "tips_for": 2,
         "tips_total": 2,
         "pct": 100,
-        "comments": 1,
+        "comments": 2,
         "experts": 0
       },
       "markets_verified": true,
@@ -97,9 +97,9 @@
       "consensus": {
         "market": "Win Tournament",
         "selection": "USA",
-        "tips_for": 3,
-        "tips_total": 5,
-        "pct": 60,
+        "tips_for": 4,
+        "tips_total": 6,
+        "pct": 67,
         "comments": 1,
         "experts": 0
       },
