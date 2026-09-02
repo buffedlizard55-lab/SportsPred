@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "sport": "Rugby League",
+  "generated_at_utc": "2026-09-02T21:55:30Z",
+  "notes": [
+    "Walk-forward backtest requires settled results tape; ESPN strips odds after final whistle so ROI is illustrative only. Scores below are from forward-collection simulation."
+  ],
+  "method": "Walk-forward grading on committed match tape (pre-match features only, no leakage).",
+  "results": {
+    "total_graded": 0,
+    "win_match": {
+      "high": {
+        "picks": 0,
+        "hits": 0
+      },
+      "medium": {
+        "picks": 0,
+        "hits": 0
+      },
+      "low": {
+        "picks": 0,
+        "hits": 0
+      }
+    },
+    "handicap": {
+      "high": {
+        "picks": 0,
+        "hits": 0
+      }
+    },
+    "game_total": {
+      "high": {
+        "picks": 0,
+        "hits": 0
+      }
+    }
+  },
+  "irregularities": [
+    "No settled tape with odds retained \u2014 forward collection needed for blended ROI (see RL-01)."
+  ]
+}

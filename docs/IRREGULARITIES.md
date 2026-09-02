@@ -240,6 +240,22 @@ Pages source is switched to **GitHub Actions**.
 
 ---
 
+### Rugby League — specialist engine (v1.0, 2026-09-02)
+
+| ID | Title | Status |
+|---|---|---|
+| IR-RUGBY-01 | No free key-less consolidated odds feed (OLBG shows handicap/total strings only) | OPEN — ladder-implied decimal, never printed |
+| IR-RUGBY-02 | No free key-less last-5 results tape | OPEN — pattern seeded deterministically from rank, marked estimated, capped |
+| IR-RUGBY-03 | Cross-reference of ≥2 bookmakers | OPEN — recorded missing, flagged |
+| IR-RUGBY-04 | Weather snapshot is clear/dry placeholder | PARTIAL — rain +10 Under wired but not triggered on this window |
+| IR-RUGBY-05 | Handicap/total are selection strings not fields | OPEN — regex parse, display-only |
+| IR-RUGBY-06 | Super League official standings truncated | OPEN — Wikipedia 2026-08-28 supplies full PF/PA |
+| IR-RUGBY-07 | State of Origin outright vs match | ACKNOWLEDGED — excluded from scoring, kept in slate |
+
+Detail lives in [`RUGBY_LEAGUE_IRREGULARITIES.md`](RUGBY_LEAGUE_IRREGULARITIES.md) and the register is mirrored in `data/rugby_league_provenance.json` (verified 2026-09-02, line-by-line with links in `docs/RUGBY_LEAGUE_SOURCES.md`).
+
+---
+
 ## Not an irregularity, but worth stating
 
 - **The live slate is still unscored.** With no odds and no *current-season*

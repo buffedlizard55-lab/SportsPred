@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "sport": "Rugby League",
+  "generated_at_utc": "2026-09-02T21:55:30Z",
+  "data_policy": "Strict verification from official competition organizers and open betting tip directories. No hallucinations. Missing factors are documented explicitly and penalized in scoring.",
+  "official_sources": [
+    {
+      "id": "NRL-LADDER",
+      "name": "NRL Telstra Premiership Ladder",
+      "url": "https://www.nrl.com/ladder",
+      "fields_provided": [
+        "Standings",
+        "Points",
+        "Goal Difference",
+        "Home/Away splits (derived)"
+      ],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "SUPERLEAGUE-STANDINGS",
+      "name": "Betfred Super League Standings",
+      "url": "https://www.superleague.co.uk/standings",
+      "fields_provided": [
+        "Super League table",
+        "Points",
+        "For/Against"
+      ],
+      "verification_status": "VERIFIED_OFFICIAL"
+    },
+    {
+      "id": "WIKI-SL-2026",
+      "name": "2026 Super League season (Wikipedia summary)",
+      "url": "https://en.wikipedia.org/wiki/2026_Super_League_season",
+      "fields_provided": [
+        "Supplementary Super League table snapshot 28 Aug 2026"
+      ],
+      "verification_status": "SECONDARY_DERIVED"
+    },
+    {
+      "id": "ESPN-RUGBY",
+      "name": "ESPN Rugby League Scoreboard API",
+      "url": "https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard",
+      "fields_provided": [
+        "Fixtures",
+        "Live scores",
+        "Results",
+        "Moneyline/spread/total where published"
+      ],
+      "verification_status": "VERIFIED_API"
+    },
+    {
+      "id": "OLBG-RL",
+      "name": "OLBG Rugby League Tips Index",
+      "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+      "fields_provided": [
+        "Open slate",
+        "To Win / Handicap / Total market listings",
+        "Tipster consensus",
+        "Line labels on event pages"
+      ],
+      "verification_status": "VERIFIED_PUBLIC_DIRECTORY"
+    },
+    {
+      "id": "OPEN-METEO",
+      "name": "Open-Meteo Weather API",
+      "url": "https://open-meteo.com/",
+      "fields_provided": [
+        "Venue weather forecast (rain, wind)"
+      ],
+      "verification_status": "VERIFIED_API"
+    }
+  ],
+  "irregularities": [
+    {
+      "id": "RL-01",
+      "title": "OLBG HTML lacks machine-readable odds attributes",
+      "detail": "OLBG server HTML includes consensus ratios and line labels (e.g. +10.50) but no semantic decimal/American odds attributes. Prices are not published in static HTML.",
+      "mitigation": "Odds factor scored as missing when not sourced via ESPN; confidence capped."
+    },
+    {
+      "id": "RL-02",
+      "title": "Competition stage and venue not on OLBG index",
+      "detail": "OLBG index lists fixture names and times but not competition name (NRL vs Super League) nor venue.",
+      "mitigation": "League inferred from team names joined to known NRL/Super League rosters; venue from team home ground mapping."
+    },
+    {
+      "id": "RL-03",
+      "title": "No free key-less dummy-half / halves / prop availability feed",
+      "detail": "Key player indicators (dummy half, halves combination, starting props) have no structured public feed.",
+      "mitigation": "Recorded as missing, injury deductions only fire when explicit flag sourced."
+    },
+    {
+      "id": "RL-04",
+      "title": "Social sentiment and analyst sentiment require paid X API",
+      "detail": "X requires paid API; scraping breaches terms. Specialist sites have no structured feed.",
+      "mitigation": "Excluded entirely, recorded as not available, never estimated."
+    },
+    {
+      "id": "RL-05",
+      "title": "Weather forecasts not yet wired per venue at collection time",
+      "detail": "Open-Meteo per-venue weather is available but was not yet fetched for this slate snapshot. Heavy rain/wind remains unsourced for most matches.",
+      "mitigation": "Weather component defaults to neutral 5pts and is flagged missing; Under elevation only fires when rain/heavy flag is explicitly true."
+    },
+    {
+      "id": "RL-06",
+      "title": "Super League scoring thresholds lowered",
+      "detail": "NRL averages higher totals than Super League. Prompt asks to adjust total thresholds down 4-6 points for Super League.",
+      "mitigation": "Engine marks Super League matches and notes threshold adjustment in reasoning."
+    },
+    {
+      "id": "RL-07",
+      "title": "State of Origin squad disruption",
+      "detail": "Origin window creates squad disruption for NRL clubs. No structured feed flags affected clubs automatically.",
+      "mitigation": "Flag available via manual schedule check; defaults to not-origin-window and is documented."
+    }
+  ]
+}

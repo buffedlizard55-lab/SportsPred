@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Rugby League — NRL &amp; Super League scoreboard, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="NRL and Super League scoreboard and calendar with automatically generated rugby league predictions: WIN MATCH, HANDICAP and GAME TOTAL for every upcoming fixture, scored by the Rugby League Prediction Master Prompt v1.0.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Rugby League</h1>
+      <p class="page-sub" id="page-sub">NRL &amp; Super League — every upcoming fixture scored for WIN MATCH, HANDICAP and GAME TOTAL from the committed OLBG market slate and the official NRL and Super League tables. Predictions are generated automatically for every match.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="league-filter" aria-label="Filter by competition">
+            <option value="all">All competitions</option>
+            <option value="NRL">NRL</option>
+            <option value="Super League">Super League</option>
+          </select>
+
+          <select id="status-filter" aria-label="Filter by market">
+            <option value="all">All markets</option>
+            <option value="win_match">WIN MATCH only</option>
+            <option value="handicap">HANDICAP only</option>
+            <option value="game_total">GAME TOTAL only</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search team…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+          <button class="btn sm" id="refresh" title="Clear the local cache and refetch">↻ Refetch</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers show how many NRL / Super League fixtures are scheduled on that day from the committed OLBG slate (usually all upcoming matches). Pick any highlighted date — past, today or upcoming — to load that day's scoreboard. Every market on the slate is generated automatically.</div>
+      </div>
+
+      <div class="card" id="provenance-box">
+        <div class="card-head"><h2>Sources &amp; irregularities</h2></div>
+        <div class="card-body meta-line" id="provenance-body">Loading…</div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Top selections this date</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG Rugby League markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Session</h3></div>
+        <div class="card-body meta-line" id="meta"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a Rugby League card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p><strong>WIN MATCH</strong> ≥70 <span class="badge HIGH">HIGH</span> · 50–69 <span class="badge MEDIUM">MEDIUM</span> · below 50 <span class="badge SKIP">SKIP</span> (at least two factors must align for 50–69 to clear MEDIUM).</p>
+          <p><strong>HANDICAP</strong> — only when WIN MATCH ≥65, line inside −5.50 to −8.50 for favourites or +6.50 to +13.50 for underdogs, and average winning margin ≥8. Thresholds: ≥70 HIGH · 55–69 MEDIUM · below 55 SKIP. Shows only who will cover, never the line.</p>
+          <p><strong>GAME TOTAL</strong> — primary window 42.50–48.50 is Over only (≥55 HIGH · 45–54 MEDIUM · below 45 SKIP). Above that: 49.50–52.50 and 53.50+ require stricter offensive/defensive proof; rain or strong wind elevates Under by 10 points automatically. Shows only Over or Under, never the total.</p>
+          <p>Every card is capped at six active selections per day across all three markets; excess leans are withheld as SKIP. Open <strong>Analysis</strong> on any fixture to see every rule that fired, its points and the factors that were not available. Full register: <a href="sources.html#rugby-league">sources</a>.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/rugby-league-page.js"></script>
+</body>
+</html>

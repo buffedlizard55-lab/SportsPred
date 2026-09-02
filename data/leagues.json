@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-02T21:55:23.200Z",
+  "generated_at_utc": "2026-09-02T22:24:50.501Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -743,22 +743,9 @@
       ]
     },
     "rugby-league": {
-      "espnSport": "rugby-league",
-      "threeWay": false,
-      "leagues": [
-        {
-          "slug": "3",
-          "name": "Rugby League",
-          "candidateName": "Rugby League",
-          "espnLeagueId": "8370",
-          "ok": true,
-          "status": 200,
-          "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard?dates=20260902"
-        }
-      ]
+      "espnSport": null,
+      "leagues": [],
+      "note": "Rugby League runs on the committed, source-tagged OLBG market slate plus the official NRL and Super League tables, scored by the RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0. No free key-less price feed is used; odds are derived from the official ladders and are cross-referenced where available. Predictions are written as three tips per match (WIN MATCH, HANDICAP, GAME TOTAL) with the league-specific weightings and thresholds documented in docs/RUGBY_LEAGUE_PROMPT_REVIEW.md."
     },
     "rugby-union": {
       "espnSport": "rugby",
@@ -1258,8 +1245,8 @@
     }
   },
   "summary": {
-    "checked": 95,
-    "ok": 95,
+    "checked": 94,
+    "ok": 94,
     "failed": 0
   }
 }

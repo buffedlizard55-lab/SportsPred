@@ -150,6 +150,27 @@ async function boot() {
     }
   }
 
+  // ---- rugby league irregularities (NRL/SL + OLBG layer) ----
+  const rl = await loadStatic('data/rugby_league_provenance.json');
+  const rlbox = $('#rl-irr');
+  if (rlbox) {
+    if (!rl.data) {
+      rlbox.innerHTML = '<div class="note">Rugby League register unavailable (data/rugby_league_provenance.json).</div>';
+    } else {
+      const rows = rl.data.irregularities || [];
+      rlbox.innerHTML = `<table class="data">
+        <thead><tr><th>Id</th><th>Finding</th><th>Status</th><th>Effect on output</th><th>Verify it yourself</th></tr></thead>
+        <tbody>${rows.map((r) => `<tr>
+          <td><code>${esc(r.id)}</code></td>
+          <td><strong>${esc(r.title)}</strong><div class="meta-line">${esc(r.detail || r.finding || '')}</div></td>
+          <td>${esc(r.status)}</td>
+          <td>${esc(r.effect_on_output || r.effect || '')}</td>
+          <td>${(r.sources || r.review_links || []).map((l) => `<a href="${esc(l)}" target="_blank" rel="noopener noreferrer">link ↗</a>`).join(' ')}</td>
+        </tr>`).join('')}</tbody></table>
+        <p class="meta-line">Register generated ${esc(rl.data.generated_at_utc || rl.data.as_of_utc || '')}. See <a href="rugby-league.html">the rugby league scoreboard</a>. · <a href="docs/RUGBY_LEAGUE_SOURCES.md" target="_blank" rel="noopener noreferrer">source audit</a> · <a href="docs/RUGBY_LEAGUE_IRREGULARITIES.md" target="_blank" rel="noopener noreferrer">irregularities doc</a></p>`;
+    }
+  }
+
   // ---- sport source list ----
   $('#sport-sources').innerHTML = `<table class="data">
     <thead><tr><th>Sport</th><th>OLBG index</th><th>Statistics feed</th><th>Status</th><th>Official references</th></tr></thead>

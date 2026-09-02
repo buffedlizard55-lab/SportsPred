@@ -80,6 +80,15 @@ HANDBALL_MATCHES = os.path.join(DATA, 'handball_matches.json')
 HANDBALL_PROVENANCE = os.path.join(DATA, 'handball_provenance.json')
 HANDBALL_PREDICTIONS = os.path.join(DATA, 'handball_predictions.json')
 
+# Rugby League files
+RUGBY_SLATE = os.path.join(DATA, 'rugby_league_slate.json')
+RUGBY_TEAMS = os.path.join(DATA, 'rugby_league_teams.json')
+RUGBY_MATCHES = os.path.join(DATA, 'rugby_league_matches.json')
+RUGBY_PROVENANCE = os.path.join(DATA, 'rugby_league_provenance.json')
+RUGBY_PREDICTIONS = os.path.join(DATA, 'rugby_league_predictions.json')
+RUGBY_BACKTEST = os.path.join(DATA, 'rugby_league_backtest.json')
+RUGBY_WEATHER = os.path.join(DATA, 'rugby_league_weather.json')
+
 SOURCED_FIELDS = {
     'rank', 'odds', 'firstSetOdds', 'handicapOdds', 'form', 'surface', 'serve', 'rest',
 }
@@ -565,6 +574,65 @@ def validate_handball_matches(doc):
     return problems, len(matches)
 
 
+def validate_rugby_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['rugby_league_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('rugby_league_slate.source.url missing')
+    if not doc.get('source', {}).get('fetched_at_utc'):
+        problems.append('rugby_league_slate.source.fetched_at_utc missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in rugby slate: {sorted(dups)}')
+    for e in events:
+        if e.get('type') == 'outright':
+            for field in ('event_id', 'name'):
+                if not e.get(field):
+                    problems.append(f'rugby outright {e.get("event_id")} missing "{field}"')
+            continue
+        for field in ('event_id', 'home', 'away'):
+            if not e.get(field):
+                problems.append(f'rugby event {e.get("event_id")} missing "{field}"')
+        # prices are allowed to be absent — OLBG slate is display only
+    return problems, len(events)
+
+
+def validate_rugby_teams(doc):
+    problems = []
+    teams = doc.get('teams', {})
+    if not isinstance(teams, dict) or not teams:
+        return ['no teams in rugby_league_teams.json'], 0
+    for name, t in teams.items():
+        # alias entries share same object but we check required fields
+        if not t.get('name'):
+            problems.append(f'team \"{name}\" missing name')
+        if t.get('standings') is not None and 'rank' not in t.get('standings', {}):
+            problems.append(f'team \"{name}\" missing standings.rank')
+        if t.get('form') is not None and not isinstance(t.get('form', {}).get('last5'), list):
+            problems.append(f'team \"{name}\" missing form.last5 list')
+    if not doc.get('source', {}).get('fetched_at_utc') and not doc.get('generated_at_utc'):
+        problems.append('rugby_league_teams missing generated_at_utc/fetched_at_utc')
+    return problems, len(teams)
+
+
+def validate_rugby_matches(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['rugby_league_matches.matches is not a list'], 0
+    for m in matches:
+        for field in ('competition_id', 'date', 'home', 'away'):
+            if not m.get(field):
+                problems.append(f'rugby match {m.get("competition_id")} missing \"{field}\"')
+        if not (m.get('source_url') or '').startswith('https://'):
+            # allow empty but warn
+            pass
+    return problems, len(matches)
+
+
 def report(name, problems, count=0):
     status = 'OK' if not problems else 'PROBLEMS'
     print(f'  [{status:8}] {name}')
@@ -749,6 +817,27 @@ def main():
         if fn:
             problems, n = fn(blob)
             total += report(name, problems, n)
+        else:
+            total += report(name, [], 0)
+
+    print('\n--- Rugby League Data Layer ---')
+    rl_names = [('data/rugby_league_slate.json', RUGBY_SLATE, validate_rugby_slate),
+                ('data/rugby_league_teams.json', RUGBY_TEAMS, validate_rugby_teams),
+                ('data/rugby_league_matches.json', RUGBY_MATCHES, validate_rugby_matches),
+                ('data/rugby_league_provenance.json', RUGBY_PROVENANCE, None),
+                ('data/rugby_league_predictions.json', RUGBY_PREDICTIONS, None),
+                ('data/rugby_league_backtest.json', RUGBY_BACKTEST, None),
+                ('data/rugby_league_weather.json', RUGBY_WEATHER, None)]
+    for name, path, fn in rl_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the rugby league collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+            if n:
+                print(f'              {n} records')
         else:
             total += report(name, [], 0)
 

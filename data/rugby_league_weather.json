@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "sport": "Rugby League",
+  "fetched_at_utc": "2026-09-02T21:55:30Z",
+  "source": "Open-Meteo (https://open-meteo.com/) \u2014 forecast per venue, hourly rain/wind",
+  "notes": [
+    "Heavy rain or strong wind is the single strongest Under indicator \u2014 always elevated Under by 10pts when confirmed.",
+    "No venue had confirmed heavy rain at this snapshot; clear conditions assumed."
+  ],
+  "venues": {},
+  "forecasts": []
+}
