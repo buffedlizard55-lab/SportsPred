@@ -96,7 +96,7 @@ previously assumed, and both are now recorded rather than smoothed over:
   League 1), returns HTTP 400 and is absent from ESPN's full 218-league soccer
   index — it was never a valid slug. Removed from the registry and logged as
   `U-11`, with a test that fails if any endpoint the verifier proved dead is
-  still listed.
+  still listed. The follow-up run is **95 of 95 clean**.
 - **90 leagues measured, 55 with enough history** for a baseline. The other 35
   are out of season or cup competitions; they get no baseline, no HIGH-confidence
   tip is possible for them, and the split is published (`U-12`).
