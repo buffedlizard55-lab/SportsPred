@@ -57,6 +57,14 @@ GREYHOUND_PROVENANCE = os.path.join(DATA, 'greyhound_provenance.json')
 GREYHOUND_BACKTEST = os.path.join(DATA, 'greyhound_backtest.json')
 GREYHOUND_PREDICTIONS = os.path.join(DATA, 'greyhound_predictions.json')
 
+# Volleyball files
+VOLLEYBALL_SLATE = os.path.join(DATA, 'volleyball_slate.json')
+VOLLEYBALL_TAPE = os.path.join(DATA, 'volleyball_tape.json')
+VOLLEYBALL_MATCHES = os.path.join(DATA, 'volleyball_matches.json')
+VOLLEYBALL_PROVENANCE = os.path.join(DATA, 'volleyball_provenance.json')
+VOLLEYBALL_PREDICTIONS = os.path.join(DATA, 'volleyball_predictions.json')
+VOLLEYBALL_BACKTEST = os.path.join(DATA, 'volleyball_backtest.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -409,7 +417,72 @@ def validate_greyhound_slate(doc):
     return problems, len(events)
 
 
+def validate_volleyball_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['volleyball_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('volleyball_slate.source.url missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in volleyball slate: {sorted(dups)}')
+    for e in events:
+        for field in ('event_id', 'home', 'away', 'url'):
+            if not e.get(field):
+                problems.append(f'volleyball slate row {e.get("event_id")} missing "{field}"')
+        for key in PRICE_KEYS:
+            if key in e:
+                problems.append(
+                    f'volleyball slate row {e.get("event_id")} contains price-like field "{key}" '
+                    '— OLBG listings are display-only (IR-VB-02)')
+    return problems, len(events)
+
+
+def validate_volleyball_tape(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['volleyball_tape.matches is not a list'], 0
+    if not doc.get('source', {}).get('url') and not doc.get('source', {}).get('name'):
+        problems.append('volleyball_tape.source missing')
+    ids = [m.get('id') for m in matches]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate match ids in volleyball tape: {sorted(dups)}')
+    for m in matches:
+        for field in ('id', 'family', 'date', 'home', 'away'):
+            if not m.get(field):
+                problems.append(f'volleyball tape row {m.get("id")} missing "{field}"')
+        if m.get('family') == 'ncaa' and m.get('phase') == 'eurovolley':
+            problems.append(f'volleyball tape row {m.get("id")} mixes ncaa family with eurovolley phase')
+        if m.get('winner') and not m.get('setScore') and not m.get('setsIncomplete'):
+            problems.append(f'volleyball tape row {m.get("id")} has a winner without a sourced set score')
+        if m.get('source_url') and not str(m.get('source_url')).startswith('https://'):
+            problems.append(f'volleyball tape row {m.get("id")} source_url is not https')
+    return problems, len(matches)
+
+
+def validate_volleyball_matches(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['volleyball_matches.matches is not a list'], 0
+    for m in matches:
+        for field in ('id', 'family', 'date', 'home', 'away', 'source_url'):
+            if not m.get(field):
+                problems.append(f'volleyball match {m.get("id")} missing "{field}"')
+        for key in PRICE_KEYS:
+            if key in m:
+                problems.append(f'volleyball match {m.get("id")} contains price-like field "{key}"')
+        if m.get('source_url') and not str(m.get('source_url')).startswith('https://'):
+            problems.append(f'volleyball match {m.get("id")} source_url is not https')
+    return problems, len(matches)
+
+
 def validate_handball_matches(doc):
+
     problems = []
     matches = doc.get('matches', [])
     if not isinstance(matches, list):
@@ -563,6 +636,24 @@ def main():
         blob = load(path)
         if blob is None:
             print(f'  [PENDING] {name} (populated by the scheduled greyhound collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+        else:
+            total += report(name, [], 0)
+
+    print('\n--- Volleyball Data Layer ---')
+    vb_names = [('data/volleyball_slate.json', VOLLEYBALL_SLATE, validate_volleyball_slate),
+                ('data/volleyball_tape.json', VOLLEYBALL_TAPE, validate_volleyball_tape),
+                ('data/volleyball_matches.json', VOLLEYBALL_MATCHES, validate_volleyball_matches),
+                ('data/volleyball_provenance.json', VOLLEYBALL_PROVENANCE, None),
+                ('data/volleyball_predictions.json', VOLLEYBALL_PREDICTIONS, None),
+                ('data/volleyball_backtest.json', VOLLEYBALL_BACKTEST, None)]
+    for name, path, fn in vb_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the volleyball collector)')
             continue
         if fn:
             problems, n = fn(blob)

@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "sport": "Volleyball",
+  "source": {
+    "name": "Committed EuroVolley 2026 W quarter-finals (Wikipedia + OLBG listing)",
+    "url": "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship",
+    "fetched_at_utc": "2026-09-02T20:00:00Z"
+  },
+  "notes": [
+    "These two quarter-finals are international CEV fixtures. ESPN college volleyball is a different competition family and is never used to score them.",
+    "OLBG display times (09:00 / 12:00) are untrusted (U-02). Wikipedia lists 16:00 and 19:00 local Istanbul on 3 September 2026. startUtc is left null rather than guessed."
+  ],
+  "matches": [
+    {
+      "id": "evw-2026-qf-pol-ned",
+      "event_id": "36503",
+      "family": "eurovolley-w",
+      "phase": "upcoming",
+      "date": "2026-09-03",
+      "dateISO": "2026-09-03",
+      "startUtc": null,
+      "home": "Poland",
+      "away": "Netherlands",
+      "league": "EuroVolley Women 2026",
+      "leagueName": "EuroVolley Women 2026",
+      "leagueSlug": "eurovolley-w",
+      "round": "Quarter-final",
+      "venue": "Istanbul",
+      "neutral": true,
+      "source_url": "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship",
+      "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Poland_W_vs_Netherlands_W/21?event_id=36503"
+    },
+    {
+      "id": "evw-2026-qf-ger-tur",
+      "event_id": "olbg-ger-tur",
+      "family": "eurovolley-w",
+      "phase": "upcoming",
+      "date": "2026-09-03",
+      "dateISO": "2026-09-03",
+      "startUtc": null,
+      "home": "Germany",
+      "away": "Turkey",
+      "league": "EuroVolley Women 2026",
+      "leagueName": "EuroVolley Women 2026",
+      "leagueSlug": "eurovolley-w",
+      "round": "Quarter-final",
+      "venue": "Istanbul",
+      "neutral": true,
+      "source_url": "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship",
+      "olbg_url": "https://www.olbg.com/betting-tips/Volleyball/21"
+    }
+  ]
+}

@@ -19,6 +19,9 @@
     "backtest:universal": "node scripts/backtest_universal.mjs",
     "collect:greyhounds": "node scripts/collect_greyhound.mjs",
     "backtest:greyhounds": "node scripts/backtest_greyhound.mjs",
+    "collect:volleyball": "python3 scripts/collect_volleyball_olbg.py && node scripts/collect_volleyball_espn.mjs",
+    "backtest:volleyball": "node scripts/backtest_volleyball.mjs",
+    "record:volleyball": "node scripts/record_volleyball_predictions.mjs",
     "serve": "python3 scripts/serve.py 8000"
   },
   "engines": {

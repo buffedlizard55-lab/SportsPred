@@ -22,6 +22,7 @@ let JSDOM = null;
 try { ({ JSDOM } = await import('jsdom')); } catch { /* not installed */ }
 
 const soccerFixture = JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/espn_soccer_eng1.EXCERPT.json'), 'utf8'));
+const volleyballFixture = JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/espn_volleyball.EXCERPT.json'), 'utf8'));
 
 /** A scoreboard payload with completed matches, so a baseline can be measured. */
 function historyPayload() {
@@ -116,6 +117,10 @@ function makeFetch(counters) {
     if (u.includes('data/golf_events.json') || u.includes('data/golf_stats.json') || u.includes('data/golf_slate.json')) {
       return { ok: false, status: 404, json: async () => ({}) };
     }
+    if (u.includes('/sports/volleyball/')) {
+      if (/dates=20260903/.test(u)) return ok({ leagues: volleyballFixture.leagues, events: [] });
+      return ok(volleyballFixture);
+    }
     if (u.includes('site.api.espn.com')) {
       // A range request is the history scan; a single date is the day's card.
       if (/dates=\d{8}-\d{8}/.test(u)) return ok(historyPayload());
@@ -154,7 +159,8 @@ function makeFetch(counters) {
     }
     if (u.includes('data/olbg_sports.json') || u.includes('_slate.json') || u.includes('data/slate.json')
         || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
-        || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)) {
+        || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
+        || u.includes('data/volleyball_')) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
       return { ok: false, status: 404, json: async () => ({}) };
@@ -536,4 +542,57 @@ test('registry: greyhounds are predicted on their own specialist page', async ()
   assert.equal(g.predictable, true);
   assert.equal(g.page, 'greyhounds.html');
   assert.equal(g.specialistEngine, 'greyhounds');
+});
+
+test('volleyball.html boots NCAA rows, set linescores and the Generate button', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('volleyball.html', { search: '?date=2026-09-02' });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    assert.ok(document.querySelector('.sportrail a[data-sport="volleyball"]'), 'volleyball is in the rail');
+    const text = document.body.textContent;
+    assert.match(text, /Nebraska Cornhuskers/);
+    assert.match(text, /Wisconsin Badgers/);
+    assert.match(text, /25–20|25-20|25–20/);
+    const rows = document.querySelectorAll('.match');
+    assert.ok(rows.length >= 1, 'at least one match row');
+    const btn = document.querySelector('#generate');
+    assert.ok(btn, 'generate button exists');
+    document.querySelector('#rail-preds').innerHTML = '';
+    btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+    for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'Generate repopulated the rail');
+    assert.equal(btn.disabled, false);
+    assert.match(btn.textContent, /Generate predictions/);
+  } finally { cleanup(); }
+});
+
+test('volleyball.html on 3 September shows EuroVolley QFs, not NCAA form labels as EuroVolley sides', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('volleyball.html', { search: '?date=2026-09-03' });
+  try {
+    const text = document.body.textContent;
+    assert.match(text, /Poland/);
+    assert.match(text, /Netherlands/);
+    assert.match(text, /EuroVolley/);
+    assert.ok(!/Nebraska Cornhuskers/.test(text), 'NCAA sides must not appear on the EuroVolley date from the committed tape');
+    const toggle = document.querySelector('[data-toggle]');
+    assert.ok(toggle, 'analysis toggle exists');
+  } finally { cleanup(); }
+});
+
+test('registry: volleyball is predicted on its own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const v = SPORTS.find((s) => s.key === 'volleyball');
+  assert.equal(v.predictable, true);
+  assert.equal(v.page, 'volleyball.html');
+  assert.equal(v.specialistEngine, 'volleyball');
+  assert.equal(v.olbgId, 21);
+});
+
+test('sport.html?sport=volleyball hands over to the dedicated volleyball page', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('sport.html', { search: '?sport=volleyball&date=2026-09-03' });
+  try {
+    const a = document.querySelector('#handover');
+    assert.ok(a, 'handover link rendered');
+    assert.match(a.getAttribute('href'), /volleyball\.html\?date=2026-09-03/);
+  } finally { cleanup(); }
 });

@@ -332,13 +332,24 @@ export const SPORTS = [
     threeWay: false,
     predictable: true,
     unit: 'sets',
+    specialistEngine: 'volleyball',
+    page: 'volleyball.html',
     officialLinks: [
+      { label: 'ESPN Women\'s College Volleyball Scoreboard', url: 'https://www.espn.com/college-sports/volleyball/scoreboard' },
       { label: 'OLBG Volleyball Tips', url: olbgUrl('Volleyball', 21) },
+      { label: 'CEV EuroVolley', url: 'https://www.cev.eu/' },
       { label: 'FIVB', url: 'https://www.fivb.com/' },
     ],
-    candidateLeagues: [],
+    candidateLeagues: [
+      { slug: 'womens-college-volleyball', name: "NCAA Women's Volleyball" },
+      { slug: 'mens-college-volleyball', name: "NCAA Men's Volleyball" },
+    ],
     discover: { core: 'volleyball' },
-    notes: ['ESPN volleyball coverage is college-only. FIVB/CEV internationals that OLBG prices are listed as market rows and are not predicted.'],
+    notes: [
+      'ESPN volleyball coverage is college-only. FIVB/CEV internationals that OLBG prices (EuroVolley Women 2026 quarter-finals on 3 September) are scored only from the committed CEV tape — never from NCAA form.',
+      'The specialist engine writes WIN MATCH and SET SCORE only. OLBG Total Points and Points Handicap are listed for review and never scored.',
+      'No free multi-book moneyline exists (IR-VB-02), so live confidence cannot read HIGH.',
+    ],
   },
   {
     key: 'mma',
