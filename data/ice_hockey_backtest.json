@@ -1,0 +1,68 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "prompt": "ICE HOCKEY PREDICTION MASTER PROMPT v1.0",
+ "generated_at_utc": "2026-09-02T22:58:14Z",
+ "method": "Walk-forward: every settled game is re-scored using only games that finished before it. No feature is taken from the fixture being graded.",
+ "source_tape": {
+  "path": "data/ice_hockey_tape.json",
+  "url": "https://api-web.nhle.com/v1/scoreboard/2026-10-08",
+  "fetched_at_utc": null,
+  "games": 0,
+  "settled": 0
+ },
+ "results": {
+  "graded": 0,
+  "overall_hit_rate_pct": null,
+  "by_confidence_band": {
+   "high": {
+    "picks": 0,
+    "graded": 0,
+    "hits": 0,
+    "hitRate": null
+   },
+   "medium": {
+    "picks": 0,
+    "graded": 0,
+    "hits": 0,
+    "hitRate": null
+   },
+   "low": {
+    "picks": 0,
+    "graded": 0,
+    "hits": 0,
+    "hitRate": null
+   },
+   "skip": {
+    "picks": 0,
+    "graded": 0,
+    "hits": 0,
+    "hitRate": null
+   }
+  },
+  "confidence_scale_monotonic": null,
+  "puck_line": {
+   "graded": 0,
+   "reason": "the closing puck line is not retained by any free feed once a game is final, so covers cannot be checked historically"
+  },
+  "game_total": {
+   "graded": 0,
+   "reason": "the closing total line is not retained by any free feed once a game is final, so Over/Under cannot be checked historically"
+  },
+  "roi": null,
+  "roi_reason": "no price is attached to a settled fixture, so no return can be computed. Forward collection records the price at pick time; ROI appears only from that ledger."
+ },
+ "ungraded_inputs": [
+  "powerPlayPctg / penaltyKillPctg — not published by any key-less feed we can reach",
+  "shotsForRank / shotsAgainstRank — not published by any key-less feed we can reach",
+  "goaltender.savePctg for the confirmed starter — no free feed names a future starter",
+  "closing prices for puck line and total — stripped once a game is final"
+ ],
+ "irregularities": [
+  "IR-HOCKEY-01 single price source (ESPN republishes one book), so the prompt's two-book cross-reference cannot be met.",
+  "IR-HOCKEY-02 confirmed starting goaltender unavailable from any free feed; the engine treats every starter as unconfirmed, which vetoes HIGH confidence by rule.",
+  "IR-HOCKEY-03 power play, penalty kill, shots and blocked shots unavailable; those blocks score zero and are recorded as missing.",
+  "IR-HOCKEY-05 no retained closing lines, so puck line and total are ungraded and ROI cannot be computed."
+ ],
+ "rows": []
+}

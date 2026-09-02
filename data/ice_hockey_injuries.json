@@ -1,0 +1,18 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "league": "nhl",
+ "fetched_at_utc": null,
+ "collector": "scripts/collect_ice_hockey_nhl.mjs",
+ "endpoints": [
+  {
+   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/injuries",
+   "status": null,
+   "error": "not run in this sandbox (no outbound network); endpoint verified reachable during review",
+   "ok": false
+  }
+ ],
+ "byTeam": {},
+ "counts": {},
+ "note": "ESPN injury register keyed by team abbreviation; populated by CI."
+}

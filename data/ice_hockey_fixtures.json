@@ -1,0 +1,301 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "league": "nhl",
+ "fetched_at_utc": "2026-09-02T22:33:00Z",
+ "collector": "transcription of a verified live fetch (see note)",
+ "note": "This workspace has no outbound network, so scripts/collect_ice_hockey_nhl.mjs could not be run here. These seven fixtures were read directly from the two URLs below during review (HTTP 200) and transcribed verbatim, including the NHL's own game ids, venues, start times and the records the scoreboard printed. The scheduled CI run replaces this file with the full window.",
+ "endpoints": [
+  {
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-10-08",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20261008",
+   "status": 200,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "window": {
+  "from": "2026-10-05",
+  "to": "2026-10-08"
+ },
+ "odds_attribution": "No odds block was present on either payload for these future fixtures at fetch time, so odds are null and oddsSourceCount is 0. The engine records the price as unsourced rather than assuming one.",
+ "season_context": "On 2026-09-02 the NHL scoreboard returned zero events for the current date: the 2025-26 season ended 2026-07-01 and the 2026-27 calendar starts 2026-09-19. The nearest fixtures the league publishes are the October games below.",
+ "fixtures": [
+  {
+   "id": "2026020040",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-05T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Benchmark International Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/phi-vs-tbl/2026-10-05/2026020040",
+   "home": {
+    "id": 14,
+    "abbrev": "TBL",
+    "name": "Tampa Bay Lightning",
+    "record": null,
+    "recordSummary": "50-26-6",
+    "logo": null
+   },
+   "away": {
+    "id": 4,
+    "abbrev": "PHI",
+    "name": "Philadelphia Flyers",
+    "record": null,
+    "recordSummary": "43-27-12",
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020041",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-05T23:30:00Z",
+   "phase": "upcoming",
+   "venue": "TD Garden",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/ott-vs-bos/2026-10-05/2026020041",
+   "home": {
+    "id": 6,
+    "abbrev": "BOS",
+    "name": "Boston Bruins",
+    "record": null,
+    "recordSummary": "45-27-10",
+    "logo": null
+   },
+   "away": {
+    "id": 9,
+    "abbrev": "OTT",
+    "name": "Ottawa Senators",
+    "record": null,
+    "recordSummary": "44-27-11",
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020042",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-05T23:30:00Z",
+   "phase": "upcoming",
+   "venue": "PPG Paints Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/wpg-vs-pit/2026-10-05/2026020042",
+   "home": {
+    "id": 5,
+    "abbrev": "PIT",
+    "name": "Pittsburgh Penguins",
+    "record": null,
+    "recordSummary": "41-25-16",
+    "logo": null
+   },
+   "away": {
+    "id": 52,
+    "abbrev": "WPG",
+    "name": "Winnipeg Jets",
+    "record": null,
+    "recordSummary": "35-35-12",
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020043",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-06",
+   "startUtc": "2026-10-06T00:00:00Z",
+   "phase": "upcoming",
+   "venue": "American Airlines Center",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/sjs-vs-dal/2026-10-05/2026020043",
+   "home": {
+    "id": 25,
+    "abbrev": "DAL",
+    "name": "Dallas Stars",
+    "record": null,
+    "recordSummary": "50-20-12",
+    "logo": null
+   },
+   "away": {
+    "id": 28,
+    "abbrev": "SJS",
+    "name": "San Jose Sharks",
+    "record": null,
+    "recordSummary": "39-35-8",
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020044",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-06",
+   "startUtc": "2026-10-06T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Scotiabank Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/nsh-vs-tor/2026-10-06/2026020044",
+   "home": {
+    "id": 10,
+    "abbrev": "TOR",
+    "name": "Toronto Maple Leafs",
+    "record": null,
+    "recordSummary": "32-36-14",
+    "logo": null
+   },
+   "away": {
+    "id": 18,
+    "abbrev": "NSH",
+    "name": "Nashville Predators",
+    "record": null,
+    "recordSummary": "38-34-10",
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020045",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-06",
+   "startUtc": "2026-10-06T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Centre Bell",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/car-vs-mtl/2026-10-06/2026020045",
+   "home": {
+    "id": 8,
+    "abbrev": "MTL",
+    "name": "Montreal Canadiens",
+    "record": null,
+    "recordSummary": "48-24-10",
+    "logo": null
+   },
+   "away": {
+    "id": 12,
+    "abbrev": "CAR",
+    "name": "Carolina Hurricanes",
+    "record": null,
+    "recordSummary": "53-22-7",
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "401891820",
+   "source": "espn-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-08",
+   "startUtc": "2026-10-08T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Canadian Tire Centre",
+   "neutral": false,
+   "gameCenterLink": null,
+   "home": {
+    "id": "14",
+    "abbrev": "OTT",
+    "name": "Ottawa Senators",
+    "record": null,
+    "recordSummary": null,
+    "logo": null
+   },
+   "away": {
+    "id": "15",
+    "abbrev": "PHI",
+    "name": "Philadelphia Flyers",
+    "record": null,
+    "recordSummary": null,
+    "logo": null
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  }
+ ],
+ "counts": {
+  "fixtures": 7,
+  "results": 0,
+  "withOdds": 0
+ }
+}

@@ -1,0 +1,8 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "generated_at_utc": "2026-09-02T22:59:00Z",
+ "picks": [],
+ "settled": [],
+ "note": "Append-only forward ledger. Each entry records the pick, the price at pick time, every factor that was sourced and every factor that was missing."
+}

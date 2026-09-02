@@ -633,6 +633,86 @@ def validate_rugby_matches(doc):
     return problems, len(matches)
 
 
+def validate_ice_hockey_fixtures(doc):
+    problems = []
+    fixtures = doc.get('fixtures', [])
+    if not isinstance(fixtures, list):
+        return ['ice_hockey_fixtures.fixtures is not a list'], 0
+    endpoints = doc.get('endpoints', [])
+    if not endpoints:
+        problems.append('ice_hockey_fixtures has no endpoint provenance')
+    for e in endpoints:
+        if not str(e.get('url', '')).startswith('https://'):
+            problems.append(f'ice hockey endpoint url is not https: {e.get("url")}')
+    ids = [str(f.get('id')) for f in fixtures]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate fixture ids in ice_hockey_fixtures: {sorted(dups)}')
+    for f in fixtures:
+        for field in ('id', 'dateISO', 'startUtc', 'source'):
+            if not f.get(field):
+                problems.append(f'ice hockey fixture {f.get("id")} missing "{field}"')
+        for side in ('home', 'away'):
+            if not (f.get(side) or {}).get('name'):
+                problems.append(f'ice hockey fixture {f.get("id")} missing {side}.name')
+    return problems, len(fixtures)
+
+
+def validate_ice_hockey_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['ice_hockey_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('ice_hockey_slate.source.url missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in ice hockey slate: {sorted(dups)}')
+    for e in events:
+        for field in ('event_id', 'home', 'away', 'url'):
+            if not e.get(field):
+                problems.append(f'ice hockey slate row {e.get("event_id")} missing "{field}"')
+        if not str(e.get('url', '')).startswith('https://www.olbg.com/betting-tips/Ice_Hockey/'):
+            problems.append(f'ice hockey slate row {e.get("event_id")} url is not the OLBG ice hockey index')
+        # OLBG publishes tipster consensus, never a price. A price here is a bug.
+        if e.get('odds') is not None:
+            problems.append(f'ice hockey slate row {e.get("event_id")} carries an odds value; OLBG publishes none')
+    return problems, len(events)
+
+
+def validate_ice_hockey_provenance(doc):
+    problems = []
+    for s in doc.get('sources', []):
+        if not str(s.get('url', '')).startswith('https://'):
+            problems.append(f'ice hockey source "{s.get("name")}" has no https url')
+        if not s.get('provides'):
+            problems.append(f'ice hockey source "{s.get("name")}" does not state what it provides')
+        if s.get('status') != 200:
+            problems.append(f'ice hockey source "{s.get("name")}" was not verified with HTTP 200 (got {s.get("status")})')
+    for i in doc.get('irregularities', []):
+        if not i.get('id') or not i.get('title') or len(str(i.get('effect', ''))) < 30:
+            problems.append(f'ice hockey irregularity {i.get("id")} is missing an id, title or a real effect statement')
+    if not doc.get('sources'):
+        problems.append('ice_hockey_provenance lists no sources')
+    return problems, len(doc.get('sources', []))
+
+
+def validate_ice_hockey_backtest(doc):
+    problems = []
+    results = doc.get('results', {})
+    if not results:
+        problems.append('ice_hockey_backtest has no results block')
+    for market in ('puck_line', 'game_total'):
+        if results.get(market, {}).get('graded', 0) == 0 and not results.get(market, {}).get('reason'):
+            problems.append(f'ice_hockey_backtest.{market} is ungraded without saying why')
+    if results.get('roi') is None and not results.get('roi_reason'):
+        problems.append('ice_hockey_backtest reports no ROI without saying why')
+    if not doc.get('method'):
+        problems.append('ice_hockey_backtest does not state its method')
+    return problems, results.get('graded', 0)
+
+
 def report(name, problems, count=0):
     status = 'OK' if not problems else 'PROBLEMS'
     print(f'  [{status:8}] {name}')
@@ -840,6 +920,34 @@ def main():
                 print(f'              {n} records')
         else:
             total += report(name, [], 0)
+
+    print('\n--- Ice Hockey Data Layer ---')
+    ih_names = [
+        ('data/ice_hockey_fixtures.json', os.path.join(DATA, 'ice_hockey_fixtures.json'), validate_ice_hockey_fixtures),
+        ('data/ice_hockey_slate.json', os.path.join(DATA, 'ice_hockey_slate.json'), validate_ice_hockey_slate),
+        ('data/ice_hockey_provenance.json', os.path.join(DATA, 'ice_hockey_provenance.json'), validate_ice_hockey_provenance),
+        ('data/ice_hockey_backtest.json', os.path.join(DATA, 'ice_hockey_backtest.json'), validate_ice_hockey_backtest),
+        ('data/ice_hockey_standings.json', os.path.join(DATA, 'ice_hockey_standings.json'), None),
+        ('data/ice_hockey_tape.json', os.path.join(DATA, 'ice_hockey_tape.json'), None),
+        ('data/ice_hockey_goalies.json', os.path.join(DATA, 'ice_hockey_goalies.json'), None),
+        ('data/ice_hockey_injuries.json', os.path.join(DATA, 'ice_hockey_injuries.json'), None),
+        ('data/ice_hockey_predictions.json', os.path.join(DATA, 'ice_hockey_predictions.json'), None),
+    ]
+    for name, path, fn in ih_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the ice hockey collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+            if n:
+                print(f'              {n} records')
+        else:
+            empty = not (blob.get('teams') or blob.get('games') or blob.get('byTeam') or blob.get('picks'))
+            total += report(name, [], 0)
+            if empty:
+                print('              empty by design: the engine records those factors as missing')
 
     print('=' * 65)
     if total:

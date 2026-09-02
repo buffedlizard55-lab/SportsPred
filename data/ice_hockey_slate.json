@@ -1,0 +1,82 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "olbg_sport_id": "13",
+ "fetched_at_utc": "2026-09-02T22:55:12Z",
+ "source": {
+  "name": "OLBG Ice Hockey betting-tips index",
+  "url": "file:///home/user/SportsPred/tests/fixtures/olbg_ice_hockey_index.RECONSTRUCTED.html",
+  "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
+  "licence_note": "Publicly viewable listing of facts (fixture, league, kickoff, tip counts) recorded for manual review. No bookmaker price is published in this HTML, so no price field is produced.",
+  "transcribed_from": {
+   "name": "OLBG Ice Hockey betting-tips index",
+   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
+   "fetched_utc": "2026-09-02T22:33:00Z",
+   "method": "Fetched over HTTPS during review (HTTP 200). This sandbox has no outbound network for the collector itself, so the three event rows were transcribed into the reconstructed fixture at tests/fixtures/olbg_ice_hockey_index.RECONSTRUCTED.html and this file was generated from it by scripts/collect_ice_hockey_olbg.py.",
+   "rows_verified": "event ids 198599, 198658, 198655 with leagues, kickoffs and tip counts exactly as printed on the page",
+   "will_be_replaced_by": "the scheduled CI run of scripts/collect_ice_hockey_olbg.py, which fetches the live index directly"
+  }
+ },
+ "events": [
+  {
+   "event_id": "198599",
+   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Switzerland_NLA/Davos_vs_SCL_Tigers/13?event_id=198599",
+   "league_path": "Other/Switzerland_NLA/Davos_vs_SCL_Tigers",
+   "league": "Switzerland NLA",
+   "home": "Davos",
+   "away": "SCL Tigers",
+   "market": "Money Line",
+   "tips_for": 3,
+   "tips_total": 3,
+   "tip_pct": 100,
+   "odds": null,
+   "display_date": "15 Sept 13:45",
+   "resolved_date": "2026-09-15",
+   "time": "13:45",
+   "date_inferred_year": false,
+   "parse_error": null
+  },
+  {
+   "event_id": "198658",
+   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Finland_SM_Liiga/Pelicans_vs_Sport/13?event_id=198658",
+   "league_path": "Other/Finland_SM_Liiga/Pelicans_vs_Sport",
+   "league": "Finland SM Liiga",
+   "home": "Pelicans",
+   "away": "Sport",
+   "market": "Money Line",
+   "tips_for": 1,
+   "tips_total": 1,
+   "tip_pct": 100,
+   "odds": null,
+   "display_date": "04 Sept 09:30",
+   "resolved_date": "2026-09-04",
+   "time": "09:30",
+   "date_inferred_year": false,
+   "parse_error": null
+  },
+  {
+   "event_id": "198655",
+   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/Other/Finland_SM_Liiga/Kalpa_vs_Jukurit/13?event_id=198655",
+   "league_path": "Other/Finland_SM_Liiga/Kalpa_vs_Jukurit",
+   "league": "Finland SM Liiga",
+   "home": "Kalpa",
+   "away": "Jukurit",
+   "market": "Money Line",
+   "tips_for": 1,
+   "tips_total": 1,
+   "tip_pct": 100,
+   "odds": null,
+   "display_date": "04 Sept 11:30",
+   "resolved_date": "2026-09-04",
+   "time": "11:30",
+   "date_inferred_year": false,
+   "parse_error": null
+  }
+ ],
+ "markets_seen": [
+  "Money Line"
+ ],
+ "warnings": [],
+ "note": "Display-and-join context for the ice hockey engine. OLBG publishes tipster consensus, not odds, so this slate can never supply a price; prices come from the ESPN scoreboard odds block (one book, attributed) and the NHL API is used for fixtures, standings and goaltending.",
+ "coverage_note": "The live index showed three event rows and a \"Load More Tips\" control. data/olbg_sports.json counted four ice hockey events on the same day; the difference is recorded as IR-HOCKEY-06 rather than papered over."
+}

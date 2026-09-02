@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ice Hockey scoreboard, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="Ice hockey scoreboard and month calendar over the OLBG market slate, joined to the official NHL API for fixtures, standings and goaltending. Three written predictions per match — outright winner, puck line, game total — with every figure traceable to a reviewable source.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Ice Hockey</h1>
+      <p class="page-sub" id="page-sub">Scoreboard and month calendar over the ice hockey slate, scored by the ICE HOCKEY PREDICTION MASTER PROMPT v1.0. Three markets per match — outright winner, puck line, game total — with a risk layer that vetoes any play resting on an unsourced input.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress" style="display:none"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="status-filter" aria-label="Filter by status">
+            <option value="all">All matches</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="results">Results</option>
+            <option value="selected">Predictions only</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search team, league, venue…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+          <button class="btn sm" id="refresh" title="Try the live NHL and ESPN feeds, then fall back to the committed data">↻ Refresh feeds</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers are matches played or scheduled that day, from the committed fixture list and the OLBG slate. Pick any date to load that card.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Card text</h2><span class="sp"></span>
+          <button class="btn sm" id="copy-card">📋 Copy card</button>
+        </div>
+        <div class="card-body"><pre class="mono" id="card-text" style="white-space:pre-wrap;font-size:12.5px">Generate predictions to build the copy-paste card.</pre></div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Match predictions</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG ice hockey markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Backtest</h3></div>
+        <div class="card-body meta-line" id="backtest">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sources</h3></div>
+        <div class="card-body meta-line" id="sources">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read an ice hockey card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p>Each side is scored on recent form (25 pts), odds and value (25), goaltending (20), offensive and defensive structure (20) and home context (10). The puck line reuses that base with the home block swapped for a puck line cover trend, plus margin, injury, power play and fatigue modifiers. The total scores an Over ledger and an Under ledger across offence, goaltending, special teams and recent trends.</p>
+          <p>Before any score becomes a pick it passes the subagent layer: two reasoning paths are blended into a consensus, compared with the de-vigged price, and vetoed when the edge is under three points, when the two paths disagree violently, or when the starting goaltender is not confirmed.</p>
+          <p>Open <strong>Analysis</strong> on any match for every rule that fired, its points, the factors that could not be sourced and the official review links.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/ice-hockey-page.js"></script>
+</body>
+</html>

@@ -197,13 +197,23 @@ export const SPORTS = [
     threeWay: false,
     predictable: true,
     unit: 'goals',
+    specialistEngine: 'ice-hockey',
+    page: 'ice-hockey.html',
     officialLinks: [
+      { label: 'NHL Official Scoreboard', url: 'https://www.nhl.com/scores' },
+      { label: 'NHL Standings', url: 'https://www.nhl.com/standings' },
+      { label: 'NHL Official API', url: 'https://api-web.nhle.com/v1/scoreboard/now' },
       { label: 'ESPN NHL Scoreboard', url: 'https://www.espn.com/nhl/scoreboard' },
+      { label: 'ESPN NHL Injuries', url: 'https://www.espn.com/nhl/injuries' },
       { label: 'OLBG Ice Hockey Tips', url: olbgUrl('Ice_Hockey', 13) },
     ],
     candidateLeagues: [
       { slug: 'nhl', name: 'National Hockey League' },
       { slug: 'mens-college-hockey', name: "NCAA Men's Ice Hockey" },
+    ],
+    notes: [
+      'Ice Hockey runs on its own specialist page, scored by the ICE HOCKEY PREDICTION MASTER PROMPT v1.0: three tips per match (OUTRIGHT WINNER, PUCK LINE, GAME TOTAL) with a subagent risk layer in front of them. Fixtures, standings and goaltending come from the official NHL API; prices come from the ESPN scoreboard odds block (one book, attributed); the OLBG slate is display-and-join context and never supplies a price.',
+      'Three prompt inputs have no free source and are recorded as missing rather than estimated: a confirmed starting goaltender, special teams percentages, and shots for/against per game. With a goaltender unconfirmed the risk layer vetoes the play, so a data-poor card publishes SKIP with its reason instead of a guess.',
     ],
   },
   {

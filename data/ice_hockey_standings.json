@@ -1,0 +1,43 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "league": "nhl",
+ "fetched_at_utc": null,
+ "collector": "scripts/collect_ice_hockey_nhl.mjs",
+ "endpoints": [
+  {
+   "url": "https://api-web.nhle.com/v1/standings/now",
+   "status": null,
+   "error": "not run in this sandbox (no outbound network); verified reachable during review",
+   "ok": false
+  }
+ ],
+ "teams": {},
+ "counts": {
+  "teams": 0
+ },
+ "note": "Empty by design. The official table is populated by the scheduled CI run. Until then the engine records every standings-derived factor as missing and no HIGH confidence tip is possible.",
+ "verified_fields": [
+  "goalFor",
+  "goalAgainst",
+  "goalsForPctg",
+  "points",
+  "winPctg",
+  "homeWins",
+  "homeLosses",
+  "homeOtLosses",
+  "homeGoalsFor",
+  "homeGoalsAgainst",
+  "roadWins",
+  "roadLosses",
+  "roadOtLosses",
+  "l10Wins",
+  "l10Losses",
+  "l10OtLosses",
+  "streakCode",
+  "streakCount",
+  "leagueSequence",
+  "divisionSequence",
+  "conferenceSequence"
+ ]
+}

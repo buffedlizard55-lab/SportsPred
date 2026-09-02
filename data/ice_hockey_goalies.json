@@ -1,0 +1,18 @@
+{
+ "schema_version": 1,
+ "sport": "Ice Hockey",
+ "league": "nhl",
+ "fetched_at_utc": null,
+ "collector": "scripts/collect_ice_hockey_nhl.mjs",
+ "endpoints": [
+  {
+   "url": "https://api-web.nhle.com/v1/club-stats/OTT/20252026/2",
+   "status": null,
+   "error": "not run in this sandbox (no outbound network); endpoint verified reachable during review",
+   "ok": false
+  }
+ ],
+ "teams": {},
+ "counts": {},
+ "note": "Per-team goaltender save percentages from the official club-stats feed; populated by CI. No free feed confirms a future starter, so confirmed stays false."
+}

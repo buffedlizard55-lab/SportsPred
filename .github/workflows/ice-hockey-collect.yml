@@ -1,0 +1,95 @@
+name: Collect ice hockey data
+
+# Refreshes the ice hockey layer from the official NHL API (fixtures, standings,
+# club stats for goaltending) and ESPN (odds block, injury register), refreshes
+# the OLBG ice hockey slate, walks the backtest forward over settled games and
+# commits the result.
+#
+# The sandbox this project is developed in has no outbound network, so these
+# collectors only ever run here. A failed collection leaves the committed data
+# untouched rather than writing a partial file.
+
+on:
+  push:
+    branches: [arena/01a0643f-sportspred]
+  schedule:
+    - cron: '19,49 * * * *'   # twice an hour through the NHL evening
+  workflow_dispatch:
+    inputs:
+      days:
+        description: 'Fixture and results window in days either side of today'
+        required: false
+        default: '21'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: ice-hockey-collect-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tests must pass before collecting
+        run: |
+          npm ci
+          npm test
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/build_data.py --strict
+
+      - name: Collect NHL fixtures, standings, goaltending and ESPN injuries
+        id: collect-nhl
+        continue-on-error: true
+        run: node scripts/collect_ice_hockey_nhl.mjs --days "${{ github.event.inputs.days || '21' }}"
+
+      - name: Report a failed NHL collection
+        if: steps.collect-nhl.outcome == 'failure'
+        run: echo "::warning::NHL collection failed. Committed ice hockey data is unchanged."
+
+      - name: Collect the OLBG ice hockey slate
+        id: collect-olbg
+        continue-on-error: true
+        run: python3 scripts/collect_ice_hockey_olbg.py --enrich || true
+
+      - name: Report a failed OLBG slate collection
+        if: steps.collect-olbg.outcome == 'failure'
+        run: echo "::warning::OLBG ice hockey slate collection failed; slate unchanged."
+
+      - name: Ice hockey walk-forward backtest
+        continue-on-error: true
+        run: node scripts/backtest_ice_hockey.mjs
+
+      - name: Validate the ice hockey layer
+        run: python3 scripts/build_data.py --strict
+
+      - name: Commit ice hockey data changes
+        run: |
+          git config user.name "sportspred-collector[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/
+          if git diff --cached --quiet || ! node scripts/data_changed.mjs $(git diff --cached --name-only); then
+            echo "No ice hockey data changes to commit (unchanged or timestamps only)."
+            git reset -q
+          else
+            git commit -m "chore(data): refresh ice hockey fixtures, standings, goaltending, slate and backtest"
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt ${attempt} rejected by a concurrent data commit; retrying"
+              sleep $((attempt * 5))
+            done
+            [ "${pushed}" = "1" ]
+          fi
