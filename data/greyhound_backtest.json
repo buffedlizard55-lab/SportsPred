@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "sport": "Greyhounds",
+  "generated_at_utc": "2026-09-02T19:37:46.002Z",
+  "method": "Walk-forward over the committed GBGB window; form restricted to runs before each race; production engine with official SP feeding the odds tier for settled races.",
+  "window_races": 1,
+  "graded": 1,
+  "wins": 1,
+  "hit_rate": 1,
+  "level_stake_pnl": 2.75,
+  "odds_note": "Settled-race starting prices are the only odds evidence GBGB publishes; live pre-race odds have no free key-less feed (IR-GH-01). PnL is level-stake SP and is illustrative.",
+  "by_confidence": {
+    "HIGH": {
+      "n": 1,
+      "wins": 1,
+      "hitRate": 1,
+      "levelStakePnl": 2.75
+    },
+    "MEDIUM": {
+      "n": 0,
+      "wins": 0,
+      "hitRate": null,
+      "levelStakePnl": 0
+    },
+    "LOW": {
+      "n": 0,
+      "wins": 0,
+      "hitRate": null,
+      "levelStakePnl": 0
+    }
+  },
+  "picks": [
+    {
+      "raceId": 1240666,
+      "track": "Yarmouth",
+      "date": "2026-09-02",
+      "time": "18:31",
+      "grade": "A5",
+      "distance": 462,
+      "selection": "Ballycowen Alfie",
+      "dogId": 657190,
+      "score": 84,
+      "confidence": "HIGH",
+      "won": true,
+      "position": 1,
+      "sp": "11/4",
+      "oddsChecked": true,
+      "winnerName": "Ballycowen Alfie",
+      "winnerSp": "11/4",
+      "pnl": 2.75
+    }
+  ]
+}

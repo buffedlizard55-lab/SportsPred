@@ -17,6 +17,8 @@
     "build:registry": "node scripts/build_league_registry.mjs",
     "build:context": "node scripts/build_league_context.mjs",
     "backtest:universal": "node scripts/backtest_universal.mjs",
+    "collect:greyhounds": "node scripts/collect_greyhound.mjs",
+    "backtest:greyhounds": "node scripts/backtest_greyhound.mjs",
     "serve": "python3 scripts/serve.py 8000"
   },
   "engines": {

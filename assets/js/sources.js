@@ -91,6 +91,26 @@ async function boot() {
       <p class="meta-line">Register last updated ${esc(irr.data.generated_at_utc || '')}.</p>`;
   }
 
+  // ---- greyhound irregularities (GBGB specialist layer) ----
+  const gh = await loadStatic('data/greyhound_provenance.json');
+  const ghbox = $('#gh-irr');
+  if (ghbox) {
+    if (!gh.data) {
+      ghbox.innerHTML = '<div class="note">Greyhound register unavailable (data/greyhound_provenance.json).</div>';
+    } else {
+      ghbox.innerHTML = `<table class="data">
+        <thead><tr><th>Id</th><th>Finding</th><th>Status</th><th>Effect on output</th><th>Verify it yourself</th></tr></thead>
+        <tbody>${(gh.data.irregularities || []).map((r) => `<tr>
+          <td><code>${esc(r.id)}</code></td>
+          <td><strong>${esc(r.title)}</strong><div class="meta-line">${esc(r.detail)}</div></td>
+          <td>${esc(r.status)}</td>
+          <td>${esc(r.effect_on_output)}</td>
+          <td>${(r.sources || []).map((l) => `<a href="${esc(l)}" target="_blank" rel="noopener noreferrer">link ↗</a>`).join(' ')}</td>
+        </tr>`).join('')}</tbody></table>
+        <p class="meta-line">Register generated ${esc(gh.data.generated_at_utc || '')}. See <a href="greyhounds.html">the greyhound scoreboard</a>.</p>`;
+    }
+  }
+
   // ---- sport source list ----
   $('#sport-sources').innerHTML = `<table class="data">
     <thead><tr><th>Sport</th><th>OLBG index</th><th>Statistics feed</th><th>Status</th><th>Official references</th></tr></thead>
