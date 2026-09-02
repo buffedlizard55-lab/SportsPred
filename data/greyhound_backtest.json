@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Greyhounds",
-  "generated_at_utc": "2026-09-02T19:37:46.002Z",
+  "generated_at_utc": "2026-09-02T19:41:19.115Z",
   "method": "Walk-forward over the committed GBGB window; form restricted to runs before each race; production engine with official SP feeding the odds tier for settled races.",
   "window_races": 1,
   "graded": 1,

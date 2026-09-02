@@ -305,6 +305,7 @@ export function scoreRunner(p, race, opts = {}) {
     name: p.name,
     trap: p.trap,
     position: p.position ?? null,
+    sp: p.sp ?? null,
     score,
     components,
     missing: [...new Set(missing)],

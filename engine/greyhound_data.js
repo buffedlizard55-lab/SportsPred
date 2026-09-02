@@ -47,6 +47,9 @@ export function buildRunnerProfile(runner, history, race) {
     trap,
     trainer: runner.trainer,
     sp: runner.sp ?? null,           // present only on settled races
+    position: runner.position ?? null, // result position on settled races
+    runTime: runner.runTime ?? null,
+    comment: runner.comment ?? null,
     runs: pastRuns,
     last5: pastRuns.slice(0, 5).map((r) => ({
       position: r.position, date: r.date, track: r.track, grade: r.grade,

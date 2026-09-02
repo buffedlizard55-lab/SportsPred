@@ -335,6 +335,10 @@ async function main() {
     races,
   };
 
+  if (meetings.length === 0) {
+    throw new Error('GBGB returned zero meetings across the window; refusing to overwrite committed data (network blocked or API down)');
+  }
+
   out('greyhound_meetings.json', meetingsDoc);
   out('greyhound_history.json', historyDoc);
   out('greyhound_predictions.json', predictions);
