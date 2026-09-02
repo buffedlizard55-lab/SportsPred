@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 import {
   parseF1Scoreboard, parseCompetitions, parseSession, parseStatus,
   parseStatistics, parseStandings, parseCoreEvent, parseCircuit,
-  resultFromRace, gridFromRace, sessionKey,
+  resultFromRace, gridFromRace, sessionKey, parseCompetitor,
 } from '../engine/f1_espn.js';
 
 test('sessionKey normalises OLBG/ESPN session types', () => {
@@ -188,6 +188,37 @@ test('parseCoreEvent resolves circuitId from the $ref (never a raw field)', () =
   assert.equal(core.circuitId, '615');
   assert.equal(core.venueId, '259');
   assert.equal(parseCoreEvent({ id: '1' }).circuitId, null, 'absent circuit stays null, never guessed');
+});
+
+test('refId takes the last numeric segment of a nested $ref, not the first', () => {
+  // REGRESSION: defendingChampionDriverId came back as "2025" — the season
+  // year — because the first numeric group in the path was matched.
+  const core = parseCoreEvent({
+    id: '600057441',
+    circuit: { $ref: 'http://sports.core.api.espn.com/v2/sports/racing/leagues/f1/circuits/1102?lang=en' },
+    defendingChampion: {
+      driver: { $ref: 'http://sports.core.api.espn.com/v2/sports/racing/leagues/f1/seasons/2025/athletes/4665?lang=en' },
+      manufacturer: { $ref: 'http://sports.core.api.espn.com/v2/sports/racing/leagues/f1/seasons/2025/manufacturers/22?lang=en' },
+    },
+  });
+  assert.equal(core.defendingChampionDriverId, '4665', 'must be the athlete id, not the season');
+  assert.notEqual(core.defendingChampionDriverId, '2025');
+  assert.equal(core.defendingChampionTeam, '22');
+  assert.equal(core.circuitId, '1102');
+});
+
+test('a core competitor with an athlete $ref keeps a null name and a real id', () => {
+  // The core payload has no inline athlete object; the name must stay null so
+  // the collector can merge the real one from the site scoreboard.
+  const c = parseCompetitor({
+    id: '5579', order: 1, startOrder: 2, winner: true,
+    athlete: { $ref: 'http://sports.core.api.espn.com/v2/sports/racing/leagues/f1/seasons/2026/athletes/5579?lang=en' },
+    vehicle: { manufacturer: 'McLaren', number: '1' },
+  });
+  assert.equal(c.athleteId, '5579');
+  assert.equal(c.name, null, 'name is never fabricated from the id');
+  assert.equal(c.team, 'McLaren');
+  assert.equal(c.startOrder, 2);
 });
 
 test('parseCompetitions handles a core competitions payload', () => {

@@ -146,7 +146,13 @@ export function buildDriverProfile(rows, standing, asOfISODate) {
     })),
     outqualified: { wins: q.n, total: q.total },
     avgGrid: avg(grid3.map((r) => r.grid)),
-    poleLastRace: last5[0]?.pole ?? null,
+    // ESPN's `pole` stat is a qualifying POSITION, not a flag, so the boolean
+    // `polePosition` is what the engine consumes. Comparing the raw number
+    // against `true` silently scored zero and never registered as missing.
+    poleLastRace: last5[0] == null
+      ? null
+      : (last5[0].polePosition ?? (last5[0].pole == null ? null : last5[0].pole === 1)),
+    gridLastRace: last5[0]?.pole ?? null,
     fastestLapAtCircuit: null, // filled by engine from circuit history
     // track under analysis is filled by buildTrackTape
     track: null,

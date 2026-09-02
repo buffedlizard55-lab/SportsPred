@@ -90,16 +90,27 @@ export function isCompleted(session) {
 }
 
 /** Strip a `$ref` URL to its trailing id. */
+/**
+ * Extract the entity id from an ESPN `$ref` URL.
+ *
+ * Must take the LAST numeric path segment, not the first. Refs are nested,
+ * e.g. `.../seasons/2025/athletes/4665?lang=en` — reading the first group
+ * returned the season year (2025) as the athlete id.
+ */
 function refId(ref) {
   if (!ref) return null;
-  const m = String(ref).match(/\/(\d+)\??/);
-  return m ? m[1] : null;
+  const path = String(ref).split(/[?#]/)[0];
+  const segments = path.split('/').filter((s) => /^\d+$/.test(s));
+  return segments.length ? segments[segments.length - 1] : null;
 }
 
 function athleteOf(c) {
   const a = c?.athlete ?? {};
+  // The SITE scoreboard inlines the athlete object; the CORE competitions
+  // payload gives `athlete` as a $ref only, so the name is resolved separately
+  // and merged in by the collector. Never fabricate a name from the id.
   return {
-    id: String(c?.id ?? ''),
+    id: String(c?.id ?? refId(a?.$ref) ?? ''),
     name: a?.fullName || a?.displayName || a?.name || null,
     shortName: a?.shortName || null,
     flagCountry: a?.flag?.alt || null,

@@ -152,9 +152,30 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
     // for completion. The core payload is still preferred for competitor
     // detail (startOrder, vehicle, winner flag); statuses are merged in.
     const siteByType = new Map((ev.sessions || []).map((s) => [s.type, s]));
+    // The core payload gives `athlete` as a $ref, so competitor names come back
+    // null. The site scoreboard inlines the athlete object for the same
+    // athleteIds, so names are merged from there rather than left blank or
+    // reconstructed from the id.
+    const nameById = new Map();
+    for (const s of ev.sessions || []) {
+      for (const c of s.competitors || []) {
+        if (c.athleteId && c.name && !nameById.has(c.athleteId)) nameById.set(c.athleteId, c);
+      }
+    }
+    const withNames = (s) => ({
+      ...s,
+      competitors: (s.competitors || []).map((c) => {
+        if (c.name || !nameById.has(c.athleteId)) return c;
+        const src = nameById.get(c.athleteId);
+        return { ...c, name: src.name, shortName: c.shortName ?? src.shortName, country: c.country ?? src.country };
+      }),
+    });
     const sessions = (comps.length ? comps : (ev.sessions || [])).map((s) => {
       const site = siteByType.get(s.type);
-      return site ? { ...s, completed: site.completed === true || s.completed === true, state: site.state || s.state } : s;
+      const merged = site
+        ? { ...s, completed: site.completed === true || s.completed === true, state: site.state || s.state }
+        : s;
+      return withNames(merged);
     });
     const raceComp = sessions.find((s) => s.type === 'Race') || null;
 
@@ -208,14 +229,23 @@ async function buildEvents(scoreboards, { withStatus = true } = {}) {
           }
         });
       }
-      // Pole for this race comes from the completed Qualifying session order,
-      // which ESPN publishes even when per-driver statistics are unavailable.
+      // Qualifying classification. NOTE ON SEMANTICS: ESPN's per-driver `pole`
+      // statistic is the driver's QUALIFYING POSITION (the Dutch GP winner has
+      // pole=1, the driver who qualified 3rd has pole=3) — it is not a 0/1
+      // "took pole" flag. The fallback below therefore writes the qualifying
+      // ORDER, so both paths mean the same thing. `polePosition` is the
+      // unambiguous boolean derived from it.
       const qual = sessions.find((s) => s.type === 'Qualifying' && s.completed);
-      const poleId = qual?.competitors?.find((c) => c.order === 1)?.athleteId ?? null;
-      if (poleId) {
-        for (const row of result) {
-          if (row.pole == null) row.pole = String(row.athleteId) === String(poleId) ? 1 : 0;
+      const qualOrderById = new Map(
+        (qual?.competitors || [])
+          .filter((c) => c.order != null)
+          .map((c) => [String(c.athleteId), c.order]),
+      );
+      for (const row of result) {
+        if (row.pole == null && qualOrderById.has(String(row.athleteId))) {
+          row.pole = qualOrderById.get(String(row.athleteId));
         }
+        row.polePosition = row.pole == null ? null : row.pole === 1;
       }
     }
     const winner = result.find((r) => r.position === 1) || null;
