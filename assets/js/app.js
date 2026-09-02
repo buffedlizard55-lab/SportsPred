@@ -205,7 +205,7 @@ async function setSport(sportId) {
   if (state.sport === sportId) return;
   state.sport = sportId;
 
-  $$('.sport-pill').forEach((btn) => {
+  $$('.sport-pill[data-sport]').forEach((btn) => {
     const active = btn.dataset.sport === sportId;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-checked', active ? 'true' : 'false');
@@ -1925,8 +1925,8 @@ function switchTab(tabId) {
  * Event Listeners & Boot
  * ------------------------------------------------------------------ */
 
-// Sport Pills Switcher
-$$('.sport-pill').forEach((btn) => {
+// Sport Pills Switcher (anchors without data-sport, e.g. the golf link, just navigate)
+$$('.sport-pill[data-sport]').forEach((btn) => {
   btn.addEventListener('click', () => setSport(btn.dataset.sport));
 });
 

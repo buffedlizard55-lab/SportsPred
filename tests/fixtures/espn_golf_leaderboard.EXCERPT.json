@@ -1,0 +1,171 @@
+{
+  "_fixture_provenance": {
+    "what": "Trimmed EXCERPT of a real response from the ESPN golf leaderboard endpoint (completed PGA TOUR event).",
+    "fetched_utc": "2026-09-02T12:00:00Z",
+    "urls": [
+      "https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=pga&event=401811964",
+      "https://www.espn.com/golf/leaderboard?tournamentId=401811964"
+    ],
+    "honesty_note": "Field names, nesting and values are copied verbatim from the live response. Of the thirty competitors only three are retained (a finisher with four rounds, a withdrawal after one round, and a second finisher); broadcast, link and headshot arrays were shortened. Nothing was added or altered. The WD competitor's round-one value of 23.0 (nine holes) is a genuine observation kept deliberately because the parser must not read it as a completed round.",
+    "excluded": "27 other competitors, broadcasts, sportscenter links, most hole-by-hole arrays."
+  },
+  "events": [
+    {
+      "id": "401811964",
+      "uid": "s:1100~l:1106~e:401811964",
+      "date": "2026-08-27T04:00Z",
+      "endDate": "2026-08-30T04:00Z",
+      "name": "TOUR Championship",
+      "shortName": "TOUR Championship",
+      "primary": true,
+      "hasPlayerStats": true,
+      "hasCourseStats": true,
+      "purse": 40000000,
+      "displayPurse": "$40,000,000",
+      "league": { "id": "1106", "name": "PGA TOUR", "abbreviation": "PGA", "shortName": "PGA TOUR", "slug": "pga" },
+      "season": { "year": 2026 },
+      "seasonType": { "id": "2", "name": "Regular Season" },
+      "links": [
+        { "language": "en-US", "rel": ["summary", "desktop", "event"], "href": "https://www.espn.com/golf/leaderboard?tournamentId=401811964", "text": "Leaderboard", "shortText": "Summary", "isExternal": false, "isPremium": false, "isHidden": false }
+      ],
+      "tournament": { "id": "46", "displayName": "Tour Championship", "major": false, "scoringSystem": { "id": "1", "name": "Medal" }, "numberOfRounds": 4, "cutRound": 0, "cutScore": 0, "cutCount": 0 },
+      "status": { "type": { "id": "3", "name": "STATUS_FINAL", "state": "post", "completed": true, "description": "Final" } },
+      "winner": { "id": "9478", "displayName": "Scottie Scheffler" },
+      "defendingChampion": { "athlete": { "id": "5539", "displayName": "Tommy Fleetwood", "amateur": false }, "displayName": "" },
+      "playoffType": { "id": -1, "description": "None", "minimumHoles": 0 },
+      "competitions": [
+        {
+          "id": "401811964",
+          "uid": "s:1100~l:1106~e:401811964~c:401811964",
+          "date": "2026-08-27T04:00Z",
+          "endDate": "2026-08-30T04:00Z",
+          "recent": false,
+          "onWatchESPN": false,
+          "dataFormat": "API",
+          "status": { "period": 4, "type": { "id": "3", "name": "STATUS_FINAL", "state": "post", "description": "Final", "detail": "Final", "shortDetail": "Complete" } },
+          "competitors": [
+            {
+              "id": "10140",
+              "uid": "s:1100~a:10140",
+              "movement": -8,
+              "earnings": 536250.0,
+              "sortOrder": 14,
+              "amateur": false,
+              "featured": false,
+              "status": {
+                "displayValue": "F", "period": 4, "teeTime": "2026-08-30T15:38Z", "hole": 18, "startHole": 1, "thru": 18, "displayThru": "18", "playoff": false, "behindCurrentRound": false, "detail": "-4(F)",
+                "type": { "id": "2", "name": "STATUS_FINISH", "state": "post", "completed": true, "description": "Finish", "detail": "Finish", "shortDetail": "F" },
+                "position": { "id": "14", "displayName": "T14", "isTie": true }
+              },
+              "score": { "value": 271.0, "displayValue": "-9" },
+              "linescores": [
+                { "value": 67.0, "displayValue": "-3", "period": 1, "inScore": 33, "outScore": 34, "currentPosition": 15, "teeTime": "2026-08-27T16:54Z", "hasStream": false, "isPlayoff": false },
+                { "value": 71.0, "displayValue": "+1", "period": 2, "inScore": 37, "outScore": 34, "startPosition": 15, "currentPosition": 25, "teeTime": "2026-08-28T16:18Z", "hasStream": false, "isPlayoff": false },
+                { "value": 67.0, "displayValue": "-3", "period": 3, "inScore": 33, "outScore": 34, "startPosition": 25, "currentPosition": 22, "teeTime": "2026-08-29T16:19Z", "hasStream": false, "isPlayoff": false },
+                { "value": 66.0, "displayValue": "-4", "period": 4, "inScore": 32, "outScore": 34, "startPosition": 22, "currentPosition": 14, "teeTime": "2026-08-30T15:38Z", "hasStream": false, "isPlayoff": false }
+              ],
+              "statistics": [
+                { "name": "scoreToPar", "value": -9.0, "displayValue": "-9" },
+                { "name": "officialAmount", "displayValue": "$536,250" },
+                { "name": "cupPoints", "value": 0.0, "displayValue": "0" }
+              ],
+              "athlete": {
+                "id": "10140", "uid": "s:1100~a:10140", "guid": "e23e62a8-8995-6b06-42f2-018c8a27e916", "displayName": "Xander Schauffele", "shortName": "X. Schauffele", "lastName": "Schauffele", "amateur": false,
+                "headshot": { "href": "https://a.espncdn.com/i/headshots/golf/players/full/10140.png" },
+                "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png", "alt": "USA" },
+                "birthPlace": { "countryAbbreviation": "USA", "stateAbbreviation": "CA" },
+                "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10140/xander-schauffele", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ]
+              }
+            },
+            {
+              "id": "10166",
+              "uid": "s:1100~a:10166",
+              "movement": 0,
+              "earnings": 0.0,
+              "sortOrder": 30,
+              "amateur": false,
+              "featured": false,
+              "status": {
+                "displayValue": "WD", "period": 1, "behindCurrentRound": true, "detail": "+4(WD)",
+                "type": { "id": "3", "name": "STATUS_CUT", "state": "post", "completed": false, "description": "Withdrawn", "detail": "Withdrawn", "shortDetail": "WD" },
+                "position": { "id": "33", "displayName": "-", "isTie": false }
+              },
+              "score": { "value": 23.0, "displayValue": "E" },
+              "linescores": [
+                { "value": 23.0, "displayValue": "+4", "period": 1, "outScore": 23, "currentPosition": 33, "teeTime": "2026-08-27T15:48Z", "hasStream": false, "isPlayoff": false },
+                { "value": 0.0, "displayValue": "-", "period": 2, "hasStream": false, "isPlayoff": false }
+              ],
+              "statistics": [
+                { "name": "scoreToPar", "value": 4.0, "displayValue": "+4" },
+                { "name": "officialAmount", "displayValue": "--" },
+                { "name": "cupPoints", "value": 0.0, "displayValue": "0" }
+              ],
+              "athlete": {
+                "id": "10166", "uid": "s:1100~a:10166", "guid": "e22c3186-cba0-fa71-cc28-f297e92579eb", "displayName": "J.J. Spaun", "shortName": "J.J. Spaun", "lastName": "Spaun", "amateur": false,
+                "headshot": { "href": "https://a.espncdn.com/i/headshots/golf/players/full/10166.png" },
+                "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png", "alt": "USA" },
+                "birthPlace": { "countryAbbreviation": "USA", "stateAbbreviation": "CA" },
+                "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10166/jj-spaun", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ]
+              }
+            },
+            {
+              "id": "10592",
+              "uid": "s:1100~a:10592",
+              "movement": -2,
+              "earnings": 536250.0,
+              "sortOrder": 16,
+              "amateur": false,
+              "featured": false,
+              "status": {
+                "displayValue": "F", "period": 4, "teeTime": "2026-08-30T15:56Z", "hole": 18, "startHole": 1, "thru": 18, "displayThru": "18", "playoff": false, "behindCurrentRound": false, "detail": "-2(F)",
+                "type": { "id": "2", "name": "STATUS_FINISH", "state": "post", "completed": true, "description": "Finish", "detail": "Finish", "shortDetail": "F" },
+                "position": { "id": "14", "displayName": "T14", "isTie": true }
+              },
+              "score": { "value": 271.0, "displayValue": "-9" },
+              "linescores": [
+                { "value": 64.0, "displayValue": "-6", "period": 1, "inScore": 32, "outScore": 32, "currentPosition": 2, "teeTime": "2026-08-27T17:24Z", "hasStream": false, "isPlayoff": false },
+                { "value": 67.0, "displayValue": "-3", "period": 2, "inScore": 33, "outScore": 34, "startPosition": 2, "currentPosition": 3, "teeTime": "2026-08-28T17:48Z", "hasStream": false, "isPlayoff": false },
+                { "value": 72.0, "displayValue": "+2", "period": 3, "inScore": 37, "outScore": 35, "startPosition": 3, "currentPosition": 16, "teeTime": "2026-08-29T18:43Z", "hasStream": false, "isPlayoff": false },
+                { "value": 68.0, "displayValue": "-2", "period": 4, "inScore": 33, "outScore": 35, "startPosition": 16, "currentPosition": 14, "teeTime": "2026-08-30T15:56Z", "hasStream": false, "isPlayoff": false }
+              ],
+              "statistics": [
+                { "name": "scoreToPar", "value": -9.0, "displayValue": "-9" },
+                { "name": "officialAmount", "displayValue": "$536,250" },
+                { "name": "cupPoints", "value": 0.0, "displayValue": "0" }
+              ],
+              "athlete": {
+                "id": "10592", "uid": "s:1100~a:10592", "guid": "68ba7252-dda8-08cb-6161-7930f3f163e7", "displayName": "Collin Morikawa", "shortName": "C. Morikawa", "lastName": "Morikawa", "amateur": false,
+                "headshot": { "href": "https://a.espncdn.com/i/headshots/golf/players/full/10592.png" },
+                "flag": { "href": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png", "alt": "USA" },
+                "birthPlace": { "countryAbbreviation": "USA", "stateAbbreviation": "CA" },
+                "links": [ { "language": "en-US", "rel": ["playercard", "desktop", "athlete"], "href": "https://www.espn.com/golf/player/_/id/10592/collin-morikawa", "text": "Player Card", "shortText": "Player Card", "isExternal": false, "isPremium": false, "isHidden": false } ]
+              }
+            }
+          ],
+          "leaders": [
+            { "name": "driveDistAvg", "displayName": "Driving Distance", "shortDisplayName": "Driving Distance", "abbreviation": "YDS/DRV", "leaders": [ { "displayValue": "333.6", "value": 333.6, "athlete": { "id": "3470", "displayName": "Rory McIlroy" } } ] },
+            { "name": "fwysHit", "displayName": "Driving Accuracy", "shortDisplayName": "Driving Accuracy", "abbreviation": "DRV ACC", "leaders": [ { "displayValue": "85.7", "value": 85.71, "athlete": { "id": "5409", "displayName": "Russell Henley" } } ] },
+            { "name": "gir", "displayName": "GIR", "shortDisplayName": "GIR", "abbreviation": "GIR", "leaders": [ { "displayValue": "79.2", "value": 79.17, "athlete": { "id": "9478", "displayName": "Scottie Scheffler" } } ] },
+            { "name": "puttsGirAvg", "displayName": "Putts per GIR", "shortDisplayName": "Putts per GIR", "abbreviation": "PP GIR", "leaders": [ { "displayValue": "1.581", "value": 1.581, "athlete": { "id": "4251", "displayName": "Ryan Fox" } } ] }
+          ],
+          "holeByHoleSource": { "id": "2", "state": "full", "description": "feed" },
+          "scoringSystem": { "id": "1", "name": "Medal" }
+        }
+      ],
+      "courses": [
+        {
+          "id": "57", "name": "East Lake Golf Club", "totalYards": 7440, "shotsToPar": 70, "parIn": 35, "parOut": 35, "host": true,
+          "holes": [
+            { "number": 1, "shotsToPar": 4, "totalYards": 510 }, { "number": 2, "shotsToPar": 3, "totalYards": 205 }, { "number": 3, "shotsToPar": 4, "totalYards": 415 },
+            { "number": 4, "shotsToPar": 4, "totalYards": 465 }, { "number": 5, "shotsToPar": 4, "totalYards": 450 }, { "number": 6, "shotsToPar": 5, "totalYards": 525 },
+            { "number": 7, "shotsToPar": 4, "totalYards": 495 }, { "number": 8, "shotsToPar": 4, "totalYards": 390 }, { "number": 9, "shotsToPar": 3, "totalYards": 260 },
+            { "number": 10, "shotsToPar": 4, "totalYards": 425 }, { "number": 11, "shotsToPar": 3, "totalYards": 225 }, { "number": 12, "shotsToPar": 4, "totalYards": 390 },
+            { "number": 13, "shotsToPar": 4, "totalYards": 450 }, { "number": 14, "shotsToPar": 4, "totalYards": 530 }, { "number": 15, "shotsToPar": 3, "totalYards": 215 },
+            { "number": 16, "shotsToPar": 4, "totalYards": 460 }, { "number": 17, "shotsToPar": 4, "totalYards": 445 }, { "number": 18, "shotsToPar": 5, "totalYards": 585 }
+          ],
+          "address": { "city": "Atlanta", "state": "GA", "country": "USA", "zipCode": "30317" }
+        }
+      ]
+    }
+  ]
+}

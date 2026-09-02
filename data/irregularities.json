@@ -1,128 +1,141 @@
 {
-  "schema_version": 1,
-  "generated_at_utc": "2026-09-02",
-  "note": "Findings that did not check out, or that limit what this site can honestly claim. Each row names how it was verified and what it costs the output. New rows carry the U- prefix (universal engine work); the original sport-specific registers live in docs/IRREGULARITIES.md, docs/CRICKET_IRREGULARITIES.md, docs/HANDBALL_IRREGULARITIES.md and docs/F1_IRREGULARITIES.md.",
-  "irregularities": [
-    {
-      "id": "U-01",
-      "title": "OLBG cricket index was recorded under the wrong sport id",
-      "detail": "The repository recorded the OLBG cricket index as /betting-tips/Cricket/16. The OLBG sitemap lists Cricket as id 7 and 16 as Boxing. Fetching /Cricket/16 does render cricket tips because OLBG routes on the slug, but every event link on that page uses /7, and the article rail served on /16 is boxing content. All references were corrected to /betting-tips/Cricket/7.",
-      "status": "FIXED 2026-09-02",
-      "effect": "No effect on scoring; the cricket source link now points at the canonical index.",
-      "links": [
-        "https://www.olbg.com/sitemap-betting-tips.xml",
-        "https://www.olbg.com/betting-tips/Cricket/7",
-        "https://www.olbg.com/betting-tips/Boxing/16"
-      ]
-    },
-    {
-      "id": "U-02",
-      "title": "OLBG index pages mix absolute and relative dates",
-      "detail": "The server-rendered OLBG tips index shows some rows with an absolute date ('05 Sept 06:00') and others with a relative label ('Tomorrow 19:00'). A relative label cannot be resolved reliably from the HTML alone because it depends on the viewer's timezone and on when the page was rendered and cached.",
-      "status": "OPEN \u2014 mitigated",
-      "effect": "Slate rows whose date is relative are marked date_basis 'derived' in the snapshots and are never used to place a match on the calendar. The scoreboard's dates come from ESPN, not from OLBG.",
-      "links": [
-        "https://www.olbg.com/betting-tips"
-      ]
-    },
-    {
-      "id": "U-03",
-      "title": "ESPN prices come from a single sportsbook, not a market consensus",
-      "detail": "The odds block in the ESPN scoreboard payload carries provider.name (DraftKings on every fixture inspected on 2026-09-02). It is one book's price, republished by ESPN. It is not a best-price comparison and not an exchange price.",
-      "status": "OPEN \u2014 disclosed",
-      "effect": "Every price shown on the site is attributed to the named provider in the UI and in the written tip. The de-vig is a proportional single-book de-vig, which is a weaker estimate of fair probability than a multi-book consensus would be.",
-      "links": [
-        "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard"
-      ]
-    },
-    {
-      "id": "U-04",
-      "title": "Seven OLBG sports have no key-less statistics feed",
-      "detail": "Horse Racing, Greyhounds, Darts, Snooker, Gaelic Football, Cycling and Handball have no free, key-less structured results feed on ESPN. Boxing/MMA has fight cards but no structured fighter-form feed, and Golf is an outright market across a full field rather than a two-competitor contest.",
-      "status": "OPEN \u2014 by design",
-      "effect": "These sports are listed in the market directory with links to their OLBG index and their governing body, and never receive a generated prediction. Handball is the exception: it runs on the committed, source-tagged competition dataset and the specialist handball engine rather than on a live feed.",
-      "links": [
-        "https://www.olbg.com/betting-tips/Horse_Racing/2",
-        "https://www.olbg.com/betting-tips/Snooker/8",
-        "https://www.olbg.com/betting-tips/Darts/15"
-      ]
-    },
-    {
-      "id": "U-05",
-      "title": "ESPN's competitor.form and records are current, not as-of-match-date",
-      "detail": "For a match that has already finished, the form string and record summary attached to it describe the team as of the moment the request is made, which includes the result of that very match. Using them to grade history would leak the outcome into its own prediction.",
-      "status": "OPEN \u2014 mitigated",
-      "effect": "scripts/backtest_universal.mjs discards both fields and rebuilds form, record, league baseline and head-to-head from matches that finished strictly before each fixture. Live prediction is unaffected: for an upcoming match the fields are genuinely pre-match.",
-      "links": [
-        "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard"
-      ]
-    },
-    {
-      "id": "U-06",
-      "title": "ROI cannot be backtested: ESPN publishes no odds on completed events",
-      "detail": "This entry previously assumed the feed retained a closing price for finished matches, which would have made ROI computable but flattered. The 2026-09-02 CI run disproved that assumption: across 1214 graded fixtures over a 120-day window, zero carried an odds block. ESPN attaches odds to pre-match and in-play events only and strips them once the event is final.",
-      "status": "OPEN - measured, not worked around",
-      "effect": "data/universal_backtest.json reports roi: null and staked: 0 for every band. The published backtest grades the MODEL probability only; the market-blend leg (marketWeight 0.55) is untested by it. No ROI figure is shown anywhere on the site. Grading the blended output requires forward collection, storing the pre-match price at capture time.",
-      "links": [
-        "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260601",
-        "https://github.com/buffedlizard55-lab/SportsPred/blob/main/data/universal_backtest.json"
-      ]
-    },
-    {
-      "id": "U-07",
-      "title": "The build sandbox cannot reach ESPN or OLBG",
-      "detail": "Outbound HTTP from the development sandbox resolves only github.com, api.github.com and registry.npmjs.org. ESPN, OLBG, Open-Meteo and raw.githubusercontent.com all fail to connect.",
-      "status": "OPEN \u2014 mitigated",
-      "effect": "Collectors and the registry/baseline builders are written to run in GitHub Actions, which has unrestricted network. Endpoint shapes were verified through a hosted page-fetch tool and captured as trimmed fixtures under tests/fixtures/ with a provenance block naming the endpoint and the read date.",
-      "links": []
-    },
-    {
-      "id": "U-08",
-      "title": "Model weights are hyperparameters, not measurements",
-      "detail": "How much each signal moves the log-odds, and how heavily the market price is weighted against the model, are chosen numbers. They are exported from engine/universal_engine.js as a frozen WEIGHTS object so they can be inspected and backtested.",
-      "status": "OPEN \u2014 disclosed",
-      "effect": "The league baseline, form, records, ranks, head-to-head and prices are all measured facts; the weights that combine them are not. The distinction is stated on the method page and in the engine's own header comment.",
-      "links": []
-    },
-    {
-      "id": "U-09",
-      "title": "Curated rank is only published for a few competitions",
-      "detail": "ESPN sends competitor.curatedRank only for poll-ranked sports (mainly US college). For most leagues it is absent or set to a sentinel above 90.",
-      "status": "OPEN \u2014 expected",
-      "effect": "The RANK-01 signal is recorded as missing for those leagues rather than being substituted with a table position, and the confidence ceiling drops accordingly.",
-      "links": []
-    },
-    {
-      "id": "U-10",
-      "title": "OLBG carries CFL American Football rows that ESPN does not cover",
-      "detail": "The OLBG American Football index prices Canadian Football League games. ESPN publishes no key-less CFL scoreboard.",
-      "status": "OPEN \u2014 disclosed",
-      "effect": "CFL fixtures appear in the OLBG market directory but never on the American Football scoreboard and never receive a prediction.",
-      "links": [
-        "https://www.olbg.com/betting-tips/American_Football/11"
-      ]
-    },
-    {
-      "id": "U-11",
-      "title": "Korean K League 1 removed from the registry: no ESPN feed exists",
-      "detail": "The registry listed soccer slug kor.1. The 2026-09-02 registry build returned HTTP 400 (\"Failed to get events endpoint\") for it, and the slug is absent from the full 218-entry ESPN soccer league index at sports.core.api.espn.com/v2/sports/soccer/leagues?limit=400. It was never a valid slug; nothing was ever collected under it.",
-      "status": "FIXED 2026-09-02",
-      "effect": "The candidate league was removed from engine/registry.js. Korean football is not covered by this site. The registry builder is what caught it, and data/leagues.json records the failing status for every endpoint it checks, so a dead slug cannot sit in the registry unnoticed again.",
-      "links": [
-        "https://site.api.espn.com/apis/site/v2/sports/soccer/kor.1/scoreboard",
-        "https://sports.core.api.espn.com/v2/sports/soccer/leagues?limit=400",
-        "https://github.com/buffedlizard55-lab/SportsPred/blob/main/data/leagues.json"
-      ]
-    },
-    {
-      "id": "U-12",
-      "title": "35 of 90 measured leagues have too little history for a baseline",
-      "detail": "The 2026-09-02 baseline build measured 90 leagues over 120 days. 55 cleared the 10-completed-match minimum; 35 did not, because they are out of season, newly added, or cup competitions with few fixtures in the window (for example football:aus.1 with 5 matches and football:concacaf.champions_cup with 0).",
-      "status": "OPEN - expected, and handled",
-      "effect": "For those 35, buildLeagueContext returns sufficient: false, the engine records BASE-01 in missing[], falls back to a neutral 0.500 baseline and caps confidence at 62 - below the HIGH threshold. A league with no measured baseline can therefore never produce a HIGH-confidence tip. The count moves as seasons start and end; the current split is published on sources.html.",
-      "links": [
-        "https://github.com/buffedlizard55-lab/SportsPred/blob/main/data/league_context.json"
-      ]
-    }
-  ]
+ "schema_version": 1,
+ "generated_at_utc": "2026-09-02",
+ "note": "Findings that did not check out, or that limit what this site can honestly claim. Each row names how it was verified and what it costs the output. New rows carry the U- prefix (universal engine work); the original sport-specific registers live in docs/IRREGULARITIES.md, docs/CRICKET_IRREGULARITIES.md, docs/HANDBALL_IRREGULARITIES.md and docs/F1_IRREGULARITIES.md.",
+ "irregularities": [
+  {
+   "id": "U-01",
+   "title": "OLBG cricket index was recorded under the wrong sport id",
+   "detail": "The repository recorded the OLBG cricket index as /betting-tips/Cricket/16. The OLBG sitemap lists Cricket as id 7 and 16 as Boxing. Fetching /Cricket/16 does render cricket tips because OLBG routes on the slug, but every event link on that page uses /7, and the article rail served on /16 is boxing content. All references were corrected to /betting-tips/Cricket/7.",
+   "status": "FIXED 2026-09-02",
+   "effect": "No effect on scoring; the cricket source link now points at the canonical index.",
+   "links": [
+    "https://www.olbg.com/sitemap-betting-tips.xml",
+    "https://www.olbg.com/betting-tips/Cricket/7",
+    "https://www.olbg.com/betting-tips/Boxing/16"
+   ]
+  },
+  {
+   "id": "U-02",
+   "title": "OLBG index pages mix absolute and relative dates",
+   "detail": "The server-rendered OLBG tips index shows some rows with an absolute date ('05 Sept 06:00') and others with a relative label ('Tomorrow 19:00'). A relative label cannot be resolved reliably from the HTML alone because it depends on the viewer's timezone and on when the page was rendered and cached.",
+   "status": "OPEN — mitigated",
+   "effect": "Slate rows whose date is relative are marked date_basis 'derived' in the snapshots and are never used to place a match on the calendar. The scoreboard's dates come from ESPN, not from OLBG.",
+   "links": [
+    "https://www.olbg.com/betting-tips"
+   ]
+  },
+  {
+   "id": "U-03",
+   "title": "ESPN prices come from a single sportsbook, not a market consensus",
+   "detail": "The odds block in the ESPN scoreboard payload carries provider.name (DraftKings on every fixture inspected on 2026-09-02). It is one book's price, republished by ESPN. It is not a best-price comparison and not an exchange price.",
+   "status": "OPEN — disclosed",
+   "effect": "Every price shown on the site is attributed to the named provider in the UI and in the written tip. The de-vig is a proportional single-book de-vig, which is a weaker estimate of fair probability than a multi-book consensus would be.",
+   "links": [
+    "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard"
+   ]
+  },
+  {
+   "id": "U-04",
+   "title": "Seven OLBG sports have no key-less statistics feed",
+   "detail": "Horse Racing, Greyhounds, Darts, Snooker, Gaelic Football, Cycling and Handball have no free, key-less structured results feed on ESPN. Boxing/MMA has fight cards but no structured fighter-form feed, and Golf is an outright market across a full field rather than a two-competitor contest.",
+   "status": "OPEN — by design",
+   "effect": "These sports are listed in the market directory with links to their OLBG index and their governing body, and never receive a generated prediction. Handball is the exception: it runs on the committed, source-tagged competition dataset and the specialist handball engine rather than on a live feed.",
+   "links": [
+    "https://www.olbg.com/betting-tips/Horse_Racing/2",
+    "https://www.olbg.com/betting-tips/Snooker/8",
+    "https://www.olbg.com/betting-tips/Darts/15"
+   ]
+  },
+  {
+   "id": "U-05",
+   "title": "ESPN's competitor.form and records are current, not as-of-match-date",
+   "detail": "For a match that has already finished, the form string and record summary attached to it describe the team as of the moment the request is made, which includes the result of that very match. Using them to grade history would leak the outcome into its own prediction.",
+   "status": "OPEN — mitigated",
+   "effect": "scripts/backtest_universal.mjs discards both fields and rebuilds form, record, league baseline and head-to-head from matches that finished strictly before each fixture. Live prediction is unaffected: for an upcoming match the fields are genuinely pre-match.",
+   "links": [
+    "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard"
+   ]
+  },
+  {
+   "id": "U-06",
+   "title": "ROI cannot be backtested: ESPN publishes no odds on completed events",
+   "detail": "This entry previously assumed the feed retained a closing price for finished matches, which would have made ROI computable but flattered. The 2026-09-02 CI run disproved that assumption: across 1214 graded fixtures over a 120-day window, zero carried an odds block. ESPN attaches odds to pre-match and in-play events only and strips them once the event is final.",
+   "status": "OPEN - measured, not worked around",
+   "effect": "data/universal_backtest.json reports roi: null and staked: 0 for every band. The published backtest grades the MODEL probability only; the market-blend leg (marketWeight 0.55) is untested by it. No ROI figure is shown anywhere on the site. Grading the blended output requires forward collection, storing the pre-match price at capture time.",
+   "links": [
+    "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260601",
+    "https://github.com/buffedlizard55-lab/SportsPred/blob/main/data/universal_backtest.json"
+   ]
+  },
+  {
+   "id": "U-07",
+   "title": "The build sandbox cannot reach ESPN or OLBG",
+   "detail": "Outbound HTTP from the development sandbox resolves only github.com, api.github.com and registry.npmjs.org. ESPN, OLBG, Open-Meteo and raw.githubusercontent.com all fail to connect.",
+   "status": "OPEN — mitigated",
+   "effect": "Collectors and the registry/baseline builders are written to run in GitHub Actions, which has unrestricted network. Endpoint shapes were verified through a hosted page-fetch tool and captured as trimmed fixtures under tests/fixtures/ with a provenance block naming the endpoint and the read date.",
+   "links": []
+  },
+  {
+   "id": "U-08",
+   "title": "Model weights are hyperparameters, not measurements",
+   "detail": "How much each signal moves the log-odds, and how heavily the market price is weighted against the model, are chosen numbers. They are exported from engine/universal_engine.js as a frozen WEIGHTS object so they can be inspected and backtested.",
+   "status": "OPEN — disclosed",
+   "effect": "The league baseline, form, records, ranks, head-to-head and prices are all measured facts; the weights that combine them are not. The distinction is stated on the method page and in the engine's own header comment.",
+   "links": []
+  },
+  {
+   "id": "U-09",
+   "title": "Curated rank is only published for a few competitions",
+   "detail": "ESPN sends competitor.curatedRank only for poll-ranked sports (mainly US college). For most leagues it is absent or set to a sentinel above 90.",
+   "status": "OPEN — expected",
+   "effect": "The RANK-01 signal is recorded as missing for those leagues rather than being substituted with a table position, and the confidence ceiling drops accordingly.",
+   "links": []
+  },
+  {
+   "id": "U-10",
+   "title": "OLBG carries CFL American Football rows that ESPN does not cover",
+   "detail": "The OLBG American Football index prices Canadian Football League games. ESPN publishes no key-less CFL scoreboard.",
+   "status": "OPEN — disclosed",
+   "effect": "CFL fixtures appear in the OLBG market directory but never on the American Football scoreboard and never receive a prediction.",
+   "links": [
+    "https://www.olbg.com/betting-tips/American_Football/11"
+   ]
+  },
+  {
+   "id": "U-11",
+   "title": "Korean K League 1 removed from the registry: no ESPN feed exists",
+   "detail": "The registry listed soccer slug kor.1. The 2026-09-02 registry build returned HTTP 400 (\"Failed to get events endpoint\") for it, and the slug is absent from the full 218-entry ESPN soccer league index at sports.core.api.espn.com/v2/sports/soccer/leagues?limit=400. It was never a valid slug; nothing was ever collected under it.",
+   "status": "FIXED 2026-09-02",
+   "effect": "The candidate league was removed from engine/registry.js. Korean football is not covered by this site. The registry builder is what caught it, and data/leagues.json records the failing status for every endpoint it checks, so a dead slug cannot sit in the registry unnoticed again.",
+   "links": [
+    "https://site.api.espn.com/apis/site/v2/sports/soccer/kor.1/scoreboard",
+    "https://sports.core.api.espn.com/v2/sports/soccer/leagues?limit=400",
+    "https://github.com/buffedlizard55-lab/SportsPred/blob/main/data/leagues.json"
+   ]
+  },
+  {
+   "id": "U-12",
+   "title": "35 of 90 measured leagues have too little history for a baseline",
+   "detail": "The 2026-09-02 baseline build measured 90 leagues over 120 days. 55 cleared the 10-completed-match minimum; 35 did not, because they are out of season, newly added, or cup competitions with few fixtures in the window (for example football:aus.1 with 5 matches and football:concacaf.champions_cup with 0).",
+   "status": "OPEN - expected, and handled",
+   "effect": "For those 35, buildLeagueContext returns sufficient: false, the engine records BASE-01 in missing[], falls back to a neutral 0.500 baseline and caps confidence at 62 - below the HIGH threshold. A league with no measured baseline can therefore never produce a HIGH-confidence tip. The count moves as seasons start and end; the current split is published on sources.html.",
+   "links": [
+    "https://github.com/buffedlizard55-lab/SportsPred/blob/main/data/league_context.json"
+   ]
+  },
+  {
+   "id": "U-13",
+   "title": "Golf: no free odds, strokes gained only as PGA TOUR season averages, no course-type source",
+   "detail": "ESPN publishes no odds object for any golf event (verified 2026-09-02 on upcoming and completed events on both men's tours; the core odds resource returns count 0). Strokes gained is published free only by the PGA TOUR as season-to-date averages and not at all for the DP World Tour. No free source classifies course or grass type. The golf master prompt allocates points to all three.",
+   "status": "OPEN — disclosed",
+   "effect": "Odds are never synthesised; OWGR rank within the field stands in for market favouritism in the value rules and every value flag says so. Strokes-gained categories score zero and are marked missing for DP World Tour fields (and for PGA TOUR fields when the stat pages cannot be parsed), which caps those markets at MEDIUM. Course type is replaced by a measurable yardage class. Full register: docs/GOLF_IRREGULARITIES.md.",
+   "links": [
+    "https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard?league=eur&event=401822700",
+    "https://sports.core.api.espn.com/v2/sports/golf/leagues/eur/events/401822700/competitions/401822700/odds",
+    "https://www.pgatour.com/stats/detail/02568",
+    "https://apiweb.owgr.com/api/owgr/rankings/getRankings?pageSize=1000&pageNumber=1&countryId=0&sortString=Rank+ASC"
+   ]
+  }
+ ]
 }

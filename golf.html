@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Golf leaderboards, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="PGA TOUR and DP World Tour leaderboards, tournament calendar and automatically generated, source-linked golf predictions: outright, top six, first round leader and regional markets.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preconnect" href="https://site.api.espn.com" crossorigin>
+<link rel="preconnect" href="https://site.web.api.espn.com" crossorigin>
+<link rel="dns-prefetch" href="https://a.espncdn.com">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Golf</h1>
+      <p class="page-sub" id="page-sub">Leaderboards and calendars for the PGA TOUR, DP World Tour, LPGA and PGA TOUR Champions, with automatically generated predictions for the men's tours: outright, top six, first round leader, top European, top American and top British &amp; Irish.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-week" aria-label="Previous week" title="Previous week">«</button>
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="next-week" aria-label="Next week" title="Next week">»</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="tour-filter" aria-label="Filter by tour">
+            <option value="all">All tours</option>
+            <option value="pga">PGA TOUR</option>
+            <option value="eur">DP World Tour</option>
+            <option value="lpga">LPGA Tour</option>
+            <option value="champions-tour">PGA TOUR Champions</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search player, country…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all cards</button>
+          <button class="btn sm" id="refresh" title="Clear the local cache and refetch from source">↻ Refetch</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers show how many tournaments are scheduled on that day across the selected tours (from the ESPN season calendars). Pick any date — past, today or upcoming — to load that week's leaderboards.</div>
+        <div id="season-list"></div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Top selections this week</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG golf markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Session</h3></div>
+        <div class="card-body meta-line" id="meta"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a golf card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p><strong>Outright</strong> ≥75 <span class="badge HIGH">HIGH</span> · 60–74 <span class="badge MEDIUM">MEDIUM</span> · below 60 <span class="badge LOW">LOW</span> (value play, never skipped).
+             <strong>Top six</strong> ≥65 HIGH · 55–64 MEDIUM · below 55 <span class="badge SKIP">SKIP</span>.
+             <strong>First round leader</strong> ≥65 MEDIUM, HIGH only at ≥75 with an early tee ahead of worsening weather.
+             <strong>Regional</strong> ≥70 HIGH · 55–69 MEDIUM · below 55 or within five points of a rival LOW.</p>
+          <p>A market whose core evidence is not published (strokes gained, course history, ranking) can never read HIGH. Open <strong>Analysis</strong> on any tournament to see every rule that fired, its points, the factors that were <em>not</em> available and the source links.</p>
+          <p>Amateurs are excluded. Odds are not available from any free source, so value flags use world-ranking position within the field. Full register: <a href="sources.html#golf">sources</a>.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/golf-page.js"></script>
+</body>
+</html>

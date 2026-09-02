@@ -38,6 +38,17 @@ F1_PROVENANCE = os.path.join(DATA, 'f1_provenance.json')
 F1_PREDICTIONS = os.path.join(DATA, 'f1_predictions.json')
 OLBG_SPORTS = os.path.join(DATA, 'olbg_sports.json')
 
+# Golf files (optional until the first CI collection completes)
+GOLF_EVENTS = os.path.join(DATA, 'golf_events.json')
+GOLF_RESULTS = os.path.join(DATA, 'golf_results.json')
+GOLF_RANKINGS = os.path.join(DATA, 'golf_rankings.json')
+GOLF_STATS = os.path.join(DATA, 'golf_stats.json')
+GOLF_WEATHER = os.path.join(DATA, 'golf_weather.json')
+GOLF_SLATE = os.path.join(DATA, 'golf_slate.json')
+GOLF_PROVENANCE = os.path.join(DATA, 'golf_provenance.json')
+GOLF_BACKTEST = os.path.join(DATA, 'golf_backtest.json')
+GOLF_PREDICTIONS = os.path.join(DATA, 'golf_predictions.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -222,6 +233,112 @@ def validate_f1_slate(doc):
     return problems, len(events)
 
 
+PRICE_KEYS = ('odds', 'price', 'american', 'decimal', 'stake')
+
+
+def validate_golf_events(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['golf_events.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('golf_events.source.url missing')
+    if not doc.get('fetched_at_utc'):
+        problems.append('golf_events.fetched_at_utc missing')
+    ids = [e.get('id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event ids in golf_events: {sorted(dups)}')
+    for e in events:
+        for field in ('id', 'tour', 'name', 'startDate', 'state'):
+            if not e.get(field):
+                problems.append(f'golf event {e.get("id")} missing "{field}"')
+        if not (e.get('sources') or {}).get('espnLeaderboard'):
+            problems.append(f'golf event {e.get("id")} missing sources.espnLeaderboard')
+        for key in PRICE_KEYS:
+            if key in e:
+                problems.append(f'golf event {e.get("id")} contains price-like field "{key}"')
+        for p in e.get('field') or []:
+            if not p.get('athleteId') or not p.get('name'):
+                problems.append(f'golf event {e.get("id")} has a field entry without athleteId/name')
+                break
+            if p.get('position') is not None and p.get('result') not in ('F', 'MDF', 'active'):
+                problems.append(f'golf event {e.get("id")} player {p.get("athleteId")} has a position with result {p.get("result")}')
+                break
+    return problems, len(events)
+
+
+def validate_golf_results(doc):
+    problems = []
+    events = doc.get('events', {})
+    if not isinstance(events, dict):
+        return ['golf_results.events is not an object'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('golf_results.source.url missing')
+    fmt = doc.get('row_format')
+    if fmt != ['athleteId', 'position', 'result', 'toPar', 'r1', 'r2', 'r3', 'r4']:
+        problems.append(f'golf_results.row_format unexpected: {fmt}')
+    players = doc.get('players', {})
+    rows = 0
+    for eid, e in events.items():
+        for field in ('tour', 'name', 'startDate', 'endDate', 'sourceUrl'):
+            if not e.get(field):
+                problems.append(f'golf results event {eid} missing "{field}"')
+        if not str(e.get('sourceUrl', '')).startswith('https://'):
+            problems.append(f'golf results event {eid} sourceUrl is not https')
+        for r in e.get('rows') or []:
+            rows += 1
+            if not isinstance(r, list) or len(r) != 8:
+                problems.append(f'golf results event {eid} row malformed: {r}')
+                break
+            if r[1] is not None and r[2] not in ('F', 'MDF'):
+                problems.append(f'golf results event {eid} player {r[0]} has a position with result {r[2]}')
+                break
+            if str(r[0]) not in players:
+                problems.append(f'golf results event {eid} player {r[0]} missing from players index')
+                break
+    return problems, len(events)
+
+
+def validate_golf_rankings(doc):
+    problems = []
+    rows = doc.get('rows', [])
+    if not isinstance(rows, list):
+        return ['golf_rankings.rows is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('golf_rankings.source.url missing')
+    if not doc.get('fetched_at_utc'):
+        problems.append('golf_rankings.fetched_at_utc missing')
+    if rows and len(rows) < 100:
+        problems.append(f'golf_rankings has only {len(rows)} rows')
+    for r in rows[:50]:
+        if not isinstance(r.get('rank'), int) or not r.get('name'):
+            problems.append(f'golf ranking row malformed: {r}')
+            break
+    return problems, len(rows)
+
+
+def validate_golf_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['golf_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('golf_slate.source.url missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in golf slate: {sorted(dups)}')
+    for e in events + list(doc.get('team_events') or []):
+        for field in ('event_id', 'url'):
+            if not e.get(field):
+                problems.append(f'golf slate row missing "{field}": {e}')
+        for key in PRICE_KEYS:
+            if key in e:
+                problems.append(f'golf slate row {e.get("event_id")} contains price-like field "{key}"')
+    return problems, len(events)
+
+
 def validate_handball_matches(doc):
     problems = []
     matches = doc.get('matches', [])
@@ -334,6 +451,29 @@ def main():
         blob = load(path)
         if blob is None:
             print(f'  [PENDING] {name} (populated by the scheduled F1 collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+        else:
+            total += report(name, [], 0)
+
+    # Golf Validation (optional until first collection; a missing file is
+    # reported, not failed, so the deploy log shows the gap).
+    print('\n--- Golf Data Layer ---')
+    golf_names = [('data/golf_events.json', GOLF_EVENTS, validate_golf_events),
+                  ('data/golf_results.json', GOLF_RESULTS, validate_golf_results),
+                  ('data/golf_rankings.json', GOLF_RANKINGS, validate_golf_rankings),
+                  ('data/golf_slate.json', GOLF_SLATE, validate_golf_slate),
+                  ('data/golf_stats.json', GOLF_STATS, None),
+                  ('data/golf_weather.json', GOLF_WEATHER, None),
+                  ('data/golf_provenance.json', GOLF_PROVENANCE, None),
+                  ('data/golf_backtest.json', GOLF_BACKTEST, None),
+                  ('data/golf_predictions.json', GOLF_PREDICTIONS, None)]
+    for name, path, fn in golf_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the scheduled golf collector)')
             continue
         if fn:
             problems, n = fn(blob)

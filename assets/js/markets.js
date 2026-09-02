@@ -13,6 +13,7 @@ const SNAPSHOTS = [
   { key: 'handball', label: 'Handball', path: 'data/handball_slate.json' },
   { key: 'tennis', label: 'Tennis', path: 'data/slate.json' },
   { key: 'motor-racing', label: 'Motor Racing', path: 'data/f1_slate.json' },
+  { key: 'golf', label: 'Golf', path: 'data/golf_slate.json' },
 ];
 
 async function boot() {
@@ -43,7 +44,7 @@ async function boot() {
       ? `<span class="badge HIGH">${esc(s.specialistEngine ? `${s.specialistEngine} engine` : 'universal')}</span>`
       : '<span class="badge SKIP">review only</span>'}</td>
           <td><a href="https://www.olbg.com/betting-tips/${esc(s.olbgSlug)}/${s.olbgId}" target="_blank" rel="noopener noreferrer">open ↗</a>
-              · <a href="sport.html?sport=${esc(s.key)}">scoreboard</a></td>
+              · <a href="${esc(s.page || `sport.html?sport=${s.key}`)}">scoreboard</a></td>
         </tr>`;
   }).join('')}
       <tr><td colspan="7" style="background:#fbfcfe"><strong>Tipster-only sports</strong> — these appear in the OLBG sitemap under

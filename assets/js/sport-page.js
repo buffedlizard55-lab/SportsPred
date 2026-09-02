@@ -63,6 +63,16 @@ const state = {
 async function boot() {
   const key = qs('sport', 'football');
   const sport = getSport(key) || getSport('football');
+  // Sports with a dedicated controller (golf) live on their own page.
+  if (sport.page && !/\/?sport\.html$/.test(sport.page)) {
+    const u = new URL(sport.page, location.href);
+    const d = qs('date');
+    if (d) u.searchParams.set('date', d);
+    const board = $('#board');
+    if (board) board.innerHTML = `<div class="note info">${esc(sport.name)} has its own page. <a id="handover" href="${esc(u.toString())}">Continue to ${esc(sport.page)} →</a></div>`;
+    location.replace(u.toString());
+    return;
+  }
   state.sport = sport;
   state.date = qs('date', todayISO());
   state.calMonth = new Date(`${state.date}T12:00:00Z`);
@@ -98,7 +108,7 @@ function resolveLeagues(sport, registryDoc) {
 async function loadOlbg() {
   const map = {
     football: null, cricket: 'data/cricket_slate.json', handball: 'data/handball_slate.json',
-    tennis: 'data/slate.json', 'motor-racing': 'data/f1_slate.json',
+    tennis: 'data/slate.json', 'motor-racing': 'data/f1_slate.json', golf: 'data/golf_slate.json',
   };
   const path = map[state.sport.key];
   const box = $('#olbg-box');

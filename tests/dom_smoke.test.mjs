@@ -48,11 +48,68 @@ function historyPayload() {
   return { leagues: [{ id: '700', name: 'English Premier League', slug: 'eng.1', calendar: [] }], events };
 }
 
+const golfPost = JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/espn_golf_leaderboard.EXCERPT.json'), 'utf8'));
+const golfPre = JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/espn_golf_leaderboard_pre.EXCERPT.json'), 'utf8'));
+
+/** Golf scoreboard stub: calendar + the DP World Tour event covering the week. */
+function golfScoreboard(tour) {
+  const cal = tour === 'eur'
+    ? [{ id: '401734065', label: 'Omega European Masters', startDate: '2025-08-28T07:00Z', endDate: '2025-08-31T07:00Z' }, { id: '401822700', label: 'Omega European Masters', startDate: '2026-09-03T07:00Z', endDate: '2026-09-06T07:00Z' }]
+    : [{ id: '401811964', label: 'TOUR Championship', startDate: '2026-08-27T07:00Z', endDate: '2026-08-30T07:00Z' }, { id: '401850914', label: 'Biltmore Championship', startDate: '2026-09-17T07:00Z', endDate: '2026-09-20T07:00Z' }];
+  const events = tour === 'eur' ? [{ id: '401822700', name: 'Omega European Masters', date: '2026-09-03T04:00Z', endDate: '2026-09-06T04:00Z', status: { type: { state: 'pre' } }, competitions: [{ competitors: [] }], links: [] }] : [];
+  return { leagues: [{ id: tour === 'eur' ? '7002' : '1106', slug: tour, name: tour === 'eur' ? 'DP World Tour' : 'PGA TOUR', season: { year: 2026 }, calendar: cal }], day: { date: '2026-09-04' }, events };
+}
+
+/** A results tape in the committed shape, built from the completed-event fixture plus a prior edition of the upcoming event. */
+function golfResultsDoc() {
+  const preField = golfPre.events[0].competitions[0].competitors.map((c) => c.athlete);
+  const players = {};
+  for (const a of preField) players[a.id] = { name: a.displayName, country: a.flag.alt, countryCode: a.birthPlace?.countryAbbreviation ?? null };
+  for (const c of golfPost.events[0].competitions[0].competitors) players[c.athlete.id] = { name: c.athlete.displayName, country: c.athlete.flag.alt, countryCode: 'USA' };
+  const rows2025 = preField.map((a, i) => [a.id, i + 1, 'F', -10 + i, 66 + i, 68, 67, 69]);
+  const rows2024 = preField.map((a, i) => [a.id, i === 0 ? 3 : i + 4, 'F', -8 + i, 67, 68, 67, 69]);
+  const rowsTC = golfPost.events[0].competitions[0].competitors.map((c) => [c.athlete.id, c.status.position.displayName === '-' ? null : Number(c.status.position.id), c.status.type.shortDetail === 'WD' ? 'WD' : 'F', Number(c.statistics[0].value), ...c.linescores.map((l) => (l.value > 50 ? l.value : null)).concat([null, null, null]).slice(0, 4)]);
+  return {
+    schema_version: 1, sport: 'Golf', source: { url: 'https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard' }, players,
+    events: {
+      401734065: { tour: 'eur', name: 'Omega European Masters', tournamentId: '3383', startDate: '2025-08-28', endDate: '2025-08-31', seasonYear: 2025, major: false, purse: 3250000, yards: 6830, par: 70, fieldSize: 4, rows: rows2025, sourceUrl: 'https://www.espn.com/golf/leaderboard?tournamentId=401734065' },
+      401640000: { tour: 'eur', name: 'Omega European Masters', tournamentId: '3383', startDate: '2024-08-29', endDate: '2024-09-01', seasonYear: 2024, major: false, purse: 3250000, yards: 6830, par: 70, fieldSize: 4, rows: rows2024, sourceUrl: 'https://www.espn.com/golf/leaderboard?tournamentId=401640000' },
+      401811964: { tour: 'pga', name: 'TOUR Championship', tournamentId: '46', startDate: '2026-08-27', endDate: '2026-08-30', seasonYear: 2026, major: false, purse: 40000000, yards: 7440, par: 70, fieldSize: 3, rows: rowsTC, sourceUrl: 'https://www.espn.com/golf/leaderboard?tournamentId=401811964' },
+      401800001: { tour: 'eur', name: 'Danish Golf Championship', tournamentId: '9001', startDate: '2026-08-20', endDate: '2026-08-23', seasonYear: 2026, major: false, purse: 2500000, yards: 6950, par: 71, fieldSize: 4, rows: preField.map((a, i) => [a.id, i === 0 ? 1 : i + 6, 'F', -12 + i, 65 + i, 68, 67, 69]), sourceUrl: 'https://www.espn.com/golf/leaderboard?tournamentId=401800001' },
+      401800002: { tour: 'eur', name: 'British Masters', tournamentId: '9002', startDate: '2026-08-06', endDate: '2026-08-09', seasonYear: 2026, major: false, purse: 3000000, yards: 7100, par: 72, fieldSize: 4, rows: preField.map((a, i) => [a.id, i + 2, 'F', -9 + i, 66 + i, 68, 67, 69]), sourceUrl: 'https://www.espn.com/golf/leaderboard?tournamentId=401800002' },
+      401800003: { tour: 'eur', name: 'Scottish Championship', tournamentId: '9003', startDate: '2026-07-23', endDate: '2026-07-26', seasonYear: 2026, major: false, purse: 2000000, yards: 6900, par: 70, fieldSize: 4, rows: preField.map((a, i) => [a.id, i === 3 ? null : i + 5, i === 3 ? 'CUT' : 'F', -6 + i, 67 + i, 69, 68, 70]), sourceUrl: 'https://www.espn.com/golf/leaderboard?tournamentId=401800003' },
+    },
+  };
+}
+
+function golfRankingsDoc() {
+  const preField = golfPre.events[0].competitions[0].competitors.map((c) => c.athlete);
+  return { schema_version: 1, fetched_at_utc: '2026-09-01T00:00:00Z', source: { url: 'https://apiweb.owgr.com/api/owgr/rankings/getRankings?pageSize=1000&pageNumber=1&countryId=0&sortString=Rank+ASC' },
+    rows: preField.map((a, i) => ({ rank: 20 + i * 15, owgrId: `o${a.id}`, name: a.displayName, country: a.flag.alt, region: 'Europe', lastWeekRank: 22 + i * 15, profileUrl: `https://www.owgr.com/playerprofile/x-${a.id}` })) };
+}
+
 function makeFetch(counters) {
   return async function stubFetch(url) {
     const u = String(url);
     counters.calls.push(u);
     const ok = (body) => ({ ok: true, status: 200, json: async () => body });
+    if (u.includes('/sports/golf/leaderboard?league=')) {
+      const id = u.match(/event=(\d+)/)?.[1];
+      if (id === '401822700') return ok(golfPre);
+      if (id === '401811964') return ok(golfPost);
+      return ok({ events: [] });
+    }
+    if (/site\.api\.espn\.com\/apis\/site\/v2\/sports\/golf\/(pga|eur|lpga|champions-tour)\/scoreboard/.test(u)) {
+      const tour = u.match(/sports\/golf\/([a-z-]+)\/scoreboard/)[1];
+      if (tour === 'lpga' || tour === 'champions-tour') return { ok: false, status: 404, json: async () => ({}) };
+      return ok(golfScoreboard(tour));
+    }
+    if (u.includes('data/golf_results.json')) return ok(golfResultsDoc());
+    if (u.includes('data/golf_rankings.json')) return ok(golfRankingsDoc());
+    if (u.includes('data/golf_weather.json')) return ok({ events: { 401822700: { available: true, days: [{ date: '2026-09-03', windMaxKmh: 34, precipProbPct: 55 }], r1: { trend: 'deteriorating' }, sourceUrl: 'https://api.open-meteo.com/v1/forecast?latitude=46&longitude=7' } } });
+    if (u.includes('data/golf_events.json') || u.includes('data/golf_stats.json') || u.includes('data/golf_slate.json')) {
+      return { ok: false, status: 404, json: async () => ({}) };
+    }
     if (u.includes('site.api.espn.com')) {
       // A range request is the history scan; a single date is the day's card.
       if (/dates=\d{8}-\d{8}/.test(u)) return ok(historyPayload());
@@ -214,6 +271,91 @@ test('opening Analysis reveals the written tip, its signals and its sources', { 
       assert.match(a.getAttribute('href'), /^https:\/\//);
       assert.equal(a.getAttribute('rel'), 'noopener noreferrer');
     }
+  } finally { cleanup(); }
+});
+
+test('golf.html boots, renders leaderboards from ESPN and auto-generates a six-market card', { skip: !JSDOM }, async () => {
+  const { document, counters } = await bootPage('golf.html', { search: '?date=2026-09-04' });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    assert.ok(document.querySelector('.sportrail a[data-sport="golf"]'), 'golf is in the rail');
+    assert.ok(counters.calls.some((u) => u.includes('/sports/golf/eur/scoreboard')), 'the DP World Tour calendar was fetched live');
+    assert.ok(counters.calls.some((u) => u.includes('leaderboard?league=eur&event=401822700')), 'the full field was fetched live');
+
+    const text = document.body.textContent;
+    assert.match(text, /Omega European Masters/);
+    assert.match(text, /Crans-sur-Sierre Golf Club/);
+    assert.match(text, /Calum Hill/, 'the field is rendered');
+    assert.ok(document.querySelectorAll('#board table.data tbody tr').length >= 4, 'leaderboard rows rendered');
+
+    // an auto-generated selection with a band, not a placeholder
+    const pill = document.querySelector('.pred-pill .sel');
+    assert.ok(pill, 'a prediction pill exists');
+    assert.ok(pill.textContent.trim().length > 0);
+    assert.ok(document.querySelector('.pred-pill .badge'));
+    assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'the rail lists selections');
+    assert.match(document.querySelector('#rail-count').textContent, /selections across 1 tournament card/);
+    assert.match(document.querySelector('#coverage').textContent, /OWGR rows/);
+    assert.ok(document.querySelectorAll('#calgrid .cell .c').length >= 1, 'calendar shows tournament days');
+  } finally { cleanup(); }
+});
+
+test('the golf Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('golf.html', { search: '?date=2026-09-04' });
+  try {
+    const btn = document.querySelector('#generate');
+    assert.ok(btn, 'the button exists');
+    document.querySelector('#rail-preds').innerHTML = '';
+    btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+    for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'clicking Generate repopulated the rail');
+    assert.equal(btn.disabled, false);
+    assert.match(btn.textContent, /Generate predictions/);
+    const toast = document.querySelector('#toast');
+    assert.ok(toast, 'a toast was raised');
+    assert.match(toast.textContent, /selections generated across 1 tournament card/);
+  } finally { cleanup(); }
+});
+
+test('golf Analysis reveals the written card, every rule that fired, missing factors and source links', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('golf.html', { search: '?date=2026-09-04' });
+  try {
+    const toggle = document.querySelector('[data-toggle]');
+    toggle.dispatchEvent(new window.Event('click', { bubbles: true }));
+    await new Promise((r) => setTimeout(r, 30));
+    const detail = document.querySelector('.detail.open');
+    assert.ok(detail, 'the detail panel opened');
+    const text = detail.textContent;
+    assert.match(text, /OUTRIGHT WINNER AND TOP SIX/);
+    assert.match(text, /FIRST ROUND LEADER/);
+    assert.match(text, /TOP BRITISH & IRISH/);
+    assert.match(text, /Confidence: (HIGH|MEDIUM|LOW)/);
+    assert.match(text, /Responsible gambling|Weather note/);
+    assert.match(text, /CARD VALIDATED/, 'the writer validator passed on the live card');
+    assert.match(text, /strokes gained/i, 'the missing strokes-gained source is disclosed');
+    assert.match(text, /Recent form/, 'component labels are shown');
+    assert.ok(detail.querySelectorAll('.srclist a').length >= 2, 'review links are present');
+    for (const a of detail.querySelectorAll('.srclist a')) {
+      assert.match(a.getAttribute('href'), /^https:\/\//);
+      assert.equal(a.getAttribute('rel'), 'noopener noreferrer');
+    }
+    // the tips never leak figures, source names or the tournament name
+    for (const p of detail.querySelectorAll('.tipbox p')) {
+      const t = p.textContent;
+      if (!/Confidence:/.test(t)) continue;
+      assert.ok(!/\d/.test(t), `no numerals in tip: ${t.slice(0, 60)}`);
+      assert.ok(!/ESPN|OWGR|OLBG|Omega|Crans/.test(t), `no source/tournament names in tip: ${t.slice(0, 60)}`);
+    }
+  } finally { cleanup(); }
+});
+
+test('sport.html?sport=golf hands over to the dedicated golf page', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('sport.html', { search: '?sport=golf&date=2026-09-04' });
+  try {
+    // jsdom does not implement navigation, so the handover link is the observable.
+    const a = document.querySelector('#handover');
+    assert.ok(a, 'handover link rendered');
+    assert.match(a.getAttribute('href'), /golf\.html\?date=2026-09-04/);
   } finally { cleanup(); }
 });
 

@@ -87,7 +87,7 @@ async function main() {
 
   const jobs = [];
   for (const sport of SPORTS) {
-    if (!sport.espnSport || !sport.predictable) continue;
+    if (!sport.espnSport || !sport.predictable || sport.page) continue; // sports with a dedicated page (golf) are not two-competitor cards
     if (ONLY && sport.key !== ONLY) continue;
     const reg = registry?.sports?.[sport.key]?.leagues;
     const leagues = Array.isArray(reg) && reg.length
