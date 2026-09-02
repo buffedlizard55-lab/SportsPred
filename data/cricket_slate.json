@@ -4,12 +4,8 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "indexes": [
-      "https://www.olbg.com/betting-tips/Cricket/7",
-      "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/7"
-    ],
-    "fetched_at_utc": "2026-09-01T23:30:00Z",
-    "method": "Verified HTTP extraction of public OLBG cricket tips index (reconstructed fixture parsed by scripts/lib/cricket_olbg_parse.py; see tests/fixtures/olbg_cricket_index.RECONSTRUCTED.html)",
+    "fetched_at_utc": "2026-09-02T04:11:08Z",
+    "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
   "markets_covered": [
@@ -20,57 +16,12 @@
     "Outright Winner"
   ],
   "notes": [
-    "Every field corresponds to a verified OLBG cricket event listing read on 2026-09-01.",
+    "Every field corresponds to a verified OLBG cricket event listing.",
     "Times are presented in UK local time as shown by OLBG.",
-    "OLBG publishes tipster consensus counts, not bookmaker odds; no odds are recorded here (CR-IR-01).",
-    "The live site re-collects this slate browser-side; this committed snapshot is the offline fallback."
+    "OLBG publishes tipster consensus counts, not bookmaker odds; no odds are recorded here."
   ],
   "collection_warnings": [],
   "events": [
-    {
-      "event_id": "188611",
-      "sport": "Cricket",
-      "type": "match",
-      "home": "England W",
-      "away": "Ireland W",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_W_vs_Ireland_W_2nd_ODI/7?event_id=188611",
-      "slug": "England_W_vs_Ireland_W_2nd_ODI",
-      "display_date": "03 Sept",
-      "display_time": "08:00",
-      "resolved_date": "2026-09-03",
-      "date_basis": "observed",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "England W",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
-        "experts": 1
-      }
-    },
-    {
-      "event_id": "188601",
-      "sport": "Cricket",
-      "type": "match",
-      "home": "Trinbago Knight Riders",
-      "away": "Antigua and Barbuda Falcons",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Trinbago_Knight_Riders_vs_Antigua_and_Barbuda_Falcons_T20/7?event_id=188601",
-      "slug": "Trinbago_Knight_Riders_vs_Antigua_and_Barbuda_Falcons_T20",
-      "display_date": "Tomorrow",
-      "display_time": "19:00",
-      "resolved_date": "2026-09-02",
-      "date_basis": "derived",
-      "consensus": {
-        "market": "Man Of The Match",
-        "selection": "E Lewis",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      }
-    },
     {
       "event_id": "188604",
       "sport": "Cricket",
@@ -80,7 +31,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Nottinghamshire_vs_Leicestershire/7?event_id=188604",
       "slug": "Nottinghamshire_vs_Leicestershire",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -102,7 +53,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Northants_vs_Durham/7?event_id=188608",
       "slug": "Northants_vs_Durham",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -116,6 +67,50 @@
       }
     },
     {
+      "event_id": "188601",
+      "sport": "Cricket",
+      "type": "match",
+      "home": "Trinbago Knight Riders",
+      "away": "Antigua and Barbuda Falcons",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Trinbago_Knight_Riders_vs_Antigua_and_Barbuda_Falcons_T20/7?event_id=188601",
+      "slug": "Trinbago_Knight_Riders_vs_Antigua_and_Barbuda_Falcons_T20",
+      "display_date": "20 Tomorrow",
+      "display_time": "00:00",
+      "resolved_date": null,
+      "date_basis": "unknown",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Trinbago Knight Riders",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67,
+        "comments": 2,
+        "experts": 1
+      }
+    },
+    {
+      "event_id": "188611",
+      "sport": "Cricket",
+      "type": "match",
+      "home": "England W",
+      "away": "Ireland W",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_W_vs_Ireland_W_2nd_ODI/7?event_id=188611",
+      "slug": "England_W_vs_Ireland_W_2nd_ODI",
+      "display_date": "Tomorrow",
+      "display_time": "13:00",
+      "resolved_date": "2026-09-03",
+      "date_basis": "derived",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "England W",
+        "tips_for": 1,
+        "tips_total": 1,
+        "pct": 100,
+        "comments": 1,
+        "experts": 1
+      }
+    },
+    {
       "event_id": "188607",
       "sport": "Cricket",
       "type": "match",
@@ -124,7 +119,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Middlesex_vs_Lancashire/7?event_id=188607",
       "slug": "Middlesex_vs_Lancashire",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -146,7 +141,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Somerset_vs_Glamorgan/7?event_id=188603",
       "slug": "Somerset_vs_Glamorgan",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -168,7 +163,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Kent_vs_Worcestershire/7?event_id=188609",
       "slug": "Kent_vs_Worcestershire",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -182,6 +177,28 @@
       }
     },
     {
+      "event_id": "188610",
+      "sport": "Cricket",
+      "type": "match",
+      "home": "Gloucestershire",
+      "away": "Derbyshire",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Gloucestershire_vs_Derbyshire/7?event_id=188610",
+      "slug": "Gloucestershire_vs_Derbyshire",
+      "display_date": "05 Sept",
+      "display_time": "11:00",
+      "resolved_date": "2026-09-05",
+      "date_basis": "observed",
+      "consensus": {
+        "market": "Draw No Bet",
+        "selection": "Derbyshire",
+        "tips_for": 1,
+        "tips_total": 1,
+        "pct": 100,
+        "comments": 1,
+        "experts": 0
+      }
+    },
+    {
       "event_id": "188606",
       "sport": "Cricket",
       "type": "match",
@@ -190,7 +207,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Essex_vs_Sussex/7?event_id=188606",
       "slug": "Essex_vs_Sussex",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -212,7 +229,7 @@
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Surrey_vs_Yorkshire/7?event_id=188605",
       "slug": "Surrey_vs_Yorkshire",
       "display_date": "05 Sept",
-      "display_time": "06:00",
+      "display_time": "11:00",
       "resolved_date": "2026-09-05",
       "date_basis": "observed",
       "consensus": {
@@ -236,11 +253,11 @@
       "date_basis": "observed",
       "consensus": {
         "market": "Outright Winner",
-        "selection": "India",
-        "tips_for": 6,
+        "selection": "World Cup 2027",
+        "tips_for": 4,
         "tips_total": 12,
-        "pct": 50,
-        "comments": 1,
+        "pct": 33,
+        "comments": 0,
         "experts": 0
       }
     },
@@ -253,24 +270,7 @@
       "date_basis": "observed",
       "consensus": {
         "market": "Outright Winner",
-        "selection": "Adelaide Strikers W",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      }
-    },
-    {
-      "event_id": "187503",
-      "name": "T20 Big Bash 2026-27",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/T20_Big_Bash_2026-27/7?event_id=187503",
-      "display_date": "12 Dec",
-      "resolved_date": "2026-12-12",
-      "date_basis": "observed",
-      "consensus": {
-        "market": "Outright Winner",
-        "selection": "Adelaide Strikers",
+        "selection": "Big Bash Women 2026",
         "tips_for": 1,
         "tips_total": 1,
         "pct": 100,
@@ -287,10 +287,10 @@
       "date_basis": "observed",
       "consensus": {
         "market": "Outright Winner",
-        "selection": "Pretoria Capitals",
-        "tips_for": 1,
+        "selection": "SA20 2026-27",
+        "tips_for": 0,
         "tips_total": 1,
-        "pct": 100,
+        "pct": null,
         "comments": 0,
         "experts": 0
       }
@@ -302,15 +302,7 @@
       "display_date": "18 Jul 2027",
       "resolved_date": "2027-07-18",
       "date_basis": "observed",
-      "consensus": {
-        "market": "Outright Winner",
-        "selection": "Sussex",
-        "tips_for": 0,
-        "tips_total": 0,
-        "pct": null,
-        "comments": 0,
-        "experts": 0
-      }
+      "consensus": null
     }
   ]
 }
