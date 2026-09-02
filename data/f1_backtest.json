@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "generated_at_utc": "2026-09-02T02:46:50.768Z",
+  "generated_at_utc": "2026-09-02T02:51:55.619Z",
   "method": "Walk-forward: each race is scored only on data completed before that weekend.",
   "races": [
     {
@@ -9,7 +9,7 @@
       "name": "Louis Vuitton Australian Grand Prix",
       "date": "2025-03-16",
       "abbreviation": "AUS",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -20,22 +20,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "LOW"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -53,7 +53,7 @@
       "name": "Heineken Chinese Grand Prix",
       "date": "2025-03-23",
       "abbreviation": "CHN",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -71,15 +71,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -97,7 +97,7 @@
       "name": "Lenovo Japanese Grand Prix",
       "date": "2025-04-06",
       "abbreviation": "JPN",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -108,22 +108,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "LOW"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -141,13 +141,13 @@
       "name": "Gulf Air Bahrain Grand Prix",
       "date": "2025-04-13",
       "abbreviation": "BRN",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
           "status": "MISS",
           "hit": false,
-          "selection": "Kimi Antonelli",
+          "selection": "Max Verstappen",
           "band": "LOW"
         },
         "podium_finish": {
@@ -185,33 +185,33 @@
       "name": "STC Saudi Arabian Grand Prix",
       "date": "2025-04-20",
       "abbreviation": "SAU",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "LOW"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -229,33 +229,33 @@
       "name": "Crypto.com Miami Grand Prix",
       "date": "2025-05-04",
       "abbreviation": "MIA",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -273,7 +273,7 @@
       "name": "AWS Made in Italy Emilia Romagna Grand Prix",
       "date": "2025-05-18",
       "abbreviation": "ITA",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -284,8 +284,8 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "MEDIUM"
         },
@@ -317,7 +317,7 @@
       "name": "Tag Heuer Monaco Grand Prix",
       "date": "2025-05-25",
       "abbreviation": "MON",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -328,8 +328,8 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "MEDIUM"
         },
@@ -342,8 +342,8 @@
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
@@ -361,19 +361,19 @@
       "name": "Aramco Spanish Grand Prix",
       "date": "2025-06-01",
       "abbreviation": "ESP",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "MEDIUM"
         },
@@ -405,7 +405,7 @@
       "name": "Pirelli Canadian Grand Prix",
       "date": "2025-06-15",
       "abbreviation": "CAN",
-      "winner": null,
+      "winner": "George Russell",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -423,15 +423,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -449,7 +449,7 @@
       "name": "MSC Cruises Austrian Grand Prix",
       "date": "2025-06-29",
       "abbreviation": "AUT",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -460,8 +460,8 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Oscar Piastri",
           "band": "LOW"
         },
@@ -474,8 +474,8 @@
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -493,19 +493,19 @@
       "name": "Qatar Airways British Grand Prix",
       "date": "2025-07-06",
       "abbreviation": "GBR",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "LOW"
         },
@@ -537,7 +537,7 @@
       "name": "Moët & Chandon Belgian Grand Prix",
       "date": "2025-07-27",
       "abbreviation": "BEL",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -548,8 +548,8 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "MEDIUM"
         },
@@ -562,8 +562,8 @@
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -581,26 +581,26 @@
       "name": "Lenovo Hungarian Grand Prix",
       "date": "2025-08-03",
       "abbreviation": "HUN",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "LOW"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
@@ -625,7 +625,7 @@
       "name": "Heineken Dutch Grand Prix",
       "date": "2025-08-31",
       "abbreviation": "NED",
-      "winner": null,
+      "winner": "Oscar Piastri",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -650,8 +650,8 @@
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -669,7 +669,7 @@
       "name": "Pirelli Italian Grand Prix",
       "date": "2025-09-07",
       "abbreviation": "ITA2",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -680,22 +680,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -713,7 +713,7 @@
       "name": "Qatar Airways Azerbaijan Grand Prix",
       "date": "2025-09-21",
       "abbreviation": "AZB",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -731,15 +731,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -757,7 +757,7 @@
       "name": "Singapore Airlines Singapore Grand Prix",
       "date": "2025-10-05",
       "abbreviation": "SIN",
-      "winner": null,
+      "winner": "George Russell",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -768,22 +768,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Max Verstappen",
           "band": "LOW"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -801,19 +801,19 @@
       "name": "MSC Cruises United States Grand Prix",
       "date": "2025-10-19",
       "abbreviation": "USA",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Max Verstappen",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Max Verstappen",
           "band": "LOW"
         },
@@ -826,8 +826,8 @@
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -845,7 +845,7 @@
       "name": "Mexico City Grand Prix",
       "date": "2025-10-26",
       "abbreviation": "MEX",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -856,22 +856,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Max Verstappen",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -889,7 +889,7 @@
       "name": "MSC Cruises São Paulo Grand Prix",
       "date": "2025-11-09",
       "abbreviation": "BRA",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -900,22 +900,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lando Norris",
           "band": "LOW"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -933,7 +933,7 @@
       "name": "Heineken Las Vegas Grand Prix",
       "date": "2025-11-23",
       "abbreviation": "LAS",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -951,15 +951,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -977,7 +977,7 @@
       "name": "Qatar Airways Qatar Grand Prix",
       "date": "2025-11-30",
       "abbreviation": "QAT",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -995,15 +995,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -1021,19 +1021,19 @@
       "name": "Etihad Airways Abu Dhabi Grand Prix",
       "date": "2025-12-07",
       "abbreviation": "ARE",
-      "winner": null,
+      "winner": "Max Verstappen",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Max Verstappen",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Max Verstappen",
           "band": "MEDIUM"
         },
@@ -1046,8 +1046,8 @@
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "George Russell",
           "band": "MEDIUM"
         },
@@ -1065,13 +1065,13 @@
       "name": "Qatar Airways Australian Grand Prix",
       "date": "2026-03-08",
       "abbreviation": "AUS",
-      "winner": null,
+      "winner": "George Russell",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
           "status": "MISS",
           "hit": false,
-          "selection": "Lando Norris",
+          "selection": "Max Verstappen",
           "band": "LOW"
         },
         "podium_finish": {
@@ -1083,15 +1083,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -1109,7 +1109,7 @@
       "name": "Heineken Chinese Grand Prix",
       "date": "2026-03-15",
       "abbreviation": "CHN",
-      "winner": null,
+      "winner": "Kimi Antonelli",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1127,15 +1127,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
@@ -1153,7 +1153,7 @@
       "name": "Aramco Japanese Grand Prix",
       "date": "2026-03-29",
       "abbreviation": "JPN",
-      "winner": null,
+      "winner": "Kimi Antonelli",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1171,15 +1171,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
@@ -1197,33 +1197,33 @@
       "name": "Crypto.com Miami Grand Prix",
       "date": "2026-05-03",
       "abbreviation": "MIA",
-      "winner": null,
+      "winner": "Kimi Antonelli",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -1241,33 +1241,33 @@
       "name": "Lenovo Canadian Grand Prix",
       "date": "2026-05-24",
       "abbreviation": "CAN",
-      "winner": null,
+      "winner": "Kimi Antonelli",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
-          "band": "LOW"
+          "band": "MEDIUM"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -1285,33 +1285,33 @@
       "name": "Monaco Grand Prix",
       "date": "2026-06-07",
       "abbreviation": "MCO",
-      "winner": null,
+      "winner": "Kimi Antonelli",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
@@ -1329,7 +1329,7 @@
       "name": "MSC Cruises Barcelona-Catalunya Grand Prix",
       "date": "2026-06-14",
       "abbreviation": "BAR",
-      "winner": null,
+      "winner": "Lewis Hamilton",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1373,7 +1373,7 @@
       "name": "Lenovo Austrian Grand Prix",
       "date": "2026-06-28",
       "abbreviation": "AUT",
-      "winner": null,
+      "winner": "George Russell",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1384,22 +1384,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
@@ -1417,7 +1417,7 @@
       "name": "Pirelli British Grand Prix",
       "date": "2026-07-05",
       "abbreviation": "GBR",
-      "winner": null,
+      "winner": "Charles Leclerc",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1435,15 +1435,15 @@
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
@@ -1461,33 +1461,33 @@
       "name": "Moët & Chandon Belgian Grand Prix",
       "date": "2026-07-19",
       "abbreviation": "BEL",
-      "winner": null,
+      "winner": "Kimi Antonelli",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "LOW"
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
@@ -1505,7 +1505,7 @@
       "name": "AWS Hungarian Grand Prix",
       "date": "2026-07-26",
       "abbreviation": "HUN",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1516,22 +1516,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
@@ -1549,7 +1549,7 @@
       "name": "Heineken Dutch Grand Prix",
       "date": "2026-08-23",
       "abbreviation": "NLD",
-      "winner": null,
+      "winner": "Lando Norris",
       "markets": {
         "race_winner": {
           "label": "RACE WINNER",
@@ -1560,22 +1560,22 @@
         },
         "podium_finish": {
           "label": "PODIUM FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Kimi Antonelli",
           "band": "MEDIUM"
         },
         "points_finish": {
           "label": "POINTS FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
         "top6_finish": {
           "label": "TOP 6 FINISH",
-          "status": "MISS",
-          "hit": false,
+          "status": "HIT",
+          "hit": true,
           "selection": "Lewis Hamilton",
           "band": "MEDIUM"
         },
@@ -1593,30 +1593,30 @@
     {
       "market": "RACE WINNER",
       "scored": 36,
-      "hit": 0,
+      "hit": 11,
       "skipped": 0,
-      "hitRate": 0
+      "hitRate": 30.6
     },
     {
       "market": "PODIUM FINISH",
       "scored": 36,
-      "hit": 0,
+      "hit": 24,
       "skipped": 0,
-      "hitRate": 0
+      "hitRate": 66.7
     },
     {
       "market": "POINTS FINISH",
       "scored": 36,
-      "hit": 0,
+      "hit": 25,
       "skipped": 0,
-      "hitRate": 0
+      "hitRate": 69.4
     },
     {
       "market": "TOP 6 FINISH",
       "scored": 36,
-      "hit": 0,
+      "hit": 30,
       "skipped": 0,
-      "hitRate": 0
+      "hitRate": 83.3
     },
     {
       "market": "FASTEST LAP",
