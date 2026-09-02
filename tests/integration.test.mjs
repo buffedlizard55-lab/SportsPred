@@ -61,10 +61,15 @@ test('matchupKey is order-independent and date-sensitive', () => {
 
 test('a live card match can be matched back to its OLBG event row for manual review', () => {
   const index = buildSlateIndex(slate);
-  const ev = matchSlateEvent({ resolved_date: '2026-09-01', home: 'Carlos Alcaraz', away: 'Roman Safiullin' }, index);
-  assert.ok(ev, 'expected Safiullin v Alcaraz to match an OLBG row');
-  assert.equal(ev.event_id, '899350');
-  assert.equal(ev.consensus.selection, 'Carlos Alcaraz');
+  // Find an event row that actually carries a consensus selection, and prove
+  // the reverse lookup (event -> live match -> back to the same OLBG row) works.
+  const withSelection = slate.events.find((e) => e.consensus && e.consensus.selection);
+  assert.ok(withSelection, 'snapshot should contain at least one event with a consensus selection');
+  const d = withSelection.resolved_date;
+  const ev = matchSlateEvent({ resolved_date: d, home: withSelection.home, away: withSelection.away }, index);
+  assert.ok(ev, `expected ${withSelection.home} v ${withSelection.away} to match its OLBG row`);
+  assert.equal(ev.event_id, withSelection.event_id);
+  assert.equal(ev.consensus.selection, withSelection.consensus.selection);
 });
 
 test('no odds values are present anywhere in the snapshot (OLBG exposes none)', () => {
@@ -126,8 +131,9 @@ test('the moment a ranking exists, the engine scores rather than refusing', () =
     },
     h2h: {},
   };
-  const ev = slate.events.find((e) => e.event_id === '899350');
-  assert.ok(ev, 'event 899350 (Safiullin v Alcaraz) must be in the snapshot');
+  // Use a synthetic event whose players exist in the ranking store so the test
+  // is independent of which matches happen to be in the current snapshot.
+  const ev = { event_id: 'synthetic-rank-test', home: 'Carlos Alcaraz', away: 'Roman Safiullin', resolved_date: '2026-09-01', display_date: 'Today', display_time: '10:00' };
   const m = toMatch(ev, store);
   const r = scoreMatch(m);
   assert.equal(r.favourite, 'Carlos Alcaraz');
