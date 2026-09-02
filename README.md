@@ -76,7 +76,7 @@ runs, in order:
 
 | Check | What it proves |
 |---|---|
-| `node --test tests/*.test.mjs` | 263 Node tests — engines, parsers, writers, registry, plus 8 jsdom tests that boot each real page and click the buttons |
+| `node --test tests/*.test.mjs` | 266 Node tests — engines, parsers, writers, registry, plus 11 jsdom tests that boot each real page and click the buttons |
 | `python3 -m unittest discover -s tests` | 40 Python tests — collectors and parsers |
 | `node scripts/verify_site.mjs` | Static site audit: every page's module import graph, every `$('#id')` resolves to an id that page actually has, id uniqueness, every local `href`/`src` exists on disk, external links are https and carry `rel=noopener`, every JS parses, every JSON parses |
 | `python3 scripts/build_data.py --strict` | The committed data layer is internally consistent |
@@ -86,11 +86,34 @@ the results and clicking Generate repopulates them, that the analysis panel
 exposes the written tip, the price attribution, the market table, at least two
 https review links, and an explicit list of what could not be sourced.
 
+## What the first live run measured (2026-09-02)
+
+The three builders ran for the first time in CI and produced real numbers, not
+assumptions. Two of those numbers contradicted things this repository had
+previously assumed, and both are now recorded rather than smoothed over:
+
+- **96 endpoints checked, 95 live.** The one failure, `soccer/kor.1` (Korean K
+  League 1), returns HTTP 400 and is absent from ESPN's full 218-league soccer
+  index — it was never a valid slug. Removed from the registry and logged as
+  `U-11`, with a test that fails if any endpoint the verifier proved dead is
+  still listed.
+- **90 leagues measured, 55 with enough history** for a baseline. The other 35
+  are out of season or cup competitions; they get no baseline, no HIGH-confidence
+  tip is possible for them, and the split is published (`U-12`).
+- **1214 graded predictions over 120 days.** Hit rate by confidence band is
+  **monotonic** — HIGH 64.1%, MEDIUM 61.8%, LOW 49.5% — which is the one thing a
+  confidence scale must get right.
+- **No ROI, and none is shown.** The repo had assumed the feed retains a closing
+  price for finished matches. It does not: ESPN strips the odds block once an
+  event is final, and *zero* of the 1214 graded fixtures carried a price. So the
+  backtest grades the model probability only, the market-blend leg is untested by
+  it, and `method.html` drops the ROI column and says why (`U-06`).
+
 ## Irregularities
 
 Machine-readable: [`data/irregularities.json`](data/irregularities.json),
 rendered at [sources.html#irregularities](sources.html#irregularities).
-10 open or resolved entries, `U-01`…`U-10`, each with its effect on output and
+12 open or resolved entries, `U-01`…`U-12`, each with its effect on output and
 its links. Prose registers per sport live in [`docs/`](docs/).
 
 ---

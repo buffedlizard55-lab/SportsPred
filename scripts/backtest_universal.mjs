@@ -197,7 +197,7 @@ async function main() {
     generator: 'scripts/backtest_universal.mjs',
     window: { days: DAYS, from: from.toISOString().slice(0, 10), to: to.toISOString().slice(0, 10) },
     leak_control: 'Form, season record, league baseline and head-to-head are rebuilt from matches completed strictly before each fixture. ESPN\'s live form/record fields are discarded.',
-    known_limitation: 'The only price the free feed retains for a finished match is a closing price, which is sharper than the price that was available before the match. The market-blend leg of the model is therefore flattered and the ROI figure should be read as an upper bound.',
+    known_limitation: 'MEASURED 2026-09-02: ESPN drops the odds block entirely from completed events. Across 1214 graded fixtures, zero carried a price. ROI is therefore not computable from this feed and is reported as null rather than estimated, and the market-blend leg of the model is UNTESTED by this backtest - only the model-side probability is graded here. Forward collection is the only way to grade the blended output, which is why the collector stores the pre-match price at capture time.',
     overall,
     byBand,
     byMarket,
@@ -211,7 +211,7 @@ async function main() {
   console.log(`graded selections : ${overall.n}`);
   console.log(`hit rate          : ${overall.hitRate === null ? 'n/a' : `${(overall.hitRate * 100).toFixed(1)}%`}`);
   console.log(`Brier score       : ${overall.brier === null ? 'n/a' : overall.brier.toFixed(4)}`);
-  console.log(`flat-stake ROI    : ${overall.roi === null ? 'n/a' : `${(overall.roi * 100).toFixed(1)}%`} (closing prices — upper bound)`);
+  console.log(`flat-stake ROI    : ${overall.roi === null ? 'n/a' : `${(overall.roi * 100).toFixed(1)}%`} (null means no completed fixture carried a price)`);
   for (const [band, v] of Object.entries(byBand)) {
     console.log(`  ${band.padEnd(7)} n=${String(v.n).padStart(4)}  hit=${v.hitRate === null ? 'n/a' : `${(v.hitRate * 100).toFixed(1)}%`}  brier=${v.brier.toFixed(4)}  roi=${v.roi === null ? 'n/a' : `${(v.roi * 100).toFixed(1)}%`}`);
   }

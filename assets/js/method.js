@@ -34,21 +34,50 @@ async function boot() {
   }
   const d = bt.data;
   const p = (v) => (v === null || v === undefined ? 'n/a' : `${(v * 100).toFixed(1)}%`);
+
+  // If no graded fixture carried a price, there is no ROI to show. Rather than
+  // print a column of "n/a", the column is dropped and the reason is stated.
+  // See U-06 in the irregularity register.
+  const rows = [['All', d.overall], ...Object.entries(d.byBand || {})];
+  const anyRoi = rows.some(([, v]) => typeof v?.roi === 'number');
+  const roiHead = anyRoi ? '<th class="num">Flat ROI</th>' : '';
+  const roiCell = (v) => (anyRoi ? `<td class="num">${p(v.roi)}</td>` : '');
+
+  const cells = ([band, v]) => `<tr>
+      <td>${band === 'All' ? '<strong>All</strong>' : `<span class="badge ${esc(band)}">${esc(band)}</span>`}</td>
+      <td class="num">${v.n}</td><td class="num">${p(v.hitRate)}</td>
+      <td class="num">${v.brier === null || v.brier === undefined ? 'n/a' : v.brier.toFixed(4)}</td>
+      ${roiCell(v)}</tr>`;
+
+  const order = { HIGH: 0, MEDIUM: 1, LOW: 2 };
+  const banded = rows.slice(1).sort((a, b) => (order[a[0]] ?? 9) - (order[b[0]] ?? 9));
+
+  // State whether the bands actually separate, computed from the artifact
+  // rather than asserted in prose.
+  const hi = d.byBand?.HIGH?.hitRate; const me = d.byBand?.MEDIUM?.hitRate; const lo = d.byBand?.LOW?.hitRate;
+  const monotonic = [hi, me, lo].every((x) => typeof x === 'number') && hi > me && me > lo;
+  const verdict = [hi, me, lo].every((x) => typeof x === 'number')
+    ? (monotonic
+      ? `<div class="note good"><strong>The bands separate.</strong> HIGH ${p(hi)} &gt; MEDIUM ${p(me)} &gt; LOW ${p(lo)}
+         over ${d.overall.n} graded selections. That ordering is the one thing a confidence scale has to get right.
+         It is a single ${d.window.days}-day window and it is not evidence of profitability.</div>`
+      : `<div class="note bad"><strong>The bands do not separate</strong> — HIGH ${p(hi)}, MEDIUM ${p(me)}, LOW ${p(lo)}.
+         The confidence scale is miscalibrated and the weights above need revisiting. This is published rather than hidden.</div>`)
+    : '';
+
   box.innerHTML = `
     <div class="note info">Window ${esc(d.window.from)} → ${esc(d.window.to)} (${d.window.days} days), built <code>${esc(d.generated_at_utc)}</code>.</div>
+    ${verdict}
     <div class="note"><strong>Leak control.</strong> ${esc(d.leak_control)}</div>
     <div class="note"><strong>Known limitation.</strong> ${esc(d.known_limitation)}</div>
-    <table class="data"><thead><tr><th>Band</th><th class="num">Selections</th><th class="num">Hit rate</th><th class="num">Brier</th><th class="num">Flat ROI</th></tr></thead>
-      <tbody>
-        <tr><td><strong>All</strong></td><td class="num">${d.overall.n}</td><td class="num">${p(d.overall.hitRate)}</td>
-          <td class="num">${d.overall.brier === null ? 'n/a' : d.overall.brier.toFixed(4)}</td><td class="num">${p(d.overall.roi)}</td></tr>
-        ${Object.entries(d.byBand || {}).map(([band, v]) => `<tr>
-          <td><span class="badge ${esc(band)}">${esc(band)}</span></td>
-          <td class="num">${v.n}</td><td class="num">${p(v.hitRate)}</td>
-          <td class="num">${v.brier === null ? 'n/a' : v.brier.toFixed(4)}</td><td class="num">${p(v.roi)}</td></tr>`).join('')}
-      </tbody></table>
-    <p class="meta-line">A well-calibrated model should show hit rate rising monotonically from LOW to HIGH. If it does not, the
-      bands are miscalibrated and the weights above need revisiting — that is exactly what this table is for.</p>`;
+    <table class="data"><thead><tr><th>Band</th><th class="num">Selections</th><th class="num">Hit rate</th><th class="num">Brier</th>${roiHead}</tr></thead>
+      <tbody>${[rows[0], ...banded].map(cells).join('')}</tbody></table>
+    ${anyRoi ? '' : `<p class="meta-line">There is no ROI column because no ROI is computable: ESPN strips the odds block
+      from completed events, so none of the ${d.overall.n} graded fixtures carried a price. This table therefore grades the
+      model probability only — the market-blend leg of the engine is untested by it. Tracked as
+      <a href="sources.html#irregularities">U-06</a>.</p>`}
+    <p class="meta-line">Full method and the leak-control detail:
+      <a href="https://github.com/buffedlizard55-lab/SportsPred/blob/main/docs/UNIVERSAL_ENGINE.md" target="_blank" rel="noopener noreferrer">docs/UNIVERSAL_ENGINE.md</a>.</p>`;
 }
 
 boot().catch((e) => { console.error(e); $('#backtest').innerHTML = `<div class="note bad">${esc(e.message)}</div>`; });

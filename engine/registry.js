@@ -103,7 +103,6 @@ export const SPORTS = [
       { slug: 'bra.1', name: 'Brazilian Serie A' },
       { slug: 'arg.1', name: 'Argentine Liga Profesional' },
       { slug: 'jpn.1', name: 'Japanese J.League' },
-      { slug: 'kor.1', name: 'Korean K League 1' },
       { slug: 'chn.1', name: 'Chinese Super League' },
       { slug: 'aus.1', name: 'Australian A-League Men' },
       { slug: 'ksa.1', name: 'Saudi Pro League' },

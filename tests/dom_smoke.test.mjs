@@ -58,6 +58,15 @@ function makeFetch(counters) {
       if (/dates=\d{8}-\d{8}/.test(u)) return ok(historyPayload());
       return ok(soccerFixture);
     }
+    // Prefer the REAL committed artifact when CI has built it: that is what
+    // catches schema drift between the builder script and the page that
+    // renders it. Fall back to a synthetic payload on a clean checkout.
+    if (u.includes('data/leagues.json') && existsSync(join(ROOT, 'data/leagues.json'))) {
+      return ok(JSON.parse(readFileSync(join(ROOT, 'data/leagues.json'), 'utf8')));
+    }
+    if (u.includes('data/league_context.json') && existsSync(join(ROOT, 'data/league_context.json'))) {
+      return ok(JSON.parse(readFileSync(join(ROOT, 'data/league_context.json'), 'utf8')));
+    }
     if (u.includes('data/leagues.json')) {
       return ok({
         schema_version: 1,
@@ -256,4 +265,63 @@ test('method.html states the hyperparameters and the missing-backtest case hones
     assert.ok(/No backtest artifact committed yet|Leak control/.test(bt),
       'either the real backtest or an explicit "not built yet" notice — never a placeholder number');
   } finally { cleanup(); }
+});
+
+test('sources.html reports the real machine-verification numbers when CI has built them', { skip: !JSDOM }, async () => {
+  if (!existsSync(join(ROOT, 'data/leagues.json'))) return; // not built yet on this checkout
+  const real = JSON.parse(readFileSync(join(ROOT, 'data/leagues.json'), 'utf8'));
+  const { window } = await bootPage('sources.html');
+  const text = window.document.body.textContent;
+
+  // The counts on the page must be the counts in the artifact, not a placeholder.
+  assert.match(text, new RegExp(String(real.summary.checked)), 'checked count is rendered');
+  assert.match(text, new RegExp(String(real.summary.ok)), 'ok count is rendered');
+  assert.ok(!/not built yet/i.test(text.split('Irregularities')[0]),
+    'the registry block must show data, not the not-built-yet notice');
+
+  // A slug that failed verification has to be visible, not quietly dropped.
+  const failed = Object.values(real.sports).flatMap((b) => (b.leagues || []).filter((l) => !l.ok));
+  for (const f of failed) {
+    assert.match(text, new RegExp(f.slug.replace('.', '\\.')), `failed slug ${f.slug} is surfaced for review`);
+  }
+});
+
+test('method.html publishes the real backtest, and never invents an ROI', { skip: !JSDOM }, async () => {
+  if (!existsSync(join(ROOT, 'data/universal_backtest.json'))) return;
+  const bt = JSON.parse(readFileSync(join(ROOT, 'data/universal_backtest.json'), 'utf8'));
+  const { window } = await bootPage('method.html');
+  const text = window.document.body.textContent;
+
+  assert.match(text, new RegExp(String(bt.overall.n)), 'the graded sample size is shown');
+
+  // Bands must be monotonic in the artifact itself; the page must not claim
+  // otherwise, and must not print a percentage ROI when none was computable.
+  const { HIGH, MEDIUM, LOW } = bt.byBand;
+  assert.ok(HIGH.hitRate > MEDIUM.hitRate, 'HIGH outperforms MEDIUM');
+  assert.ok(MEDIUM.hitRate > LOW.hitRate, 'MEDIUM outperforms LOW');
+
+  if (bt.overall.roi === null) {
+    // No ROI is computable, so the column must be absent entirely rather than
+    // showing a number, and the page must say why.
+    const heads = [...window.document.querySelectorAll('#backtest th')].map((h) => h.textContent.trim());
+    assert.ok(!heads.some((h) => /ROI/i.test(h)), `ROI column must be dropped, saw headers: ${heads.join(' | ')}`);
+    assert.match(text, /no ROI is computable/i, 'the page explains why there is no ROI');
+  }
+
+  // The verdict must reflect the artifact, not a fixed sentence.
+  assert.match(text, /The bands separate/i);
+});
+
+test('the registry contains no endpoint that the verifier proved dead', { skip: !existsSync(join(ROOT, 'data/leagues.json')) }, async () => {
+  const real = JSON.parse(readFileSync(join(ROOT, 'data/leagues.json'), 'utf8'));
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const failed = Object.values(real.sports).flatMap((b) => (b.leagues || []).filter((l) => !l.ok).map((l) => l.slug));
+  const stillListed = [];
+  for (const sport of SPORTS) {
+    for (const c of sport.candidateLeagues || []) {
+      if (failed.includes(c.slug)) stillListed.push(`${sport.key}:${c.slug}`);
+    }
+  }
+  assert.deepEqual(stillListed, [],
+    `these slugs failed live verification and must be removed from engine/registry.js: ${stillListed.join(', ')}`);
 });

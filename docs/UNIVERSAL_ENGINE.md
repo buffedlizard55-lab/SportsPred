@@ -191,10 +191,32 @@ fields describe the team *after* that match. It rebuilds form, season record,
 league baseline and head-to-head from games that completed strictly before each
 fixture's kick-off.
 
-The one thing it cannot fix is the price: the free feed retains a closing price,
-which is sharper than what was available earlier. The ROI figure is therefore an
-upper bound and is labelled as such on the method page, in the artifact, and
-here.
+The one thing it cannot do is grade the price. This was assumed to be a
+"closing price is sharper" caveat until the 2026-09-02 CI run measured it:
+**across 1214 graded fixtures, zero carried an odds block.** ESPN attaches odds
+to pre-match and in-play events and strips them once the event is final.
+
+So `roi` is reported as `null`, not estimated, and the backtest grades the
+**model probability only** — the 0.55 market-blend leg is untested by it. Only
+forward collection, which stores the pre-match price at capture time, can grade
+the blended output. Recorded as `U-06`.
+
+### What the 2026-09-02 run actually measured
+
+120-day window, 1214 graded match-result predictions:
+
+| Band | n | Hit rate | Brier |
+|---|---|---|---|
+| HIGH | 145 | **64.1%** | 0.261 |
+| MEDIUM | 612 | **61.8%** | 0.255 |
+| LOW | 457 | **49.5%** | 0.255 |
+| Overall | 1214 | 57.4% | 0.256 |
+
+The bands are monotonic — HIGH beats MEDIUM beats LOW — which is the one thing a
+confidence scale has to get right, and it is the only claim this table supports.
+It is a single 120-day window on mostly-soccer fixtures, it grades the model leg
+only, and it is not evidence of profitability, because without prices no
+profitability figure exists.
 
 ---
 
