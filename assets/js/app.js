@@ -1009,7 +1009,7 @@ function renderCricketOlbg(summaryEl, eventsEl, openBtn, titleEl) {
   const events = slate?.events || [];
   const outrights = slate?.outrights || [];
   titleEl.textContent = `OLBG Cricket Markets — Verified Slate (${events.length} fixtures, ${outrights.length} outrights)`;
-  openBtn.onclick = () => window.open(slate?.source?.url || 'https://www.olbg.com/betting-tips/Cricket/16', '_blank', 'noopener,noreferrer');
+  openBtn.onclick = () => window.open(slate?.source?.url || 'https://www.olbg.com/betting-tips/Cricket/7', '_blank', 'noopener,noreferrer');
 
   summaryEl.innerHTML = `
     <div class="stat-grid">

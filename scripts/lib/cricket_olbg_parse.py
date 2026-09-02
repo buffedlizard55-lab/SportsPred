@@ -7,7 +7,7 @@ without connectivity (see tests/test_cricket_olbg_parse.py).
 GROUNDING: the anchor pattern /betting-tips/Cricket/.../7?event_id=NNNN, the
 "n/m Win Tips", "n%", "n comments", "1 expert" strings and the market labels
 ("Win Match", "Man Of The Match", "Draw No Bet", "Outright Winner") were read
-directly from a live fetch of https://www.olbg.com/betting-tips/Cricket/16 on
+directly from a live fetch of https://www.olbg.com/betting-tips/Cricket/7 on
 2026-09-01. Any structural assumption is stated inline.
 """
 

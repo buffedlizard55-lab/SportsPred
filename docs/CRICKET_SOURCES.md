@@ -33,7 +33,7 @@ below were verified live on **2026-09-01**.
 
 | ID | Source | URL | Provides | Status |
 |----|--------|-----|----------|--------|
-| `olbg-cricket` | OLBG Cricket Tips | https://www.olbg.com/betting-tips/Cricket/16 | Match tips with market type (**Win Match, Man Of The Match, Draw No Bet**), tipster consensus counts (`n/m Win Tips`, percentage, comments), and outright tournament markets (Outright Winner) | ✅ Verified |
+| `olbg-cricket` | OLBG Cricket Tips | https://www.olbg.com/betting-tips/Cricket/7 | Match tips with market type (**Win Match, Man Of The Match, Draw No Bet**), tipster consensus counts (`n/m Win Tips`, percentage, comments), and outright tournament markets (Outright Winner) | ✅ Verified |
 
 **Important:** OLBG publishes tipster *consensus counts*, not bookmaker odds.
 The parser (`scripts/lib/cricket_olbg_parse.py`) extracts event ids, teams,

@@ -4,7 +4,7 @@
   "generated_at_utc": "2026-09-01T23:30:00Z",
   "source": {
     "fixtures": "ESPN public scorepanel API (site.web.api.espn.com/apis/site/v2/sports/cricket/scorepanel) — venues, format, status and winners read 2026-09-01",
-    "markets": "OLBG cricket tips index (https://www.olbg.com/betting-tips/Cricket/16) — consensus read 2026-09-01"
+    "markets": "OLBG cricket tips index (https://www.olbg.com/betting-tips/Cricket/7) — consensus read 2026-09-01"
   },
   "notes": [
     "Every fixture below was read from ESPN's public scorepanel on 2026-09-01 and cross-checked against ESPNcricinfo's live score page.",

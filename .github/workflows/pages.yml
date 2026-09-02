@@ -50,10 +50,14 @@ jobs:
       - name: Validate committed data layer
         run: python3 scripts/build_data.py --strict
 
+      - name: Verify the site line by line (selectors, links, JSON, modules)
+        run: node scripts/verify_site.mjs
+
       - name: Assemble site artifact
         run: |
           mkdir -p _site
-          cp index.html _site/
+          cp ./*.html _site/
+          cp .nojekyll _site/ 2>/dev/null || true
           cp -r assets _site/
           cp -r engine _site/
           cp -r data _site/

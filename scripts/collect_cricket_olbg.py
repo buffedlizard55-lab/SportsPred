@@ -23,7 +23,7 @@ from datetime import datetime, timezone
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.cricket_olbg_parse import parse_index, resolve_date  # noqa: E402
 
-INDEX_URL = "https://www.olbg.com/betting-tips/Cricket/16"
+INDEX_URL = "https://www.olbg.com/betting-tips/Cricket/7"
 OUT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
                         "data", "cricket_slate.json")
 

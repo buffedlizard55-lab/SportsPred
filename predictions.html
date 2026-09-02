@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prediction generator — SportsPred</title>
+<meta name="description" content="Generate a written, source-linked prediction with a confidence score for every upcoming match across every covered sport, then copy the lot in one click.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preconnect" href="https://site.api.espn.com" crossorigin>
+</head>
+<body>
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title">Prediction generator</h1>
+      <p class="page-sub">Every fixture in every verified competition, scored and written up. One click copies the whole card.</p>
+      <p class="meta-line" id="reg-line"></p>
+    </div>
+  </div>
+
+  <div class="card">
+    <div class="card-head"><h2 id="date-label">—</h2><span class="sp"></span><span class="meta-line" id="summary"></span></div>
+    <div class="progress" id="progress"><i></i></div>
+    <div class="card-body">
+      <div class="toolbar" style="margin-bottom:10px">
+        <input type="date" id="date-input" aria-label="Date">
+        <select id="band-filter" aria-label="Filter by confidence">
+          <option value="published">Published tips only</option>
+          <option value="high">HIGH confidence only</option>
+          <option value="medium">MEDIUM and above</option>
+          <option value="all">Everything, including withheld</option>
+        </select>
+        <span class="sp" style="flex:1"></span>
+        <button class="btn primary" id="run">⚡ Generate predictions</button>
+        <button class="btn" id="copy-all">📋 Copy all</button>
+      </div>
+      <div class="toolbar" id="sport-picks"></div>
+      <div class="meta-line" id="progress-label" style="margin-top:8px"></div>
+    </div>
+  </div>
+
+  <div id="out"><div class="empty"><span class="spin"></span> Generating…</div></div>
+</main>
+<script type="module" src="assets/js/predictions-page.js"></script>
+</body>
+</html>

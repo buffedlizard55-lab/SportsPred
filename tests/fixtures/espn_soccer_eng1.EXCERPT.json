@@ -1,0 +1,148 @@
+{
+  "_provenance": {
+    "note": "TRIMMED EXCERPT of a real response. Field values below were read verbatim from the live endpoint on 2026-09-02; unused branches (links, tickets, broadcasts, logos, tracking blobs) were removed to keep the fixture readable. Nothing was invented.",
+    "endpoint": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260905",
+    "read_at_utc": "2026-09-02",
+    "events_in_excerpt": 1,
+    "events_in_full_response": "12 chunks of JSON; only event 401879286 is retained here"
+  },
+  "leagues": [
+    {
+      "id": "700",
+      "uid": "s:600~l:700",
+      "name": "English Premier League",
+      "abbreviation": "Premier League",
+      "midsizeName": "ENG.1",
+      "slug": "eng.1",
+      "season": { "year": 2026, "displayName": "2026-27 English Premier League" },
+      "logos": [{ "href": "https://a.espncdn.com/i/leaguelogos/soccer/500/23.png" }],
+      "calendar": [
+        "2026-08-28T07:00Z",
+        "2026-08-29T07:00Z",
+        "2026-08-30T07:00Z",
+        "2026-08-31T07:00Z",
+        "2026-09-04T07:00Z",
+        "2026-09-05T07:00Z",
+        "2026-09-06T07:00Z"
+      ]
+    }
+  ],
+  "events": [
+    {
+      "id": "401879286",
+      "uid": "s:600~l:700~e:401879286",
+      "date": "2026-09-05T11:30Z",
+      "name": "AFC Bournemouth at Newcastle United",
+      "shortName": "BOU @ NEW",
+      "season": { "year": 2026, "slug": "2026-27-english-premier-league" },
+      "competitions": [
+        {
+          "id": "401879286",
+          "date": "2026-09-05T11:30Z",
+          "neutralSite": false,
+          "status": {
+            "clock": 0.0,
+            "displayClock": "0'",
+            "type": {
+              "id": "1",
+              "name": "STATUS_SCHEDULED",
+              "state": "pre",
+              "completed": false,
+              "description": "Scheduled",
+              "shortDetail": "Scheduled"
+            }
+          },
+          "venue": {
+            "id": "152",
+            "fullName": "St. James' Park",
+            "address": { "city": "Newcastle-upon-Tyne", "country": "England" }
+          },
+          "competitors": [
+            {
+              "id": "361",
+              "type": "team",
+              "order": 0,
+              "homeAway": "home",
+              "winner": false,
+              "form": "WWDLW",
+              "score": "0",
+              "records": [{ "name": "All Splits", "type": "total", "summary": "1-1-0", "abbreviation": "Total" }],
+              "team": {
+                "id": "361",
+                "abbreviation": "NEW",
+                "displayName": "Newcastle United",
+                "shortDisplayName": "Newcastle",
+                "color": "000000",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/361.png",
+                "links": [
+                  {
+                    "rel": ["clubhouse", "desktop", "team"],
+                    "href": "https://www.espn.com/soccer/club/_/id/361/newcastle-united"
+                  }
+                ]
+              }
+            },
+            {
+              "id": "349",
+              "type": "team",
+              "order": 1,
+              "homeAway": "away",
+              "winner": false,
+              "form": "DLDDW",
+              "score": "0",
+              "records": [{ "name": "All Splits", "type": "total", "summary": "0-1-1", "abbreviation": "Total" }],
+              "team": {
+                "id": "349",
+                "abbreviation": "BOU",
+                "displayName": "AFC Bournemouth",
+                "shortDisplayName": "Bournemouth",
+                "color": "f42727",
+                "logo": "https://a.espncdn.com/i/teamlogos/soccer/500/349.png",
+                "links": [
+                  {
+                    "rel": ["clubhouse", "desktop", "team"],
+                    "href": "https://www.espn.com/soccer/club/_/id/349/afc-bournemouth"
+                  }
+                ]
+              }
+            }
+          ],
+          "odds": [
+            {
+              "overUnder": 2.5,
+              "provider": { "id": "100", "name": "DraftKings", "priority": 1 },
+              "drawOdds": { "moneyLine": 270 },
+              "total": {
+                "displayName": "Total",
+                "over": { "open": { "line": "o2.5", "odds": "-175" }, "close": { "line": "o2.5", "odds": "-175" } },
+                "under": { "open": { "line": "u2.5", "odds": "+130" }, "close": { "line": "u2.5", "odds": "+135" } }
+              },
+              "pointSpread": {
+                "displayName": "Spread",
+                "home": { "open": { "line": "-0.5", "odds": "+115" }, "close": { "line": "-0.5", "odds": "+110" } },
+                "away": { "open": { "line": "+0.5", "odds": "-175" }, "close": { "line": "+0.5", "odds": "-160" } }
+              },
+              "moneyline": {
+                "displayName": "Moneyline",
+                "home": { "open": { "odds": "+130" }, "close": { "odds": "+125" } },
+                "away": { "open": { "odds": "+180" }, "close": { "odds": "+190" } },
+                "draw": { "open": { "odds": "+260" }, "close": { "odds": "+270" } }
+              },
+              "details": "NEW +125"
+            }
+          ]
+        }
+      ],
+      "links": [
+        {
+          "rel": ["summary", "desktop", "event"],
+          "href": "https://www.espn.com/soccer/match/_/gameId/401879286/afc-bournemouth-newcastle-united"
+        },
+        {
+          "rel": ["stats", "desktop", "event"],
+          "href": "https://www.espn.com/soccer/matchstats/_/gameId/401879286"
+        }
+      ]
+    }
+  ]
+}
