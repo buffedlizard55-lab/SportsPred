@@ -253,13 +253,17 @@ async function collectRankings() {
 
 async function collectEspnStats(season) {
   const first = parseByAthleteStats(await getJSON(ESPN_STATS(season, 1)));
-  const rows = [...first.rows];
   const pages = Math.min(first.pages || 1, 14);
   const pageNums = [];
   for (let p = 2; p <= pages; p += 1) pageNums.push(p);
+  // Pages are fetched concurrently but assembled in page order, so the file is
+  // byte-identical between runs when the source has not changed (the commit
+  // guard in golf-collect.yml compares content, and a shuffled array is churn).
+  const byPage = new Map([[1, first.rows]]);
   await mapLimit(pageNums, 4, async (p) => {
-    try { rows.push(...parseByAthleteStats(await getJSON(ESPN_STATS(season, p))).rows); } catch (e) { warnings.push(`espn stats page ${p}: ${e.message}`); }
+    try { byPage.set(p, parseByAthleteStats(await getJSON(ESPN_STATS(season, p))).rows); } catch (e) { warnings.push(`espn stats page ${p}: ${e.message}`); }
   });
+  const rows = [...byPage.keys()].sort((a, b) => a - b).flatMap((p) => byPage.get(p));
   return {
     season: first.season ?? season,
     source: { name: 'ESPN PGA TOUR season statistics by athlete', url: ESPN_STATS(season, 1), method: 'public JSON, no key' },
