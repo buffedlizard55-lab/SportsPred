@@ -1,0 +1,884 @@
+{
+  "schema_version": 1,
+  "sport": "Darts",
+  "predictions": [
+    {
+      "matchId": "hdt-f-smith-anderson",
+      "matchTitle": "Ross Smith v Gary Anderson",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Final",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Gary Anderson",
+      "confidence": "SKIP",
+      "modelScore": 27,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Gary Anderson** (27/100)",
+      "paragraph": "**Gary Anderson** carries the sharper scoring profile here, backed by more wins than losses of late, a ranking advantage over his opponent. That profile should hold against this opposition. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy",
+        "https://www.pdc.tv/"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ross Smith",
+        "score": "8-2",
+        "matched": false,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy",
+        "https://www.pdc.tv/"
+      ]
+    },
+    {
+      "matchId": "hdt-sf-anderson-aspinall",
+      "matchTitle": "Gary Anderson v Nathan Aspinall",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Semi-final",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Gary Anderson",
+      "confidence": "SKIP",
+      "modelScore": 19,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Gary Anderson** (19/100)",
+      "paragraph": "Ranking and recent output align behind **Gary Anderson**, with a positive but narrow recent balance, a ranking advantage over his opponent. The strands point one way, which an analyst prefers. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Gary Anderson",
+        "score": "7-6",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-qf-anderson-vanveen",
+      "matchTitle": "Gary Anderson v Gian van Veen",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Quarter-final",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Gian van Veen",
+      "confidence": "SKIP",
+      "modelScore": 17,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Gian van Veen** (17/100)",
+      "paragraph": "No head-to-head history exists, so **Gian van Veen** is judged on a top-tier ranking, quarter-final sharpness. The stronger-ranked player carries no credible counterweight. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Gary Anderson",
+        "score": "6-5",
+        "matched": false,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-sf-smith-noppert",
+      "matchTitle": "Ross Smith v Danny Noppert",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Semi-final",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Ross Smith",
+      "confidence": "SKIP",
+      "modelScore": 14,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Ross Smith** (14/100)",
+      "paragraph": "**Ross Smith** brings the more sustainable recent form, built on a positive but narrow recent balance, the business end of the event. Trust the deeper run of results here. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ross Smith",
+        "score": "7-3",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r3-dobey-rock",
+      "matchTitle": "Chris Dobey v Josh Rock",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Third round",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Josh Rock",
+      "confidence": "SKIP",
+      "modelScore": 11,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Josh Rock** (11/100)",
+      "paragraph": "The stage demands sharpness, and **Josh Rock** supplies it through a top-tier ranking, the last-sixteen test. The pairing is favourable on current evidence. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Chris Dobey",
+        "score": "6-3",
+        "matched": false,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-qf-smith-chisnall",
+      "matchTitle": "Ross Smith v Dave Chisnall",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Quarter-final",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Ross Smith",
+      "confidence": "SKIP",
+      "modelScore": 11,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Ross Smith** (11/100)",
+      "paragraph": "Recent opposition quality favours **Ross Smith**, who has a ranking advantage over his opponent, quarter-final sharpness. Nothing in the sourced data flips the judgment. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ross Smith",
+        "score": "6-2",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r3-smith-clayton",
+      "matchTitle": "Ross Smith v Jonny Clayton",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Third round",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Jonny Clayton",
+      "confidence": "SKIP",
+      "modelScore": 11,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Jonny Clayton** (11/100)",
+      "paragraph": "Facing an unranked opponent, **Jonny Clayton** presses the case with a top-tier ranking, the last-sixteen test. Expect the stronger scoring numbers to tell. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ross Smith",
+        "score": "6-4",
+        "matched": false,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r2-dvd-humphries",
+      "matchTitle": "Dirk van Duijvenbode v Luke Humphries",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Second round",
+      "dateISO": "2026-08-29",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Luke Humphries",
+      "confidence": "SKIP",
+      "modelScore": 10,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Luke Humphries** (10/100)",
+      "paragraph": "**Luke Humphries** owns the ranking pedigree in this tie, reinforced by a top-tier ranking. The fuller record should settle it. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Dirk van Duijvenbode",
+        "score": "6-3",
+        "matched": false,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r2-vanveen-major",
+      "matchTitle": "Gian van Veen v Nándor Major",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Second round",
+      "dateISO": "2026-08-29",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Gian van Veen",
+      "confidence": "SKIP",
+      "modelScore": 10,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Gian van Veen** (10/100)",
+      "paragraph": "Tournament form separates the pair, and **Gian van Veen** owns it via a top-tier ranking, an unranked opponent outside the rankings. Recent board results give the firmer steer. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Gian van Veen",
+        "score": "6-0",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r3-anderson-bunting",
+      "matchTitle": "Gary Anderson v Stephen Bunting",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Third round",
+      "dateISO": "2026-08-30",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Stephen Bunting",
+      "confidence": "SKIP",
+      "modelScore": 8,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Stephen Bunting** (8/100)",
+      "paragraph": "In an early-round tie, **Stephen Bunting** relies on the deeper record because a ranking advantage over his opponent, the last-sixteen test. The numbers favour the player with more table time. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Gary Anderson",
+        "score": "6-5",
+        "matched": false,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r2-clayton-kadar",
+      "matchTitle": "Jonny Clayton v László Kádár",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Second round",
+      "dateISO": "2026-08-29",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Jonny Clayton",
+      "confidence": "SKIP",
+      "modelScore": 7,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Jonny Clayton** (7/100)",
+      "paragraph": "Leg-by-leg scoring under pressure is where **Jonny Clayton** stands out, with a top-tier ranking, an unranked opponent outside the rankings. A deeper campaign underpins the lean. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Jonny Clayton",
+        "score": "6-3",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r2-mvg-hurrell",
+      "matchTitle": "Michael van Gerwen v James Hurrell",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Second round",
+      "dateISO": "2026-08-29",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Michael van Gerwen",
+      "confidence": "SKIP",
+      "modelScore": 7,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Michael van Gerwen** (7/100)",
+      "paragraph": "The draw leaves **Michael van Gerwen** the better prepared player, underpinned by a top-tier ranking, an unranked opponent outside the rankings. Expect the fresher tournament form to decide. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Michael van Gerwen",
+        "score": "6-4",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r2-searle-springer",
+      "matchTitle": "Ryan Searle v Niko Springer",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Second round",
+      "dateISO": "2026-08-29",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Ryan Searle",
+      "confidence": "SKIP",
+      "modelScore": 4,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Ryan Searle** (4/100)",
+      "paragraph": "**Ryan Searle** keeps match practice high while the opponent works around a thinner slate, and a ranking advantage over his opponent. The evidence is consistent across every sourced factor. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ryan Searle",
+        "score": "6-4",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r2-bunting-masalin",
+      "matchTitle": "Stephen Bunting v Jonas Masalin",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "Second round",
+      "dateISO": "2026-08-29",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Stephen Bunting",
+      "confidence": "SKIP",
+      "modelScore": 4,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Stephen Bunting** (4/100)",
+      "paragraph": "Experience of this arena favours **Stephen Bunting**, whose case is built on a ranking advantage over his opponent, an unranked opponent outside the rankings. Match sharpness tips the balance to this side. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Stephen Bunting",
+        "score": "6-1",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-gilding-biro",
+      "matchTitle": "Andrew Gilding v Milán Biró",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Andrew Gilding",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Andrew Gilding** (0/100)",
+      "paragraph": "**Andrew Gilding** carries the sharper scoring profile here, backed by That profile should hold against this opposition. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Andrew Gilding",
+        "score": "6-0",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-chisnall-borbely",
+      "matchTitle": "Dave Chisnall v András Borbély",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Dave Chisnall",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Dave Chisnall** (0/100)",
+      "paragraph": "Ranking and recent output align behind **Dave Chisnall**, with The strands point one way, which an analyst prefers. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Dave Chisnall",
+        "score": "6-3",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-dvd-pisek",
+      "matchTitle": "Dirk van Duijvenbode v David Písek",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Dirk van Duijvenbode",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Dirk van Duijvenbode** (0/100)",
+      "paragraph": "No head-to-head history exists, so **Dirk van Duijvenbode** is judged on The stronger-ranked player carries no credible counterweight. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Dirk van Duijvenbode",
+        "score": "6-1",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-hurrell-heta",
+      "matchTitle": "James Hurrell v Damon Heta",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "James Hurrell",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **James Hurrell** (0/100)",
+      "paragraph": "**James Hurrell** brings the more sustainable recent form, built on Trust the deeper run of results here. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "James Hurrell",
+        "score": "6-5",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-cullen-leek",
+      "matchTitle": "Joe Cullen v Adam Leek",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Joe Cullen",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Joe Cullen** (0/100)",
+      "paragraph": "The stage demands sharpness, and **Joe Cullen** supplies it through The pairing is favourable on current evidence. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Joe Cullen",
+        "score": "6-3",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-masalin-doets",
+      "matchTitle": "Jonas Masalin v Kevin Doets",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Jonas Masalin",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Jonas Masalin** (0/100)",
+      "paragraph": "Recent opposition quality favours **Jonas Masalin**, who has Nothing in the sourced data flips the judgment. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Jonas Masalin",
+        "score": "6-4",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-barry-schindler",
+      "matchTitle": "Keane Barry v Martin Schindler",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Keane Barry",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Keane Barry** (0/100)",
+      "paragraph": "Facing an unranked opponent, **Keane Barry** presses the case with Expect the stronger scoring numbers to tell. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Keane Barry",
+        "score": "6-2",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-ratajski-rydz",
+      "matchTitle": "Krzysztof Ratajski v Callan Rydz",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Krzysztof Ratajski",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Krzysztof Ratajski** (0/100)",
+      "paragraph": "**Krzysztof Ratajski** owns the ranking pedigree in this tie, reinforced by The fuller record should settle it. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Krzysztof Ratajski",
+        "score": "6-5",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-kadar-gurney",
+      "matchTitle": "László Kádár v Daryl Gurney",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "László Kádár",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **László Kádár** (0/100)",
+      "paragraph": "Tournament form separates the pair, and **László Kádár** owns it via Recent board results give the firmer steer. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "László Kádár",
+        "score": "6-5",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-major-zonneveld",
+      "matchTitle": "Nándor Major v Niels Zonneveld",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Nándor Major",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Nándor Major** (0/100)",
+      "paragraph": "In an early-round tie, **Nándor Major** relies on the deeper record because The numbers favour the player with more table time. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Nándor Major",
+        "score": "6-5",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-springer-kuivenhoven",
+      "matchTitle": "Niko Springer v Maik Kuivenhoven",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Niko Springer",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Niko Springer** (0/100)",
+      "paragraph": "Leg-by-leg scoring under pressure is where **Niko Springer** stands out, with A deeper campaign underpins the lean. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Niko Springer",
+        "score": "6-1",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-edhouse-scutt",
+      "matchTitle": "Ritchie Edhouse v Connor Scutt",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Ritchie Edhouse",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Ritchie Edhouse** (0/100)",
+      "paragraph": "The draw leaves **Ritchie Edhouse** the better prepared player, underpinned by Expect the fresher tournament form to decide. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ritchie Edhouse",
+        "score": "6-1",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-cross-greaves",
+      "matchTitle": "Rob Cross v Beau Greaves",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Rob Cross",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Rob Cross** (0/100)",
+      "paragraph": "**Rob Cross** keeps match practice high while the opponent works around a thinner slate, and The evidence is consistent across every sourced factor. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Rob Cross",
+        "score": "6-5",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-joyce-reyes",
+      "matchTitle": "Ryan Joyce v Cristo Reyes",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Ryan Joyce",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Ryan Joyce** (0/100)",
+      "paragraph": "Experience of this arena favours **Ryan Joyce**, whose case is built on Match sharpness tips the balance to this side. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Ryan Joyce",
+        "score": "6-3",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-sykes-menzies",
+      "matchTitle": "Tom Sykes v Cameron Menzies",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "Tom Sykes",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Tom Sykes** (0/100)",
+      "paragraph": "**Tom Sykes** carries the sharper scoring profile here, backed by That profile should hold against this opposition. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Tom Sykes",
+        "score": "6-1",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    },
+    {
+      "matchId": "hdt-r1-oconnor-price",
+      "matchTitle": "William O'Connor v Samuel Price",
+      "event": "2026 Hungarian Darts Trophy",
+      "round": "First round",
+      "dateISO": "2026-08-28",
+      "venue": "MVM Dome, Budapest",
+      "predictedWinner": "William O'Connor",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **William O'Connor** (0/100)",
+      "paragraph": "Ranking and recent output align behind **William O'Connor**, with The strands point one way, which an analyst prefers. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T02:42:39Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "William O'Connor",
+        "score": "6-2",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T02:42:39Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy"
+      ]
+    }
+  ],
+  "updatedAtUtc": "2026-09-03T02:42:39Z",
+  "notes": [
+    "Writers/engine output recorded by scripts/record_darts_predictions.mjs from the committed source-linked documents.",
+    "Settlement runs in CI from the official results tape; values are matched by player names.",
+    "Nothing in this ledger is hand-written; every verdict object comes from the tested engine and writer."
+  ]
+}

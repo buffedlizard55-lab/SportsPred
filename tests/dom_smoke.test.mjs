@@ -162,6 +162,7 @@ function makeFetch(counters) {
         || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/volleyball_')
         || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)
+        || u.includes('data/darts_')
         || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
@@ -422,6 +423,11 @@ test('sources.html renders the verification report and the irregularities regist
     const links = [...document.querySelectorAll('#sn-irr a[href^="https://"]')];
     assert.ok(links.length >= 2, `snooker register carries review links (got ${links.length})`);
     for (const l of links) assert.ok(l.href.startsWith('https://'), 'review links are https');
+    const da = document.querySelector('#da-irr').textContent;
+    assert.match(da, /IR-DARTS-01/, 'darts register row renders');
+    assert.ok(document.querySelector('#da-irr a[href*="darts.html"]'), 'darts register links to the scoreboard');
+    const daLinks = [...document.querySelectorAll('#da-irr a[href^="https://"]')];
+    assert.ok(daLinks.length >= 2, `darts register carries review links (got ${daLinks.length})`);
   } finally { cleanup(); }
 });
 
@@ -721,5 +727,74 @@ test('ice-hockey.html boots, auto-generates three tips per match and the button 
     // Coverage and sources rails are populated from the committed provenance.
     assert.match(document.querySelector('#coverage').textContent, /fixtures/);
     assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
+  } finally { cleanup(); }
+});
+
+
+test('darts.html boots, renders a results-day card and auto-generates written predictions', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('darts.html', { search: '?date=2026-08-30' });
+
+  assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+  assert.ok(document.querySelector('.sportrail a[data-sport="darts"]'), 'darts is in the rail');
+  const nofeed = document.querySelector('.sportrail a[data-sport="darts"] .nofeed');
+  assert.equal(nofeed, null, 'darts is no longer a markets-only rail item');
+
+  const text = document.body.textContent;
+  assert.match(text, /Ross Smith/, 'Hungarian Trophy final-day names render');
+  assert.match(text, /Gary Anderson/);
+  const tipText = document.querySelector('.tip-text');
+  assert.ok(tipText, 'a written prediction box renders on a results day');
+  const tip = tipText.textContent;
+  assert.match(tip, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/, 'prediction declares confidence');
+  const words = tip.trim().split(/\s+/).length;
+  assert.ok(words >= 25 && words <= 40, `prediction is 25-40 words, got ${words}`);
+  assert.ok(!/\d/.test(tip.replace(/\s+/g, ' ')), `no numerals in prediction prose: ${tip.slice(0, 80)}`);
+  assert.match(text, /no free key-less price|no price feed|IR-DARTS/i);
+  assert.match(text, /SKIP/, 'live/historical cards resolve to SKIP on the odds gate');
+  assert.ok(!/Czech Darts Open/.test(document.querySelector('#board').textContent),
+    'unpublished Czech Open pairings are not invented onto the board');
+});
+
+test('the darts Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('darts.html', { search: '?date=2026-08-30' });
+  document.querySelector('#rail-preds').innerHTML = '';
+  const before = document.querySelector('.tip-text')?.textContent || '';
+  const btn = document.querySelector('#generate');
+  assert.ok(btn, 'generate button exists');
+  btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+  for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+  const after = document.querySelector('.tip-text')?.textContent || '';
+  assert.ok(after, 'prediction present after Generate click');
+  assert.match(after, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/);
+  assert.equal(before, after, 'regenerated prediction is deterministic');
+});
+
+test('darts Analysis exposes fired rules and at least two https review links', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('darts.html', { search: '?date=2026-08-30' });
+  const details = document.querySelector('.analysis details');
+  assert.ok(details, 'an analysis panel exists');
+  details.setAttribute('open', '');
+  const atext = details.textContent;
+  assert.match(atext, /Factor|form|ranking|h2h|stage|average/i, 'analysis names scored factors');
+  const links = [...details.querySelectorAll('a[href^="https://"]')];
+  assert.ok(links.length >= 2, `at least two https review links, saw ${links.length}`);
+  assert.match(atext, /odds/i, 'odds category is reported (as not available live)');
+});
+
+test('registry: darts is predicted on its own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const s = SPORTS.find((x) => x.key === 'darts');
+  assert.equal(s.predictable, true);
+  assert.equal(s.page, 'darts.html');
+  assert.equal(s.specialistEngine, 'darts');
+  assert.equal(s.olbgId, 15);
+});
+
+test('sport.html?sport=darts hands over to the dedicated darts page', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('sport.html', { search: '?sport=darts&date=2026-08-30' });
+  try {
+    const a = document.querySelector('#handover');
+    assert.ok(a, 'handover link rendered');
+    assert.match(a.getAttribute('href'), /darts\.html\?date=2026-08-30/);
   } finally { cleanup(); }
 });
