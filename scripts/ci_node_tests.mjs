@@ -27,12 +27,34 @@
  */
 
 import { spawnSync } from 'node:child_process';
-import { closeSync, openSync, readFileSync, readdirSync, unlinkSync } from 'node:fs';
+import { closeSync, openSync, readFileSync, readdirSync, unlinkSync, writeSync } from 'node:fs';
 import { availableParallelism, cpus, freemem, tmpdir, totalmem } from 'node:os';
 import { join } from 'node:path';
 
 const MAX_MESSAGE = 300;
-const TAIL_LINES = 40;
+const TAIL_LINES = 8;
+// GitHub only surfaces a handful of annotations per check run, so these caps
+// keep the ones that name the culprit ahead of the ones that merely decorate.
+const MAX_FAILING = 10;
+const MAX_DETAIL = 12;
+
+/**
+ * Write to stdout synchronously. `process.exit()` does not drain a pipe, so the
+ * ordinary buffered write can silently lose the tail of the log — and with it
+ * the annotations. Everything this script reports goes out through here.
+ */
+function writeOut(text) {
+  let buf = Buffer.from(String(text), 'utf8');
+  while (buf.length > 0) {
+    try {
+      const written = writeSync(1, buf, 0, buf.length);
+      buf = buf.subarray(written);
+    } catch (err) {
+      if (err.code === 'EAGAIN') continue; // non-blocking pipe: retry until drained
+      throw err;
+    }
+  }
+}
 
 /** Test files the glob `tests/*.test.mjs` would have expanded to, in a stable order. */
 function testFiles(dir = 'tests') {
@@ -46,7 +68,7 @@ function testFiles(dir = 'tests') {
 function annotate(title, lines) {
   for (const raw of lines) {
     const message = String(raw).replace(/%/g, '%25').replace(/\r/g, '').trim().slice(0, MAX_MESSAGE);
-    if (message) process.stdout.write(`::error title=${title}::${message}\n`);
+    if (message) writeOut(`::error title=${title}::${message}\n`);
   }
 }
 
@@ -99,8 +121,8 @@ function main() {
       /(SyntaxError|ReferenceError|TypeError|RangeError|AssertionError|ERR_MODULE_NOT_FOUND|Cannot find)/.test(l) ||
       /\.mjs:\d+:\d+/.test(l);
 
-    annotate('failing test', lines.filter((l) => l.startsWith('not ok')).slice(0, 40));
-    annotate('failure detail', lines.filter((l) => !isReporterLine(l) && isDiagnostic(l)).slice(0, 30));
+    annotate('failing test', lines.filter((l) => l.startsWith('not ok')).slice(0, MAX_FAILING));
+    annotate('failure detail', lines.filter((l) => !isReporterLine(l) && isDiagnostic(l)).slice(0, MAX_DETAIL));
     annotate('suite summary', lines.filter((l) => /^# (tests|pass|fail|cancelled|skipped|todo)/.test(l)));
     if (run.signal) {
       annotate(
@@ -109,13 +131,13 @@ function main() {
       );
     }
     if (run.error) annotate('spawn error', [run.error.message ?? String(run.error)]);
+    annotate('runtime', environment(files));
     // Whatever the shape of the failure, the last lines say something.
     annotate('output tail', lines.filter((l) => l.trim()).slice(-TAIL_LINES));
-    annotate('runtime', environment(files));
   }
 
   // Full reporter output still goes to the job log for a human reading it there.
-  process.stdout.write(out);
+  writeOut(out);
 
   try {
     unlinkSync(logPath);
@@ -125,11 +147,10 @@ function main() {
   return status;
 }
 
-let exitCode = 1;
 try {
-  exitCode = main();
+  // Set rather than forced: the process exits on its own once stdout has drained.
+  process.exitCode = main();
 } catch (err) {
   annotate('ci_node_tests.mjs itself failed', [err?.stack ?? err?.message ?? String(err)]);
-  exitCode = 1;
+  process.exitCode = 1;
 }
-process.exit(exitCode);

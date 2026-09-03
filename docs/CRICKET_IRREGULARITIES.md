@@ -146,3 +146,40 @@ Fixing the button makes the failure legible. Producing cricket tips requires a
 collector run that populates results-derived form and head-to-head for the
 current slate — the same evidence the T20 Blast tape carries, which is why that
 page generates 48 tips from 96 verified fixtures.
+
+## CR-IR-09 — An OLBG market id has a shelf life of one match, and a test pinned it
+
+`tests/cricket_data.test.mjs` asserted that the England Women v Ireland Women
+fixture joined to OLBG event `188611` on the committed slate. That is a true
+statement about 2026-09-02 and a false one about every day after it: OLBG drops
+a match market once the match has been played, so the refreshed slate committed
+as `379099d` carried three events and `188611` was not among them. The join was
+still correct; the assertion had frozen an expiring market id into the suite,
+and it turned the daily data refresh into a red build.
+
+**What the join actually has to do.** OLBG lists the sides as `England W` and
+`Ireland W` while the fixture says `England Women` and `Ireland Women`.
+`core()` in `engine/cricket_data.js` strips the `women`/`w`/`wmn` suffix tokens
+before comparing, which is what makes the two agree. That behaviour is the thing
+worth testing, and it does not depend on any market being open.
+
+**Fix.** The real event record as collected — recovered from the slate snapshot
+committed at `4af10c7`, not reconstructed — is now replayed against the
+committed fixture, so the women's-suffix join is proved on the actual OLBG
+naming with no dependency on the market still existing. Two further tests were
+added: one that orientation does not matter and that an unrelated market is
+never joined, and one that asserts, over whatever the latest refresh left on the
+slate, that a join can only ever resolve to an event that is a member of
+`slate.events` and carries an `event_id` and an `olbg.com` review link. An
+overlay is rendered on the page as sourced consensus, so a join pointing at
+anything else would publish invented market data.
+
+**Standing rule.** No test may pin an OLBG `event_id`, a slate membership or a
+fixture count that the collector can legitimately change overnight. Assert
+provenance and invariants; derive counts from the committed document. Recorded
+at pipeline level as IR-21 in [IRREGULARITIES.md](IRREGULARITIES.md).
+
+**Verify:** the event as collected —
+<https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_W_vs_Ireland_W_2nd_ODI/7?event_id=188611>
+(now expired, which is the point) · the current slate source
+<https://www.olbg.com/betting-tips/Cricket/15>

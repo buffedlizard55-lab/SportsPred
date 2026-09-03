@@ -62,17 +62,32 @@ labels are never turned into 6–x results. The backtest grades only the printed
 matches.
 **Verify:** <https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy>
 
-## IR-DARTS-06 — Czech Darts Open first-round draw is not yet published (high, open)
+## IR-DARTS-06 — Czech Darts Open first-round draw is not yet published (high, RESOLVED 2026-09-03)
 
 **Finding.** The event is scheduled 4–6 September 2026 at PVA Expo Prague.
 Host-nation qualifier is listed as 3 September. The fetched Wikipedia page
 has the seeded field but no first-round pairings. OLBG carried only outright
-tournament markets on 2026-09-03.
+tournament markets when first collected on 2026-09-03.
 **Effect on output.** No Czech Open match is invented. The live slate has
 outrights for display only. Historical leans are written against the Hungarian
 tape until pairings exist.
 **Verify:** <https://en.wikipedia.org/wiki/2026_Czech_Darts_Open> ·
 <https://www.olbg.com/betting-tips/Darts/15>
+
+> **Resolved later the same day.** The slate refreshed at 2026-09-03T19:25:14Z
+> carries the published Round One draw: eleven first-round matches dated
+> "Tomorrow" (Friday 4 September) plus two World Series of Darts Finals matches
+> dated 17 September, and three outrights. Each of the eleven was checked
+> against the published schedule of play before being accepted — Menzies v
+> Engström, Joyce v Huybrechts, Doets v Evans, Cullen v Burton, Rydz v Reyes,
+> Zonneveld v de Graaf, van Duijvenbode v Vandenbogaerde, Gurney v Greaves,
+> Woodhouse v Scutt, Cross v Barry, Schindler v Owen. Every event carries its
+> OLBG `event_id` and review URL; nothing was inferred from the seeded field.
+> The four Host Nation Qualifier slots are still unpublished and are still
+> absent from the slate rather than filled in.
+> **Verify:** <https://dailysport.co.uk/featured/humphries-to-face-gurney-or-greaves-in-prague-opener/> ·
+> <https://dartsworld.com/2026/09/humphries-aims-for-czech-hat-trick-as-littler-returns/> ·
+> <https://pdpa.co.uk/event/czech-darts-open-2026/>
 
 ## IR-DARTS-07 — Checkout %, 180s and first-9 average have no free structured source (medium, open)
 
@@ -81,3 +96,22 @@ doubles in the final) but there is no per-player checkout or 180s table.
 **Effect on output.** Those prompt inputs are not scored. They do not appear
 as zero-tiered components; they are simply absent from the model.
 **Verify:** <https://en.wikipedia.org/wiki/2026_Hungarian_Darts_Trophy>
+
+## IR-DARTS-08 — A test asserted the shape of one day's slate, so publishing the draw broke the build (high, FIXED)
+
+**Finding.** `tests/darts_integration.test.mjs` asserted `fixturesFromSlate(slate).length === 0`
+and `buildDartsCard(docs, {}).scored.length === 0` — that is, it asserted the
+outrights-only slate described in IR-DARTS-06 above. When the Round One draw was
+published and the collector committed it, both assertions became `13 !== 0`. The
+data was correct; the test had frozen a temporary state of the market into a
+permanent expectation.
+**Effect on output.** None on the site. The effect was on the pipeline: the
+"Tests must pass" gate went red on `main`, which blocked every collector
+workflow and the Pages deploy (see IR-21 in [IRREGULARITIES.md](IRREGULARITIES.md)).
+**Fix.** Both tests now derive their expectation from the committed slate and
+assert provenance instead of a count: one fixture per sourced non-outright
+event, each fixture id carrying its OLBG `event_id`, each linking the event it
+came from, both player names present in the published matchup, and an outright
+market never becoming a two-player fixture. A quiet day still yields zero and a
+tournament day yields thirteen, with the same guarantee either way.
+**Verify:** <https://www.olbg.com/betting-tips/Darts/15>
