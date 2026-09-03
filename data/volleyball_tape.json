@@ -966,6 +966,400 @@
       "venue": "The Jungle",
       "leagueSlug": "womens-college-volleyball",
       "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401883458",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T20:00Z",
+      "home": "Washington Huskies",
+      "away": "Ole Miss Rebels",
+      "winner": "Washington Huskies",
+      "setScore": "3-2",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 14,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 22,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 26,
+          "away": 28,
+          "winner": "away"
+        },
+        {
+          "period": 4,
+          "home": 23,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 5,
+          "home": 15,
+          "away": 5,
+          "winner": "home"
+        }
+      ],
+      "venue": "Howard Mccasland Field House",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401902718",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T20:00Z",
+      "home": "St. Thomas Tommies",
+      "away": "Montana State Bobcats",
+      "winner": "St. Thomas Tommies",
+      "setScore": "3-1",
+      "sets": [
+        {
+          "period": 1,
+          "home": 27,
+          "away": 25,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 27,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 18,
+          "winner": "home"
+        },
+        {
+          "period": 4,
+          "home": 25,
+          "away": 15,
+          "winner": "home"
+        }
+      ],
+      "venue": "Schoenecker Arena",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401888413",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T21:00Z",
+      "home": "Montana Grizzlies",
+      "away": "Seattle U Redhawks",
+      "winner": "Montana Grizzlies",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 18,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 20,
+          "winner": "home"
+        }
+      ],
+      "venue": "Gill Coliseum",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401890755",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T21:00Z",
+      "home": "Air Force Falcons",
+      "away": "Northern Iowa Panthers",
+      "winner": "Northern Iowa Panthers",
+      "setScore": "3-1",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 20,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 17,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 4,
+          "home": 22,
+          "away": 25,
+          "winner": "away"
+        }
+      ],
+      "venue": "Sanford Coyote Sports Center",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401891145",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T21:00Z",
+      "home": "Marist Red Foxes",
+      "away": "Idaho Vandals",
+      "winner": "Idaho Vandals",
+      "setScore": "3-2",
+      "sets": [
+        {
+          "period": 1,
+          "home": 15,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 17,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 19,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 4,
+          "home": 25,
+          "away": 16,
+          "winner": "home"
+        },
+        {
+          "period": 5,
+          "home": 8,
+          "away": 15,
+          "winner": "away"
+        }
+      ],
+      "venue": "Hamilton Gymnasium",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401897112",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T21:00Z",
+      "home": "New Mexico State Aggies",
+      "away": "UC Irvine Anteaters",
+      "winner": "New Mexico State Aggies",
+      "setScore": "3-2",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 19,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 22,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 21,
+          "winner": "home"
+        },
+        {
+          "period": 4,
+          "home": 16,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 5,
+          "home": 15,
+          "away": 13,
+          "winner": "home"
+        }
+      ],
+      "venue": "Save Mart Center",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401891613",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T22:00Z",
+      "home": "The Citadel Bulldogs",
+      "away": "Charleston Cougars",
+      "winner": "Charleston Cougars",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 16,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 2,
+          "home": 18,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 16,
+          "away": 25,
+          "winner": "away"
+        }
+      ],
+      "venue": "McAlister Field House",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401899155",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T22:00Z",
+      "home": "Syracuse Orange",
+      "away": "Howard Bison",
+      "winner": "Syracuse Orange",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 13,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 18,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 22,
+          "winner": "home"
+        }
+      ],
+      "venue": "Newman Arena",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401903418",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T22:00Z",
+      "home": "Winthrop Eagles",
+      "away": "Virginia Tech Hokies",
+      "winner": "Winthrop Eagles",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 18,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 20,
+          "winner": "home"
+        }
+      ],
+      "venue": "Winthrop Coliseum",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401903090",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T23:00Z",
+      "home": "Alabama State Hornets",
+      "away": "UNC Wilmington Seahawks",
+      "winner": "UNC Wilmington Seahawks",
+      "setScore": "3-1",
+      "sets": [
+        {
+          "period": 1,
+          "home": 12,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 2,
+          "home": 11,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 22,
+          "winner": "home"
+        },
+        {
+          "period": 4,
+          "home": 22,
+          "away": 25,
+          "winner": "away"
+        }
+      ],
+      "venue": "G.B. Hodge Center",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
     }
   ]
 }

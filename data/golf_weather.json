@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
   "sport": "Golf",
-  "fetched_at_utc": "2026-09-03T21:52:26.977Z",
+  "fetched_at_utc": "2026-09-03T23:54:35.588Z",
   "method": "Open-Meteo geocoding + daily/hourly forecast APIs (free, key-less)",
   "note": "Weather feeds only the first-round-leader tee-time rule (round-one trend) and the written weather note. Forecasts are collected inside seven days of the first round.",
   "events": {
     "401822700": {
-      "available": false,
+      "available": true,
       "eventId": "401822700",
       "name": "Omega European Masters",
       "tour": "eur",
@@ -14,12 +14,98 @@
       "country": "Switzerland",
       "lat": 46.31316,
       "lon": 7.47914,
+      "days": [
+        {
+          "date": "2026-09-03",
+          "tempMaxC": 20.7,
+          "precipProbPct": 0,
+          "windMaxKmh": 13.4,
+          "gustMaxKmh": 24.1
+        },
+        {
+          "date": "2026-09-04",
+          "tempMaxC": 25.1,
+          "precipProbPct": 0,
+          "windMaxKmh": 14.3,
+          "gustMaxKmh": 31.7
+        },
+        {
+          "date": "2026-09-05",
+          "tempMaxC": 21.9,
+          "precipProbPct": 0,
+          "windMaxKmh": 16.1,
+          "gustMaxKmh": 35.3
+        },
+        {
+          "date": "2026-09-06",
+          "tempMaxC": 25.2,
+          "precipProbPct": 2,
+          "windMaxKmh": 14.3,
+          "gustMaxKmh": 32.4
+        }
+      ],
+      "r1": {
+        "trend": "stable",
+        "windAmKmh": 5.3,
+        "windPmKmh": 11.8,
+        "rainAmPct": 0,
+        "rainPmPct": 0
+      },
+      "timezone": "Europe/Zurich",
+      "sourceUrl": "https://api.open-meteo.com/v1/forecast?latitude=46.31316&longitude=7.47914&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&hourly=wind_speed_10m,precipitation_probability&timezone=auto&start_date=2026-09-03&end_date=2026-09-06",
       "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Crans-Montana&count=10&language=en&format=json",
-      "note": "forecast failed for Crans Montana 2026-09-03"
+      "note": null
     },
     "401822701": {
-      "available": false,
-      "reason": "geocoding failed for Doonbeg"
+      "available": true,
+      "eventId": "401822701",
+      "name": "Amgen Irish Open",
+      "tour": "eur",
+      "city": "Doonbeg",
+      "country": "Ireland",
+      "lat": 52.73065,
+      "lon": -9.52206,
+      "days": [
+        {
+          "date": "2026-09-10",
+          "tempMaxC": 15.6,
+          "precipProbPct": 41,
+          "windMaxKmh": 18.4,
+          "gustMaxKmh": 31
+        },
+        {
+          "date": "2026-09-11",
+          "tempMaxC": 18.5,
+          "precipProbPct": 33,
+          "windMaxKmh": 24.7,
+          "gustMaxKmh": 44.6
+        },
+        {
+          "date": "2026-09-12",
+          "tempMaxC": 16.4,
+          "precipProbPct": 45,
+          "windMaxKmh": 26.3,
+          "gustMaxKmh": 46.4
+        },
+        {
+          "date": "2026-09-13",
+          "tempMaxC": 15.3,
+          "precipProbPct": 35,
+          "windMaxKmh": 38.3,
+          "gustMaxKmh": 70.6
+        }
+      ],
+      "r1": {
+        "trend": "improving",
+        "windAmKmh": 17.8,
+        "windPmKmh": 9.4,
+        "rainAmPct": 37,
+        "rainPmPct": 38.5
+      },
+      "timezone": "Europe/Dublin",
+      "sourceUrl": "https://api.open-meteo.com/v1/forecast?latitude=52.73065&longitude=-9.52206&daily=temperature_2m_max,precipitation_probability_max,wind_speed_10m_max,wind_gusts_10m_max&hourly=wind_speed_10m,precipitation_probability&timezone=auto&start_date=2026-09-10&end_date=2026-09-13",
+      "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Doonbeg&count=10&language=en&format=json",
+      "note": null
     }
   }
 }

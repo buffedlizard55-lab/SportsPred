@@ -25,7 +25,7 @@
       "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-03T21:53:02Z",
+  "updatedAtUtc": "2026-09-03T23:54:52Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_snooker_predictions.mjs from the committed source-linked documents.",
     "Settlement runs in CI from the official results tape; values are matched by player names and confirmed via WST match-centre URLs present in the tape rows.",
