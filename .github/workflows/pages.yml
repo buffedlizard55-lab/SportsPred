@@ -41,8 +41,10 @@ jobs:
           # Run every test file in a SINGLE node --test process. Top-level-await
           # tests (olbg/integration) load correctly in one invocation and across
           # Node 20/22/24; running each file in its own subprocess breaks TLA on
-          # the forced Node 24 runners.
-          node --test tests/*.test.mjs
+          # the forced Node 24 runners. The wrapper keeps that single process and
+          # additionally mirrors any failure into check annotations, because job
+          # logs are served from blob storage that is not always reachable.
+          node scripts/ci_node_tests.mjs
 
       - name: Run Python tests before publishing
         run: python3 -m unittest discover -s tests -p 'test_*.py' -v
