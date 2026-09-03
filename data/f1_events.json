@@ -2,7 +2,7 @@
   "schema_version": 1,
   "sport": "Formula 1",
   "season": 2026,
-  "fetched_at_utc": "2026-09-02T23:13:43.017Z",
+  "fetched_at_utc": "2026-09-03T19:24:24.375Z",
   "source": {
     "name": "ESPN Formula 1 public API (key-less)",
     "endpoints": [

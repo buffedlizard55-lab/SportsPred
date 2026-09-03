@@ -596,6 +596,120 @@
       "venue": "Crisler Center",
       "leagueSlug": "womens-college-volleyball",
       "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260902"
+    },
+    {
+      "id": "401887340",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T16:00Z",
+      "home": "UTSA Roadrunners",
+      "away": "Incarnate Word Cardinals",
+      "winner": "UTSA Roadrunners",
+      "setScore": "3-2",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 17,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 22,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 19,
+          "winner": "home"
+        },
+        {
+          "period": 4,
+          "home": 12,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 5,
+          "home": 15,
+          "away": 8,
+          "winner": "home"
+        }
+      ],
+      "venue": "UTSA Convocation Center",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401897835",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T17:00Z",
+      "home": "UIC Flames",
+      "away": "Milwaukee Panthers",
+      "winner": "Milwaukee Panthers",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 21,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 2,
+          "home": 21,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 21,
+          "away": 25,
+          "winner": "away"
+        }
+      ],
+      "venue": "Schoenecker Arena",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401888856",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T18:00Z",
+      "home": "Houston Cougars",
+      "away": "Texas Southern Tigers",
+      "winner": "Houston Cougars",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 16,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 14,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        }
+      ],
+      "venue": "Fertitta Center",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
     }
   ]
 }
