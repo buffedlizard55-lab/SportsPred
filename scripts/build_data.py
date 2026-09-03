@@ -73,6 +73,14 @@ SNOOKER_PROVENANCE = os.path.join(DATA, 'snooker_provenance.json')
 SNOOKER_PREDICTIONS = os.path.join(DATA, 'snooker_predictions.json')
 SNOOKER_BACKTEST = os.path.join(DATA, 'snooker_backtest.json')
 
+# Darts files
+DARTS_SLATE = os.path.join(DATA, 'darts_slate.json')
+DARTS_RESULTS = os.path.join(DATA, 'darts_results.json')
+DARTS_RANKINGS = os.path.join(DATA, 'darts_rankings.json')
+DARTS_PROVENANCE = os.path.join(DATA, 'darts_provenance.json')
+DARTS_PREDICTIONS = os.path.join(DATA, 'darts_predictions.json')
+DARTS_BACKTEST = os.path.join(DATA, 'darts_backtest.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -480,6 +488,75 @@ def validate_snooker_rankings(doc):
     for e in entries:
         if e.get('rank') is None or not e.get('name'):
             problems.append(f'snooker ranking row invalid: {e}')
+    return problems, len(entries)
+
+
+def validate_darts_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['darts_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('darts_slate.source.url missing')
+    ids = []
+    for e in events:
+        ids.append(e.get('event_id'))
+        for field in ('event_id', 'url'):
+            if not e.get(field):
+                problems.append(f'darts slate row missing "{field}": {e.get("event_id")}')
+        if e.get('type') != 'outright' and not e.get('matchup'):
+            problems.append(f'darts slate row {e.get("event_id")} missing matchup')
+        for key in ('odds', 'price', 'decimal', 'american_odds', 'fractional'):
+            if key in e:
+                problems.append(f'darts slate row {e.get("event_id")} contains price-like field "{key}"')
+        blob = json.dumps(e).lower()
+        if '"odds"' in blob or '"american_odds"' in blob:
+            problems.append(f'darts slate row {e.get("event_id")} nested price-like field')
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in darts slate: {sorted(dups)}')
+    return problems, len(events)
+
+
+def validate_darts_results(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['darts_results.matches is not a list'], 0
+    if not doc.get('source', {}).get('event_page'):
+        problems.append('darts_results.source.event_page missing')
+    seen = set()
+    for m in matches:
+        mid = m.get('id')
+        if mid in seen:
+            problems.append(f'duplicate match id {mid}')
+        seen.add(mid)
+        for field in ('event', 'round', 'round_index', 'player_a', 'player_b', 'score_a', 'score_b'):
+            if m.get(field) is None:
+                problems.append(f'darts result {mid} missing "{field}"')
+        if m.get('player_a', {}).get('name') is None or m.get('player_b', {}).get('name') is None:
+            problems.append(f'darts result {mid} missing player name')
+        if not m.get('winner'):
+            problems.append(f'darts result {mid} has no winner — unfinished rows do not belong on the tape')
+        if not m.get('source_urls'):
+            problems.append(f'darts result {mid} has no source_urls (every row must be verifiable)')
+        # Averages may be absent (IR-DARTS-02) but must never be invented as 0.
+        for avg_key in ('average_a', 'average_b'):
+            if avg_key in m and m[avg_key] is not None and not isinstance(m[avg_key], (int, float)):
+                problems.append(f'darts result {mid} {avg_key} is not numeric')
+    return problems, len(matches)
+
+
+def validate_darts_rankings(doc):
+    problems = []
+    entries = doc.get('entries', [])
+    if not isinstance(entries, list):
+        return ['darts_rankings.entries is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('darts_rankings.source.url missing')
+    for e in entries:
+        if e.get('rank') is None or not e.get('name'):
+            problems.append(f'darts ranking row invalid: {e}')
     return problems, len(entries)
 
 

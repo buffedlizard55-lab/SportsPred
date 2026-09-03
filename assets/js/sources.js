@@ -150,6 +150,26 @@ async function boot() {
     }
   }
 
+  // ---- darts irregularities (PDC OoM + Wikipedia ET tape + OLBG layer) ----
+  const da = await loadStatic('data/darts_provenance.json');
+  const dabox = $('#da-irr');
+  if (dabox) {
+    if (!da.data) {
+      dabox.innerHTML = '<div class="note">Darts register unavailable (data/darts_provenance.json).</div>';
+    } else {
+      dabox.innerHTML = `<table class="data">
+        <thead><tr><th>Id</th><th>Finding</th><th>Status</th><th>Effect on output</th><th>Verify it yourself</th></tr></thead>
+        <tbody>${(da.data.register || []).map((r) => `<tr>
+          <td><code>${esc(r.id)}</code></td>
+          <td><strong>${esc(r.title)}</strong><div class="meta-line">${esc(r.finding)}</div></td>
+          <td>${esc(r.status)}</td>
+          <td>${esc(r.effect_on_output)}</td>
+          <td>${(r.review_links || []).map((l) => `<a href="${esc(l)}" target="_blank" rel="noopener noreferrer">link ↗</a>`).join(' ')}</td>
+        </tr>`).join('')}</tbody></table>
+        <p class="meta-line">Register generated ${esc(da.data.as_of_utc || '')}. See <a href="darts.html">the darts scoreboard</a>.</p>`;
+    }
+  }
+
   // ---- rugby league irregularities (NRL/SL + OLBG layer) ----
   const rl = await loadStatic('data/rugby_league_provenance.json');
   const rlbox = $('#rl-irr');

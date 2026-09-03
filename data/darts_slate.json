@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "sport": "Darts",
+  "as_of_utc": "2026-09-03T02:30:00Z",
+  "source": {
+    "name": "OLBG — Darts Betting Tips",
+    "url": "https://www.olbg.com/betting-tips/Darts/15",
+    "indexes": [
+      "https://www.olbg.com/betting-tips/Darts/15"
+    ],
+    "fetched_at_utc": "2026-09-03T02:30:00Z",
+    "method": "HTTP GET of server-rendered HTML via the fetch tool; no JavaScript execution",
+    "licence_note": "Publicly viewable page. Factual market listing retained for review."
+  },
+  "notes": [
+    "OLBG tipster consensus counts are display-only and are never fed into darts scoring.",
+    "OLBG does not expose structured odds in server-rendered HTML, so no price fields exist (IR-DARTS-01).",
+    "On 2026-09-03 the index carried two outright tournament markets and no two-player match rows. Match scoring therefore uses the committed Hungarian Darts Trophy tape (historical leans) until the Czech Darts Open (4–6 September, PVA Expo Prague) publishes pairings.",
+    "Czech Darts Open host-nation qualifier is listed by Wikipedia as 3 September 2026; the first-round draw is not yet on the fetched Wikipedia page and is not invented here (IR-DARTS-06)."
+  ],
+  "collection_warnings": [],
+  "events": [
+    {
+      "event_id": "31293",
+      "type": "outright",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/World_Series_of_Darts_Finals/15?event_id=31293",
+      "matchup": "World Series of Darts Finals",
+      "tournament": "World Series of Darts Finals",
+      "display_time": "13:15",
+      "display_date_label": "17 Sept",
+      "consensus": {
+        "market": "Win Tournament",
+        "selection": "Luke Littler",
+        "tips_for": 2,
+        "tips_total": 2,
+        "pct": 100
+      }
+    },
+    {
+      "event_id": "26023",
+      "type": "outright",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/PDC_World_Championship_2027/15?event_id=26023",
+      "matchup": "PDC World Championship 2027",
+      "tournament": "PDC World Championship 2027",
+      "display_time": "12:00",
+      "display_date_label": "03 Jan 2027",
+      "consensus": {
+        "market": "Win Tournament",
+        "selection": "Michael van Gerwen",
+        "tips_for": 2,
+        "tips_total": 34,
+        "pct": 6
+      }
+    }
+  ]
+}

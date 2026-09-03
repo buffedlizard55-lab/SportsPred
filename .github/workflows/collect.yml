@@ -196,6 +196,23 @@ jobs:
         continue-on-error: true
         run: node scripts/backtest_snooker.mjs
 
+      - name: Collect OLBG darts slate
+        id: collect-darts-olbg
+        continue-on-error: true
+        run: python3 scripts/collect_darts_olbg.py --enrich
+
+      - name: Report a failed darts OLBG collection
+        if: steps.collect-darts-olbg.outcome == 'failure'
+        run: echo "::warning::OLBG darts collection failed. data/darts_slate.json is unchanged."
+
+      - name: Record darts predictions (append-only forward ledger)
+        continue-on-error: true
+        run: node scripts/record_darts_predictions.mjs
+
+      - name: Darts walk-forward backtest
+        continue-on-error: true
+        run: node scripts/backtest_darts.mjs
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs

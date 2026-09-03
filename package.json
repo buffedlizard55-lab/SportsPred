@@ -25,6 +25,9 @@
     "collect:snooker": "python3 scripts/collect_snooker_olbg.py --enrich",
     "record:snooker": "node scripts/record_snooker_predictions.mjs",
     "backtest:snooker": "node scripts/backtest_snooker.mjs",
+    "collect:darts": "python3 scripts/collect_darts_olbg.py --enrich",
+    "record:darts": "node scripts/record_darts_predictions.mjs",
+    "backtest:darts": "node scripts/backtest_darts.mjs",
     "serve": "python3 scripts/serve.py 8000"
   },
   "engines": {
