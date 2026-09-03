@@ -1,0 +1,1162 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-03T21:58:44Z",
+ "collector": "scripts/collect_baseball_mlb.mjs",
+ "endpoints": [
+  {
+   "url": "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "sport": "Baseball",
+ "league": "mlb",
+ "season": "2026",
+ "teams": {
+  "108": {
+   "id": 108,
+   "name": "Angels",
+   "wins": 53,
+   "losses": 87,
+   "gamesPlayed": 140,
+   "winningPercentage": ".379",
+   "runDifferential": -80,
+   "runsScored": 571,
+   "runsAllowed": 651,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 30,
+    "losses": 44,
+    "pct": ".405"
+   },
+   "away": {
+    "wins": 23,
+    "losses": 43,
+    "pct": ".348"
+   },
+   "lastTen": {
+    "wins": 1,
+    "losses": 9,
+    "pct": ".100"
+   },
+   "vsLeft": {
+    "wins": 13,
+    "losses": 29,
+    "pct": ".310"
+   },
+   "vsRight": {
+    "wins": 40,
+    "losses": 58,
+    "pct": ".408"
+   }
+  },
+  "109": {
+   "id": 109,
+   "name": "D-backs",
+   "wins": 74,
+   "losses": 67,
+   "gamesPlayed": 141,
+   "winningPercentage": ".525",
+   "runDifferential": -1,
+   "runsScored": 628,
+   "runsAllowed": 629,
+   "streak": "W1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 41,
+    "losses": 31,
+    "pct": ".569"
+   },
+   "away": {
+    "wins": 33,
+    "losses": 36,
+    "pct": ".478"
+   },
+   "lastTen": {
+    "wins": 5,
+    "losses": 5,
+    "pct": ".500"
+   },
+   "vsLeft": {
+    "wins": 25,
+    "losses": 12,
+    "pct": ".676"
+   },
+   "vsRight": {
+    "wins": 49,
+    "losses": 55,
+    "pct": ".471"
+   }
+  },
+  "110": {
+   "id": 110,
+   "name": "Orioles",
+   "wins": 69,
+   "losses": 71,
+   "gamesPlayed": 140,
+   "winningPercentage": ".493",
+   "runDifferential": -20,
+   "runsScored": 635,
+   "runsAllowed": 655,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 34,
+    "losses": 34,
+    "pct": ".500"
+   },
+   "away": {
+    "wins": 35,
+    "losses": 37,
+    "pct": ".486"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 21,
+    "losses": 22,
+    "pct": ".488"
+   },
+   "vsRight": {
+    "wins": 48,
+    "losses": 49,
+    "pct": ".495"
+   }
+  },
+  "111": {
+   "id": 111,
+   "name": "Red Sox",
+   "wins": 75,
+   "losses": 65,
+   "gamesPlayed": 140,
+   "winningPercentage": ".536",
+   "runDifferential": 77,
+   "runsScored": 627,
+   "runsAllowed": 550,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 35,
+    "losses": 34,
+    "pct": ".507"
+   },
+   "away": {
+    "wins": 40,
+    "losses": 31,
+    "pct": ".563"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 21,
+    "losses": 13,
+    "pct": ".618"
+   },
+   "vsRight": {
+    "wins": 54,
+    "losses": 52,
+    "pct": ".509"
+   }
+  },
+  "112": {
+   "id": 112,
+   "name": "Cubs",
+   "wins": 78,
+   "losses": 62,
+   "gamesPlayed": 140,
+   "winningPercentage": ".557",
+   "runDifferential": 132,
+   "runsScored": 751,
+   "runsAllowed": 619,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 40,
+    "losses": 31,
+    "pct": ".563"
+   },
+   "away": {
+    "wins": 38,
+    "losses": 31,
+    "pct": ".551"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 26,
+    "losses": 16,
+    "pct": ".619"
+   },
+   "vsRight": {
+    "wins": 52,
+    "losses": 46,
+    "pct": ".531"
+   }
+  },
+  "113": {
+   "id": 113,
+   "name": "Reds",
+   "wins": 67,
+   "losses": 73,
+   "gamesPlayed": 140,
+   "winningPercentage": ".479",
+   "runDifferential": -108,
+   "runsScored": 581,
+   "runsAllowed": 689,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 34,
+    "losses": 37,
+    "pct": ".479"
+   },
+   "away": {
+    "wins": 33,
+    "losses": 36,
+    "pct": ".478"
+   },
+   "lastTen": {
+    "wins": 5,
+    "losses": 5,
+    "pct": ".500"
+   },
+   "vsLeft": {
+    "wins": 15,
+    "losses": 18,
+    "pct": ".455"
+   },
+   "vsRight": {
+    "wins": 52,
+    "losses": 55,
+    "pct": ".486"
+   }
+  },
+  "114": {
+   "id": 114,
+   "name": "Guardians",
+   "wins": 70,
+   "losses": 70,
+   "gamesPlayed": 140,
+   "winningPercentage": ".500",
+   "runDifferential": -11,
+   "runsScored": 566,
+   "runsAllowed": 577,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 33,
+    "losses": 38,
+    "pct": ".465"
+   },
+   "away": {
+    "wins": 37,
+    "losses": 32,
+    "pct": ".536"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 26,
+    "losses": 21,
+    "pct": ".553"
+   },
+   "vsRight": {
+    "wins": 44,
+    "losses": 49,
+    "pct": ".473"
+   }
+  },
+  "115": {
+   "id": 115,
+   "name": "Rockies",
+   "wins": 54,
+   "losses": 86,
+   "gamesPlayed": 140,
+   "winningPercentage": ".386",
+   "runDifferential": -140,
+   "runsScored": 655,
+   "runsAllowed": 795,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 29,
+    "losses": 39,
+    "pct": ".426"
+   },
+   "away": {
+    "wins": 25,
+    "losses": 47,
+    "pct": ".347"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 16,
+    "losses": 28,
+    "pct": ".364"
+   },
+   "vsRight": {
+    "wins": 38,
+    "losses": 58,
+    "pct": ".396"
+   }
+  },
+  "116": {
+   "id": 116,
+   "name": "Tigers",
+   "wins": 64,
+   "losses": 75,
+   "gamesPlayed": 139,
+   "winningPercentage": ".460",
+   "runDifferential": 47,
+   "runsScored": 610,
+   "runsAllowed": 563,
+   "streak": "W1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 34,
+    "losses": 35,
+    "pct": ".493"
+   },
+   "away": {
+    "wins": 30,
+    "losses": 40,
+    "pct": ".429"
+   },
+   "lastTen": {
+    "wins": 3,
+    "losses": 7,
+    "pct": ".300"
+   },
+   "vsLeft": {
+    "wins": 17,
+    "losses": 26,
+    "pct": ".395"
+   },
+   "vsRight": {
+    "wins": 47,
+    "losses": 49,
+    "pct": ".490"
+   }
+  },
+  "117": {
+   "id": 117,
+   "name": "Astros",
+   "wins": 72,
+   "losses": 69,
+   "gamesPlayed": 141,
+   "winningPercentage": ".511",
+   "runDifferential": -38,
+   "runsScored": 639,
+   "runsAllowed": 677,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 36,
+    "losses": 36,
+    "pct": ".500"
+   },
+   "away": {
+    "wins": 36,
+    "losses": 33,
+    "pct": ".522"
+   },
+   "lastTen": {
+    "wins": 7,
+    "losses": 3,
+    "pct": ".700"
+   },
+   "vsLeft": {
+    "wins": 16,
+    "losses": 19,
+    "pct": ".457"
+   },
+   "vsRight": {
+    "wins": 56,
+    "losses": 50,
+    "pct": ".528"
+   }
+  },
+  "118": {
+   "id": 118,
+   "name": "Royals",
+   "wins": 62,
+   "losses": 78,
+   "gamesPlayed": 140,
+   "winningPercentage": ".443",
+   "runDifferential": -89,
+   "runsScored": 599,
+   "runsAllowed": 688,
+   "streak": "L3",
+   "streakNumber": 3,
+   "home": {
+    "wins": 36,
+    "losses": 32,
+    "pct": ".529"
+   },
+   "away": {
+    "wins": 26,
+    "losses": 46,
+    "pct": ".361"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 13,
+    "losses": 29,
+    "pct": ".310"
+   },
+   "vsRight": {
+    "wins": 49,
+    "losses": 49,
+    "pct": ".500"
+   }
+  },
+  "119": {
+   "id": 119,
+   "name": "Dodgers",
+   "wins": 82,
+   "losses": 57,
+   "gamesPlayed": 139,
+   "winningPercentage": ".590",
+   "runDifferential": 146,
+   "runsScored": 684,
+   "runsAllowed": 538,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 40,
+    "losses": 28,
+    "pct": ".588"
+   },
+   "away": {
+    "wins": 42,
+    "losses": 29,
+    "pct": ".592"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 24,
+    "losses": 21,
+    "pct": ".533"
+   },
+   "vsRight": {
+    "wins": 58,
+    "losses": 36,
+    "pct": ".617"
+   }
+  },
+  "120": {
+   "id": 120,
+   "name": "Nationals",
+   "wins": 67,
+   "losses": 75,
+   "gamesPlayed": 142,
+   "winningPercentage": ".472",
+   "runDifferential": 14,
+   "runsScored": 735,
+   "runsAllowed": 721,
+   "streak": "L1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 33,
+    "losses": 40,
+    "pct": ".452"
+   },
+   "away": {
+    "wins": 34,
+    "losses": 35,
+    "pct": ".493"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 23,
+    "losses": 19,
+    "pct": ".548"
+   },
+   "vsRight": {
+    "wins": 44,
+    "losses": 56,
+    "pct": ".440"
+   }
+  },
+  "121": {
+   "id": 121,
+   "name": "Mets",
+   "wins": 63,
+   "losses": 77,
+   "gamesPlayed": 140,
+   "winningPercentage": ".450",
+   "runDifferential": -50,
+   "runsScored": 577,
+   "runsAllowed": 627,
+   "streak": "W1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 32,
+    "losses": 39,
+    "pct": ".451"
+   },
+   "away": {
+    "wins": 31,
+    "losses": 38,
+    "pct": ".449"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 15,
+    "losses": 24,
+    "pct": ".385"
+   },
+   "vsRight": {
+    "wins": 48,
+    "losses": 53,
+    "pct": ".475"
+   }
+  },
+  "133": {
+   "id": 133,
+   "name": "Athletics",
+   "wins": 54,
+   "losses": 86,
+   "gamesPlayed": 140,
+   "winningPercentage": ".386",
+   "runDifferential": -194,
+   "runsScored": 611,
+   "runsAllowed": 805,
+   "streak": "W1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 25,
+    "losses": 44,
+    "pct": ".362"
+   },
+   "away": {
+    "wins": 29,
+    "losses": 42,
+    "pct": ".408"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 19,
+    "losses": 34,
+    "pct": ".358"
+   },
+   "vsRight": {
+    "wins": 35,
+    "losses": 52,
+    "pct": ".402"
+   }
+  },
+  "134": {
+   "id": 134,
+   "name": "Pirates",
+   "wins": 69,
+   "losses": 72,
+   "gamesPlayed": 141,
+   "winningPercentage": ".489",
+   "runDifferential": 29,
+   "runsScored": 691,
+   "runsAllowed": 662,
+   "streak": "W1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 36,
+    "losses": 33,
+    "pct": ".522"
+   },
+   "away": {
+    "wins": 33,
+    "losses": 39,
+    "pct": ".458"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 14,
+    "losses": 30,
+    "pct": ".318"
+   },
+   "vsRight": {
+    "wins": 55,
+    "losses": 42,
+    "pct": ".567"
+   }
+  },
+  "135": {
+   "id": 135,
+   "name": "Padres",
+   "wins": 73,
+   "losses": 67,
+   "gamesPlayed": 140,
+   "winningPercentage": ".521",
+   "runDifferential": 10,
+   "runsScored": 594,
+   "runsAllowed": 584,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 41,
+    "losses": 28,
+    "pct": ".594"
+   },
+   "away": {
+    "wins": 32,
+    "losses": 39,
+    "pct": ".451"
+   },
+   "lastTen": {
+    "wins": 3,
+    "losses": 7,
+    "pct": ".300"
+   },
+   "vsLeft": {
+    "wins": 17,
+    "losses": 19,
+    "pct": ".472"
+   },
+   "vsRight": {
+    "wins": 56,
+    "losses": 48,
+    "pct": ".538"
+   }
+  },
+  "136": {
+   "id": 136,
+   "name": "Mariners",
+   "wins": 66,
+   "losses": 74,
+   "gamesPlayed": 140,
+   "winningPercentage": ".471",
+   "runDifferential": -65,
+   "runsScored": 555,
+   "runsAllowed": 620,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 37,
+    "losses": 31,
+    "pct": ".544"
+   },
+   "away": {
+    "wins": 29,
+    "losses": 43,
+    "pct": ".403"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 21,
+    "losses": 23,
+    "pct": ".477"
+   },
+   "vsRight": {
+    "wins": 45,
+    "losses": 51,
+    "pct": ".469"
+   }
+  },
+  "137": {
+   "id": 137,
+   "name": "Giants",
+   "wins": 58,
+   "losses": 83,
+   "gamesPlayed": 141,
+   "winningPercentage": ".411",
+   "runDifferential": -73,
+   "runsScored": 586,
+   "runsAllowed": 659,
+   "streak": "L1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 33,
+    "losses": 36,
+    "pct": ".478"
+   },
+   "away": {
+    "wins": 25,
+    "losses": 47,
+    "pct": ".347"
+   },
+   "lastTen": {
+    "wins": 5,
+    "losses": 5,
+    "pct": ".500"
+   },
+   "vsLeft": {
+    "wins": 16,
+    "losses": 25,
+    "pct": ".390"
+   },
+   "vsRight": {
+    "wins": 42,
+    "losses": 58,
+    "pct": ".420"
+   }
+  },
+  "138": {
+   "id": 138,
+   "name": "Cardinals",
+   "wins": 70,
+   "losses": 70,
+   "gamesPlayed": 140,
+   "winningPercentage": ".500",
+   "runDifferential": -8,
+   "runsScored": 631,
+   "runsAllowed": 639,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 34,
+    "losses": 38,
+    "pct": ".472"
+   },
+   "away": {
+    "wins": 36,
+    "losses": 32,
+    "pct": ".529"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 25,
+    "losses": 18,
+    "pct": ".581"
+   },
+   "vsRight": {
+    "wins": 45,
+    "losses": 52,
+    "pct": ".464"
+   }
+  },
+  "139": {
+   "id": 139,
+   "name": "Rays",
+   "wins": 83,
+   "losses": 56,
+   "gamesPlayed": 139,
+   "winningPercentage": ".597",
+   "runDifferential": 51,
+   "runsScored": 628,
+   "runsAllowed": 577,
+   "streak": "L1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 47,
+    "losses": 25,
+    "pct": ".653"
+   },
+   "away": {
+    "wins": 36,
+    "losses": 31,
+    "pct": ".537"
+   },
+   "lastTen": {
+    "wins": 7,
+    "losses": 3,
+    "pct": ".700"
+   },
+   "vsLeft": {
+    "wins": 26,
+    "losses": 13,
+    "pct": ".667"
+   },
+   "vsRight": {
+    "wins": 57,
+    "losses": 43,
+    "pct": ".570"
+   }
+  },
+  "140": {
+   "id": 140,
+   "name": "Rangers",
+   "wins": 69,
+   "losses": 71,
+   "gamesPlayed": 140,
+   "winningPercentage": ".493",
+   "runDifferential": -48,
+   "runsScored": 572,
+   "runsAllowed": 620,
+   "streak": "L1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 38,
+    "losses": 30,
+    "pct": ".559"
+   },
+   "away": {
+    "wins": 31,
+    "losses": 41,
+    "pct": ".431"
+   },
+   "lastTen": {
+    "wins": 5,
+    "losses": 5,
+    "pct": ".500"
+   },
+   "vsLeft": {
+    "wins": 22,
+    "losses": 18,
+    "pct": ".550"
+   },
+   "vsRight": {
+    "wins": 47,
+    "losses": 53,
+    "pct": ".470"
+   }
+  },
+  "141": {
+   "id": 141,
+   "name": "Blue Jays",
+   "wins": 70,
+   "losses": 71,
+   "gamesPlayed": 141,
+   "winningPercentage": ".496",
+   "runDifferential": -41,
+   "runsScored": 566,
+   "runsAllowed": 607,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 37,
+    "losses": 35,
+    "pct": ".514"
+   },
+   "away": {
+    "wins": 33,
+    "losses": 36,
+    "pct": ".478"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 21,
+    "losses": 19,
+    "pct": ".525"
+   },
+   "vsRight": {
+    "wins": 49,
+    "losses": 52,
+    "pct": ".485"
+   }
+  },
+  "142": {
+   "id": 142,
+   "name": "Twins",
+   "wins": 67,
+   "losses": 73,
+   "gamesPlayed": 140,
+   "winningPercentage": ".479",
+   "runDifferential": -38,
+   "runsScored": 658,
+   "runsAllowed": 696,
+   "streak": "L1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 38,
+    "losses": 34,
+    "pct": ".528"
+   },
+   "away": {
+    "wins": 29,
+    "losses": 39,
+    "pct": ".426"
+   },
+   "lastTen": {
+    "wins": 4,
+    "losses": 6,
+    "pct": ".400"
+   },
+   "vsLeft": {
+    "wins": 20,
+    "losses": 23,
+    "pct": ".465"
+   },
+   "vsRight": {
+    "wins": 47,
+    "losses": 50,
+    "pct": ".485"
+   }
+  },
+  "143": {
+   "id": 143,
+   "name": "Phillies",
+   "wins": 79,
+   "losses": 61,
+   "gamesPlayed": 140,
+   "winningPercentage": ".564",
+   "runDifferential": 36,
+   "runsScored": 631,
+   "runsAllowed": 595,
+   "streak": "L1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 38,
+    "losses": 30,
+    "pct": ".559"
+   },
+   "away": {
+    "wins": 41,
+    "losses": 31,
+    "pct": ".569"
+   },
+   "lastTen": {
+    "wins": 7,
+    "losses": 3,
+    "pct": ".700"
+   },
+   "vsLeft": {
+    "wins": 27,
+    "losses": 22,
+    "pct": ".551"
+   },
+   "vsRight": {
+    "wins": 52,
+    "losses": 39,
+    "pct": ".571"
+   }
+  },
+  "144": {
+   "id": 144,
+   "name": "Braves",
+   "wins": 83,
+   "losses": 57,
+   "gamesPlayed": 140,
+   "winningPercentage": ".593",
+   "runDifferential": 118,
+   "runsScored": 653,
+   "runsAllowed": 535,
+   "streak": "W1",
+   "streakNumber": 1,
+   "home": {
+    "wins": 48,
+    "losses": 24,
+    "pct": ".667"
+   },
+   "away": {
+    "wins": 35,
+    "losses": 33,
+    "pct": ".515"
+   },
+   "lastTen": {
+    "wins": 8,
+    "losses": 2,
+    "pct": ".800"
+   },
+   "vsLeft": {
+    "wins": 30,
+    "losses": 21,
+    "pct": ".588"
+   },
+   "vsRight": {
+    "wins": 53,
+    "losses": 36,
+    "pct": ".596"
+   }
+  },
+  "145": {
+   "id": 145,
+   "name": "White Sox",
+   "wins": 73,
+   "losses": 67,
+   "gamesPlayed": 140,
+   "winningPercentage": ".521",
+   "runDifferential": 39,
+   "runsScored": 662,
+   "runsAllowed": 623,
+   "streak": "L2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 41,
+    "losses": 27,
+    "pct": ".603"
+   },
+   "away": {
+    "wins": 32,
+    "losses": 40,
+    "pct": ".444"
+   },
+   "lastTen": {
+    "wins": 5,
+    "losses": 5,
+    "pct": ".500"
+   },
+   "vsLeft": {
+    "wins": 20,
+    "losses": 22,
+    "pct": ".476"
+   },
+   "vsRight": {
+    "wins": 53,
+    "losses": 45,
+    "pct": ".541"
+   }
+  },
+  "146": {
+   "id": 146,
+   "name": "Marlins",
+   "wins": 71,
+   "losses": 69,
+   "gamesPlayed": 140,
+   "winningPercentage": ".507",
+   "runDifferential": 18,
+   "runsScored": 612,
+   "runsAllowed": 594,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 42,
+    "losses": 27,
+    "pct": ".609"
+   },
+   "away": {
+    "wins": 29,
+    "losses": 42,
+    "pct": ".408"
+   },
+   "lastTen": {
+    "wins": 5,
+    "losses": 5,
+    "pct": ".500"
+   },
+   "vsLeft": {
+    "wins": 16,
+    "losses": 23,
+    "pct": ".410"
+   },
+   "vsRight": {
+    "wins": 55,
+    "losses": 46,
+    "pct": ".545"
+   }
+  },
+  "147": {
+   "id": 147,
+   "name": "Yankees",
+   "wins": 80,
+   "losses": 60,
+   "gamesPlayed": 140,
+   "winningPercentage": ".571",
+   "runDifferential": 115,
+   "runsScored": 636,
+   "runsAllowed": 521,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 37,
+    "losses": 31,
+    "pct": ".544"
+   },
+   "away": {
+    "wins": 43,
+    "losses": 29,
+    "pct": ".597"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 32,
+    "losses": 18,
+    "pct": ".640"
+   },
+   "vsRight": {
+    "wins": 48,
+    "losses": 42,
+    "pct": ".533"
+   }
+  },
+  "158": {
+   "id": 158,
+   "name": "Brewers",
+   "wins": 87,
+   "losses": 53,
+   "gamesPlayed": 140,
+   "winningPercentage": ".621",
+   "runDifferential": 172,
+   "runsScored": 704,
+   "runsAllowed": 532,
+   "streak": "W2",
+   "streakNumber": 2,
+   "home": {
+    "wins": 47,
+    "losses": 25,
+    "pct": ".653"
+   },
+   "away": {
+    "wins": 40,
+    "losses": 28,
+    "pct": ".588"
+   },
+   "lastTen": {
+    "wins": 6,
+    "losses": 4,
+    "pct": ".600"
+   },
+   "vsLeft": {
+    "wins": 30,
+    "losses": 13,
+    "pct": ".698"
+   },
+   "vsRight": {
+    "wins": 57,
+    "losses": 40,
+    "pct": ".588"
+   }
+  }
+ },
+ "counts": {
+  "teams": 30
+ },
+ "note": "Official MLB standings: W-L, run differential, home/away splits, last-ten, left/right splits. Bullpen ERA is not published here; it stays null and the engine records it as missing."
+}

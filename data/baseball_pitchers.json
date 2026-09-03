@@ -1,0 +1,7167 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-03T21:58:47Z",
+ "collector": "scripts/collect_baseball_mlb.mjs",
+ "endpoints": [
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687064/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687064/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687562/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687562/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/592332/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/592332/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/701656/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/701656/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/608379/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/608379/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/645261/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/645261/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/615698/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/615698/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663556/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663556/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/807739/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/807739/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/678022/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/678022/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669373/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669373/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687273/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687273/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/671106/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/671106/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/672456/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/672456/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695076/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695076/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/675660/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/675660/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/650911/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/650911/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/519242/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/519242/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/683003/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/683003/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/696270/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/696270/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669358/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669358/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/624133/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/624133/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/690997/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/690997/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/683363/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/683363/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/676083/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/676083/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/684007/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/684007/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/656492/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/656492/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/808825/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/808825/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607200/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607200/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/805673/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/805673/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/677958/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/677958/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607259/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607259/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/664299/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/664299/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/518876/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/518876/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663738/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663738/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/592791/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/592791/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663372/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663372/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/621111/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/621111/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/608331/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/608331/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/800600/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/800600/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669302/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669302/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/804267/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/804267/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/683627/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/683627/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687473/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/687473/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/554430/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/554430/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/527048/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/527048/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/800048/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/664285/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/664285/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/677952/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/677952/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/579328/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/579328/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/671096/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/671096/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669160/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669160/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/605135/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/605135/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/543243/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/543243/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/594798/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/594798/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/656876/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/656876/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607625/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607625/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/453286/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/453286/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/641743/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/641743/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/671737/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/671737/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/814490/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/814490/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/694297/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/694297/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/592662/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/592662/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607074/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/607074/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/690279/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/690279/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/676917/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/676917/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669923/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669923/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663903/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663903/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/690986/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/690986/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/605400/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/605400/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/641816/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/641816/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/680694/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/680694/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/801139/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/801139/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/694973/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/694973/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/700712/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/700712/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/668909/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/668909/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695549/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695549/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/681035/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/681035/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663969/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663969/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663567/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/663567/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/593958/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/593958/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/677976/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/677976/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669022/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/669022/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/685299/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/685299/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/693433/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/693433/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695611/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695611/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/650633/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/650633/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/680732/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/680732/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/641927/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/641927/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/674841/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/674841/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/666200/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/666200/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/693821/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/693821/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "sport": "Baseball",
+ "league": "mlb",
+ "season": "2026",
+ "pitchers": {
+  "453286": {
+   "id": 453286,
+   "name": "Max Scherzer",
+   "era": 6.16,
+   "whip": 1.39,
+   "strikeoutsPer9": 7.26,
+   "wins": 2,
+   "losses": 7,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.25,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Seattle Mariners",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 10,
+     "baseOnBalls": 1,
+     "pitches": 97,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Kansas City Royals",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 5,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 7,
+     "hits": 5,
+     "strikeOuts": 1,
+     "baseOnBalls": 3,
+     "pitches": 73,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 13,
+   "source": "mlb-person-gameLog"
+  },
+  "518876": {
+   "id": 518876,
+   "name": "Merrill Kelly",
+   "era": 5.08,
+   "whip": 1.48,
+   "strikeoutsPer9": 6.04,
+   "wins": 9,
+   "losses": 12,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.3,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "San Francisco Giants",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 4,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Chicago Cubs",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 6,
+     "hits": 7,
+     "strikeOuts": 2,
+     "baseOnBalls": 4,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Colorado Rockies",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 6,
+     "hits": 6,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 71,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 25,
+   "source": "mlb-person-gameLog"
+  },
+  "519242": {
+   "id": 519242,
+   "name": "Chris Sale",
+   "era": 2.06,
+   "whip": 1,
+   "strikeoutsPer9": 11.06,
+   "wins": 13,
+   "losses": 9,
+   "qualityStartsLast4": 4,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 6.75,
+   "last4": [
+    {
+     "date": "2026-08-27",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": true,
+     "inningsPitched": 9,
+     "earnedRuns": 0,
+     "hits": 5,
+     "strikeOuts": 11,
+     "baseOnBalls": 0,
+     "pitches": 109,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 8,
+     "strikeOuts": 6,
+     "baseOnBalls": 0,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 9,
+     "baseOnBalls": 0,
+     "pitches": 108,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-08",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 8,
+     "baseOnBalls": 2,
+     "pitches": 103,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 24,
+   "source": "mlb-person-gameLog"
+  },
+  "527048": {
+   "id": 527048,
+   "name": "Martín Pérez",
+   "era": 3.05,
+   "whip": 1.21,
+   "strikeoutsPer9": 6.77,
+   "wins": 8,
+   "losses": 8,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.05,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Colorado Rockies",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 83,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 4,
+     "hits": 9,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "New York Mets",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 82,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 22,
+   "source": "mlb-person-gameLog"
+  },
+  "543243": {
+   "id": 543243,
+   "name": "Sonny Gray",
+   "era": 2.82,
+   "whip": 1.18,
+   "strikeoutsPer9": 8.02,
+   "wins": 16,
+   "losses": 4,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 6,
+   "last4": [
+    {
+     "date": "2026-08-26",
+     "opponent": "Miami Marlins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 7,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 93,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 4,
+     "hits": 7,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 97,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 6,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-10",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 25,
+   "source": "mlb-person-gameLog"
+  },
+  "554430": {
+   "id": 554430,
+   "name": "Zack Wheeler",
+   "era": 3.31,
+   "whip": 1.09,
+   "strikeoutsPer9": 10.63,
+   "wins": 11,
+   "losses": 5,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 3,
+     "pitches": 108,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Seattle Mariners",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 8,
+     "hits": 9,
+     "strikeOuts": 4,
+     "baseOnBalls": 5,
+     "pitches": 103,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 4,
+     "pitches": 98,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 84,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 23,
+   "source": "mlb-person-gameLog"
+  },
+  "579328": {
+   "id": 579328,
+   "name": "Yusei Kikuchi",
+   "era": 5.65,
+   "whip": 1.49,
+   "strikeoutsPer9": 9,
+   "wins": 0,
+   "losses": 5,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.75,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 89,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-04-29",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 2,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 1,
+     "baseOnBalls": 1,
+     "pitches": 35,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-04-24",
+     "opponent": "Kansas City Royals",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 5,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 9,
+   "source": "mlb-person-gameLog"
+  },
+  "592332": {
+   "id": 592332,
+   "name": "Kevin Gausman",
+   "era": 4.52,
+   "whip": 1.27,
+   "strikeoutsPer9": 9.04,
+   "wins": 8,
+   "losses": 11,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.08,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Cincinnati Reds",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 5,
+     "hits": 6,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 102,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Chicago White Sox",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 6,
+     "hits": 7,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 93,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "592662": {
+   "id": 592662,
+   "name": "Robbie Ray",
+   "era": 3.14,
+   "whip": 1.3,
+   "strikeoutsPer9": 7.61,
+   "wins": 11,
+   "losses": 7,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.28,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 93,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Milwaukee Brewers",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 2,
+     "hits": 2,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "592791": {
+   "id": 592791,
+   "name": "Jameson Taillon",
+   "era": 5.68,
+   "whip": 1.37,
+   "strikeoutsPer9": 8.04,
+   "wins": 2,
+   "losses": 6,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.03,
+   "last4": [
+    {
+     "date": "2026-08-10",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 61,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-05",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 80,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-26",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 7,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 69,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-20",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 75,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 17,
+   "source": "mlb-person-gameLog"
+  },
+  "593958": {
+   "id": 593958,
+   "name": "Eduardo Rodriguez",
+   "era": 2.59,
+   "whip": 1.22,
+   "strikeoutsPer9": 6.57,
+   "wins": 14,
+   "losses": 5,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.8,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 103,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Chicago Cubs",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 9,
+     "baseOnBalls": 3,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "Cincinnati Reds",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "594798": {
+   "id": 594798,
+   "name": "Jacob deGrom",
+   "era": 4,
+   "whip": 1.13,
+   "strikeoutsPer9": 10.94,
+   "wins": 10,
+   "losses": 9,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 4.55,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 8,
+     "baseOnBalls": 0,
+     "pitches": 85,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 8,
+     "hits": 6,
+     "strikeOuts": 2,
+     "baseOnBalls": 5,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Washington Nationals",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 10,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 2,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 53,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "605135": {
+   "id": 605135,
+   "name": "Chris Bassitt",
+   "era": 4.97,
+   "whip": 1.58,
+   "strikeoutsPer9": 6.21,
+   "wins": 6,
+   "losses": 4,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.43,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "New York Yankees",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 95,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 88,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 14,
+   "source": "mlb-person-gameLog"
+  },
+  "605400": {
+   "id": 605400,
+   "name": "Aaron Nola",
+   "era": 4.93,
+   "whip": 1.4,
+   "strikeoutsPer9": 9.55,
+   "wins": 6,
+   "losses": 10,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.75,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Seattle Mariners",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 7,
+     "baseOnBalls": 3,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 8,
+     "baseOnBalls": 0,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 9,
+     "baseOnBalls": 3,
+     "pitches": 97,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "607074": {
+   "id": 607074,
+   "name": "Carlos Rodón",
+   "era": 3.2,
+   "whip": 1.19,
+   "strikeoutsPer9": 9.61,
+   "wins": 4,
+   "losses": 3,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.3,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Toronto Blue Jays",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 76,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Baltimore Orioles",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 66,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-06-28",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 6,
+     "baseOnBalls": 4,
+     "pitches": 96,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 12,
+   "source": "mlb-person-gameLog"
+  },
+  "607200": {
+   "id": 607200,
+   "name": "Erick Fedde",
+   "era": 4.16,
+   "whip": 1.37,
+   "strikeoutsPer9": 6.42,
+   "wins": 7,
+   "losses": 8,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.53,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 88,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-31",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 0,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-26",
+     "opponent": "Houston Astros",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 68,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-20",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 0,
+     "pitches": 64,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 13,
+   "source": "mlb-person-gameLog"
+  },
+  "607259": {
+   "id": 607259,
+   "name": "Nick Martinez",
+   "era": 2.99,
+   "whip": 1.1,
+   "strikeoutsPer9": 5.33,
+   "wins": 13,
+   "losses": 4,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6.05,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 81,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Baltimore Orioles",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Toronto Blue Jays",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 6,
+     "hits": 9,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 9,
+     "earnedRuns": 4,
+     "hits": 8,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 101,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "607625": {
+   "id": 607625,
+   "name": "Seth Lugo",
+   "era": 5.03,
+   "whip": 1.42,
+   "strikeoutsPer9": 6.9,
+   "wins": 6,
+   "losses": 8,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.6,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Cleveland Guardians",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 9,
+     "hits": 9,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 93,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 89,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 5,
+     "hits": 9,
+     "strikeOuts": 3,
+     "baseOnBalls": 0,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "608331": {
+   "id": 608331,
+   "name": "Max Fried",
+   "era": 2.8,
+   "whip": 1,
+   "strikeoutsPer9": 8.3,
+   "wins": 4,
+   "losses": 4,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.85,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 63,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Seattle Mariners",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-07",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 6.1,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 90,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-01",
+     "opponent": "Chicago Cubs",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 78,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 16,
+   "source": "mlb-person-gameLog"
+  },
+  "608379": {
+   "id": 608379,
+   "name": "Michael Wacha",
+   "era": 3.32,
+   "whip": 1.1,
+   "strikeoutsPer9": 7.17,
+   "wins": 8,
+   "losses": 8,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6.55,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Cleveland Guardians",
+     "isHome": false,
+     "inningsPitched": 8,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 10,
+     "baseOnBalls": 0,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 0,
+     "pitches": 79,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 96,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "615698": {
+   "id": 615698,
+   "name": "Cal Quantrill",
+   "era": 3.01,
+   "whip": 1.1,
+   "strikeoutsPer9": 6.83,
+   "wins": 6,
+   "losses": 5,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 6,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 8,
+     "baseOnBalls": 0,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Los Angeles Angels",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 0,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Washington Nationals",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 3,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 11,
+   "source": "mlb-person-gameLog"
+  },
+  "621111": {
+   "id": 621111,
+   "name": "Walker Buehler",
+   "era": 4.66,
+   "whip": 1.36,
+   "strikeoutsPer9": 7.61,
+   "wins": 8,
+   "losses": 6,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.75,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 3,
+     "baseOnBalls": 0,
+     "pitches": 71,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Minnesota Twins",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 2,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Milwaukee Brewers",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 98,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "624133": {
+   "id": 624133,
+   "name": "Ranger Suarez",
+   "era": 3.64,
+   "whip": 1.24,
+   "strikeoutsPer9": 8.66,
+   "wins": 5,
+   "losses": 4,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.05,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 6,
+     "hits": 9,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 101,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Miami Marlins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 4,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 4,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 81,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 24,
+   "source": "mlb-person-gameLog"
+  },
+  "641743": {
+   "id": 641743,
+   "name": "Anthony Kay",
+   "era": 4.28,
+   "whip": 1.35,
+   "strikeoutsPer9": 7.44,
+   "wins": 9,
+   "losses": 7,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.88,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 5,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 89,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Detroit Tigers",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "641816": {
+   "id": 641816,
+   "name": "Tyler Mahle",
+   "era": 4.25,
+   "whip": 1.29,
+   "strikeoutsPer9": 8.71,
+   "wins": 5,
+   "losses": 10,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.85,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Colorado Rockies",
+     "isHome": true,
+     "inningsPitched": 6.2,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 9,
+     "baseOnBalls": 0,
+     "pitches": 89,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 76,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "New York Mets",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 23,
+   "source": "mlb-person-gameLog"
+  },
+  "641927": {
+   "id": 641927,
+   "name": "Bailey Ober",
+   "era": 4.37,
+   "whip": 1.24,
+   "strikeoutsPer9": 6.27,
+   "wins": 7,
+   "losses": 4,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.03,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Chicago White Sox",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 80,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Baltimore Orioles",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 100,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 21,
+   "source": "mlb-person-gameLog"
+  },
+  "645261": {
+   "id": 645261,
+   "name": "Sandy Alcantara",
+   "era": 3.46,
+   "whip": 1.19,
+   "strikeoutsPer9": 6.64,
+   "wins": 13,
+   "losses": 8,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6.5,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 4,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 102,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Philadelphia Phillies",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 1,
+     "baseOnBalls": 1,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Cincinnati Reds",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 2,
+     "baseOnBalls": 4,
+     "pitches": 103,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 29,
+   "source": "mlb-person-gameLog"
+  },
+  "650633": {
+   "id": 650633,
+   "name": "Michael King",
+   "era": 3.11,
+   "whip": 1.17,
+   "strikeoutsPer9": 7.83,
+   "wins": 9,
+   "losses": 9,
+   "qualityStartsLast4": 4,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 6.3,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Cincinnati Reds",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 3,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 5,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 98,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 100,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Cleveland Guardians",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 83,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "650911": {
+   "id": 650911,
+   "name": "Cristopher Sánchez",
+   "era": 2.52,
+   "whip": 1.19,
+   "strikeoutsPer9": 10.37,
+   "wins": 16,
+   "losses": 4,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6.3,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 8,
+     "baseOnBalls": 1,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "St. Louis Cardinals",
+     "isHome": true,
+     "inningsPitched": 6.2,
+     "earnedRuns": 4,
+     "hits": 9,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 8,
+     "strikeOuts": 6,
+     "baseOnBalls": 3,
+     "pitches": 90,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 89,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "656492": {
+   "id": 656492,
+   "name": "Foster Griffin",
+   "era": 3.21,
+   "whip": 1.12,
+   "strikeoutsPer9": 8.11,
+   "wins": 15,
+   "losses": 4,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.25,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Kansas City Royals",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Colorado Rockies",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 105,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 101,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Detroit Tigers",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 83,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "656876": {
+   "id": 656876,
+   "name": "Drew Rasmussen",
+   "era": 2.95,
+   "whip": 0.93,
+   "strikeoutsPer9": 9.16,
+   "wins": 14,
+   "losses": 5,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.5,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 97,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Detroit Tigers",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Toronto Blue Jays",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "663372": {
+   "id": 663372,
+   "name": "Ryan Feltner",
+   "era": 5.84,
+   "whip": 1.55,
+   "strikeoutsPer9": 6.73,
+   "wins": 5,
+   "losses": 9,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.07,
+   "last4": [
+    {
+     "date": "2026-08-24",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 5,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 4,
+     "pitches": 103,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 7,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 83,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 7,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-07",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 20,
+   "source": "mlb-person-gameLog"
+  },
+  "663556": {
+   "id": 663556,
+   "name": "Shane McClanahan",
+   "era": 3.19,
+   "whip": 1.11,
+   "strikeoutsPer9": 8.2,
+   "wins": 10,
+   "losses": 6,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.07,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 80,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Baltimore Orioles",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 74,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Baltimore Orioles",
+     "isHome": true,
+     "inningsPitched": 3.1,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 0,
+     "pitches": 57,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-30",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 3,
+     "earnedRuns": 1,
+     "hits": 0,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 49,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 23,
+   "source": "mlb-person-gameLog"
+  },
+  "663567": {
+   "id": 663567,
+   "name": "Peter Lambert",
+   "era": 3.66,
+   "whip": 1.24,
+   "strikeoutsPer9": 8.89,
+   "wins": 8,
+   "losses": 7,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.4,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Chicago White Sox",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 6,
+     "baseOnBalls": 5,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 7,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 102,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Los Angeles Angels",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 9,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 79,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Seattle Mariners",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 24,
+   "source": "mlb-person-gameLog"
+  },
+  "663738": {
+   "id": 663738,
+   "name": "Daniel Lynch IV",
+   "era": 3.06,
+   "whip": 1.05,
+   "strikeoutsPer9": 6.71,
+   "wins": 4,
+   "losses": 4,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 3.33,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Cleveland Guardians",
+     "isHome": false,
+     "inningsPitched": 3.1,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 70,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 59,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 1,
+     "baseOnBalls": 2,
+     "pitches": 45,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": false,
+     "inningsPitched": 2.1,
+     "earnedRuns": 3,
+     "hits": 3,
+     "strikeOuts": 3,
+     "baseOnBalls": 0,
+     "pitches": 39,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 5,
+   "source": "mlb-person-gameLog"
+  },
+  "663903": {
+   "id": 663903,
+   "name": "Brady Singer",
+   "era": 4.83,
+   "whip": 1.45,
+   "strikeoutsPer9": 7.43,
+   "wins": 5,
+   "losses": 13,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.33,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 4,
+     "hits": 10,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "San Francisco Giants",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "St. Louis Cardinals",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 103,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 93,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "663969": {
+   "id": 663969,
+   "name": "Tyler Phillips",
+   "era": 3.43,
+   "whip": 1.33,
+   "strikeoutsPer9": 7.34,
+   "wins": 4,
+   "losses": 6,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.57,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Kansas City Royals",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 69,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 7,
+     "baseOnBalls": 3,
+     "pitches": 84,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-07",
+     "opponent": "Los Angeles Angels",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 61,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 16,
+   "source": "mlb-person-gameLog"
+  },
+  "664285": {
+   "id": 664285,
+   "name": "Framber Valdez",
+   "era": 4.36,
+   "whip": 1.4,
+   "strikeoutsPer9": 6.93,
+   "wins": 8,
+   "losses": 10,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.6,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 105,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Tampa Bay Rays",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 0,
+     "baseOnBalls": 2,
+     "pitches": 84,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 4,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Cleveland Guardians",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 5,
+     "pitches": 102,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "664299": {
+   "id": 664299,
+   "name": "Cristian Javier",
+   "era": 6.45,
+   "whip": 1.63,
+   "strikeoutsPer9": 8.46,
+   "wins": 1,
+   "losses": 5,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.75,
+   "last4": [
+    {
+     "date": "2026-08-23",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 8,
+     "baseOnBalls": 2,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Los Angeles Angels",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-09",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 4,
+     "hits": 8,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-03",
+     "opponent": "Toronto Blue Jays",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 2,
+     "baseOnBalls": 0,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 8,
+   "source": "mlb-person-gameLog"
+  },
+  "666200": {
+   "id": 666200,
+   "name": "Jesús Luzardo",
+   "era": 3.02,
+   "whip": 1.12,
+   "strikeoutsPer9": 11.09,
+   "wins": 13,
+   "losses": 5,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6.15,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Seattle Mariners",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 9,
+     "baseOnBalls": 3,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "St. Louis Cardinals",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 9,
+     "baseOnBalls": 1,
+     "pitches": 110,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 1,
+     "hits": 7,
+     "strikeOuts": 9,
+     "baseOnBalls": 2,
+     "pitches": 109,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "668909": {
+   "id": 668909,
+   "name": "Gavin Williams",
+   "era": 3.81,
+   "whip": 1.09,
+   "strikeoutsPer9": 11.98,
+   "wins": 13,
+   "losses": 7,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.35,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Toronto Blue Jays",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 13,
+     "baseOnBalls": 1,
+     "pitches": 97,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 1.1,
+     "earnedRuns": 5,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 62,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 11,
+     "baseOnBalls": 3,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 5,
+     "baseOnBalls": 4,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "669022": {
+   "id": 669022,
+   "name": "MacKenzie Gore",
+   "era": 4.31,
+   "whip": 1.29,
+   "strikeoutsPer9": 9.83,
+   "wins": 8,
+   "losses": 10,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.88,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 4,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 4,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 4,
+     "pitches": 83,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "Los Angeles Angels",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 29,
+   "source": "mlb-person-gameLog"
+  },
+  "669160": {
+   "id": 669160,
+   "name": "Dustin May",
+   "era": 4.69,
+   "whip": 1.32,
+   "strikeoutsPer9": 8.53,
+   "wins": 6,
+   "losses": 9,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 3.3,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 0.1,
+     "earnedRuns": 0,
+     "hits": 0,
+     "strikeOuts": 0,
+     "baseOnBalls": 0,
+     "pitches": 1,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Seattle Mariners",
+     "isHome": true,
+     "inningsPitched": 2,
+     "earnedRuns": 7,
+     "hits": 7,
+     "strikeOuts": 1,
+     "baseOnBalls": 2,
+     "pitches": 66,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 83,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "669302": {
+   "id": 669302,
+   "name": "Logan Gilbert",
+   "era": 3.42,
+   "whip": 1.04,
+   "strikeoutsPer9": 9.32,
+   "wins": 11,
+   "losses": 8,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.25,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 102,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 4,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "669358": {
+   "id": 669358,
+   "name": "Shane Baz",
+   "era": 4.01,
+   "whip": 1.35,
+   "strikeoutsPer9": 7.97,
+   "wins": 5,
+   "losses": 14,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.88,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Tampa Bay Rays",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 96,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "New York Yankees",
+     "isHome": true,
+     "inningsPitched": 6.1,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 10,
+     "baseOnBalls": 2,
+     "pitches": 104,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 3,
+     "earnedRuns": 5,
+     "hits": 9,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 65,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "669373": {
+   "id": 669373,
+   "name": "Tarik Skubal",
+   "era": 2.84,
+   "whip": 0.94,
+   "strikeoutsPer9": 10.87,
+   "wins": 8,
+   "losses": 7,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 6,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Detroit Tigers",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 83,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 11,
+     "baseOnBalls": 1,
+     "pitches": 106,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Milwaukee Brewers",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 7,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 109,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-10",
+     "opponent": "Kansas City Royals",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 21,
+   "source": "mlb-person-gameLog"
+  },
+  "669923": {
+   "id": 669923,
+   "name": "George Kirby",
+   "era": 4.19,
+   "whip": 1.35,
+   "strikeoutsPer9": 7.55,
+   "wins": 9,
+   "losses": 10,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.88,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 7.2,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 9,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 3.1,
+     "earnedRuns": 6,
+     "hits": 9,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 84,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "671096": {
+   "id": 671096,
+   "name": "Andrew Abbott",
+   "era": 4.49,
+   "whip": 1.44,
+   "strikeoutsPer9": 6.98,
+   "wins": 6,
+   "losses": 10,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.8,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Chicago Cubs",
+     "isHome": false,
+     "inningsPitched": 3,
+     "earnedRuns": 7,
+     "hits": 8,
+     "strikeOuts": 1,
+     "baseOnBalls": 2,
+     "pitches": 68,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 4,
+     "hits": 7,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "St. Louis Cardinals",
+     "isHome": true,
+     "inningsPitched": 6.1,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 98,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "671106": {
+   "id": 671106,
+   "name": "Logan Allen",
+   "era": 3.77,
+   "whip": 1.47,
+   "strikeoutsPer9": 9.42,
+   "wins": 0,
+   "losses": 0,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 3.1,
+   "last4": [
+    {
+     "date": "2026-07-18",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 3.1,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 81,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 1,
+   "source": "mlb-person-gameLog"
+  },
+  "671737": {
+   "id": 671737,
+   "name": "Taj Bradley",
+   "era": 3.85,
+   "whip": 1.26,
+   "strikeoutsPer9": 10.38,
+   "wins": 10,
+   "losses": 6,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.55,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 9,
+     "baseOnBalls": 3,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 6.2,
+     "earnedRuns": 4,
+     "hits": 7,
+     "strikeOuts": 11,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 3,
+     "pitches": 88,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 3,
+     "baseOnBalls": 4,
+     "pitches": 89,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "672456": {
+   "id": 672456,
+   "name": "Keider Montero",
+   "era": 3.24,
+   "whip": 0.99,
+   "strikeoutsPer9": 5.96,
+   "wins": 9,
+   "losses": 8,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.55,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 73,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 78,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Cleveland Guardians",
+     "isHome": true,
+     "inningsPitched": 6.1,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 0,
+     "baseOnBalls": 1,
+     "pitches": 88,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-07",
+     "opponent": "San Francisco Giants",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 5,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 22,
+   "source": "mlb-person-gameLog"
+  },
+  "674841": {
+   "id": 674841,
+   "name": "Andrew Alvarez",
+   "era": 3.47,
+   "whip": 1.31,
+   "strikeoutsPer9": 8.54,
+   "wins": 2,
+   "losses": 6,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.1,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 6,
+     "baseOnBalls": 3,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Colorado Rockies",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 81,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 75,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 2,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 73,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 13,
+   "source": "mlb-person-gameLog"
+  },
+  "675660": {
+   "id": 675660,
+   "name": "Shane Drohan",
+   "era": 3.75,
+   "whip": 1.3,
+   "strikeoutsPer9": 8.97,
+   "wins": 7,
+   "losses": 5,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.03,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 8,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 83,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 3,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 85,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-07",
+     "opponent": "Minnesota Twins",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 6,
+     "hits": 9,
+     "strikeOuts": 4,
+     "baseOnBalls": 4,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 16,
+   "source": "mlb-person-gameLog"
+  },
+  "676083": {
+   "id": 676083,
+   "name": "Janson Junk",
+   "era": 4.11,
+   "whip": 1.3,
+   "strikeoutsPer9": 6.12,
+   "wins": 6,
+   "losses": 8,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.85,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 65,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Washington Nationals",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 2,
+     "baseOnBalls": 0,
+     "pitches": 69,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Philadelphia Phillies",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 8,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 81,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 20,
+   "source": "mlb-person-gameLog"
+  },
+  "676917": {
+   "id": 676917,
+   "name": "Cade Cavalli",
+   "era": 3.12,
+   "whip": 1.2,
+   "strikeoutsPer9": 10.43,
+   "wins": 12,
+   "losses": 5,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 0,
+     "hits": 0,
+     "strikeOuts": 8,
+     "baseOnBalls": 3,
+     "pitches": 70,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Colorado Rockies",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 11,
+     "baseOnBalls": 1,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Chicago Cubs",
+     "isHome": true,
+     "inningsPitched": 8,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 10,
+     "baseOnBalls": 2,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 29,
+   "source": "mlb-person-gameLog"
+  },
+  "677952": {
+   "id": 677952,
+   "name": "Braxton Ashcraft",
+   "era": 3.59,
+   "whip": 1.08,
+   "strikeoutsPer9": 9.21,
+   "wins": 14,
+   "losses": 5,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 7,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 71,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 8,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 80,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Miami Marlins",
+     "isHome": false,
+     "inningsPitched": 9,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 10,
+     "baseOnBalls": 1,
+     "pitches": 85,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "677958": {
+   "id": 677958,
+   "name": "Kumar Rocker",
+   "era": 4.44,
+   "whip": 1.43,
+   "strikeoutsPer9": 8.61,
+   "wins": 5,
+   "losses": 10,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.55,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Milwaukee Brewers",
+     "isHome": false,
+     "inningsPitched": 3,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 4,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 8,
+     "baseOnBalls": 3,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Washington Nationals",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 5,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 24,
+   "source": "mlb-person-gameLog"
+  },
+  "677976": {
+   "id": 677976,
+   "name": "Randy Dobnak",
+   "era": 2.65,
+   "whip": 1.39,
+   "strikeoutsPer9": 6.24,
+   "wins": 2,
+   "losses": 3,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.3,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 6,
+     "hits": 7,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 0,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 4,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 93,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 9,
+   "source": "mlb-person-gameLog"
+  },
+  "678022": {
+   "id": 678022,
+   "name": "Jack Perkins",
+   "era": 6.42,
+   "whip": 1.49,
+   "strikeoutsPer9": 10.29,
+   "wins": 3,
+   "losses": 10,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.53,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Baltimore Orioles",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 4,
+     "pitches": 80,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Tampa Bay Rays",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 6,
+     "hits": 12,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-07",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 3,
+     "earnedRuns": 5,
+     "hits": 5,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 70,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-01",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 6,
+     "hits": 9,
+     "strikeOuts": 9,
+     "baseOnBalls": 1,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 12,
+   "source": "mlb-person-gameLog"
+  },
+  "680694": {
+   "id": 680694,
+   "name": "Kyle Bradish",
+   "era": 4.01,
+   "whip": 1.42,
+   "strikeoutsPer9": 8.33,
+   "wins": 7,
+   "losses": 12,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.08,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Colorado Rockies",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 95,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 7,
+     "hits": 9,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "New York Yankees",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 100,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 7,
+     "strikeOuts": 3,
+     "baseOnBalls": 4,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "680732": {
+   "id": 680732,
+   "name": "Sean Burke",
+   "era": 3.2,
+   "whip": 1.14,
+   "strikeoutsPer9": 9.72,
+   "wins": 8,
+   "losses": 6,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.57,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 6,
+     "baseOnBalls": 4,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 3,
+     "earnedRuns": 2,
+     "hits": 2,
+     "strikeOuts": 3,
+     "baseOnBalls": 8,
+     "pitches": 92,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "New York Mets",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 4,
+     "hits": 7,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 98,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Detroit Tigers",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 72,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 24,
+   "source": "mlb-person-gameLog"
+  },
+  "681035": {
+   "id": 681035,
+   "name": "Christian Scott",
+   "era": 3.8,
+   "whip": 1.31,
+   "strikeoutsPer9": 10.74,
+   "wins": 4,
+   "losses": 4,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.85,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Houston Astros",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 3,
+     "hits": 1,
+     "strikeOuts": 2,
+     "baseOnBalls": 5,
+     "pitches": 96,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 4,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Washington Nationals",
+     "isHome": true,
+     "inningsPitched": 6.1,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 90,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-10",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 4,
+     "hits": 7,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 82,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 20,
+   "source": "mlb-person-gameLog"
+  },
+  "683003": {
+   "id": 683003,
+   "name": "Jared Jones",
+   "era": 4.83,
+   "whip": 1.28,
+   "strikeoutsPer9": 10.28,
+   "wins": 2,
+   "losses": 6,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.05,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "St. Louis Cardinals",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 5,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-09",
+     "opponent": "New York Mets",
+     "isHome": true,
+     "inningsPitched": 3,
+     "earnedRuns": 8,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 69,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 16,
+   "source": "mlb-person-gameLog"
+  },
+  "683363": {
+   "id": 683363,
+   "name": "Matt Wilkinson",
+   "era": 4.63,
+   "whip": 1.11,
+   "strikeoutsPer9": 4.63,
+   "wins": 0,
+   "losses": 2,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 3.73,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 4,
+     "hits": 7,
+     "strikeOuts": 2,
+     "baseOnBalls": 0,
+     "pitches": 66,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Cleveland Guardians",
+     "isHome": false,
+     "inningsPitched": 2,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 0,
+     "baseOnBalls": 0,
+     "pitches": 25,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 3,
+   "source": "mlb-person-gameLog"
+  },
+  "683627": {
+   "id": 683627,
+   "name": "Anthony Molina",
+   "era": 3.77,
+   "whip": 1.05,
+   "strikeoutsPer9": 5.65,
+   "wins": 2,
+   "losses": 0,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 0,
+     "pitches": 75,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 1,
+   "source": "mlb-person-gameLog"
+  },
+  "684007": {
+   "id": 684007,
+   "name": "Shota Imanaga",
+   "era": 4.01,
+   "whip": 1.14,
+   "strikeoutsPer9": 8.86,
+   "wins": 8,
+   "losses": 10,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.3,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Cincinnati Reds",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 6,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Seattle Mariners",
+     "isHome": false,
+     "inningsPitched": 2,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 72,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Chicago White Sox",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 2,
+     "strikeOuts": 10,
+     "baseOnBalls": 3,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "685299": {
+   "id": 685299,
+   "name": "Tanner Gordon",
+   "era": 5.18,
+   "whip": 1.4,
+   "strikeoutsPer9": 7.31,
+   "wins": 1,
+   "losses": 4,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.53,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Baltimore Orioles",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 60,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 90,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "Cleveland Guardians",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 5,
+     "hits": 9,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-07-10",
+     "opponent": "San Francisco Giants",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 8,
+     "strikeOuts": 1,
+     "baseOnBalls": 1,
+     "pitches": 81,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 8,
+   "source": "mlb-person-gameLog"
+  },
+  "687064": {
+   "id": 687064,
+   "name": "Brandon Young",
+   "era": 3.38,
+   "whip": 1.34,
+   "strikeoutsPer9": 7.11,
+   "wins": 9,
+   "losses": 3,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.55,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Tampa Bay Rays",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Tampa Bay Rays",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 4,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 23,
+   "source": "mlb-person-gameLog"
+  },
+  "687273": {
+   "id": 687273,
+   "name": "Quinn Mathews",
+   "era": 5.03,
+   "whip": 1.58,
+   "strikeoutsPer9": 9.15,
+   "wins": 1,
+   "losses": 2,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.8,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 102,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Philadelphia Phillies",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 7,
+     "hits": 10,
+     "strikeOuts": 3,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "Cincinnati Reds",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 3,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-01",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 4,
+   "source": "mlb-person-gameLog"
+  },
+  "687473": {
+   "id": 687473,
+   "name": "Ryan Gusto",
+   "era": 3.86,
+   "whip": 1.33,
+   "strikeoutsPer9": 7.58,
+   "wins": 1,
+   "losses": 3,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.38,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 69,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 89,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "Washington Nationals",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 0,
+     "hits": 5,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 62,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-15",
+     "opponent": "Cincinnati Reds",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 0,
+     "pitches": 70,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 14,
+   "source": "mlb-person-gameLog"
+  },
+  "687562": {
+   "id": 687562,
+   "name": "Jake Bennett",
+   "era": 3.27,
+   "whip": 1.04,
+   "strikeoutsPer9": 7.11,
+   "wins": 9,
+   "losses": 6,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.53,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 83,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 82,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-08",
+     "opponent": "Athletics",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 4,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 16,
+   "source": "mlb-person-gameLog"
+  },
+  "690279": {
+   "id": 690279,
+   "name": "Mason Adams",
+   "era": 3,
+   "whip": 1.44,
+   "strikeoutsPer9": 10,
+   "wins": 0,
+   "losses": 0,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.5,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 74,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Washington Nationals",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 75,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 2,
+   "source": "mlb-person-gameLog"
+  },
+  "690986": {
+   "id": 690986,
+   "name": "Kyle Harrison",
+   "era": 3.45,
+   "whip": 1.2,
+   "strikeoutsPer9": 10.93,
+   "wins": 10,
+   "losses": 4,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.35,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Chicago Cubs",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 9,
+     "hits": 10,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 98,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Seattle Mariners",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 8,
+     "baseOnBalls": 2,
+     "pitches": 79,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 3,
+     "hits": 10,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 22,
+   "source": "mlb-person-gameLog"
+  },
+  "690997": {
+   "id": 690997,
+   "name": "Nolan McLean",
+   "era": 3.06,
+   "whip": 1.12,
+   "strikeoutsPer9": 9.94,
+   "wins": 10,
+   "losses": 8,
+   "qualityStartsLast4": 4,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 6.25,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Houston Astros",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 6,
+     "baseOnBalls": 4,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 4,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 1,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "693433": {
+   "id": 693433,
+   "name": "Bryan Woo",
+   "era": 4.25,
+   "whip": 1.09,
+   "strikeoutsPer9": 9.04,
+   "wins": 10,
+   "losses": 9,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.25,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 6,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 76,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 75,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "693821": {
+   "id": 693821,
+   "name": "Bryce Elder",
+   "era": 4.11,
+   "whip": 1.27,
+   "strikeoutsPer9": 7.31,
+   "wins": 8,
+   "losses": 8,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.53,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 84,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 8,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 98,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 75,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-10",
+     "opponent": "New York Mets",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 7,
+     "hits": 10,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 105,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
+  "694297": {
+   "id": 694297,
+   "name": "Brandon Pfaadt",
+   "era": 3.49,
+   "whip": 1.14,
+   "strikeoutsPer9": 5.92,
+   "wins": 7,
+   "losses": 2,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 6.1,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 1,
+     "baseOnBalls": 1,
+     "pitches": 87,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Chicago Cubs",
+     "isHome": true,
+     "inningsPitched": 6.2,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Boston Red Sox",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 5,
+     "hits": 7,
+     "strikeOuts": 8,
+     "baseOnBalls": 0,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 87,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 15,
+   "source": "mlb-person-gameLog"
+  },
+  "694973": {
+   "id": 694973,
+   "name": "Paul Skenes",
+   "era": 3.97,
+   "whip": 1.16,
+   "strikeoutsPer9": 10.76,
+   "wins": 9,
+   "losses": 11,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.82,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 4.2,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 87,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 4,
+     "pitches": 81,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Miami Marlins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 65,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "695076": {
+   "id": 695076,
+   "name": "Rhett Lowder",
+   "era": 5.14,
+   "whip": 1.46,
+   "strikeoutsPer9": 7.07,
+   "wins": 6,
+   "losses": 8,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.57,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Chicago Cubs",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 1,
+     "baseOnBalls": 1,
+     "pitches": 92,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-17",
+     "opponent": "St. Louis Cardinals",
+     "isHome": true,
+     "inningsPitched": 6.2,
+     "earnedRuns": 4,
+     "hits": 8,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 99,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Chicago White Sox",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 2,
+     "hits": 7,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 21,
+   "source": "mlb-person-gameLog"
+  },
+  "695549": {
+   "id": 695549,
+   "name": "Jackson Jobe",
+   "era": 4.63,
+   "whip": 1.46,
+   "strikeoutsPer9": 7.33,
+   "wins": 1,
+   "losses": 2,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.35,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Minnesota Twins",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 92,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Tampa Bay Rays",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 86,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Pittsburgh Pirates",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 1,
+     "hits": 4,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Chicago White Sox",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 6,
+     "hits": 9,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 74,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 5,
+   "source": "mlb-person-gameLog"
+  },
+  "695611": {
+   "id": 695611,
+   "name": "Gage Jump",
+   "era": 5.15,
+   "whip": 1.49,
+   "strikeoutsPer9": 9.62,
+   "wins": 6,
+   "losses": 9,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.82,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 7,
+     "hits": 6,
+     "strikeOuts": 2,
+     "baseOnBalls": 3,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Minnesota Twins",
+     "isHome": true,
+     "inningsPitched": 6.1,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 9,
+     "baseOnBalls": 2,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-20",
+     "opponent": "Kansas City Royals",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 86,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 3,
+     "hits": 3,
+     "strikeOuts": 1,
+     "baseOnBalls": 4,
+     "pitches": 101,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 18,
+   "source": "mlb-person-gameLog"
+  },
+  "696270": {
+   "id": 696270,
+   "name": "Ryan Johnson",
+   "era": 5.47,
+   "whip": 1.42,
+   "strikeoutsPer9": 6.47,
+   "wins": 3,
+   "losses": 7,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.3,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Philadelphia Phillies",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 2,
+     "baseOnBalls": 5,
+     "pitches": 88,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 88,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Kansas City Royals",
+     "isHome": true,
+     "inningsPitched": 5.1,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-11",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 4.1,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 84,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 14,
+   "source": "mlb-person-gameLog"
+  },
+  "700712": {
+   "id": 700712,
+   "name": "Walbert Ureña",
+   "era": 2.85,
+   "whip": 1.26,
+   "strikeoutsPer9": 8.76,
+   "wins": 9,
+   "losses": 9,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.3,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "New York Yankees",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 8,
+     "baseOnBalls": 0,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Cleveland Guardians",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 3,
+     "baseOnBalls": 5,
+     "pitches": 89,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 3,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 94,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 23,
+   "source": "mlb-person-gameLog"
+  },
+  "701656": {
+   "id": 701656,
+   "name": "Logan Henderson",
+   "era": 2.48,
+   "whip": 0.83,
+   "strikeoutsPer9": 10.14,
+   "wins": 9,
+   "losses": 2,
+   "qualityStartsLast4": 4,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 6.53,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Texas Rangers",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 1,
+     "strikeOuts": 7,
+     "baseOnBalls": 0,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Los Angeles Dodgers",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 6,
+     "baseOnBalls": 1,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-10",
+     "opponent": "San Diego Padres",
+     "isHome": false,
+     "inningsPitched": 6.1,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 14,
+   "source": "mlb-person-gameLog"
+  },
+  "800048": {
+   "id": 800048,
+   "name": "Parker Messick",
+   "era": 2.46,
+   "whip": 1.02,
+   "strikeoutsPer9": 9,
+   "wins": 11,
+   "losses": 8,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 3,
+   "avgInningsPerStart": 5.85,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Kansas City Royals",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 105,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Los Angeles Angels",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "San Francisco Giants",
+     "isHome": true,
+     "inningsPitched": 6.2,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 10,
+     "baseOnBalls": 0,
+     "pitches": 98,
+     "isWin": false,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Detroit Tigers",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 102,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 27,
+   "source": "mlb-person-gameLog"
+  },
+  "800600": {
+   "id": 800600,
+   "name": "Jackson Kent",
+   "era": 5.59,
+   "whip": 1.71,
+   "strikeoutsPer9": 7.91,
+   "wins": 1,
+   "losses": 2,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.6,
+   "last4": [
+    {
+     "date": "2026-08-28",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 3,
+     "baseOnBalls": 4,
+     "pitches": 106,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-23",
+     "opponent": "Miami Marlins",
+     "isHome": false,
+     "inningsPitched": 4.2,
+     "earnedRuns": 3,
+     "hits": 4,
+     "strikeOuts": 5,
+     "baseOnBalls": 3,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Texas Rangers",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 5,
+     "hits": 8,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 84,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Chicago Cubs",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 3,
+     "hits": 3,
+     "strikeOuts": 6,
+     "baseOnBalls": 5,
+     "pitches": 78,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 4,
+   "source": "mlb-person-gameLog"
+  },
+  "801139": {
+   "id": 801139,
+   "name": "Payton Tolle",
+   "era": 3.23,
+   "whip": 1.1,
+   "strikeoutsPer9": 10.1,
+   "wins": 8,
+   "losses": 6,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.83,
+   "last4": [
+    {
+     "date": "2026-08-31",
+     "opponent": "Seattle Mariners",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 96,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Miami Marlins",
+     "isHome": false,
+     "inningsPitched": 5.1,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 7,
+     "baseOnBalls": 2,
+     "pitches": 97,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 6,
+     "strikeOuts": 6,
+     "baseOnBalls": 2,
+     "pitches": 98,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-13",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 8,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 91,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 23,
+   "source": "mlb-person-gameLog"
+  },
+  "804267": {
+   "id": 804267,
+   "name": "Zac Thornton",
+   "era": 2.93,
+   "whip": 1.16,
+   "strikeoutsPer9": 6.6,
+   "wins": 3,
+   "losses": 4,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.5,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Houston Astros",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 97,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "Milwaukee Brewers",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 1,
+     "hits": 7,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 89,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 99,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Atlanta Braves",
+     "isHome": false,
+     "inningsPitched": 6,
+     "earnedRuns": 3,
+     "hits": 7,
+     "strikeOuts": 2,
+     "baseOnBalls": 1,
+     "pitches": 80,
+     "isWin": false,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 11,
+   "source": "mlb-person-gameLog"
+  },
+  "805673": {
+   "id": 805673,
+   "name": "Zebby Matthews",
+   "era": 4.58,
+   "whip": 1.26,
+   "strikeoutsPer9": 7.47,
+   "wins": 9,
+   "losses": 8,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 6.33,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Chicago White Sox",
+     "isHome": true,
+     "inningsPitched": 8.1,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 103,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "Athletics",
+     "isHome": false,
+     "inningsPitched": 7,
+     "earnedRuns": 1,
+     "hits": 6,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 105,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-18",
+     "opponent": "Atlanta Braves",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 1,
+     "hits": 5,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 90,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-12",
+     "opponent": "Baltimore Orioles",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 94,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 19,
+   "source": "mlb-person-gameLog"
+  },
+  "807739": {
+   "id": 807739,
+   "name": "Kade Anderson",
+   "era": 4.5,
+   "whip": 1.3,
+   "strikeoutsPer9": 7.2,
+   "wins": 0,
+   "losses": 0,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.65,
+   "last4": [
+    {
+     "date": "2026-08-29",
+     "opponent": "Toronto Blue Jays",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 3,
+     "baseOnBalls": 3,
+     "pitches": 85,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-22",
+     "opponent": "Chicago Cubs",
+     "isHome": true,
+     "inningsPitched": 5.2,
+     "earnedRuns": 3,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 81,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 2,
+   "source": "mlb-person-gameLog"
+  },
+  "808825": {
+   "id": 808825,
+   "name": "Andrew Sears",
+   "era": 6.75,
+   "whip": 1.35,
+   "strikeoutsPer9": 5.4,
+   "wins": 0,
+   "losses": 1,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": null,
+   "last4": [],
+   "startsCount": 0,
+   "source": "mlb-person-gameLog"
+  },
+  "814490": {
+   "id": 814490,
+   "name": "Ethan Pecko",
+   "era": 6.23,
+   "whip": 1.54,
+   "strikeoutsPer9": 6.23,
+   "wins": 1,
+   "losses": 0,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.1,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "New York Mets",
+     "isHome": false,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 2,
+     "pitches": 83,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-25",
+     "opponent": "New York Yankees",
+     "isHome": false,
+     "inningsPitched": 4.1,
+     "earnedRuns": 5,
+     "hits": 5,
+     "strikeOuts": 1,
+     "baseOnBalls": 4,
+     "pitches": 88,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "Los Angeles Angels",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 89,
+     "isWin": true,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 3,
+   "source": "mlb-person-gameLog"
+  }
+ },
+ "counts": {
+  "pitchers": 92
+ },
+ "note": "Probable-starter profiles from the official MLB StatsAPI person game log and season stats. A starter is recorded as \"confirmed\" only when the MLB schedule names a probable pitcher."
+}

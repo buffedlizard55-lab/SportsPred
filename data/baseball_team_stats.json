@@ -1,0 +1,418 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-03T21:58:44Z",
+ "collector": "scripts/collect_baseball_mlb.mjs",
+ "endpoints": [
+  {
+   "url": "https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=hitting&season=2026&sportId=1",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=pitching&season=2026&sportId=1",
+   "status": 200,
+   "error": null,
+   "ok": true
+  }
+ ],
+ "sport": "Baseball",
+ "league": "mlb",
+ "season": "2026",
+ "teams": {
+  "108": {
+   "id": 108,
+   "name": "Los Angeles Angels",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 651,
+    "era": 4.27,
+    "whip": 1.35,
+    "strikeoutsPer9Inn": 9.12,
+    "saves": 21,
+    "blownSaves": 25
+   }
+  },
+  "109": {
+   "id": 109,
+   "name": "Arizona Diamondbacks",
+   "pitching": {
+    "gamesPlayed": 141,
+    "runs": 629,
+    "era": 4.16,
+    "whip": 1.29,
+    "strikeoutsPer9Inn": 6.93,
+    "saves": 34,
+    "blownSaves": 15
+   }
+  },
+  "110": {
+   "id": 110,
+   "name": "Baltimore Orioles",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 655,
+    "era": 4.16,
+    "whip": 1.35,
+    "strikeoutsPer9Inn": 8.08,
+    "saves": 39,
+    "blownSaves": 21
+   }
+  },
+  "111": {
+   "id": 111,
+   "name": "Boston Red Sox",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 550,
+    "era": 3.66,
+    "whip": 1.24,
+    "strikeoutsPer9Inn": 8.61,
+    "saves": 37,
+    "blownSaves": 13
+   }
+  },
+  "112": {
+   "id": 112,
+   "name": "Chicago Cubs",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 619,
+    "era": 4.21,
+    "whip": 1.27,
+    "strikeoutsPer9Inn": 7.78,
+    "saves": 29,
+    "blownSaves": 24
+   }
+  },
+  "113": {
+   "id": 113,
+   "name": "Cincinnati Reds",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 689,
+    "era": 4.64,
+    "whip": 1.42,
+    "strikeoutsPer9Inn": 8.18,
+    "saves": 37,
+    "blownSaves": 21
+   }
+  },
+  "114": {
+   "id": 114,
+   "name": "Cleveland Guardians",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 577,
+    "era": 3.74,
+    "whip": 1.26,
+    "strikeoutsPer9Inn": 9.46,
+    "saves": 40,
+    "blownSaves": 14
+   }
+  },
+  "115": {
+   "id": 115,
+   "name": "Colorado Rockies",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 795,
+    "era": 5.42,
+    "whip": 1.52,
+    "strikeoutsPer9Inn": 6.95,
+    "saves": 31,
+    "blownSaves": 22
+   }
+  },
+  "116": {
+   "id": 116,
+   "name": "Detroit Tigers",
+   "pitching": {
+    "gamesPlayed": 139,
+    "runs": 563,
+    "era": 3.7,
+    "whip": 1.23,
+    "strikeoutsPer9Inn": 8.22,
+    "saves": 27,
+    "blownSaves": 30
+   }
+  },
+  "117": {
+   "id": 117,
+   "name": "Houston Astros",
+   "pitching": {
+    "gamesPlayed": 141,
+    "runs": 677,
+    "era": 4.56,
+    "whip": 1.36,
+    "strikeoutsPer9Inn": 8.88,
+    "saves": 44,
+    "blownSaves": 9
+   }
+  },
+  "118": {
+   "id": 118,
+   "name": "Kansas City Royals",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 688,
+    "era": 4.72,
+    "whip": 1.39,
+    "strikeoutsPer9Inn": 7.46,
+    "saves": 34,
+    "blownSaves": 24
+   }
+  },
+  "119": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "pitching": {
+    "gamesPlayed": 139,
+    "runs": 538,
+    "era": 3.71,
+    "whip": 1.16,
+    "strikeoutsPer9Inn": 9.27,
+    "saves": 38,
+    "blownSaves": 20
+   }
+  },
+  "120": {
+   "id": 120,
+   "name": "Washington Nationals",
+   "pitching": {
+    "gamesPlayed": 142,
+    "runs": 721,
+    "era": 4.69,
+    "whip": 1.39,
+    "strikeoutsPer9Inn": 7.91,
+    "saves": 34,
+    "blownSaves": 35
+   }
+  },
+  "121": {
+   "id": 121,
+   "name": "New York Mets",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 627,
+    "era": 4.09,
+    "whip": 1.3,
+    "strikeoutsPer9Inn": 8.99,
+    "saves": 26,
+    "blownSaves": 17
+   }
+  },
+  "133": {
+   "id": 133,
+   "name": "Athletics",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 805,
+    "era": 5.45,
+    "whip": 1.5,
+    "strikeoutsPer9Inn": 8.56,
+    "saves": 34,
+    "blownSaves": 26
+   }
+  },
+  "134": {
+   "id": 134,
+   "name": "Pittsburgh Pirates",
+   "pitching": {
+    "gamesPlayed": 141,
+    "runs": 662,
+    "era": 4.22,
+    "whip": 1.31,
+    "strikeoutsPer9Inn": 9.24,
+    "saves": 29,
+    "blownSaves": 22
+   }
+  },
+  "135": {
+   "id": 135,
+   "name": "San Diego Padres",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 584,
+    "era": 3.94,
+    "whip": 1.29,
+    "strikeoutsPer9Inn": 8.22,
+    "saves": 40,
+    "blownSaves": 18
+   }
+  },
+  "136": {
+   "id": 136,
+   "name": "Seattle Mariners",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 620,
+    "era": 4.18,
+    "whip": 1.25,
+    "strikeoutsPer9Inn": 8.58,
+    "saves": 30,
+    "blownSaves": 22
+   }
+  },
+  "137": {
+   "id": 137,
+   "name": "San Francisco Giants",
+   "pitching": {
+    "gamesPlayed": 141,
+    "runs": 659,
+    "era": 4.38,
+    "whip": 1.36,
+    "strikeoutsPer9Inn": 7.7,
+    "saves": 26,
+    "blownSaves": 22
+   }
+  },
+  "138": {
+   "id": 138,
+   "name": "St. Louis Cardinals",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 639,
+    "era": 4.24,
+    "whip": 1.35,
+    "strikeoutsPer9Inn": 7.96,
+    "saves": 41,
+    "blownSaves": 24
+   }
+  },
+  "139": {
+   "id": 139,
+   "name": "Tampa Bay Rays",
+   "pitching": {
+    "gamesPlayed": 139,
+    "runs": 577,
+    "era": 3.78,
+    "whip": 1.15,
+    "strikeoutsPer9Inn": 8.25,
+    "saves": 54,
+    "blownSaves": 15
+   }
+  },
+  "140": {
+   "id": 140,
+   "name": "Texas Rangers",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 620,
+    "era": 4.3,
+    "whip": 1.31,
+    "strikeoutsPer9Inn": 8.7,
+    "saves": 39,
+    "blownSaves": 16
+   }
+  },
+  "141": {
+   "id": 141,
+   "name": "Toronto Blue Jays",
+   "pitching": {
+    "gamesPlayed": 141,
+    "runs": 607,
+    "era": 3.92,
+    "whip": 1.3,
+    "strikeoutsPer9Inn": 8.82,
+    "saves": 47,
+    "blownSaves": 15
+   }
+  },
+  "142": {
+   "id": 142,
+   "name": "Minnesota Twins",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 696,
+    "era": 4.63,
+    "whip": 1.38,
+    "strikeoutsPer9Inn": 8.47,
+    "saves": 38,
+    "blownSaves": 16
+   }
+  },
+  "143": {
+   "id": 143,
+   "name": "Philadelphia Phillies",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 595,
+    "era": 3.99,
+    "whip": 1.28,
+    "strikeoutsPer9Inn": 9.95,
+    "saves": 38,
+    "blownSaves": 18
+   }
+  },
+  "144": {
+   "id": 144,
+   "name": "Atlanta Braves",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 535,
+    "era": 3.58,
+    "whip": 1.25,
+    "strikeoutsPer9Inn": 8.59,
+    "saves": 43,
+    "blownSaves": 19
+   }
+  },
+  "145": {
+   "id": 145,
+   "name": "Chicago White Sox",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 623,
+    "era": 4.14,
+    "whip": 1.31,
+    "strikeoutsPer9Inn": 8.42,
+    "saves": 37,
+    "blownSaves": 26
+   }
+  },
+  "146": {
+   "id": 146,
+   "name": "Miami Marlins",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 594,
+    "era": 3.93,
+    "whip": 1.25,
+    "strikeoutsPer9Inn": 8.32,
+    "saves": 31,
+    "blownSaves": 19
+   }
+  },
+  "147": {
+   "id": 147,
+   "name": "New York Yankees",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 521,
+    "era": 3.24,
+    "whip": 1.17,
+    "strikeoutsPer9Inn": 9.03,
+    "saves": 40,
+    "blownSaves": 26
+   }
+  },
+  "158": {
+   "id": 158,
+   "name": "Milwaukee Brewers",
+   "pitching": {
+    "gamesPlayed": 140,
+    "runs": 532,
+    "era": 3.48,
+    "whip": 1.18,
+    "strikeoutsPer9Inn": 9.64,
+    "saves": 44,
+    "blownSaves": 18
+   }
+  }
+ },
+ "counts": {
+  "teams": 30
+ },
+ "note": "Season batting (avg/obp/slg, runs) and pitching (era/whip, strikeouts per 9, runs allowed) per team. Bullpen-only splits are not published by this endpoint."
+}
