@@ -1125,34 +1125,9 @@
       "note": "ESPN publishes no handball feed. Handball runs on the committed, source-tagged competition dataset and the specialist handball engine."
     },
     "volleyball": {
-      "espnSport": "volleyball",
-      "threeWay": false,
-      "leagues": [
-        {
-          "slug": "mens-college-volleyball",
-          "name": "NCAA Men's Volleyball",
-          "candidateName": "NCAA Men's Volleyball",
-          "espnLeagueId": "401",
-          "ok": true,
-          "status": 200,
-          "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/volleyball/mens-college-volleyball/scoreboard?dates=20260903"
-        },
-        {
-          "slug": "womens-college-volleyball",
-          "name": "NCAA Women's Volleyball",
-          "candidateName": "NCAA Women's Volleyball",
-          "espnLeagueId": "402",
-          "ok": true,
-          "status": 200,
-          "error": null,
-          "eventsOnCheckDate": 60,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260903"
-        }
-      ]
+      "espnSport": null,
+      "leagues": [],
+      "note": "The volleyball specialist is limited to FIVB Volleyball Nations League — Women. ESPN NCAA volleyball is a different competition and is not a model feed."
     },
     "mma": {
       "espnSport": "mma",

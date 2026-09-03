@@ -1,65 +1,51 @@
 #!/usr/bin/env node
-/** Append-only forward ledger for volleyball (WIN MATCH + SET SCORE). */
+/** Append-only, source-gated forward ledger for FIVB VNL Women only. */
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-
 import { enrichVolleyballMatch } from '../engine/volleyball_data.js';
 import { scoreVolleyballMatch } from '../engine/volleyball_engine.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const MATCHES = join(ROOT, 'data', 'volleyball_matches.json');
-const TAPE = join(ROOT, 'data', 'volleyball_tape.json');
-const SLATE = join(ROOT, 'data', 'volleyball_slate.json');
-const PRED = join(ROOT, 'data', 'volleyball_predictions.json');
-
-function loadJSON(path, fallback) {
-  try { return JSON.parse(readFileSync(path, 'utf8')); } catch { return fallback; }
-}
+const VNL = join(ROOT, 'data', 'volleyball_vnl.json');
+const OUT = join(ROOT, 'data', 'volleyball_predictions.json');
+const load = (path, fallback) => { try { return JSON.parse(readFileSync(path, 'utf8')); } catch { return fallback; } };
 
 export function recordVolleyballPredictions() {
-  const matchesDoc = loadJSON(MATCHES, { matches: [] });
-  const tapeDoc = loadJSON(TAPE, { matches: [] });
-  const slateDoc = loadJSON(SLATE, { events: [] });
-  const predDoc = loadJSON(PRED, { schema_version: 1, sport: 'Volleyball', predictions: [] });
-  const existing = new Set((predDoc.predictions || []).map((p) => `${p.event_id}|${p.market}`));
+  const vnl = load(VNL, { events: [], results: [] });
+  const previous = load(OUT, { schema_version: 2, sport: 'Volleyball', scope: 'FIVB Volleyball Nations League — Women only', predictions: [] });
+  const known = new Set((previous.predictions || []).map((row) => `${row.event_id}|${row.market}`));
   let added = 0;
-
-  for (const m of matchesDoc.matches || []) {
-    if (m.phase === 'results') continue;
-    const enriched = enrichVolleyballMatch(m, tapeDoc.matches || []);
-    const ev = (slateDoc.events || []).find((e) => String(e.event_id) === String(m.event_id));
-    if (ev) enriched.olbg = ev;
-    const scored = scoreVolleyballMatch(enriched);
+  for (const event of vnl.events || []) {
+    if (event.family !== 'vnl-women' || event.phase === 'results') continue;
+    const input = enrichVolleyballMatch(event, vnl.results || [], vnl);
+    const result = scoreVolleyballMatch(input);
     for (const market of ['win_match', 'set_score']) {
-      const mk = scored.markets[market];
-      if (!mk) continue;
-      const key = `${m.id || m.event_id}|${market}`;
-      if (existing.has(key)) continue;
-      predDoc.predictions.push({
-        event_id: m.id || m.event_id,
-        match: `${m.home} v ${m.away}`,
-        date: m.dateISO || m.date,
-        family: m.family,
+      const scored = result.markets[market];
+      const key = `${event.event_id || event.id}|${market}`;
+      if (known.has(key)) continue;
+      previous.predictions.push({
+        event_id: event.event_id || event.id,
+        match: `${event.home} v ${event.away}`,
+        date: event.dateISO || event.date,
+        family: 'vnl-women',
         market,
-        selection: mk.selection,
-        outcome: mk.outcome || null,
-        band: mk.band,
-        score: mk.score,
-        missing: scored.missing,
-        ruleset: scored.ruleset,
+        selection: scored.selection,
+        outcome: scored.outcome || null,
+        band: scored.band,
+        score: scored.score,
+        missing: result.missing,
+        flags: result.flags,
+        source_urls: input.source_urls || [event.source_url].filter(Boolean),
+        ruleset: result.ruleset,
         recorded_at_utc: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
       });
-      existing.add(key);
+      known.add(key);
       added += 1;
     }
   }
-
-  writeFileSync(PRED, `${JSON.stringify(predDoc, null, 2)}\n`);
-  console.log(`Volleyball forward collection: ${added} new rows. Total: ${predDoc.predictions.length}`);
+  writeFileSync(OUT, `${JSON.stringify(previous, null, 2)}\n`);
+  console.log(`VNL Women forward ledger: ${added} new market rows.`);
 }
-
-if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  recordVolleyballPredictions();
-}
+if (process.argv[1] === fileURLToPath(import.meta.url)) recordVolleyballPredictions();

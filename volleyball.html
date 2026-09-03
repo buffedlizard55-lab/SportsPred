@@ -3,108 +3,87 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Volleyball scoreboard, calendar &amp; predictions — SportsPred</title>
-<meta name="description" content="NCAA volleyball scoreboard from ESPN plus EuroVolley Women 2026 from a committed CEV tape. WIN MATCH and SET SCORE tips generated per the volleyball master prompt — never mixing college form onto internationals.">
+<title>FIVB VNL Women scoreboard &amp; prediction card — SportsPred</title>
+<meta name="description" content="FIVB Volleyball Nations League Women scoreboard, official-source review links, OLBG volleyball market monitor, calendar and source-gated MATCH WINNER / SET SCORE prediction cards.">
 <link rel="stylesheet" href="assets/css/site.css">
-<link rel="preconnect" href="https://site.api.espn.com" crossorigin>
-<link rel="dns-prefetch" href="https://a.espncdn.com">
 </head>
 <body>
-
 <main class="wrap">
   <div class="page-head">
     <div>
-      <h1 class="page-title" id="page-title">Volleyball</h1>
-      <p class="page-sub" id="page-sub">NCAA scoreboard from ESPN, EuroVolley Women 2026 from a committed CEV results tape, and automatically generated WIN MATCH / SET SCORE tips. College form is never applied to internationals.</p>
+      <h1 class="page-title">FIVB Volleyball Nations League — Women</h1>
+      <p class="page-sub">Official-source VNL scoreboards and a separate OLBG market monitor. Only verified VNL Women fixtures can enter the prediction engine; other volleyball events remain visible for review, never silently repurposed.</p>
       <p class="meta-line" id="sport-links"></p>
     </div>
   </div>
 
-  <div id="sport-notes"></div>
-  <div id="registry-note"></div>
-
+  <div id="scope-note"></div>
   <div class="cols">
     <div>
-      <div class="card">
-        <div class="card-head">
-          <h2 id="day-title">—</h2>
-          <span class="sp"></span>
-          <span class="meta-line" id="counts"></span>
-        </div>
-        <div id="datestrip" class="datestrip"></div>
-        <div class="progress" id="progress"><i></i></div>
+      <section class="card" aria-labelledby="day-title">
+        <div class="card-head"><h2 id="day-title">—</h2><span class="sp"></span><span class="meta-line" id="counts"></span></div>
+        <div class="datestrip" id="datestrip"></div>
         <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
           <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
-          <input type="date" id="date-input" aria-label="Choose date">
+          <input type="date" id="date-input" aria-label="Choose a date">
           <button class="btn sm" id="next-day" aria-label="Next day">›</button>
           <button class="btn sm" id="today-btn">Today</button>
-
-          <select id="league-filter" aria-label="Filter by competition"></select>
-
-          <span class="seg" id="phase-filter" role="group" aria-label="Filter by status">
-            <button data-phase="all" class="on">All</button>
-            <button data-phase="upcoming">Upcoming</button>
-            <button data-phase="live">In play</button>
-            <button data-phase="results">Final</button>
+          <span class="seg" id="scope-filter" role="group" aria-label="Filter fixtures">
+            <button class="on" data-scope="all">All</button>
+            <button data-scope="vnl">VNL Women</button>
+            <button data-scope="olbg">OLBG monitor</button>
           </span>
-
-          <input type="search" id="search" placeholder="Search team, venue…" aria-label="Search">
-
-          <span class="sp" style="flex:1"></span>
-          <button class="btn primary" id="generate">⚡ Generate predictions</button>
-          <button class="btn" id="copy-all">📋 Copy all tips</button>
-          <button class="btn sm" id="refresh" title="Clear the local cache and refetch from source">↻ Refetch</button>
+          <input type="search" id="search" placeholder="Search team or venue…" aria-label="Search fixtures">
+          <span class="sp"></span>
+          <button class="btn primary" id="generate">⚡ Generate VNL card</button>
+          <button class="btn" id="copy-all">📋 Copy VNL card</button>
+          <button class="btn sm" id="refresh">↻ Reload data</button>
         </div>
-        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
         <div id="board"></div>
-      </div>
+      </section>
 
-      <div class="card">
-        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+      <section class="card" aria-labelledby="calendar-heading">
+        <div class="card-head"><h2 id="calendar-heading">Calendar</h2><span class="sp"></span>
           <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
           <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
           <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
         </div>
         <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
         <div class="calgrid" id="calgrid"></div>
-        <div class="card-body meta-line">NCAA dates come from the ESPN calendar. EuroVolley dates come from the committed CEV tape. The two competitions never share a form ledger.</div>
-      </div>
+        <div class="card-body meta-line">Blue calendar counts are official-source VNL Women rows. Orange counts are OLBG display-day rows and are a market-monitoring aid, not an official kickoff verification.</div>
+      </section>
+
+      <section class="card" id="card-output" aria-labelledby="card-output-heading">
+        <div class="card-head"><h2 id="card-output-heading">Copy-ready VNL prediction card</h2><span class="sp"></span><span id="card-status" class="meta-line">Not generated</span></div>
+        <div class="card-body" id="card-text"><p class="meta-line">Select a day with verified upcoming VNL Women fixtures and choose “Generate VNL card”. The engine will publish a selection only when the source-gated rules clear; otherwise it writes a one-sentence SKIP.</p></div>
+      </section>
     </div>
 
     <aside class="rail">
-      <div class="card">
-        <div class="card-head"><h3>Today's selections</h3></div>
-        <div id="rail-preds"></div>
-        <div class="card-body meta-line" id="rail-count"></div>
-      </div>
-
-      <div class="card" id="olbg-box">
-        <div class="card-head"><h3>OLBG volleyball markets</h3></div>
-        <div class="card-body meta-line">Loading…</div>
-      </div>
-
-      <div class="card">
-        <div class="card-head"><h3>Session</h3></div>
-        <div class="card-body meta-line" id="meta"></div>
-      </div>
-
-      <div class="card">
-        <div class="card-head"><h3>Coverage</h3></div>
+      <section class="card">
+        <div class="card-head"><h3>VNL season status</h3></div>
+        <div class="card-body meta-line" id="vnl-status">Loading…</div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h3>Current OLBG market monitor</h3></div>
+        <div class="card-body meta-line" id="olbg-box">Loading…</div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h3>Verification coverage</h3></div>
         <div class="card-body meta-line" id="coverage">Loading…</div>
-      </div>
-
-      <div class="card">
-        <div class="card-head"><h3>How to read a volleyball card</h3></div>
+      </section>
+      <section class="card">
+        <div class="card-head"><h3>Card rules</h3></div>
         <div class="card-body" style="font-size:13px">
-          <p>Only two markets are written: <strong>WIN MATCH</strong> and <strong>SET SCORE</strong> (<strong>3-0</strong> / <strong>3-1</strong> / <strong>3-2</strong>). Total points and handicap lines are listed on OLBG for review and never scored.</p>
-          <p><span class="badge HIGH">HIGH</span> 70+ · <span class="badge MEDIUM">MEDIUM</span> 50–69 · <span class="badge LOW">LOW</span> set score 55–69 · <span class="badge SKIP">SKIP</span> below that, or when two set-score outcomes sit within five points.</p>
-          <p>No free multi-book moneyline exists, so live confidence cannot read HIGH. Open <strong>Analysis</strong> for every rule that fired and the factors that were not sourced.</p>
+          <p><strong>MATCH WINNER</strong> is scored from recent VNL form, meeting history, confirmed squad status, two-book price context and standings stakes.</p>
+          <p><strong>SET SCORE</strong> selects one margin only: <strong>3-0</strong>, <strong>3-1</strong> or <strong>3-2</strong> for the favoured side. Close or incomplete evidence is a SKIP.</p>
+          <p>OLBG votes are displayed for review only. They are not odds and do not influence a score.</p>
+          <p><a href="sources.html#volleyball">Open the source and irregularity register →</a></p>
         </div>
-      </div>
+      </section>
     </aside>
   </div>
 </main>
-
 <script type="module" src="assets/js/volleyball-page.js"></script>
 </body>
 </html>

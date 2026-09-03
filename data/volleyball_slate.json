@@ -1,25 +1,71 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "sport": "Volleyball",
+  "scope": "All openly rendered OLBG Volleyball events; display-only market monitor.",
   "source": {
     "name": "OLBG — Volleyball Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Volleyball/21",
-    "indexes": [
-      "https://www.olbg.com/betting-tips/Volleyball/21"
-    ],
-    "fetched_at_utc": "2026-09-03T21:53:00Z",
-    "method": "Verified HTTP fetch of public OLBG Volleyball slate",
-    "licence_note": "Publicly available event listing for factual review."
+    "fetched_at_utc": "2026-09-03T23:19:02Z",
+    "method": "Public index and individual event-page market-heading check.",
+    "licence_note": "Facts are retained for manual review; no odds are inferred from tipster voting."
   },
-  "markets_covered": [
-    "Win Match",
-    "Set Score"
+  "markets_verified_on_snapshot": [
+    "Set Score",
+    "Win Match"
   ],
   "notes": [
-    "Only Win Match and Set Score are scored by the volleyball engine.",
-    "OLBG Total Points and Points Handicap are review-only.",
-    "Display times are not used to place matches on the calendar (U-02 / IR-VB-06)."
+    "Only market names actually found on an event page are marked verified.",
+    "OLBG consensus is a community vote, not a sportsbook quote, and is never an input to a prediction score.",
+    "An OLBG display time is retained as display text only; it is not converted into an official kickoff timestamp.",
+    "The FIVB VNL Women prediction engine accepts only verified VNL Women fixtures from its official-source dataset. Other OLBG volleyball competitions remain visible but are out of prediction scope."
   ],
-  "collection_warnings": [],
-  "events": []
+  "collection_warnings": [
+    "The sandbox TLS connection to OLBG's collector endpoint failed after this public-page verification. The scheduled collector must refresh this snapshot; it does not overwrite a prior snapshot on a failed fetch."
+  ],
+  "events": [
+    {
+      "event_id": "36520",
+      "sport": "Volleyball",
+      "home": "Turkiye W",
+      "away": "Serbia W",
+      "url": "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Turkiye_W_vs_Serbia_W/21?event_id=36520",
+      "display_date": "05 Sept",
+      "display_time": "09:00",
+      "resolved_date": "2026-09-05",
+      "date_basis": "olbg-explicit-calendar-day",
+      "competition_scope": "not-vnl-women",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Serbia W",
+        "tips_for": 1,
+        "tips_total": 1,
+        "percentage": 100
+      },
+      "markets_available": [
+        "Win Match",
+        "Set Score"
+      ],
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            "Turkiye W",
+            "Serbia W"
+          ]
+        },
+        {
+          "name": "Set Score",
+          "selections": [
+            "Turkiye W to win 3-0",
+            "Turkiye W to win 3-1",
+            "Turkiye W to win 3-2",
+            "Serbia W to win 3-2",
+            "Serbia W to win 3-1",
+            "Serbia W to win 3-0"
+          ]
+        }
+      ],
+      "markets_verified": true
+    }
+  ]
 }

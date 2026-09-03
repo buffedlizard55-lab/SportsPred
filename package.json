@@ -19,7 +19,7 @@
     "backtest:universal": "node scripts/backtest_universal.mjs",
     "collect:greyhounds": "node scripts/collect_greyhound.mjs",
     "backtest:greyhounds": "node scripts/backtest_greyhound.mjs",
-    "collect:volleyball": "python3 scripts/collect_volleyball_olbg.py && node scripts/collect_volleyball_espn.mjs",
+    "collect:volleyball": "python3 scripts/collect_volleyball_olbg.py && python3 scripts/collect_volleyball_vnl.py",
     "backtest:volleyball": "node scripts/backtest_volleyball.mjs",
     "record:volleyball": "node scripts/record_volleyball_predictions.mjs",
     "collect:snooker": "python3 scripts/collect_snooker_olbg.py --enrich",

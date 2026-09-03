@@ -77,5 +77,6 @@ test('every candidate league in the registry resolves to one probe URL', () => {
       seen.add(url);
     }
   }
-  assert.ok(seen.size >= 70, `probed every candidate league, got ${seen.size}`);
+  const declared = SPORTS.filter((sport) => sport.espnSport).reduce((n, sport) => n + (sport.candidateLeagues || []).length, 0);
+  assert.equal(seen.size, declared, `probed every declared candidate league, got ${seen.size}`);
 });

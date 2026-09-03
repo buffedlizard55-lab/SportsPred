@@ -1,196 +1,100 @@
 import { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
-import { dirname, join } from 'node:path';
-
 import {
-  scoreVolleyballMatch,
-  decimalToAmerican,
-  americanToImpliedProb,
-  normaliseOdds,
-  CONFIDENCE,
-  RULESET_VERSION,
+  scoreVolleyballMatch, consensusFavourite, decimalToAmerican, americanToImpliedProb, normaliseOdds, CONFIDENCE, RULESET_VERSION,
 } from '../engine/volleyball_engine.js';
-import { parseVolleyballScoreboard } from '../engine/volleyball_espn.js';
-import { enrichVolleyballMatch, formFromVolleyballTape } from '../engine/volleyball_data.js';
+import { enrichVolleyballMatch, formFromVolleyballTape, sameTeam } from '../engine/volleyball_data.js';
 
-const here = dirname(fileURLToPath(import.meta.url));
-const espnFix = JSON.parse(readFileSync(join(here, 'fixtures/espn_volleyball.EXCERPT.json'), 'utf8'));
-const tapeDoc = JSON.parse(readFileSync(join(here, '..', 'data', 'volleyball_tape.json'), 'utf8'));
-
-describe('Volleyball engine — odds helpers', () => {
-  it('converts decimal and American without inventing prices', () => {
-    assert.equal(decimalToAmerican(1.5), -200);
-    assert.equal(decimalToAmerican(2), 100);
-    assert.equal(decimalToAmerican(null), null);
-    assert.ok(Math.abs(americanToImpliedProb(-300) - 0.75) < 0.01);
-    assert.deepEqual(normaliseOdds(1.4), { decimal: 1.4, american: -250 });
-    assert.equal(normaliseOdds(null), null);
-  });
-});
-
-function strongMatch() {
+function completeMatch() {
   return {
-    event_id: 'vb-strong',
-    home: 'Poland',
-    away: 'Visitor',
-    homeTeamObj: {
-      name: 'Poland',
-      isHome: true,
-      form: {
-        last5: ['W', 'W', 'W', 'W', 'W'],
-        last5SetScores: ['3-0', '3-0', '3-0', '3-0', '3-0'],
-        winStreak: 5,
-      },
-      odds: { decimal: 1.25, american: -400 },
-      stats: { killsPerSetRank: 1, blocksPerSetRank: 2 },
-      homeRecord: { winRate: 0.8 },
-      standings: { rank: 1, totalTeams: 24 },
-      rank: 1,
+    id: 'vnl-test-1', family: 'vnl-women', phase: 'upcoming', dateISO: '2026-06-20', startUtc: '2026-06-20T12:00:00Z', home: 'Türkiye', away: 'Serbia',
+    odds: { books: [
+      { book: 'Book A', home: { american: -320 }, away: { american: 240 }, source_url: 'https://example.com/a' },
+      { book: 'Book B', home: { american: -300 }, away: { american: 230 }, source_url: 'https://example.com/b' },
+    ] },
+    homeTeam: {
+      name: 'Türkiye',
+      form: { vnlLast5: ['W', 'W', 'W', 'W', 'L'], vnlLast5SetScores: ['3-0', '3-0', '3-0', '3-1', '1-3'] },
+      roster: { status: 'confirmed_full' },
+      stakes: { status: 'finals_fight', hostingWeek: true },
+      stats: { killsPerSet: 14.1, blocksPerSet: 2.8, aceToErrorRatio: 1.08 },
     },
-    awayTeamObj: {
-      name: 'Visitor',
-      isHome: false,
-      form: { last5: ['L', 'L', 'L', 'W', 'L'], last5SetScores: ['0-3', '0-3', '1-3', '3-1', '0-3'], lossStreak: 2 },
-      odds: { decimal: 4.5, american: 350 },
-      awayRecord: { lossRate: 0.7 },
-      standings: { rank: 18, totalTeams: 24 },
-      rank: 18,
+    awayTeam: {
+      name: 'Serbia',
+      form: { vnlLast5: ['L', 'W', 'L', 'L', 'W'], vnlLast5SetScores: ['1-3', '3-1', '0-3', '2-3', '3-0'] },
+      roster: { status: 'key_absence' },
+      stakes: { status: 'comfortably_qualified' },
+      stats: { killsPerSet: 12.8, blocksPerSet: 2.0, aceToErrorRatio: 0.88 },
     },
-    h2h: {
-      recentMeetings: [
-        { result: 'W', setScore: '3-0' },
-        { result: 'W', setScore: '3-0' },
-        { result: 'W', setScore: '3-1' },
-        { result: 'W', setScore: '3-0' },
-        { result: 'L', setScore: '2-3' },
-      ],
-    },
+    h2h: { recentMeetings: [
+      { winner: 'Türkiye', setScore: '3-0' }, { winner: 'Türkiye', setScore: '3-0' }, { winner: 'Serbia', setScore: '1-3' },
+    ] },
   };
 }
 
-describe('Volleyball engine — WIN MATCH / SET SCORE', () => {
-  it('stamps the ruleset and scores a fully sourced favourite HIGH on win match', () => {
-    const res = scoreVolleyballMatch(strongMatch());
-    assert.equal(res.ruleset, RULESET_VERSION);
-    assert.equal(res.favourite, 'Poland');
-    assert.equal(res.markets.win_match.band, CONFIDENCE.HIGH);
-    assert.ok(res.markets.win_match.score >= 70);
-    assert.equal(res.markets.win_match.selection, 'Poland');
+describe('FIVB VNL Women scoring engine', () => {
+  it('keeps the exact MATCH WINNER 25/20/20/15/20 allocation and caps host stakes at 20', () => {
+    const result = scoreVolleyballMatch(completeMatch());
+    assert.equal(result.ruleset, RULESET_VERSION);
+    assert.equal(result.favourite, 'Türkiye');
+    assert.equal(result.markets.win_match.score, 100);
+    assert.equal(result.markets.win_match.band, CONFIDENCE.HIGH);
+    assert.deepEqual(result.markets.win_match.components.map((part) => [part.id, part.max]), [
+      ['recent_form', 25], ['head_to_head', 20], ['squad_roster', 20], ['odds_value', 15], ['stakes_motivation', 20],
+    ]);
+    assert.equal(result.markets.win_match.components.at(-1).points, 20);
   });
 
-  it('caps confidence at MEDIUM when no moneyline is sourced', () => {
-    const m = strongMatch();
-    m.homeTeamObj.odds = null;
-    m.awayTeamObj.odds = null;
-    const res = scoreVolleyballMatch(m);
-    assert.ok(res.flags.some((f) => /LIVE_CAP/.test(f)));
-    assert.notEqual(res.markets.win_match.band, CONFIDENCE.HIGH);
+  it('scores only one set outcome and requires a meaningful lead for publication', () => {
+    const result = scoreVolleyballMatch(completeMatch());
+    assert.equal(result.markets.set_score.outcome, '3-0');
+    assert.equal(result.markets.set_score.selection, 'Türkiye 3-0');
+    assert.equal(result.markets.set_score.band, CONFIDENCE.HIGH);
+    assert.equal(result.markets.set_score.components.reduce((sum, part) => sum + part.points, 0), result.markets.set_score.score);
   });
 
-  it('records missing attacking quality instead of inventing kills per set', () => {
-    const m = strongMatch();
-    delete m.homeTeamObj.stats;
-    const res = scoreVolleyballMatch(m);
-    assert.ok(res.missing.some((x) => /attacking/i.test(x)));
-    const attack = res.markets.win_match.components.find((c) => c.id === 'attack');
-    assert.equal(attack.points, 0);
-    assert.equal(attack.missing, true);
+  it('does not turn a one-book line or an OLBG-like vote into a favourite', () => {
+    const match = completeMatch();
+    match.odds.books = [match.odds.books[0]];
+    const result = scoreVolleyballMatch(match);
+    assert.equal(result.markets.win_match.band, CONFIDENCE.SKIP);
+    assert.equal(result.markets.win_match.selection, null);
+    assert.ok(result.flags.includes('NO_TWO_BOOK_FAVOURITE'));
+    assert.ok(result.missing.some((item) => /two named bookmakers/i.test(item)));
   });
 
-  it('never recommends 3-2 at HIGH unless the last 3 H2H meetings went to five sets', () => {
-    const m = strongMatch();
-    // Force a 3-2-shaped card that does NOT have three five-set H2H meetings.
-    m.h2h.recentMeetings = [
-      { result: 'W', setScore: '3-1' },
-      { result: 'W', setScore: '3-2' },
-      { result: 'L', setScore: '2-3' },
+  it('rejects every non-VNL competition before any score can be produced', () => {
+    const match = completeMatch();
+    match.family = 'eurovolley-w';
+    const result = scoreVolleyballMatch(match);
+    assert.equal(result.markets.win_match.band, CONFIDENCE.SKIP);
+    assert.ok(result.flags.includes('OUT_OF_SCOPE_COMPETITION'));
+  });
+
+  it('never treats a substring as a team match and filters form to VNL Women rows', () => {
+    assert.equal(sameTeam('USA', 'US'), false);
+    const tape = [
+      { family: 'ncaa', phase: 'results', winner: 'Türkiye', home: 'Türkiye', away: 'Serbia', date: '2026-06-01', startUtc: '2026-06-01T10:00:00Z', setScore: '3-0' },
+      { family: 'vnl-women', phase: 'results', winner: 'Türkiye', home: 'Türkiye', away: 'Serbia', date: '2026-06-02', startUtc: '2026-06-02T10:00:00Z', setScore: '3-1', source_url: 'https://official.example/match' },
     ];
-    const res = scoreVolleyballMatch(m);
-    if (res.markets.set_score.outcome === '3-2') {
-      assert.notEqual(res.markets.set_score.band, CONFIDENCE.HIGH);
-    }
+    const form = formFromVolleyballTape(tape, 'Türkiye', '2026-06-03T10:00:00Z');
+    assert.deepEqual(form.last5, ['W']);
+    const raw = { ...completeMatch(), homeTeam: { name: 'Türkiye' }, awayTeam: { name: 'Serbia' } };
+    const enriched = enrichVolleyballMatch(raw, tape, {});
+    assert.deepEqual(enriched.homeTeam.form.vnlLast5, ['W']);
   });
 });
 
-describe('Volleyball ESPN parser — linescores are set points', () => {
-  it('reads the NCAA excerpt: 3-1 final and an upcoming match', () => {
-    const { matches, warnings } = parseVolleyballScoreboard(espnFix, {
-      sportKey: 'volleyball', leagueSlug: 'womens-college-volleyball', leagueName: "NCAA Women's Volleyball",
-    });
-    assert.equal(warnings.length, 0);
-    assert.equal(matches.length, 2);
-    const done = matches.find((m) => m.phase === 'results');
-    assert.equal(done.home, 'Nebraska Cornhuskers');
-    assert.equal(done.away, 'Wisconsin Badgers');
-    assert.equal(done.homeSets, 3);
-    assert.equal(done.awaySets, 1);
-    assert.equal(done.setScore, '3-1');
-    assert.equal(done.sets.length, 4);
-    assert.equal(done.sets[0].home, 25);
-    assert.equal(done.winner, 'home');
-    const up = matches.find((m) => m.phase === 'upcoming');
-    assert.equal(up.homeTeamObj.rank, 2);
-    assert.deepEqual(up.homeTeamObj.form, ['W', 'W', 'W', 'W', 'W']);
-    assert.equal(up.odds, null);
-  });
-});
-
-describe('Volleyball family isolation', () => {
-  it('does not build EuroVolley form from NCAA tape rows', () => {
-    const mixed = [
-      ...tapeDoc.matches,
-      {
-        family: 'ncaa', phase: 'results', date: '2026-09-01', startUtc: '2026-09-01T00:00:00Z',
-        home: 'Poland', away: 'Nebraska Cornhuskers', winner: 'Nebraska Cornhuskers', setScore: '3-0',
-      },
-    ];
-    const form = formFromVolleyballTape(mixed, 'Poland', '2026-09-03T00:00:00Z', { family: 'eurovolley-w' });
-    assert.ok(form.last5.length >= 1);
-    assert.ok(form.last5.every((r) => r === 'W' || r === 'L'));
-    // The invented NCAA row must not appear in EuroVolley form.
-    const ncaaOnly = formFromVolleyballTape(mixed, 'Nebraska Cornhuskers', '2026-09-03', { family: 'eurovolley-w' });
-    assert.equal(ncaaOnly, null);
-  });
-
-  it('scores the Poland–Netherlands quarter-final from the EuroVolley tape only', () => {
-    const raw = {
-      id: 'evw-2026-qf-pol-ned',
-      family: 'eurovolley-w',
-      phase: 'upcoming',
-      date: '2026-09-03',
-      startUtc: '2026-09-03T16:00:00Z',
-      home: 'Poland',
-      away: 'Netherlands',
-      neutral: true,
-    };
-    const enriched = enrichVolleyballMatch(raw, tapeDoc.matches);
-    assert.equal(enriched.family, 'eurovolley-w');
-    assert.ok(enriched.homeTeamObj.form.last5.filter((r) => r === 'W').length >= 4);
-    const res = scoreVolleyballMatch(enriched);
-    assert.equal(res.favourite, 'Poland');
-    // No moneyline, no kills/blocks, thin H2H — either SKIP or at most MEDIUM.
-    assert.notEqual(res.markets.win_match.band, CONFIDENCE.HIGH);
-    assert.ok(res.missing.some((x) => /odds/i.test(x)));
-  });
-
-  it('does not invent a league size when ESPN only supplies a rank', () => {
-    const raw = {
-      id: 'ncaa-rank-only',
-      family: 'ncaa',
-      phase: 'upcoming',
-      date: '2026-09-02',
-      home: 'Nebraska Cornhuskers',
-      away: 'Wisconsin Badgers',
-      homeTeamObj: { name: 'Nebraska Cornhuskers', rank: 1 },
-      awayTeamObj: { name: 'Wisconsin Badgers', rank: 40 },
-    };
-    const enriched = enrichVolleyballMatch(raw, []);
-    assert.equal(enriched.homeTeamObj.standings.rank, 1);
-    assert.equal(enriched.homeTeamObj.standings.totalTeams, undefined);
-    const res = scoreVolleyballMatch(enriched);
-    assert.ok(!res.markets.set_score.components.some((c) => c.id === 'ss30_gap'),
-      'ranking-gap bonus must not fire without a sourced league size');
+describe('odds helpers', () => {
+  it('normalizes only valid prices and requires named-book agreement', () => {
+    assert.equal(decimalToAmerican(1.5), -200);
+    assert.equal(decimalToAmerican(null), null);
+    assert.ok(Math.abs(americanToImpliedProb(-300) - 0.75) < 0.01);
+    assert.deepEqual(normaliseOdds(1.4), { american: -250, decimal: 1.4 });
+    const match = completeMatch();
+    assert.equal(consensusFavourite(match).side, 'home');
+    match.odds.books[1].home.american = 180;
+    match.odds.books[1].away.american = -220;
+    assert.equal(consensusFavourite(match).ok, false);
   });
 });

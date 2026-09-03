@@ -1,288 +1,159 @@
 /**
- * SportsPred — Volleyball Prediction Writer and Output Validator.
+ * Plain-language writer for the FIVB VNL Women card.
  *
- * Implements Step 4 of "VOLLEYBALL PREDICTION MASTER PROMPT v1.0":
- *  - Exact market order: WIN MATCH, SET SCORE.
- *  - Minimum 40 words per tip.
- *  - Predicted winner / set score bolded within the first 20 words.
- *  - No player names, injury details, league names, stadium names, odds,
- *    handicap lines or total-points lines.
- *  - Set-score tips state 3-0, 3-1 or 3-2 in bold (the only permitted digits).
- *  - Unique opening word across the card.
- *  - Confidence: HIGH / MEDIUM / LOW on every tip.
- *  - Below-threshold matches emit SKIP — a single sentence.
+ * It is deliberately downstream-only: a sentence may cite a factor only when
+ * the scorer marked that factor as sourced evidence. No odds, numeric stats,
+ * roster names, source names, or links can enter a tip.
  */
 
 import { CONFIDENCE } from './volleyball_engine.js';
 
 export const MIN_WORDS = 40;
+export const BANNED_PHRASES = Object.freeze([
+  'hard to look past', 'the better side', 'on paper', 'both teams', 'anything can happen', 'straightforward test',
+]);
+export const FORBIDDEN_TOKENS = Object.freeze([
+  'odds', 'price', 'bookmaker', 'olbg', 'espn', 'fivb', 'volleyball world', 'twitter', 'instagram', 'http', 'www.',
+]);
 
-export const BANNED_PHRASES = [
-  'this should be straightforward',
-  'a tough match',
-  'hard to call',
-  'could go either way',
-  'evenly matched',
-  'on paper',
-];
+export const VOLLEYBALL_OPENERS = Object.freeze([
+  { id: 'serve', word: 'Serve-receive', lead: 'sets the tone for this assessment.' },
+  { id: 'rotation', word: 'Rotation', lead: 'is central to the model’s read of this fixture.' },
+  { id: 'tempo', word: 'Tempo', lead: 'shapes the expectation for this contest.' },
+  { id: 'pressure', word: 'Pressure', lead: 'gives the card its clearest angle here.' },
+  { id: 'balance', word: 'Balance', lead: 'matters most in this matchup.' },
+  { id: 'execution', word: 'Execution', lead: 'frames the current model view.' },
+  { id: 'momentum', word: 'Momentum', lead: 'is assessed only through the verified record.' },
+  { id: 'composure', word: 'Composure', lead: 'is the theme behind this measured selection.' },
+]);
 
-export const FORBIDDEN_TOKENS = [
-  'http', 'https', 'www.', '@', 'twitter', 'x.com', 'instagram', 'facebook',
-  'stadium', 'arena', 'injuries', 'injured', 'absence', 'coach',
-];
+const SET_RE = /\*\*3-[012]\*\*/;
 
-export const VOLLEYBALL_OPENERS = [
-  { id: 'attacking', word: 'Attacking', lead: 'dominance from the pin hitters sets the tone before the first serve lands.' },
-  { id: 'psychological', word: 'Psychological', lead: 'control established in recent meetings still shapes how this contest unfolds.' },
-  { id: 'home', word: 'Crowd', lead: 'proximity to the court amplifies every serve-receive error in a hall this tight.' },
-  { id: 'receive', word: 'Serve-receive', lead: 'frailty on one side invites a cascade of out-of-system swings.' },
-  { id: 'momentum', word: 'Straight-set', lead: 'winning momentum is a different animal from scraping through five-set marathons.' },
-  { id: 'tactical', word: 'Tactical', lead: 'adaptability between sets lets the stronger unit reset without surrendering the match.' },
-  { id: 'serving', word: 'Serving', lead: 'pressure creates cascading advantages unlike any other indoor sport.' },
-  { id: 'blocking', word: 'Blocking', lead: 'presence at the net shrinks the attacking windows the challenger relies upon.' },
-  { id: 'fatigue', word: 'Fatigue', lead: 'from a compressed run of five-set matches rarely shows until the later sets.' },
-  { id: 'rhythm', word: 'Rhythm', lead: 'in transition offence has been uninterrupted on one side of this meeting.' },
-  { id: 'precedent', word: 'Precedent', lead: 'from the most recent set scores between these two points firmly one way.' },
-  { id: 'intensity', word: 'Intensity', lead: 'from the opening rotation forces hurried decisions on the other side of the net.' },
-  { id: 'structure', word: 'Structure', lead: 'in the defensive system outweighs isolated moments of attacking brilliance.' },
-  { id: 'composure', word: 'Composure', lead: 'under scoreboard pressure has separated these two more reliably than raw power.' },
-  { id: 'depth', word: 'Depth', lead: 'across the rotation keeps attacking output high when substitutions arrive.' },
-  { id: 'margin', word: 'Margins', lead: 'of recent victories tell more than the win column alone.' },
-  { id: 'control', word: 'Control', lead: 'of the first contact decides whether the offence ever gets to run its preferred plays.' },
-  { id: 'trajectory', word: 'Trajectory', lead: 'over the current campaign reveals a well-calibrated peak in execution.' },
-  { id: 'authority', word: 'Authority', lead: 'commanded in recent straight-set wins carries into this meeting.' },
-  { id: 'resilience', word: 'Resilience', lead: 'after dropping an opening set is real in this sport, but first-set winners still close at a high rate.' },
-  { id: 'precision', word: 'Precision', lead: 'in serve location continually disrupts the opponent\'s offensive system.' },
-  { id: 'physicality', word: 'Physicality', lead: 'through the middle of the court denies easy transition swings.' },
-  { id: 'balance', word: 'Balance', lead: 'between patient side-out volleyball and explosive transition yields consistent set wins.' },
-  { id: 'sharpness', word: 'Sharpness', lead: 'behind the first ball remains the clearest separator here.' },
-  { id: 'endurance', word: 'Endurance', lead: 'is the quiet variable whenever these two have previously gone the distance.' },
-  { id: 'focus', word: 'Focus', lead: 'through long rallies prevents the concentration lapses indoor venues punish.' },
-  { id: 'poise', word: 'Poise', lead: 'in closing sets has been the recurring theme of the stronger side.' },
-  { id: 'force', word: 'Force', lead: 'generated on early side-outs sets up a decisive rather than a scraped showing.' },
-  { id: 'clarity', word: 'Clarity', lead: 'in game-planning ensures every rotation serves a defined purpose.' },
-  { id: 'superiority', word: 'Superiority', lead: 'in first-ball quality underpins this fixture from the opening whistle.' },
-];
-
-const MARKET_LABEL = {
-  win_match: 'WIN MATCH',
-  set_score: 'SET SCORE',
-};
-
-const SET_SCORE_RE = /\*\*3-[012]\*\*/g;
+function words(text) { return String(text || '').trim().split(/\s+/).filter(Boolean); }
 
 export function validateVolleyballTip(text, { market, expectSkip = false } = {}) {
+  const value = String(text || '').trim();
   const violations = [];
-  const t = String(text || '').trim();
-  if (!t) return { ok: false, violations: ['empty tip text'] };
-
+  if (!value) return { ok: false, violations: ['empty tip text'] };
   if (expectSkip) {
-    if (!t.startsWith('SKIP —') && !t.startsWith('SKIP:')) violations.push('SKIP tip must begin with SKIP');
-    const sentences = t.split(/(?<=[.!?])\s+/).filter(Boolean);
-    if (sentences.length > 1) violations.push('SKIP tip must be a single explanatory sentence');
+    if (!value.startsWith('SKIP —')) violations.push('SKIP tip must begin with SKIP —');
+    if (value.split(/(?<=[.!?])\s+/).filter(Boolean).length !== 1) violations.push('SKIP must be one explanatory sentence');
     return { ok: violations.length === 0, violations };
   }
-
-  const words = t.split(/\s+/).filter(Boolean);
-  if (words.length < MIN_WORDS) violations.push(`under ${MIN_WORDS} words (found ${words.length})`);
-
-  if (!/\*\*[^*]+\*\*/.test(t)) {
-    violations.push('no bolded outcome found');
-  } else {
-    const boldIndex = t.indexOf('**');
-    const wordsBeforeBold = t.slice(0, boldIndex).split(/\s+/).filter(Boolean).length;
-    if (wordsBeforeBold > 20) violations.push(`bolded outcome appears after 20 words (at word ${wordsBeforeBold})`);
-  }
-
-  if (market === 'set_score' && !/\*\*3-[012]\*\*/.test(t)) {
-    violations.push('set score tip must bold 3-0, 3-1 or 3-2');
-  }
-
-  const stripped = t.replace(SET_SCORE_RE, '');
-  const digits = stripped.replace(/\*\*/g, '').match(/\d/g);
-  if (digits) violations.push(`contains forbidden numerals/digits: ${digits.join('')}`);
-
-  if (/[()[\]{}]/.test(t)) violations.push('contains forbidden bracketed references');
-
-  const lower = t.toLowerCase();
-  for (const phrase of BANNED_PHRASES) {
-    if (lower.includes(phrase)) violations.push(`contains banned phrase: "${phrase}"`);
-  }
-  for (const token of FORBIDDEN_TOKENS) {
-    if (lower.includes(token)) violations.push(`contains forbidden token: "${token}"`);
-  }
-  if (!/Confidence:\s*(HIGH|MEDIUM|LOW)\.?/.test(t)) {
-    violations.push('confidence level not declared in required format');
-  }
+  if (words(value).length < MIN_WORDS) violations.push(`under ${MIN_WORDS} words`);
+  const boldAt = value.indexOf('**');
+  if (boldAt < 0) violations.push('no bolded pick');
+  else if (words(value.slice(0, boldAt)).length > 20) violations.push('bolded pick occurs after the first 20 words');
+  if (market === 'set_score' && !SET_RE.test(value)) violations.push('set-score tip must bold 3-0, 3-1, or 3-2');
+  const withoutSetScore = value.replace(/\*\*3-[012]\*\*/g, '');
+  if (/\d/.test(withoutSetScore.replace(/\*\*/g, ''))) violations.push('contains a forbidden numeral');
+  if (/[\[\]{}()]/.test(value)) violations.push('contains a bracketed reference');
+  const lower = value.toLowerCase();
+  for (const phrase of BANNED_PHRASES) if (lower.includes(phrase)) violations.push(`contains banned phrase: "${phrase}"`);
+  for (const token of FORBIDDEN_TOKENS) if (lower.includes(token)) violations.push(`contains forbidden token: "${token}"`);
+  if (!/Confidence: (HIGH|MEDIUM|LOW)\.$/.test(value)) violations.push('missing terminal confidence label');
   return { ok: violations.length === 0, violations };
 }
 
-function buildBody(market, result) {
-  const clauses = [];
-  if (market === 'win_match') {
-    clauses.push('recent side-out reliability combined with first-contact quality reinforces this outright expectation');
-    clauses.push('head-to-head set scores from the most recent meeting carry more weight than a simple win-loss ledger');
-    clauses.push('indoor crowd noise punishes shaky serve receive far more than outdoor sports ever do');
-  } else {
-    const outcome = result.markets.set_score?.outcome;
-    if (outcome === '3-0') {
-      clauses.push('straight-set winning streaks remain the single strongest predictor of a sweep against comparable opposition');
-      clauses.push('elite serving that generates repeated aces disrupts the opponent\'s offensive system from the first rotation');
-      clauses.push('a clear quality gap rarely needs a fifth set when one side has been closing without dropping frames');
-    } else if (outcome === '3-1') {
-      clauses.push('the challenger is competitive enough to steal a set but has been collapsing once the deficit reaches two');
-      clauses.push('form shows the favourite dropping the occasional set while still closing the match with authority');
-      clauses.push('four-set meetings have been the typical length whenever these two have shared a court recently');
-    } else {
-      clauses.push('recent meetings have gone the distance, which is a fundamentally different set-score context from a sweep');
-      clauses.push('nearly identical recent form points to a match that will not be decided until late');
-      clauses.push('five-set volleyball is physically exhausting and the schedule intensity on both sides argues against an early finish');
-    }
-  }
-  clauses.push('nothing beyond the sourced record has been assumed in reaching that view');
-  return clauses
-    .map((c) => c.charAt(0).toUpperCase() + c.slice(1))
-    .map((c) => (/\.$/.test(c) ? c : `${c}.`))
-    .join(' ');
+function evidenceSentences(evidence, market) {
+  const available = new Set(evidence || []);
+  const sentences = [];
+  if (available.has('recent VNL form')) sentences.push('Recent competition form gives the selected side a verified performance edge.');
+  if (available.has('head-to-head record')) sentences.push('The documented meeting history also points in the same direction.');
+  if (available.has('confirmed squad availability')) sentences.push('The confirmed squad report does not introduce a material availability concern.');
+  if (available.has('cross-checked market price')) sentences.push('Independent market checks agree on the direction, although figures are kept out of the written card.');
+  if (available.has('standings stakes')) sentences.push('The confirmed standings situation is included because motivation and rotation can matter in this format.');
+  if (available.has('quality gap')) sentences.push('The sourced recent team indicators establish the relevant quality gap for the margin call.');
+  if (available.has('recent set pattern')) sentences.push('Recent comparable scorelines support that proposed match length.');
+  if (available.has('standings incentive')) sentences.push('The standings incentive makes a longer finish more plausible than quality alone would suggest.');
+  if (available.has('head-to-head set pattern')) sentences.push('Past documented set patterns reinforce the chosen margin.');
+  if (!sentences.length) sentences.push(market === 'set_score'
+    ? 'The margin is retained only when the available verified indicators reach the stated threshold.'
+    : 'The selection is retained only when the available verified indicators reach the stated threshold.');
+  return sentences;
 }
 
-export function writeVolleyballTip({ match, result, market, angle }) {
-  const m = result?.markets?.[market];
-  if (!m) return { ok: false, violations: [`market not found: ${market}`] };
+function skipText(market, result) {
+  const reason = result?.markets?.[market]?.reason
+    || (market === 'set_score' ? 'the verified margin indicators are too close or incomplete' : 'the verified match-winner evidence does not clear the threshold');
+  return `SKIP — ${market === 'win_match' ? 'MATCH WINNER' : 'SET SCORE'}: ${reason.charAt(0).toLowerCase()}${reason.slice(1)}.`;
+}
 
-  const label = MARKET_LABEL[market] || market;
-  const band = m.band || CONFIDENCE.LOW;
-  const skip = band === CONFIDENCE.SKIP || (market === 'set_score' && band === CONFIDENCE.LOW && !m.selection)
-    || (market === 'win_match' && band === CONFIDENCE.SKIP);
-
+export function writeVolleyballTip({ result, market, angle = VOLLEYBALL_OPENERS[0] }) {
+  const scored = result?.markets?.[market];
+  if (!scored || !result) return { ok: false, violations: ['market result is unavailable'] };
+  const skip = scored.band === CONFIDENCE.SKIP || !scored.selection;
   if (skip) {
-    const reason = market === 'set_score'
-      ? 'the set-score indicators are too close or too thin to publish a margin'
-      : 'evidence fails to reach the required selection threshold';
-    const text = `SKIP — ${label}: ${reason}, so no recommendation is offered on this fixture.`;
-    const v = validateVolleyballTip(text, { market, expectSkip: true });
-    return v.ok ? { ok: true, text, band: CONFIDENCE.SKIP, skip: true } : { ok: false, violations: v.violations, text };
+    const text = skipText(market, result);
+    const check = validateVolleyballTip(text, { market, expectSkip: true });
+    return { ...check, text, band: CONFIDENCE.SKIP, skip: true, selection: null };
   }
 
-  let bolded;
-  let pickLead;
-  if (market === 'win_match') {
-    bolded = `**${result.favourite}**`;
-    pickLead = `${bolded} is the pick on ${label}.`;
-  } else {
-    bolded = `**${m.outcome}**`;
-    pickLead = `${bolded} is the expected finishing score on ${label}.`;
-  }
-
-  const text = `${angle.word} ${angle.lead} ${pickLead} ${buildBody(market, result)} Confidence: ${band}.`;
-  const v = validateVolleyballTip(text, { market, expectSkip: false });
-  return v.ok
-    ? { ok: true, text, band, skip: false, market }
-    : { ok: false, violations: v.violations, text, market };
+  const base = market === 'win_match'
+    ? `${angle.word} ${angle.lead} **${scored.selection}** is the MATCH WINNER selection.`
+    : `${angle.word} ${angle.lead} **${scored.outcome}** is the projected SET SCORE, with ${result.favourite} expected to win.`;
+  const facts = evidenceSentences(result.evidence?.[market], market);
+  const tail = 'This is a model-based estimate, not a guarantee, and it does not fill gaps with unverified information.';
+  const text = `${base} ${facts.join(' ')} ${tail} Confidence: ${scored.band}.`;
+  const check = validateVolleyballTip(text, { market });
+  return { ...check, text, band: scored.band, skip: false, selection: scored.selection, market };
 }
 
-export function writeVolleyballCard(scoredMatches) {
+export function writeVolleyballCard(scoredMatches = []) {
   const tips = [];
   const violations = [];
-  const unscored = [];
-  const usedOpeners = new Set();
-  let openerIdx = 0;
-
-  for (const { match, result } of scoredMatches) {
-    if (!result?.markets || !result.favourite) {
-      unscored.push({
-        event_id: match?.event_id ?? match?.id ?? null,
-        match: `${match?.home || 'Home'} v ${match?.away || 'Away'}`,
-        reason: 'no sourced team data, so no markets could be scored',
-      });
-      continue;
-    }
-
+  const used = new Set();
+  let i = 0;
+  for (const row of scoredMatches) {
+    const match = row.match || {};
+    const result = row.result;
     for (const market of ['win_match', 'set_score']) {
-      let angle = VOLLEYBALL_OPENERS[openerIdx % VOLLEYBALL_OPENERS.length];
-      let guard = 0;
-      while (usedOpeners.has(angle.word.toLowerCase()) && guard < VOLLEYBALL_OPENERS.length) {
-        openerIdx += 1;
-        angle = VOLLEYBALL_OPENERS[openerIdx % VOLLEYBALL_OPENERS.length];
-        guard += 1;
+      let angle = VOLLEYBALL_OPENERS[i % VOLLEYBALL_OPENERS.length];
+      while (used.has(angle.id) && used.size < VOLLEYBALL_OPENERS.length) {
+        i += 1;
+        angle = VOLLEYBALL_OPENERS[i % VOLLEYBALL_OPENERS.length];
       }
-      const exhausted = usedOpeners.has(angle.word.toLowerCase());
-      const tipResult = writeVolleyballTip({ match, result, market, angle });
-
-      if (!tipResult.ok) {
-        violations.push({ event_id: match?.event_id ?? match?.id, market, violations: tipResult.violations });
-        tips.push({
-          event_id: match?.event_id ?? match?.id,
-          match: `${match?.home || result.favourite} v ${match?.away || result.opponent}`,
-          market,
-          marketLabel: MARKET_LABEL[market],
-          ok: false,
-          text: null,
-          band: null,
-        });
-      } else {
-        if (!tipResult.skip) usedOpeners.add(angle.word.toLowerCase());
-        tips.push({
-          event_id: match?.event_id ?? match?.id,
-          match: `${match?.home || result.favourite} v ${match?.away || result.opponent}`,
-          market,
-          marketLabel: MARKET_LABEL[market],
-          ok: true,
-          text: tipResult.text,
-          band: tipResult.band,
-          skip: !!tipResult.skip,
-          opener: tipResult.skip ? null : angle.id,
-          selection: market === 'win_match' ? result.favourite : result.markets.set_score?.outcome,
-        });
-        if (exhausted && !tipResult.skip) {
-          violations.push({
-            event_id: match?.event_id ?? match?.id,
-            market,
-            openerPoolExhausted: true,
-            detail: `more styled tips than distinct openers (${VOLLEYBALL_OPENERS.length})`,
-          });
-        }
-      }
-      openerIdx += 1;
+      const written = writeVolleyballTip({ result, market, angle });
+      if (!written.ok) violations.push({ event_id: result?.event_id || match.event_id || match.id || null, market, violations: written.violations });
+      if (!written.skip) used.add(angle.id);
+      tips.push({
+        event_id: result?.event_id || match.event_id || match.id || null,
+        match: `${match.home || 'Home'} v ${match.away || 'Away'}`,
+        market,
+        marketLabel: market === 'win_match' ? 'MATCH WINNER' : 'SET SCORE',
+        ...written,
+      });
+      i += 1;
     }
   }
-
-  const emitted = tips.filter((t) => t.ok);
-  const styled = emitted.filter((t) => !t.skip);
-  const openers = styled.map((t) => t.text.split(/\s+/)[0].toLowerCase());
-  const dupes = [...new Set(openers.filter((o, i) => openers.indexOf(o) !== i))];
-  if (dupes.length) violations.push({ duplicateOpeners: dupes });
-
-  return {
-    tips,
-    card: emitted.map((t) => t.text).join('\n\n'),
-    violations,
-    unscored,
-    openerPoolSize: VOLLEYBALL_OPENERS.length,
-    openerPoolExhausted: styled.length > VOLLEYBALL_OPENERS.length,
-  };
+  return { tips, card: tips.filter((tip) => tip.ok).map((tip) => tip.text).join('\n\n'), violations };
 }
 
-export function buildVolleyballFormattedCardText(scoredMatches, dateISO = '') {
-  const cardResult = writeVolleyballCard(scoredMatches);
-  const lines = [`Volleyball Predictions — ${dateISO || 'Card'}`, ''];
-
-  for (const t of cardResult.tips.filter((t) => t.ok)) {
-    lines.push(`${t.match} — ${t.marketLabel} [${t.band}]`);
-    lines.push(t.text.replace(/\*\*/g, ''));
+/** Copy-ready card. The support contacts were verified against GamCare and the
+ * NCPG on 2026-09-03; their links remain in the site footer/source register. */
+export function buildVolleyballFormattedCardText(scoredMatches = [], dateISO = '') {
+  const card = writeVolleyballCard(scoredMatches);
+  const lines = [`FIVB Volleyball Nations League — Women Predictions${dateISO ? ` — ${dateISO}` : ''}`, ''];
+  for (const tip of card.tips) {
+    lines.push(`${tip.match} — ${tip.marketLabel} [${tip.band}]`);
+    lines.push(tip.text.replace(/\*\*/g, ''));
     lines.push('');
   }
-
   lines.push('SUMMARY TABLE');
-  lines.push('Match | Win Match | Set Score | Win conf. | Set conf.');
-  for (const { match, result } of scoredMatches) {
-    if (!result?.markets) continue;
-    const wm = result.markets.win_match;
-    const ss = result.markets.set_score;
-    lines.push(`${match.home} v ${match.away} | ${wm?.selection || 'SKIP'} | ${ss?.selection || ss?.outcome || 'SKIP'} | ${wm?.band || '—'} | ${ss?.band || '—'}`);
+  lines.push('Match | Match winner | Winner confidence | Set score | Set confidence');
+  for (const row of scoredMatches) {
+    const match = row.match || {};
+    const result = row.result || {};
+    const winner = result.markets?.win_match || {};
+    const set = result.markets?.set_score || {};
+    lines.push(`${match.home || 'Home'} v ${match.away || 'Away'} | ${winner.selection || 'SKIP'} | ${winner.band || 'SKIP'} | ${set.selection || 'SKIP'} | ${set.band || 'SKIP'}`);
   }
   lines.push('');
-  lines.push('Responsible Gambling Reminder:');
-  lines.push('Nothing here is betting advice or a guarantee of any outcome. Predictions are generated mechanically from sourced data and are fallible. 18+.');
+  lines.push('VALUE CANDIDATES');
+  const values = scoredMatches.map((row) => ({ match: row.match, value: row.result?.valueCandidate })).filter((row) => row.value);
+  lines.push(values.length ? values.map((row) => `${row.match.home} v ${row.match.away}: ${row.value.team} — ${row.value.reason}`).join('\n') : 'None flagged from verified per-match evidence.');
+  lines.push('');
+  lines.push('RESPONSIBLE GAMBLING');
+  lines.push('These are model-based estimates, not guarantees or betting advice. Only wager an amount you are comfortable losing, and set spending and time limits before you start. Do not chase losses. In Great Britain, GamCare’s National Gambling Helpline is 0808 8020 133. In the United States, the National Council on Problem Gambling directs people to 1-800-MY-RESET; local availability can vary. Elsewhere, contact an appropriate national gambling-harm support resource. Contact details can change, so check the linked official support pages before publishing.');
   return lines.join('\n');
 }

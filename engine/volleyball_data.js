@@ -1,206 +1,150 @@
 /**
- * SportsPred — Volleyball data join (pure, no I/O).
+ * FIVB Volleyball Nations League Women data helpers.
  *
- * Two competition families are kept strictly separate:
- *   - `ncaa`            ESPN college volleyball (men's / women's)
- *   - `eurovolley-w`    CEV Women's European Championship (committed tape)
- *
- * Form, H2H and rest for a fixture are built only from tape rows in the SAME
- * family that finished strictly before the fixture's start. NCAA records are
- * never applied to EuroVolley sides and vice versa.
+ * The old volleyball page mixed NCAA and EuroVolley rows. This module accepts
+ * only the FIVB/Volleyball World VNL Women data contract. It is intentionally
+ * strict: name comparison is normalized equality, not substring matching, and
+ * a result from any other competition cannot be used for VNL form or H2H.
  */
 
 import { scoreVolleyballCard } from './volleyball_engine.js';
 import { writeVolleyballCard, buildVolleyballFormattedCardText } from './volleyball_writer.js';
-import { oddsForTeam } from './volleyball_espn.js';
+
+const TEAM_ALIASES = new Map([
+  ['turkey', 'turkiye'],
+  ['türkiye', 'turkiye'],
+  ['united states', 'usa'],
+  ['united states of america', 'usa'],
+]);
 
 export function normalizeTeamName(name) {
-  if (!name) return '';
-  return name.trim().toLowerCase()
-    .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-    .replace(/\s+/g, ' ')
-    .replace(/[^a-z0-9\s]/g, '')
-    .replace(/\bwomen\b/g, '')
-    .replace(/\bw\b/g, '')
-    .trim();
+  const plain = String(name || '').trim().toLowerCase().normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/\b(women|women's|w)\b/g, '')
+    .replace(/[^a-z0-9\s]/g, ' ')
+    .replace(/\s+/g, ' ').trim();
+  return TEAM_ALIASES.get(plain) || plain;
 }
 
 export function sameTeam(a, b) {
-  const na = normalizeTeamName(a);
-  const nb = normalizeTeamName(b);
-  if (!na || !nb) return false;
-  return na === nb || na.includes(nb) || nb.includes(na);
+  const left = normalizeTeamName(a);
+  const right = normalizeTeamName(b);
+  return Boolean(left && right && left === right);
 }
 
-function setScoreFromWinner(row, teamName) {
-  if (!row.setScore) return null;
-  if (row.setsIncomplete) return null;
-  const won = sameTeam(row.winner, teamName);
-  const m = String(row.setScore).match(/^(\d)-(\d)$/);
-  if (!m) return null;
-  return won ? `${m[1]}-${m[2]}` : `${m[2]}-${m[1]}`;
+function beforeMatch(row, startUtc) {
+  if (!startUtc) return false;
+  const finished = row?.endUtc || row?.startUtc || (row?.date ? `${row.date}T23:59:59Z` : null);
+  return Boolean(finished && String(finished) < String(startUtc));
 }
 
-export function formFromVolleyballTape(tape, teamName, beforeUtc, { family, window = 5 } = {}) {
+function isVnlWomen(row) {
+  const code = row?.family || row?.competition?.family || row?.competition?.code;
+  return code === 'vnl-women';
+}
+
+function winningScoreFor(row, team) {
+  const score = row?.setScore || null;
+  if (!/^[0-3]-[0-3]$/.test(String(score))) return null;
+  return sameTeam(row.winner, team) ? score : `${score[2]}-${score[0]}`;
+}
+
+/** Build recent VNL-only form from verified result rows. Results are expected
+ * to carry `winner`, `setScore`, and a source URL supplied by the collector. */
+export function formFromVolleyballTape(tape, teamName, beforeUtc, { window = 5 } = {}) {
   const rows = (tape || [])
-    .filter((m) => m.phase === 'results' && m.winner
-      && (!family || m.family === family)
-      && (!beforeUtc || String(m.startUtc || m.date) < String(beforeUtc))
-      && (sameTeam(m.home, teamName) || sameTeam(m.away, teamName)))
-    .sort((a, b) => String(b.startUtc || b.date).localeCompare(String(a.startUtc || a.date)))
+    .filter((row) => isVnlWomen(row) && row.phase === 'results' && row.winner && beforeMatch(row, beforeUtc)
+      && (sameTeam(row.home, teamName) || sameTeam(row.away, teamName)))
+    .sort((a, b) => String(b.endUtc || b.startUtc || b.date).localeCompare(String(a.endUtc || a.startUtc || a.date)))
     .slice(0, window);
-  if (!rows.length) return null;
-  const last5 = rows.map((m) => (sameTeam(m.winner, teamName) ? 'W' : 'L'));
-  const last5SetScores = rows.map((m) => setScoreFromWinner(m, teamName));
-  let winStreak = 0;
-  for (const r of last5) { if (r === 'W') winStreak += 1; else break; }
-  let lossStreak = 0;
-  for (const r of last5) { if (r === 'L') lossStreak += 1; else break; }
   return {
-    last5,
-    last5SetScores,
-    winStreak,
-    lossStreak,
+    last5: rows.map((row) => sameTeam(row.winner, teamName) ? 'W' : 'L'),
+    last5SetScores: rows.map((row) => winningScoreFor(row, teamName)),
     sample: rows.length,
+    source_urls: [...new Set(rows.map((row) => row.source_url).filter(Boolean))],
   };
 }
 
-export function h2hFromVolleyballTape(tape, homeName, awayName, beforeUtc, { family } = {}) {
+/** Return recent international VNL meetings without inventing a missing H2H. */
+export function h2hFromVolleyballTape(tape, homeName, awayName, beforeUtc) {
   const rows = (tape || [])
-    .filter((m) => m.phase === 'results' && m.winner
-      && (!family || m.family === family)
-      && (!beforeUtc || String(m.startUtc || m.date) < String(beforeUtc))
-      && ((sameTeam(m.home, homeName) && sameTeam(m.away, awayName))
-        || (sameTeam(m.home, awayName) && sameTeam(m.away, homeName))))
-    .sort((a, b) => String(b.startUtc || b.date).localeCompare(String(a.startUtc || a.date)));
-  if (!rows.length) return { recentMeetings: [], meetings: 0 };
+    .filter((row) => isVnlWomen(row) && row.phase === 'results' && row.winner && beforeMatch(row, beforeUtc)
+      && ((sameTeam(row.home, homeName) && sameTeam(row.away, awayName))
+        || (sameTeam(row.home, awayName) && sameTeam(row.away, homeName))))
+    .sort((a, b) => String(b.endUtc || b.startUtc || b.date).localeCompare(String(a.endUtc || a.startUtc || a.date)))
+    .slice(0, 3);
   return {
-    meetings: rows.length,
-    recentMeetings: rows.map((m) => ({
-      date: m.date,
-      home: m.home,
-      away: m.away,
-      winner: m.winner,
-      setScore: m.setsIncomplete ? null : m.setScore,
-      venue: m.venue || null,
+    recentMeetings: rows.map((row) => ({
+      date: row.date,
+      home: row.home,
+      away: row.away,
+      winner: row.winner,
+      setScore: row.setScore || null,
+      source_url: row.source_url || null,
     })),
+    knownNoMeaningfulHistory: rows.length === 0,
   };
 }
 
-export function restFromVolleyballTape(tape, teamName, startUtc, { family } = {}) {
-  if (!startUtc && !teamName) return { days: null, playedWithin48h: false };
-  const prior = (tape || [])
-    .filter((m) => m.phase === 'results'
-      && (!family || m.family === family)
-      && (startUtc ? String(m.startUtc || m.date) < String(startUtc) : true)
-      && (sameTeam(m.home, teamName) || sameTeam(m.away, teamName)))
-    .sort((a, b) => String(b.startUtc || b.date).localeCompare(String(a.startUtc || a.date)))[0];
-  if (!prior || !startUtc) return { days: null, playedWithin48h: false };
-  const ms = Date.parse(startUtc) - Date.parse(prior.startUtc || `${prior.date}T12:00:00Z`);
-  if (!Number.isFinite(ms)) return { days: null, playedWithin48h: false };
-  const days = Math.round(ms / 86400000);
-  return { days, playedWithin48h: ms < 48 * 3600 * 1000 };
+function latestTeamRow(teams, name) {
+  if (Array.isArray(teams)) return teams.find((row) => sameTeam(row.name || row.team, name)) || null;
+  if (!teams || typeof teams !== 'object') return null;
+  return Object.entries(teams).find(([key, row]) => sameTeam(key, name) || sameTeam(row?.name || row?.team, name))?.[1] || null;
 }
 
-function espnFormToLast5(form) {
-  if (Array.isArray(form) && form.length) return form.filter((c) => c === 'W' || c === 'L').slice(0, 5);
-  return [];
-}
-
-/**
- * Build the engine input for one match.
- * `tape` is the results tape (same family only is enforced inside helpers).
- */
-export function enrichVolleyballMatch(raw, tape = []) {
-  const family = raw.family || raw.competitionFamily || 'ncaa';
-  const homeName = raw.home?.name || raw.home;
-  const awayName = raw.away?.name || raw.away;
-  const before = raw.startUtc || (raw.date ? `${raw.date}T00:00:00Z` : null);
-
-  const homeForm = formFromVolleyballTape(tape, homeName, before, { family })
-    || { last5: espnFormToLast5(raw.homeTeamObj?.form || raw.home?.form), last5SetScores: [], winStreak: 0, lossStreak: 0 };
-  const awayForm = formFromVolleyballTape(tape, awayName, before, { family })
-    || { last5: espnFormToLast5(raw.awayTeamObj?.form || raw.away?.form), last5SetScores: [], winStreak: 0, lossStreak: 0 };
-
-  const homeRest = restFromVolleyballTape(tape, homeName, before, { family });
-  const awayRest = restFromVolleyballTape(tape, awayName, before, { family });
-  const h2h = h2hFromVolleyballTape(tape, homeName, awayName, before, { family });
-
-  const homeOdds = raw.homeTeamObj?.odds || oddsForTeam(raw.odds, 'home');
-  const awayOdds = raw.awayTeamObj?.odds || oddsForTeam(raw.odds, 'away');
-
-  const homeObj = {
-    ...(typeof raw.home === 'object' ? raw.home : {}),
-    ...(raw.homeTeamObj || {}),
-    name: homeName,
-    isHome: true,
-    form: homeForm,
-    odds: homeOdds,
-    rest: homeRest,
-    record: raw.homeTeamObj?.record || raw.home?.record || null,
-    homeRecord: raw.homeTeamObj?.homeRecord || null,
-    awayRecord: raw.homeTeamObj?.awayRecord || null,
-    rank: raw.homeTeamObj?.rank ?? raw.home?.rank ?? null,
-    standings: raw.homeTeamObj?.standings || (raw.homeTeamObj?.rank != null
-      ? { rank: raw.homeTeamObj.rank } : null),
-  };
-  const awayObj = {
-    ...(typeof raw.away === 'object' ? raw.away : {}),
-    ...(raw.awayTeamObj || {}),
-    name: awayName,
-    isHome: false,
-    form: awayForm,
-    odds: awayOdds,
-    rest: awayRest,
-    record: raw.awayTeamObj?.record || raw.away?.record || null,
-    homeRecord: raw.awayTeamObj?.homeRecord || null,
-    awayRecord: raw.awayTeamObj?.awayRecord || null,
-    rank: raw.awayTeamObj?.rank ?? raw.away?.rank ?? null,
-    standings: raw.awayTeamObj?.standings || (raw.awayTeamObj?.rank != null
-      ? { rank: raw.awayTeamObj.rank } : null),
-  };
+/** Prepare the narrow, audit-friendly input consumed by the scoring engine.
+ * No NCAA, CEV club, or EuroVolley field can enter this object. */
+export function enrichVolleyballMatch(raw, tape = [], vnlDoc = {}) {
+  if (!isVnlWomen(raw)) return { ...raw, family: raw?.family || 'out-of-scope' };
+  const home = typeof raw.home === 'object' ? raw.home.name : raw.home;
+  const away = typeof raw.away === 'object' ? raw.away.name : raw.away;
+  const startUtc = raw.startUtc || null;
+  const homeFacts = latestTeamRow(vnlDoc.teams, home) || raw.homeTeam || {};
+  const awayFacts = latestTeamRow(vnlDoc.teams, away) || raw.awayTeam || {};
+  const homeForm = formFromVolleyballTape(tape, home, startUtc);
+  const awayForm = formFromVolleyballTape(tape, away, startUtc);
 
   return {
     ...raw,
-    family,
-    home: homeName,
-    away: awayName,
-    homeTeamObj: homeObj,
-    awayTeamObj: awayObj,
-    h2h,
-    olbg: raw.olbg || null,
+    family: 'vnl-women',
+    home,
+    away,
+    homeTeam: {
+      ...homeFacts,
+      name: home,
+      form: { ...(homeFacts.form || {}), vnlLast5: homeForm.last5, vnlLast5SetScores: homeForm.last5SetScores },
+    },
+    awayTeam: {
+      ...awayFacts,
+      name: away,
+      form: { ...(awayFacts.form || {}), vnlLast5: awayForm.last5, vnlLast5SetScores: awayForm.last5SetScores },
+    },
+    h2h: raw.h2h || h2hFromVolleyballTape(tape, home, away, startUtc),
+    source_urls: [...new Set([raw.source_url, ...(homeForm.source_urls || []), ...(awayForm.source_urls || [])].filter(Boolean))],
   };
 }
 
+/** Match an OLBG card only by normalized exact pair. It is used for display,
+ * never passed to the VNL scorer as odds or consensus evidence. */
 export function matchVolleyballSlate(match, slateDoc) {
-  if (!slateDoc || !Array.isArray(slateDoc.events)) return null;
-  const matchHome = normalizeTeamName(match.home?.name || match.home);
-  const matchAway = normalizeTeamName(match.away?.name || match.away);
-  for (const ev of slateDoc.events) {
-    const evHome = normalizeTeamName(ev.home);
-    const evAway = normalizeTeamName(ev.away);
-    if ((matchHome === evHome && matchAway === evAway)
-      || (matchHome === evAway && matchAway === evHome)
-      || (matchHome.includes(evHome) && matchAway.includes(evAway))
-      || (evHome.includes(matchHome) && evAway.includes(matchAway))) {
-      return ev;
-    }
-  }
-  return null;
+  const home = normalizeTeamName(match?.home);
+  const away = normalizeTeamName(match?.away);
+  if (!home || !away || !Array.isArray(slateDoc?.events)) return null;
+  return slateDoc.events.find((event) => (
+    (normalizeTeamName(event.home) === home && normalizeTeamName(event.away) === away)
+    || (normalizeTeamName(event.home) === away && normalizeTeamName(event.away) === home)
+  )) || null;
 }
 
-export function buildVolleyballCardForDate(dateISO, matches, tape, slateDoc) {
-  const day = (matches || []).filter((m) => (m.dateISO || m.date) === dateISO);
-  const enriched = day.map((m) => {
-    const row = enrichVolleyballMatch(m, tape);
-    row.olbg = matchVolleyballSlate(row, slateDoc);
-    return row;
-  });
+export function buildVolleyballCardForDate(dateISO, matches, tape, vnlDoc = {}) {
+  const day = (matches || []).filter((match) => match.family === 'vnl-women' && (match.dateISO || match.date) === dateISO);
+  const enriched = day.map((match) => enrichVolleyballMatch(match, tape, vnlDoc));
   const scored = scoreVolleyballCard(enriched);
   const written = writeVolleyballCard(scored.results);
   return {
     date: dateISO,
     sport: 'Volleyball',
+    competition: 'FIVB Volleyball Nations League — Women',
     matches: enriched,
     scored,
     written,

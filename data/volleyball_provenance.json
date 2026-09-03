@@ -1,77 +1,88 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
   "sport": "Volleyball",
-  "generated_at_utc": "2026-09-02T20:00:00Z",
+  "scope": "FIVB Volleyball Nations League — Women prediction engine; separate OLBG volleyball market monitor.",
+  "generated_at_utc": "2026-09-03T23:19:02Z",
   "irregularities": [
     {
       "id": "IR-VB-01",
       "severity": "high",
-      "status": "open",
-      "title": "ESPN volleyball is college-only; OLBG's open card is EuroVolley",
-      "detail": "On 2026-09-02 the OLBG Volleyball/21 index listed Poland W vs Netherlands W and Germany W vs Turkey W (EuroVolley Women quarter-finals in Istanbul). ESPN site.api volleyball/womens-college-volleyball is NCAA. Those sides are never joined.",
+      "status": "resolved",
+      "title": "Prior implementation mixed NCAA and EuroVolley data into a VNL Women prompt",
+      "detail": "The supplied master prompt is specifically FIVB Volleyball Nations League — Women. NCAA and EuroVolley source families were retired from the VNL scorer and are no longer allowed to form a VNL prediction input.",
       "sources": [
-        "https://www.olbg.com/betting-tips/Volleyball/21",
-        "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260902",
-        "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship"
+        "https://www.fivb.com/volleyball-world-reveals-2026-vnl-match-schedule/",
+        "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/"
       ],
-      "effect_on_output": "EuroVolley fixtures are scored only from the committed CEV tape. NCAA fixtures are scored only from ESPN. Internationals without a sourced tape are listed and SKIPPED."
+      "effect_on_output": "Only rows explicitly identified as vnl-women may be scored. Other OLBG volleyball events are visible in the market monitor and marked out of scope."
     },
     {
       "id": "IR-VB-02",
       "severity": "high",
       "status": "open",
-      "title": "No free multi-book volleyball moneyline",
-      "detail": "ESPN NCAA volleyball on 2026-09-02 had oddsSeen false. OLBG HTML carries no structured prices. The prompt requires odds from at least two bookmakers.",
+      "title": "OLBG community voting is not a two-book odds feed",
+      "detail": "The public OLBG index and event page expose selections and vote counts but no named sportsbook moneyline pair. The master prompt requires cross-checking at least two sportsbooks.",
       "sources": [
-        "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260902",
-        "https://www.olbg.com/betting-tips/Volleyball/21"
+        "https://www.olbg.com/betting-tips/Volleyball/21",
+        "https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Turkiye_W_vs_Serbia_W/21?event_id=36520"
       ],
-      "effect_on_output": "Odds component marked missing; LIVE_CAP prevents HIGH confidence on a live card."
+      "effect_on_output": "OLBG votes are display-only. Without two named book prices, the scorer cannot identify a market favourite and publishes MATCH WINNER and SET SCORE as SKIP."
     },
     {
       "id": "IR-VB-03",
-      "severity": "medium",
+      "severity": "high",
       "status": "open",
-      "title": "Kills/blocks per set have no key-less feed",
-      "detail": "The attacking-quality block of the master prompt needs kills per set and blocks per set. ESPN scoreboard linescores are set points, not those rates.",
+      "title": "No complete parse-verified official VNL Women result and fixture export is committed",
+      "detail": "The official Volleyball World schedule, standings and statistics pages are linked for review. A narrative post or a search snippet is not treated as a complete row-level data export.",
       "sources": [
-        "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard"
+        "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/",
+        "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/standings/women/",
+        "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/statistics/"
       ],
-      "effect_on_output": "Attacking quality scores 0 and is listed in missing[]."
+      "effect_on_output": "The VNL tape, events and backtest remain empty rather than use unverified transcriptions. The page remains a functional season-status and OLBG market monitor."
     },
     {
       "id": "IR-VB-04",
       "severity": "medium",
       "status": "open",
-      "title": "Germany 3-0 Hungary 25 August has an incomplete set line",
-      "detail": "the-sports.org prints (25-17, 7-4) for a listed 3-0. The fifth-ball 7-4 cannot be a completed set.",
+      "title": "Match-specific roster, travel and rotation information has no confirmed automated source in the repository",
+      "detail": "The prompt requires confirmed or strongly expected match-specific rosters and touring context. No source adapter currently provides those fields with a review URL.",
       "sources": [
-        "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
+        "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/"
       ],
-      "effect_on_output": "Match counts as a Germany win for form.last5. Set-score components ignore it (setsIncomplete)."
+      "effect_on_output": "The roster and stakes blocks score zero when absent. Writer text never names a player or speculates about availability."
     },
     {
       "id": "IR-VB-05",
       "severity": "medium",
       "status": "open",
-      "title": "Belgium vs Spain 22 August listing disagrees with the printed sets",
-      "detail": "Listed Belgium 3-2 with sets (15-25, 25-18, 25-23, 17-25, 8-15). The fifth set 8-15 would be a Spain win, i.e. 2-3.",
-      "sources": [
-        "https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html"
-      ],
-      "effect_on_output": "Match omitted from the tape. Not invented."
+      "title": "The supplied scoring prompt has an arithmetic ambiguity in the Stakes block",
+      "detail": "MATCH WINNER is labelled 100 points, but its 20-point Stakes and Motivation block also says to add five points for a hosting week. The engine caps this component at 20 and exposes that decision in its audit trail.",
+      "sources": [],
+      "effect_on_output": "MATCH WINNER remains a 100-point score. A host cannot silently make it 105."
     },
     {
       "id": "IR-VB-06",
+      "severity": "high",
+      "status": "resolved",
+      "title": "The supplied US responsible-gambling contact is outdated",
+      "detail": "The prompt requests 1-800-GAMBLER. The National Council on Problem Gambling announced 1-800-MY-RESET as its active National Problem Gambling Helpline in January 2026; the older NCPG-managed route changed in 2025.",
+      "sources": [
+        "https://www.ncpgambling.org/news/1-800-my-reset-announcement/",
+        "https://www.ncpgambling.org/news/ncpg-statement-national-access-to-1-800-gambler/"
+      ],
+      "effect_on_output": "The copy-ready card uses 1-800-MY-RESET and asks publishers to check the official support page before publishing."
+    },
+    {
+      "id": "IR-VB-07",
       "severity": "low",
       "status": "open",
-      "title": "OLBG volleyball kickoff times are untrusted",
-      "detail": "U-02: OLBG printed 09:00 and 12:00 for the Istanbul quarter-finals. Wikipedia lists 16:00 and 19:00 local.",
+      "title": "Current sandbox cannot complete the direct OLBG collector TLS request",
+      "detail": "The collector received an SSL EOF in this environment on 2026-09-03. It exits without overwriting data. Public-page review yielded one open OLBG event, recorded with its source link and a refresh warning.",
       "sources": [
-        "https://www.olbg.com/betting-tips/Volleyball/21",
-        "https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship"
+        "https://www.olbg.com/betting-tips/Volleyball/21"
       ],
-      "effect_on_output": "Calendar date comes from Wikipedia (3 September). startUtc is null."
+      "effect_on_output": "The page labels the OLBG row as a timestamped snapshot and does not claim browser-live collection. The GitHub Actions collector remains the refresh path."
     }
   ]
 }

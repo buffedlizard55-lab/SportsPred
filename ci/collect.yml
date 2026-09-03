@@ -162,20 +162,20 @@ jobs:
         if: steps.collect-volleyball-olbg.outcome == 'failure'
         run: echo "::warning::OLBG volleyball collection failed. data/volleyball_slate.json is unchanged."
 
-      - name: Collect ESPN NCAA volleyball
-        id: collect-volleyball-espn
+      - name: Collect official FIVB VNL Women fixtures and results
+        id: collect-volleyball-vnl
         continue-on-error: true
-        run: node scripts/collect_volleyball_espn.mjs
+        run: python3 scripts/collect_volleyball_vnl.py
 
-      - name: Report a failed volleyball ESPN collection
-        if: steps.collect-volleyball-espn.outcome == 'failure'
-        run: echo "::warning::ESPN volleyball collection failed. Recorded volleyball data is unchanged."
+      - name: Report a failed official VNL collection
+        if: steps.collect-volleyball-vnl.outcome == 'failure'
+        run: echo "::warning::Official VNL Women collection failed or found no complete source rows. The prior VNL snapshot is unchanged."
 
-      - name: Record volleyball predictions
+      - name: Record source-gated VNL Women predictions
         continue-on-error: true
         run: node scripts/record_volleyball_predictions.mjs
 
-      - name: Volleyball walk-forward backtest
+      - name: VNL Women walk-forward backtest
         continue-on-error: true
         run: node scripts/backtest_volleyball.mjs
 

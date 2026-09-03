@@ -1,91 +1,64 @@
 #!/usr/bin/env node
-/**
- * Walk-forward backtest over the committed volleyball tape.
- * Each completed match is scored using ONLY earlier matches in the SAME family.
- * NCAA form never grades a EuroVolley fixture.
- */
+/** Walk-forward backtest for source-verified FIVB VNL Women rows only. */
 
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, join } from 'node:path';
-
 import { enrichVolleyballMatch } from '../engine/volleyball_data.js';
 import { scoreVolleyballMatch } from '../engine/volleyball_engine.js';
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
-const TAPE = join(ROOT, 'data', 'volleyball_tape.json');
+const VNL = join(ROOT, 'data', 'volleyball_vnl.json');
 const OUT = join(ROOT, 'data', 'volleyball_backtest.json');
 
-function invert(s) {
-  const m = String(s || '').match(/^(\d)-(\d)$/);
-  return m ? `${m[2]}-${m[1]}` : s;
-}
+function load(path) { return JSON.parse(readFileSync(path, 'utf8')); }
+function invert(score) { return /^\d-\d$/.test(String(score)) ? `${score[2]}-${score[0]}` : null; }
 
 function main() {
-  const tapeDoc = JSON.parse(readFileSync(TAPE, 'utf8'));
-  const all = [...(tapeDoc.matches || [])]
-    .filter((m) => m.phase === 'results' && m.winner)
-    .sort((a, b) => String(a.startUtc || a.date).localeCompare(String(b.startUtc || a.date)));
-
-  const graded = [];
-  for (let i = 0; i < all.length; i += 1) {
-    const m = all[i];
-    const prior = all.slice(0, i);
-    const raw = {
-      id: m.id,
-      family: m.family,
-      phase: 'upcoming',
-      date: m.date,
-      startUtc: m.startUtc,
-      home: m.home,
-      away: m.away,
-      venue: m.venue,
-      neutral: true,
+  const source = load(VNL);
+  const all = (source.results || []).filter((row) => row.family === 'vnl-women' && row.winner && row.setScore && row.startUtc)
+    .sort((a, b) => a.startUtc.localeCompare(b.startUtc));
+  const rows = all.map((match, index) => {
+    const input = enrichVolleyballMatch({ ...match, phase: 'upcoming' }, all.slice(0, index), source);
+    const result = scoreVolleyballMatch(input);
+    const winner = result.markets.win_match;
+    const set = result.markets.set_score;
+    const actualSet = match.winner === match.home ? match.setScore : invert(match.setScore);
+    return {
+      id: match.id,
+      date: match.dateISO || match.date,
+      match: `${match.home} v ${match.away}`,
+      actualWinner: match.winner,
+      actualSetScore: actualSet,
+      winPick: winner.selection,
+      winBand: winner.band,
+      winHit: winner.selection ? winner.selection === match.winner : null,
+      setPick: set.selection,
+      setBand: set.band,
+      setHit: set.selection && actualSet ? set.selection.endsWith(actualSet) : null,
     };
-    const enriched = enrichVolleyballMatch(raw, prior);
-    const scored = scoreVolleyballMatch(enriched);
-    const wm = scored.markets.win_match;
-    const ss = scored.markets.set_score;
-    const actualScore = m.setsIncomplete ? null : m.setScore;
-    const winnerIsHome = m.winner === m.home;
-    const winnerSet = actualScore
-      ? (winnerIsHome ? actualScore : invert(actualScore))
-      : null;
-    graded.push({
-      id: m.id,
-      family: m.family,
-      date: m.date,
-      match: `${m.home} v ${m.away}`,
-      actualWinner: m.winner,
-      actualSetScore: winnerSet,
-      winPick: wm.selection,
-      winBand: wm.band,
-      winHit: wm.selection ? wm.selection === m.winner : null,
-      setPick: ss.selection,
-      setBand: ss.band,
-      setHit: ss.selection && winnerSet ? ss.selection === winnerSet : null,
-    });
-  }
-
-  const published = graded.filter((g) => g.winHit !== null);
-  const winHits = published.filter((g) => g.winHit).length;
-  const setPub = graded.filter((g) => g.setHit !== null);
-  const setHits = setPub.filter((g) => g.setHit).length;
-
+  });
+  const summarize = (field) => {
+    const graded = rows.filter((row) => row[field] !== null);
+    const hits = graded.filter((row) => row[field]).length;
+    return { graded: graded.length, hits, hitRate: graded.length ? Number((hits / graded.length).toFixed(4)) : null };
+  };
+  const win = summarize('winHit');
+  const set = summarize('setHit');
   const out = {
-    schema_version: 1,
+    schema_version: 2,
     sport: 'Volleyball',
+    scope: 'FIVB Volleyball Nations League — Women only',
     generated_at_utc: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
-    method: 'Walk-forward over committed tape rows in the same competition family. No NCAA row is visible to a EuroVolley fixture.',
-    events: graded.length,
+    method: 'Chronological walk-forward: every row uses only earlier source-verified VNL Women results. No NCAA, EuroVolley or club row is eligible.',
+    events: rows.length,
     summary: [
-      { market: 'win_match', graded: published.length, hits: winHits, hitRate: published.length ? Number((winHits / published.length).toFixed(4)) : null },
-      { market: 'set_score', graded: setPub.length, hits: setHits, hitRate: setPub.length ? Number((setHits / setPub.length).toFixed(4)) : null },
+      { market: 'match_winner', ...win, reason: win.graded ? undefined : 'No historical selection cleared the source/score gates.' },
+      { market: 'set_score', ...set, reason: set.graded ? undefined : 'No historical selection cleared the source/score gates.' },
     ],
-    rows: graded,
+    rows,
   };
   writeFileSync(OUT, `${JSON.stringify(out, null, 2)}\n`);
-  console.log(`Volleyball backtest: ${graded.length} events, win ${winHits}/${published.length}, set ${setHits}/${setPub.length}`);
+  console.log(`VNL Women backtest: ${rows.length} rows, winner ${win.hits}/${win.graded}, set ${set.hits}/${set.graded}`);
 }
-
 main();

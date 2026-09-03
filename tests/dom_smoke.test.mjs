@@ -741,48 +741,36 @@ test('registry: greyhounds are predicted on their own specialist page', async ()
   assert.equal(g.specialistEngine, 'greyhounds');
 });
 
-test('volleyball.html boots NCAA rows, set linescores and the Generate button', { skip: !JSDOM }, async () => {
-  const { document, window } = await bootPage('volleyball.html', { search: '?date=2026-09-02' });
+test('volleyball.html boots the FIVB VNL Women source guard and functional card button', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('volleyball.html', { search: '?date=2026-09-03' });
   try {
     assert.ok(document.querySelector('.masthead'), 'masthead rendered');
     assert.ok(document.querySelector('.sportrail a[data-sport="volleyball"]'), 'volleyball is in the rail');
-    const text = document.body.textContent;
-    assert.match(text, /Nebraska Cornhuskers/);
-    assert.match(text, /Wisconsin Badgers/);
-    assert.match(text, /25–20|25-20|25–20/);
-    const rows = document.querySelectorAll('.match');
-    assert.ok(rows.length >= 1, 'at least one match row');
+    assert.match(document.body.textContent, /FIVB Volleyball Nations League — Women/);
+    assert.match(document.body.textContent, /Scope guard/);
     const btn = document.querySelector('#generate');
-    assert.ok(btn, 'generate button exists');
-    document.querySelector('#rail-preds').innerHTML = '';
+    assert.ok(btn, 'Generate button exists');
     btn.dispatchEvent(new window.Event('click', { bubbles: true }));
     for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
-    assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'Generate repopulated the rail');
     assert.equal(btn.disabled, false);
-    assert.match(btn.textContent, /Generate predictions/);
+    assert.match(btn.textContent, /Generate VNL card/);
+    assert.match(document.querySelector('#card-text').textContent, /SUMMARY TABLE/);
+    assert.match(document.querySelector('#card-text').textContent, /RESPONSIBLE GAMBLING/);
   } finally { cleanup(); }
 });
 
-test('volleyball.html on 3 September renders EuroVolley QFs and separate NCAA rows without bleed', { skip: !JSDOM }, async () => {
-  const { document } = await bootPage('volleyball.html', { search: '?date=2026-09-03' });
+test('volleyball.html renders open OLBG market rows separately and does not score them as VNL', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('volleyball.html', { search: '?date=2026-09-05' });
   try {
     const text = document.body.textContent;
-    assert.match(text, /Poland/);
-    assert.match(text, /Netherlands/);
-    assert.match(text, /EuroVolley/);
-    // The refreshed committed tape legitimately carries NCAA fixtures on
-    // 2026-09-03 as well; they must render in their own family rows, never
-    // as form/data on the EuroVolley sides.
-    const rows = [...document.querySelectorAll('#board .match')];
-    const euro = rows.find((r) => r.textContent.includes('Poland') && r.textContent.includes('Netherlands'));
-    assert.ok(euro, 'EuroVolley fixture renders');
-    assert.match(euro.querySelector('.meta-line').textContent, /EuroVolley tape/);
-    assert.ok(!/Nebraska Cornhuskers/.test(euro.textContent), 'EuroVolley card carries no NCAA side');
-    const ncaa = rows.find((r) => r.textContent.includes('Nebraska Cornhuskers'));
-    assert.ok(ncaa, 'the committed NCAA fixture on this date renders in its own row');
-    assert.match(ncaa.querySelector('.meta-line').textContent, /NCAA \/ ESPN/);
-    const toggle = document.querySelector('[data-toggle]');
-    assert.ok(toggle, 'analysis toggle exists');
+    assert.match(text, /Turkiye W/);
+    assert.match(text, /Serbia W/);
+    assert.match(text, /Win Match/);
+    assert.match(text, /Set Score/);
+    const row = [...document.querySelectorAll('#board .match')].find((item) => item.textContent.includes('Turkiye W'));
+    assert.ok(row, 'OLBG snapshot row renders');
+    assert.match(row.textContent, /OUT OF VNL SCOPE/);
+    assert.doesNotMatch(row.textContent, /NCAA|EuroVolley/);
   } finally { cleanup(); }
 });
 

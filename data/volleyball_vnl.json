@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "sport": "Volleyball",
+  "scope": "FIVB Volleyball Nations League — Women only",
+  "generated_at_utc": "2026-09-03T23:19:02Z",
+  "season": {
+    "year": 2026,
+    "status": "completed",
+    "message": "The 2026 VNL Women final phase was scheduled for 22–26 July. No subsequent VNL Women fixture is asserted in this snapshot.",
+    "source_url": "https://www.fivb.com/volleyball-world-reveals-2026-vnl-match-schedule/"
+  },
+  "season_status": {
+    "status": "completed",
+    "message": "The 2026 VNL Women final phase was scheduled for 22–26 July. No subsequent VNL Women fixture is asserted in this snapshot.",
+    "source_url": "https://www.fivb.com/volleyball-world-reveals-2026-vnl-match-schedule/"
+  },
+  "sources": [
+    {
+      "name": "FIVB 2026 VNL match-schedule announcement",
+      "url": "https://www.fivb.com/volleyball-world-reveals-2026-vnl-match-schedule/",
+      "role": "season window, official schedule review"
+    },
+    {
+      "name": "Volleyball World VNL Women schedule and results",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/",
+      "role": "fixture and result verification"
+    },
+    {
+      "name": "Volleyball World VNL Women standings",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/standings/women/",
+      "role": "standings and points verification"
+    },
+    {
+      "name": "Volleyball World VNL statistics",
+      "url": "https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/statistics/",
+      "role": "team/player statistical review"
+    }
+  ],
+  "collection_status": "No complete, parse-verified official VNL schedule export is committed yet. Empty arrays are intentional: the site will not reconstruct historical results or invent future fixtures from narrative sources.",
+  "events": [],
+  "results": [],
+  "standings": [],
+  "teams": {}
+}

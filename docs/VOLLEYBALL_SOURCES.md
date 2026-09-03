@@ -1,22 +1,38 @@
-# Volleyball sources
+# FIVB VNL Women sources and collection boundaries
 
-Every volleyball figure on this site is traceable to one of the feeds below. A missing feed is listed in `missing[]` and scored as zero — never estimated.
+This page lists what the VNL Women model is permitted to read. Every collector row needs a direct `https` review URL. A source page is **not** evidence for an individual match until the collector has parsed and preserved the relevant row.
 
-| Source | What we take | What we do not take | Review |
+| Source | Intended evidence | Current use | Manual review |
 |---|---|---|---|
-| ESPN site API `volleyball/womens-college-volleyball` and `mens-college-volleyball` | Fixtures, live/final status, records, curated rank, competitor.form, **linescores as set points** | Kills/blocks per set, multi-book odds (oddsSeen was false on 2026-09-02) | [scoreboard](https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard) |
-| the-sports.org Women's European Championship 2026 | Pool A/C set scores and dates for EuroVolley Women | Invented set lines when the print is incomplete | [epr139365](https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html) |
-| Wikipedia 2026 Women's European Volleyball Championship | Knockout pairing and 3 September quarter-final date | Kickoff UTC (OLBG clocks are untrusted) | [page](https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship) |
-| OLBG `/betting-tips/Volleyball/21` | Event list, Win Match / Set Score market names, tipster consensus (display only) | Prices, calendar placement from relative "Tomorrow" labels | [index](https://www.olbg.com/betting-tips/Volleyball/21) |
-| CEV / FIVB | Official-body links for review | No key-less JSON used | [CEV](https://www.cev.eu/) · [FIVB](https://www.fivb.com/) |
+| FIVB — 2026 VNL match schedule announcement | Authoritative season window, hosts and schedule context | Season-status guard | [FIVB schedule announcement](https://www.fivb.com/volleyball-world-reveals-2026-vnl-match-schedule/) |
+| Volleyball World VNL schedule & results | Individual fixtures, final results, set scores, pools and venues | Required source for `data/volleyball_vnl.json` result/fixture rows | [Schedule & results](https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/schedule/) |
+| Volleyball World VNL women’s standings | Match count, result split, VNL points, set/point ratios, Finals cut-off context | Required source for standings/stakes fields | [Women’s standings](https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/standings/women/) |
+| Volleyball World VNL statistics | Attacking, blocking and serving source review | Required source for the set-quality-gap inputs | [VNL statistics](https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/statistics/) |
+| Volleyball World VNL teams/news | Official roster and match-news review | Only confirmed match-specific availability can populate roster status | [Women’s teams](https://en.volleyballworld.com/volleyball/competitions/volleyball-nations-league/teams/women/) |
+| OLBG volleyball index and event page | Open event discovery, market headings and community vote display | **Display-only market monitor. Never odds or model evidence.** | [Index](https://www.olbg.com/betting-tips/Volleyball/21) · [verified open event snapshot](https://www.olbg.com/betting-tips/Volleyball/All_Volleyball/All_Events/Turkiye_W_vs_Serbia_W/21?event_id=36520) |
+| GamCare | Responsible-gambling support contact in Great Britain | Card footer after checked contact review | [GamCare support](https://www.gamcare.org.uk/get-support/talk-to-us-now/) |
+| National Council on Problem Gambling | Responsible-gambling support contact in the United States | Card footer after checked contact review | [NCPG announcement](https://www.ncpgambling.org/news/1-800-my-reset-announcement/) |
 
-## Competition families (never mixed)
+## Sources explicitly rejected for VNL model scoring
 
-- `ncaa` — ESPN college volleyball only.
-- `eurovolley-w` — committed CEV Women's Euro 2026 tape only.
+- **OLBG tipster percentages:** votes are neither a named sportsbook price nor a statistical forecast supplied by the model. They stay out of every score.
+- **ESPN NCAA volleyball:** different competition, player pool and calendar. It cannot contribute form, H2H, rank or a score to VNL Women.
+- **EuroVolley, domestic club and generic volleyball rows:** different competition family. They cannot serve as a substitute VNL tape.
+- **Search snippets, social posts and unsourced tables:** discovery aids only. They are never committed as player stats, roster status, match times, standings or results.
 
-Poland vs Netherlands on 3 September 2026 is EuroVolley. It is not scored from Nebraska, Wisconsin, or any other NCAA side.
+## Required source record for a future VNL row
 
-## Markets in scope
+```json
+{
+  "id": "official-match-id",
+  "family": "vnl-women",
+  "phase": "upcoming",
+  "startUtc": "verified UTC timestamp",
+  "home": "Team name",
+  "away": "Team name",
+  "context": { "week": 1, "pool": "Pool 1", "hostCity": "…" },
+  "source_url": "https://en.volleyballworld.com/.../schedule/..."
+}
+```
 
-The master prompt scores **WIN MATCH** and **SET SCORE** (`3-0` / `3-1` / `3-2`) only. OLBG Total Points and Points Handicap are listed for review and never scored.
+A result row also requires `winner`, an oriented `setScore`, and its own source URL. A team-rate, roster, standing or price field likewise requires its own source URL/fetch time. Missing inputs remain missing; they are never backfilled from this document.

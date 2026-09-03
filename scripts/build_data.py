@@ -59,6 +59,7 @@ GREYHOUND_PREDICTIONS = os.path.join(DATA, 'greyhound_predictions.json')
 
 # Volleyball files
 VOLLEYBALL_SLATE = os.path.join(DATA, 'volleyball_slate.json')
+VOLLEYBALL_VNL = os.path.join(DATA, 'volleyball_vnl.json')
 VOLLEYBALL_TAPE = os.path.join(DATA, 'volleyball_tape.json')
 VOLLEYBALL_MATCHES = os.path.join(DATA, 'volleyball_matches.json')
 VOLLEYBALL_PROVENANCE = os.path.join(DATA, 'volleyball_provenance.json')
@@ -657,6 +658,34 @@ def validate_volleyball_matches(doc):
         if m.get('source_url') and not str(m.get('source_url')).startswith('https://'):
             problems.append(f'volleyball match {m.get("id")} source_url is not https')
     return problems, len(matches)
+
+
+def validate_volleyball_vnl(doc):
+    problems = []
+    if doc.get('scope') != 'FIVB Volleyball Nations League — Women only':
+        problems.append('volleyball_vnl scope is not exact VNL Women only')
+    if not isinstance(doc.get('events'), list) or not isinstance(doc.get('results'), list):
+        return problems + ['volleyball_vnl events/results must be lists'], 0
+    sources = doc.get('sources') or []
+    if not any(str(source.get('url', '')).startswith('https://') for source in sources):
+        problems.append('volleyball_vnl has no HTTPS source register')
+    rows = [*(doc.get('events') or []), *(doc.get('results') or [])]
+    ids = [str(row.get('id') or row.get('event_id')) for row in rows]
+    if len(ids) != len(set(ids)):
+        problems.append('volleyball_vnl has duplicate fixture ids')
+    for row in rows:
+        for field in ('id', 'family', 'dateISO', 'startUtc', 'home', 'away', 'source_url'):
+            if not row.get(field):
+                problems.append(f'volleyball_vnl row {row.get("id")} missing "{field}"')
+        if row.get('family') != 'vnl-women':
+            problems.append(f'volleyball_vnl row {row.get("id")} is not vnl-women')
+        if not str(row.get('source_url', '')).startswith('https://'):
+            problems.append(f'volleyball_vnl row {row.get("id")} source_url is not https')
+        if row.get('phase') == 'results':
+            for field in ('winner', 'setScore'):
+                if not row.get(field):
+                    problems.append(f'volleyball_vnl result {row.get("id")} missing "{field}"')
+    return problems, len(rows)
 
 
 def validate_handball_matches(doc):
@@ -1298,6 +1327,7 @@ def main():
 
     print('\n--- Volleyball Data Layer ---')
     vb_names = [('data/volleyball_slate.json', VOLLEYBALL_SLATE, validate_volleyball_slate),
+                ('data/volleyball_vnl.json', VOLLEYBALL_VNL, validate_volleyball_vnl),
                 ('data/volleyball_tape.json', VOLLEYBALL_TAPE, validate_volleyball_tape),
                 ('data/volleyball_matches.json', VOLLEYBALL_MATCHES, validate_volleyball_matches),
                 ('data/volleyball_provenance.json', VOLLEYBALL_PROVENANCE, None),
