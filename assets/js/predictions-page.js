@@ -10,6 +10,7 @@ import { SPORTS, getSport } from '../../engine/registry.js';
 import { parseScoreboard, buildLeagueContext, headToHead, restDays } from '../../engine/espn_universal.js';
 import { scoreUniversalMatch, espnSportFor } from '../../engine/universal_engine.js';
 import { writeUniversalTip, buildCopyText } from '../../engine/universal_writer.js';
+import { writeNbaGame } from '../../engine/nba_writer.js';
 import { loadLeagueDay, loadLeagueRange, loadStatic, pool, addDays, TTL } from './data-client.js';
 import {
   $, $$, esc, todayISO, fmtDateLong, renderShell, renderFooter, toast, copyText, confBar, qs, setQS,
@@ -148,7 +149,8 @@ async function run() {
     });
     scored.neutral = m.neutral;
     const tip = writeUniversalTip(scored);
-    state.rows.push({ m, sport, scored, tip });
+    const nbaTips = sport.key === 'basketball' ? writeNbaGame(scored) : null;
+    state.rows.push({ m, sport, scored, tip, nbaTips });
   }
   state.rows.sort((a, b) => (b.scored.headline?.score || 0) - (a.scored.headline?.score || 0));
 
@@ -189,7 +191,7 @@ function render() {
     return;
   }
 
-  $('#out').innerHTML = rows.map(({ m, sport, scored, tip }) => `
+  $('#out').innerHTML = rows.map(({ m, sport, scored, tip, nbaTips }) => `
     <div class="card">
       <div class="card-head">
         <span>${sport.icon}</span>
@@ -199,13 +201,13 @@ function render() {
         ${tip.ok ? `<span class="badge ${esc(tip.band)}">${esc(tip.band)}</span>${confBar(tip.score, tip.band)}` : '<span class="badge SKIP">WITHHELD</span>'}
       </div>
       <div class="card-body">
-        ${tip.ok
-    ? `<div class="tipbox">${tip.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>
-             <div class="toolbar" style="margin-top:10px">
-               <button class="btn sm" data-copy="${esc(m.id)}">📋 Copy this tip</button>
-               <a class="btn sm" href="sport.html?sport=${esc(sport.key)}&date=${esc(m.dateISO)}">Open on the ${esc(sport.name)} board</a>
-             </div>`
-    : `<p class="meta-line">No tip written — ${esc((tip.violations || []).join('; ') || tip.reason || 'unscored')}.</p>`}
+        ${sport.key === 'basketball' && nbaTips
+    ? `<div class="nba-market-tips">${nbaTips.map((t, i) => `<section class="nba-tip"><div class="tip-meta"><strong>${['WIN MATCH', 'POINT SPREAD', 'GAME TOTAL'][i]}</strong><span class="sp"></span><span class="badge ${esc(t.band)}">${esc(t.band)}</span>${t.ok ? confBar(t.score, t.band) : ''}</div><div>${t.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div></section>`).join('')}</div>
+             <div class="toolbar" style="margin-top:10px"><a class="btn sm" href="sport.html?sport=${esc(sport.key)}&date=${esc(m.dateISO)}">Open on the ${esc(sport.name)} board</a></div>`
+    : tip.ok
+      ? `<div class="tipbox">${tip.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>
+             <div class="toolbar" style="margin-top:10px"><button class="btn sm" data-copy="${esc(m.id)}">📋 Copy this tip</button><a class="btn sm" href="sport.html?sport=${esc(sport.key)}&date=${esc(m.dateISO)}">Open on the ${esc(sport.name)} board</a></div>`
+      : `<p class="meta-line">No tip written — ${esc((tip.violations || []).join('; ') || tip.reason || 'unscored')}.</p>`}
         <ul class="srclist">${(scored.sources || []).slice(0, 4).map((s) => `<li>→ <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join('')}</ul>
       </div>
     </div>`).join('');
@@ -219,11 +221,17 @@ function render() {
 }
 
 async function copyAll() {
-  const tips = filtered().filter((r) => r.tip.ok).map(({ m, scored, tip }) => ({
-    match: scored.match, league: m.leagueName, marketLabel: scored.headline.label,
-    selection: scored.headline.selection, band: tip.band, score: tip.score,
-    text: tip.text, sources: scored.sources,
-  }));
+  const tips = [];
+  for (const { m, sport, scored, tip, nbaTips } of filtered()) {
+    if (sport.key === 'basketball' && nbaTips) {
+      const labels = ['WIN MATCH', 'POINT SPREAD', 'GAME TOTAL'];
+      nbaTips.forEach((t, i) => {
+        if (t.ok) tips.push({ match: scored.match, league: m.leagueName, marketLabel: labels[i], selection: scored.markets[t.market]?.selection, band: t.band, score: t.score, text: t.text, sources: scored.sources });
+      });
+    } else if (tip.ok) {
+      tips.push({ match: scored.match, league: m.leagueName, marketLabel: scored.headline.label, selection: scored.headline.selection, band: tip.band, score: tip.score, text: tip.text, sources: scored.sources });
+    }
+  }
   if (!tips.length) { toast('Nothing to copy'); return; }
   const text = buildCopyText({ tips, withheld: [], unscored: [] }, {
     title: 'SportsPred predictions', dateISO: state.date,

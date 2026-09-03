@@ -29,6 +29,7 @@ import {
 import {
   writeUniversalTip, buildCopyText,
 } from '../../engine/universal_writer.js';
+import { writeNbaGame } from '../../engine/nba_writer.js';
 import {
   loadLeagueDay, loadLeagueRange, loadStatic, pool, addDays, ttlForDate,
   cacheStats, clearCache, TTL,
@@ -272,7 +273,10 @@ export function generateAll({ force = false } = {}) {
     const scored = scoreUniversalMatch(m, ctxFor(m));
     scored.neutral = m.neutral;
     const tip = writeUniversalTip(scored);
-    state.predictions.set(m.id, { scored, tip });
+    // NBA v5 has a stricter display contract: publish three independent,
+    // ordered markets and keep price/line/player detail out of the prose.
+    const nbaTips = state.sport.key === 'basketball' ? writeNbaGame(scored) : null;
+    state.predictions.set(m.id, { scored, tip, nbaTips });
     made += 1;
   }
   return made;
@@ -284,7 +288,27 @@ function writtenCard() {
   for (const m of visibleMatches()) {
     const p = state.predictions.get(m.id);
     if (!p) continue;
-    if (p.tip.ok) {
+    if (state.sport.key === 'basketball' && p.nbaTips) {
+      p.nbaTips.forEach((nbaTip, index) => {
+        const labels = ['WIN MATCH', 'POINT SPREAD', 'GAME TOTAL'];
+        if (nbaTip.ok) tips.push({
+          matchId: `${m.id}:${index}`,
+          match: p.scored.match,
+          league: p.scored.league,
+          dateISO: p.scored.dateISO,
+          startUtc: p.scored.startUtc,
+          market: nbaTip.market,
+          marketLabel: labels[index],
+          selection: p.scored.markets[nbaTip.market]?.selection,
+          band: nbaTip.band,
+          score: nbaTip.score,
+          words: nbaTip.words,
+          text: nbaTip.text,
+          sources: p.scored.sources,
+        });
+        else withheld.push({ match: `${p.scored.match} — ${labels[index]}`, violations: [nbaTip.reason || 'market withheld'], reason: nbaTip.reason });
+      });
+    } else if (p.tip.ok) {
       tips.push({
         matchId: m.id,
         match: p.scored.match,
@@ -567,6 +591,9 @@ function detailHtml(matchId) {
     ? `<div>${tip.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div>`
     : `<div class="meta-line">No tip was written. ${esc((tip.violations || []).join('; ') || tip.reason || '')}</div>`}
       </div>
+      ${state.sport.key === 'basketball' && p.nbaTips ? `<div class="nba-market-tips">
+        ${p.nbaTips.map((t, i) => `<section class="nba-tip"><div class="tip-meta"><strong>${esc(['WIN MATCH', 'POINT SPREAD', 'GAME TOTAL'][i])}</strong><span class="sp"></span><span class="badge ${esc(t.band)}">${esc(t.band)}</span>${t.ok ? confBar(t.score, t.band) : ''}<button class="btn sm" data-nba-copy="${esc(matchId)}:${i}">Copy</button></div><div>${t.text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')}</div></section>`).join('')}
+      </div>` : ''}
       <p class="meta-line" style="margin-top:10px">${priceLine}</p>
       <ul class="srclist">
         ${(scored.sources || []).map((s) => `<li>→ <a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.label)}</a></li>`).join('')}
@@ -590,6 +617,13 @@ function wireDetail(root) {
     if (!p?.tip?.ok) return;
     const ok = await copyText(p.tip.text.replace(/\*\*/g, ''));
     toast(ok ? 'Tip copied to clipboard' : 'Copy failed — select the text manually');
+  }));
+  $$('[data-nba-copy]', root).forEach((b) => b.addEventListener('click', async () => {
+    const [id, index] = b.dataset.nbaCopy.split(':');
+    const tip = state.predictions.get(id)?.nbaTips?.[Number(index)];
+    if (!tip) return;
+    const ok = await copyText(tip.text.replace(/\*\*/g, ''));
+    toast(ok ? 'NBA market tip copied' : 'Copy failed — select the text manually');
   }));
 }
 
