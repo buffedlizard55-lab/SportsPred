@@ -1,14 +1,8 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-02T23:22:53Z",
+ "fetched_at_utc": "2026-09-03T21:24:40Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
-  {
-   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-12",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-13",
    "status": 200,
@@ -262,7 +256,7 @@
    "ok": true
   },
   {
-   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260812",
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-24",
    "status": 200,
    "error": null,
    "ok": true
@@ -518,13 +512,19 @@
    "status": 200,
    "error": null,
    "ok": true
+  },
+  {
+   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260924",
+   "status": 200,
+   "error": null,
+   "ok": true
   }
  ],
  "sport": "Ice Hockey",
  "league": "nhl",
  "window": {
-  "from": "2026-08-12",
-  "to": "2026-09-23"
+  "from": "2026-08-13",
+  "to": "2026-09-24"
  },
  "odds_attribution": "ESPN republishes one book (DraftKings) inside the scoreboard payload; attributed wherever shown. OLBG publishes tipster consensus, not prices.",
  "fixtures": [
@@ -4827,10 +4827,660 @@
    "oddsSourceCount": 0,
    "total": null,
    "spread": null
+  },
+  {
+   "id": "2026020022",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "KeyBank Center",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/chi-vs-buf/2026/10/03/2026020022",
+   "home": {
+    "id": 7,
+    "abbrev": "BUF",
+    "name": "Buffalo Sabres",
+    "record": {
+     "wins": 50,
+     "losses": 23,
+     "otLosses": 9,
+     "played": 82,
+     "points": 109
+    },
+    "recordSummary": "50-23-9",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BUF_light.svg"
+   },
+   "away": {
+    "id": 16,
+    "abbrev": "CHI",
+    "name": "Chicago Blackhawks",
+    "record": {
+     "wins": 29,
+     "losses": 39,
+     "otLosses": 14,
+     "played": 82,
+     "points": 72
+    },
+    "recordSummary": "29-39-14",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CHI_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020023",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Scotiabank Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/ott-vs-tor/2026/10/03/2026020023",
+   "home": {
+    "id": 10,
+    "abbrev": "TOR",
+    "name": "Toronto Maple Leafs",
+    "record": {
+     "wins": 32,
+     "losses": 36,
+     "otLosses": 14,
+     "played": 82,
+     "points": 78
+    },
+    "recordSummary": "32-36-14",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TOR_light.svg"
+   },
+   "away": {
+    "id": 9,
+    "abbrev": "OTT",
+    "name": "Ottawa Senators",
+    "record": {
+     "wins": 44,
+     "losses": 27,
+     "otLosses": 11,
+     "played": 82,
+     "points": 99
+    },
+    "recordSummary": "44-27-11",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020024",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Benchmark International Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/wsh-vs-tbl/2026/10/03/2026020024",
+   "home": {
+    "id": 14,
+    "abbrev": "TBL",
+    "name": "Tampa Bay Lightning",
+    "record": {
+     "wins": 50,
+     "losses": 26,
+     "otLosses": 6,
+     "played": 82,
+     "points": 106
+    },
+    "recordSummary": "50-26-6",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
+   },
+   "away": {
+    "id": 15,
+    "abbrev": "WSH",
+    "name": "Washington Capitals",
+    "record": {
+     "wins": 43,
+     "losses": 30,
+     "otLosses": 9,
+     "played": 82,
+     "points": 95
+    },
+    "recordSummary": "43-30-9",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WSH_secondary_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020025",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Xfinity Mobile Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/car-vs-phi/2026/10/03/2026020025",
+   "home": {
+    "id": 4,
+    "abbrev": "PHI",
+    "name": "Philadelphia Flyers",
+    "record": {
+     "wins": 43,
+     "losses": 27,
+     "otLosses": 12,
+     "played": 82,
+     "points": 98
+    },
+    "recordSummary": "43-27-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
+   },
+   "away": {
+    "id": 12,
+    "abbrev": "CAR",
+    "name": "Carolina Hurricanes",
+    "record": {
+     "wins": 53,
+     "losses": 22,
+     "otLosses": 7,
+     "played": 82,
+     "points": 113
+    },
+    "recordSummary": "53-22-7",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CAR_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020026",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "PPG Paints Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/mtl-vs-pit/2026/10/03/2026020026",
+   "home": {
+    "id": 5,
+    "abbrev": "PIT",
+    "name": "Pittsburgh Penguins",
+    "record": {
+     "wins": 41,
+     "losses": 25,
+     "otLosses": 16,
+     "played": 82,
+     "points": 98
+    },
+    "recordSummary": "41-25-16",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"
+   },
+   "away": {
+    "id": 8,
+    "abbrev": "MTL",
+    "name": "Montréal Canadiens",
+    "record": {
+     "wins": 48,
+     "losses": 24,
+     "otLosses": 10,
+     "played": 82,
+     "points": 106
+    },
+    "recordSummary": "48-24-10",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MTL_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020027",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Nationwide Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/uta-vs-cbj/2026/10/03/2026020027",
+   "home": {
+    "id": 29,
+    "abbrev": "CBJ",
+    "name": "Columbus Blue Jackets",
+    "record": {
+     "wins": 40,
+     "losses": 30,
+     "otLosses": 12,
+     "played": 82,
+     "points": 92
+    },
+    "recordSummary": "40-30-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CBJ_light.svg"
+   },
+   "away": {
+    "id": 68,
+    "abbrev": "UTA",
+    "name": "Utah Mammoth",
+    "record": {
+     "wins": 43,
+     "losses": 33,
+     "otLosses": 6,
+     "played": 82,
+     "points": 92
+    },
+    "recordSummary": "43-33-6",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020028",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Rogers Place",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/sea-vs-edm/2026/10/03/2026020028",
+   "home": {
+    "id": 22,
+    "abbrev": "EDM",
+    "name": "Edmonton Oilers",
+    "record": {
+     "wins": 41,
+     "losses": 30,
+     "otLosses": 11,
+     "played": 82,
+     "points": 93
+    },
+    "recordSummary": "41-30-11",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/EDM_light.svg"
+   },
+   "away": {
+    "id": 55,
+    "abbrev": "SEA",
+    "name": "Seattle Kraken",
+    "record": {
+     "wins": 34,
+     "losses": 37,
+     "otLosses": 11,
+     "played": 82,
+     "points": 79
+    },
+    "recordSummary": "34-37-11",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020029",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-03T23:30:00Z",
+   "phase": "upcoming",
+   "venue": "UBS Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/njd-vs-nyi/2026/10/03/2026020029",
+   "home": {
+    "id": 2,
+    "abbrev": "NYI",
+    "name": "New York Islanders",
+    "record": {
+     "wins": 43,
+     "losses": 34,
+     "otLosses": 5,
+     "played": 82,
+     "points": 91
+    },
+    "recordSummary": "43-34-5",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NYI_light.svg"
+   },
+   "away": {
+    "id": 1,
+    "abbrev": "NJD",
+    "name": "New Jersey Devils",
+    "record": {
+     "wins": 42,
+     "losses": 37,
+     "otLosses": 3,
+     "played": 82,
+     "points": 87
+    },
+    "recordSummary": "42-37-3",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NJD_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020030",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-04T00:00:00Z",
+   "phase": "upcoming",
+   "venue": "Bridgestone Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/dal-vs-nsh/2026/10/03/2026020030",
+   "home": {
+    "id": 18,
+    "abbrev": "NSH",
+    "name": "Nashville Predators",
+    "record": {
+     "wins": 38,
+     "losses": 34,
+     "otLosses": 10,
+     "played": 82,
+     "points": 86
+    },
+    "recordSummary": "38-34-10",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NSH_light.svg"
+   },
+   "away": {
+    "id": 25,
+    "abbrev": "DAL",
+    "name": "Dallas Stars",
+    "record": {
+     "wins": 50,
+     "losses": 20,
+     "otLosses": 12,
+     "played": 82,
+     "points": 112
+    },
+    "recordSummary": "50-20-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020031",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-04T00:00:00Z",
+   "phase": "upcoming",
+   "venue": "Grand Casino Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/bos-vs-min/2026/10/03/2026020031",
+   "home": {
+    "id": 30,
+    "abbrev": "MIN",
+    "name": "Minnesota Wild",
+    "record": {
+     "wins": 46,
+     "losses": 24,
+     "otLosses": 12,
+     "played": 82,
+     "points": 104
+    },
+    "recordSummary": "46-24-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/MIN_light.svg"
+   },
+   "away": {
+    "id": 6,
+    "abbrev": "BOS",
+    "name": "Boston Bruins",
+    "record": {
+     "wins": 45,
+     "losses": 27,
+     "otLosses": 10,
+     "played": 82,
+     "points": 100
+    },
+    "recordSummary": "45-27-10",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020032",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-04T01:00:00Z",
+   "phase": "upcoming",
+   "venue": "Ball Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/stl-vs-col/2026/10/03/2026020032",
+   "home": {
+    "id": 21,
+    "abbrev": "COL",
+    "name": "Colorado Avalanche",
+    "record": {
+     "wins": 55,
+     "losses": 16,
+     "otLosses": 11,
+     "played": 82,
+     "points": 121
+    },
+    "recordSummary": "55-16-11",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/COL_light.svg"
+   },
+   "away": {
+    "id": 19,
+    "abbrev": "STL",
+    "name": "St. Louis Blues",
+    "record": {
+     "wins": 37,
+     "losses": 33,
+     "otLosses": 12,
+     "played": 82,
+     "points": 86
+    },
+    "recordSummary": "37-33-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/STL_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020033",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-04T02:00:00Z",
+   "phase": "upcoming",
+   "venue": "Rogers Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/cgy-vs-van/2026/10/03/2026020033",
+   "home": {
+    "id": 23,
+    "abbrev": "VAN",
+    "name": "Vancouver Canucks",
+    "record": {
+     "wins": 25,
+     "losses": 49,
+     "otLosses": 8,
+     "played": 82,
+     "points": 58
+    },
+    "recordSummary": "25-49-8",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
+   },
+   "away": {
+    "id": 20,
+    "abbrev": "CGY",
+    "name": "Calgary Flames",
+    "record": {
+     "wins": 34,
+     "losses": 39,
+     "otLosses": 9,
+     "played": 82,
+     "points": 77
+    },
+    "recordSummary": "34-39-9",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020034",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-03",
+   "startUtc": "2026-10-04T02:00:00Z",
+   "phase": "upcoming",
+   "venue": "SAP Center at San Jose",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/lak-vs-sjs/2026/10/03/2026020034",
+   "home": {
+    "id": 28,
+    "abbrev": "SJS",
+    "name": "San Jose Sharks",
+    "record": {
+     "wins": 39,
+     "losses": 35,
+     "otLosses": 8,
+     "played": 82,
+     "points": 86
+    },
+    "recordSummary": "39-35-8",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+   },
+   "away": {
+    "id": 26,
+    "abbrev": "LAK",
+    "name": "Los Angeles Kings",
+    "record": {
+     "wins": 35,
+     "losses": 27,
+     "otLosses": 20,
+     "played": 82,
+     "points": 90
+    },
+    "recordSummary": "35-27-20",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/LAK_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
   }
  ],
  "counts": {
-  "fixtures": 86,
+  "fixtures": 99,
   "results": 3,
   "withOdds": 0
  }
