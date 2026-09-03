@@ -17,8 +17,10 @@ test('equalIgnoringTimestamps ignores ISO timestamps under timestamp keys and no
 });
 
 test('changedFiles treats byte-identical, timestamp-only and substantive edits differently', () => {
-  // package.json is always committed; compared with itself it is unchanged.
-  const { changed, unchanged } = changedFiles(['package.json', 'data/does_not_exist.json']);
+  // ice-hockey.html is a committed file this test never edits, so compared
+  // with itself (HEAD) it is unchanged. (package.json changes in every feature
+  // branch that adds a collector script, so it cannot serve as the baseline.)
+  const { changed, unchanged } = changedFiles(['ice-hockey.html', 'data/does_not_exist.json']);
   assert.deepEqual(changed, ['data/does_not_exist.json'], 'a new (uncommitted) file always counts as changed');
-  assert.deepEqual(unchanged, ['package.json']);
+  assert.deepEqual(unchanged, ['ice-hockey.html']);
 });

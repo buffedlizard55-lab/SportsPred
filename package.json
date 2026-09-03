@@ -28,6 +28,9 @@
     "collect:darts": "python3 scripts/collect_darts_olbg.py --enrich",
     "record:darts": "node scripts/record_darts_predictions.mjs",
     "backtest:darts": "node scripts/backtest_darts.mjs",
+    "collect:baseball": "node scripts/collect_baseball_mlb.mjs && python3 scripts/collect_baseball_olbg.py --enrich",
+    "record:baseball": "node scripts/record_baseball_predictions.mjs",
+    "backtest:baseball": "node scripts/backtest_baseball.mjs",
     "serve": "python3 scripts/serve.py 8000"
   },
   "engines": {
