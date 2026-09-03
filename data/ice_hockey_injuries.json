@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-03T21:24:41Z",
+ "fetched_at_utc": "2026-09-03T23:35:53Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
@@ -15,7 +15,7 @@
  "byTeam": {
   "ANA": {
    "team": "Anaheim Ducks",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 5,
    "entries": [
     {
@@ -64,7 +64,7 @@
   },
   "BOS": {
    "team": "Boston Bruins",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 2,
    "entries": [
     {
@@ -89,7 +89,7 @@
   },
   "BUF": {
    "team": "Buffalo Sabres",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 3,
    "entries": [
     {
@@ -122,7 +122,7 @@
   },
   "CGY": {
    "team": "Calgary Flames",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 8,
    "entries": [
     {
@@ -195,7 +195,7 @@
   },
   "CAR": {
    "team": "Carolina Hurricanes",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 2,
    "entries": [
     {
@@ -220,7 +220,7 @@
   },
   "CHI": {
    "team": "Chicago Blackhawks",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 4,
    "entries": [
     {
@@ -261,7 +261,7 @@
   },
   "CBJ": {
    "team": "Columbus Blue Jackets",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 2,
    "entries": [
     {
@@ -286,7 +286,7 @@
   },
   "DAL": {
    "team": "Dallas Stars",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 3,
    "entries": [
     {
@@ -319,7 +319,7 @@
   },
   "DET": {
    "team": "Detroit Red Wings",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 3,
    "entries": [
     {
@@ -352,7 +352,7 @@
   },
   "EDM": {
    "team": "Edmonton Oilers",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 5,
    "entries": [
     {
@@ -401,7 +401,7 @@
   },
   "FLA": {
    "team": "Florida Panthers",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 11,
    "entries": [
     {
@@ -498,7 +498,7 @@
   },
   "LA": {
    "team": "Los Angeles Kings",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 1,
    "entries": [
     {
@@ -515,7 +515,7 @@
   },
   "MIN": {
    "team": "Minnesota Wild",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 4,
    "entries": [
     {
@@ -556,7 +556,7 @@
   },
   "NJ": {
    "team": "New Jersey Devils",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 5,
    "entries": [
     {
@@ -605,7 +605,7 @@
   },
   "NYR": {
    "team": "New York Rangers",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 1,
    "entries": [
     {
@@ -622,7 +622,7 @@
   },
   "OTT": {
    "team": "Ottawa Senators",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 3,
    "entries": [
     {
@@ -655,7 +655,7 @@
   },
   "PHI": {
    "team": "Philadelphia Flyers",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 2,
    "entries": [
     {
@@ -680,7 +680,7 @@
   },
   "PIT": {
    "team": "Pittsburgh Penguins",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 1,
    "entries": [
     {
@@ -697,7 +697,7 @@
   },
   "SJ": {
    "team": "San Jose Sharks",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 2,
    "entries": [
     {
@@ -722,7 +722,7 @@
   },
   "TB": {
    "team": "Tampa Bay Lightning",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 1,
    "entries": [
     {
@@ -739,7 +739,7 @@
   },
   "TOR": {
    "team": "Toronto Maple Leafs",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 5,
    "entries": [
     {
@@ -788,7 +788,7 @@
   },
   "UTA": {
    "team": "Utah Mammoth",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 1,
    "entries": [
     {
@@ -805,7 +805,7 @@
   },
   "VAN": {
    "team": "Vancouver Canucks",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 3,
    "entries": [
     {
@@ -838,7 +838,7 @@
   },
   "WSH": {
    "team": "Washington Capitals",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 3,
    "entries": [
     {
@@ -871,7 +871,7 @@
   },
   "WPG": {
    "team": "Winnipeg Jets",
-   "timestamp": "2026-09-03T21:24:31Z",
+   "timestamp": "2026-09-03T23:35:45Z",
    "count": 6,
    "entries": [
     {
