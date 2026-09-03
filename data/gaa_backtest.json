@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "sport": "GAA",
+  "generated_at_utc": "2026-09-03T23:48:37Z",
+  "method": "Walk-forward over committed source-linked tape rows. Every match is scored only from matches recorded strictly before it. No odds tier is ever tested: there is no free price feed (IR-GAA-01), so the output measures model lean accuracy only and is NOT a betting record.",
+  "events": 4,
+  "summary": [
+    {
+      "market": "match_lean",
+      "graded": 4,
+      "hits": 4,
+      "hitRate": 1
+    },
+    {
+      "market": "bet_tiers",
+      "graded": 0,
+      "hits": 0,
+      "hitRate": null,
+      "note": "untestable without a price feed (IR-GAA-01)"
+    }
+  ],
+  "rows": [
+    {
+      "id": "aisfc-2026-munster-final",
+      "date": "2026-05-10",
+      "event": "2026 Munster Senior Football Championship",
+      "round": "Final",
+      "matchId": "aisfc-2026-munster-final",
+      "match": "Kerry v Cork",
+      "actualWinner": "Kerry",
+      "score": "1-23 to 1-15",
+      "lean": "Kerry",
+      "modelScore": 40,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Kerry: last-five form (fewer than three completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between the sides)",
+        "Cork: last-five form (fewer than three completed matches in the sourced tape)"
+      ]
+    },
+    {
+      "id": "aisfc-2026-final",
+      "date": "2026-07-26",
+      "event": "2026 All-Ireland Senior Football Championship",
+      "round": "Final",
+      "matchId": "aisfc-2026-final",
+      "match": "Mayo v Kerry",
+      "actualWinner": "Mayo",
+      "score": "1-20 to 1-17",
+      "lean": "Mayo",
+      "modelScore": 40,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Mayo: last-five form (fewer than three completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between the sides)",
+        "Kerry: last-five form (fewer than three completed matches in the sourced tape)"
+      ]
+    },
+    {
+      "id": "aisfc-2026-connacht-final",
+      "date": "2026-05-10",
+      "event": "2026 Connacht Senior Football Championship",
+      "round": "Final",
+      "matchId": "aisfc-2026-connacht-final",
+      "match": "Galway v Roscommon",
+      "actualWinner": "Roscommon",
+      "score": "2-22 to 3-21",
+      "lean": "Roscommon",
+      "modelScore": 36,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Galway: last-five form (fewer than three completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between the sides)",
+        "Roscommon: last-five form (fewer than three completed matches in the sourced tape)"
+      ]
+    },
+    {
+      "id": "aisfc-2026-leinster-final",
+      "date": "2026-05-17",
+      "event": "2026 Leinster Senior Football Championship",
+      "round": "Final",
+      "matchId": "aisfc-2026-leinster-final",
+      "match": "Dublin v Westmeath",
+      "actualWinner": "Westmeath",
+      "score": "0-26 to 2-28 a.e.t.",
+      "lean": "Westmeath",
+      "modelScore": 33,
+      "band": "SKIP",
+      "hit": true,
+      "decision": "SKIP",
+      "missing": [
+        "Dublin: last-five form (fewer than three completed matches in the sourced tape)",
+        "head-to-head (no completed meetings between the sides)",
+        "Westmeath: last-five form (fewer than three completed matches in the sourced tape)"
+      ]
+    }
+  ]
+}

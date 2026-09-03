@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "sport": "GAA",
+  "as_of_utc": "2026-09-03T22:00:00Z",
+  "source": {
+    "name": "Wikipedia — All-Ireland Senior Football Championship roll of honour (2026 holders)",
+    "url": "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship",
+    "fetched_at_utc": "2026-09-03T22:00:00Z",
+    "method": "Championship pedigree ranking over the 2026 season only, using printed title holders. Not a league table. Club sides are unranked."
+  },
+  "notes": [
+    "Prompt: when league standings are unavailable, substitute championship pedigree over the last 3 years on the same 1–8 scale.",
+    "Only 2026 title holders and All-Ireland finalists have a sourced rank here. 2024/2025 scorelines were not in the fetched page, so they are not invented into this list (IR-GAA-04).",
+    "Hurling: Limerick and Kilkenny are flagged pedigree_sides for the structural weighting in the engine; they are not given a fake league position."
+  ],
+  "entries": [
+    { "rank": 1, "name": "Mayo", "code": "football", "reason": "2026 All-Ireland SFC champions" },
+    { "rank": 2, "name": "Kerry", "code": "football", "reason": "2026 All-Ireland SFC runners-up; 2026 Munster champions" },
+    { "rank": 3, "name": "Westmeath", "code": "football", "reason": "2026 Leinster SFC champions" },
+    { "rank": 4, "name": "Roscommon", "code": "football", "reason": "2026 Connacht SFC champions" },
+    { "rank": 5, "name": "Armagh", "code": "football", "reason": "2026 Ulster SFC champions (title only; no printed score on the fetched page)" },
+    { "rank": 6, "name": "Dublin", "code": "football", "reason": "2026 Leinster SFC runners-up" },
+    { "rank": 7, "name": "Cork", "code": "football", "reason": "2026 Munster SFC runners-up" },
+    { "rank": 8, "name": "Galway", "code": "football", "reason": "2026 Connacht SFC runners-up" }
+  ],
+  "hurling_pedigree_sides": ["Limerick", "Kilkenny"]
+}

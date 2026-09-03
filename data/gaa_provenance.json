@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "sport": "GAA",
+  "as_of_utc": "2026-09-03T22:00:00Z",
+  "register": [
+    {
+      "id": "IR-GAA-01",
+      "title": "No free, key-less structured odds feed for Gaelic games",
+      "status": "open",
+      "what_was_checked": "OLBG Gaelic Football /25 and Hurling /26 indexes (2026-09-03), GAA.ie fixtures, ESPN site API (no GAA sport), The Odds API requires a key.",
+      "finding": "OLBG server-rendered pages expose tipster vote counts, never prices. GAA.ie has no public JSON. No key-less Irish book consensus feed.",
+      "effect_on_output": "Odds Strength is scored at 10 pts (prompt missing-odds rule) and flagged missing. Step 3 Full/Small Bet gates require a measured American price, so live cards resolve to SKIP. HIGH confidence is impossible without a price.",
+      "review_links": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25",
+        "https://www.olbg.com/betting-tips/Hurling/26",
+        "https://www.gaa.ie/fixtures-results"
+      ]
+    },
+    {
+      "id": "IR-GAA-02",
+      "title": "No free structured club-championship results tape",
+      "status": "open",
+      "what_was_checked": "GAA.ie fixtures-results, county board pages, OLBG club listings for Wexford/Sligo/Kilkenny (5–6 Sept 2026).",
+      "finding": "The live OLBG slate is club championship football and hurling. Those clubs do not appear on the inter-county Wikipedia tape. County sites are HTML calendars without a key-less JSON API.",
+      "effect_on_output": "Club fixtures are still scored and written. Form, H2H and league standing are missing (conservative caps). Two-or-more data gaps cap confidence at MEDIUM and Step 3 at Small Bet — which still SKIP without a price. Each club card carries the italic data-gap note.",
+      "review_links": [
+        "https://www.gaa.ie/fixtures-results",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ]
+    },
+    {
+      "id": "IR-GAA-03",
+      "title": "Inter-county tape contains only printed scorelines",
+      "status": "open",
+      "what_was_checked": "Wikipedia 2026 All-Ireland Senior Football Championship page (fetched 2026-09-03).",
+      "finding": "Four matches have printed goal–point scores: Connacht, Munster and Leinster provincial finals plus the All-Ireland final. Ulster (Armagh beat Monaghan) and Tailteann (Wicklow beat Down) are named as winners without a score in the fetched summary.",
+      "effect_on_output": "Unscored matches are absent from data/gaa_results.json. Winners without scores are pedigree-only. Earlier rounds are never reconstructed.",
+      "review_links": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship",
+        "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "id": "IR-GAA-04",
+      "title": "Three-year championship pedigree is only as complete as printed 2026 holders",
+      "status": "open",
+      "what_was_checked": "All-Ireland SFC roll of honour table on Wikipedia.",
+      "finding": "2026 holders are listed. 2024 and 2025 scorelines were not in the fetched football championship page used for the tape, so they are not invented into rankings.",
+      "effect_on_output": "Ranking uses the 2026 title-holder scale (Mayo 1 … Galway 8). Club sides stay unranked.",
+      "review_links": [
+        "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "id": "IR-GAA-05",
+      "title": "Injury, suspension and team-news have no free structured source",
+      "status": "open",
+      "what_was_checked": "RTE Sport, The42, Irish Examiner, Irish Independent — no key-less machine feed.",
+      "finding": "The prompt asks for confirmed injuries. None can be verified automatically without scraping paywalled or JS news.",
+      "effect_on_output": "Injuries are not scored. Confidence is not raised for 'clean bill of health'. Player names never appear in tips.",
+      "review_links": [
+        "https://www.rte.ie/sport/gaa/",
+        "https://www.gaa.ie/"
+      ]
+    },
+    {
+      "id": "IR-GAA-06",
+      "title": "Hurling OLBG index is outside the 20-sport sitemap",
+      "status": "open",
+      "what_was_checked": "OLBG sitemap-betting-tips.xml (read 2026-09-02) vs live /Hurling/26 page.",
+      "finding": "Hurling is a live tips index (id 26) but was not in the 20-sport sitemap transcription. It is collected as a GAA sub-code, not a 21st registry sport, so tile counts stay honest.",
+      "effect_on_output": "Hurling markets appear on gaa.html?code=hurling. Limerick/Kilkenny pedigree weighting applies only when those county names are the sides — club names such as Tullaroan do not inherit it.",
+      "review_links": [
+        "https://www.olbg.com/betting-tips/Hurling/26",
+        "https://www.olbg.com/sitemap-betting-tips.xml"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,305 @@
+{
+  "schema_version": 1,
+  "sport": "GAA",
+  "predictions": [
+    {
+      "matchId": "olbg-3441",
+      "matchTitle": "Castletown v Kilanerin",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-06",
+      "code": "football",
+      "predictedWinner": "Castletown",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Castletown**",
+      "paragraph": "**Castletown** holds the cleaner championship profile here, built from no recent meetings on the sourced tape, the business end of the championship. That reading should hold against this opposition. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Castletown_v_Kilanerin/25?event_id=3441",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-3434",
+      "matchTitle": "Coolera Stradhill v St Molaies Gaels",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-05",
+      "code": "football",
+      "predictedWinner": "Coolera Stradhill",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Coolera Stradhill**",
+      "paragraph": "Recent championship output leans to **Coolera Stradhill**, grounded in no recent meetings on the sourced tape, the business end of the championship. The strands that can be sourced all point one way. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Coolera_Stradhill_v_St_Molaies_Gaels/25?event_id=3434",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-3436",
+      "matchTitle": "Eastern Harps v St Marys Sli",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-06",
+      "code": "football",
+      "predictedWinner": "Eastern Harps",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Eastern Harps**",
+      "paragraph": "Pedigree over the last cycle favours **Eastern Harps**, with no recent meetings on the sourced tape, the business end of the championship. Nothing verified on the tape reverses the judgment. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Eastern_Harps_v_St_Marys_Sli/25?event_id=3436",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-3442",
+      "matchTitle": "Naomh Eanna Wex v HWH Bunclody",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-06",
+      "code": "football",
+      "predictedWinner": "Naomh Eanna Wex",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Naomh Eanna Wex**",
+      "paragraph": "**Naomh Eanna Wex** arrives with the firmer sourced record, because no recent meetings on the sourced tape, the business end of the championship. Trust the deeper championship run where it exists. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Naomh_Eanna_Wex_v_HWH_Bunclody/25?event_id=3442",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-3440",
+      "matchTitle": "Sarsfields Wex v St Martins Wex",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-06",
+      "code": "football",
+      "predictedWinner": "Sarsfields Wex",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Sarsfields Wex**",
+      "paragraph": "The knockout setting rewards the side with depth, and **Sarsfields Wex** supplies it through no recent meetings on the sourced tape, the business end of the championship. The pairing is favourable on current evidence. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Sarsfields_Wex_v_St_Martins_Wex/25?event_id=3440",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-3439",
+      "matchTitle": "Shelmaliers v Gusserane",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-05",
+      "code": "football",
+      "predictedWinner": "Shelmaliers",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Shelmaliers**",
+      "paragraph": "County form is thin on the tape, so **Shelmaliers** is judged on no recent meetings on the sourced tape, the business end of the championship. Expect the stronger championship numbers to tell. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Shelmaliers_v_Gusserane/25?event_id=3439",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-3438",
+      "matchTitle": "St Mogues Fethard v St James Wex",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-06",
+      "code": "football",
+      "predictedWinner": "St Mogues Fethard",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **St Mogues Fethard**",
+      "paragraph": "**St Mogues Fethard** carries the more coherent run of results, underpinned by no recent meetings on the sourced tape, the business end of the championship. A fuller inter-county record still settles close calls. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Mogues_Fethard_v_St_James_Wex/25?event_id=3438",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-701",
+      "matchTitle": "Tullaroan v OLoughlin Gaels",
+      "event": "County hurling championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-05",
+      "code": "hurling",
+      "predictedWinner": "Tullaroan",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Tullaroan**",
+      "paragraph": "Head-to-head history is scarce, which leaves **Tullaroan** to be assessed via no recent meetings on the sourced tape, the business end of the championship. Match sharpness from recent knockout days underpins the lean. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Hurling/All_Hurling/All_Events/Tullaroan_v_OLoughlin_Gaels/26?event_id=701",
+        "https://www.olbg.com/betting-tips/Hurling/26"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "aisfc-2026-munster-final",
+      "matchTitle": "Kerry v Cork",
+      "event": "2026 Munster Senior Football Championship",
+      "round": "Final",
+      "dateISO": "2026-05-10",
+      "code": "football",
+      "predictedWinner": "Kerry",
+      "confidence": "SKIP",
+      "modelScore": 40,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Kerry**",
+      "paragraph": "**Kerry** holds the cleaner championship profile here, built from a top-tier championship pedigree, no recent meetings on the sourced tape, the business end of the championship. That reading should hold against this opposition. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Kerry",
+        "score": "1-23 to 1-15",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T23:48:37Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "matchId": "aisfc-2026-final",
+      "matchTitle": "Mayo v Kerry",
+      "event": "2026 All-Ireland Senior Football Championship",
+      "round": "Final",
+      "dateISO": "2026-07-26",
+      "code": "football",
+      "predictedWinner": "Mayo",
+      "confidence": "SKIP",
+      "modelScore": 40,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Mayo**",
+      "paragraph": "Recent championship output leans to **Mayo**, grounded in a top-tier championship pedigree, no recent meetings on the sourced tape, the business end of the championship. The strands that can be sourced all point one way. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship",
+        "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Mayo",
+        "score": "1-20 to 1-17",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T23:48:37Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship",
+        "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "matchId": "aisfc-2026-connacht-final",
+      "matchTitle": "Galway v Roscommon",
+      "event": "2026 Connacht Senior Football Championship",
+      "round": "Final",
+      "dateISO": "2026-05-10",
+      "code": "football",
+      "predictedWinner": "Roscommon",
+      "confidence": "SKIP",
+      "modelScore": 36,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Roscommon**",
+      "paragraph": "Pedigree over the last cycle favours **Roscommon**, with a ranking edge over the opposition, no recent meetings on the sourced tape, the business end of the championship. Nothing verified on the tape reverses the judgment. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Roscommon",
+        "score": "2-22 to 3-21",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T23:48:37Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "matchId": "aisfc-2026-leinster-final",
+      "matchTitle": "Dublin v Westmeath",
+      "event": "2026 Leinster Senior Football Championship",
+      "round": "Final",
+      "dateISO": "2026-05-17",
+      "code": "football",
+      "predictedWinner": "Westmeath",
+      "confidence": "SKIP",
+      "modelScore": 33,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Westmeath**",
+      "paragraph": "**Westmeath** arrives with the firmer sourced record, because a ranking edge over the opposition, no recent meetings on the sourced tape, the business end of the championship. Trust the deeper championship run where it exists. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:48:37Z",
+      "sourceUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ],
+      "status": "settled",
+      "settlement": {
+        "actualWinner": "Westmeath",
+        "score": "0-26 to 2-28 a.e.t.",
+        "matched": true,
+        "settledAtUtc": "2026-09-03T23:48:37Z"
+      },
+      "settlementUrls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ]
+    }
+  ],
+  "updatedAtUtc": "2026-09-03T23:48:46Z",
+  "notes": [
+    "Writers/engine output recorded by scripts/record_gaa_predictions.mjs from the committed source-linked documents.",
+    "Nothing in this ledger is hand-written."
+  ]
+}

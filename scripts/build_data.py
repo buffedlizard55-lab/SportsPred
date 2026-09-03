@@ -81,6 +81,15 @@ DARTS_PROVENANCE = os.path.join(DATA, 'darts_provenance.json')
 DARTS_PREDICTIONS = os.path.join(DATA, 'darts_predictions.json')
 DARTS_BACKTEST = os.path.join(DATA, 'darts_backtest.json')
 
+# GAA files
+GAA_SLATE = os.path.join(DATA, 'gaa_slate.json')
+GAA_HURLING_SLATE = os.path.join(DATA, 'gaa_hurling_slate.json')
+GAA_RESULTS = os.path.join(DATA, 'gaa_results.json')
+GAA_RANKINGS = os.path.join(DATA, 'gaa_rankings.json')
+GAA_PROVENANCE = os.path.join(DATA, 'gaa_provenance.json')
+GAA_PREDICTIONS = os.path.join(DATA, 'gaa_predictions.json')
+GAA_BACKTEST = os.path.join(DATA, 'gaa_backtest.json')
+
 # Handball files
 HANDBALL_SLATE = os.path.join(DATA, 'handball_slate.json')
 HANDBALL_TEAMS = os.path.join(DATA, 'handball_teams.json')
@@ -566,6 +575,73 @@ def validate_darts_results(doc):
             if avg_key in m and m[avg_key] is not None and not isinstance(m[avg_key], (int, float)):
                 problems.append(f'darts result {mid} {avg_key} is not numeric')
     return problems, len(matches)
+
+
+def validate_gaa_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['gaa_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('gaa_slate.source.url missing')
+    ids = []
+    for e in events:
+        ids.append(e.get('event_id'))
+        for field in ('event_id', 'url'):
+            if not e.get(field):
+                problems.append(f'gaa slate row missing "{field}": {e.get("event_id")}')
+        if e.get('type') != 'outright' and not e.get('matchup'):
+            problems.append(f'gaa slate row {e.get("event_id")} missing matchup')
+        for key in ('odds', 'price', 'decimal', 'american_odds', 'fractional'):
+            if key in e:
+                problems.append(f'gaa slate row {e.get("event_id")} contains price-like field "{key}"')
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in gaa slate: {sorted(dups)}')
+    return problems, len(events)
+
+
+def validate_gaa_results(doc):
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list):
+        return ['gaa_results.matches is not a list'], 0
+    if not doc.get('source', {}).get('event_page'):
+        problems.append('gaa_results.source.event_page missing')
+    seen = set()
+    for m in matches:
+        mid = m.get('id')
+        if mid in seen:
+            problems.append(f'duplicate match id {mid}')
+        seen.add(mid)
+        for field in ('event', 'round', 'team_a', 'team_b', 'total_a', 'total_b', 'winner'):
+            if m.get(field) is None:
+                problems.append(f'gaa result {mid} missing "{field}"')
+        if not m.get('source_urls'):
+            problems.append(f'gaa result {mid} has no source_urls')
+        expected = None
+        if m.get('goals_a') is not None and m.get('points_a') is not None:
+            expected = m['goals_a'] * 3 + m['points_a']
+            if m.get('total_a') != expected:
+                problems.append(f'gaa result {mid} total_a {m.get("total_a")} != 3*goals+points {expected}')
+        if m.get('goals_b') is not None and m.get('points_b') is not None:
+            expected_b = m['goals_b'] * 3 + m['points_b']
+            if m.get('total_b') != expected_b:
+                problems.append(f'gaa result {mid} total_b mismatch')
+    return problems, len(matches)
+
+
+def validate_gaa_rankings(doc):
+    problems = []
+    entries = doc.get('entries', [])
+    if not isinstance(entries, list):
+        return ['gaa_rankings.entries is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('gaa_rankings.source.url missing')
+    for e in entries:
+        if e.get('rank') is None or not e.get('name'):
+            problems.append(f'gaa ranking row invalid: {e}')
+    return problems, len(entries)
 
 
 def validate_darts_rankings(doc):
@@ -1407,6 +1483,29 @@ def main():
         total += report(name, problems, n)
         if n:
             print(f'              {n} records' + (' · mode=' + str(blob.get('mode')) if blob.get('mode') else ''))
+
+    print('\n--- GAA Data Layer ---')
+    gaa_names = [
+        ('data/gaa_slate.json', GAA_SLATE, validate_gaa_slate),
+        ('data/gaa_hurling_slate.json', GAA_HURLING_SLATE, validate_gaa_slate),
+        ('data/gaa_results.json', GAA_RESULTS, validate_gaa_results),
+        ('data/gaa_rankings.json', GAA_RANKINGS, validate_gaa_rankings),
+        ('data/gaa_provenance.json', GAA_PROVENANCE, None),
+        ('data/gaa_predictions.json', GAA_PREDICTIONS, None),
+        ('data/gaa_backtest.json', GAA_BACKTEST, None),
+    ]
+    for name, path, fn in gaa_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the GAA collector / backtest)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+            if n:
+                print(f'              {n} records')
+        else:
+            total += report(name, [], 0)
 
     print('=' * 65)
     if total:
