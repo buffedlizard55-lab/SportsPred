@@ -1,5 +1,5 @@
 {
-  "generated_at_utc": "2026-09-03T19:25:29Z",
+  "generated_at_utc": "2026-09-03T21:53:10Z",
   "ruleset": "v1.1",
   "trimmed": false,
   "trimmedReason": null,
@@ -11,13 +11,13 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899491",
-      "match": "Alexander Zverev v Quentin Halys",
+      "event_id": "899535",
+      "match": "Botic Van De Zandschulp v Alex De Minaur",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899535",
-      "match": "Botic Van De Zandschulp v Alex De Minaur",
+      "event_id": "899491",
+      "match": "Alexander Zverev v Quentin Halys",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -26,13 +26,8 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899539",
-      "match": "Iva Jovic v Francesca Jones",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899531",
-      "match": "Yunchaokete Bu v Michael Zheng",
+      "event_id": "899533",
+      "match": "Zachary Svajda v Arthur Gea",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -41,13 +36,8 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899534",
-      "match": "Benjamin Bonzi v Ignacio Buse",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899533",
-      "match": "Zachary Svajda v Arthur Gea",
+      "event_id": "899531",
+      "match": "Yunchaokete Bu v Michael Zheng",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -56,13 +46,33 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899543",
-      "match": "Ben Shelton v Denis Shapovalov",
+      "event_id": "899527",
+      "match": "Alex Michelsen v Daniel Merida",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
       "event_id": "899567",
       "match": "Yibing Wu v Carlos Alcaraz",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899543",
+      "match": "Ben Shelton v Denis Shapovalov",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899541",
+      "match": "Marta Kostyuk v Ekaterina Alexandrova",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899530",
+      "match": "Emma Navarro v Karolina Muchova",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899577",
+      "match": "Ann Li v Linda Noskova",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -73,26 +83,6 @@
     {
       "event_id": "899576",
       "match": "Elina Svitolina v Anna Kalinskaya",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899577",
-      "match": "Ann Li v Linda Noskova",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899541",
-      "match": "Marta Kostyuk v Ekaterina Alexandrova",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899527",
-      "match": "Alex Michelsen v Daniel Merida",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899530",
-      "match": "Emma Navarro v Karolina Muchova",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {

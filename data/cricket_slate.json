@@ -4,7 +4,7 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "fetched_at_utc": "2026-09-03T19:23:42Z",
+    "fetched_at_utc": "2026-09-03T21:51:28Z",
     "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
@@ -37,10 +37,10 @@
       "consensus": {
         "market": "Win Match",
         "selection": "St Lucia Kings",
-        "tips_for": 11,
-        "tips_total": 17,
-        "pct": 65,
-        "comments": 8,
+        "tips_for": 15,
+        "tips_total": 22,
+        "pct": 68,
+        "comments": 11,
         "experts": 0
       }
     },
@@ -59,8 +59,30 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Guyana Amazon Warriors",
-        "tips_for": 2,
-        "tips_total": 2,
+        "tips_for": 3,
+        "tips_total": 3,
+        "pct": 100,
+        "comments": 2,
+        "experts": 0
+      }
+    },
+    {
+      "event_id": "188619",
+      "sport": "Cricket",
+      "type": "match",
+      "home": "England W",
+      "away": "Ireland W",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_W_vs_Ireland_W_3rd_ODI/7?event_id=188619",
+      "slug": "England_W_vs_Ireland_W_3rd_ODI",
+      "display_date": "06 Sept",
+      "display_time": "11:00",
+      "resolved_date": "2026-09-06",
+      "date_basis": "observed",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "England W",
+        "tips_for": 1,
+        "tips_total": 1,
         "pct": 100,
         "comments": 1,
         "experts": 0

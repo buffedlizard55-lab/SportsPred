@@ -710,6 +710,262 @@
       "venue": "Fertitta Center",
       "leagueSlug": "womens-college-volleyball",
       "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401909238",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T17:00Z",
+      "home": "Alcorn State Braves",
+      "away": "Dillard Bleu Devils",
+      "winner": "Dillard Bleu Devils",
+      "setScore": "3-2",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 19,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 22,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 4,
+          "home": 25,
+          "away": 18,
+          "winner": "home"
+        },
+        {
+          "period": 5,
+          "home": 12,
+          "away": 15,
+          "winner": "away"
+        }
+      ],
+      "venue": "Davey L. Whitney Complex",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401883556",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T19:00Z",
+      "home": "Alabama Crimson Tide",
+      "away": "Northwestern Wildcats",
+      "winner": "Northwestern Wildcats",
+      "setScore": "3-1",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 16,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 18,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 18,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 4,
+          "home": 23,
+          "away": 25,
+          "winner": "away"
+        }
+      ],
+      "venue": "Newell-Grissom Building",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401883821",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T19:00Z",
+      "home": "Tulane Green Wave",
+      "away": "Duke Blue Devils",
+      "winner": "Tulane Green Wave",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 26,
+          "away": 24,
+          "winner": "home"
+        }
+      ],
+      "venue": "UNF Arena",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401886022",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T19:00Z",
+      "home": "North Carolina A&T Aggies",
+      "away": "Queens University Royals",
+      "winner": "North Carolina A&T Aggies",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 19,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 22,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        }
+      ],
+      "venue": "Timmons Arena",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401896472",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T19:00Z",
+      "home": "Charleston Southern Buccaneers",
+      "away": "South Carolina State Bulldogs",
+      "winner": "Charleston Southern Buccaneers",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 9,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 22,
+          "winner": "home"
+        }
+      ],
+      "venue": "McAlister Field House",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401897376",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T20:00Z",
+      "home": "Louisiana Tech Bulldogs",
+      "away": "Chicago State Cougars",
+      "winner": "Louisiana Tech Bulldogs",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 25,
+          "away": 23,
+          "winner": "home"
+        },
+        {
+          "period": 2,
+          "home": 25,
+          "away": 8,
+          "winner": "home"
+        },
+        {
+          "period": 3,
+          "home": 25,
+          "away": 16,
+          "winner": "home"
+        }
+      ],
+      "venue": "Baxter Arena",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
+    },
+    {
+      "id": "401898533",
+      "family": "ncaa",
+      "phase": "results",
+      "date": "2026-09-03",
+      "startUtc": "2026-09-03T20:00Z",
+      "home": "Akron Zips",
+      "away": "Marshall Thundering Herd",
+      "winner": "Marshall Thundering Herd",
+      "setScore": "3-0",
+      "sets": [
+        {
+          "period": 1,
+          "home": 30,
+          "away": 32,
+          "winner": "away"
+        },
+        {
+          "period": 2,
+          "home": 17,
+          "away": 25,
+          "winner": "away"
+        },
+        {
+          "period": 3,
+          "home": 19,
+          "away": 25,
+          "winner": "away"
+        }
+      ],
+      "venue": "The Jungle",
+      "leagueSlug": "womens-college-volleyball",
+      "source_url": "https://www.espn.com/college-sports/volleyball/scoreboard/_/date/20260903"
     }
   ]
 }

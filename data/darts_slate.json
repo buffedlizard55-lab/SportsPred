@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "sport": "Darts",
-  "as_of_utc": "2026-09-03T19:25:14Z",
+  "as_of_utc": "2026-09-03T21:53:02Z",
   "source": {
     "name": "OLBG \u2014 Darts Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Darts/15",
     "indexes": [
       "https://www.olbg.com/betting-tips/Darts/15"
     ],
-    "fetched_at_utc": "2026-09-03T19:25:14Z",
+    "fetched_at_utc": "2026-09-03T21:53:02Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -30,8 +30,8 @@
         "market": "Win Match",
         "selection": "Cameron Menzies",
         "tips_for": 8,
-        "tips_total": 8,
-        "pct": 100
+        "tips_total": 9,
+        "pct": 89
       },
       "playerA": {
         "name": "Cameron Menzies"
@@ -42,23 +42,25 @@
       "markets_verified": true,
       "markets": [
         {
-          "name": "outright",
-          "selections": []
-        },
-        {
           "name": "Win Match",
           "selections": [
             {
               "name": "Add Selection Win Tips",
               "tips_for": null,
               "tips_total": null,
-              "pct": 100
+              "pct": 89
             },
             {
               "name": "Cameron Menzies",
               "tips_for": null,
               "tips_total": null,
-              "pct": 100
+              "pct": 89
+            },
+            {
+              "name": "Johan Engstrom",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 11
             }
           ]
         },
@@ -85,8 +87,8 @@
             {
               "name": "Hide Selections Cameron Menzies",
               "tips_for": 8,
-              "tips_total": 8,
-              "pct": 100
+              "tips_total": 9,
+              "pct": 89
             },
             {
               "name": "View All Tips Annual Profit",
@@ -102,24 +104,30 @@
             },
             {
               "name": "Days Profit",
-              "tips_for": 0,
-              "tips_total": 8,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 9,
+              "pct": 11
             },
             {
               "name": "Johan Engstrom",
-              "tips_for": 0,
-              "tips_total": 8,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 9,
+              "pct": 11
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 31
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 31
             },
             {
               "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
               "tips_for": 0,
               "tips_total": 0,
               "pct": 0
@@ -132,29 +140,47 @@
             {
               "name": "Hide Selections Cameron Menzies",
               "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
+              "tips_total": 2,
+              "pct": 50
             },
             {
               "name": "Add Draw",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
-              "name": "Add Johan Engstrom",
+              "name": "Johan Engstrom",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
-              "name": "Hide Selections Cameron Menzies -2.50",
+              "name": "Hide Selections Johan Engstrom +3.50",
               "tips_for": 0,
               "tips_total": 0,
               "pct": 0
             },
             {
-              "name": "Add Johan Engstrom +2.50",
+              "name": "Add Cameron Menzies -3.50",
               "tips_for": 0,
               "tips_total": 0,
               "pct": 0
@@ -166,14 +192,14 @@
           "selections": [
             {
               "name": "Hide Selections Over",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
             },
             {
               "name": "Add Under",
               "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
             }
           ]
@@ -232,10 +258,6 @@
         },
         {
           "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "outright",
           "selections": []
         }
       ]
@@ -366,14 +388,14 @@
             {
               "name": "Hide Selections Kim Huybrechts",
               "tips_for": 1,
-              "tips_total": 2,
-              "pct": 50
+              "tips_total": 3,
+              "pct": 33
             },
             {
               "name": "Add Ryan Joyce",
               "tips_for": 1,
-              "tips_total": 2,
-              "pct": 50
+              "tips_total": 3,
+              "pct": 33
             },
             {
               "name": "Annual Profit",
@@ -389,27 +411,27 @@
             },
             {
               "name": "Days Profit",
-              "tips_for": 0,
-              "tips_total": 2,
+              "tips_for": 1,
+              "tips_total": 3,
               "pct": null
             },
             {
               "name": "Days Profit",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
             },
             {
-              "name": "Hide Selections Ryan Joyce +1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             },
             {
-              "name": "Add Kim Huybrechts -1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             }
           ]
         },
@@ -517,426 +539,6 @@
       ]
     },
     {
-      "event_id": "31298",
-      "type": "match",
-      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Kevin_Doets_vs_Ricky_Evans/15?event_id=31298",
-      "matchup": "Kevin Doets vs Ricky Evans",
-      "display_time": "14:30",
-      "display_date_label": "Tomorrow",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Kevin Doets",
-        "tips_for": 3,
-        "tips_total": 3,
-        "pct": 100
-      },
-      "playerA": {
-        "name": "Kevin Doets"
-      },
-      "playerB": {
-        "name": "Ricky Evans"
-      },
-      "markets_verified": true,
-      "markets": [
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Add Selection Win Tips",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 100
-            },
-            {
-              "name": "Kevin Doets",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 100
-            }
-          ]
-        },
-        {
-          "name": "Total Legs",
-          "selections": [
-            {
-              "name": "Read More Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Hide Selections Kevin Doets",
-              "tips_for": 3,
-              "tips_total": 3,
-              "pct": 100
-            },
-            {
-              "name": "Add Ricky Evans",
-              "tips_for": 0,
-              "tips_total": 3,
-              "pct": 0
-            },
-            {
-              "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Most 180s",
-          "selections": [
-            {
-              "name": "Hide Selections Kevin Doets",
-              "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
-            },
-            {
-              "name": "Add Ricky Evans",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
-              "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
-              "name": "Hide Selections Kevin Doets -1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Ricky Evans +1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Total Legs",
-          "selections": [
-            {
-              "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
-              "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
-            },
-            {
-              "name": "Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        }
-      ]
-    },
-    {
-      "event_id": "31299",
-      "type": "match",
-      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Joe_Cullen_vs_Stephen_Burton/15?event_id=31299",
-      "matchup": "Joe Cullen vs Stephen Burton",
-      "display_time": "15:00",
-      "display_date_label": "Tomorrow",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Joe Cullen",
-        "tips_for": 3,
-        "tips_total": 3,
-        "pct": 100
-      },
-      "playerA": {
-        "name": "Joe Cullen"
-      },
-      "playerB": {
-        "name": "Stephen Burton"
-      },
-      "markets_verified": true,
-      "markets": [
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Add Selection Win Tips",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 100
-            },
-            {
-              "name": "Joe Cullen",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 100
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Read More Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Hide Selections Joe Cullen",
-              "tips_for": 3,
-              "tips_total": 3,
-              "pct": 100
-            },
-            {
-              "name": "Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Days Profit",
-              "tips_for": 0,
-              "tips_total": 3,
-              "pct": 0
-            },
-            {
-              "name": "Stephen Burton",
-              "tips_for": 0,
-              "tips_total": 3,
-              "pct": 0
-            },
-            {
-              "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Most 180s",
-          "selections": [
-            {
-              "name": "Hide Selections Joe Cullen",
-              "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
-            },
-            {
-              "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
-              "name": "Add Stephen Burton",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
-              "name": "Hide Selections Joe Cullen -1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Stephen Burton +1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Total Legs",
-          "selections": [
-            {
-              "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        }
-      ]
-    },
-    {
       "event_id": "31297",
       "type": "match",
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Dirk_van_Duijvenbode_vs_Mario_Vandenbogaerde/15?event_id=31297",
@@ -946,8 +548,8 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Dirk van Duijvenbode",
-        "tips_for": 3,
-        "tips_total": 3,
+        "tips_for": 4,
+        "tips_total": 4,
         "pct": 100
       },
       "playerA": {
@@ -991,8 +593,8 @@
           "selections": [
             {
               "name": "Hide Selections Dirk",
-              "tips_for": 3,
-              "tips_total": 3,
+              "tips_for": 4,
+              "tips_total": 4,
               "pct": 100
             },
             {
@@ -1010,13 +612,13 @@
             {
               "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 3,
+              "tips_total": 4,
               "pct": null
             },
             {
               "name": "Mario Vandenbogaerde",
               "tips_for": 0,
-              "tips_total": 3,
+              "tips_total": 4,
               "pct": 0
             },
             {
@@ -1039,20 +641,32 @@
             {
               "name": "Hide Selections Dirk",
               "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
             },
             {
               "name": "Add Mario Vandenbogaerde",
               "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
+            },
+            {
+              "name": "Add Draw",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             },
             {
               "name": "Hide Selections Dirk",
@@ -1153,8 +767,8 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Rob Cross",
-        "tips_for": 3,
-        "tips_total": 3,
+        "tips_for": 4,
+        "tips_total": 4,
         "pct": 100
       },
       "playerA": {
@@ -1189,13 +803,13 @@
               "name": "Read More Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 60
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 60
             }
           ]
         },
@@ -1204,32 +818,32 @@
           "selections": [
             {
               "name": "Hide Selections Rob Cross",
-              "tips_for": 3,
-              "tips_total": 3,
+              "tips_for": 4,
+              "tips_total": 4,
               "pct": 100
             },
             {
-              "name": "Annual Profit",
+              "name": "View All Tips Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 60
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 60
             },
             {
               "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 3,
+              "tips_total": 4,
               "pct": 0
             },
             {
               "name": "Keane Barry",
               "tips_for": 0,
-              "tips_total": 3,
+              "tips_total": 4,
               "pct": 0
             },
             {
@@ -1369,6 +983,675 @@
       ]
     },
     {
+      "event_id": "31298",
+      "type": "match",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Kevin_Doets_vs_Ricky_Evans/15?event_id=31298",
+      "matchup": "Kevin Doets vs Ricky Evans",
+      "display_time": "14:30",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Kevin Doets",
+        "tips_for": 3,
+        "tips_total": 3,
+        "pct": 100
+      },
+      "playerA": {
+        "name": "Kevin Doets"
+      },
+      "playerB": {
+        "name": "Ricky Evans"
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            },
+            {
+              "name": "Kevin Doets",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            }
+          ]
+        },
+        {
+          "name": "Most 180s",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Kevin Doets",
+              "tips_for": 3,
+              "tips_total": 3,
+              "pct": 100
+            },
+            {
+              "name": "Add Ricky Evans",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Hide Selections Under",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Over",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Most 180s",
+          "selections": [
+            {
+              "name": "Hide Selections Kevin Doets",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Add Ricky Evans",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Draw",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Hide Selections Kevin Doets -1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Ricky Evans +1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Total Legs",
+          "selections": [
+            {
+              "name": "Hide Selections Under",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Over",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        }
+      ]
+    },
+    {
+      "event_id": "31299",
+      "type": "match",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Joe_Cullen_vs_Stephen_Burton/15?event_id=31299",
+      "matchup": "Joe Cullen vs Stephen Burton",
+      "display_time": "15:00",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Joe Cullen",
+        "tips_for": 3,
+        "tips_total": 3,
+        "pct": 100
+      },
+      "playerA": {
+        "name": "Joe Cullen"
+      },
+      "playerB": {
+        "name": "Stephen Burton"
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            },
+            {
+              "name": "Joe Cullen",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Joe Cullen",
+              "tips_for": 3,
+              "tips_total": 3,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Stephen Burton",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Hide Selections Under",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Over",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Most 180s",
+          "selections": [
+            {
+              "name": "Hide Selections Joe Cullen",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Add Draw",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Stephen Burton",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Hide Selections Joe Cullen -1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Stephen Burton +1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Total Legs",
+          "selections": [
+            {
+              "name": "Hide Selections Under",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Over",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        }
+      ]
+    },
+    {
+      "event_id": "31301",
+      "type": "match",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Connor_Scutt/15?event_id=31301",
+      "matchup": "Luke Woodhouse vs Connor Scutt",
+      "display_time": "18:00",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Luke Woodhouse",
+        "tips_for": 3,
+        "tips_total": 3,
+        "pct": 100
+      },
+      "playerA": {
+        "name": "Luke Woodhouse"
+      },
+      "playerB": {
+        "name": "Connor Scutt"
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            },
+            {
+              "name": "Luke Woodhouse",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            }
+          ]
+        },
+        {
+          "name": "Most 180s",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Luke Woodhouse",
+              "tips_for": 3,
+              "tips_total": 3,
+              "pct": 100
+            },
+            {
+              "name": "Add Connor Scutt",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Hide Selections Under",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Over",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Most 180s",
+          "selections": [
+            {
+              "name": "Hide Selections Luke Woodhouse",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Connor Scutt",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Draw",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Hide Selections Luke Woodhouse -1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Connor Scutt +1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Total Legs",
+          "selections": [
+            {
+              "name": "Hide Selections Under",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Over",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 47
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Total Legs",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        },
+        {
+          "name": "Most 180s",
+          "selections": []
+        }
+      ]
+    },
+    {
       "event_id": "31304",
       "type": "match",
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Niels_Zonneveld_vs_Jeffrey_de_Graaf/15?event_id=31304",
@@ -1477,14 +1760,14 @@
             {
               "name": "Hide Selections Niels Zonneveld",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Add Jeffrey",
               "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
+              "tips_total": 2,
+              "pct": 50
             },
             {
               "name": "Annual Profit",
@@ -1500,27 +1783,27 @@
             },
             {
               "name": "Days Profit",
-              "tips_for": 0,
-              "tips_total": 1,
+              "tips_for": 1,
+              "tips_total": 2,
               "pct": null
             },
             {
               "name": "Days Profit",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
             },
             {
-              "name": "Hide Selections Jeffrey",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             },
             {
-              "name": "Add Niels Zonneveld -1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             }
           ]
         },
@@ -1744,8 +2027,8 @@
             {
               "name": "Hide Selections Cristo Reyes",
               "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
+              "tips_total": 2,
+              "pct": 50
             },
             {
               "name": "Annual Profit",
@@ -1762,32 +2045,32 @@
             {
               "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Callan Rydz",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
             },
             {
-              "name": "Hide Selections Cristo Reyes +1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             },
             {
-              "name": "Add Callan Rydz -1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             }
           ]
         },
@@ -1895,213 +2178,6 @@
         },
         {
           "name": "Win Match",
-          "selections": []
-        }
-      ]
-    },
-    {
-      "event_id": "31301",
-      "type": "match",
-      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Connor_Scutt/15?event_id=31301",
-      "matchup": "Luke Woodhouse vs Connor Scutt",
-      "display_time": "18:00",
-      "display_date_label": "Tomorrow",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Luke Woodhouse",
-        "tips_for": 2,
-        "tips_total": 2,
-        "pct": 100
-      },
-      "playerA": {
-        "name": "Luke Woodhouse"
-      },
-      "playerB": {
-        "name": "Connor Scutt"
-      },
-      "markets_verified": true,
-      "markets": [
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Add Selection Win Tips",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 100
-            },
-            {
-              "name": "Luke Woodhouse",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 100
-            }
-          ]
-        },
-        {
-          "name": "Total Legs",
-          "selections": [
-            {
-              "name": "Read More Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": [
-            {
-              "name": "Hide Selections Luke Woodhouse",
-              "tips_for": 2,
-              "tips_total": 2,
-              "pct": 100
-            },
-            {
-              "name": "Add Connor Scutt",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
-            },
-            {
-              "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Most 180s",
-          "selections": [
-            {
-              "name": "Hide Selections Luke Woodhouse",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Connor Scutt",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Hide Selections Luke Woodhouse -1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            },
-            {
-              "name": "Add Connor Scutt +1.50",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Total Legs",
-          "selections": [
-            {
-              "name": "Hide Selections Under",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
-              "name": "Add Over",
-              "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
-            },
-            {
-              "name": "Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 47
-            }
-          ]
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Most 180s",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Win Match",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
-          "selections": []
-        },
-        {
-          "name": "Total Legs",
           "selections": []
         }
       ]
@@ -2215,20 +2291,32 @@
             {
               "name": "Hide Selections Martin Schindler",
               "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
             },
             {
               "name": "Add Rob Owen",
               "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
             },
             {
               "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             },
             {
               "name": "Hide Selections Martin Schindler -1.50",
@@ -2329,8 +2417,8 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Beau Greaves",
-        "tips_for": 1,
-        "tips_total": 1,
+        "tips_for": 2,
+        "tips_total": 2,
         "pct": 100
       },
       "playerA": {
@@ -2359,19 +2447,19 @@
           ]
         },
         {
-          "name": "Total Legs",
+          "name": "Most 180s",
           "selections": [
             {
               "name": "Read More Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 60
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 60
             }
           ]
         },
@@ -2380,14 +2468,14 @@
           "selections": [
             {
               "name": "Hide Selections Beau Greaves",
-              "tips_for": 1,
-              "tips_total": 1,
+              "tips_for": 2,
+              "tips_total": 2,
               "pct": 100
             },
             {
               "name": "Add Daryl Gurney",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
@@ -2410,20 +2498,32 @@
             {
               "name": "Hide Selections Beau Greaves",
               "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
             },
             {
               "name": "Add Daryl Gurney",
               "tips_for": 0,
-              "tips_total": 0,
+              "tips_total": 1,
               "pct": 0
             },
             {
               "name": "Add Draw",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 60
             },
             {
               "name": "Hide Selections Daryl Gurney +1.50",
@@ -2517,11 +2617,11 @@
           "selections": []
         },
         {
-          "name": "Total Legs",
+          "name": "Most 180s",
           "selections": []
         },
         {
-          "name": "Total Legs",
+          "name": "Most 180s",
           "selections": []
         }
       ]
@@ -3542,10 +3642,10 @@
       "display_date_label": "06 Sept",
       "consensus": {
         "market": "Win Tournament",
-        "selection": "Luke Littler",
+        "selection": "Josh Rock",
         "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100
+        "tips_total": 2,
+        "pct": 50
       },
       "playerA": null,
       "playerB": null,
@@ -3558,13 +3658,19 @@
               "name": "Add Selection Win Tips",
               "tips_for": null,
               "tips_total": null,
-              "pct": 100
+              "pct": 50
             },
             {
               "name": "Luke Littler",
               "tips_for": null,
               "tips_total": null,
-              "pct": 100
+              "pct": 50
+            },
+            {
+              "name": "Josh Rock",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
             }
           ]
         },
@@ -3591,8 +3697,8 @@
             {
               "name": "Hide Selections Luke Littler",
               "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
+              "tips_total": 2,
+              "pct": 50
             },
             {
               "name": "Annual Profit",
@@ -3609,34 +3715,50 @@
             {
               "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Luke Humphries",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Add Gerwyn Price",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Add Wessel Nijman",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             },
             {
               "name": "Add Gary Anderson",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 2,
               "pct": 0
             }
           ]
+        },
+        {
+          "name": "Win Tournament",
+          "selections": []
+        },
+        {
+          "name": "Win Tournament",
+          "selections": []
+        },
+        {
+          "name": "Win Tournament",
+          "selections": []
+        },
+        {
+          "name": "Win Tournament",
+          "selections": []
         },
         {
           "name": "Win Tournament",
