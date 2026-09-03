@@ -196,7 +196,10 @@ export const SPORTS = [
     ],
     candidateLeagues: [
       { slug: 'mlb', name: 'Major League Baseball' },
-      { slug: 'npb', name: 'Nippon Professional Baseball' },
+      // NPB is deliberately NOT a candidate league: candidateLeagues are ESPN
+      // slugs verified live by scripts/build_league_registry.mjs, and ESPN has
+      // no NPB league (baseball/npb → HTTP 400). NPB is served by npb.html from
+      // npb.jp official pages instead — see subPages below.
       { slug: 'college-baseball', name: 'NCAA Baseball' },
     ],
     notes: [
