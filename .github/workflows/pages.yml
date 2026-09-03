@@ -50,6 +50,20 @@ jobs:
       - name: Validate committed data layer
         run: python3 scripts/build_data.py --strict
 
+      # The T20 Blast tape is rebuilt from verified sources and re-checked on
+      # every push: nine machine checks over the results tape (points
+      # arithmetic, net run rate recomputed from published figures, the Sussex
+      # deduction, pairing counts against declared gaps, knockout event ids).
+      - name: Verify the T20 Blast tape line by line
+        run: node scripts/build_t20_blast.mjs --check
+
+      # Walk-forward replay of the whole season. Fails if the look-ahead audit
+      # trips, if the metric counts stop reconciling, or if the publication gate
+      # and its triggers disagree. The gate is what caps published confidence,
+      # so a silent change here would change what the site claims.
+      - name: Backtest the T20 Blast model and verify its publication gate
+        run: node scripts/backtest_t20_blast.mjs --check
+
       - name: Verify the site line by line (selectors, links, JSON, modules)
         run: node scripts/verify_site.mjs
 

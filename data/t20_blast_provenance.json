@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "sport": "Cricket",
+  "competition": "T20 Blast (Vitality Blast, men)",
+  "season": 2026,
+  "generated_at_utc": "2026-09-03T21:00:00Z",
+  "documents": [
+    "data/t20_blast_competition.json",
+    "data/t20_blast_matches.json",
+    "data/t20_blast_standings.json",
+    "data/t20_blast_leaders.json",
+    "data/t20_blast_backtest.json",
+    "data/t20_blast_predictions.json"
+  ],
+  "sources": [
+    {
+      "label": "ESPNcricinfo — Vitality Blast Men 2026 (series home)",
+      "url": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690"
+    },
+    {
+      "label": "ESPNcricinfo — points table and per-county fixture list",
+      "url": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+    },
+    {
+      "label": "ESPNcricinfo — fixtures and results",
+      "url": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    },
+    {
+      "label": "ESPN key-less standings API (league 8053, season 2026)",
+      "url": "https://site.web.api.espn.com/apis/v2/sports/cricket/8053/standings?season=2026"
+    },
+    {
+      "label": "ESPN key-less scoreboard API (series 1512690)",
+      "url": "https://site.web.api.espn.com/apis/site/v2/sports/cricket/1512690/scoreboard?dates=20260718"
+    },
+    {
+      "label": "ECB — T20 Blast (competition owner)",
+      "url": "https://www.ecb.co.uk/t20-blast"
+    },
+    {
+      "label": "BBC Sport — men's England Twenty20 table",
+      "url": "https://www.bbc.com/sport/cricket/mens-england-twenty20/table"
+    },
+    {
+      "label": "Wikipedia — 2026 T20 Blast (cites Cricinfo and BBC Sport)",
+      "url": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    },
+    {
+      "label": "Edgbaston — 2026 Finals Day date announcement",
+      "url": "https://edgbaston.com/news/2026-vitality-blast-finals-day-dates-revealed/"
+    },
+    {
+      "label": "Sky Sports — Sussex points deduction",
+      "url": "https://www.skysports.com/cricket/news/37706/13502388/sussex-to-start-2026-county-championship-with-12-point-deduction-after-entering-deal-with-ecb-to-combat-financial-issues"
+    },
+    {
+      "label": "Wisden — Sussex cross-competition penalty detail",
+      "url": "https://www.wisden.com/series/county-championship-2026/cricket-news/county-hit-with-heavy-cross-competition-points-penalty-under-ecb-financial-framework"
+    },
+    {
+      "label": "Sky Sports — Finals Day live blog (champion confirmed)",
+      "url": "https://www.skysports.com/cricket/live-blog/12123/13564698/vitality-blast-final-northamptonshire-vs-hampshire-live-text-updates-and-video-from-edgbaston-as-sides-eye-t20-glory"
+    }
+  ],
+  "irregularity_ids": [
+    "TB-IR-01",
+    "TB-IR-02",
+    "TB-IR-03",
+    "TB-IR-04",
+    "TB-IR-05",
+    "TB-IR-06",
+    "TB-IR-07",
+    "TB-IR-08",
+    "TB-IR-09",
+    "TB-IR-10",
+    "TB-IR-11"
+  ],
+  "register": "docs/T20_BLAST_IRREGULARITIES.md",
+  "builder": "scripts/build_t20_blast.mjs (re-runnable; --check validates without writing)",
+  "cross_pool_known_ids": {
+    "count": 9,
+    "of_total": 18,
+    "status": "event ids verified on the series fixtures page; results NOT captured",
+    "why_not_in_tape": "A row without a result would either be ignored by the walk-forward context builders or invite a guessed score. The ids are recorded here so scripts/collect_t20_blast.mjs can resolve each fixture directly.",
+    "orientation_warning": "TB-IR-10: on the series fixtures page the link text and the URL slug disagree about which county was home for several of these fixtures. Neither is treated as authoritative, so home/away is left unresolved until a scorecard is read.",
+    "fixtures": [
+      {
+        "event_id": "1512830",
+        "slug": "glamorgan-vs-middlesex-cross-pool-1512830",
+        "link_text": "Middlesex vs Glamorgan",
+        "orientation": "slug and link text disagree"
+      },
+      {
+        "event_id": "1512833",
+        "slug": "northamptonshire-vs-essex-cross-pool-1512833",
+        "link_text": "Northants vs Essex",
+        "orientation": "agree"
+      },
+      {
+        "event_id": "1512834",
+        "slug": "kent-vs-nottinghamshire-cross-pool-1512834",
+        "link_text": "Kent vs Notts",
+        "orientation": "agree"
+      },
+      {
+        "event_id": "1512836",
+        "slug": "hampshire-vs-yorkshire-cross-pool-1512836",
+        "link_text": "Yorkshire vs Hampshire",
+        "orientation": "slug and link text disagree"
+      },
+      {
+        "event_id": "1512838",
+        "slug": "middlesex-vs-durham-cross-pool-1512838",
+        "link_text": "Durham vs Middlesex",
+        "orientation": "slug and link text disagree"
+      },
+      {
+        "event_id": "1512843",
+        "slug": "warwickshire-vs-sussex-cross-pool-1512843",
+        "link_text": "Warwickshire vs Sussex",
+        "orientation": "agree"
+      },
+      {
+        "event_id": "1512850",
+        "slug": "worcestershire-vs-kent-cross-pool-1512850",
+        "link_text": "Worcs vs Kent",
+        "orientation": "agree"
+      },
+      {
+        "event_id": "1512851",
+        "slug": "gloucestershire-vs-surrey-cross-pool-1512851",
+        "link_text": "Gloucs vs Surrey",
+        "orientation": "agree"
+      },
+      {
+        "event_id": "1512862",
+        "slug": "derbyshire-vs-somerset-cross-pool-1512862",
+        "link_text": "Somerset vs Derbyshire",
+        "orientation": "slug and link text disagree"
+      }
+    ]
+  }
+}

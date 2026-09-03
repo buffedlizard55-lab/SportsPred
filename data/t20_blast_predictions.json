@@ -1,0 +1,9 @@
+{
+  "schema_version": 1,
+  "sport": "Cricket",
+  "competition": "T20 Blast (Vitality Blast, men)",
+  "ruleset": "T20 BLAST PREDICTION MASTER PROMPT v1.0",
+  "note": "Append-only forward ledger. Rows are written before a match starts and settled from the official result. Empty while the competition is out of season.",
+  "generated_at_utc": "2026-09-03T21:00:00Z",
+  "predictions": []
+}

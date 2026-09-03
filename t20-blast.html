@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>T20 Blast scoreboard, calendar &amp; predictions — Cricket — SportsPred</title>
+<meta name="description" content="T20 Blast (Vitality Blast, men) scoreboard and month calendar built from a verified 96-fixture 2026 tape: ESPNcricinfo points tables, series fixtures page and structured ESPN standings. Four written markets per fixture — WIN MATCH, MAN OF THE MATCH, TOP TEAM 1 BATSMAN, TOP TEAM 2 BATSMAN — each with a confidence tier, a walk-forward validated hit rate, and every figure traceable to a scorecard review link.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Cricket — T20 Blast</h1>
+      <p class="page-sub" id="page-sub">England &amp; Wales T20 Blast scoreboard and month calendar, scored by the T20 BLAST (ENGLAND &amp; WALES) CRICKET PREDICTION MASTER PROMPT v1.0. Four markets per fixture, a confidence tier on every tip, and nothing published without a source. Predictions are generated on load and on every click of <strong>Generate</strong>; scoring is pure and runs in the browser against committed, verified documents, so the button works with no network at all.</p>
+      <p class="meta-line" id="sport-links"></p>
+      <nav class="leaguetabs" id="league-tabs" aria-label="Cricket competitions"></nav>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+
+  <!-- The gate is the first thing on the page, not buried in a tab: it states
+       what this model has actually been shown to do. -->
+  <div class="card" id="gate-card">
+    <div class="card-head"><h2>What this model is validated to do</h2><span class="sp"></span><span class="meta-line" id="gate-asof"></span></div>
+    <div class="card-body" id="gate-panel">Loading the committed backtest…</div>
+  </div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress" style="display:none"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="stage-filter" aria-label="Filter by stage">
+            <option value="all">All stages</option>
+            <option value="group">Group stage</option>
+            <option value="cross">Cross pool</option>
+            <option value="knockout">Quarter-finals, semi-finals &amp; final</option>
+          </select>
+
+          <select id="status-filter" aria-label="Filter by status">
+            <option value="all">All fixtures</option>
+            <option value="results">Results</option>
+            <option value="upcoming">Upcoming</option>
+            <option value="tipped">With a written tip</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search county, venue…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Predictions</h2><span class="sp"></span><span class="meta-line" id="pred-hint"></span></div>
+        <div class="card-body" id="pred-warnings"></div>
+        <div id="pred-out"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers are fixtures played or scheduled that day, from the ESPNcricinfo series fixtures page and the verified results tape. Pick any date to load that card.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Standings</h2><span class="sp"></span><span class="meta-line" id="standings-asof"></span></div>
+        <div class="card-body" id="standings"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Card text</h2><span class="sp"></span>
+          <button class="btn sm" id="copy-card">📋 Copy card</button>
+        </div>
+        <div class="card-body"><pre class="mono" id="card-text" style="white-space:pre-wrap;font-size:12.5px">Generate predictions to build the copy-paste card.</pre></div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Match predictions</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Backtest</h3></div>
+        <div class="card-body meta-line" id="backtest">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Season leaders</h3></div>
+        <div class="card-body meta-line" id="leaders">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Irregularities</h3></div>
+        <div class="card-body meta-line" id="irregularities">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sources</h3></div>
+        <div class="card-body meta-line" id="sources">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a T20 Blast card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p>Each side is scored on six declared factors: recent form (30), season points rate (20), head-to-head (15), the league's own measured home-win rate (15), winning-margin profile (10) and rest between fixtures (10). The weights are declared in <code>engine/t20_blast_engine.js</code> and were never fitted against the tape they are validated on.</p>
+          <p>Everything is walk-forward: a fixture is scored using only results dated strictly before it, so the card you read for a past date is the card the model would have produced that morning.</p>
+          <p>A market is written only when it clears its gate. Otherwise it is a <strong>SKIP</strong> with the reason shown — a withheld market is an honest output, not a failure. The three player markets need a confirmed line-up and rolling individual figures, which only exist for a live fixture, so they are withheld across the historical tape.</p>
+          <p>Open <strong>Analysis</strong> on any fixture for every factor that fired, its points, what could not be sourced, the caps applied, and the scorecard links to check each figure by hand.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/t20-blast-page.js"></script>
+</body>
+</html>

@@ -1,0 +1,1849 @@
+{
+  "schema_version": "t20-blast-backtest-1.0.0",
+  "generated_at_utc": "2026-09-03T20:04:13.971Z",
+  "sport": "cricket",
+  "competition": "T20 Blast (Vitality Blast, men)",
+  "season": 2026,
+  "ruleset": "T20 BLAST PREDICTION MASTER PROMPT v1.0",
+  "evidence_model": "blast-evidence-1.0.0",
+  "declared_weights": {
+    "form": 30,
+    "season": 20,
+    "h2h": 15,
+    "venue": 15,
+    "margin": 10,
+    "rest": 10
+  },
+  "declared_probability_slope": 12,
+  "weights_fitted_to_this_tape": false,
+  "method": {
+    "order": "chronological by fixture date",
+    "context": "walk-forward; engine/t20_blast_data.js keeps only fixtures strictly earlier than the one being scored",
+    "lookAheadAudit": {
+      "checked": 96,
+      "ok": true,
+      "failures": []
+    },
+    "excluded": "tied fixtures (no winner to score against) and fixtures the engine withheld as SKIP",
+    "probability": "the engine reports P(selected side wins); P(home) is derived from it for Brier and log-loss"
+  },
+  "coverage": {
+    "fixtures_in_tape": 96,
+    "decided": 94,
+    "ties": 2,
+    "scored_by_model": 46,
+    "withheld_by_model": 48,
+    "withhold_rate_pct": 51.1,
+    "home_wins_in_tape": 50,
+    "home_win_rate_pct": 53.2,
+    "tape_gaps": 3,
+    "tape_gap_note": "Form and head-to-head are reconstructed from captured fixtures only; the two absent Derbyshire home fixtures and the absent cross-pool fixtures thin the context for their dates, which the model reflects by withholding rather than guessing."
+  },
+  "strict_prompt_path": {
+    "scored": 0,
+    "skipped": 96,
+    "hits": 0,
+    "decided": 0,
+    "skip_rate_pct": 100,
+    "hit_rate_pct": null,
+    "note": "The master prompt rubric as literally written. Three of its five WIN factors (bowling matchup scouting, batting depth from individual form, bookmaker odds) have no free key-less source, so the rubric penalises them to a SKIP. This is the honest output of the prompt against the data that exists, and it is why the declared evidence model is what the site publishes."
+  },
+  "evidence_path": {
+    "overall": {
+      "n": 46,
+      "hits": 25,
+      "misses": 21,
+      "hitRate": 54.3,
+      "brier": 0.3067,
+      "logLoss": 0.8477,
+      "avgProbabilityHome": 0.5259,
+      "avgProbabilityPick": 0.736,
+      "overconfidence": 0.1925
+    },
+    "byBand": {
+      "HIGH": {
+        "n": 20,
+        "hits": 8,
+        "misses": 12,
+        "hitRate": 40,
+        "brier": 0.3919,
+        "logLoss": 1.0727,
+        "avgProbabilityHome": 0.509,
+        "avgProbabilityPick": 0.7989,
+        "overconfidence": 0.3989
+      },
+      "MEDIUM": {
+        "n": 26,
+        "hits": 17,
+        "misses": 9,
+        "hitRate": 65.4,
+        "brier": 0.2412,
+        "logLoss": 0.6746,
+        "avgProbabilityHome": 0.5388,
+        "avgProbabilityPick": 0.6875,
+        "overconfidence": 0.0337
+      }
+    },
+    "byStage": {
+      "group": {
+        "n": 40,
+        "hits": 22,
+        "misses": 18,
+        "hitRate": 55,
+        "brier": 0.3053,
+        "logLoss": 0.8489,
+        "avgProbabilityHome": 0.5478,
+        "avgProbabilityPick": 0.7523,
+        "overconfidence": 0.2023
+      },
+      "quarter-final": {
+        "n": 4,
+        "hits": 3,
+        "misses": 1,
+        "hitRate": 75,
+        "brier": 0.2322,
+        "logLoss": 0.6529,
+        "avgProbabilityHome": 0.4145,
+        "avgProbabilityPick": 0.596,
+        "overconfidence": -0.154
+      },
+      "semi-final": {
+        "n": 2,
+        "hits": 0,
+        "misses": 2,
+        "hitRate": 0,
+        "brier": 0.4837,
+        "logLoss": 1.2122,
+        "avgProbabilityHome": 0.31,
+        "avgProbabilityPick": 0.69,
+        "overconfidence": 0.69
+      }
+    },
+    "byGroup": {
+      "Central & West Group": {
+        "n": 13,
+        "hits": 7,
+        "misses": 6,
+        "hitRate": 53.8,
+        "brier": 0.3136,
+        "logLoss": 0.8786,
+        "avgProbabilityHome": 0.4936,
+        "avgProbabilityPick": 0.7582,
+        "overconfidence": 0.2198
+      },
+      "Knockout": {
+        "n": 6,
+        "hits": 3,
+        "misses": 3,
+        "hitRate": 50,
+        "brier": 0.316,
+        "logLoss": 0.8393,
+        "avgProbabilityHome": 0.3797,
+        "avgProbabilityPick": 0.6273,
+        "overconfidence": 0.1273
+      },
+      "North Group": {
+        "n": 12,
+        "hits": 7,
+        "misses": 5,
+        "hitRate": 58.3,
+        "brier": 0.2495,
+        "logLoss": 0.6824,
+        "avgProbabilityHome": 0.5567,
+        "avgProbabilityPick": 0.7593,
+        "overconfidence": 0.1759
+      },
+      "South Group": {
+        "n": 15,
+        "hits": 8,
+        "misses": 7,
+        "hitRate": 53.3,
+        "brier": 0.3428,
+        "logLoss": 0.9565,
+        "avgProbabilityHome": 0.5876,
+        "avgProbabilityPick": 0.7415,
+        "overconfidence": 0.2081
+      }
+    },
+    "byResultType": {
+      "runs": {
+        "n": 23,
+        "hits": 11,
+        "misses": 12,
+        "hitRate": 47.8,
+        "brier": 0.337,
+        "logLoss": 0.9164,
+        "avgProbabilityHome": 0.4736,
+        "avgProbabilityPick": 0.7217,
+        "overconfidence": 0.2434
+      },
+      "wickets": {
+        "n": 23,
+        "hits": 14,
+        "misses": 9,
+        "hitRate": 60.9,
+        "brier": 0.2765,
+        "logLoss": 0.7789,
+        "avgProbabilityHome": 0.5782,
+        "avgProbabilityPick": 0.7503,
+        "overconfidence": 0.1416
+      }
+    },
+    "byPickSide": {
+      "home": {
+        "n": 23,
+        "hits": 15,
+        "misses": 8,
+        "hitRate": 65.2,
+        "brier": 0.2793,
+        "logLoss": 0.7981,
+        "avgProbabilityHome": 0.7618,
+        "avgProbabilityPick": 0.7618,
+        "overconfidence": 0.1097
+      },
+      "away": {
+        "n": 23,
+        "hits": 10,
+        "misses": 13,
+        "hitRate": 43.5,
+        "brier": 0.3341,
+        "logLoss": 0.8973,
+        "avgProbabilityHome": 0.2899,
+        "avgProbabilityPick": 0.7101,
+        "overconfidence": 0.2753
+      }
+    },
+    "rainAffected": {
+      "n": 1,
+      "hits": 1,
+      "misses": 0,
+      "hitRate": 100,
+      "brier": 0.0072,
+      "logLoss": 0.0888,
+      "avgProbabilityHome": 0.915,
+      "avgProbabilityPick": 0.915,
+      "overconfidence": -0.085
+    },
+    "calibration": [
+      {
+        "band": "40-60%",
+        "n": 7,
+        "predicted": 0.5516,
+        "actual": 0.7143,
+        "gap": 0.1627
+      },
+      {
+        "band": "60-80%",
+        "n": 25,
+        "predicted": 0.7097,
+        "actual": 0.48,
+        "gap": 0.2297
+      },
+      {
+        "band": "80-100%",
+        "n": 14,
+        "predicted": 0.8751,
+        "actual": 0.5714,
+        "gap": 0.3036
+      }
+    ],
+    "baselines": {
+      "always_home": {
+        "n": 46,
+        "hits": 28,
+        "hitRate": 60.9
+      },
+      "prior_points_leader": {
+        "n": 44,
+        "hits": 23,
+        "hitRate": 52.3,
+        "note": "picks the county with more points per fixture to date; the simplest honest alternative to the full model"
+      }
+    },
+    "intervals": {
+      "overall": {
+        "hitRate": 54.3,
+        "n": 46,
+        "ci95": {
+          "low": 0.4018,
+          "high": 0.6785
+        }
+      },
+      "byBand": {
+        "HIGH": {
+          "hitRate": 40,
+          "n": 20,
+          "ci95": {
+            "low": 0.2188,
+            "high": 0.6134
+          }
+        },
+        "MEDIUM": {
+          "hitRate": 65.4,
+          "n": 26,
+          "ci95": {
+            "low": 0.4622,
+            "high": 0.8059
+          }
+        }
+      },
+      "homePicks": {
+        "hitRate": 65.2,
+        "n": 23,
+        "ci95": {
+          "low": 0.4489,
+          "high": 0.8119
+        }
+      },
+      "awayPicks": {
+        "hitRate": 43.5,
+        "n": 23,
+        "ci95": {
+          "low": 0.2563,
+          "high": 0.6319
+        }
+      }
+    },
+    "publicationGate": {
+      "rules": [
+        {
+          "id": "tier_inversion",
+          "rule": "If the HIGH tier hit rate is below the MEDIUM tier hit rate, HIGH is not supported by the evidence and published confidence is capped at MEDIUM."
+        },
+        {
+          "id": "insufficient_sample",
+          "rule": "A tier validated on fewer than 30 fixtures cannot support a HIGH claim; the tier is marked insufficient_sample and capped at MEDIUM."
+        },
+        {
+          "id": "no_edge_over_baseline",
+          "rule": "If the overall hit rate does not exceed the always-pick-home baseline, the model has no demonstrated edge; the card must say so and confidence is capped at MEDIUM."
+        },
+        {
+          "id": "overconfident_probability",
+          "rule": "If the mean probability assigned to picks exceeds the observed hit rate by more than 0.10, the model probability is reported as uncalibrated and the observed tier rate is published instead of it."
+        }
+      ],
+      "triggered": [
+        {
+          "id": "tier_inversion",
+          "detail": "HIGH hit 40% over 20 fixtures while MEDIUM hit 65.4% over 26; the tiers are inverted."
+        },
+        {
+          "id": "insufficient_sample",
+          "detail": "HIGH was validated on 20 fixtures, below the 30 needed to support the claim."
+        },
+        {
+          "id": "no_edge_over_baseline",
+          "detail": "the model hit 54.3% against an always-pick-home baseline of 60.9% on the same fixtures."
+        },
+        {
+          "id": "overconfident_probability",
+          "detail": "the model assigned its picks a mean probability of 0.736 and they won 54.3% of the time — overconfident by 19.3 points."
+        }
+      ],
+      "cap": "MEDIUM",
+      "capReason": "Walk-forward validation on the 2026 tape does not support a HIGH claim, so no tip is published above MEDIUM until a larger validated sample says otherwise.",
+      "publishObservedRates": true,
+      "modelProbabilityCalibrated": false,
+      "note": "The gate changes what the site is allowed to claim. It does not change the model weights, which remain declared a priori and unfitted."
+    }
+  },
+  "ties": [
+    {
+      "event_id": "1512837",
+      "date": "2026-06-28",
+      "match": "Derbyshire v Yorkshire",
+      "stage": "group",
+      "band": "HIGH"
+    },
+    {
+      "event_id": "1512859",
+      "date": "2026-07-06",
+      "match": "Lancashire v Derbyshire",
+      "stage": "group",
+      "band": "MEDIUM"
+    }
+  ],
+  "records": [
+    {
+      "event_id": "1512804",
+      "date": "2026-05-31",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Warwickshire v Northamptonshire",
+      "home": "Warwickshire",
+      "away": "Northamptonshire",
+      "pickedHome": false,
+      "selection": "Northamptonshire",
+      "actualWinner": "Northamptonshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 59,
+      "oppositionScore": 12,
+      "probabilityPick": 0.876,
+      "probabilityHome": 0.124,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 6,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512804.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512809",
+      "date": "2026-06-02",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Hampshire v Sussex",
+      "home": "Hampshire",
+      "away": "Sussex",
+      "pickedHome": true,
+      "selection": "Hampshire",
+      "actualWinner": "Hampshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 57,
+      "oppositionScore": 29,
+      "probabilityPick": 0.763,
+      "probabilityHome": 0.763,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 29,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512809.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512810",
+      "date": "2026-06-03",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Surrey v Middlesex",
+      "home": "Surrey",
+      "away": "Middlesex",
+      "pickedHome": true,
+      "selection": "Surrey",
+      "actualWinner": "Surrey",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 58,
+      "oppositionScore": 26,
+      "probabilityPick": 0.791,
+      "probabilityHome": 0.791,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Surrey",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 8,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512810.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512812",
+      "date": "2026-06-05",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Yorkshire v Lancashire",
+      "home": "Yorkshire",
+      "away": "Lancashire",
+      "pickedHome": true,
+      "selection": "Yorkshire",
+      "actualWinner": "Yorkshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 65,
+      "oppositionScore": 22,
+      "probabilityPick": 0.857,
+      "probabilityHome": 0.857,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 106,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512812.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512813",
+      "date": "2026-06-05",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Surrey v Hampshire",
+      "home": "Surrey",
+      "away": "Hampshire",
+      "pickedHome": false,
+      "selection": "Hampshire",
+      "actualWinner": "Hampshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 86,
+      "oppositionScore": 58,
+      "probabilityPick": 0.763,
+      "probabilityHome": 0.237,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 5,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512813.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512821",
+      "date": "2026-06-07",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Sussex v Kent",
+      "home": "Sussex",
+      "away": "Kent",
+      "pickedHome": false,
+      "selection": "Kent",
+      "actualWinner": "Sussex",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 78,
+      "oppositionScore": 37,
+      "probabilityPick": 0.847,
+      "probabilityHome": 0.153,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Kent",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 7,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512821.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512823",
+      "date": "2026-06-07",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Gloucestershire v Worcestershire",
+      "home": "Gloucestershire",
+      "away": "Worcestershire",
+      "pickedHome": true,
+      "selection": "Gloucestershire",
+      "actualWinner": "Gloucestershire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 57,
+      "oppositionScore": 40,
+      "probabilityPick": 0.67,
+      "probabilityHome": 0.67,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Gloucestershire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 3,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512823.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512824",
+      "date": "2026-06-07",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Nottinghamshire v Derbyshire",
+      "home": "Nottinghamshire",
+      "away": "Derbyshire",
+      "pickedHome": false,
+      "selection": "Derbyshire",
+      "actualWinner": "Nottinghamshire",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 60,
+      "oppositionScore": 37,
+      "probabilityPick": 0.723,
+      "probabilityHome": 0.277,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Derbyshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 10,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512824.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512825",
+      "date": "2026-06-07",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Leicestershire v Yorkshire",
+      "home": "Leicestershire",
+      "away": "Yorkshire",
+      "pickedHome": false,
+      "selection": "Yorkshire",
+      "actualWinner": "Leicestershire",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 65,
+      "oppositionScore": 29,
+      "probabilityPick": 0.818,
+      "probabilityHome": 0.182,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 12,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512825.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512826",
+      "date": "2026-06-09",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Essex v Kent",
+      "home": "Essex",
+      "away": "Kent",
+      "pickedHome": true,
+      "selection": "Essex",
+      "actualWinner": "Essex",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 56,
+      "oppositionScore": 55,
+      "probabilityPick": 0.51,
+      "probabilityHome": 0.51,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Kent",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 3,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512826.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512828",
+      "date": "2026-06-09",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Northamptonshire v Worcestershire",
+      "home": "Northamptonshire",
+      "away": "Worcestershire",
+      "pickedHome": true,
+      "selection": "Northamptonshire",
+      "actualWinner": "Northamptonshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 93,
+      "oppositionScore": 36,
+      "probabilityPick": 0.915,
+      "probabilityHome": 0.915,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "rain_or_dls",
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 6,
+      "resultType": "wickets",
+      "dlMethod": true,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512828.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512832",
+      "date": "2026-06-26",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Somerset v Gloucestershire",
+      "home": "Somerset",
+      "away": "Gloucestershire",
+      "pickedHome": false,
+      "selection": "Gloucestershire",
+      "actualWinner": "Somerset",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 86,
+      "oppositionScore": 37,
+      "probabilityPick": 0.885,
+      "probabilityHome": 0.115,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Gloucestershire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 18,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512832.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512835",
+      "date": "2026-06-26",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Leicestershire v Lancashire",
+      "home": "Leicestershire",
+      "away": "Lancashire",
+      "pickedHome": true,
+      "selection": "Leicestershire",
+      "actualWinner": "Lancashire",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 60,
+      "oppositionScore": 38,
+      "probabilityPick": 0.714,
+      "probabilityHome": 0.714,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Leicestershire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 5,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512835.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512839",
+      "date": "2026-06-28",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Kent v Hampshire",
+      "home": "Kent",
+      "away": "Hampshire",
+      "pickedHome": false,
+      "selection": "Hampshire",
+      "actualWinner": "Kent",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 71,
+      "oppositionScore": 45,
+      "probabilityPick": 0.747,
+      "probabilityHome": 0.253,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 7,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512839.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512842",
+      "date": "2026-07-01",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Essex v Surrey",
+      "home": "Essex",
+      "away": "Surrey",
+      "pickedHome": true,
+      "selection": "Essex",
+      "actualWinner": "Surrey",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 66,
+      "oppositionScore": 41,
+      "probabilityPick": 0.739,
+      "probabilityHome": 0.739,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Essex",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 7,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512842.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512845",
+      "date": "2026-07-01",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Gloucestershire v Northamptonshire",
+      "home": "Gloucestershire",
+      "away": "Northamptonshire",
+      "pickedHome": false,
+      "selection": "Northamptonshire",
+      "actualWinner": "Northamptonshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 87,
+      "oppositionScore": 68,
+      "probabilityPick": 0.688,
+      "probabilityHome": 0.312,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 8,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512845.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512846",
+      "date": "2026-07-03",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Yorkshire v Durham",
+      "home": "Yorkshire",
+      "away": "Durham",
+      "pickedHome": true,
+      "selection": "Yorkshire",
+      "actualWinner": "Yorkshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 82,
+      "oppositionScore": 33,
+      "probabilityPick": 0.885,
+      "probabilityHome": 0.885,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 5,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512846.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512849",
+      "date": "2026-07-03",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Nottinghamshire v Lancashire",
+      "home": "Nottinghamshire",
+      "away": "Lancashire",
+      "pickedHome": true,
+      "selection": "Nottinghamshire",
+      "actualWinner": "Nottinghamshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 65,
+      "oppositionScore": 58,
+      "probabilityPick": 0.572,
+      "probabilityHome": 0.572,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Lancashire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 1,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512849.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512852",
+      "date": "2026-07-05",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Essex v Middlesex",
+      "home": "Essex",
+      "away": "Middlesex",
+      "pickedHome": true,
+      "selection": "Essex",
+      "actualWinner": "Middlesex",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 76,
+      "oppositionScore": 27,
+      "probabilityPick": 0.885,
+      "probabilityHome": 0.885,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Essex",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 4,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512852.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512853",
+      "date": "2026-07-05",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Durham v Nottinghamshire",
+      "home": "Durham",
+      "away": "Nottinghamshire",
+      "pickedHome": false,
+      "selection": "Nottinghamshire",
+      "actualWinner": "Nottinghamshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 72,
+      "oppositionScore": 30,
+      "probabilityPick": 0.852,
+      "probabilityHome": 0.148,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Nottinghamshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 2,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512853.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512854",
+      "date": "2026-07-05",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Warwickshire v Gloucestershire",
+      "home": "Warwickshire",
+      "away": "Gloucestershire",
+      "pickedHome": false,
+      "selection": "Gloucestershire",
+      "actualWinner": "Warwickshire",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 57,
+      "oppositionScore": 40,
+      "probabilityPick": 0.67,
+      "probabilityHome": 0.33,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Gloucestershire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 30,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512854.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512855",
+      "date": "2026-07-05",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Yorkshire v Leicestershire",
+      "home": "Yorkshire",
+      "away": "Leicestershire",
+      "pickedHome": true,
+      "selection": "Yorkshire",
+      "actualWinner": "Yorkshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 67,
+      "oppositionScore": 47,
+      "probabilityPick": 0.697,
+      "probabilityHome": 0.697,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 41,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512855.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512857",
+      "date": "2026-07-05",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Northamptonshire v Somerset",
+      "home": "Northamptonshire",
+      "away": "Somerset",
+      "pickedHome": true,
+      "selection": "Northamptonshire",
+      "actualWinner": "Somerset",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 76,
+      "oppositionScore": 23,
+      "probabilityPick": 0.901,
+      "probabilityHome": 0.901,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 105,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512857.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512858",
+      "date": "2026-07-05",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Hampshire v Kent",
+      "home": "Hampshire",
+      "away": "Kent",
+      "pickedHome": true,
+      "selection": "Hampshire",
+      "actualWinner": "Hampshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 81,
+      "oppositionScore": 57,
+      "probabilityPick": 0.731,
+      "probabilityHome": 0.731,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 19,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512858.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512860",
+      "date": "2026-07-08",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Surrey v Sussex",
+      "home": "Surrey",
+      "away": "Sussex",
+      "pickedHome": true,
+      "selection": "Surrey",
+      "actualWinner": "Surrey",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 78,
+      "oppositionScore": 33,
+      "probabilityPick": 0.867,
+      "probabilityHome": 0.867,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Surrey",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 8,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512860.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512861",
+      "date": "2026-07-08",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Glamorgan v Northamptonshire",
+      "home": "Glamorgan",
+      "away": "Northamptonshire",
+      "pickedHome": false,
+      "selection": "Northamptonshire",
+      "actualWinner": "Northamptonshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 81,
+      "oppositionScore": 45,
+      "probabilityPick": 0.818,
+      "probabilityHome": 0.182,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 53,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512861.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512864",
+      "date": "2026-07-08",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Hampshire v Middlesex",
+      "home": "Hampshire",
+      "away": "Middlesex",
+      "pickedHome": true,
+      "selection": "Hampshire",
+      "actualWinner": "Middlesex",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 85,
+      "oppositionScore": 31,
+      "probabilityPick": 0.905,
+      "probabilityHome": 0.905,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 5,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512864.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512865",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Essex v Hampshire",
+      "home": "Essex",
+      "away": "Hampshire",
+      "pickedHome": false,
+      "selection": "Hampshire",
+      "actualWinner": "Essex",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 68,
+      "oppositionScore": 61,
+      "probabilityPick": 0.572,
+      "probabilityHome": 0.428,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 7,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512865.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512867",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Warwickshire v Glamorgan",
+      "home": "Warwickshire",
+      "away": "Glamorgan",
+      "pickedHome": true,
+      "selection": "Warwickshire",
+      "actualWinner": "Warwickshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 58,
+      "oppositionScore": 40,
+      "probabilityPick": 0.679,
+      "probabilityHome": 0.679,
+      "actualHomeWin": 1,
+      "priorPointsLeader": null,
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 4,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512867.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512868",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Lancashire v Yorkshire",
+      "home": "Lancashire",
+      "away": "Yorkshire",
+      "pickedHome": false,
+      "selection": "Yorkshire",
+      "actualWinner": "Lancashire",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 77,
+      "oppositionScore": 52,
+      "probabilityPick": 0.739,
+      "probabilityHome": 0.261,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 22,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512868.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512870",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Somerset v Northamptonshire",
+      "home": "Somerset",
+      "away": "Northamptonshire",
+      "pickedHome": false,
+      "selection": "Northamptonshire",
+      "actualWinner": "Somerset",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 72,
+      "oppositionScore": 56,
+      "probabilityPick": 0.661,
+      "probabilityHome": 0.339,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 7,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512870.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512871",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Kent v Surrey",
+      "home": "Kent",
+      "away": "Surrey",
+      "pickedHome": false,
+      "selection": "Surrey",
+      "actualWinner": "Surrey",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 70,
+      "oppositionScore": 61,
+      "probabilityPick": 0.593,
+      "probabilityHome": 0.407,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Surrey",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 9,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512871.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512872",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Nottinghamshire v Leicestershire",
+      "home": "Nottinghamshire",
+      "away": "Leicestershire",
+      "pickedHome": true,
+      "selection": "Nottinghamshire",
+      "actualWinner": "Nottinghamshire",
+      "hit": true,
+      "band": "HIGH",
+      "evidenceScore": 88,
+      "oppositionScore": 22,
+      "probabilityPick": 0.94,
+      "probabilityHome": 0.94,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Nottinghamshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 6,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512872.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512873",
+      "date": "2026-07-10",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Worcestershire v Gloucestershire",
+      "home": "Worcestershire",
+      "away": "Gloucestershire",
+      "pickedHome": false,
+      "selection": "Gloucestershire",
+      "actualWinner": "Gloucestershire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 61,
+      "oppositionScore": 49,
+      "probabilityPick": 0.622,
+      "probabilityHome": 0.378,
+      "actualHomeWin": 0,
+      "priorPointsLeader": null,
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 2,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512873.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512874",
+      "date": "2026-07-12",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Lancashire v Durham",
+      "home": "Lancashire",
+      "away": "Durham",
+      "pickedHome": true,
+      "selection": "Lancashire",
+      "actualWinner": "Lancashire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 59,
+      "oppositionScore": 35,
+      "probabilityPick": 0.731,
+      "probabilityHome": 0.731,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Lancashire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 3,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512874.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512875",
+      "date": "2026-07-12",
+      "stage": "group",
+      "group": "North Group",
+      "match": "Yorkshire v Nottinghamshire",
+      "home": "Yorkshire",
+      "away": "Nottinghamshire",
+      "pickedHome": false,
+      "selection": "Nottinghamshire",
+      "actualWinner": "Yorkshire",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 68,
+      "oppositionScore": 60,
+      "probabilityPick": 0.583,
+      "probabilityHome": 0.417,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 18,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512875.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512876",
+      "date": "2026-07-12",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Surrey v Essex",
+      "home": "Surrey",
+      "away": "Essex",
+      "pickedHome": true,
+      "selection": "Surrey",
+      "actualWinner": "Essex",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 81,
+      "oppositionScore": 51,
+      "probabilityPick": 0.777,
+      "probabilityHome": 0.777,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Surrey",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 8,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512876.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512877",
+      "date": "2026-07-12",
+      "stage": "group",
+      "group": "South Group",
+      "match": "Sussex v Hampshire",
+      "home": "Sussex",
+      "away": "Hampshire",
+      "pickedHome": false,
+      "selection": "Hampshire",
+      "actualWinner": "Hampshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 55,
+      "oppositionScore": 42,
+      "probabilityPick": 0.632,
+      "probabilityHome": 0.368,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 4,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512877.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512880",
+      "date": "2026-07-12",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Northamptonshire v Warwickshire",
+      "home": "Northamptonshire",
+      "away": "Warwickshire",
+      "pickedHome": true,
+      "selection": "Northamptonshire",
+      "actualWinner": "Warwickshire",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 73,
+      "oppositionScore": 54,
+      "probabilityPick": 0.688,
+      "probabilityHome": 0.688,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 5,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512880.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512881",
+      "date": "2026-07-12",
+      "stage": "group",
+      "group": "Central & West Group",
+      "match": "Gloucestershire v Glamorgan",
+      "home": "Gloucestershire",
+      "away": "Glamorgan",
+      "pickedHome": true,
+      "selection": "Gloucestershire",
+      "actualWinner": "Glamorgan",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 56,
+      "oppositionScore": 25,
+      "probabilityPick": 0.784,
+      "probabilityHome": 0.784,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Gloucestershire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 50,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/matches/engine/match/1512881.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512883",
+      "date": "2026-07-15",
+      "stage": "quarter-final",
+      "group": "Knockout",
+      "match": "Hampshire v Essex",
+      "home": "Hampshire",
+      "away": "Essex",
+      "pickedHome": false,
+      "selection": "Essex",
+      "actualWinner": "Hampshire",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 71,
+      "oppositionScore": 59,
+      "probabilityPick": 0.622,
+      "probabilityHome": 0.378,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 75,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/hampshire-vs-essex-1st-quarter-final-1512883/full-scorecard",
+        "https://www.espncricinfo.com/matches/engine/match/1512883.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512884",
+      "date": "2026-07-15",
+      "stage": "quarter-final",
+      "group": "Knockout",
+      "match": "Gloucestershire v Northamptonshire",
+      "home": "Gloucestershire",
+      "away": "Northamptonshire",
+      "pickedHome": false,
+      "selection": "Northamptonshire",
+      "actualWinner": "Northamptonshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 66,
+      "oppositionScore": 42,
+      "probabilityPick": 0.731,
+      "probabilityHome": 0.269,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 8,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/northamptonshire-vs-gloucestershire-2nd-quarter-final-1512884/full-scorecard",
+        "https://www.espncricinfo.com/matches/engine/match/1512884.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512885",
+      "date": "2026-07-15",
+      "stage": "quarter-final",
+      "group": "Knockout",
+      "match": "Nottinghamshire v Surrey",
+      "home": "Nottinghamshire",
+      "away": "Surrey",
+      "pickedHome": true,
+      "selection": "Nottinghamshire",
+      "actualWinner": "Nottinghamshire",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 64,
+      "oppositionScore": 62,
+      "probabilityPick": 0.521,
+      "probabilityHome": 0.521,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Surrey",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 7,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/nottinghamshire-vs-surrey-3rd-quarter-final-1512885/full-scorecard",
+        "https://www.espncricinfo.com/matches/engine/match/1512885.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512886",
+      "date": "2026-07-15",
+      "stage": "quarter-final",
+      "group": "Knockout",
+      "match": "Yorkshire v Somerset",
+      "home": "Yorkshire",
+      "away": "Somerset",
+      "pickedHome": false,
+      "selection": "Somerset",
+      "actualWinner": "Somerset",
+      "hit": true,
+      "band": "MEDIUM",
+      "evidenceScore": 60,
+      "oppositionScore": 59,
+      "probabilityPick": 0.51,
+      "probabilityHome": 0.49,
+      "actualHomeWin": 0,
+      "priorPointsLeader": "Yorkshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 2,
+      "resultType": "wickets",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/yorkshire-vs-somerset-4th-quarter-final-1512886/full-scorecard",
+        "https://www.espncricinfo.com/matches/engine/match/1512886.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512887",
+      "date": "2026-07-18",
+      "stage": "semi-final",
+      "group": "Knockout",
+      "match": "Northamptonshire v Somerset",
+      "home": "Northamptonshire",
+      "away": "Somerset",
+      "pickedHome": false,
+      "selection": "Somerset",
+      "actualWinner": "Northamptonshire",
+      "hit": false,
+      "band": "HIGH",
+      "evidenceScore": 76,
+      "oppositionScore": 46,
+      "probabilityPick": 0.777,
+      "probabilityHome": 0.223,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Northamptonshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 6,
+      "margin": 17,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/northamptonshire-vs-somerset-1st-semi-final-1512887/full-scorecard",
+        "https://www.espncricinfo.com/matches/engine/match/1512887.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    },
+    {
+      "event_id": "1512888",
+      "date": "2026-07-18",
+      "stage": "semi-final",
+      "group": "Knockout",
+      "match": "Hampshire v Nottinghamshire",
+      "home": "Hampshire",
+      "away": "Nottinghamshire",
+      "pickedHome": false,
+      "selection": "Nottinghamshire",
+      "actualWinner": "Hampshire",
+      "hit": false,
+      "band": "MEDIUM",
+      "evidenceScore": 57,
+      "oppositionScore": 47,
+      "probabilityPick": 0.603,
+      "probabilityHome": 0.397,
+      "actualHomeWin": 1,
+      "priorPointsLeader": "Hampshire",
+      "caps": [
+        "no_market_price"
+      ],
+      "missingCount": 7,
+      "margin": 27,
+      "resultType": "runs",
+      "dlMethod": false,
+      "reviewUrls": [
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/hampshire-vs-nottinghamshire-2nd-semi-final-1512888/full-scorecard",
+        "https://www.espncricinfo.com/matches/engine/match/1512888.html",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+        "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings"
+      ]
+    }
+  ],
+  "markdown": "## Backtest — T20 Blast (Vitality Blast, men) 2026\n\nModel `blast-evidence-1.0.0`, ruleset `T20 BLAST PREDICTION MASTER PROMPT v1.0`. Weights are declared a priori in `engine/t20_blast_engine.js` (form 30, season 20, h2h 15, venue 15, margin 10, rest 10) and were **not** fitted against this tape, so the numbers below measure the model rather than repeat it. The replay is walk-forward: each fixture is scored using only results strictly earlier than its own date, and that is asserted by a look-ahead audit rather than assumed.\n\n| Measure | Value |\n| --- | --- |\n| Fixtures in tape | 96 |\n| Decided / tied | 94 / 2 |\n| Scored by the evidence model | 46 |\n| Withheld (SKIP) | 48 (51.1%) |\n| Home wins in tape | 50 of 94 (53.2%) |\n| Hit rate, all scored fixtures | **54.3%** (25/46) |\n| Brier score | 0.3067 |\n| Log loss | 0.8477 |\n| Mean probability assigned to the pick | 0.736 |\n| Overconfidence (claimed minus delivered) | +0.1925 |\n| Baseline: always pick home | 60.9% |\n| Baseline: prior points leader | 52.3% (n=44) |\n| Look-ahead audit | PASS |\n\n| Wilson 95% interval, overall | 0.4018 – 0.6785 |\n| Home picks | 15/23 (65.2%) |\n| Away picks | 10/23 (43.5%) |\n| Publication gate | capped at **MEDIUM** |\n\n### By confidence band\n\n| Band | n | Hits | Hit rate | Brier | Log loss |\n| --- | --- | --- | --- | --- | --- |\n| HIGH | 20 | 8 | 40% | 0.3919 | 1.0727 |\n| MEDIUM | 26 | 17 | 65.4% | 0.2412 | 0.6746 |\n\n### By stage\n\n| Stage | n | Hits | Hit rate |\n| --- | --- | --- | --- |\n| group | 40 | 22 | 55% |\n| quarter-final | 4 | 3 | 75% |\n| semi-final | 2 | 0 | 0% |\n\n### Calibration\n\n| Predicted band | n | Mean predicted | Actual | Gap |\n| --- | --- | --- | --- | --- |\n| 40-60% | 7 | 0.5516 | 0.7143 | 0.1627 |\n| 60-80% | 25 | 0.7097 | 0.48 | 0.2297 |\n| 80-100% | 14 | 0.8751 | 0.5714 | 0.3036 |\n\n### The two scoring paths\n\nApplied literally, the master prompt's own rubric skipped **100%** of fixtures (96 of 96), because three of its five WIN factors — bowling matchup scouting, batting depth from individual form, and bookmaker odds — have no free key-less source for county cricket. Where it did produce a selection it was right —% of the time (0/0). The declared evidence model, built only from figures the tape verifies, scored 46 fixtures at 54.3%.\n\nBoth numbers are published. The first is what the prompt as written can honestly do with public data; the second is what a model restricted to sourced evidence can do. Neither invents a value, and every withheld market says why.\n\n### What the backtest found, plainly\n\nThe evidence model hit **54.3%** across 46 scored fixtures. On the same fixtures, simply backing the home county every time would have hit **60.9%**. The model therefore shows **no demonstrated edge over home advantage** on this tape.\n\nConfidence is inverted: the HIGH tier hit 40% (8/20) while MEDIUM hit 65.4% (17/26). The Wilson interval on the HIGH tier is 0.2188–0.6134, so at n=20 that tier is too thin to prove it is worse than MEDIUM — and far too thin to justify publishing it as HIGH. Either way the claim is unsupported, which is what the gate acts on.\n\nThe model assigns its picks a mean probability of 0.736 and they win 54.3% of the time — overconfident by 19.3 points. The calibration table shows the gap widening as the claimed probability rises: picks placed in the 80–100% bucket landed 57% of the time. The site therefore publishes the **observed** rate for a tier rather than the model's own probability.\n\nPicks are not skewed toward home sides — the model chose home 23 times and away 23 times — but away picks hit 43.5% against an away base rate of 39.1%, so most of the shortfall sits there.\n\n### The publication gate\n\nThese rules live in `scripts/backtest_t20_blast.mjs` and are applied mechanically to whatever the replay produces. The gate never alters a model weight and never refits anything; it only limits what the site may claim.\n\n| Rule | Statement |\n| --- | --- |\n| `tier_inversion` | If the HIGH tier hit rate is below the MEDIUM tier hit rate, HIGH is not supported by the evidence and published confidence is capped at MEDIUM. |\n| `insufficient_sample` | A tier validated on fewer than 30 fixtures cannot support a HIGH claim; the tier is marked insufficient_sample and capped at MEDIUM. |\n| `no_edge_over_baseline` | If the overall hit rate does not exceed the always-pick-home baseline, the model has no demonstrated edge; the card must say so and confidence is capped at MEDIUM. |\n| `overconfident_probability` | If the mean probability assigned to picks exceeds the observed hit rate by more than 0.10, the model probability is reported as uncalibrated and the observed tier rate is published instead of it. |\n\n**Triggered on the 2026 tape:** `tier_inversion` — HIGH hit 40% over 20 fixtures while MEDIUM hit 65.4% over 26; the tiers are inverted.; `insufficient_sample` — HIGH was validated on 20 fixtures, below the 30 needed to support the claim.; `no_edge_over_baseline` — the model hit 54.3% against an always-pick-home baseline of 60.9% on the same fixtures.; `overconfident_probability` — the model assigned its picks a mean probability of 0.736 and they won 54.3% of the time — overconfident by 19.3 points..\n\n**Result: published confidence is capped at MEDIUM.** Walk-forward validation on the 2026 tape does not support a HIGH claim, so no tip is published above MEDIUM until a larger validated sample says otherwise.\n\nReweighting the model until it beat the baseline on these 96 fixtures was the obvious way to make these numbers look better, and it was deliberately not done: that would fit the weights to the only tape available and leave nothing to validate against. The gate is applied instead, and it will be re-evaluated whenever `scripts/collect_t20_blast.mjs` adds a season.\n\n### Known limits\n\nThe tape captures 96 of 115 season fixtures: 88 of 90 in-group matches, 1 of 18 cross-pool fixtures, and all 7 knockouts. Form and head-to-head are therefore reconstructed from in-group fixtures for most dates, which thins the context around the two absent Derbyshire home fixtures and around every cross-pool date. The model responds by withholding rather than guessing — that is what the 51.1% SKIP rate mostly consists of. `scripts/collect_t20_blast.mjs` exists to close those gaps from the ESPN league calendar for the next season.\n"
+}

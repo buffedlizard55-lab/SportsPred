@@ -131,9 +131,31 @@ function scoreWinRecentForm(team, opp, missing) {
   return out;
 }
 
+/**
+ * A head-to-head block may be written from one side's perspective. When the
+ * block names that side in `h2h.team`, flip it for the other side so the two
+ * sides are not awarded identical points. Blocks without a `team` field are
+ * returned untouched, so every existing caller behaves exactly as before.
+ * (Found while wiring the T20 Blast engine: logged as TB-IR-09.)
+ */
+export function orientH2H(h2h, teamName) {
+  if (!h2h || typeof h2h !== 'object') return h2h;
+  if (!h2h.team || !teamName || h2h.team === teamName) return h2h;
+  const total = Number(h2h.totalMeetings) || 0;
+  const wins = Number(h2h.teamWins) || 0;
+  const flip = (r) => (r === 'W' ? 'L' : r === 'L' ? 'W' : r);
+  return {
+    ...h2h,
+    team: teamName,
+    teamWins: Math.max(0, total - wins),
+    recentMeetings: Array.isArray(h2h.recentMeetings) ? h2h.recentMeetings.map(flip) : h2h.recentMeetings,
+    oriented_from: h2h.team,
+  };
+}
+
 function scoreWinH2H(team, opp, match, missing) {
   const out = [];
-  const h2h = match?.h2h;
+  const h2h = orientH2H(match?.h2h, team?.name);
   const total = num(h2h?.totalMeetings);
   const teamWins = num(h2h?.teamWins);
   if (!total || total === 0 || teamWins == null) {
