@@ -402,3 +402,11 @@ table.components td:first-child { min-width: 220px; }
 .pill.roof { background: #eef2ff; border-color: #c7d2fe; color: #3730a3; }
 .pill.rain { background: #e0f2fe; border-color: #7dd3fc; color: #075985; }
 .pill.seed { background: #fef3c7; border-color: #fcd34d; color: #92400e; }
+
+/* NBA v5: the three required markets stay visually separate from the
+   universal headline pill.  This also makes each block easy to copy. */
+.nba-market-tips { display: grid; gap: 8px; margin-top: 10px; }
+.nba-tip { border: 1px solid var(--line); border-left: 3px solid var(--navy); border-radius: 7px; padding: 10px 12px; background: #fff; font-size: 13px; line-height: 1.6; }
+.nba-tip .tip-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+.nba-tip .tip-meta strong { color: var(--navy); }
+.nba-tip .btn { text-transform: none; letter-spacing: normal; }

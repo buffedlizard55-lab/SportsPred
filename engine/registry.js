@@ -158,6 +158,8 @@ export const SPORTS = [
     unit: 'points',
     officialLinks: [
       { label: 'ESPN NBA Scoreboard', url: 'https://www.espn.com/nba/scoreboard' },
+      { label: 'NBA Official Stats', url: 'https://www.nba.com/stats' },
+      { label: 'NBA Official Injury Report', url: 'https://official.nba.com/nba-injury-report-2025-26-season/' },
       { label: 'OLBG Basketball Tips', url: olbgUrl('Basketball', 4) },
     ],
     candidateLeagues: [

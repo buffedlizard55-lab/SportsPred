@@ -28,8 +28,12 @@ This is an implementation review, not a claim that every requested field is avai
 4. Backtests settle only predictions recorded before the event and only against an official result. They do not use future standings or closing information.
 5. The site does not claim that OLBG consensus is bookmaker odds or that one ESPN odds block is two-source confirmation.
 
+## Current implementation note
+
+The scoreboard now uses the dedicated `engine/nba_writer.js` presentation layer. When a market clears the scorer's threshold it renders the required ordered trio — WIN MATCH, POINT SPREAD, and GAME TOTAL — as separate copy-ready blocks. The blocks deliberately omit player names, venue names, odds, and line figures. A missing or skipped market remains explicitly withheld; the writer never turns absent evidence into a selection.
+
 ## Recommended next implementation
 
-Add a dedicated `nba_engine.js` and `nba_writer.js` backed by two archived odds sources, an official injury/availability source, and a reproducible historical odds store. Until those feeds exist, the honest behavior is to show the scoreboard and OLBG markets while withholding unsupported NBA-v5 selections.
+Add a dedicated `nba_engine.js` backed by two independently archived odds sources, an official injury/availability source, and a reproducible historical odds store. Until those feeds exist, NBA scorecards must continue to withhold unsupported markets. The current dedicated writer is a formatting/compliance improvement, not a claim that those missing data sources have been found.
 
 Manual review links: [ESPN NBA scoreboard](https://www.espn.com/nba/scoreboard), [NBA official stats](https://www.nba.com/stats), [NBA official injury report](https://official.nba.com/nba-injury-report-2025-26-season/), and [OLBG Basketball](https://www.olbg.com/betting-tips/Basketball/4).
