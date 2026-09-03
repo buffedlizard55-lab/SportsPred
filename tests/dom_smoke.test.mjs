@@ -287,6 +287,7 @@ function makeFetch(counters) {
         || u.includes('data/volleyball_')
         || /data\/snooker_(results|rankings|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/darts_')
+        || u.includes('data/npb_')
         || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
@@ -916,6 +917,73 @@ test('baseball.html boots, auto-generates three tips per match and the button re
     // Sources rail lists the verified feeds with https links and the irregularity register.
     assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
     assert.match(document.querySelector('#sources').textContent, /IR-BASEBALL-/);
+  } finally { cleanup(); }
+});
+
+test('npb.html boots as a baseball sub-page, scores the draw on every match and the button re-scores', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('npb.html', { search: '?date=2026-09-04' });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    // league sub-navigation: MLB | NPB, NPB active
+    const tabs = [...document.querySelectorAll('#league-tabs a')];
+    assert.deepEqual(tabs.map((a) => a.textContent.trim()), ['MLB', 'NPB']);
+    assert.ok(tabs[1].classList.contains('on'), 'NPB tab is active');
+    assert.equal(tabs[0].getAttribute('href'), 'baseball.html');
+
+    const rows = document.querySelectorAll('.match');
+    assert.ok(rows.length >= 1, `at least one match row rendered (found ${rows.length})`);
+    assert.match(document.body.textContent, /Swallows|Tigers|Giants|Hawks/);
+
+    // Three markets per match, generated on load; draw scored independently.
+    const tips = [...document.querySelectorAll('.tipbox .tip-box')];
+    assert.ok(tips.length >= 3, `three markets written for the first match (found ${tips.length})`);
+    const labels = tips.slice(0, 3).map((t) => t.textContent);
+    assert.match(labels[0], /WIN MATCH OUTRIGHT|DRAW/);
+    assert.match(labels[1], /RUN LINE/);
+    assert.match(labels[2], /GAME TOTAL/);
+    for (const tip of tips) {
+      const text = tip.querySelector('.tip-text')?.textContent || '';
+      assert.equal(/\d/.test(text), false, `no digits may leak into a tip: ${text.slice(0, 60)}`);
+      assert.match(text, /\b(HIGH|MEDIUM|LOW)\b|^SKIP/, 'confidence or SKIP stated');
+      assert.ok(!/npb\.jp|OLBG|Central League|Pacific League|Koshien|Jingu|Tokyo Dome/.test(text), 'no source, league or venue names in a tip');
+    }
+    assert.match(document.querySelector('#draw-watch').textContent, /\/100/, 'draw watch lists a draw score for the slate');
+
+    // The Generate button works.
+    document.querySelector('#board').innerHTML = '';
+    document.querySelector('#generate').click();
+    for (let i = 0; i < 20; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelectorAll('#board .match').length >= 1, 'Generate repopulated the board');
+    assert.ok(document.querySelectorAll('#board .tip-box').length >= 3, 'Generate rewrote the tips');
+
+    // Analysis: draw ledger, sourced-evidence disclosure, https review links.
+    document.querySelector('.match-toggle').click();
+    const panel = document.querySelector('.analysis');
+    assert.match(panel.textContent, /Draw likelihood/);
+    assert.match(panel.textContent, /Could not be sourced/);
+    assert.match(panel.textContent, /Price/);
+    const links = [...panel.querySelectorAll('a')];
+    assert.ok(links.length >= 3, 'review links present');
+    for (const l of links) assert.ok(l.href.startsWith('https://'), `review links are https: ${l.href}`);
+    assert.ok(links.some((l) => /npb\.jp/.test(l.href)), 'at least one npb.jp review link');
+
+    // Card text, standings, coverage, sources.
+    assert.match(document.querySelector('#card-text').textContent, /NPB/);
+    assert.match(document.querySelector('#card-text').textContent, /gamble responsibly/i);
+    assert.ok(document.querySelectorAll('#standings table').length === 2, 'both league tables rendered');
+    assert.match(document.querySelector('#coverage').textContent, /draws on tape/);
+    assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
+    assert.match(document.querySelector('#sources').textContent, /NPB-SEED|IR-NPB-/);
+  } finally { cleanup(); }
+});
+
+test('baseball.html carries the MLB | NPB league tabs', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('baseball.html', { search: '?date=2026-09-04' });
+  try {
+    const tabs = [...document.querySelectorAll('#league-tabs a')];
+    assert.deepEqual(tabs.map((a) => a.textContent.trim()), ['MLB', 'NPB']);
+    assert.ok(tabs[0].classList.contains('on'), 'MLB tab is active on baseball.html');
+    assert.equal(tabs[1].getAttribute('href'), 'npb.html');
   } finally { cleanup(); }
 });
 

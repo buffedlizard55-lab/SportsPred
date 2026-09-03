@@ -184,6 +184,10 @@ export const SPORTS = [
     unit: 'runs',
     specialistEngine: 'baseball',
     page: 'baseball.html',
+    subPages: [
+      { key: 'mlb', label: 'MLB', href: 'baseball.html', name: 'Major League Baseball' },
+      { key: 'npb', label: 'NPB', href: 'npb.html', name: 'Nippon Professional Baseball' },
+    ],
     officialLinks: [
       { label: 'MLB StatsAPI Schedule', url: 'https://statsapi.mlb.com/api/v1/schedule?sportId=1' },
       { label: 'MLB Standings', url: 'https://www.mlb.com/standings' },
@@ -192,11 +196,13 @@ export const SPORTS = [
     ],
     candidateLeagues: [
       { slug: 'mlb', name: 'Major League Baseball' },
+      { slug: 'npb', name: 'Nippon Professional Baseball' },
       { slug: 'college-baseball', name: 'NCAA Baseball' },
     ],
     notes: [
       'Baseball runs on its own specialist page, scored by the BASEBALL PREDICTION MASTER PROMPT v1.0: three tips per match (WIN MATCH OUTRIGHT, RUN LINE, GAME TOTAL) with a confidence score on each. Fixtures, results, standings, team batting/pitching stats and probable starters come from the official MLB StatsAPI; the ESPN scoreboard supplies venue/weather context; the OLBG slate is display-and-join context and never supplies a price.',
       'No key-less moneyline / run line / total feed exists for MLB (ESPN publishes no baseball odds block; OLBG publishes tipster consensus, not prices), so the odds factor is recorded as missing rather than guessed and the price-dependent Step 3 gates resolve to SKIP where the prompt requires a price. Bullpen ERA rank, bullpen usage, and wind direction/speed are likewise recorded as missing.',
+      'Nippon Professional Baseball has its own sub-page (npb.html) scored by the NPB BASEBALL PREDICTION MASTER PROMPT v1.0, which adds an independent draw likelihood assessment (regular-season games end level after twelve innings), form-based starter bands, same-league versus interleague head-to-head and rain-season weather handling. Every input comes from npb.jp official pages.',
     ],
   },
   {

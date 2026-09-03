@@ -82,6 +82,10 @@ function renderStatic() {
   if (state.sport?.notes?.length) {
     $('#sport-notes').innerHTML = state.sport.notes.map((n) => `<div class="note">${esc(n)}</div>`).join('');
   }
+  const tabs = $('#league-tabs');
+  if (tabs) {
+    tabs.innerHTML = (state.sport?.subPages || []).map((p) => `<a href="${esc(p.href)}" class="${p.href === 'baseball.html' ? 'on' : ''}" title="${esc(p.name)}">${esc(p.label)}</a>`).join('');
+  }
   $('#status-filter').value = state.filter;
   $('#date-input').value = state.date;
 }

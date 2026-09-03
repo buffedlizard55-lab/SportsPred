@@ -108,6 +108,16 @@ BASEBALL_BACKTEST = os.path.join(DATA, 'baseball_backtest.json')
 BASEBALL_PROVENANCE = os.path.join(DATA, 'baseball_provenance.json')
 BASEBALL_PREDICTIONS = os.path.join(DATA, 'baseball_predictions.json')
 
+# NPB (Baseball sub-page) files — seeded from dated npb.jp captures, replaced by the CI collector
+NPB_FIXTURES = os.path.join(DATA, 'npb_fixtures.json')
+NPB_TAPE = os.path.join(DATA, 'npb_tape.json')
+NPB_STANDINGS = os.path.join(DATA, 'npb_standings.json')
+NPB_PITCHERS = os.path.join(DATA, 'npb_pitchers.json')
+NPB_BACKTEST = os.path.join(DATA, 'npb_backtest.json')
+NPB_PROVENANCE = os.path.join(DATA, 'npb_provenance.json')
+NPB_PREDICTIONS = os.path.join(DATA, 'npb_predictions.json')
+NPB_CODES = {'T', 'G', 'DB', 'S', 'C', 'D', 'H', 'L', 'F', 'B', 'M', 'E'}
+
 SOURCED_FIELDS = {
     'rank', 'odds', 'firstSetOdds', 'handicapOdds', 'form', 'surface', 'serve', 'rest',
 }
@@ -835,6 +845,198 @@ def validate_baseball_fixtures(doc):
     return problems, len(fixtures)
 
 
+def _npb_common(doc, name):
+    problems = []
+    if doc.get('league') != 'npb':
+        problems.append(f'{name}.league is not "npb"')
+    if doc.get('mode') not in ('seed', 'live'):
+        problems.append(f'{name}.mode must be "seed" or "live"')
+    return problems
+
+
+def validate_npb_fixtures(doc):
+    problems = _npb_common(doc, 'npb_fixtures')
+    fixtures = doc.get('fixtures', [])
+    if not isinstance(fixtures, list):
+        return ['npb_fixtures.fixtures is not a list'], 0
+    ids = [str(f.get('id')) for f in fixtures]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate fixture ids: {sorted(dups)}')
+    with_sp = 0
+    for f in fixtures:
+        for field in ('id', 'dateISO', 'status'):
+            if not f.get(field):
+                problems.append(f'fixture {f.get("id")} missing "{field}"')
+        for side in ('home', 'away'):
+            code = (f.get(side) or {}).get('code')
+            if code not in NPB_CODES:
+                problems.append(f'fixture {f.get("id")} {side}.code {code!r} is not an NPB club code')
+        if f.get('odds') is not None:
+            problems.append(f'fixture {f.get("id")} carries an odds value; no key-less three-way NPB feed exists')
+        if f.get('roof') not in (None, 'dome', 'retractable', 'open'):
+            problems.append(f'fixture {f.get("id")} roof {f.get("roof")!r} is not dome/retractable/open/null')
+        sp = f.get('announcedStarters')
+        if sp is not None:
+            if not (isinstance(sp, dict) and sp.get('home') and sp.get('away')):
+                problems.append(f'fixture {f.get("id")} announcedStarters must name both sides or be null')
+            else:
+                with_sp += 1
+        if f.get('status') == 'final' and f.get('homeScore') is None:
+            problems.append(f'fixture {f.get("id")} is final without a score')
+    if doc.get('upcomingWithStarters') is not None and doc.get('upcomingWithStarters') > with_sp:
+        problems.append('upcomingWithStarters exceeds the fixtures that actually carry starters')
+    return problems, len(fixtures)
+
+
+def validate_npb_tape(doc):
+    problems = _npb_common(doc, 'npb_tape')
+    games = doc.get('games', [])
+    if not isinstance(games, list):
+        return ['npb_tape.games is not a list'], 0
+    draws = 0
+    postponed = 0
+    for g in games:
+        if not g.get('id') or not g.get('dateISO'):
+            problems.append(f'tape game {g.get("id")} missing id/dateISO')
+        if g.get('home') not in NPB_CODES or g.get('away') not in NPB_CODES:
+            problems.append(f'tape game {g.get("id")} has a non-NPB club code')
+        if not str(g.get('url', '')).startswith('https://npb.jp/'):
+            problems.append(f'tape game {g.get("id")} lacks an https://npb.jp review link')
+        if g.get('postponed'):
+            postponed += 1
+            if g.get('homeScore') is not None:
+                problems.append(f'tape game {g.get("id")} is postponed but carries a score')
+            continue
+        hs, as_ = g.get('homeScore'), g.get('awayScore')
+        if not isinstance(hs, int) or not isinstance(as_, int):
+            problems.append(f'tape game {g.get("id")} has a non-integer score')
+            continue
+        if (hs == as_) != bool(g.get('draw')):
+            problems.append(f'tape game {g.get("id")} draw flag disagrees with the score {hs}-{as_}')
+        if hs == as_:
+            draws += 1
+            if g.get('winner') is not None:
+                problems.append(f'tape game {g.get("id")} is a draw but names a winner')
+    if doc.get('count') != len(games):
+        problems.append(f'npb_tape.count {doc.get("count")} != {len(games)} games')
+    if doc.get('draws') != draws:
+        problems.append(f'npb_tape.draws {doc.get("draws")} != {draws} level scores on tape')
+    if doc.get('postponed') != postponed:
+        problems.append(f'npb_tape.postponed {doc.get("postponed")} != {postponed}')
+    return problems, len(games)
+
+
+def validate_npb_standings(doc):
+    problems = _npb_common(doc, 'npb_standings')
+    n = 0
+    for league in ('central', 'pacific'):
+        block = doc.get(league)
+        if not block:
+            problems.append(f'npb_standings.{league} missing')
+            continue
+        if not str(block.get('source', '')).startswith('https://npb.jp/'):
+            problems.append(f'npb_standings.{league} lacks an npb.jp source link')
+        teams = block.get('teams') or []
+        if len(teams) != 6:
+            problems.append(f'npb_standings.{league} has {len(teams)} teams, expected 6')
+        for t in teams:
+            n += 1
+            if t.get('code') not in NPB_CODES:
+                problems.append(f'standings row {t.get("code")!r} is not an NPB club code')
+            for k in ('wins', 'losses', 'ties'):
+                if not isinstance(t.get(k), int):
+                    problems.append(f'standings {t.get("code")} {k} is not an integer')
+            w, l = t.get('wins') or 0, t.get('losses') or 0
+            if w + l and t.get('pct') is not None and abs(t['pct'] - round(w / (w + l), 3)) > 0.001:
+                problems.append(f'standings {t.get("code")} pct {t.get("pct")} does not match {w}-{l} (ties excluded)')
+    return problems, n
+
+
+def validate_npb_pitchers(doc):
+    problems = _npb_common(doc, 'npb_pitchers')
+    lines = doc.get('lines', [])
+    if not isinstance(lines, list):
+        return ['npb_pitchers.lines is not a list'], 0
+    for ln in lines:
+        if ln.get('team') not in NPB_CODES:
+            problems.append(f'pitching line {ln.get("name")} has a non-NPB team code')
+        if ln.get('role') not in ('starter', 'relief'):
+            problems.append(f'pitching line {ln.get("name")} role {ln.get("role")!r}')
+        if not str(ln.get('url', '')).startswith('https://npb.jp/'):
+            problems.append(f'pitching line {ln.get("name")} lacks an npb.jp box link')
+        for k in ('ip', 'er', 'r'):
+            if not isinstance(ln.get(k), (int, float)):
+                problems.append(f'pitching line {ln.get("name")} {k} missing')
+    if doc.get('count') != len(lines):
+        problems.append(f'npb_pitchers.count {doc.get("count")} != {len(lines)}')
+    cov = doc.get('coverage') or {}
+    if cov.get('pct') is not None and not (0 <= cov['pct'] <= 100):
+        problems.append('npb_pitchers.coverage.pct out of range')
+    return problems, len(lines)
+
+
+def validate_npb_backtest(doc):
+    problems = _npb_common(doc, 'npb_backtest')
+    rows = doc.get('rows', [])
+    if doc.get('games') != len(rows):
+        problems.append(f'npb_backtest.games {doc.get("games")} != {len(rows)} rows')
+    if 'strictly before the game' not in str(doc.get('method', '')):
+        problems.append('npb_backtest.method must state the walk-forward rule')
+    m = doc.get('markets') or {}
+    win, rl, tot = m.get('win') or {}, m.get('runLine') or {}, m.get('total') or {}
+    sk = doc.get('skipped') or {}
+    if (win.get('n') or 0) + (sk.get('win') or 0) != len(rows):
+        problems.append('win plays + skips != games')
+    if (rl.get('n') or 0) + (sk.get('runLine') or 0) != len(rows):
+        problems.append('run line plays + skips != games')
+    if tot.get('ungradeable') != tot.get('n'):
+        problems.append('game totals must be reported ungradeable (no posted line is archived)')
+    for band, v in (doc.get('bands') or {}).items():
+        if v.get('n') and v.get('hitRate') is not None and abs(v['hitRate'] - round(v['hits'] / v['n'], 4)) > 0.001:
+            problems.append(f'band {band} hitRate does not match hits/n')
+    for r in rows:
+        if r.get('actual') not in ('home', 'away', 'draw'):
+            problems.append(f'backtest row {r.get("id")} actual {r.get("actual")!r}')
+        if r.get('win') and r['win'].get('pick') not in ('home', 'away', 'draw'):
+            problems.append(f'backtest row {r.get("id")} win pick {r["win"].get("pick")!r}')
+    return problems, len(rows)
+
+
+def validate_npb_predictions(doc):
+    problems = _npb_common(doc, 'npb_predictions')
+    preds = doc.get('predictions', [])
+    for p in preds:
+        for mk in ('win', 'runLine', 'total'):
+            conf = (p.get(mk) or {}).get('confidence')
+            if conf not in ('HIGH', 'MEDIUM', 'LOW', 'SKIP'):
+                problems.append(f'prediction {p.get("id")} {mk} confidence {conf!r}')
+        if not isinstance((p.get('win') or {}).get('drawScore'), (int, float)):
+            problems.append(f'prediction {p.get("id")} has no draw score — the draw must be assessed on every match')
+        if not isinstance(p.get('missing'), list):
+            problems.append(f'prediction {p.get("id")} missing[] absent')
+    return problems, len(preds)
+
+
+def validate_npb_provenance(doc):
+    problems = _npb_common(doc, 'npb_provenance')
+    for s in doc.get('sources') or []:
+        if not str(s.get('url', '')).startswith('https://npb.jp/'):
+            problems.append(f'provenance source {s.get("label")} is not an npb.jp page')
+    for e in doc.get('endpoints') or []:
+        if not str(e.get('url', '')).startswith('https://'):
+            problems.append(f'endpoint {e.get("url")} is not https')
+    irr = doc.get('irregularities') or []
+    if doc.get('mode') == 'seed' and not any(i.get('id') == 'NPB-SEED' for i in irr):
+        problems.append('seed-mode provenance must carry the NPB-SEED irregularity')
+    for i in irr:
+        if i.get('severity') not in ('info', 'low', 'medium', 'high'):
+            problems.append(f'irregularity {i.get("id")} severity {i.get("severity")!r}')
+    if not any('three-way' in str(x) for x in doc.get('notSourced') or []):
+        problems.append('provenance must state that no three-way price was sourced')
+    return problems, len(irr)
+
+
 def validate_baseball_tape(doc):
     problems = []
     games = doc.get('games', [])
@@ -1185,6 +1387,26 @@ def main():
                 print(f'              {n} records')
         else:
             total += report(name, [], 0)
+
+    print('\n--- NPB Data Layer (Baseball sub-page) ---')
+    npb_names = [
+        ('data/npb_fixtures.json', NPB_FIXTURES, validate_npb_fixtures),
+        ('data/npb_tape.json', NPB_TAPE, validate_npb_tape),
+        ('data/npb_standings.json', NPB_STANDINGS, validate_npb_standings),
+        ('data/npb_pitchers.json', NPB_PITCHERS, validate_npb_pitchers),
+        ('data/npb_backtest.json', NPB_BACKTEST, validate_npb_backtest),
+        ('data/npb_predictions.json', NPB_PREDICTIONS, validate_npb_predictions),
+        ('data/npb_provenance.json', NPB_PROVENANCE, validate_npb_provenance),
+    ]
+    for name, path, fn in npb_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (seed with scripts/build_npb_seed.mjs or the NPB collector)')
+            continue
+        problems, n = fn(blob)
+        total += report(name, problems, n)
+        if n:
+            print(f'              {n} records' + (' · mode=' + str(blob.get('mode')) if blob.get('mode') else ''))
 
     print('=' * 65)
     if total:
