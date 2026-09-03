@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "sport": "Snooker",
-  "as_of_utc": "2026-09-02T23:14:23Z",
+  "as_of_utc": "2026-09-03T19:25:11Z",
   "source": {
     "name": "OLBG \u2014 Snooker Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Snooker/8",
     "indexes": [
       "https://www.olbg.com/betting-tips/Snooker/8"
     ],
-    "fetched_at_utc": "2026-09-02T23:14:23Z",
+    "fetched_at_utc": "2026-09-03T19:25:11Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -18,5 +18,970 @@
     "Tournament, round, venue and date are joined from the official WST/snooker.org records in the page/engine layer, never from OLBG alone."
   ],
   "collection_warnings": [],
-  "events": []
+  "events": [
+    {
+      "event_id": "9589",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Liam_Highfield_v_Long_Zehuang/8?event_id=9589",
+      "matchup": "Liam Highfield v Long Zehuang",
+      "display_time": "20:30",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Long Zehuang",
+        "tips_for": 3,
+        "tips_total": 4,
+        "pct": 75
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 75
+            },
+            {
+              "name": "Long Zehuang",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 75
+            },
+            {
+              "name": "Liam Highfield",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 25
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Liam Highfield",
+              "tips_for": 1,
+              "tips_total": 4,
+              "pct": 25
+            },
+            {
+              "name": "Add Long Zehuang",
+              "tips_for": 3,
+              "tips_total": 4,
+              "pct": 75
+            },
+            {
+              "name": "View All Tips Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Long Zehuang +1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Expired Liam Highfield -1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Liam Highfield 4-1",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Liam Highfield 4-2",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Liam Highfield 4-3",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Long Zehuang 4-2",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Long Zehuang 4-3",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Liam Highfield 4-0",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Long Zehuang 4-1",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Long Zehuang 4-0",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 4-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 4-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "John Higgins 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Liam Highfield 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Long Zehuang 4-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Long Zehuang 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 4-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Long Zehuang 4-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Long Zehuang 4-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        }
+      ]
+    },
+    {
+      "event_id": "9586",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Zhao_Xintong_v_Mark_Joyce/8?event_id=9586",
+      "matchup": "Zhao Xintong v Mark Joyce",
+      "display_time": "21:30",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Zhao Xintong",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 67
+            },
+            {
+              "name": "Zhao Xintong",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 67
+            },
+            {
+              "name": "Mark Joyce",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Nelypp Sept",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 69
+            },
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 69
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 69
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Zhao Xintong",
+              "tips_for": 2,
+              "tips_total": 3,
+              "pct": 67
+            },
+            {
+              "name": "Nelypp Sept",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 69
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 69
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 69
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Mark Joyce",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 27
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 27
+            }
+          ]
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Zhao Xintong -2.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Mark Joyce +2.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Zhao Xintong 4-0",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Zhao Xintong 4-1",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Zhao Xintong 4-2",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Zhao Xintong 4-3",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Mark Joyce 4-3",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Mark Joyce 4-2",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Mark Joyce 4-1",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Mark Joyce 4-0",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Ashley Carty 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 68
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Zhao Xintong 4-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Zhao Xintong 4-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Zhao Xintong 4-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "John Higgins 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Zhao Xintong 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Mark Joyce 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Mark Joyce 4-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Mark Joyce 4-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Mark Joyce 4-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Ashley Carty 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 68
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Ashley Carty 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 68
+            },
+            {
+              "name": "Ashley Carty 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 68
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "event_id": "9590",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Fan_Zhengyi_v_Aaron_Hill/8?event_id=9590",
+      "matchup": "Fan Zhengyi v Aaron Hill",
+      "display_time": "20:45",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Fan Zhengyi",
+        "tips_for": 1,
+        "tips_total": 2,
+        "pct": 50
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Aaron Hill",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Fan Zhengyi",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "to reach",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Aaron Hill",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "to reach",
+          "selections": [
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Fan Zhengyi",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Aaron Hill +0.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Fan Zhengyi -0.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Aaron Hill 4-2",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Fan Zhengyi 4-2",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 4-3",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Fan Zhengyi 4-3",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 4-1",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Fan Zhengyi 4-1",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 4-0",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Fan Zhengyi 4-0",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "to reach",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 4-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Fan Zhengyi 4-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Fan Zhengyi 4-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 4-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Fan Zhengyi 4-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 4-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Fan Zhengyi 4-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "to reach",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "to reach",
+          "selections": []
+        },
+        {
+          "name": "to reach",
+          "selections": []
+        }
+      ]
+    }
+  ]
 }

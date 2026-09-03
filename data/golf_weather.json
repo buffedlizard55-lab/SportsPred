@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Golf",
-  "fetched_at_utc": "2026-09-02T23:13:57.719Z",
+  "fetched_at_utc": "2026-09-03T19:24:35.542Z",
   "method": "Open-Meteo geocoding + daily/hourly forecast APIs (free, key-less)",
   "note": "Weather feeds only the first-round-leader tee-time rule (round-one trend) and the written weather note. Forecasts are collected inside seven days of the first round.",
   "events": {
@@ -16,6 +16,10 @@
       "lon": 7.47914,
       "geocodeUrl": "https://geocoding-api.open-meteo.com/v1/search?name=Crans-Montana&count=10&language=en&format=json",
       "note": "forecast failed for Crans Montana 2026-09-03"
+    },
+    "401822701": {
+      "available": false,
+      "reason": "geocoding failed for Doonbeg"
     }
   }
 }
