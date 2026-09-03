@@ -16,7 +16,12 @@ import { scoreMatch } from '../engine/snooker_engine.js';
 import { prepareFixture, fixturesFromSlate } from '../engine/snooker_data.js';
 
 const DATA = join(dirname(fileURLToPath(import.meta.url)), '..', 'data');
-const load = (f) => JSON.parse(readFileSync(join(DATA, f), 'utf8'));
+const FIXTURES = join(dirname(fileURLToPath(import.meta.url)), 'fixtures');
+// The live slate (data/snooker_slate.json) is refreshed by the collector and
+// legitimately empties between tournaments, so the integration tests pin a
+// verbatim capture of a previously-verified slate instead of the live file.
+const load = (f) => JSON.parse(readFileSync(
+  f === 'snooker_slate.json' ? join(FIXTURES, 'snooker_slate.2026-09-02.CAPTURE.json') : join(DATA, f), 'utf8'));
 
 test('committed documents produce exactly one scored, valid prediction', () => {
   const docs = {

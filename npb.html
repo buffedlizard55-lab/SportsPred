@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Baseball scoreboard, calendar &amp; predictions — SportsPred</title>
-<meta name="description" content="Baseball scoreboard and month calendar over the OLBG market slate, joined to the official MLB StatsAPI for fixtures, standings, team stats and probable starters. Three written predictions per match — win match outright, run line, game total — with every figure traceable to a reviewable source.">
+<title>NPB scoreboard, calendar &amp; predictions — Baseball — SportsPred</title>
+<meta name="description" content="Nippon Professional Baseball scoreboard and month calendar built from npb.jp official pages: results tape with draws, Central and Pacific standings, announced starters and JMA forecast icons. Three written predictions per match — win match outright (or draw), run line, game total — with an independent draw likelihood assessment and every figure traceable to an official review link.">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -12,8 +12,8 @@
 <main class="wrap">
   <div class="page-head">
     <div>
-      <h1 class="page-title" id="page-title">Baseball</h1>
-      <p class="page-sub" id="page-sub">Scoreboard and month calendar over the baseball slate, scored by the BASEBALL PREDICTION MASTER PROMPT v1.0. Three markets per match — win match outright, run line, game total — with a confidence score on every tip and no estimate ever shown without a source.</p>
+      <h1 class="page-title" id="page-title">Baseball — NPB</h1>
+      <p class="page-sub" id="page-sub">Nippon Professional Baseball scoreboard and month calendar, scored by the NPB BASEBALL PREDICTION MASTER PROMPT v1.0. Every match is assessed for a home win, an away win <em>and</em> a draw, then for the run line and the game total; a confidence level sits on every tip and nothing is shown without a source.</p>
       <p class="meta-line" id="sport-links"></p>
       <nav class="leaguetabs" id="league-tabs" aria-label="Baseball leagues"></nav>
     </div>
@@ -38,6 +38,13 @@
           <button class="btn sm" id="next-day" aria-label="Next day">›</button>
           <button class="btn sm" id="today-btn">Today</button>
 
+          <select id="league-filter" aria-label="Filter by league">
+            <option value="all">Both leagues</option>
+            <option value="central">Central League</option>
+            <option value="pacific">Pacific League</option>
+            <option value="interleague">Interleague</option>
+          </select>
+
           <select id="status-filter" aria-label="Filter by status">
             <option value="all">All matches</option>
             <option value="upcoming">Upcoming</option>
@@ -45,12 +52,11 @@
             <option value="selected">Predictions only</option>
           </select>
 
-          <input type="search" id="search" placeholder="Search team, league, venue…" aria-label="Search">
+          <input type="search" id="search" placeholder="Search team, venue…" aria-label="Search">
 
           <span class="sp" style="flex:1"></span>
           <button class="btn primary" id="generate">⚡ Generate predictions</button>
           <button class="btn" id="copy-all">📋 Copy all tips</button>
-          <button class="btn sm" id="refresh" title="Try the live MLB and ESPN feeds, then fall back to the committed data">↻ Refresh feeds</button>
         </div>
         <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
         <div id="board"></div>
@@ -64,7 +70,12 @@
         </div>
         <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
         <div class="calgrid" id="calgrid"></div>
-        <div class="card-body meta-line">Numbers are matches played or scheduled that day, from the committed fixture list and the OLBG slate. Pick any date to load that card.</div>
+        <div class="card-body meta-line">Numbers are games played or scheduled that day (JST), from the npb.jp calendar and schedule pages. Pick any date to load that card.</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Standings</h2><span class="sp"></span><span class="meta-line" id="standings-asof"></span></div>
+        <div class="card-body" id="standings"></div>
       </div>
 
       <div class="card">
@@ -83,9 +94,9 @@
         <div class="card-body meta-line" id="rail-count"></div>
       </div>
 
-      <div class="card" id="olbg-box">
-        <div class="card-head"><h3>OLBG baseball markets</h3></div>
-        <div class="card-body meta-line">Loading…</div>
+      <div class="card">
+        <div class="card-head"><h3>Draw watch</h3></div>
+        <div class="card-body meta-line" id="draw-watch">Loading…</div>
       </div>
 
       <div class="card">
@@ -104,16 +115,16 @@
       </div>
 
       <div class="card">
-        <div class="card-head"><h3>How to read a baseball card</h3></div>
+        <div class="card-head"><h3>How to read an NPB card</h3></div>
         <div class="card-body" style="font-size:13px">
-          <p>Each side is scored on recent form (25 pts), starting pitcher quality (25), run differential (20), odds and value (20) and head-to-head (10). The run line reuses that base with the head-to-head block swapped for run-margin analysis, plus starter dominance, bullpen, run differential and fatigue modifiers. The total scores an Over ledger and an Under ledger across offence, starter run suppression, bullpen and weather.</p>
-          <p>Before any score becomes a pick it must clear the Step 3 gates. A market below its threshold becomes a SKIP with the reason shown. Open <strong>Analysis</strong> on any match for every rule that fired, its points, the factors that could not be sourced and the official review links.</p>
+          <p>Each side is scored on recent form (25 pts), starting pitcher form (25 — quality starts, not season ERA), run differential (20), odds and value (20) and same-league head-to-head (10). Independently, every match gets a <strong>draw likelihood</strong> score: two strong starters (30), two fresh bullpens (25), a run-differential gap under one run (20), a draw rate above the league norm (15) and close, low-scoring recent meetings (10). When the draw score reaches 65 and the two sides sit within 10 points, the draw becomes the primary pick — a genuine selection, never a hedge.</p>
+          <p>The run line is only considered when the favourite's win score is 60 or more <em>and</em> the draw score is under 55; the total scores an Over ledger against an Under ledger, with rain at an open-air park in the rainy or typhoon season pushing Under and enclosed venues scoring no weather at all. Every market must clear its Step 3 gate and a minimum share of sourced evidence before a tip is written; otherwise it is a SKIP with the reason shown. Open <strong>Analysis</strong> on any match for every rule that fired, its points, what could not be sourced, and the official npb.jp review links.</p>
         </div>
       </div>
     </aside>
   </div>
 </main>
 
-<script type="module" src="assets/js/baseball-page.js"></script>
+<script type="module" src="assets/js/npb-page.js"></script>
 </body>
 </html>

@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "sport": "Snooker",
+  "as_of_utc": "2026-09-02T20:50:00Z",
+  "source": {
+    "name": "OLBG — Snooker Betting Tips",
+    "url": "https://www.olbg.com/betting-tips/Snooker/8",
+    "event_url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Pang_Junxu_v_Mark_Joyce/8?event_id=9573",
+    "fetched_at_utc": "2026-09-02T20:50:00Z",
+    "method": "Public index + event page fetched 2026-09-02 (streamed render). Tipster vote counts transcribed from the event page selection tables.",
+    "licence_note": "Publicly viewable market listing; factual counts retained for review. No prices are carried (IR-SNOOKER-01)."
+  },
+  "notes": [
+    "OLBG displayed 'Today 17:00' for this event; WST's official match-centre page shows 15:00 and BBC Sport lists 21:00 — see IR-SNOOKER-03. The exact off-time is flagged, not averaged.",
+    "Tipster vote percentages are community consensus, never odds. They are display-only and are NEVER fed into the scorer (the OLBG page exposes no prices in server-rendered HTML).",
+    "Tournament/round fields come from the official WST/snooker.org records, not from OLBG; OLBG's own page labels the event 'British Open'.",
+    "OLBG offered three market groups for this fixture: Win Match, Handicap Betting (Pang -1.50 / Joyce +1.50) and Frame Betting (correct scores 4-0..4-3).",
+    "FIXTURE: verbatim copy of data/snooker_slate.json as committed at 73f7e2ea (collector run 2026-09-02T21:21Z). Retained so the engine/DOM tests keep a real, previously-verified fixture after the live slate emptied when the British Open rounds it listed were played. Not a live document."
+  ],
+  "events": [
+    {
+      "event_id": "9573",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Pang_Junxu_v_Mark_Joyce/8?event_id=9573",
+      "matchup": "Pang Junxu v Mark Joyce",
+      "tournament": "Unibet British Open 2026",
+      "round": "Round 3 (Last 32)",
+      "roundTier": "r32",
+      "best_of": 7,
+      "venue": "The Centaur, Cheltenham",
+      "dateISO": "2026-09-02",
+      "start_utc": null,
+      "display_time": "17:00",
+      "status": "scheduled",
+      "playerA": {
+        "name": "Pang Junxu",
+        "country": "CHN"
+      },
+      "playerB": {
+        "name": "Mark Joyce",
+        "country": "ENG"
+      },
+      "olbg": {
+        "markets": [
+          {
+            "name": "Win Match",
+            "selections": [
+              {
+                "name": "Pang Junxu",
+                "tips": 5,
+                "total": 10,
+                "pct": 50
+              },
+              {
+                "name": "Mark Joyce",
+                "tips": 5,
+                "total": 10,
+                "pct": 50
+              }
+            ]
+          },
+          {
+            "name": "Handicap Betting",
+            "selections": [
+              {
+                "name": "Pang Junxu -1.50",
+                "tips": 0,
+                "total": 2,
+                "pct": 0
+              },
+              {
+                "name": "Mark Joyce +1.50",
+                "tips": 2,
+                "total": 2,
+                "pct": 100
+              }
+            ]
+          },
+          {
+            "name": "Frame Betting (correct score)",
+            "selections": [
+              {
+                "name": "Pang Junxu 4-0",
+                "tips": 0,
+                "total": 4,
+                "pct": 0
+              },
+              {
+                "name": "Pang Junxu 4-1",
+                "tips": 0,
+                "total": 4,
+                "pct": 0
+              },
+              {
+                "name": "Pang Junxu 4-2",
+                "tips": 1,
+                "total": 4,
+                "pct": 25
+              },
+              {
+                "name": "Pang Junxu 4-3",
+                "tips": 2,
+                "total": 4,
+                "pct": 50
+              },
+              {
+                "name": "Mark Joyce 4-3",
+                "tips": 0,
+                "total": 4,
+                "pct": 0
+              },
+              {
+                "name": "Mark Joyce 4-2",
+                "tips": 0,
+                "total": 4,
+                "pct": 0
+              },
+              {
+                "name": "Mark Joyce 4-1",
+                "tips": 1,
+                "total": 4,
+                "pct": 25
+              },
+              {
+                "name": "Mark Joyce 4-0",
+                "tips": 0,
+                "total": 4,
+                "pct": 0
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,353 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-03T18:27:41Z",
+ "collector": "scripts/build_npb_seed.mjs",
+ "mode": "seed",
+ "season": 2026,
+ "sport": "Baseball",
+ "league": "npb",
+ "count": 11,
+ "predictions": [
+  {
+   "id": "npb-20260904-S-D",
+   "dateISO": "2026-09-04",
+   "home": "S",
+   "away": "D",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 26,
+    "drawScore": 20
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 44
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 25
+   },
+   "missing": [
+    "starter.last4 (announced starter has no sourced recent starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260904-C-G",
+   "dateISO": "2026-09-04",
+   "home": "C",
+   "away": "G",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 21,
+    "drawScore": 15
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 31
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 25
+   },
+   "missing": [
+    "starter.last4 (announced starter has no sourced recent starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260904-E-F",
+   "dateISO": "2026-09-04",
+   "home": "E",
+   "away": "F",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 38,
+    "drawScore": 30
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 44
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 0
+   },
+   "missing": [
+    "starter.last4 (announced starter has no sourced recent starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260904-B-M",
+   "dateISO": "2026-09-04",
+   "home": "B",
+   "away": "M",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 14,
+    "drawScore": 35
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 20
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 20
+   },
+   "missing": [
+    "starter.last4 (announced starter has no sourced recent starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260904-H-L",
+   "dateISO": "2026-09-04",
+   "home": "H",
+   "away": "L",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 30,
+    "drawScore": 15
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 40
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 20
+   },
+   "missing": [
+    "starter.last4 (announced starter has no sourced recent starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260905-B-M",
+   "dateISO": "2026-09-05",
+   "home": "B",
+   "away": "M",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 14,
+    "drawScore": 35
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 20
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 20
+   },
+   "missing": [
+    "starter (confirmed starting pitcher with last 4 starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260905-H-L",
+   "dateISO": "2026-09-05",
+   "home": "H",
+   "away": "L",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 30,
+    "drawScore": 15
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 40
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 20
+   },
+   "missing": [
+    "starter (confirmed starting pitcher with last 4 starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260905-S-D",
+   "dateISO": "2026-09-05",
+   "home": "S",
+   "away": "D",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 26,
+    "drawScore": 20
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 44
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 25
+   },
+   "missing": [
+    "starter (confirmed starting pitcher with last 4 starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260905-T-DB",
+   "dateISO": "2026-09-05",
+   "home": "T",
+   "away": "DB",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 42,
+    "drawScore": 35
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 56
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 25
+   },
+   "missing": [
+    "starter (confirmed starting pitcher with last 4 starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260905-C-G",
+   "dateISO": "2026-09-05",
+   "home": "C",
+   "away": "G",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 21,
+    "drawScore": 15
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 31
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 25
+   },
+   "missing": [
+    "starter (confirmed starting pitcher with last 4 starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  },
+  {
+   "id": "npb-20260905-E-F",
+   "dateISO": "2026-09-05",
+   "home": "E",
+   "away": "F",
+   "generatedAt": "2026-09-03T18:27:41Z",
+   "win": {
+    "pick": null,
+    "confidence": "SKIP",
+    "score": 38,
+    "drawScore": 30
+   },
+   "runLine": {
+    "side": null,
+    "confidence": "SKIP",
+    "score": 44
+   },
+   "total": {
+    "side": null,
+    "confidence": "SKIP",
+    "over": 0,
+    "under": 5
+   },
+   "missing": [
+    "starter (confirmed starting pitcher with last 4 starts)",
+    "odds.moneyline (three-way price cross-referenced from at least two books — no key-less NPB feed)",
+    "bullpen (effectiveness and usage over the last 3 days, both teams)",
+    "recentTotals (Over/Under record over the last 5 — requires a posted total line, none is key-less for NPB)"
+   ],
+   "result": null
+  }
+ ]
+}

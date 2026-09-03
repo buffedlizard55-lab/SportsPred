@@ -1,0 +1,88 @@
+name: Collect NPB data
+
+# Refreshes the NPB layer (Baseball → NPB sub-page) from npb.jp official pages:
+# English BIS month calendars (results tape incl. draws and postponements),
+# Central/Pacific standings, the Japanese schedule detail (予告先発 announced
+# starters, venue, JMA forecast icon) and the Japanese live box scores (pitching
+# lines for starter form and bullpen state). Walks the backtest forward, grades
+# the forward ledger against the tape, and commits the result.
+#
+# The sandbox this project is developed in has no outbound network, so this
+# collector only ever runs here. The committed data/npb_*.json documents were
+# seeded from dated page captures (mode: "seed"); the first green run replaces
+# them with mode: "live". A failed or drifted parse leaves the committed
+# documents untouched and exits non-zero so the failure is visible.
+
+on:
+  push:
+    branches: [arena/01a0682d-sportspred]
+  schedule:
+    # npb.jp publishes 予告先発 the evening before (JST) and box scores the same
+    # evening; 13:00 UTC = 22:00 JST catches both, 00:00 UTC = 09:00 JST catches
+    # late corrections before the next slate.
+    - cron: '5 0,13 * * *'
+  workflow_dispatch:
+    inputs:
+      box_days:
+        description: 'How many days of Japanese box scores to fetch'
+        required: false
+        default: '45'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: npb-collect-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Tests must pass before collecting
+        run: |
+          node --test tests/*.test.mjs
+          python3 -m unittest discover -s tests -p 'test_*.py'
+          python3 scripts/build_data.py --strict
+
+      - name: Collect npb.jp calendars, standings, schedule detail and box scores
+        id: collect
+        continue-on-error: true
+        run: node scripts/collect_npb.mjs --box-days "${{ github.event.inputs.box_days || '45' }}"
+
+      - name: Report a failed NPB collection
+        if: steps.collect.outcome == 'failure'
+        run: echo "::warning::NPB collection failed or the page structure drifted (see NPB-PARSE-DRIFT above). Committed NPB data is unchanged."
+
+      - name: Validate the NPB layer
+        run: python3 scripts/build_data.py --strict
+
+      - name: Commit NPB data changes
+        run: |
+          git config user.name "sportspred-collector[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/npb_*.json
+          if git diff --cached --quiet || ! node scripts/data_changed.mjs $(git diff --cached --name-only); then
+            echo "No NPB data changes to commit (unchanged or timestamps only)."
+            git reset -q
+          else
+            git commit -m "chore(data): refresh NPB tape, fixtures, standings, pitching lines, backtest and ledger"
+            pushed=0
+            for attempt in 1 2 3 4 5; do
+              if git pull --rebase origin "${GITHUB_REF_NAME}" && git push origin "HEAD:${GITHUB_REF_NAME}"; then pushed=1; break; fi
+              git rebase --abort 2>/dev/null || true
+              echo "push attempt ${attempt} rejected by a concurrent data commit; retrying"
+              sleep $((attempt * 5))
+            done
+            [ "${pushed}" = "1" ]
+          fi

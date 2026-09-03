@@ -391,3 +391,14 @@ table.components td:first-child { min-width: 220px; }
 .rail-pick:last-child { border-bottom: 0; }
 .olbg-row { padding: 8px 0; border-bottom: 1px solid var(--line-2); font-size: 13px; }
 .olbg-row:last-child { border-bottom: 0; }
+
+/* League sub-navigation inside a sport (e.g. Baseball → MLB | NPB) */
+.leaguetabs { display: inline-flex; gap: 4px; margin: 8px 0 2px; flex-wrap: wrap; }
+.leaguetabs a { display: inline-block; padding: 5px 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; font-weight: 600; color: var(--navy); text-decoration: none; background: #fff; }
+.leaguetabs a.on { background: var(--navy); color: #fff; border-color: var(--navy); }
+.leaguetabs a:hover { border-color: var(--navy); }
+.pill { display: inline-block; padding: 1px 7px; border-radius: 999px; font-size: 11px; font-weight: 600; border: 1px solid var(--line); background: #fff; margin-left: 4px; }
+.pill.draw { background: #f3e8ff; border-color: #c4b5fd; color: #5b21b6; }
+.pill.roof { background: #eef2ff; border-color: #c7d2fe; color: #3730a3; }
+.pill.rain { background: #e0f2fe; border-color: #7dd3fc; color: #075985; }
+.pill.seed { background: #fef3c7; border-color: #fcd34d; color: #92400e; }

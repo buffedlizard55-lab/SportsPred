@@ -1,0 +1,697 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-03T18:27:41Z",
+ "collector": "scripts/build_npb_seed.mjs",
+ "mode": "seed",
+ "season": 2026,
+ "sport": "Baseball",
+ "league": "npb",
+ "asOf": "Thursday, September 3, 2026",
+ "asOfISO": "2026-09-03",
+ "central": {
+  "teams": [
+   {
+    "code": "T",
+    "name": "Hanshin Tigers",
+    "league": "central",
+    "rank": 1,
+    "games": 120,
+    "wins": 69,
+    "losses": 50,
+    "ties": 1,
+    "pct": 0.58,
+    "gamesBehind": 0,
+    "home": {
+     "w": 30,
+     "l": 25,
+     "t": 1
+    },
+    "road": {
+     "w": 39,
+     "l": 25,
+     "t": 0
+    },
+    "vs": {
+     "G": {
+      "w": 16,
+      "l": 7,
+      "t": 0
+     },
+     "DB": {
+      "w": 10,
+      "l": 8,
+      "t": 0
+     },
+     "S": {
+      "w": 14,
+      "l": 7,
+      "t": 0
+     },
+     "C": {
+      "w": 9,
+      "l": 8,
+      "t": 1
+     },
+     "D": {
+      "w": 14,
+      "l": 8,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 6,
+     "l": 12,
+     "t": 0
+    },
+    "drawRate": 0.0083,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+   },
+   {
+    "code": "G",
+    "name": "Yomiuri Giants",
+    "league": "central",
+    "rank": 2,
+    "games": 121,
+    "wins": 64,
+    "losses": 55,
+    "ties": 2,
+    "pct": 0.538,
+    "gamesBehind": 5,
+    "home": {
+     "w": 31,
+     "l": 29,
+     "t": 2
+    },
+    "road": {
+     "w": 33,
+     "l": 26,
+     "t": 0
+    },
+    "vs": {
+     "T": {
+      "w": 7,
+      "l": 16,
+      "t": 0
+     },
+     "DB": {
+      "w": 13,
+      "l": 8,
+      "t": 0
+     },
+     "S": {
+      "w": 12,
+      "l": 10,
+      "t": 0
+     },
+     "C": {
+      "w": 11,
+      "l": 6,
+      "t": 0
+     },
+     "D": {
+      "w": 11,
+      "l": 9,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 10,
+     "l": 6,
+     "t": 2
+    },
+    "drawRate": 0.0165,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+   },
+   {
+    "code": "DB",
+    "name": "Yokohama DeNA BayStars",
+    "league": "central",
+    "rank": 3,
+    "games": 120,
+    "wins": 55,
+    "losses": 62,
+    "ties": 3,
+    "pct": 0.47,
+    "gamesBehind": 13,
+    "home": {
+     "w": 29,
+     "l": 25,
+     "t": 3
+    },
+    "road": {
+     "w": 26,
+     "l": 37,
+     "t": 0
+    },
+    "vs": {
+     "T": {
+      "w": 8,
+      "l": 10,
+      "t": 0
+     },
+     "G": {
+      "w": 8,
+      "l": 13,
+      "t": 0
+     },
+     "S": {
+      "w": 8,
+      "l": 11,
+      "t": 0
+     },
+     "C": {
+      "w": 12,
+      "l": 7,
+      "t": 2
+     },
+     "D": {
+      "w": 14,
+      "l": 8,
+      "t": 1
+     }
+    },
+    "interleague": {
+     "w": 5,
+     "l": 13,
+     "t": 0
+    },
+    "drawRate": 0.025,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+   },
+   {
+    "code": "S",
+    "name": "Tokyo Yakult Swallows",
+    "league": "central",
+    "rank": 4,
+    "games": 120,
+    "wins": 53,
+    "losses": 66,
+    "ties": 1,
+    "pct": 0.445,
+    "gamesBehind": 16,
+    "home": {
+     "w": 25,
+     "l": 32,
+     "t": 1
+    },
+    "road": {
+     "w": 28,
+     "l": 34,
+     "t": 0
+    },
+    "vs": {
+     "T": {
+      "w": 7,
+      "l": 14,
+      "t": 0
+     },
+     "G": {
+      "w": 10,
+      "l": 12,
+      "t": 0
+     },
+     "DB": {
+      "w": 11,
+      "l": 8,
+      "t": 0
+     },
+     "C": {
+      "w": 13,
+      "l": 8,
+      "t": 0
+     },
+     "D": {
+      "w": 6,
+      "l": 13,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 6,
+     "l": 11,
+     "t": 1
+    },
+    "drawRate": 0.0083,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+   },
+   {
+    "code": "C",
+    "name": "Hiroshima Toyo Carp",
+    "league": "central",
+    "rank": 5,
+    "games": 117,
+    "wins": 49,
+    "losses": 64,
+    "ties": 4,
+    "pct": 0.434,
+    "gamesBehind": 17,
+    "home": {
+     "w": 29,
+     "l": 30,
+     "t": 1
+    },
+    "road": {
+     "w": 20,
+     "l": 34,
+     "t": 3
+    },
+    "vs": {
+     "T": {
+      "w": 8,
+      "l": 9,
+      "t": 1
+     },
+     "G": {
+      "w": 6,
+      "l": 11,
+      "t": 0
+     },
+     "DB": {
+      "w": 7,
+      "l": 12,
+      "t": 2
+     },
+     "S": {
+      "w": 8,
+      "l": 13,
+      "t": 0
+     },
+     "D": {
+      "w": 15,
+      "l": 7,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 5,
+     "l": 12,
+     "t": 1
+    },
+    "drawRate": 0.0342,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+   },
+   {
+    "code": "D",
+    "name": "Chunichi Dragons",
+    "league": "central",
+    "rank": 6,
+    "games": 124,
+    "wins": 52,
+    "losses": 71,
+    "ties": 1,
+    "pct": 0.423,
+    "gamesBehind": 19,
+    "home": {
+     "w": 36,
+     "l": 32,
+     "t": 0
+    },
+    "road": {
+     "w": 16,
+     "l": 39,
+     "t": 1
+    },
+    "vs": {
+     "T": {
+      "w": 8,
+      "l": 14,
+      "t": 0
+     },
+     "G": {
+      "w": 9,
+      "l": 11,
+      "t": 0
+     },
+     "DB": {
+      "w": 8,
+      "l": 14,
+      "t": 1
+     },
+     "S": {
+      "w": 13,
+      "l": 6,
+      "t": 0
+     },
+     "C": {
+      "w": 7,
+      "l": 15,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 7,
+     "l": 11,
+     "t": 0
+    },
+    "drawRate": 0.0081,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+   }
+  ],
+  "warnings": [],
+  "source": "https://npb.jp/bis/eng/2026/stats/std_c.html",
+  "asOf": "Thursday, September 3, 2026"
+ },
+ "pacific": {
+  "teams": [
+   {
+    "code": "H",
+    "name": "Fukuoka SoftBank Hawks",
+    "league": "pacific",
+    "rank": 1,
+    "games": 120,
+    "wins": 73,
+    "losses": 44,
+    "ties": 3,
+    "pct": 0.624,
+    "gamesBehind": 0,
+    "home": {
+     "w": 37,
+     "l": 22,
+     "t": 0
+    },
+    "road": {
+     "w": 36,
+     "l": 22,
+     "t": 3
+    },
+    "vs": {
+     "L": {
+      "w": 10,
+      "l": 10,
+      "t": 0
+     },
+     "F": {
+      "w": 15,
+      "l": 5,
+      "t": 2
+     },
+     "B": {
+      "w": 10,
+      "l": 10,
+      "t": 0
+     },
+     "M": {
+      "w": 13,
+      "l": 6,
+      "t": 1
+     },
+     "E": {
+      "w": 11,
+      "l": 9,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 14,
+     "l": 4,
+     "t": 0
+    },
+    "drawRate": 0.025,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_p.html"
+   },
+   {
+    "code": "L",
+    "name": "Saitama Seibu Lions",
+    "league": "pacific",
+    "rank": 2,
+    "games": 122,
+    "wins": 69,
+    "losses": 50,
+    "ties": 3,
+    "pct": 0.58,
+    "gamesBehind": 5,
+    "home": {
+     "w": 38,
+     "l": 26,
+     "t": 1
+    },
+    "road": {
+     "w": 31,
+     "l": 24,
+     "t": 2
+    },
+    "vs": {
+     "H": {
+      "w": 10,
+      "l": 10,
+      "t": 0
+     },
+     "F": {
+      "w": 12,
+      "l": 10,
+      "t": 0
+     },
+     "B": {
+      "w": 9,
+      "l": 10,
+      "t": 1
+     },
+     "M": {
+      "w": 10,
+      "l": 10,
+      "t": 0
+     },
+     "E": {
+      "w": 14,
+      "l": 7,
+      "t": 1
+     }
+    },
+    "interleague": {
+     "w": 14,
+     "l": 3,
+     "t": 1
+    },
+    "drawRate": 0.0246,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_p.html"
+   },
+   {
+    "code": "F",
+    "name": "Hokkaido Nippon-Ham Fighters",
+    "league": "pacific",
+    "rank": 3,
+    "games": 123,
+    "wins": 68,
+    "losses": 53,
+    "ties": 2,
+    "pct": 0.562,
+    "gamesBehind": 7,
+    "home": {
+     "w": 39,
+     "l": 23,
+     "t": 2
+    },
+    "road": {
+     "w": 29,
+     "l": 30,
+     "t": 0
+    },
+    "vs": {
+     "H": {
+      "w": 5,
+      "l": 15,
+      "t": 2
+     },
+     "L": {
+      "w": 10,
+      "l": 12,
+      "t": 0
+     },
+     "B": {
+      "w": 14,
+      "l": 7,
+      "t": 0
+     },
+     "M": {
+      "w": 13,
+      "l": 8,
+      "t": 0
+     },
+     "E": {
+      "w": 12,
+      "l": 7,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 14,
+     "l": 4,
+     "t": 0
+    },
+    "drawRate": 0.0163,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_p.html"
+   },
+   {
+    "code": "B",
+    "name": "ORIX Buffaloes",
+    "league": "pacific",
+    "rank": 4,
+    "games": 122,
+    "wins": 57,
+    "losses": 63,
+    "ties": 2,
+    "pct": 0.475,
+    "gamesBehind": 17.5,
+    "home": {
+     "w": 37,
+     "l": 20,
+     "t": 1
+    },
+    "road": {
+     "w": 20,
+     "l": 43,
+     "t": 1
+    },
+    "vs": {
+     "H": {
+      "w": 10,
+      "l": 10,
+      "t": 0
+     },
+     "L": {
+      "w": 10,
+      "l": 9,
+      "t": 1
+     },
+     "F": {
+      "w": 7,
+      "l": 14,
+      "t": 0
+     },
+     "M": {
+      "w": 12,
+      "l": 8,
+      "t": 0
+     },
+     "E": {
+      "w": 9,
+      "l": 14,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 9,
+     "l": 8,
+     "t": 1
+    },
+    "drawRate": 0.0164,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_p.html"
+   },
+   {
+    "code": "M",
+    "name": "Chiba Lotte Marines",
+    "league": "pacific",
+    "rank": 5,
+    "games": 116,
+    "wins": 53,
+    "losses": 60,
+    "ties": 3,
+    "pct": 0.469,
+    "gamesBehind": 18,
+    "home": {
+     "w": 31,
+     "l": 23,
+     "t": 1
+    },
+    "road": {
+     "w": 22,
+     "l": 37,
+     "t": 2
+    },
+    "vs": {
+     "H": {
+      "w": 6,
+      "l": 13,
+      "t": 1
+     },
+     "L": {
+      "w": 10,
+      "l": 10,
+      "t": 0
+     },
+     "F": {
+      "w": 8,
+      "l": 13,
+      "t": 0
+     },
+     "B": {
+      "w": 8,
+      "l": 12,
+      "t": 0
+     },
+     "E": {
+      "w": 11,
+      "l": 6,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 10,
+     "l": 6,
+     "t": 2
+    },
+    "drawRate": 0.0259,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_p.html"
+   },
+   {
+    "code": "E",
+    "name": "Tohoku Rakuten Golden Eagles",
+    "league": "pacific",
+    "rank": 6,
+    "games": 119,
+    "wins": 47,
+    "losses": 71,
+    "ties": 1,
+    "pct": 0.398,
+    "gamesBehind": 26.5,
+    "home": {
+     "w": 28,
+     "l": 32,
+     "t": 0
+    },
+    "road": {
+     "w": 19,
+     "l": 39,
+     "t": 1
+    },
+    "vs": {
+     "H": {
+      "w": 9,
+      "l": 11,
+      "t": 0
+     },
+     "L": {
+      "w": 7,
+      "l": 14,
+      "t": 1
+     },
+     "F": {
+      "w": 7,
+      "l": 12,
+      "t": 0
+     },
+     "B": {
+      "w": 14,
+      "l": 9,
+      "t": 0
+     },
+     "M": {
+      "w": 6,
+      "l": 11,
+      "t": 0
+     }
+    },
+    "interleague": {
+     "w": 4,
+     "l": 14,
+     "t": 0
+    },
+    "drawRate": 0.0084,
+    "source": "https://npb.jp/bis/eng/2026/stats/std_p.html"
+   }
+  ],
+  "warnings": [],
+  "source": "https://npb.jp/bis/eng/2026/stats/std_p.html",
+  "asOf": "Thursday, September 3, 2026"
+ }
+}

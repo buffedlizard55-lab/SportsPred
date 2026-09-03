@@ -276,12 +276,18 @@ function makeFetch(counters) {
         },
       });
     }
+    if (u.includes('data/snooker_slate.json')) {
+      // Pin the previously-verified capture: the live slate empties between
+      // tournaments and a DOM test must not depend on what OLBG lists today.
+      return ok(JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/snooker_slate.2026-09-02.CAPTURE.json'), 'utf8')));
+    }
     if (u.includes('data/olbg_sports.json') || u.includes('_slate.json') || u.includes('data/slate.json')
         || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
         || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/volleyball_')
-        || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)
+        || /data\/snooker_(results|rankings|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/darts_')
+        || u.includes('data/npb_')
         || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
@@ -587,11 +593,12 @@ test('method.html publishes the real backtest, and never invents an ROI', { skip
 
   assert.match(text, new RegExp(String(bt.overall.n)), 'the graded sample size is shown');
 
-  // Bands must be monotonic in the artifact itself; the page must not claim
-  // otherwise, and must not print a percentage ROI when none was computable.
+  // The artifact is rebuilt daily in CI, so the test must not assert what the
+  // live numbers ARE; it asserts that the page reports honestly whichever way
+  // they fall: "The bands separate" when HIGH > MEDIUM > LOW, and "The bands
+  // do not separate" otherwise. Both outcomes are legitimate; hiding one is not.
   const { HIGH, MEDIUM, LOW } = bt.byBand;
-  assert.ok(HIGH.hitRate > MEDIUM.hitRate, 'HIGH outperforms MEDIUM');
-  assert.ok(MEDIUM.hitRate > LOW.hitRate, 'MEDIUM outperforms LOW');
+  const monotonic = HIGH.hitRate > MEDIUM.hitRate && MEDIUM.hitRate > LOW.hitRate;
 
   if (bt.overall.roi === null) {
     // No ROI is computable, so the column must be absent entirely rather than
@@ -602,7 +609,8 @@ test('method.html publishes the real backtest, and never invents an ROI', { skip
   }
 
   // The verdict must reflect the artifact, not a fixed sentence.
-  assert.match(text, /The bands separate/i);
+  if (monotonic) assert.match(text, /The bands separate/i);
+  else assert.match(text, /The bands do not separate/i);
 });
 
 test('the registry contains no endpoint that the verifier proved dead', { skip: !existsSync(join(ROOT, 'data/leagues.json')) }, async () => {
@@ -797,14 +805,25 @@ test('sport.html?sport=volleyball hands over to the dedicated volleyball page', 
 });
 
 test('ice-hockey.html boots, auto-generates three tips per match and the button re-scores', { skip: !JSDOM }, async () => {
-  const { document } = await bootPage('ice-hockey.html', { search: '?date=2026-10-05' });
+  // The committed fixture window moves with every collector run, so the test
+  // boots the page on whichever date the committed document actually carries
+  // most games for, instead of a date that was true on the day the test was
+  // written.
+  const hockeyDoc = JSON.parse(readFileSync(join(ROOT, 'data/ice_hockey_fixtures.json'), 'utf8'));
+  const byDate = new Map();
+  for (const f of hockeyDoc.fixtures || []) byDate.set(f.dateISO, (byDate.get(f.dateISO) || 0) + 1);
+  const bestDate = [...byDate.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+  assert.ok(bestDate, 'the committed hockey fixture list carries at least one dated game');
+  const teamNames = (hockeyDoc.fixtures || []).filter((f) => f.dateISO === bestDate)
+    .flatMap((f) => [f.home?.name, f.away?.name]).filter(Boolean);
+  const { document } = await bootPage('ice-hockey.html', { search: `?date=${bestDate}` });
   try {
     assert.ok(document.querySelector('.masthead'), 'masthead rendered');
     assert.ok(document.querySelectorAll('.sportrail a').length >= 20, 'every sport is in the rail');
 
     const rows = document.querySelectorAll('.match');
     assert.ok(rows.length >= 1, `at least one match row rendered (found ${rows.length})`);
-    assert.match(document.body.textContent, /Ottawa Senators|Tampa Bay Lightning|Boston Bruins/);
+    assert.ok(teamNames.some((n) => document.body.textContent.includes(n)), 'a committed team name renders');
 
     // Predictions were generated automatically, without pressing anything.
     const tips = [...document.querySelectorAll('.tipbox .tip-box')];
@@ -898,6 +917,73 @@ test('baseball.html boots, auto-generates three tips per match and the button re
     // Sources rail lists the verified feeds with https links and the irregularity register.
     assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
     assert.match(document.querySelector('#sources').textContent, /IR-BASEBALL-/);
+  } finally { cleanup(); }
+});
+
+test('npb.html boots as a baseball sub-page, scores the draw on every match and the button re-scores', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('npb.html', { search: '?date=2026-09-04' });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    // league sub-navigation: MLB | NPB, NPB active
+    const tabs = [...document.querySelectorAll('#league-tabs a')];
+    assert.deepEqual(tabs.map((a) => a.textContent.trim()), ['MLB', 'NPB']);
+    assert.ok(tabs[1].classList.contains('on'), 'NPB tab is active');
+    assert.equal(tabs[0].getAttribute('href'), 'baseball.html');
+
+    const rows = document.querySelectorAll('.match');
+    assert.ok(rows.length >= 1, `at least one match row rendered (found ${rows.length})`);
+    assert.match(document.body.textContent, /Swallows|Tigers|Giants|Hawks/);
+
+    // Three markets per match, generated on load; draw scored independently.
+    const tips = [...document.querySelectorAll('.tipbox .tip-box')];
+    assert.ok(tips.length >= 3, `three markets written for the first match (found ${tips.length})`);
+    const labels = tips.slice(0, 3).map((t) => t.textContent);
+    assert.match(labels[0], /WIN MATCH OUTRIGHT|DRAW/);
+    assert.match(labels[1], /RUN LINE/);
+    assert.match(labels[2], /GAME TOTAL/);
+    for (const tip of tips) {
+      const text = tip.querySelector('.tip-text')?.textContent || '';
+      assert.equal(/\d/.test(text), false, `no digits may leak into a tip: ${text.slice(0, 60)}`);
+      assert.match(text, /\b(HIGH|MEDIUM|LOW)\b|^SKIP/, 'confidence or SKIP stated');
+      assert.ok(!/npb\.jp|OLBG|Central League|Pacific League|Koshien|Jingu|Tokyo Dome/.test(text), 'no source, league or venue names in a tip');
+    }
+    assert.match(document.querySelector('#draw-watch').textContent, /\/100/, 'draw watch lists a draw score for the slate');
+
+    // The Generate button works.
+    document.querySelector('#board').innerHTML = '';
+    document.querySelector('#generate').click();
+    for (let i = 0; i < 20; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelectorAll('#board .match').length >= 1, 'Generate repopulated the board');
+    assert.ok(document.querySelectorAll('#board .tip-box').length >= 3, 'Generate rewrote the tips');
+
+    // Analysis: draw ledger, sourced-evidence disclosure, https review links.
+    document.querySelector('.match-toggle').click();
+    const panel = document.querySelector('.analysis');
+    assert.match(panel.textContent, /Draw likelihood/);
+    assert.match(panel.textContent, /Could not be sourced/);
+    assert.match(panel.textContent, /Price/);
+    const links = [...panel.querySelectorAll('a')];
+    assert.ok(links.length >= 3, 'review links present');
+    for (const l of links) assert.ok(l.href.startsWith('https://'), `review links are https: ${l.href}`);
+    assert.ok(links.some((l) => /npb\.jp/.test(l.href)), 'at least one npb.jp review link');
+
+    // Card text, standings, coverage, sources.
+    assert.match(document.querySelector('#card-text').textContent, /NPB/);
+    assert.match(document.querySelector('#card-text').textContent, /gamble responsibly/i);
+    assert.ok(document.querySelectorAll('#standings table').length === 2, 'both league tables rendered');
+    assert.match(document.querySelector('#coverage').textContent, /draws on tape/);
+    assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
+    assert.match(document.querySelector('#sources').textContent, /NPB-SEED|IR-NPB-/);
+  } finally { cleanup(); }
+});
+
+test('baseball.html carries the MLB | NPB league tabs', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('baseball.html', { search: '?date=2026-09-04' });
+  try {
+    const tabs = [...document.querySelectorAll('#league-tabs a')];
+    assert.deepEqual(tabs.map((a) => a.textContent.trim()), ['MLB', 'NPB']);
+    assert.ok(tabs[0].classList.contains('on'), 'MLB tab is active on baseball.html');
+    assert.equal(tabs[1].getAttribute('href'), 'npb.html');
   } finally { cleanup(); }
 });
 

@@ -1,0 +1,133 @@
+{
+ "schema_version": 1,
+ "fetched_at_utc": "2026-09-03T18:27:41Z",
+ "collector": "scripts/build_npb_seed.mjs",
+ "mode": "seed",
+ "season": 2026,
+ "sport": "Baseball",
+ "league": "npb",
+ "endpoints": [
+  {
+   "url": "https://npb.jp/bis/eng/2026/calendar/index_07.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "tape"
+  },
+  {
+   "url": "https://npb.jp/bis/eng/2026/calendar/index_08.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "tape"
+  },
+  {
+   "url": "https://npb.jp/bis/eng/2026/calendar/index_09.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "tape"
+  },
+  {
+   "url": "https://npb.jp/bis/eng/2026/stats/std_c.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "standings"
+  },
+  {
+   "url": "https://npb.jp/bis/eng/2026/stats/std_p.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "standings"
+  },
+  {
+   "url": "https://npb.jp/games/2026/schedule_09_detail.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "fixtures"
+  },
+  {
+   "url": "https://npb.jp/scores/2026/0903/s-t-21/box.html",
+   "status": 200,
+   "ok": true,
+   "error": null,
+   "kind": "capture-markdown",
+   "capturedAt": "2026-09-03",
+   "doc": "pitchers"
+  }
+ ],
+ "sources": [
+  {
+   "id": "npb-calendar",
+   "label": "NPB English calendar (results tape)",
+   "url": "https://npb.jp/bis/eng/2026/calendar/index_09.html"
+  },
+  {
+   "id": "npb-standings",
+   "label": "NPB English standings (W-L-T, per-opponent, interleague)",
+   "url": "https://npb.jp/bis/eng/2026/stats/std_c.html"
+  },
+  {
+   "id": "npb-schedule-detail",
+   "label": "NPB Japanese schedule (announced starters, venue, JMA forecast icon)",
+   "url": "https://npb.jp/games/2026/schedule_09_detail.html"
+  },
+  {
+   "id": "npb-ja-box",
+   "label": "NPB Japanese live box scores (pitching lines)",
+   "url": "https://npb.jp/scores/"
+  }
+ ],
+ "notSourced": [
+  "three-way moneyline / run line / total prices (no key-less NPB feed; OLBG lists no NPB rows)",
+  "per-game foreign-player registrations",
+  "opposing-lineup splits versus starter handedness",
+  "wind direction and speed (only the JMA forecast icon is published)"
+ ],
+ "coverage": {
+  "tapeGames": 298,
+  "fixtures": 423,
+  "upcoming": 123,
+  "upcomingWithStarters": 5,
+  "boxScores": 1,
+  "pitchingLines": 12,
+  "standingsAsOf": "Thursday, September 3, 2026"
+ },
+ "irregularities": [
+  {
+   "id": "NPB-SEED",
+   "severity": "info",
+   "detail": "Documents built from 7 dated page captures under tests/fixtures (see each file header for URL and fetch date); the CI collector replaces them on its first green run."
+  },
+  {
+   "id": "NPB-STARTERS",
+   "severity": "low",
+   "detail": "6 of 6 fixtures on 2026-09-05 have no announced starters yet (npb.jp publishes 予告先発 the evening before)"
+  },
+  {
+   "id": "NPB-STARTERS",
+   "severity": "low",
+   "detail": "6 of 6 fixtures on 2026-09-06 have no announced starters yet (npb.jp publishes 予告先発 the evening before)"
+  },
+  {
+   "id": "NPB-BOX-COVERAGE",
+   "severity": "high",
+   "detail": "0 of 142 games played 2026-08-05..2026-09-04 have a parsed Japanese box score (1 boxes on file); starter form and bullpen state are missing for the rest, so those blocks score as unsourced and the affected markets SKIP"
+  }
+ ]
+}
