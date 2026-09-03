@@ -333,3 +333,45 @@ The T20 Blast page avoids the same trap by construction: it generates on load
 *and* on click, scores from a committed 96-fixture tape with real results-derived
 evidence, and opens on the nearest date that has fixtures rather than on an
 empty today.
+
+## TB-IR-13 — ESPN addresses cricket by numeric id, so the league verifier probed a URL that cannot exist
+
+**Finding.** Listing the Blast in `engine/registry.js` under
+`candidateLeagues: [{ slug: 't20-blast', … }]` looked consistent with every
+other sport, where the slug is also ESPN's path segment (`soccer/eng.1`,
+`basketball/nba`). Cricket is not like that. ESPN addresses it by numeric series
+or league id, and the scoreboard payload's own `leagues[0].slug` for this
+competition is `"8053"` — the league id — with
+`mappings.cricinfo: 1512690` carrying the series id. There is no
+`cricket/t20-blast` path at all.
+
+`scripts/build_league_registry.mjs` proved every candidate league by calling
+`${ESPN_SITE_BASE}/${espnSport}/${slug}/scoreboard`, so it probed
+`…/sports/cricket/t20-blast/scoreboard` and recorded a live, fully verified
+league as `ok:false`. `tests/dom_smoke.test.mjs` then does exactly what it
+should — it fails the build when a slug the verifier proved dead is still listed
+in the registry — so a league verified line by line against two independent
+sources was reported dead by a probe aimed at a URL that never existed.
+
+**Why it was invisible locally.** The committed `data/leagues.json` predates the
+registry entry and so contains no cricket row, which makes the dead-endpoint
+test pass on a clean checkout. The failure only appears in `precompute`, whose
+step 7 re-probes live and whose step 12 re-runs the tests against the fresh
+result. `pages.yml` never re-probes, so its build stayed green — the two
+workflows disagreed about the same commit.
+
+**Fix.** A candidate may now declare the segment to probe with `espnSeriesId` or
+`espnLeagueId`; `slug` remains the identity the site uses for the league, so no
+page, engine or data prefix moved. The series-id form was confirmed live on
+2026-09-03 returning HTTP 200 with `leagues[0].id = "8053"`,
+name "Twenty20 Cup (England)", abbreviation "Vitality Blast", all 18 counties in
+`teams`, and `events: []` — empty because the season closed on 2026-07-18, which
+the payload's own `calendarEndDate` confirms. The probe builder is exported as
+`scoreboardUrl()` and the script is now importable without starting a network
+run, so `tests/league_registry.test.mjs` pins the behaviour: cricket is never
+probed by a text slug, its segment is numeric, and every candidate league in the
+registry resolves to exactly one scoreboard URL.
+
+**Verify:** <https://site.web.api.espn.com/apis/site/v2/sports/cricket/1512690/scoreboard?dates=20260903> ·
+<https://site.web.api.espn.com/apis/v2/sports/cricket/8053/standings?season=2026> ·
+<https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings>
