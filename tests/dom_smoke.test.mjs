@@ -89,6 +89,112 @@ function golfRankingsDoc() {
     rows: preField.map((a, i) => ({ rank: 20 + i * 15, owgrId: `o${a.id}`, name: a.displayName, country: a.flag.alt, region: 'Europe', lastWeekRank: 22 + i * 15, profileUrl: `https://www.owgr.com/playerprofile/x-${a.id}` })) };
 }
 
+/** Committed-document set for the baseball page, in the collector's shape. */
+function baseballDocs() {
+  const endpoints = [{ url: 'https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-09-04&hydrate=probablePitcher,linescore,team', status: 200, error: null, ok: true }];
+  const mk = (id, dateISO, homeName, homeAbbrev, homeId, awayName, awayAbbrev, awayId, hs, as) => ({
+    id, source: 'mlb-statsapi-schedule', league: 'mlb', leagueName: 'Major League Baseball', season: '2026',
+    dateISO, startUtc: `${dateISO}T18:00:00Z`, phase: 'results', venue: null, venueIndoor: null,
+    home: { id: homeId, name: homeName, abbrev: homeAbbrev, record: null, score: hs, isWinner: hs > as, probablePitcher: null },
+    away: { id: awayId, name: awayName, abbrev: awayAbbrev, record: null, score: as, isWinner: as > hs, probablePitcher: null },
+    score: { home: hs, away: as },
+  });
+  const games = [
+    mk('t1', '2026-09-01', 'Tampa Bay Rays', 'TB', 139, 'Boston Red Sox', 'BOS', 111, 3, 4),
+    mk('t2', '2026-08-30', 'Tampa Bay Rays', 'TB', 139, 'Boston Red Sox', 'BOS', 111, 6, 2),
+    mk('t3', '2026-08-28', 'Tampa Bay Rays', 'TB', 139, 'New York Yankees', 'NYY', 147, 5, 1),
+    mk('t4', '2026-08-25', 'New York Yankees', 'NYY', 147, 'Tampa Bay Rays', 'TB', 139, 2, 7),
+    mk('t5', '2026-08-22', 'Tampa Bay Rays', 'TB', 139, 'Chicago White Sox', 'CWS', 145, 8, 1),
+    mk('t6', '2026-08-19', 'Tampa Bay Rays', 'TB', 139, 'Chicago White Sox', 'CWS', 145, 6, 2),
+    mk('w1', '2026-09-01', 'Minnesota Twins', 'MIN', 142, 'Chicago White Sox', 'CWS', 145, 5, 2),
+    mk('w2', '2026-08-30', 'Minnesota Twins', 'MIN', 142, 'Chicago White Sox', 'CWS', 145, 6, 3),
+    mk('w3', '2026-08-28', 'Minnesota Twins', 'MIN', 142, 'Chicago White Sox', 'CWS', 145, 4, 1),
+    mk('w4', '2026-08-25', 'Minnesota Twins', 'MIN', 142, 'Chicago White Sox', 'CWS', 145, 7, 2),
+    mk('w5', '2026-08-22', 'Minnesota Twins', 'MIN', 142, 'Chicago White Sox', 'CWS', 145, 5, 1),
+    mk('c1', '2026-08-30', 'Cleveland Guardians', 'CLE', 114, 'Detroit Tigers', 'DET', 116, 5, 2),
+    mk('c2', '2026-08-27', 'Cleveland Guardians', 'CLE', 114, 'Detroit Tigers', 'DET', 116, 4, 1),
+    mk('c3', '2026-08-24', 'Cleveland Guardians', 'CLE', 114, 'Detroit Tigers', 'DET', 116, 6, 3),
+  ];
+  const fixture = (id, phase, homeName, homeAbbrev, homeId, awayName, awayAbbrev, awayId, homePitcher, awayPitcher, dateISO, startUtc) => ({
+    id, source: 'mlb-statsapi-schedule', league: 'mlb', leagueName: 'Major League Baseball', season: '2026',
+    dateISO, startUtc, phase, venue: homeId === 139 ? 'Tropicana Field' : 'Progressive Field', venueIndoor: homeId === 139,
+    home: { id: homeId, name: homeName, abbrev: homeAbbrev, record: { wins: 83, losses: 56 }, probablePitcher: homePitcher },
+    away: { id: awayId, name: awayName, abbrev: awayAbbrev, record: { wins: 60, losses: 79 }, probablePitcher: awayPitcher },
+    score: { home: null, away: null }, odds: null, oddsSourceCount: 0,
+  });
+  const fixtures = {
+    schema_version: 1, sport: 'Baseball', league: 'mlb', season: '2026', endpoints, window: { from: '2026-08-14', to: '2026-09-25' },
+    fixtures: [
+      fixture('g1', 'upcoming', 'Tampa Bay Rays', 'TB', 139, 'Chicago White Sox', 'CWS', 145,
+        { id: 101, name: 'Ace Starter' }, { id: 202, name: 'Weak Starter' }, '2026-09-04', '2026-09-04T18:10:00Z'),
+      fixture('g2', 'upcoming', 'Cleveland Guardians', 'CLE', 114, 'Detroit Tigers', 'DET', 116,
+        { id: 303, name: 'Rotation Anchor' }, { id: 404, name: 'Spot Starter' }, '2026-09-04', '2026-09-04T23:15:00Z'),
+    ],
+    counts: { fixtures: 2, results: 0, withOdds: 0 },
+  };
+  return {
+    fixtures,
+    tape: { schema_version: 1, sport: 'Baseball', league: 'mlb', endpoints, games, counts: { games: games.length } },
+    standings: {
+      schema_version: 1, sport: 'Baseball', league: 'mlb', season: '2026', endpoints,
+      teams: {
+        139: { id: 139, name: 'Tampa Bay Rays', wins: 83, losses: 56, gamesPlayed: 139, runDifferential: 51, runsScored: 628, runsAllowed: 577 },
+        145: { id: 145, name: 'Chicago White Sox', wins: 60, losses: 79, gamesPlayed: 139, runDifferential: -40, runsScored: 574, runsAllowed: 614 },
+        114: { id: 114, name: 'Cleveland Guardians', wins: 70, losses: 69, gamesPlayed: 139, runDifferential: 11, runsScored: 563, runsAllowed: 552 },
+        116: { id: 116, name: 'Detroit Tigers', wins: 64, losses: 75, gamesPlayed: 139, runDifferential: -18, runsScored: 599, runsAllowed: 617 },
+      },
+      counts: { teams: 4 },
+    },
+    teamStats: {
+      schema_version: 1, sport: 'Baseball', league: 'mlb', season: '2026', endpoints,
+      teams: {
+        139: { id: 139, name: 'Tampa Bay Rays', hitting: { avg: 0.261, obp: 0.329, slg: 0.404, runs: 628 }, pitching: { era: 3.24, whip: 1.17 } },
+        145: { id: 145, name: 'Chicago White Sox', hitting: { avg: 0.238, obp: 0.301, slg: 0.382, runs: 574 }, pitching: { era: 4.52, whip: 1.38 } },
+        114: { id: 114, name: 'Cleveland Guardians', hitting: { avg: 0.245, obp: 0.312, slg: 0.398, runs: 563 }, pitching: { era: 3.70, whip: 1.22 } },
+        116: { id: 116, name: 'Detroit Tigers', hitting: { avg: 0.241, obp: 0.307, slg: 0.389, runs: 599 }, pitching: { era: 4.10, whip: 1.29 } },
+      },
+      counts: { teams: 4 },
+    },
+    pitchers: {
+      schema_version: 1, sport: 'Baseball', league: 'mlb', season: '2026', endpoints,
+      pitchers: {
+        101: { id: 101, name: 'Ace Starter', era: 2.5, whip: 1.05, strikeoutsPer9: 9.5, qualityStartsLast4: 3, qualityStartsLast3: 2, avgInningsPerStart: 6.4, last4: [{ date: '2026-08-31' }, { date: '2026-08-25' }, { date: '2026-08-19' }, { date: '2026-08-13' }] },
+        202: { id: 202, name: 'Weak Starter', era: 5.4, whip: 1.5, strikeoutsPer9: 6.2, qualityStartsLast4: 0, qualityStartsLast3: 0, avgInningsPerStart: 4.8, last4: [{ date: '2026-08-31' }, { date: '2026-08-25' }, { date: '2026-08-19' }, { date: '2026-08-13' }] },
+        303: { id: 303, name: 'Rotation Anchor', era: 3.2, whip: 1.1, strikeoutsPer9: 8.6, qualityStartsLast4: 2, qualityStartsLast3: 1, avgInningsPerStart: 6.1, last4: [{ date: '2026-08-30' }, { date: '2026-08-24' }, { date: '2026-08-18' }, { date: '2026-08-12' }] },
+        404: { id: 404, name: 'Spot Starter', era: 4.6, whip: 1.4, strikeoutsPer9: 6.9, qualityStartsLast4: 1, qualityStartsLast3: 0, avgInningsPerStart: 5.0, last4: [{ date: '2026-08-30' }, { date: '2026-08-24' }, { date: '2026-08-18' }, { date: '2026-08-12' }] },
+      },
+      counts: { pitchers: 4 },
+    },
+    slate: {
+      schema_version: 1, sport: 'Baseball', fetched_at_utc: '2026-09-04T00:00:00Z',
+      source: { name: 'OLBG Baseball betting-tips index', url: 'https://www.olbg.com/betting-tips/Baseball/12' },
+      events: [{ event_id: '159810', url: 'https://www.olbg.com/betting-tips/Baseball/MLB/MLB/CWS_@_TB/12?event_id=159810', league: 'MLB', home: 'Tampa Bay Rays', away: 'Chicago White Sox', market: 'Money Line', tips_for: 2, tips_total: 2, odds: null }],
+      markets_seen: ['Money Line'], warnings: [],
+    },
+    provenance: {
+      schema_version: 1, sport: 'Baseball',
+      sources: [
+        { name: 'MLB StatsAPI schedule', url: 'https://statsapi.mlb.com/api/v1/schedule?sportId=1', provides: ['fixtures', 'results', 'probable pitchers'], verified_utc: '2026-09-03T00:00:00Z', status: 200 },
+        { name: 'MLB standings', url: 'https://www.mlb.com/standings', provides: ['W-L record', 'run differential'], verified_utc: '2026-09-03T00:00:00Z', status: 200 },
+        { name: 'ESPN MLB scoreboard', url: 'https://www.espn.com/mlb/scoreboard', provides: ['venue', 'weather context'], verified_utc: '2026-09-03T00:00:00Z', status: 200 },
+      ],
+      irregularities: [
+        { id: 'IR-BASEBALL-01', title: 'No key-less moneyline / run line / total feed', effect: 'The Odds and Value block scores as missing and price-gated Step 3 rules resolve to SKIP where the prompt requires a price.' },
+      ],
+    },
+    predictions: { schema_version: 1, sport: 'Baseball', predictions: [] },
+    backtest: {
+      schema_version: 1, sport: 'Baseball', method: 'Walk-forward re-scoring of settled games', generated_at_utc: '2026-09-04T00:00:00Z',
+      results: {
+        graded: 12, overall_hit_rate_pct: 58.3,
+        run_line: { graded: 0, reason: 'the closing run line is not retained by any free feed once a game is final' },
+        game_total: { graded: 0, reason: 'the closing total line is not retained by any free feed once a game is final' },
+        roi: null, roi_reason: 'no price is attached to a settled fixture, so no return can be computed',
+      },
+    },
+  };
+}
+
 function makeFetch(counters) {
   return async function stubFetch(url) {
     const u = String(url);
@@ -120,6 +226,19 @@ function makeFetch(counters) {
     if (u.includes('/sports/volleyball/')) {
       if (/dates=20260903/.test(u)) return ok({ leagues: volleyballFixture.leagues, events: [] });
       return ok(volleyballFixture);
+    }
+    if (u.includes('data/baseball_')) {
+      const bb = baseballDocs();
+      if (u.includes('baseball_fixtures.json')) return ok(bb.fixtures);
+      if (u.includes('baseball_tape.json')) return ok(bb.tape);
+      if (u.includes('baseball_standings.json')) return ok(bb.standings);
+      if (u.includes('baseball_team_stats.json')) return ok(bb.teamStats);
+      if (u.includes('baseball_pitchers.json')) return ok(bb.pitchers);
+      if (u.includes('baseball_slate.json')) return ok(bb.slate);
+      if (u.includes('baseball_provenance.json')) return ok(bb.provenance);
+      if (u.includes('baseball_predictions.json')) return ok(bb.predictions);
+      if (u.includes('baseball_backtest.json')) return ok(bb.backtest);
+      return { ok: false, status: 404, json: async () => ({}) };
     }
     if (u.includes('site.api.espn.com')) {
       // A range request is the history scan; a single date is the day's card.
@@ -730,6 +849,75 @@ test('ice-hockey.html boots, auto-generates three tips per match and the button 
   } finally { cleanup(); }
 });
 
+test('baseball.html boots, auto-generates three tips per match and the button re-scores', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('baseball.html', { search: '?date=2026-09-04' });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    const rows = document.querySelectorAll('.match');
+    assert.ok(rows.length >= 1, `at least one match row rendered (found ${rows.length})`);
+    assert.match(document.body.textContent, /Tampa Bay Rays|Chicago White Sox|Cleveland Guardians/);
+
+    // Three markets per match, in order, generated without pressing anything.
+    const tips = [...document.querySelectorAll('.tipbox .tip-box')];
+    assert.ok(tips.length >= 3, `three markets written for the first match (found ${tips.length})`);
+    const labels = tips.slice(0, 3).map((t) => t.textContent);
+    assert.match(labels[0], /WIN MATCH OUTRIGHT/);
+    assert.match(labels[1], /RUN LINE/);
+    assert.match(labels[2], /GAME TOTAL/);
+
+    // Step 4 output rules hold on the rendered page, not just in the engine.
+    for (const tip of tips) {
+      const text = tip.querySelector('.tip-text')?.textContent || '';
+      assert.equal(/\d/.test(text.replace(/\*\*/g, '')), false, `no digits may leak into a tip: ${text.slice(0, 60)}`);
+      assert.match(text, /\b(HIGH|MEDIUM|LOW)\b|^SKIP/, 'confidence or SKIP stated');
+    }
+
+    // The Generate button works: clear the board, click it, board comes back.
+    document.querySelector('#board').innerHTML = '';
+    assert.equal(document.querySelectorAll('#board .match').length, 0, 'board cleared');
+    document.querySelector('#generate').click();
+    for (let i = 0; i < 20; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelectorAll('#board .match').length >= 1, 'Generate repopulated the board');
+    assert.ok(document.querySelectorAll('#board .tip-box').length >= 3, 'Generate rewrote the tips');
+
+    // Analysis panel: scoring trace, what could not be sourced, https links.
+    document.querySelector('.match-toggle').click();
+    const panel = document.querySelector('.analysis');
+    assert.ok(panel, 'analysis panel exists');
+    assert.match(panel.textContent, /Could not be sourced|Review links/);
+    const links = [...panel.querySelectorAll('a')];
+    assert.ok(links.length >= 3, 'review links present');
+    for (const l of links) assert.ok(l.href.startsWith('https://'), 'review links are https');
+
+    // Card text is copy-paste ready with the summary and gambling line.
+    assert.match(document.querySelector('#card-text').textContent, /BASEBALL PREDICTIONS/);
+    assert.match(document.querySelector('#card-text').textContent, /gamble responsibly/i);
+
+    // Coverage box is populated from the committed documents.
+    assert.match(document.querySelector('#coverage').textContent, /fixtures/);
+    // Sources rail lists the verified feeds with https links and the irregularity register.
+    assert.ok(document.querySelectorAll('#sources a').length >= 3, 'sources listed with links');
+    assert.match(document.querySelector('#sources').textContent, /IR-BASEBALL-/);
+  } finally { cleanup(); }
+});
+
+test('registry: baseball is predicted on its own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const s = SPORTS.find((x) => x.key === 'baseball');
+  assert.equal(s.predictable, true);
+  assert.equal(s.page, 'baseball.html');
+  assert.equal(s.specialistEngine, 'baseball');
+  assert.equal(s.olbgId, 12);
+});
+
+test('sport.html?sport=baseball hands over to the dedicated baseball page', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('sport.html', { search: '?sport=baseball&date=2026-09-04' });
+  try {
+    const a = document.querySelector('#handover');
+    assert.ok(a, 'handover link rendered');
+    assert.match(a.getAttribute('href'), /baseball\.html\?date=2026-09-04/);
+  } finally { cleanup(); }
+});
 
 test('darts.html boots, renders a results-day card and auto-generates written predictions', { skip: !JSDOM }, async () => {
   const { document } = await bootPage('darts.html', { search: '?date=2026-08-30' });

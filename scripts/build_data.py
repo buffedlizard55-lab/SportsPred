@@ -97,6 +97,17 @@ RUGBY_PREDICTIONS = os.path.join(DATA, 'rugby_league_predictions.json')
 RUGBY_BACKTEST = os.path.join(DATA, 'rugby_league_backtest.json')
 RUGBY_WEATHER = os.path.join(DATA, 'rugby_league_weather.json')
 
+# Baseball files (optional until the first CI collection completes)
+BASEBALL_FIXTURES = os.path.join(DATA, 'baseball_fixtures.json')
+BASEBALL_TAPE = os.path.join(DATA, 'baseball_tape.json')
+BASEBALL_STANDINGS = os.path.join(DATA, 'baseball_standings.json')
+BASEBALL_TEAM_STATS = os.path.join(DATA, 'baseball_team_stats.json')
+BASEBALL_PITCHERS = os.path.join(DATA, 'baseball_pitchers.json')
+BASEBALL_SLATE = os.path.join(DATA, 'baseball_slate.json')
+BASEBALL_BACKTEST = os.path.join(DATA, 'baseball_backtest.json')
+BASEBALL_PROVENANCE = os.path.join(DATA, 'baseball_provenance.json')
+BASEBALL_PREDICTIONS = os.path.join(DATA, 'baseball_predictions.json')
+
 SOURCED_FIELDS = {
     'rank', 'odds', 'firstSetOdds', 'handicapOdds', 'form', 'surface', 'serve', 'rest',
 }
@@ -790,6 +801,130 @@ def validate_ice_hockey_backtest(doc):
     return problems, results.get('graded', 0)
 
 
+def _https_endpoints(doc):
+    problems = []
+    endpoints = doc.get('endpoints', [])
+    if not endpoints:
+        problems.append('no endpoint provenance')
+    for e in endpoints:
+        if not str(e.get('url', '')).startswith('https://'):
+            problems.append(f'endpoint url is not https: {e.get("url")}')
+    return problems
+
+
+def validate_baseball_fixtures(doc):
+    problems = []
+    fixtures = doc.get('fixtures', [])
+    if not isinstance(fixtures, list):
+        return ['baseball_fixtures.fixtures is not a list'], 0
+    problems += _https_endpoints(doc)
+    ids = [str(f.get('id')) for f in fixtures]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate fixture ids: {sorted(dups)}')
+    for f in fixtures:
+        for field in ('id', 'dateISO', 'startUtc', 'source'):
+            if not f.get(field):
+                problems.append(f'fixture {f.get("id")} missing "{field}"')
+        for side in ('home', 'away'):
+            if not (f.get(side) or {}).get('name'):
+                problems.append(f'fixture {f.get("id")} missing {side}.name')
+        # No key-less baseball price feed exists; a price here is a bug.
+        if f.get('odds') is not None:
+            problems.append(f'fixture {f.get("id")} carries an odds value; no key-less price feed exists')
+    return problems, len(fixtures)
+
+
+def validate_baseball_tape(doc):
+    problems = []
+    games = doc.get('games', [])
+    if not isinstance(games, list):
+        return ['baseball_tape.games is not a list'], 0
+    problems += _https_endpoints(doc)
+    for g in games:
+        if not g.get('id') or not g.get('dateISO'):
+            problems.append(f'tape game missing id/dateISO: {g.get("id")}')
+        if g.get('phase') != 'results':
+            problems.append(f'tape game {g.get("id")} is not a settled result')
+        score = g.get('score') or {}
+        if score.get('home') is None or score.get('away') is None:
+            problems.append(f'tape game {g.get("id")} has no numeric score for both sides')
+    return problems, len(games)
+
+
+def validate_baseball_standings(doc):
+    problems = []
+    teams = doc.get('teams', {})
+    if not isinstance(teams, dict):
+        return ['baseball_standings.teams is not an object'], 0
+    problems += _https_endpoints(doc)
+    for tid, t in teams.items():
+        if not isinstance(t, dict) or t.get('wins') is None or t.get('losses') is None:
+            problems.append(f'standings team {tid} has no W-L record')
+    return problems, len(teams)
+
+
+def validate_baseball_team_stats(doc):
+    problems = []
+    teams = doc.get('teams', {})
+    if not isinstance(teams, dict):
+        return ['baseball_team_stats.teams is not an object'], 0
+    problems += _https_endpoints(doc)
+    for tid, t in teams.items():
+        if not (t.get('hitting') or t.get('pitching')):
+            problems.append(f'team stats entry {tid} has neither hitting nor pitching')
+    return problems, len(teams)
+
+
+def validate_baseball_pitchers(doc):
+    problems = []
+    pitchers = doc.get('pitchers', {})
+    if not isinstance(pitchers, dict):
+        return ['baseball_pitchers.pitchers is not an object'], 0
+    for pid, p in pitchers.items():
+        if not (p.get('id') or p.get('name')):
+            problems.append(f'pitcher {pid} has no id or name')
+    return problems, len(pitchers)
+
+
+def validate_baseball_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list):
+        return ['baseball_slate.events is not a list'], 0
+    if not doc.get('source', {}).get('url'):
+        problems.append('baseball_slate.source.url missing')
+    ids = [e.get('event_id') for e in events]
+    dups = {i for i in ids if ids.count(i) > 1}
+    if dups:
+        problems.append(f'duplicate event_ids in baseball slate: {sorted(dups)}')
+    for e in events:
+        for field in ('event_id', 'home', 'away', 'url'):
+            if not e.get(field):
+                problems.append(f'baseball slate row {e.get("event_id")} missing "{field}"')
+        if not str(e.get('url', '')).startswith('https://www.olbg.com/betting-tips/Baseball/'):
+            problems.append(f'baseball slate row {e.get("event_id")} url is not the OLBG baseball index')
+        # OLBG publishes tipster consensus, never a price. A price here is a bug.
+        if e.get('odds') is not None:
+            problems.append(f'baseball slate row {e.get("event_id")} carries an odds value; OLBG publishes none')
+    return problems, len(events)
+
+
+def validate_baseball_backtest(doc):
+    problems = []
+    results = doc.get('results', {})
+    if not results:
+        problems.append('baseball_backtest has no results block')
+    for market in ('run_line', 'game_total'):
+        if results.get(market, {}).get('graded', 0) == 0 and not results.get(market, {}).get('reason'):
+            problems.append(f'baseball_backtest.{market} is ungraded without saying why')
+    if results.get('roi') is None and not results.get('roi_reason'):
+        problems.append('baseball_backtest reports no ROI without saying why')
+    if not doc.get('method'):
+        problems.append('baseball_backtest does not state its method')
+    return problems, results.get('graded', 0)
+
+
 def report(name, problems, count=0):
     status = 'OK' if not problems else 'PROBLEMS'
     print(f'  [{status:8}] {name}')
@@ -1025,6 +1160,31 @@ def main():
             total += report(name, [], 0)
             if empty:
                 print('              empty by design: the engine records those factors as missing')
+
+    print('\n--- Baseball Data Layer ---')
+    bb_names = [
+        ('data/baseball_fixtures.json', BASEBALL_FIXTURES, validate_baseball_fixtures),
+        ('data/baseball_tape.json', BASEBALL_TAPE, validate_baseball_tape),
+        ('data/baseball_standings.json', BASEBALL_STANDINGS, validate_baseball_standings),
+        ('data/baseball_team_stats.json', BASEBALL_TEAM_STATS, validate_baseball_team_stats),
+        ('data/baseball_pitchers.json', BASEBALL_PITCHERS, validate_baseball_pitchers),
+        ('data/baseball_slate.json', BASEBALL_SLATE, validate_baseball_slate),
+        ('data/baseball_backtest.json', BASEBALL_BACKTEST, validate_baseball_backtest),
+        ('data/baseball_provenance.json', BASEBALL_PROVENANCE, None),
+        ('data/baseball_predictions.json', BASEBALL_PREDICTIONS, None),
+    ]
+    for name, path, fn in bb_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the baseball collector)')
+            continue
+        if fn:
+            problems, n = fn(blob)
+            total += report(name, problems, n)
+            if n:
+                print(f'              {n} records')
+        else:
+            total += report(name, [], 0)
 
     print('=' * 65)
     if total:
