@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-03T20:49:56.702Z",
+  "generated_at_utc": "2026-09-03T23:33:11.275Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -1127,7 +1127,7 @@
     "volleyball": {
       "espnSport": null,
       "leagues": [],
-      "note": "The volleyball specialist is limited to FIVB Volleyball Nations League — Women. ESPN NCAA volleyball is a different competition and is not a model feed."
+      "note": "The specialist model is limited to FIVB Volleyball Nations League — Women. NCAA, EuroVolley, club and generic volleyball listings cannot enter its form or prediction score. The separately rendered OLBG market monitor records only event-page market headings it verified. OLBG votes are display-only, never a price source. A MATCH WINNER selection needs an agreeing moneyline from two named bookmakers; incomplete evidence is an explicit SKIP."
     },
     "mma": {
       "espnSport": "mma",
@@ -1233,8 +1233,8 @@
     }
   },
   "summary": {
-    "checked": 95,
-    "ok": 95,
+    "checked": 93,
+    "ok": 93,
     "failed": 0
   }
 }
