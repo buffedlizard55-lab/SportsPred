@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GAA scoreboard, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="Gaelic football and hurling scoreboard and calendar with automatically generated, source-linked predictions. OLBG club markets plus a verified All-Ireland results tape. No invented odds or scores.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title" id="page-title">Gaelic games</h1>
+      <p class="page-sub" id="page-sub">Football and hurling scoreboard with 100-point scoring from the GAA master prompt — form, head-to-head, championship pedigree, stage and venue — plus a written prediction for every sourced fixture. Every figure traces to OLBG, GAA.ie or Wikipedia championship pages.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <div id="sport-notes"></div>
+  <div id="league-tabs" class="datestrip" style="margin-bottom:12px"></div>
+
+  <div class="cols">
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="day-title">—</h2>
+          <span class="sp"></span>
+          <span class="meta-line" id="counts"></span>
+        </div>
+        <div id="datestrip" class="datestrip"></div>
+        <div class="progress" id="progress" style="display:none"><i></i></div>
+        <div class="card-body" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center;border-bottom:1px solid var(--line-2)">
+          <button class="btn sm" id="prev-day" aria-label="Previous day">‹</button>
+          <input type="date" id="date-input" aria-label="Choose date">
+          <button class="btn sm" id="next-day" aria-label="Next day">›</button>
+          <button class="btn sm" id="today-btn">Today</button>
+
+          <select id="status-filter" aria-label="Filter by status">
+            <option value="all">All matches</option>
+            <option value="scheduled">Upcoming</option>
+            <option value="result">Results</option>
+            <option value="selected">Predictions only</option>
+          </select>
+
+          <input type="search" id="search" placeholder="Search team, event…" aria-label="Search">
+
+          <span class="sp" style="flex:1"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all tips</button>
+          <button class="btn sm" id="refresh" title="Clear the local cache and reload committed data">↻ Refresh</button>
+        </div>
+        <div class="meta-line" style="padding:6px 14px" id="progress-label"></div>
+        <div id="board"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Calendar</h2><span class="sp"></span>
+          <button class="btn sm" id="cal-prev" aria-label="Previous month">‹</button>
+          <strong id="cal-title" style="min-width:150px;text-align:center">—</strong>
+          <button class="btn sm" id="cal-next" aria-label="Next month">›</button>
+        </div>
+        <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
+        <div class="calgrid" id="calgrid"></div>
+        <div class="card-body meta-line">Numbers show how many matches were played or are scheduled that day, from the All-Ireland results tape and the OLBG slate. Pick any date to load that card.</div>
+      </div>
+    </div>
+
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Match predictions</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG GAA markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Data coverage</h3></div>
+        <div class="card-body meta-line" id="coverage">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Sources</h3></div>
+        <div class="card-body meta-line" id="sources">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How to read a GAA card</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p>Each side is scored on odds (30 pts), form (25 + bonuses), head-to-head (20), championship pedigree (15) and stage/venue (10), exactly as the GAA master prompt specifies. Draws are flagged when form and meetings sit even.</p>
+          <p>OLBG publishes tipster votes but <strong>no prices</strong>, so live bets resolve to <span class="badge SKIP">SKIP</span>. Club championships without a results tape carry an italic data-gap note.</p>
+          <p>Open <strong>Analysis</strong> on any match for every rule that fired, its points, the factors not available and the official review links.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/gaa-page.js"></script>
+</body>
+</html>

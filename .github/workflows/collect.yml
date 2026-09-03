@@ -213,6 +213,23 @@ jobs:
         continue-on-error: true
         run: node scripts/backtest_darts.mjs
 
+      - name: Collect OLBG GAA slates
+        id: collect-gaa-olbg
+        continue-on-error: true
+        run: python3 scripts/collect_gaa_olbg.py
+
+      - name: Report a failed GAA OLBG collection
+        if: steps.collect-gaa-olbg.outcome == 'failure'
+        run: echo "::warning::OLBG GAA collection failed. data/gaa_slate.json is unchanged."
+
+      - name: Record GAA predictions (append-only forward ledger)
+        continue-on-error: true
+        run: node scripts/record_gaa_predictions.mjs
+
+      - name: GAA walk-forward backtest
+        continue-on-error: true
+        run: node scripts/backtest_gaa.mjs
+
       - name: Record predictions against the OLBG slate
         continue-on-error: true
         run: node scripts/record_predictions.mjs

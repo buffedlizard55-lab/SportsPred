@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "sport": "GAA",
+  "season": "2026",
+  "as_of_utc": "2026-09-03T22:00:00Z",
+  "source": {
+    "name": "Wikipedia — 2026 All-Ireland Senior Football Championship (printed scorelines only)",
+    "event_page": "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship",
+    "roll_of_honour": "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship",
+    "fetched_at_utc": "2026-09-03T22:00:00Z",
+    "method": "Only matches whose goal–point scoreline is printed on the championship page are stored. Totals are 3×goals + points. Ulster final and Tailteann Cup 2026 winners are recorded in the pedigree file, not here, because no scoreline was printed in the fetched summary.",
+    "licence_note": "Factual results transcribed for review; source pages retain full detail."
+  },
+  "notes": [
+    "2026 All-Ireland SFC ran 11 April – 26 July. Mayo beat Kerry 1–20 to 1–17 in the final at Croke Park on 26 July (Mayo's fourth title, first since 1951).",
+    "Provincial finals with printed scores: Connacht 10 May (Roscommon 3–21 Galway 2–22 at Dr Hyde Park), Leinster 17 May (Westmeath 2–28 Dublin 0–26 a.e.t. at Croke Park), Munster 10 May (Kerry 1–23 Cork 1–15 at Fitzgerald Stadium).",
+    "Earlier championship rounds whose exact score is not in the fetched page are omitted rather than reconstructed (IR-GAA-03).",
+    "Club championship results are not on this tape — no free structured club feed (IR-GAA-02)."
+  ],
+  "matches": [
+    {
+      "id": "aisfc-2026-connacht-final",
+      "date": "2026-05-10",
+      "date_basis": "observed",
+      "event": "2026 Connacht Senior Football Championship",
+      "round": "Final",
+      "round_index": 4,
+      "round_tier": "final",
+      "code": "football",
+      "venue": "Dr Hyde Park",
+      "home_side": "b",
+      "team_a": { "name": "Galway", "province": "Connacht" },
+      "team_b": { "name": "Roscommon", "province": "Connacht" },
+      "goals_a": 2,
+      "points_a": 22,
+      "total_a": 28,
+      "goals_b": 3,
+      "points_b": 21,
+      "total_b": 30,
+      "scoreline": "2-22 to 3-21",
+      "winner": "Roscommon",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "id": "aisfc-2026-munster-final",
+      "date": "2026-05-10",
+      "date_basis": "observed",
+      "event": "2026 Munster Senior Football Championship",
+      "round": "Final",
+      "round_index": 4,
+      "round_tier": "final",
+      "code": "football",
+      "venue": "Fitzgerald Stadium",
+      "home_side": "a",
+      "team_a": { "name": "Kerry", "province": "Munster" },
+      "team_b": { "name": "Cork", "province": "Munster" },
+      "goals_a": 1,
+      "points_a": 23,
+      "total_a": 26,
+      "goals_b": 1,
+      "points_b": 15,
+      "total_b": 18,
+      "scoreline": "1-23 to 1-15",
+      "winner": "Kerry",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "id": "aisfc-2026-leinster-final",
+      "date": "2026-05-17",
+      "date_basis": "observed",
+      "event": "2026 Leinster Senior Football Championship",
+      "round": "Final",
+      "round_index": 4,
+      "round_tier": "final",
+      "code": "football",
+      "venue": "Croke Park",
+      "home_side": null,
+      "team_a": { "name": "Dublin", "province": "Leinster" },
+      "team_b": { "name": "Westmeath", "province": "Leinster" },
+      "goals_a": 0,
+      "points_a": 26,
+      "total_a": 26,
+      "goals_b": 2,
+      "points_b": 28,
+      "total_b": 34,
+      "scoreline": "0-26 to 2-28 a.e.t.",
+      "winner": "Westmeath",
+      "note": "Level 0-22 to 0-22 at full time.",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
+      ]
+    },
+    {
+      "id": "aisfc-2026-final",
+      "date": "2026-07-26",
+      "date_basis": "observed",
+      "event": "2026 All-Ireland Senior Football Championship",
+      "round": "Final",
+      "round_index": 8,
+      "round_tier": "final",
+      "code": "football",
+      "venue": "Croke Park",
+      "home_side": null,
+      "team_a": { "name": "Mayo", "province": "Connacht" },
+      "team_b": { "name": "Kerry", "province": "Munster" },
+      "goals_a": 1,
+      "points_a": 20,
+      "total_a": 23,
+      "goals_b": 1,
+      "points_b": 17,
+      "total_b": 20,
+      "scoreline": "1-20 to 1-17",
+      "winner": "Mayo",
+      "note": "Mayo's fourth All-Ireland; first since 1951. Kerry were defending champions.",
+      "source_urls": [
+        "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship",
+        "https://en.wikipedia.org/wiki/All-Ireland_Senior_Football_Championship"
+      ]
+    }
+  ]
+}

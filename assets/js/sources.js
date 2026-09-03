@@ -150,6 +150,25 @@ async function boot() {
     }
   }
 
+  const ga = await loadStatic('data/gaa_provenance.json');
+  const gabox = $('#ga-irr');
+  if (gabox) {
+    if (!ga.data) {
+      gabox.innerHTML = '<div class="note">GAA register unavailable (data/gaa_provenance.json).</div>';
+    } else {
+      gabox.innerHTML = `<table class="data">
+        <thead><tr><th>Id</th><th>Finding</th><th>Status</th><th>Effect on output</th><th>Verify it yourself</th></tr></thead>
+        <tbody>${(ga.data.register || []).map((r) => `<tr>
+          <td><code>${esc(r.id)}</code></td>
+          <td><strong>${esc(r.title)}</strong><div class="meta-line">${esc(r.finding)}</div></td>
+          <td>${esc(r.status)}</td>
+          <td>${esc(r.effect_on_output)}</td>
+          <td>${(r.review_links || []).map((l) => `<a href="${esc(l)}" target="_blank" rel="noopener noreferrer">link ↗</a>`).join(' ')}</td>
+        </tr>`).join('')}</tbody></table>
+        <p class="meta-line">Register generated ${esc(ga.data.as_of_utc || '')}. See <a href="gaa.html">the GAA scoreboard</a>.</p>`;
+    }
+  }
+
   // ---- darts irregularities (PDC OoM + Wikipedia ET tape + OLBG layer) ----
   const da = await loadStatic('data/darts_provenance.json');
   const dabox = $('#da-irr');

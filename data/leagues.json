@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-03T20:49:56.702Z",
+  "generated_at_utc": "2026-09-03T23:52:34.559Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -1229,7 +1229,7 @@
     "gaelic-football": {
       "espnSport": null,
       "leagues": [],
-      "note": "No key-less structured GAA feed. Market rows only."
+      "note": "Gaelic games run on their own specialist page, scored by the GAA PREDICTION MASTER PROMPT v1.1. Football and hurling share the engine with a code filter. The OLBG football (id 25) and hurling (id 26) indexes supply the live club-championship slate; they publish tipster votes, never prices. No key-less GAA price feed exists, so the 30-pt odds factor is recorded as the prompt's 10-pt missing-odds substitute and Step 3 live bets resolve to SKIP. Club championship form has no free structured tape, so those matches carry a data-gap note and confidence is capped at MEDIUM. Inter-county results on the calendar are only matches whose scoreline is printed on the Wikipedia championship pages. Ulster and Tailteann 2026 winners are listed as pedigree, not as invented scorelines."
     },
     "darts": {
       "espnSport": null,

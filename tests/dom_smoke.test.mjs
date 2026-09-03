@@ -287,6 +287,7 @@ function makeFetch(counters) {
         || u.includes('data/volleyball_')
         || /data\/snooker_(results|rankings|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/darts_')
+        || u.includes('data/gaa_')
         || u.includes('data/npb_')
         || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
@@ -551,6 +552,9 @@ test('sources.html renders the verification report and the irregularities regist
     const da = document.querySelector('#da-irr').textContent;
     assert.match(da, /IR-DARTS-01/, 'darts register row renders');
     assert.ok(document.querySelector('#da-irr a[href*="darts.html"]'), 'darts register links to the scoreboard');
+    const ga = document.querySelector('#ga-irr').textContent;
+    assert.match(ga, /IR-GAA-01/, 'gaa register row renders');
+    assert.ok(document.querySelector('#ga-irr a[href*="gaa.html"]'), 'gaa register links to the scoreboard');
     const daLinks = [...document.querySelectorAll('#da-irr a[href^="https://"]')];
     assert.ok(daLinks.length >= 2, `darts register carries review links (got ${daLinks.length})`);
   } finally { cleanup(); }
@@ -1070,5 +1074,67 @@ test('sport.html?sport=darts hands over to the dedicated darts page', { skip: !J
     const a = document.querySelector('#handover');
     assert.ok(a, 'handover link rendered');
     assert.match(a.getAttribute('href'), /darts\.html\?date=2026-08-30/);
+  } finally { cleanup(); }
+});
+
+test('gaa.html boots, renders a results-day card and auto-generates written predictions', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('gaa.html', { search: '?date=2026-07-26' });
+
+  assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+  assert.ok(document.querySelector('.sportrail a[data-sport="gaelic-football"]'), 'GAA is in the rail');
+  const text = document.body.textContent;
+  assert.match(text, /Mayo/, 'All-Ireland final names render');
+  assert.match(text, /Kerry/);
+  const tipText = document.querySelector('.tip-text');
+  assert.ok(tipText, 'a written prediction box renders on a results day');
+  const tip = tipText.textContent;
+  assert.match(tip, /Confidence:\s*(LOW|MEDIUM|HIGH|SKIP)/, 'prediction declares confidence');
+  const words = tip.trim().split(/\s+/).length;
+  assert.ok(words >= 40 && words <= 70, `prediction is 40-70 words, got ${words}`);
+  assert.ok(!/\d/.test(tip.replace(/\s+/g, ' ')), `no numerals in prediction prose: ${tip.slice(0, 80)}`);
+  assert.match(text, /SKIP/, 'cards resolve to SKIP on the odds gate');
+});
+
+test('the GAA Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('gaa.html', { search: '?date=2026-07-26' });
+  document.querySelector('#rail-preds').innerHTML = '';
+  const before = document.querySelector('.tip-text')?.textContent || '';
+  const btn = document.querySelector('#generate');
+  assert.ok(btn, 'generate button exists');
+  btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+  for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+  const after = document.querySelector('.tip-text')?.textContent || '';
+  assert.ok(after, 'prediction present after Generate click');
+  assert.equal(before, after, 'regenerated prediction is deterministic');
+});
+
+test('GAA Analysis exposes fired rules and at least two https review links', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('gaa.html', { search: '?date=2026-07-26' });
+  const details = document.querySelector('.analysis details');
+  assert.ok(details, 'an analysis panel exists');
+  details.setAttribute('open', '');
+  const atext = details.textContent;
+  assert.match(atext, /Factor|form|ranking|h2h|stage/i, 'analysis names scored factors');
+  const links = [...details.querySelectorAll('a[href^="https://"]')];
+  assert.ok(links.length >= 2, `at least two https review links, saw ${links.length}`);
+  assert.match(atext, /odds/i, 'odds category is reported (as not available live)');
+});
+
+test('registry: gaelic-football is predicted on its own specialist page', async () => {
+  const { SPORTS } = await import(pathToFileURL(join(ROOT, 'engine/registry.js')).href);
+  const s = SPORTS.find((x) => x.key === 'gaelic-football');
+  assert.equal(s.predictable, true);
+  assert.equal(s.page, 'gaa.html');
+  assert.equal(s.specialistEngine, 'gaa');
+  assert.equal(s.olbgId, 25);
+  assert.ok(!SPORTS.some((x) => x.key === 'hurling'), 'hurling is not a 21st registry sport');
+});
+
+test('sport.html?sport=gaelic-football hands over to the dedicated GAA page', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('sport.html', { search: '?sport=gaelic-football&date=2026-07-26' });
+  try {
+    const a = document.querySelector('#handover');
+    assert.ok(a, 'handover link rendered');
+    assert.match(a.getAttribute('href'), /gaa\.html/);
   } finally { cleanup(); }
 });
