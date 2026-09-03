@@ -8,7 +8,7 @@
       "https://www.olbg.com/betting-tips/Golf/5",
       "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/5"
     ],
-    "fetched_at_utc": "2026-09-03T21:52:18Z",
+    "fetched_at_utc": "2026-09-03T23:54:24Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/GOLF_SOURCES.md."
   },
@@ -31,9 +31,9 @@
       "consensus": {
         "market": "Win Tournament",
         "selection": "Steven Alker",
-        "tips_for": 9,
-        "tips_total": 11,
-        "pct": 82,
+        "tips_for": 10,
+        "tips_total": 13,
+        "pct": 77,
         "comments": 6,
         "experts": 1
       },
@@ -72,8 +72,8 @@
         "market": "Win Tournament",
         "selection": "USA",
         "tips_for": 7,
-        "tips_total": 12,
-        "pct": 58,
+        "tips_total": 13,
+        "pct": 54,
         "comments": 3,
         "experts": 1
       },

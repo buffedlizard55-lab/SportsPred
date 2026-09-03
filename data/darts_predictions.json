@@ -1159,9 +1159,75 @@
       ],
       "status": "pending",
       "settlement": null
+    },
+    {
+      "matchId": "olbg-31325",
+      "matchTitle": "Andrew Gilding v David Rosi",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Andrew Gilding",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Andrew Gilding** (0/100)",
+      "paragraph": "Ranking and recent output align behind **Andrew Gilding**, with The strands point one way, which an analyst prefers. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:55:00Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Andrew_Gilding_vs_David_Rosi/15?event_id=31325",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-31324",
+      "matchTitle": "Niko Springer v Martin Homola",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Niko Springer",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Niko Springer** (0/100)",
+      "paragraph": "The draw leaves **Niko Springer** the better prepared player, underpinned by Expect the fresher tournament form to decide. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:55:00Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Niko_Springer_vs_Martin_Homola/15?event_id=31324",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-31326",
+      "matchTitle": "William OConnor v Jiri Brejcha",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "William OConnor",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **William OConnor** (0/100)",
+      "paragraph": "Ranking and recent output align behind **William OConnor**, with The strands point one way, which an analyst prefers. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-03T23:55:00Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/William_OConnor_vs_Jiri_Brejcha/15?event_id=31326",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-03T21:53:10Z",
+  "updatedAtUtc": "2026-09-03T23:55:00Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_darts_predictions.mjs from the committed source-linked documents.",
     "Settlement runs in CI from the official results tape; values are matched by player names.",

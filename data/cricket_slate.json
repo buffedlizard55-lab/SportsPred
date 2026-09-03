@@ -4,7 +4,7 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "fetched_at_utc": "2026-09-03T21:51:28Z",
+    "fetched_at_utc": "2026-09-03T23:53:46Z",
     "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
@@ -23,28 +23,6 @@
   "collection_warnings": [],
   "events": [
     {
-      "event_id": "188612",
-      "sport": "Cricket",
-      "type": "match",
-      "home": "St Kitts and Nevis Patriots",
-      "away": "St Lucia Kings",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/St_Kitts_and_Nevis_Patriots_vs_St_Lucia_Kings_T20/7?event_id=188612",
-      "slug": "St_Kitts_and_Nevis_Patriots_vs_St_Lucia_Kings_T20",
-      "display_date": "20 Tomorrow",
-      "display_time": "00:00",
-      "resolved_date": null,
-      "date_basis": "unknown",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "St Lucia Kings",
-        "tips_for": 15,
-        "tips_total": 22,
-        "pct": 68,
-        "comments": 11,
-        "experts": 0
-      }
-    },
-    {
       "event_id": "188618",
       "sport": "Cricket",
       "type": "match",
@@ -52,10 +30,10 @@
       "away": "Jamaica Kingsmen",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Guyana_Amazon_Warriors_vs_Jamaica_Kingsmen_T20/7?event_id=188618",
       "slug": "Guyana_Amazon_Warriors_vs_Jamaica_Kingsmen_T20",
-      "display_date": "05 Sept",
+      "display_date": "20 Tomorrow",
       "display_time": "00:00",
-      "resolved_date": "2026-09-05",
-      "date_basis": "observed",
+      "resolved_date": null,
+      "date_basis": "unknown",
       "consensus": {
         "market": "Win Match",
         "selection": "Guyana Amazon Warriors",

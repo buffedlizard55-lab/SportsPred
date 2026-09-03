@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "sport": "Darts",
-  "as_of_utc": "2026-09-03T21:53:02Z",
+  "as_of_utc": "2026-09-03T23:54:52Z",
   "source": {
     "name": "OLBG \u2014 Darts Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Darts/15",
     "indexes": [
       "https://www.olbg.com/betting-tips/Darts/15"
     ],
-    "fetched_at_utc": "2026-09-03T21:53:02Z",
+    "fetched_at_utc": "2026-09-03T23:54:52Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -25,13 +25,13 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Cameron_Menzies_vs_Johan_Engstrom/15?event_id=31294",
       "matchup": "Cameron Menzies vs Johan Engstrom",
       "display_time": "12:00",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Cameron Menzies",
-        "tips_for": 8,
-        "tips_total": 9,
-        "pct": 89
+        "tips_for": 9,
+        "tips_total": 11,
+        "pct": 82
       },
       "playerA": {
         "name": "Cameron Menzies"
@@ -48,19 +48,19 @@
               "name": "Add Selection Win Tips",
               "tips_for": null,
               "tips_total": null,
-              "pct": 89
+              "pct": 82
             },
             {
               "name": "Cameron Menzies",
               "tips_for": null,
               "tips_total": null,
-              "pct": 89
+              "pct": 82
             },
             {
               "name": "Johan Engstrom",
               "tips_for": null,
               "tips_total": null,
-              "pct": 11
+              "pct": 18
             }
           ]
         },
@@ -71,13 +71,13 @@
               "name": "Read More Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 49
+              "pct": 72
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 49
+              "pct": 72
             }
           ]
         },
@@ -86,33 +86,33 @@
           "selections": [
             {
               "name": "Hide Selections Cameron Menzies",
-              "tips_for": 8,
-              "tips_total": 9,
-              "pct": 89
+              "tips_for": 9,
+              "tips_total": 11,
+              "pct": 82
             },
             {
               "name": "View All Tips Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 49
+              "pct": 72
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 49
+              "pct": 72
             },
             {
               "name": "Days Profit",
-              "tips_for": 1,
-              "tips_total": 9,
-              "pct": 11
+              "tips_for": 2,
+              "tips_total": 11,
+              "pct": 18
             },
             {
               "name": "Johan Engstrom",
-              "tips_for": 1,
-              "tips_total": 9,
-              "pct": 11
+              "tips_for": 2,
+              "tips_total": 11,
+              "pct": 18
             },
             {
               "name": "Annual Profit",
@@ -127,7 +127,7 @@
               "pct": 31
             },
             {
-              "name": "Hide Selections Under",
+              "name": "Hide Selections Over",
               "tips_for": 0,
               "tips_total": 0,
               "pct": 0
@@ -268,12 +268,12 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ryan_Joyce_vs_Kim_Huybrechts/15?event_id=31296",
       "matchup": "Ryan Joyce vs Kim Huybrechts",
       "display_time": "13:00",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Kim Huybrechts",
-        "tips_for": 4,
-        "tips_total": 4,
+        "tips_for": 5,
+        "tips_total": 5,
         "pct": 100
       },
       "playerA": {
@@ -323,8 +323,8 @@
           "selections": [
             {
               "name": "Hide Selections Kim Huybrechts",
-              "tips_for": 4,
-              "tips_total": 4,
+              "tips_for": 5,
+              "tips_total": 5,
               "pct": 100
             },
             {
@@ -342,13 +342,13 @@
             {
               "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 4,
+              "tips_total": 5,
               "pct": 0
             },
             {
               "name": "Ryan Joyce",
               "tips_for": 0,
-              "tips_total": 4,
+              "tips_total": 5,
               "pct": 0
             },
             {
@@ -392,31 +392,7 @@
               "pct": 33
             },
             {
-              "name": "Add Ryan Joyce",
-              "tips_for": 1,
-              "tips_total": 3,
-              "pct": 33
-            },
-            {
-              "name": "Annual Profit",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 48
-            },
-            {
-              "name": "Annual Strike Rate",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": 48
-            },
-            {
-              "name": "Days Profit",
-              "tips_for": 1,
-              "tips_total": 3,
-              "pct": null
-            },
-            {
-              "name": "Days Profit",
+              "name": "Add Draw",
               "tips_for": 1,
               "tips_total": 3,
               "pct": 33
@@ -432,6 +408,30 @@
               "tips_for": null,
               "tips_total": null,
               "pct": 60
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Ryan Joyce",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 48
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 48
             }
           ]
         },
@@ -544,7 +544,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Dirk_van_Duijvenbode_vs_Mario_Vandenbogaerde/15?event_id=31297",
       "matchup": "Dirk van Duijvenbode vs Mario Vandenbogaerde",
       "display_time": "19:00",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Dirk van Duijvenbode",
@@ -645,12 +645,6 @@
               "pct": 0
             },
             {
-              "name": "Add Mario Vandenbogaerde",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            },
-            {
               "name": "Add Draw",
               "tips_for": 1,
               "tips_total": 1,
@@ -667,6 +661,18 @@
               "tips_for": null,
               "tips_total": null,
               "pct": 60
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": null
+            },
+            {
+              "name": "Mario Vandenbogaerde",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
             },
             {
               "name": "Hide Selections Dirk",
@@ -763,7 +769,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Rob_Cross_vs_Keane_Barry/15?event_id=31303",
       "matchup": "Rob Cross vs Keane Barry",
       "display_time": "20:30",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Rob Cross",
@@ -988,7 +994,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Kevin_Doets_vs_Ricky_Evans/15?event_id=31298",
       "matchup": "Kevin Doets vs Ricky Evans",
       "display_time": "14:30",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Kevin Doets",
@@ -1207,7 +1213,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Joe_Cullen_vs_Stephen_Burton/15?event_id=31299",
       "matchup": "Joe Cullen vs Stephen Burton",
       "display_time": "15:00",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Joe Cullen",
@@ -1438,7 +1444,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Luke_Woodhouse_vs_Connor_Scutt/15?event_id=31301",
       "matchup": "Luke Woodhouse vs Connor Scutt",
       "display_time": "18:00",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Luke Woodhouse",
@@ -1657,7 +1663,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Niels_Zonneveld_vs_Jeffrey_de_Graaf/15?event_id=31304",
       "matchup": "Niels Zonneveld vs Jeffrey de Graaf",
       "display_time": "21:30",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Jeffrey de Graaf",
@@ -1907,12 +1913,139 @@
       ]
     },
     {
+      "event_id": "31325",
+      "type": "match",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Andrew_Gilding_vs_David_Rosi/15?event_id=31325",
+      "matchup": "Andrew Gilding vs David Rosi",
+      "display_time": "12:30",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Andrew Gilding",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67
+      },
+      "playerA": {
+        "name": "Andrew Gilding"
+      },
+      "playerB": {
+        "name": "David Rosi"
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 67
+            },
+            {
+              "name": "Andrew Gilding",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 67
+            },
+            {
+              "name": "David Rosi",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Andrew Gilding",
+              "tips_for": 2,
+              "tips_total": 3,
+              "pct": 67
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "David Rosi",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        }
+      ]
+    },
+    {
       "event_id": "31300",
       "type": "match",
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Callan_Rydz_vs_Cristo_Reyes/15?event_id=31300",
       "matchup": "Callan Rydz vs Cristo Reyes",
       "display_time": "15:30",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Callan Rydz",
@@ -2188,7 +2321,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Martin_Schindler_vs_Rob_Owen/15?event_id=31295",
       "matchup": "Martin Schindler vs Rob Owen",
       "display_time": "19:30",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Martin Schindler",
@@ -2413,7 +2546,7 @@
       "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Daryl_Gurney_vs_Beau_Greaves/15?event_id=31302",
       "matchup": "Daryl Gurney vs Beau Greaves",
       "display_time": "20:00",
-      "display_date_label": "Tomorrow",
+      "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
         "selection": "Beau Greaves",
@@ -2622,6 +2755,244 @@
         },
         {
           "name": "Most 180s",
+          "selections": []
+        }
+      ]
+    },
+    {
+      "event_id": "31326",
+      "type": "match",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/William_OConnor_vs_Jiri_Brejcha/15?event_id=31326",
+      "matchup": "William OConnor vs Jiri Brejcha",
+      "display_time": "13:30",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "William OConnor",
+        "tips_for": 1,
+        "tips_total": 2,
+        "pct": 50
+      },
+      "playerA": null,
+      "playerB": null,
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            },
+            {
+              "name": "Jiri Brejcha",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections William",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Jiri Brejcha",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        }
+      ]
+    },
+    {
+      "event_id": "31324",
+      "type": "match",
+      "url": "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Niko_Springer_vs_Martin_Homola/15?event_id=31324",
+      "matchup": "Niko Springer vs Martin Homola",
+      "display_time": "14:00",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Niko Springer",
+        "tips_for": 1,
+        "tips_total": 1,
+        "pct": 100
+      },
+      "playerA": {
+        "name": "Niko Springer"
+      },
+      "playerB": {
+        "name": "Martin Homola"
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            },
+            {
+              "name": "Niko Springer",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Niko Springer",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 72
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Martin Homola",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
           "selections": []
         }
       ]
@@ -3642,10 +4013,10 @@
       "display_date_label": "06 Sept",
       "consensus": {
         "market": "Win Tournament",
-        "selection": "Josh Rock",
-        "tips_for": 1,
-        "tips_total": 2,
-        "pct": 50
+        "selection": "Luke Littler",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67
       },
       "playerA": null,
       "playerB": null,
@@ -3658,19 +4029,19 @@
               "name": "Add Selection Win Tips",
               "tips_for": null,
               "tips_total": null,
-              "pct": 50
+              "pct": 67
             },
             {
               "name": "Luke Littler",
               "tips_for": null,
               "tips_total": null,
-              "pct": 50
+              "pct": 67
             },
             {
               "name": "Josh Rock",
               "tips_for": null,
               "tips_total": null,
-              "pct": 50
+              "pct": 33
             }
           ]
         },
@@ -3681,13 +4052,13 @@
               "name": "Read More Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 48
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 48
             }
           ]
         },
@@ -3696,50 +4067,50 @@
           "selections": [
             {
               "name": "Hide Selections Luke Littler",
-              "tips_for": 1,
-              "tips_total": 2,
-              "pct": 50
+              "tips_for": 2,
+              "tips_total": 3,
+              "pct": 67
             },
             {
-              "name": "Annual Profit",
+              "name": "View All Tips Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 48
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 47
+              "pct": 48
             },
             {
               "name": "Days Profit",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             },
             {
               "name": "Luke Humphries",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             },
             {
               "name": "Add Gerwyn Price",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             },
             {
               "name": "Add Wessel Nijman",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             },
             {
               "name": "Add Gary Anderson",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             }
           ]
