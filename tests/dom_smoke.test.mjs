@@ -276,11 +276,16 @@ function makeFetch(counters) {
         },
       });
     }
+    if (u.includes('data/snooker_slate.json')) {
+      // Pin the previously-verified capture: the live slate empties between
+      // tournaments and a DOM test must not depend on what OLBG lists today.
+      return ok(JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/snooker_slate.2026-09-02.CAPTURE.json'), 'utf8')));
+    }
     if (u.includes('data/olbg_sports.json') || u.includes('_slate.json') || u.includes('data/slate.json')
         || u.includes('data/irregularities.json') || u.includes('data/universal_backtest.json')
         || /data\/greyhound_(meetings|history|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/volleyball_')
-        || /data\/snooker_(slate|results|rankings|provenance|predictions|backtest)\.json/.test(u)
+        || /data\/snooker_(results|rankings|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/darts_')
         || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
@@ -587,11 +592,12 @@ test('method.html publishes the real backtest, and never invents an ROI', { skip
 
   assert.match(text, new RegExp(String(bt.overall.n)), 'the graded sample size is shown');
 
-  // Bands must be monotonic in the artifact itself; the page must not claim
-  // otherwise, and must not print a percentage ROI when none was computable.
+  // The artifact is rebuilt daily in CI, so the test must not assert what the
+  // live numbers ARE; it asserts that the page reports honestly whichever way
+  // they fall: "The bands separate" when HIGH > MEDIUM > LOW, and "The bands
+  // do not separate" otherwise. Both outcomes are legitimate; hiding one is not.
   const { HIGH, MEDIUM, LOW } = bt.byBand;
-  assert.ok(HIGH.hitRate > MEDIUM.hitRate, 'HIGH outperforms MEDIUM');
-  assert.ok(MEDIUM.hitRate > LOW.hitRate, 'MEDIUM outperforms LOW');
+  const monotonic = HIGH.hitRate > MEDIUM.hitRate && MEDIUM.hitRate > LOW.hitRate;
 
   if (bt.overall.roi === null) {
     // No ROI is computable, so the column must be absent entirely rather than
@@ -602,7 +608,8 @@ test('method.html publishes the real backtest, and never invents an ROI', { skip
   }
 
   // The verdict must reflect the artifact, not a fixed sentence.
-  assert.match(text, /The bands separate/i);
+  if (monotonic) assert.match(text, /The bands separate/i);
+  else assert.match(text, /The bands do not separate/i);
 });
 
 test('the registry contains no endpoint that the verifier proved dead', { skip: !existsSync(join(ROOT, 'data/leagues.json')) }, async () => {
@@ -797,14 +804,25 @@ test('sport.html?sport=volleyball hands over to the dedicated volleyball page', 
 });
 
 test('ice-hockey.html boots, auto-generates three tips per match and the button re-scores', { skip: !JSDOM }, async () => {
-  const { document } = await bootPage('ice-hockey.html', { search: '?date=2026-10-05' });
+  // The committed fixture window moves with every collector run, so the test
+  // boots the page on whichever date the committed document actually carries
+  // most games for, instead of a date that was true on the day the test was
+  // written.
+  const hockeyDoc = JSON.parse(readFileSync(join(ROOT, 'data/ice_hockey_fixtures.json'), 'utf8'));
+  const byDate = new Map();
+  for (const f of hockeyDoc.fixtures || []) byDate.set(f.dateISO, (byDate.get(f.dateISO) || 0) + 1);
+  const bestDate = [...byDate.entries()].sort((a, b) => b[1] - a[1])[0]?.[0];
+  assert.ok(bestDate, 'the committed hockey fixture list carries at least one dated game');
+  const teamNames = (hockeyDoc.fixtures || []).filter((f) => f.dateISO === bestDate)
+    .flatMap((f) => [f.home?.name, f.away?.name]).filter(Boolean);
+  const { document } = await bootPage('ice-hockey.html', { search: `?date=${bestDate}` });
   try {
     assert.ok(document.querySelector('.masthead'), 'masthead rendered');
     assert.ok(document.querySelectorAll('.sportrail a').length >= 20, 'every sport is in the rail');
 
     const rows = document.querySelectorAll('.match');
     assert.ok(rows.length >= 1, `at least one match row rendered (found ${rows.length})`);
-    assert.match(document.body.textContent, /Ottawa Senators|Tampa Bay Lightning|Boston Bruins/);
+    assert.ok(teamNames.some((n) => document.body.textContent.includes(n)), 'a committed team name renders');
 
     // Predictions were generated automatically, without pressing anything.
     const tips = [...document.querySelectorAll('.tipbox .tip-box')];
