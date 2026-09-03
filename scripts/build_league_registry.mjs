@@ -18,12 +18,28 @@
 
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { dirname } from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { SPORTS, ESPN_SITE_BASE, ESPN_CORE_BASE } from '../engine/registry.js';
 import { espnSportFor } from '../engine/universal_engine.js';
 
 const OUT = argValue('--out') || 'data/leagues.json';
 const TIMEOUT = 20000;
 const CONCURRENCY = 6;
+
+/**
+ * The scoreboard URL to prove a candidate league against.
+ *
+ * Most sports are addressed by a text slug (`football/eng.1`). Cricket is not:
+ * ESPN addresses it by numeric series or league id, and its own slug for the
+ * Vitality Blast is `8053`, so `cricket/t20-blast/scoreboard` does not exist and
+ * probing it recorded a live league as dead. A candidate may therefore declare
+ * the segment to probe with `espnSeriesId` or `espnLeagueId`; `slug` stays the
+ * identity the site uses for the league either way.
+ */
+export function scoreboardUrl(candidate, espnSport, dateStamp) {
+  const segment = String(candidate.espnSeriesId ?? candidate.espnLeagueId ?? candidate.slug);
+  return `${ESPN_SITE_BASE}/${espnSport}/${segment}/scoreboard?dates=${dateStamp}`;
+}
 
 function argValue(flag) {
   const i = process.argv.indexOf(flag);
@@ -101,7 +117,7 @@ async function main() {
     }
 
     const rows = await pool(candidates, CONCURRENCY, async (c) => {
-      const url = `${ESPN_SITE_BASE}/${espnSport}/${c.slug}/scoreboard?dates=${stamp}`;
+      const url = scoreboardUrl(c, espnSport, stamp);
       const r = await getJSON(url);
       const leagueNode = Array.isArray(r.data?.leagues) ? r.data.leagues[0] : null;
       const events = Array.isArray(r.data?.events) ? r.data.events.length : 0;
@@ -138,4 +154,7 @@ async function main() {
   process.stderr.write(`\nwrote ${OUT}: ${out.summary.ok}/${out.summary.checked} leagues verified\n`);
 }
 
-main().catch((e) => { console.error(e); process.exit(1); });
+// Importable for its pure helpers without triggering a network run.
+const invokedDirectly = Boolean(process.argv[1])
+  && import.meta.url === pathToFileURL(process.argv[1]).href;
+if (invokedDirectly) main().catch((e) => { console.error(e); process.exit(1); });

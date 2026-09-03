@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-03T18:47:30.707Z",
+  "generated_at_utc": "2026-09-03T20:49:56.702Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -1086,7 +1086,20 @@
     "cricket": {
       "espnSport": "cricket",
       "threeWay": false,
-      "leagues": []
+      "leagues": [
+        {
+          "slug": "t20-blast",
+          "name": "Twenty20 Cup (England)",
+          "candidateName": "T20 Blast (Vitality Blast, men)",
+          "espnLeagueId": "8053",
+          "ok": true,
+          "status": 200,
+          "error": null,
+          "eventsOnCheckDate": 0,
+          "oddsSeen": false,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/cricket/1512690/scoreboard?dates=20260903"
+        }
+      ]
     },
     "motor-racing": {
       "espnSport": "racing",
@@ -1245,8 +1258,8 @@
     }
   },
   "summary": {
-    "checked": 94,
-    "ok": 94,
+    "checked": 95,
+    "ok": 95,
     "failed": 0
   }
 }

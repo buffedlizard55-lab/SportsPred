@@ -18,11 +18,48 @@ import { fixturesFromSlate } from '../engine/darts_data.js';
 const DATA = join(dirname(fileURLToPath(import.meta.url)), '..', 'data');
 const load = (f) => JSON.parse(readFileSync(join(DATA, f), 'utf8'));
 
-test('live slate contains only outrights — no invented Czech Open pairings', () => {
+/**
+ * The slate is whatever OLBG was carrying when it was collected: outrights only
+ * on a quiet day, thirteen real first-round pairings during a tournament. The
+ * old assertion pinned the quiet-day shape (`fx.length === 0`) and so broke on
+ * the next refresh even though nothing was wrong with the data. What must never
+ * change is the reason a fixture exists at all — a sourced OLBG event — so that
+ * is what is asserted here, over whatever the refresh left behind.
+ */
+test('every live-slate fixture traces to a sourced OLBG event — no invented pairings', () => {
   const slate = load('darts_slate.json');
   const fx = fixturesFromSlate(slate);
-  assert.equal(fx.length, 0, 'OLBG carried no two-player match events; pairings must not be invented');
-  assert.ok((slate.events || []).every((e) => e.type === 'outright' || !e.playerA));
+
+  const sourced = (slate.events || []).filter((e) => e.type !== 'outright' && e.event_id && e.url);
+  assert.equal(
+    fx.length,
+    sourced.length,
+    'one fixture per sourced non-outright event — none invented, none dropped',
+  );
+
+  const outrightIds = new Set(
+    (slate.events || []).filter((e) => e.type === 'outright').map((e) => `olbg-${e.event_id}`),
+  );
+
+  for (const f of fx) {
+    assert.match(String(f.id), /^olbg-\d+$/, `fixture id carries its OLBG event id: ${f.id}`);
+    assert.ok(!outrightIds.has(f.id), 'an outright market is never turned into a two-player fixture');
+
+    const ev = sourced.find((e) => `olbg-${e.event_id}` === f.id);
+    assert.ok(ev, `fixture ${f.id} has the slate event it came from`);
+    assert.ok((f.sourceUrls || []).includes(ev.url), `fixture ${f.id} links the event it came from`);
+
+    // Both names must be the ones OLBG published — nothing supplied locally.
+    for (const name of [f.playerA.name, f.playerB.name]) {
+      const declared = [ev.playerA?.name, ev.playerB?.name].filter(Boolean);
+      assert.ok(
+        String(ev.matchup || '').includes(name) || declared.includes(name),
+        `${name} comes from sourced event ${ev.event_id} ("${ev.matchup}")`,
+      );
+    }
+  }
+
+  // Consensus is displayed; the slate never carries prices.
   const blob = JSON.stringify(slate).toLowerCase();
   assert.ok(!blob.includes('"odds"') && !blob.includes('"american_odds"'), 'slate carries no price fields');
 });
@@ -34,7 +71,20 @@ test('committed tape produces a valid walk-forward written card', () => {
     rankings: load('darts_rankings.json'),
   };
   const live = buildDartsCard(docs, {});
-  assert.equal(live.scored.length, 0);
+  // Scores exactly the sourced slate — nothing on a quiet day, one card per
+  // OLBG match event during a tournament. Either way nothing is added.
+  assert.equal(
+    live.scored.length,
+    fixturesFromSlate(docs.slate).length,
+    'the live card scores every sourced fixture and invents none',
+  );
+  for (const s of live.scored) {
+    assert.match(String(s.matchId), /^olbg-\d+$/, `scored card keeps its OLBG event id: ${s.matchId}`);
+    assert.ok(
+      (s.sourceUrls || []).some((u) => String(u).includes('olbg.com')),
+      `scored card ${s.matchId} carries the OLBG review link`,
+    );
+  }
   assert.equal(live.written.validation.ok, true, JSON.stringify(live.written.validation.issues));
 
   const hist = scoreTapeLeans(docs, { asOfISO: '2026-08-30' });

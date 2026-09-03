@@ -47,7 +47,7 @@ jobs:
       # validators.
       - name: Tests must pass before collecting
         run: |
-          node --test tests/*.test.mjs
+          node scripts/ci_node_tests.mjs
           python3 -m unittest discover -s tests -p 'test_*.py'
           python3 scripts/build_data.py --strict
 

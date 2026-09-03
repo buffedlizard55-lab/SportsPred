@@ -1064,6 +1064,20 @@ function renderCricketOlbg(summaryEl, eventsEl, openBtn, titleEl) {
 
 function autoGeneratePredictions() {
   if (state.sport === 'cricket') {
+    // This used to call renderCricketPredictions() alone, which only repaints
+    // whatever the last date-load produced. If that load found no snapshot
+    // matches, or the live collection was blocked, state.writtenCard stayed
+    // empty and the button could never recover: it printed "No predictions
+    // generated yet. Click Generate Predictions." in reply to being clicked.
+    // The button now does the work itself, exactly as the handball branch does.
+    if (!state.currentMatches?.length) {
+      renderCricketPredictions();
+      return;
+    }
+    const scored = scoreCricketCard(state.currentMatches);
+    state.scoredCard = scored;
+    state.writtenCard = writeCricketCard(scored.results);
+    state.cricketGeneratedAt = new Date().toISOString();
     renderCricketPredictions();
     return;
   }
@@ -1237,6 +1251,27 @@ function renderCricketPredictions() {
   const skips = tips.filter((t) => t.ok && t.skip);
 
   hint.textContent = `${validTips.length} tips generated · ${skips.length} SKIPs · min 40 words · ruleset ${CR_RULESET_VERSION}${state.cricketUseLive ? ' · live ESPN data' : ' · verified snapshot'}`;
+
+  // When every market on every fixture is a SKIP, the cause is almost always
+  // that the fixture carries no sourced inputs at all — no form, no head-to-head,
+  // no line-up. A wall of identical SKIP cards hides that, and reads as a broken
+  // button. Say what is missing and where it would come from instead.
+  const results = state.scoredCard?.results || [];
+  if (results.length && !validTips.length) {
+    const missingCounts = new Map();
+    for (const { result } of results) {
+      for (const m of result?.missing || []) missingCounts.set(m, (missingCounts.get(m) || 0) + 1);
+    }
+    const topMissing = [...missingCounts.entries()].sort((a, b) => b[1] - a[1]).slice(0, 8);
+    warns.innerHTML = `
+      <div class="info-box" style="border-color:var(--accent-primary)">
+        <strong>No tip could be written for this slate — and that is a data gap, not a scoring failure.</strong>
+        <p style="margin:8px 0 4px">Every market on all ${results.length} fixture(s) resolved to SKIP because the sourced inputs the rubric requires are absent. The engine will not invent a form guide, a head-to-head record, a line-up or a price, so it withholds the market instead.</p>
+        ${topMissing.length ? `<p style="margin:4px 0"><strong>Missing across this slate:</strong></p><ul style="margin:4px 0 4px 18px">${topMissing.map(([m, n]) => `<li><code>${esc(m)}</code> — absent on ${n} fixture(s)</li>`).join('')}</ul>` : ''}
+        <p style="margin:8px 0 0"><strong>Remediation:</strong> run the collector for this competition so the snapshot carries results-derived form and head-to-head, then generate again. Fixtures whose evidence is present do produce tips — the T20 Blast page scores 48 of 96 verified 2026 fixtures from exactly that kind of results-derived evidence.</p>
+      </div>
+    `;
+  }
 
   warns.innerHTML = `
     <div class="info-box">

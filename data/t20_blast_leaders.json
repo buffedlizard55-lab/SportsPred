@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "sport": "Cricket",
+  "competition": "T20 Blast (Vitality Blast, men)",
+  "season": 2026,
+  "generated_at_utc": "2026-09-03T21:00:00Z",
+  "note": "Only figures a source printed. There is no per-match player tape in this pass, so player markets are settled only where a source named the performer (see docs/T20_BLAST_BACKTEST.md).",
+  "source": {
+    "name": "ESPNcricinfo series statistics rail + Wikipedia season infobox",
+    "url": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results",
+    "fetched_at_utc": "2026-09-03T21:00:00Z"
+  },
+  "most_runs": {
+    "player": "Joe Weatherley",
+    "team": "Hampshire",
+    "value": 591,
+    "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+  },
+  "most_wickets": {
+    "player": "Hasan Ali",
+    "team": "Yorkshire",
+    "value": 27,
+    "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+  },
+  "batting": [
+    {
+      "player": "Joe Weatherley",
+      "team": "Hampshire",
+      "runs": 591,
+      "innings": 15,
+      "average": 49.25,
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    },
+    {
+      "player": "Beau Webster",
+      "team": "Warwickshire",
+      "runs": 578,
+      "innings": 12,
+      "average": 48.16,
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    },
+    {
+      "player": "Chris Lynn",
+      "team": "Northamptonshire",
+      "runs": 518,
+      "innings": 13,
+      "average": 47.09,
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    }
+  ],
+  "bowling": [
+    {
+      "player": "Hasan Ali",
+      "team": "Yorkshire",
+      "wickets": 27,
+      "innings": 12,
+      "average": 13.07,
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    },
+    {
+      "player": "Scott Currie",
+      "team": "Hampshire",
+      "wickets": 26,
+      "innings": 15,
+      "average": 16.03,
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    },
+    {
+      "player": "James Sales",
+      "team": "Northamptonshire",
+      "wickets": 25,
+      "innings": 14,
+      "average": 16.04,
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results"
+    }
+  ],
+  "knockout_performances": [
+    {
+      "stage": "quarter-final 1",
+      "player": "James Vince",
+      "team": "Hampshire",
+      "detail": "125 off 61 balls",
+      "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    },
+    {
+      "stage": "quarter-final 1",
+      "player": "Sonny Baker",
+      "team": "Hampshire",
+      "detail": "5 for 24 off 4 overs",
+      "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    },
+    {
+      "stage": "quarter-final 1",
+      "player": "Charlie Allison",
+      "team": "Essex",
+      "detail": "44 off 33 balls",
+      "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    },
+    {
+      "stage": "quarter-final 3",
+      "player": "Jack Haynes",
+      "team": "Nottinghamshire",
+      "detail": "75 not out off 55 balls",
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/nottinghamshire-vs-surrey-3rd-quarter-final-1512885/full-scorecard"
+    },
+    {
+      "stage": "quarter-final 3",
+      "player": "Jason Roy",
+      "team": "Surrey",
+      "detail": "76 off 50 balls",
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/nottinghamshire-vs-surrey-3rd-quarter-final-1512885/full-scorecard"
+    },
+    {
+      "stage": "quarter-final 3",
+      "player": "Chris Jordan",
+      "team": "Surrey",
+      "detail": "3 for 22 off 4 overs",
+      "source": "https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/nottinghamshire-vs-surrey-3rd-quarter-final-1512885/full-scorecard"
+    },
+    {
+      "stage": "semi-final 2",
+      "player": "Joe Weatherley",
+      "team": "Hampshire",
+      "detail": "88 not out off 58 balls",
+      "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    },
+    {
+      "stage": "semi-final 2",
+      "player": "Joe Clarke",
+      "team": "Nottinghamshire",
+      "detail": "64 off 43 balls",
+      "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    },
+    {
+      "stage": "semi-final 2",
+      "player": "James Fuller",
+      "team": "Hampshire",
+      "detail": "4 for 26 off 3.5 overs",
+      "source": "https://en.wikipedia.org/wiki/2026_T20_Blast"
+    }
+  ]
+}

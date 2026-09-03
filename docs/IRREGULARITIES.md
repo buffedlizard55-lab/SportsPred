@@ -238,6 +238,56 @@ What remains outside the code itself is repository configuration: the public
 Pages site is still verified as **legacy** deployment from `main` until the
 Pages source is switched to **GitHub Actions**.
 
+### IR-21 — Snapshot-pinned tests turned a correct daily data refresh into a red build · HIGH · FIXED
+
+On 2026-09-03 the collector committed `379099d chore(data): refresh slate and
+recorded predictions`, rewriting `data/cricket_slate.json` and `data/darts_slate.json`.
+Nothing in that refresh was wrong: the Czech Darts Open first-round draw had been
+published (IR-DARTS-06 in [DARTS_IRREGULARITIES.md](DARTS_IRREGULARITIES.md)) and
+an England Women OLBG market had expired the day after the match (CR-IR-09 in
+[CRICKET_IRREGULARITIES.md](CRICKET_IRREGULARITIES.md)). Three tests had asserted
+the *contents* of the previous day's snapshots rather than an invariant, so the
+suite went red on correct data:
+
+- `fixturesFromSlate(slate).length === 0` — became `13 !== 0`
+- `buildDartsCard(docs, {}).scored.length === 0` — became `13 !== 0`
+- a join pinned to OLBG event `188611` — became `null`
+
+**Blast radius.** Every workflow gated on "Tests must pass" failed on `main`:
+`Build precomputed data` at 08:55Z and `Collect baseball data` at 19:29Z, both at
+their test step, with all downstream collection and commit steps skipped. Because
+a `pull_request` run checks out the *merge* of the branch into `main`, the red
+gate also blocked PR #23 — whose own changes were unrelated to all three tests.
+A stale assertion on `main` therefore blocks every open PR and every collector
+until someone fixes it, which is disproportionate for a test that was checking
+the weather rather than the plumbing.
+
+**Second finding — the failure was unreadable.** Job logs are served from blob
+storage that is not reachable from the working environment, so the red run
+reported only `Process completed with exit code 1` with no test name attached,
+and `gh run rerun --failed` was refused. Diagnosis took the check-run annotation
+API instead, which is reachable.
+
+**Fix.** `scripts/ci_node_tests.mjs` now runs the suite for CI — one `node --test`
+process over every `tests/*.test.mjs` file, as the top-level-await tests require —
+and on failure mirrors the failing test names, the TAP diagnostic block, the suite
+summary and a runtime snapshot (node version, cpu count, `availableParallelism`,
+free memory) into `::error::` annotations before dumping the log. Annotations go
+out first because a long log can have its trailing workflow commands dropped, the
+child's output is captured through a temp file descriptor so a killed run cannot
+take the wrapper with it, and stdout is written synchronously because
+`process.exit()` does not drain a pipe. The exit code is always the suite's own,
+so a red suite stays red. The three tests were rewritten to assert provenance:
+every fixture traces to a sourced OLBG event carrying its `event_id` and review
+URL, an outright never becomes a two-player fixture, a join can only resolve to
+an event that is on the slate, and the tolerant name join is proved by replaying
+the real expired event record as collected.
+
+**Standing rule.** No test may pin a market id, a slate membership or a fixture
+count that the daily collector can legitimately change. Assert provenance and
+invariants; derive counts from the committed document. If a test needs a specific
+market to exist, replay the collected record instead of reading today's slate.
+
 ---
 
 ### Rugby League — specialist engine (v1.0, 2026-09-02)

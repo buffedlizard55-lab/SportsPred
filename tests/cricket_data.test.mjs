@@ -39,11 +39,60 @@ test('buildCricketCardForDate returns scored + written card', () => {
   assert.ok(card.written.tips.length === 16); // 4 matches x 4 markets
 });
 
+/**
+ * The committed slate only carries markets that are still open, so a pinned
+ * event id has a shelf life of one match: OLBG 188611 dropped off the slate the
+ * day England Women played Ireland Women, and the test that looked for it then
+ * failed on every refresh even though the join was still correct. The event
+ * record below is the real one as collected (recovered from the slate snapshot
+ * committed at 4af10c7), so the join is proved against the actual OLBG naming —
+ * "England W" against the fixture's "England Women" — without depending on the
+ * market still being open.
+ */
+const ENGLAND_W_V_IRELAND_W = {
+  event_id: '188611',
+  sport: 'Cricket',
+  type: 'match',
+  home: 'England W',
+  away: 'Ireland W',
+  url: 'https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/England_W_vs_Ireland_W_2nd_ODI/7?event_id=188611',
+  slug: 'England_W_vs_Ireland_W_2nd_ODI',
+  resolved_date: '2026-09-02',
+};
+
 test('OLBG overlay matches the England Women fixture by tolerant name join', () => {
-  const m = matches.matches.find((x) => x.olbg_event_id === null && x.league.includes('Ireland Women'));
-  const overlay = matchCricketSlate(m, slate);
+  const m = matches.matches.find((x) => String(x.league || '').includes('Ireland Women'));
+  assert.ok(m, 'the England Women v Ireland Women fixture is on the committed snapshot');
+  const overlay = matchCricketSlate(m, { events: [ENGLAND_W_V_IRELAND_W] });
   assert.ok(overlay, 'should join England Women v Ireland Women to OLBG 188611');
   assert.equal(overlay.event_id, '188611');
+});
+
+test('tolerant join ignores orientation and refuses an unrelated market', () => {
+  const m = { home: 'England Women', away: 'Ireland Women' };
+
+  const reversed = { ...ENGLAND_W_V_IRELAND_W, event_id: 'R1', home: 'Ireland W', away: 'England W' };
+  assert.equal(matchCricketSlate(m, { events: [reversed] })?.event_id, 'R1', 'home/away order does not matter');
+
+  const unrelated = { ...ENGLAND_W_V_IRELAND_W, event_id: 'U1', home: 'Australia', away: 'New Zealand' };
+  assert.equal(matchCricketSlate(m, { events: [unrelated] }), null, 'an unrelated market is never joined');
+
+  assert.equal(matchCricketSlate(m, { events: [] }), null);
+  assert.equal(matchCricketSlate(m, {}), null);
+  assert.equal(matchCricketSlate(m, null), null);
+});
+
+test('a committed fixture only ever joins to an event that is on the slate', () => {
+  // The overlay is rendered as sourced consensus, so a join resolving to
+  // anything other than a real slate event would put invented market data on
+  // the page. Checked over whatever the latest refresh left on the slate.
+  for (const m of matches.matches) {
+    const overlay = matchCricketSlate(m, slate);
+    if (!overlay) continue;
+    assert.ok(slate.events.includes(overlay), `${m.home} v ${m.away} joined to an off-slate event`);
+    assert.ok(overlay.event_id, `${m.home} v ${m.away} overlay carries its OLBG event id`);
+    assert.ok(String(overlay.url).includes('olbg.com'), `${m.home} v ${m.away} overlay carries the review link`);
+  }
 });
 
 test('enrichCricketMatch attaches an overlay or null without throwing', () => {

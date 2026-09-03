@@ -313,11 +313,44 @@ export const SPORTS = [
     predictable: true,
     unit: 'runs',
     specialistEngine: 'cricket',
+    subPages: [
+      { key: 'cricket-console', label: 'Cricket console', href: 'pro.html', name: 'Specialist cricket, handball, tennis and F1 console' },
+      { key: 't20-blast', label: 'T20 Blast', href: 't20-blast.html', name: 'T20 Blast (Vitality Blast, men) — England & Wales' },
+    ],
     officialLinks: [
       { label: 'ESPNcricinfo Live Scores', url: 'https://www.espncricinfo.com/live-cricket-score' },
+      { label: 'T20 Blast points table (ESPNcricinfo)', url: 'https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings' },
+      { label: 'ECB T20 Blast', url: 'https://www.ecb.co.uk/t20-blast' },
       { label: 'OLBG Cricket Tips', url: olbgUrl('Cricket', 7) },
     ],
-    candidateLeagues: [],
+    notes: [
+      'The T20 Blast has its own sub-page (t20-blast.html) scored by the T20 BLAST (ENGLAND & WALES) CRICKET PREDICTION MASTER PROMPT v1.0: four markets per fixture (WIN MATCH, MAN OF THE MATCH, TOP TEAM 1 BATSMAN, TOP TEAM 2 BATSMAN) over a verified 96-fixture 2026 tape read from the ESPNcricinfo points tables and series fixtures page.',
+      'Two scores are published side by side. The rubric exactly as the master prompt writes it resolves to SKIP on every fixture, because three of its five WIN factors — bowling matchup scouting, batting depth from individual form, and bookmaker odds — have no free key-less source for county cricket. A declared evidence model built only from verified results (form, season points rate, head-to-head, the league measured home-win rate, winning margins, rest) is what produces tips. Neither path invents a value.',
+      'A walk-forward backtest over the 2026 tape caps published confidence at MEDIUM: the HIGH tier hit 40% over 20 fixtures against MEDIUM at 65%, and the model showed no edge over simply backing the home county. Those numbers are printed on every card rather than hidden.',
+    ],
+    candidateLeagues: [
+      {
+        slug: 't20-blast',
+        name: 'T20 Blast (Vitality Blast, men)',
+        country: 'England & Wales',
+        // Verified against the live scoreboard payload for series 1512690 and
+        // the structured standings endpoint for league 8053 (2026-09-03).
+        espnLeagueId: '8053',
+        espnSeriesId: '1512690',
+        season: 2026,
+        teams: 18,
+        format: 'T20',
+        predictable: true,
+        dedicatedPage: 't20-blast.html',
+        dataPrefix: 't20_blast',
+        sources: {
+          standings_api: 'https://site.web.api.espn.com/apis/v2/sports/cricket/8053/standings?season=2026',
+          scoreboard_api: 'https://site.web.api.espn.com/apis/site/v2/sports/cricket/1512690/scoreboard?dates=YYYYMMDD',
+          points_table: 'https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/points-table-standings',
+          fixtures: 'https://www.espncricinfo.com/series/vitality-blast-men-2026-1512690/match-schedule-fixtures-and-results',
+        },
+      },
+    ],
     scorepanel: 'https://site.web.api.espn.com/apis/site/v2/sports/cricket/scorepanel',
   },
   {

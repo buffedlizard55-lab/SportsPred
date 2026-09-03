@@ -55,7 +55,7 @@ jobs:
 
       - name: Tests must pass before anything is written
         run: |
-          node --test tests/*.test.mjs
+          node scripts/ci_node_tests.mjs
           python3 -m unittest discover -s tests -p 'test_*.py'
 
       - name: Static site verification (selectors, links, JSON, module graph)
@@ -91,7 +91,7 @@ jobs:
 
       - name: Re-run tests against the freshly built data
         run: |
-          node --test tests/*.test.mjs
+          node scripts/ci_node_tests.mjs
           node scripts/verify_site.mjs
 
       - name: Commit only if something actually changed
