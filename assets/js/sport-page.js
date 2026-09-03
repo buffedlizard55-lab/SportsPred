@@ -542,12 +542,18 @@ function detailHtml(matchId) {
       <td>${mk.selection ? esc(mk.selection) : '<span class="badge SKIP">SKIP</span>'}</td>
       <td class="num">${mk.band && mk.band !== 'SKIP' ? `<span class="badge ${esc(mk.band)}">${esc(mk.band)}</span> ${mk.score}` : '—'}</td></tr>`).join('');
 
-  const priceLine = m.odds?.moneyline?.home
-    ? `Prices via ESPN from <strong>${esc(m.odds.provider || 'the listed sportsbook')}</strong>:
-       ${esc(m.home.name)} ${m.odds.moneyline.home.decimal}
-       ${m.odds.moneyline.draw ? `· Draw ${m.odds.moneyline.draw.decimal}` : ''}
-       · ${esc(m.away.name)} ${m.odds.moneyline.away?.decimal ?? '—'}`
-    : 'No price is published for this fixture in the free feed, so every price rule was skipped rather than guessed.';
+  // NBA v5 keeps odds, scores, factor breakdowns and source names out of the
+  // copy-ready prediction surface. They remain available in the repository's
+  // provenance records and official review links, but are never leaked into
+  // the written tip UI.
+  const priceLine = state.sport.key === 'basketball'
+    ? 'NBA v5 display policy: internal factors and price figures are withheld from the written tip. Review the linked official sources and the data-quality notice for unavailable inputs.'
+    : m.odds?.moneyline?.home
+      ? `Prices via ESPN from <strong>${esc(m.odds.provider || 'the listed sportsbook')}</strong>:
+         ${esc(m.home.name)} ${m.odds.moneyline.home.decimal}
+         ${m.odds.moneyline.draw ? `· Draw ${m.odds.moneyline.draw.decimal}` : ''}
+         · ${esc(m.away.name)} ${m.odds.moneyline.away?.decimal ?? '—'}`
+      : 'No price is published for this fixture in the free feed, so every price rule was skipped rather than guessed.';
 
   return `
   <div class="detail-grid">
@@ -569,10 +575,10 @@ function detailHtml(matchId) {
     <div>
       <table class="kv"><thead><tr><th>Market</th><th>Selection</th><th class="num">Confidence</th></tr></thead>
         <tbody>${marketRows}</tbody></table>
-      <table class="kv" style="margin-top:12px">
+      ${state.sport.key === 'basketball' ? '' : `<table class="kv" style="margin-top:12px">
         <thead><tr><th>Signal (rule · source)</th><th class="num">Log-odds</th></tr></thead>
         <tbody>${signals || '<tr><td colspan="2" class="meta-line">No signal fired.</td></tr>'}</tbody>
-      </table>
+      </table>`}
       ${missing ? `<p class="meta-line" style="margin-top:10px"><strong>Not available for this fixture</strong></p><ul class="miss">${missing}</ul>` : ''}
     </div>
   </div>`;
