@@ -146,7 +146,9 @@ export const SPORTS = [
   {
     key: 'basketball',
     name: 'Basketball',
-    short: 'NBA / NCAA',
+    short: 'NBA / WNBA / NCAA',
+    promptVersion: 'NBA v5.0 review',
+    rulesetVersion: 'universal-v1.0',
     icon: '🏀',
     olbgSlug: 'Basketball',
     olbgId: 4,
@@ -164,6 +166,9 @@ export const SPORTS = [
       { slug: 'mens-college-basketball', name: "NCAA Men's Basketball" },
       { slug: 'womens-college-basketball', name: "NCAA Women's Basketball" },
       { slug: 'nba-development', name: 'NBA G League' },
+    ],
+    notes: [
+      'Basketball is currently served by the universal sourced engine. The NBA v5 review is documented in docs/NBA_PROMPT_REVIEW.md. Unsupported inputs such as two-source closing odds, date-specific player availability, ATS history, pace, and head-to-head are never inferred; affected markets are withheld rather than fabricated.',
     ],
   },
   {
