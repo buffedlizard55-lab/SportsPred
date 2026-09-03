@@ -338,6 +338,9 @@ function renderStaticParts() {
   $('#sport-links').innerHTML = links;
   if (s.notes?.length) {
     $('#sport-notes').innerHTML = s.notes.map((n) => `<div class="note">${esc(n)}</div>`).join('');
+    if (s.key === 'basketball') {
+      $('#sport-notes').innerHTML += '<div class="note info"><strong>NBA v5 audit:</strong> unsupported inputs are withheld, never guessed. Read the <a href="docs/NBA_PROMPT_REVIEW.md">requirement matrix and source limitations</a>.</div>';
+    }
   }
 }
 
