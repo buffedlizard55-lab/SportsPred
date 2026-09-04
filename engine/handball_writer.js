@@ -340,7 +340,6 @@ function injuryClause(fav, dog) {
   if (dog?.injuries?.keyAttackingAbsence) return `the opposition are short of attacking options, which limits their scope to keep pace`;
   if (dog?.injuries?.keyDefensiveAbsence) return `the opposition are short of defensive cover, which should open up scoring lanes`;
   if (fav?.injuries?.keyAbsence) return `the selection are not at full strength, which is why this is not rated any higher`;
-  if (fav?.injuries?.fullyFit) return `the selection have a fully available squad`;
   return null;
 }
 
@@ -442,6 +441,7 @@ function buildHandballAnalyticalBody(market, result, match) {
     clauses.push(injuryClause(fav, dog));
   }
 
+  clauses.push(respectClause(fav, dog, market));
   clauses.push(missingClause(result));
 
   const names = [fav?.name, dog?.name, home?.name, away?.name].filter(Boolean);
@@ -487,10 +487,10 @@ export function writeHandballTip({ match, result, market, angle }) {
   const pickLead = market === 'win_match'
     ? `${boldedOutcome} is the preferred outright pick.`
     : market === 'handicap_spread'
-      ? `${boldedOutcome} is favored.`
+      ? `${boldedOutcome} is the preferred margin outcome.`
       : String(m.selection || '').toLowerCase() === 'over'
-        ? '**Both teams to score OVER** is the preferred total.'
-        : `${boldedOutcome} is the preferred total.`;
+        ? '**OVER** is the preferred total outcome.'
+        : '**UNDER** is the preferred total outcome.';
 
   // The angle word is recorded for uniqueness accounting. It is NOT printed as
   // a canned opener ("Defensive organisation is the starting point here") —

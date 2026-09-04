@@ -263,7 +263,6 @@ async function setSport(sportId) {
 
 async function loadDate(dateISO) {
   state.date = dateISO;
-  persistConsoleUrl();
   state.loading = true;
   showProgress(`Loading ${dateISO} for ${getSportConfig(state.sport).name}…`, 25);
 
@@ -273,7 +272,6 @@ async function loadDate(dateISO) {
     loadHandballDate(dateISO);
     if (state.date !== dateISO) {
       dateISO = state.date;
-      persistConsoleUrl();
       const input = $('#date-input');
       if (input) input.value = dateISO;
     }
@@ -283,6 +281,7 @@ async function loadDate(dateISO) {
     await loadTennisDate(dateISO);
   }
 
+  persistConsoleUrl();
   hideProgress();
   state.loading = false;
 
@@ -300,6 +299,23 @@ function nearestHandballDate(dateISO) {
   return dates[dates.length - 1];
 }
 
+function richestUpcomingHandballDate() {
+  const counts = new Map();
+  for (const m of state.handballMatches?.matches || []) {
+    if (m.phase === 'results' || !m.date) continue;
+    counts.set(m.date, (counts.get(m.date) || 0) + 1);
+  }
+  let best = null;
+  let n = 0;
+  for (const [d, c] of counts) {
+    if (c > n || (c === n && (!best || d < best))) {
+      best = d;
+      n = c;
+    }
+  }
+  return best;
+}
+
 function loadHandballDate(dateISO) {
   let cardData = buildHandballCardForDate(
     dateISO,
@@ -308,11 +324,14 @@ function loadHandballDate(dateISO) {
     state.handballSlate
   );
 
-  // Landing UX: an empty day makes Generate look broken. Hop once to the
-  // nearest sourced slate date rather than inventing fixtures.
-  if (!cardData.matches.length) {
-    const hop = nearestHandballDate(dateISO);
+  // Landing UX: an empty or one-match day makes Generate look broken. Hop
+  // once to the richest sourced slate rather than inventing fixtures.
+  const upcoming = (cardData.matches || []).filter((m) => m.phase === 'upcoming').length;
+  const shouldHop = !cardData.matches.length || (!state.handballHopped && upcoming < 3);
+  if (shouldHop) {
+    const hop = richestUpcomingHandballDate() || nearestHandballDate(dateISO);
     if (hop && hop !== dateISO) {
+      state.handballHopped = true;
       state.date = hop;
       state.calMonth = new Date(`${hop}T12:00:00Z`);
       cardData = buildHandballCardForDate(

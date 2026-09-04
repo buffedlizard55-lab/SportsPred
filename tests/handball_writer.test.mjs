@@ -139,8 +139,10 @@ describe('Handball Writer — OLBG house style and evidence grounding', () => {
 
   it('states the selection in the opening sentence, OLBG style', () => {
     assert.match(byMarket.win_match.text, /^\*\*Aalborg Handbold\*\* is the preferred outright pick\./);
-    assert.match(byMarket.handicap_spread.text, /^\*\*Aalborg Handbold to cover\*\* is favored\./);
-    assert.match(byMarket.game_total.text, /^\*\*Both teams to score OVER\*\* is the preferred total\.|^\*\*Under\*\* is the preferred total\./);
+    assert.match(byMarket.handicap_spread.text, /^\*\*Aalborg Handbold to cover\*\* is the preferred margin outcome\./);
+    assert.match(byMarket.game_total.text, /^\*\*(OVER|UNDER)\*\* is the preferred total outcome\./);
+    assert.match(byMarket.win_match.text, /can compete for stretches/);
+    assert.match(byMarket.handicap_spread.text, /should have competitive periods/);
   });
 
   it('every factual clause traces to a sourced value in the fixture data', () => {
