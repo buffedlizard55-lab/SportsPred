@@ -2,14 +2,14 @@
   "schema_version": 1,
   "sport": "Gaelic Football",
   "code": "football",
-  "as_of_utc": "2026-09-04T13:28:42Z",
+  "as_of_utc": "2026-09-04T19:50:02Z",
   "source": {
     "name": "OLBG \u2014 Gaelic Football Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
     "indexes": [
       "https://www.olbg.com/betting-tips/Gaelic_Football/25"
     ],
-    "fetched_at_utc": "2026-09-04T13:28:42Z",
+    "fetched_at_utc": "2026-09-04T19:50:02Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -29,10 +29,10 @@
       "display_date_label": "Tomorrow",
       "consensus": {
         "market": null,
-        "selection": "Draw 7/11 Win Tips 64% Add",
-        "tips_for": 7,
-        "tips_total": 11,
-        "pct": 64
+        "selection": "Draw 8/12 Win Tips 67% Add",
+        "tips_for": 8,
+        "tips_total": 12,
+        "pct": 67
       },
       "teamA": {
         "name": "Shelmaliers"
@@ -183,10 +183,10 @@
       "display_date_label": "Tomorrow",
       "consensus": {
         "market": null,
-        "selection": "Draw 1/1 Win Tips 100% Add",
+        "selection": "Michael Glaveys 1/2 Win Tips 50% Add",
         "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100
+        "tips_total": 2,
+        "pct": 50
       },
       "teamA": {
         "name": "Michael Glaveys"

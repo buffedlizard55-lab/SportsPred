@@ -1269,9 +1269,75 @@
       ],
       "status": "pending",
       "settlement": null
+    },
+    {
+      "matchId": "olbg-31360",
+      "matchTitle": "Gerwyn Price v Callan Rydz",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Gerwyn Price",
+      "confidence": "SKIP",
+      "modelScore": 10,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Gerwyn Price** (10/100)",
+      "paragraph": "**Gerwyn Price** carries the sharper scoring profile here, backed by a top-tier ranking, an unranked opponent outside the rankings. That profile should hold against this opposition. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-04T19:50:01Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Gerwyn_Price_vs_Callan_Rydz/15?event_id=31360",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-31338",
+      "matchTitle": "Nathan Aspinall v Andrew Gilding",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Nathan Aspinall",
+      "confidence": "SKIP",
+      "modelScore": 4,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Nathan Aspinall** (4/100)",
+      "paragraph": "Ranking and recent output align behind **Nathan Aspinall**, with a ranking advantage over his opponent. The strands point one way, which an analyst prefers. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-04T19:50:01Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Nathan_Aspinall_vs_Andrew_Gilding/15?event_id=31338",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-31359",
+      "matchTitle": "Ross Smith v Stephen Burton",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Ross Smith",
+      "confidence": "SKIP",
+      "modelScore": 4,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Ross Smith** (4/100)",
+      "paragraph": "**Ross Smith** brings the more sustainable recent form, built on a ranking advantage over his opponent, an unranked opponent outside the rankings. Trust the deeper run of results here. Key input is unverified. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-04T19:50:01Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Ross_Smith_vs_Stephen_Burton/15?event_id=31359",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-04T13:28:42Z",
+  "updatedAtUtc": "2026-09-04T19:50:01Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_darts_predictions.mjs from the committed source-linked documents.",
     "Settlement runs in CI from the official results tape; values are matched by player names.",

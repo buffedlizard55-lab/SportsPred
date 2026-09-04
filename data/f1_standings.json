@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "fetched_at_utc": "2026-09-04T13:27:15.761Z",
+  "fetched_at_utc": "2026-09-04T19:49:22.418Z",
   "source": {
     "url": "https://site.api.espn.com/apis/v2/sports/racing/f1/standings"
   },

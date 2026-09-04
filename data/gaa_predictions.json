@@ -319,7 +319,7 @@
       "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-04T13:28:43Z",
+  "updatedAtUtc": "2026-09-04T19:50:03Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_gaa_predictions.mjs from the committed source-linked documents.",
     "Nothing in this ledger is hand-written."

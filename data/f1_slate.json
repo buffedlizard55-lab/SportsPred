@@ -8,7 +8,7 @@
       "https://www.olbg.com/betting-tips/Motor_Racing/14",
       "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/14"
     ],
-    "fetched_at_utc": "2026-09-04T13:27:02Z",
+    "fetched_at_utc": "2026-09-04T19:49:15Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/F1_SOURCES.md."
   },
@@ -32,8 +32,8 @@
         "market": "Fastest Qualifier",
         "selection": "Lando Norris",
         "tips_for": 15,
-        "tips_total": 28,
-        "pct": 54,
+        "tips_total": 35,
+        "pct": 43,
         "comments": 8,
         "experts": 1
       },
@@ -54,12 +54,12 @@
       "display_time": "14:02",
       "type": "match",
       "consensus": {
-        "market": "Win Race",
-        "selection": "Lando Norris",
-        "tips_for": 13,
-        "tips_total": 28,
-        "pct": 46,
-        "comments": 7,
+        "market": "Podium Finish",
+        "selection": "Max Verstappen - Yes",
+        "tips_for": 14,
+        "tips_total": 62,
+        "pct": 23,
+        "comments": 4,
         "experts": 1
       },
       "markets_verified": true,

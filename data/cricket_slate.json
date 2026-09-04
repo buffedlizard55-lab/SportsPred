@@ -4,7 +4,7 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "fetched_at_utc": "2026-09-04T13:26:29Z",
+    "fetched_at_utc": "2026-09-04T19:48:57Z",
     "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
@@ -37,9 +37,9 @@
       "consensus": {
         "market": "Win Match",
         "selection": "Guyana Amazon Warriors",
-        "tips_for": 10,
-        "tips_total": 12,
-        "pct": 83,
+        "tips_for": 11,
+        "tips_total": 13,
+        "pct": 85,
         "comments": 7,
         "experts": 0
       }
