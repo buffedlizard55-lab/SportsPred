@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-03T23:52:34.559Z",
+  "generated_at_utc": "2026-09-04T02:57:17.746Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -16,9 +16,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 3,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/arg.1/scoreboard?dates=20260904"
         },
         {
           "slug": "aus.1",
@@ -30,7 +30,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aus.1/scoreboard?dates=20260904"
         },
         {
           "slug": "aut.1",
@@ -42,7 +42,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/aut.1/scoreboard?dates=20260904"
         },
         {
           "slug": "bel.1",
@@ -52,9 +52,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 2,
+          "eventsOnCheckDate": 1,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/bel.1/scoreboard?dates=20260904"
         },
         {
           "slug": "bra.1",
@@ -66,7 +66,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/bra.1/scoreboard?dates=20260904"
         },
         {
           "slug": "chn.1",
@@ -78,7 +78,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/chn.1/scoreboard?dates=20260904"
         },
         {
           "slug": "club.friendly",
@@ -88,9 +88,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 2,
+          "eventsOnCheckDate": 1,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/club.friendly/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/club.friendly/scoreboard?dates=20260904"
         },
         {
           "slug": "concacaf.champions_cup",
@@ -102,7 +102,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/concacaf.champions_cup/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/concacaf.champions_cup/scoreboard?dates=20260904"
         },
         {
           "slug": "conmebol.libertadores",
@@ -114,7 +114,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.libertadores/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.libertadores/scoreboard?dates=20260904"
         },
         {
           "slug": "conmebol.sudamericana",
@@ -126,7 +126,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.sudamericana/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/conmebol.sudamericana/scoreboard?dates=20260904"
         },
         {
           "slug": "den.1",
@@ -138,7 +138,7 @@
           "error": null,
           "eventsOnCheckDate": 1,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/den.1/scoreboard?dates=20260904"
         },
         {
           "slug": "ned.1",
@@ -148,9 +148,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ned.1/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.league_cup",
@@ -162,7 +162,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.league_cup/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.fa",
@@ -174,7 +174,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.fa/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.fa/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.2",
@@ -186,7 +186,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.2/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.3",
@@ -198,7 +198,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.3/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.4",
@@ -210,7 +210,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.4/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.4/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.5",
@@ -220,9 +220,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.5/scoreboard?dates=20260904"
         },
         {
           "slug": "eng.1",
@@ -232,9 +232,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/eng.1/scoreboard?dates=20260904"
         },
         {
           "slug": "fifa.world",
@@ -246,7 +246,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard?dates=20260904"
         },
         {
           "slug": "fifa.worldq.uefa",
@@ -258,7 +258,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.uefa/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.worldq.uefa/scoreboard?dates=20260904"
         },
         {
           "slug": "fra.1",
@@ -268,9 +268,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 1,
+          "eventsOnCheckDate": 2,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.1/scoreboard?dates=20260904"
         },
         {
           "slug": "fra.2",
@@ -280,9 +280,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 5,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fra.2/scoreboard?dates=20260904"
         },
         {
           "slug": "ger.2",
@@ -292,9 +292,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 2,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.2/scoreboard?dates=20260904"
         },
         {
           "slug": "ger.1",
@@ -304,9 +304,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ger.1/scoreboard?dates=20260904"
         },
         {
           "slug": "gre.1",
@@ -318,7 +318,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/gre.1/scoreboard?dates=20260904"
         },
         {
           "slug": "fifa.friendly",
@@ -330,7 +330,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.friendly/scoreboard?dates=20260904"
         },
         {
           "slug": "ita.1",
@@ -340,9 +340,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.1/scoreboard?dates=20260904"
         },
         {
           "slug": "ita.2",
@@ -354,7 +354,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ita.2/scoreboard?dates=20260904"
         },
         {
           "slug": "jpn.1",
@@ -366,7 +366,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/jpn.1/scoreboard?dates=20260904"
         },
         {
           "slug": "mex.1",
@@ -376,9 +376,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/mex.1/scoreboard?dates=20260904"
         },
         {
           "slug": "usa.1",
@@ -388,9 +388,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.1/scoreboard?dates=20260904"
         },
         {
           "slug": "nor.1",
@@ -400,9 +400,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 3,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/nor.1/scoreboard?dates=20260904"
         },
         {
           "slug": "usa.nwsl",
@@ -412,9 +412,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 2,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/usa.nwsl/scoreboard?dates=20260904"
         },
         {
           "slug": "por.1",
@@ -424,9 +424,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/por.1/scoreboard?dates=20260904"
         },
         {
           "slug": "ksa.1",
@@ -438,7 +438,7 @@
           "error": null,
           "eventsOnCheckDate": 3,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/ksa.1/scoreboard?dates=20260904"
         },
         {
           "slug": "sco.2",
@@ -448,9 +448,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.2/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.2/scoreboard?dates=20260904"
         },
         {
           "slug": "sco.1",
@@ -460,9 +460,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 1,
-          "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 0,
+          "oddsSeen": false,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sco.1/scoreboard?dates=20260904"
         },
         {
           "slug": "esp.1",
@@ -474,7 +474,7 @@
           "error": null,
           "eventsOnCheckDate": 1,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.1/scoreboard?dates=20260904"
         },
         {
           "slug": "esp.2",
@@ -484,9 +484,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/esp.2/scoreboard?dates=20260904"
         },
         {
           "slug": "swe.1",
@@ -496,9 +496,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 1,
-          "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 0,
+          "oddsSeen": false,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/swe.1/scoreboard?dates=20260904"
         },
         {
           "slug": "sui.1",
@@ -510,7 +510,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sui.1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/sui.1/scoreboard?dates=20260904"
         },
         {
           "slug": "tur.1",
@@ -520,9 +520,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
-          "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20260903"
+          "eventsOnCheckDate": 1,
+          "oddsSeen": true,
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/tur.1/scoreboard?dates=20260904"
         },
         {
           "slug": "uefa.champions",
@@ -534,7 +534,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.champions/scoreboard?dates=20260904"
         },
         {
           "slug": "uefa.europa.conf",
@@ -546,7 +546,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa.conf/scoreboard?dates=20260904"
         },
         {
           "slug": "uefa.europa",
@@ -558,7 +558,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.europa/scoreboard?dates=20260904"
         },
         {
           "slug": "uefa.nations",
@@ -570,7 +570,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.nations/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/soccer/uefa.nations/scoreboard?dates=20260904"
         }
       ]
     },
@@ -588,7 +588,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard?dates=20260904"
         },
         {
           "slug": "college-football",
@@ -598,9 +598,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 11,
+          "eventsOnCheckDate": 8,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/football/college-football/scoreboard?dates=20260904"
         },
         {
           "slug": "ufl",
@@ -612,7 +612,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/football/ufl/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/football/ufl/scoreboard?dates=20260904"
         }
       ]
     },
@@ -630,7 +630,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard?dates=20260904"
         },
         {
           "slug": "nba-development",
@@ -642,7 +642,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/nba-development/scoreboard?dates=20260904"
         },
         {
           "slug": "mens-college-basketball",
@@ -654,7 +654,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/mens-college-basketball/scoreboard?dates=20260904"
         },
         {
           "slug": "womens-college-basketball",
@@ -666,7 +666,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/womens-college-basketball/scoreboard?dates=20260904"
         },
         {
           "slug": "wnba",
@@ -678,7 +678,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/basketball/wnba/scoreboard?dates=20260904"
         }
       ]
     },
@@ -694,9 +694,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 9,
+          "eventsOnCheckDate": 16,
           "oddsSeen": true,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates=20260904"
         },
         {
           "slug": "college-baseball",
@@ -708,7 +708,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/baseball/college-baseball/scoreboard?dates=20260904"
         }
       ]
     },
@@ -726,7 +726,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260904"
         },
         {
           "slug": "mens-college-hockey",
@@ -738,14 +738,14 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/hockey/mens-college-hockey/scoreboard?dates=20260904"
         }
       ]
     },
     "rugby-league": {
       "espnSport": null,
       "leagues": [],
-      "note": "Rugby League runs on the committed, source-tagged OLBG market slate plus the official NRL and Super League tables, scored by the RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0. No free key-less price feed is used; odds are derived from the official ladders and are cross-referenced where available. Predictions are written as three tips per match (WIN MATCH, HANDICAP, GAME TOTAL) with the league-specific weightings and thresholds documented in docs/RUGBY_LEAGUE_PROMPT_REVIEW.md."
+      "note": "Rugby League runs on the committed, source-tagged OLBG market slate plus the official NRL and Super League tables, scored by the RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0. The NRL has its own sub-page (nrl.html) scored by the NRL PREDICTION MASTER PROMPT v1.0 over the full season tape, the Origin calendar and an Open-Meteo forecast — keep both: they are different rulesets, not two views of one. No free key-less price feed is used; odds are derived from the official ladders and are cross-referenced where available. Predictions are written as three tips per match (WIN MATCH, HANDICAP, GAME TOTAL) with the league-specific weightings and thresholds documented in docs/RUGBY_LEAGUE_PROMPT_REVIEW.md."
     },
     "rugby-union": {
       "espnSport": "rugby",
@@ -761,7 +761,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289274/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289274/scoreboard?dates=20260904"
         },
         {
           "slug": "236461",
@@ -773,7 +773,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/236461/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/236461/scoreboard?dates=20260904"
         },
         {
           "slug": "268565",
@@ -785,7 +785,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/268565/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/268565/scoreboard?dates=20260904"
         },
         {
           "slug": "270555",
@@ -797,7 +797,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270555/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270555/scoreboard?dates=20260904"
         },
         {
           "slug": "272073",
@@ -809,7 +809,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/272073/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/272073/scoreboard?dates=20260904"
         },
         {
           "slug": "271937",
@@ -821,7 +821,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/271937/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/271937/scoreboard?dates=20260904"
         },
         {
           "slug": "270559",
@@ -833,7 +833,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270559/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270559/scoreboard?dates=20260904"
         },
         {
           "slug": "267979",
@@ -845,7 +845,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/267979/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/267979/scoreboard?dates=20260904"
         },
         {
           "slug": "289234",
@@ -857,7 +857,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289234/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289234/scoreboard?dates=20260904"
         },
         {
           "slug": "289262",
@@ -869,7 +869,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289262/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289262/scoreboard?dates=20260904"
         },
         {
           "slug": "270563",
@@ -879,9 +879,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 1,
+          "eventsOnCheckDate": 2,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270563/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270563/scoreboard?dates=20260904"
         },
         {
           "slug": "17567",
@@ -893,7 +893,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/17567/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/17567/scoreboard?dates=20260904"
         },
         {
           "slug": "282",
@@ -905,7 +905,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/282/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/282/scoreboard?dates=20260904"
         },
         {
           "slug": "283",
@@ -917,7 +917,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/283/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/283/scoreboard?dates=20260904"
         },
         {
           "slug": "164205",
@@ -929,7 +929,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/164205/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/164205/scoreboard?dates=20260904"
         },
         {
           "slug": "180659",
@@ -941,7 +941,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/180659/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/180659/scoreboard?dates=20260904"
         },
         {
           "slug": "289271",
@@ -953,7 +953,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289271/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289271/scoreboard?dates=20260904"
         },
         {
           "slug": "289272",
@@ -965,7 +965,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289272/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289272/scoreboard?dates=20260904"
         },
         {
           "slug": "242041",
@@ -977,7 +977,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/242041/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/242041/scoreboard?dates=20260904"
         },
         {
           "slug": "289277",
@@ -989,7 +989,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289277/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289277/scoreboard?dates=20260904"
         },
         {
           "slug": "244293",
@@ -1001,7 +1001,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/244293/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/244293/scoreboard?dates=20260904"
         },
         {
           "slug": "270557",
@@ -1013,7 +1013,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270557/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/270557/scoreboard?dates=20260904"
         },
         {
           "slug": "2009",
@@ -1025,7 +1025,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/2009/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/2009/scoreboard?dates=20260904"
         },
         {
           "slug": "289279",
@@ -1037,7 +1037,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289279/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289279/scoreboard?dates=20260904"
         },
         {
           "slug": "289237",
@@ -1049,7 +1049,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289237/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/rugby/289237/scoreboard?dates=20260904"
         }
       ]
     },
@@ -1067,7 +1067,7 @@
           "error": null,
           "eventsOnCheckDate": 1,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/atp/scoreboard?dates=20260904"
         },
         {
           "slug": "wta",
@@ -1079,7 +1079,7 @@
           "error": null,
           "eventsOnCheckDate": 1,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/tennis/wta/scoreboard?dates=20260904"
         }
       ]
     },
@@ -1097,7 +1097,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/cricket/1512690/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/cricket/1512690/scoreboard?dates=20260904"
         }
       ]
     },
@@ -1113,9 +1113,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 0,
+          "eventsOnCheckDate": 1,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/racing/f1/scoreboard?dates=20260904"
         }
       ]
     },
@@ -1138,7 +1138,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/volleyball/mens-college-volleyball/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/volleyball/mens-college-volleyball/scoreboard?dates=20260904"
         },
         {
           "slug": "womens-college-volleyball",
@@ -1148,9 +1148,9 @@
           "ok": true,
           "status": 200,
           "error": null,
-          "eventsOnCheckDate": 60,
+          "eventsOnCheckDate": 175,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/volleyball/womens-college-volleyball/scoreboard?dates=20260904"
         }
       ]
     },
@@ -1168,7 +1168,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=20260904"
         }
       ]
     },
@@ -1186,7 +1186,7 @@
           "error": null,
           "eventsOnCheckDate": 1,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/eur/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/eur/scoreboard?dates=20260904"
         },
         {
           "slug": "lpga",
@@ -1198,7 +1198,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/lpga/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/lpga/scoreboard?dates=20260904"
         },
         {
           "slug": "pga",
@@ -1210,7 +1210,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/pga/scoreboard?dates=20260904"
         },
         {
           "slug": "champions-tour",
@@ -1222,7 +1222,7 @@
           "error": null,
           "eventsOnCheckDate": 0,
           "oddsSeen": false,
-          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/champions-tour/scoreboard?dates=20260903"
+          "checkedUrl": "https://site.api.espn.com/apis/site/v2/sports/golf/champions-tour/scoreboard?dates=20260904"
         }
       ]
     },

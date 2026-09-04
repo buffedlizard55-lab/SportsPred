@@ -1,0 +1,402 @@
+{
+ "schema_version": 1,
+ "sport": "NRL",
+ "fetched_at_utc": "2026-09-04T02:57:12Z",
+ "source": {
+  "name": "Open-Meteo forecast API (key-less, no registration)",
+  "url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4648,-35.2406,-33.8469,-34.0447,-28.0667,-33.7611,-37.8235,-32.9261,-36.8728,-19.3167,-33.8083,-34.4267,-33.8915&longitude=153.0093,149.103,151.0631,151.1533,153.4333,151.2878,144.9797,151.7295,174.7833,146.7167,150.9892,150.9019,151.2213&daily=precipitation_sum,precipitation_probability_max,wind_speed_10m_max&forecast_days=4&timezone=UTC",
+  "note": "Daily aggregate forecast per match venue. Wind is the daily maximum at ten metres. A model forecast, not an observation; used only for the weather factor of the GAME TOTAL market."
+ },
+ "venues": {
+  "Suncorp Stadium": {
+   "lat": -27.4648,
+   "lon": 153.0093,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 12
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 10.9
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 4,
+     "wind_max_kmh": 17
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 10,
+     "wind_max_kmh": 13
+    }
+   ]
+  },
+  "GIO Stadium": {
+   "lat": -35.2406,
+   "lon": 149.103,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.3,
+     "precip_prob_max": 59,
+     "wind_max_kmh": 20.2
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 6.7,
+     "precip_prob_max": 100,
+     "wind_max_kmh": 23.3
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 18.4
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 10,
+     "wind_max_kmh": 13.4
+    }
+   ]
+  },
+  "Accor Stadium": {
+   "lat": -33.8469,
+   "lon": 151.0631,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 12.5
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 27,
+     "wind_max_kmh": 30.9
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 15.9
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 16,
+     "wind_max_kmh": 16.1
+    }
+   ]
+  },
+  "Ocean Protect Stadium": {
+   "lat": -34.0447,
+   "lon": 151.1533,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 14.6
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 11,
+     "wind_max_kmh": 32.5
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 16.8
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 15,
+     "wind_max_kmh": 29.4
+    }
+   ]
+  },
+  "Cbus Super Stadium": {
+   "lat": -28.0667,
+   "lon": 153.4333,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 16.6
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 13.9
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 4,
+     "wind_max_kmh": 24.6
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 33,
+     "wind_max_kmh": 16.3
+    }
+   ]
+  },
+  "4 Pines Park": {
+   "lat": -33.7611,
+   "lon": 151.2878,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 19.1
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 10,
+     "wind_max_kmh": 36.4
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 18.9
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0.1,
+     "precip_prob_max": 27,
+     "wind_max_kmh": 25.1
+    }
+   ]
+  },
+  "AAMI Park": {
+   "lat": -37.8235,
+   "lon": 144.9797,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 15.4,
+     "precip_prob_max": 97,
+     "wind_max_kmh": 31.2
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 1.6,
+     "precip_prob_max": 97,
+     "wind_max_kmh": 26.6
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.6,
+     "precip_prob_max": 31,
+     "wind_max_kmh": 14.6
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0.1,
+     "precip_prob_max": 33,
+     "wind_max_kmh": 18.6
+    }
+   ]
+  },
+  "McDonald Jones Stadium": {
+   "lat": -32.9261,
+   "lon": 151.7295,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 21.2
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 2,
+     "wind_max_kmh": 27.8
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 4,
+     "wind_max_kmh": 25.8
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 1.7,
+     "precip_prob_max": 25,
+     "wind_max_kmh": 28.9
+    }
+   ]
+  },
+  "Go Media Stadium": {
+   "lat": -36.8728,
+   "lon": 174.7833,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 5,
+     "precip_prob_max": 98,
+     "wind_max_kmh": 34.6
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 3,
+     "wind_max_kmh": 16.8
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 10,
+     "precip_prob_max": 91,
+     "wind_max_kmh": 24.2
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 4.4,
+     "precip_prob_max": 98,
+     "wind_max_kmh": 15.1
+    }
+   ]
+  },
+  "Queensland Country Bank Stadium": {
+   "lat": -19.3167,
+   "lon": 146.7167,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 12.5
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 10.8
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 12.6
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 2,
+     "wind_max_kmh": 14.2
+    }
+   ]
+  },
+  "CommBank Stadium": {
+   "lat": -33.8083,
+   "lon": 150.9892,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 15.1
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 27,
+     "wind_max_kmh": 33.3
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 15.4
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0,
+     "precip_prob_max": 16,
+     "wind_max_kmh": 16.7
+    }
+   ]
+  },
+  "WIN Stadium": {
+   "lat": -34.4267,
+   "lon": 150.9019,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 31,
+     "wind_max_kmh": 18.4
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 63,
+     "wind_max_kmh": 30
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 19.1
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0.7,
+     "precip_prob_max": 39,
+     "wind_max_kmh": 25.8
+    }
+   ]
+  },
+  "Allianz Stadium": {
+   "lat": -33.8915,
+   "lon": 151.2213,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 14.4
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0,
+     "precip_prob_max": 10,
+     "wind_max_kmh": 33
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 18.8
+    },
+    {
+     "date": "2026-09-07",
+     "precip_mm": 0.2,
+     "precip_prob_max": 27,
+     "wind_max_kmh": 25.9
+    }
+   ]
+  }
+ }
+}

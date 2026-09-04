@@ -253,6 +253,10 @@ export const SPORTS = [
     unit: 'points',
     specialistEngine: 'rugby-league',
     page: 'rugby-league.html',
+    subPages: [
+      { key: 'rugby-league', label: 'NRL + Super League', href: 'rugby-league.html', name: 'Rugby League — RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0' },
+      { key: 'nrl', label: 'NRL', href: 'nrl.html', name: 'NRL Premiership — NRL PREDICTION MASTER PROMPT v1.0 (ladder, Origin, totals, walk-forward backtest)' },
+    ],
     officialLinks: [
       { label: 'NRL Official Ladder', url: 'https://www.nrl.com/ladder/' },
       { label: 'Super League Standings', url: 'https://www.superleague.co.uk/standings' },
@@ -260,7 +264,7 @@ export const SPORTS = [
       { label: 'OLBG Rugby League Tips', url: olbgUrl('Rugby_League', 10) },
     ],
     candidateLeagues: [],
-    notes: ['Rugby League runs on the committed, source-tagged OLBG market slate plus the official NRL and Super League tables, scored by the RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0. No free key-less price feed is used; odds are derived from the official ladders and are cross-referenced where available. Predictions are written as three tips per match (WIN MATCH, HANDICAP, GAME TOTAL) with the league-specific weightings and thresholds documented in docs/RUGBY_LEAGUE_PROMPT_REVIEW.md.'],
+    notes: ['Rugby League runs on the committed, source-tagged OLBG market slate plus the official NRL and Super League tables, scored by the RUGBY LEAGUE PREDICTION MASTER PROMPT v1.0. The NRL has its own sub-page (nrl.html) scored by the NRL PREDICTION MASTER PROMPT v1.0 over the full season tape, the Origin calendar and an Open-Meteo forecast — keep both: they are different rulesets, not two views of one. No free key-less price feed is used; odds are derived from the official ladders and are cross-referenced where available. Predictions are written as three tips per match (WIN MATCH, HANDICAP, GAME TOTAL) with the league-specific weightings and thresholds documented in docs/RUGBY_LEAGUE_PROMPT_REVIEW.md.'],
   },
   {
     key: 'rugby-union',

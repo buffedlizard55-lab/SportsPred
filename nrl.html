@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Rugby League — NRL &amp; Super League scoreboard, calendar &amp; predictions — SportsPred</title>
-<meta name="description" content="NRL and Super League scoreboard and calendar with automatically generated rugby league predictions: WIN MATCH, HANDICAP and GAME TOTAL for every upcoming fixture, scored by the Rugby League Prediction Master Prompt v1.0.">
+<title>NRL — National Rugby League scoreboard, calendar &amp; predictions — SportsPred</title>
+<meta name="description" content="NRL Premiership scoreboard and calendar with automatically generated predictions for WIN MATCH, HANDICAP and GAME TOTAL, scored by the NRL Prediction Master Prompt v1.0 from the official ladder, the season results tape, the OLBG market slate and the Open-Meteo forecast.">
 <link rel="stylesheet" href="assets/css/site.css">
 </head>
 <body>
@@ -12,8 +12,8 @@
 <main class="wrap">
   <div class="page-head">
     <div>
-      <h1 class="page-title" id="page-title">Rugby League</h1>
-      <p class="page-sub" id="page-sub">NRL &amp; Super League — every upcoming fixture scored for WIN MATCH, HANDICAP and GAME TOTAL from the committed OLBG market slate and the official NRL and Super League tables. Predictions are generated automatically for every match. For the NRL specifically there is also a dedicated <a href="nrl.html">NRL scoreboard</a> scored by the NRL PREDICTION MASTER PROMPT v1.0 over the full season tape, the Origin calendar and venue forecasts.</p>
+      <h1 class="page-title" id="page-title">NRL</h1>
+      <p class="page-sub" id="page-sub">National Rugby League — every fixture on the committed OLBG slate scored for WIN MATCH, HANDICAP and GAME TOTAL by the NRL Prediction Master Prompt v1.0. Predictions are generated automatically for every upcoming match, and every one is copy-pasteable.</p>
       <nav class="leaguetabs" id="league-tabs" aria-label="Rugby league competitions"></nav>
       <p class="meta-line" id="sport-links"></p>
     </div>
@@ -38,12 +38,6 @@
           <button class="btn sm" id="next-day" aria-label="Next day">›</button>
           <button class="btn sm" id="today-btn">Today</button>
 
-          <select id="league-filter" aria-label="Filter by competition">
-            <option value="all">All competitions</option>
-            <option value="NRL">NRL</option>
-            <option value="Super League">Super League</option>
-          </select>
-
           <select id="status-filter" aria-label="Filter by market">
             <option value="all">All markets</option>
             <option value="win_match">WIN MATCH only</option>
@@ -51,7 +45,7 @@
             <option value="game_total">GAME TOTAL only</option>
           </select>
 
-          <input type="search" id="search" placeholder="Search team…" aria-label="Search">
+          <input type="search" id="search" placeholder="Search club…" aria-label="Search">
 
           <span class="sp" style="flex:1"></span>
           <button class="btn primary" id="generate">⚡ Generate predictions</button>
@@ -70,12 +64,27 @@
         </div>
         <div class="caldow"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div>
         <div class="calgrid" id="calgrid"></div>
-        <div class="card-body meta-line">Numbers show how many NRL / Super League fixtures are scheduled on that day from the committed OLBG slate (usually all upcoming matches). Pick any highlighted date — past, today or upcoming — to load that day's scoreboard. Every market on the slate is generated automatically.</div>
+        <div class="card-body meta-line">Numbers show how many NRL matches are on that day. Pick any highlighted date — past, today or upcoming — to load that day's scoreboard. Results show the final score; upcoming fixtures carry the generated card for all three markets.</div>
+      </div>
+
+      <div class="card" id="ladder-box">
+        <div class="card-head"><h2>Ladder</h2><span class="sp"></span><span class="meta-line" id="ladder-meta"></span></div>
+        <div class="card-body" id="ladder-body">Loading…</div>
+      </div>
+
+      <div class="card" id="backtest-box">
+        <div class="card-head"><h2>Walk-forward backtest</h2></div>
+        <div class="card-body meta-line" id="backtest-body">Loading…</div>
       </div>
 
       <div class="card" id="provenance-box">
         <div class="card-head"><h2>Sources &amp; irregularities</h2></div>
         <div class="card-body meta-line" id="provenance-body">Loading…</div>
+      </div>
+
+      <div class="card" id="rg-box">
+        <div class="card-head"><h2>Responsible gambling</h2></div>
+        <div class="card-body" id="rg-body" style="font-size:13px"></div>
       </div>
     </div>
 
@@ -88,7 +97,17 @@
       </div>
 
       <div class="card" id="olbg-box">
-        <div class="card-head"><h3>OLBG Rugby League markets</h3></div>
+        <div class="card-head"><h3>OLBG NRL markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card" id="origin-box">
+        <div class="card-head"><h3>State of Origin</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card" id="weather-box">
+        <div class="card-head"><h3>Forecast (match venues)</h3></div>
         <div class="card-body meta-line">Loading…</div>
       </div>
 
@@ -103,18 +122,19 @@
       </div>
 
       <div class="card">
-        <div class="card-head"><h3>How to read a Rugby League card</h3></div>
+        <div class="card-head"><h3>How to read an NRL card</h3></div>
         <div class="card-body" style="font-size:13px">
-          <p><strong>WIN MATCH</strong> ≥70 <span class="badge HIGH">HIGH</span> · 50–69 <span class="badge MEDIUM">MEDIUM</span> · below 50 <span class="badge SKIP">SKIP</span> (at least two factors must align for 50–69 to clear MEDIUM).</p>
-          <p><strong>HANDICAP</strong> — only when WIN MATCH ≥65, line inside −5.50 to −8.50 for favourites or +6.50 to +13.50 for underdogs, and average winning margin ≥8. Thresholds: ≥70 HIGH · 55–69 MEDIUM · below 55 SKIP. Shows only who will cover, never the line.</p>
-          <p><strong>GAME TOTAL</strong> — primary window 42.50–48.50 is Over only (≥55 HIGH · 45–54 MEDIUM · below 45 SKIP). Above that: 49.50–52.50 and 53.50+ require stricter offensive/defensive proof; rain or strong wind elevates Under by 10 points automatically. Shows only Over or Under, never the total.</p>
-          <p>Every card is capped at six active selections per day across all three markets; excess leans are withheld as SKIP. Open <strong>Analysis</strong> on any fixture to see every rule that fired, its points and the factors that were not available. Full register: <a href="sources.html#rugby-league">sources</a>.</p>
+          <p><strong>WIN MATCH</strong> ≥70 <span class="badge HIGH">HIGH</span> · 50–69 with two or more factors aligned <span class="badge MEDIUM">MEDIUM</span> · below 50 <span class="badge SKIP">SKIP</span>.</p>
+          <p><strong>HANDICAP</strong> — live only when WIN MATCH is 60 or higher, then ≥70 HIGH · 55–69 MEDIUM · below 55 SKIP. Only the side that covers is ever named, never the number.</p>
+          <p><strong>GAME TOTAL</strong> — a directional advantage of 20 points or more is HIGH, 15–19 MEDIUM, below 15 SKIP. Only Over or Under is ever published, never the total.</p>
+          <p>At most two markets are published per fixture, and the handicap is withheld unless the side's recent winning margins actually support a cover. Confidence is capped by how much of the model could be sourced: the NRL has no free key-less price feed, so the odds factor always scores zero and is named on every card.</p>
+          <p>Open <strong>Analysis</strong> on any fixture for every rule that fired, its points, and the factors that could not be sourced. Full register: <a href="sources.html#nrl">sources</a> · <a href="docs/NRL_PROMPT_REVIEW.md">line-by-line review</a>.</p>
         </div>
       </div>
     </aside>
   </div>
 </main>
 
-<script type="module" src="assets/js/rugby-league-page.js"></script>
+<script type="module" src="assets/js/nrl-page.js"></script>
 </body>
 </html>

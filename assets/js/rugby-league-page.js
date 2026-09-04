@@ -56,6 +56,10 @@ async function boot() {
 
 function renderStatic() {
   $('#page-title').textContent = state.sport.name;
+  const tabs = $('#league-tabs');
+  if (tabs) {
+    tabs.innerHTML = (state.sport?.subPages || []).map((p) => `<a href="${esc(p.href)}" class="${p.href === 'rugby-league.html' ? 'on' : ''}" title="${esc(p.name)}">${esc(p.label)}</a>`).join('');
+  }
   const links = (state.sport?.officialLinks || [])
     .map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`)
     .join(' · ');

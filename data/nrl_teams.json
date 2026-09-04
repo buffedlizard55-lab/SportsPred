@@ -1,0 +1,316 @@
+{
+ "schema_version": 1,
+ "sport": "NRL",
+ "season": 2026,
+ "source": {
+  "name": "Club home venues and locations (2026 NRL season)",
+  "urls": [
+   "https://www.nrl.com/clubs/",
+   "https://en.wikipedia.org/wiki/2026_NRL_season"
+  ],
+  "note": "Venue names as published on the 2026 season club pages / round fixtures. Coordinates are the venue's published geographic coordinates, used only to request the Open-Meteo forecast."
+ },
+ "teams": {
+  "Brisbane Broncos": {
+   "short": "Broncos",
+   "aliases": [
+    "Brisbane Broncos",
+    "Brisbane",
+    "Broncos",
+    "BRI"
+   ],
+   "venue": "Suncorp Stadium",
+   "city": "Brisbane",
+   "state": "QLD",
+   "country": "Australia",
+   "lat": -27.4648,
+   "lon": 153.0093,
+   "name": "Brisbane Broncos",
+   "isNewZealand": false
+  },
+  "Canberra Raiders": {
+   "short": "Raiders",
+   "aliases": [
+    "Canberra Raiders",
+    "Canberra",
+    "Raiders",
+    "CAN"
+   ],
+   "venue": "GIO Stadium",
+   "city": "Canberra",
+   "state": "ACT",
+   "country": "Australia",
+   "lat": -35.2406,
+   "lon": 149.103,
+   "name": "Canberra Raiders",
+   "isNewZealand": false
+  },
+  "Canterbury-Bankstown Bulldogs": {
+   "short": "Bulldogs",
+   "aliases": [
+    "Canterbury-Bankstown Bulldogs",
+    "Canterbury Bulldogs",
+    "Canterbury",
+    "Bulldogs",
+    "CBY"
+   ],
+   "venue": "Accor Stadium",
+   "city": "Sydney",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.8469,
+   "lon": 151.0631,
+   "name": "Canterbury-Bankstown Bulldogs",
+   "isNewZealand": false
+  },
+  "Cronulla-Sutherland Sharks": {
+   "short": "Sharks",
+   "aliases": [
+    "Cronulla-Sutherland Sharks",
+    "Cronulla Sharks",
+    "Cronulla",
+    "Sharks",
+    "CRO"
+   ],
+   "venue": "Ocean Protect Stadium",
+   "city": "Cronulla",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -34.0447,
+   "lon": 151.1533,
+   "name": "Cronulla-Sutherland Sharks",
+   "isNewZealand": false
+  },
+  "Dolphins": {
+   "short": "Dolphins",
+   "aliases": [
+    "Dolphins",
+    "The Dolphins",
+    "DOL"
+   ],
+   "venue": "Suncorp Stadium",
+   "city": "Brisbane",
+   "state": "QLD",
+   "country": "Australia",
+   "lat": -27.4648,
+   "lon": 153.0093,
+   "note": "Club also uses Kayo Stadium, Redcliffe (2026 season lists both).",
+   "name": "Dolphins",
+   "isNewZealand": false
+  },
+  "Gold Coast Titans": {
+   "short": "Titans",
+   "aliases": [
+    "Gold Coast Titans",
+    "Gold Coast",
+    "Titans",
+    "GCT",
+    "GLD"
+   ],
+   "venue": "Cbus Super Stadium",
+   "city": "Gold Coast",
+   "state": "QLD",
+   "country": "Australia",
+   "lat": -28.0667,
+   "lon": 153.4333,
+   "name": "Gold Coast Titans",
+   "isNewZealand": false
+  },
+  "Manly Warringah Sea Eagles": {
+   "short": "Sea Eagles",
+   "aliases": [
+    "Manly Warringah Sea Eagles",
+    "Manly Sea Eagles",
+    "Manly",
+    "Sea Eagles",
+    "MAN"
+   ],
+   "venue": "4 Pines Park",
+   "city": "Sydney",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.7611,
+   "lon": 151.2878,
+   "name": "Manly Warringah Sea Eagles",
+   "isNewZealand": false
+  },
+  "Melbourne Storm": {
+   "short": "Storm",
+   "aliases": [
+    "Melbourne Storm",
+    "Melbourne",
+    "Storm",
+    "MEL"
+   ],
+   "venue": "AAMI Park",
+   "city": "Melbourne",
+   "state": "VIC",
+   "country": "Australia",
+   "lat": -37.8235,
+   "lon": 144.9797,
+   "name": "Melbourne Storm",
+   "isNewZealand": false
+  },
+  "Newcastle Knights": {
+   "short": "Knights",
+   "aliases": [
+    "Newcastle Knights",
+    "Newcastle",
+    "Knights",
+    "NEW"
+   ],
+   "venue": "McDonald Jones Stadium",
+   "city": "Newcastle",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -32.9261,
+   "lon": 151.7295,
+   "name": "Newcastle Knights",
+   "isNewZealand": false
+  },
+  "New Zealand Warriors": {
+   "short": "Warriors",
+   "aliases": [
+    "New Zealand Warriors",
+    "Warriors",
+    "NZW",
+    "NZ Warriors"
+   ],
+   "venue": "Go Media Stadium",
+   "city": "Auckland",
+   "state": "Auckland",
+   "country": "New Zealand",
+   "lat": -36.8728,
+   "lon": 174.7833,
+   "trans_tasman": true,
+   "name": "New Zealand Warriors",
+   "isNewZealand": true
+  },
+  "North Queensland Cowboys": {
+   "short": "Cowboys",
+   "aliases": [
+    "North Queensland Cowboys",
+    "North Qld",
+    "North Queensland",
+    "Cowboys",
+    "NQL",
+    "NQC"
+   ],
+   "venue": "Queensland Country Bank Stadium",
+   "city": "Townsville",
+   "state": "QLD",
+   "country": "Australia",
+   "lat": -19.3167,
+   "lon": 146.7167,
+   "name": "North Queensland Cowboys",
+   "isNewZealand": false
+  },
+  "Parramatta Eels": {
+   "short": "Eels",
+   "aliases": [
+    "Parramatta Eels",
+    "Parramatta",
+    "Eels",
+    "PAR"
+   ],
+   "venue": "CommBank Stadium",
+   "city": "Parramatta",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.8083,
+   "lon": 150.9892,
+   "name": "Parramatta Eels",
+   "isNewZealand": false
+  },
+  "Penrith Panthers": {
+   "short": "Panthers",
+   "aliases": [
+    "Penrith Panthers",
+    "Penrith",
+    "Panthers",
+    "PEN"
+   ],
+   "venue": "CommBank Stadium",
+   "city": "Parramatta",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.8083,
+   "lon": 150.9892,
+   "note": "Penrith Stadium is being rebuilt; Penrith home games are played at CommBank Stadium in 2026.",
+   "name": "Penrith Panthers",
+   "isNewZealand": false
+  },
+  "South Sydney Rabbitohs": {
+   "short": "Rabbitohs",
+   "aliases": [
+    "South Sydney Rabbitohs",
+    "South Sydney",
+    "Rabbitohs",
+    "Souths",
+    "SOU"
+   ],
+   "venue": "Accor Stadium",
+   "city": "Sydney",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.8469,
+   "lon": 151.0631,
+   "name": "South Sydney Rabbitohs",
+   "isNewZealand": false
+  },
+  "St George Illawarra Dragons": {
+   "short": "Dragons",
+   "aliases": [
+    "St George Illawarra Dragons",
+    "St George-Illawarra Dragons",
+    "St Geo Illa",
+    "Dragons",
+    "STG"
+   ],
+   "venue": "WIN Stadium",
+   "city": "Wollongong",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -34.4267,
+   "lon": 150.9019,
+   "note": "Club also uses Jubilee Stadium, Sydney (2026 season lists both).",
+   "name": "St George Illawarra Dragons",
+   "isNewZealand": false
+  },
+  "Sydney Roosters": {
+   "short": "Roosters",
+   "aliases": [
+    "Sydney Roosters",
+    "Sydney",
+    "Roosters",
+    "SYD"
+   ],
+   "venue": "Allianz Stadium",
+   "city": "Sydney",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.8915,
+   "lon": 151.2213,
+   "name": "Sydney Roosters",
+   "isNewZealand": false
+  },
+  "Wests Tigers": {
+   "short": "Wests Tigers",
+   "aliases": [
+    "Wests Tigers",
+    "Wests",
+    "Tigers",
+    "WST"
+   ],
+   "venue": "CommBank Stadium",
+   "city": "Parramatta",
+   "state": "NSW",
+   "country": "Australia",
+   "lat": -33.8083,
+   "lon": 150.9892,
+   "note": "Club also uses Leichhardt Oval (2026 season lists both).",
+   "name": "Wests Tigers",
+   "isNewZealand": false
+  }
+ }
+}
