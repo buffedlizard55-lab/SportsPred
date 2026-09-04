@@ -163,13 +163,61 @@ test('the Warriors are the only trans-Tasman trip', () => {
   assert.ok(haversineKm(-33.8, 151.0, -19.3, 146.7) > 1500, 'Sydney to Townsville is long-haul');
 });
 
-test('weather is read from the committed forecast and classified against the prompt', () => {
-  const dry = nrlWeatherFor(docs.weather, 'Cbus Super Stadium, Gold Coast', '2026-09-04');
+test('weather is classified against the prompt thresholds', () => {
+  // The forecast is refreshed in CI, so the classification rules are asserted
+  // against a fixed document rather than against whatever the sky is doing.
+  const fixed = {
+    venues: {
+      'Dry Park': { daily: [{ date: '2026-09-04', precip_mm: 0, precip_prob_max: 0, wind_max_kmh: 12 }] },
+      'Wet Park': { daily: [{ date: '2026-09-04', precip_mm: 9.4, precip_prob_max: 100, wind_max_kmh: 45 }] },
+      'Showery Park': { daily: [{ date: '2026-09-04', precip_mm: 2.1, precip_prob_max: 55, wind_max_kmh: 10 }] },
+    },
+  };
+  const dry = nrlWeatherFor(fixed, 'Dry Park', '2026-09-04');
   assert.equal(dry.dry, true);
   assert.equal(dry.heavyRain, false);
-  const wet = nrlWeatherFor(docs.weather, 'Go Media Stadium, Auckland', '2026-09-06');
+  assert.equal(dry.strongWind, false);
+  const wet = nrlWeatherFor(fixed, 'Wet Park', '2026-09-04');
   assert.equal(wet.heavyRain, true);
-  assert.equal(nrlWeatherFor(docs.weather, 'Nowhere Stadium', '2026-09-04'), null, 'unknown venue → null, not a default');
+  assert.equal(wet.strongWind, true);
+  assert.equal(nrlWeatherFor(fixed, 'Showery Park', '2026-09-04').lightRain, true);
+  // nothing is invented: an unknown venue and an unforecast day are both null
+  assert.equal(nrlWeatherFor(fixed, 'Nowhere Stadium', '2026-09-04'), null, 'unknown venue → null, not a default');
+  assert.equal(nrlWeatherFor(fixed, 'Dry Park', '2026-09-09'), null, 'unforecast date → null, not a default');
+});
+
+test('the committed forecast joins on the venue names the clubs actually carry', () => {
+  // Regression: the forecast was first committed with keys like
+  // "Cbus Super Stadium, Gold Coast" while nrl_teams.json carries "Cbus Super
+  // Stadium", so every lookup missed and the factor was silently unsourced.
+  const known = new Set(Object.values(docs.teams.teams).map((t) => t.venue));
+  const venues = docs.weather.venues || {};
+  assert.ok(Object.keys(venues).length > 0, 'nrl_weather.json has no venues');
+  for (const [name, v] of Object.entries(venues)) {
+    assert.ok(known.has(name),
+      `nrl_weather.json venue "${name}" is not a venue in nrl_teams.json, so the forecast can never join`);
+    const day = (v.daily || [])[0];
+    assert.ok(day && day.date, `${name} carries no forecast day`);
+    const w = nrlWeatherFor(docs.weather, name, day.date);
+    assert.ok(w, `${name} on ${day.date} must resolve against the committed forecast`);
+    assert.equal(w.venue, name);
+    assert.equal(w.source, 'Open-Meteo daily forecast (key-less)');
+    // the tape writes some grounds as "Venue, City"; both spellings must resolve
+    const withCity = nrlWeatherFor(docs.weather, `${name}, Somewhere`, day.date);
+    assert.ok(withCity, `"${name}, Somewhere" must resolve to the ${name} forecast`);
+    assert.equal(withCity.precip_mm, w.precip_mm);
+  }
+});
+
+test('the weather factor resolves for every upcoming fixture', () => {
+  // The factor is 10 points. If the venue join misses it silently scores zero,
+  // so the card is checked rather than the lookup in isolation.
+  const upcoming = nrlUpcoming(docs);
+  assert.ok(upcoming.length > 0);
+  for (const m of upcoming) {
+    assert.ok(m.weather, `${m.home} v ${m.away} at ${m.venue}: weather resolved`);
+    assert.equal(m.weather.venue, m.venue);
+  }
 });
 
 test('market lines come from the OLBG slate and are labelled with their source', () => {

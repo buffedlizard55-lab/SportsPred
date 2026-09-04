@@ -82,6 +82,12 @@ data/nrl_matches.json dates each match by its local kick-off, while ESPN's score
 
 **Effect on the card:** The collector now matches a fetched fixture against the tape by exact date, then by the same pairing within one day, then by the same pairing and round within a week, so a fixture the tape already holds is merged rather than duplicated. The tape keeps its local dates; ESPN only backfills venue, UTC kick-off and event id. Replaying the four events the failed run collected is covered by tests/nrl_espn.test.mjs.
 
+### NRL-14 - Venue names are written three different ways, which silently emptied the weather factor (mitigated)
+
+The tape carries grounds as 'Allianz Stadium, Sydney' (Rugby League Project) and as 'Allianz Stadium' (ESPN); nrl_teams.json and the Open-Meteo collector use the bare name. The forecast was first committed with 'Venue, City' keys, so the lookup in enrichNrlMatch — which passes the match's venue string — missed on every fixture and the ten-point weather factor was quietly scored zero rather than reported as unsourced.
+
+**Effect on the card:** nrlWeatherFor now matches on the bare ground name as well as the exact key, so all three spellings resolve; all seven upcoming fixtures resolve a forecast. build_data.py fails if any forecast venue is not a venue in nrl_teams.json, and tests/nrl_data.test.mjs asserts the weather factor resolves for every upcoming fixture, so the join cannot silently empty again.
+
 ## Standing rules
 
 1. A factor with no source scores zero and appears in the fixture's *not

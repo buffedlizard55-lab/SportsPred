@@ -1011,6 +1011,17 @@ def validate_nrl_weather(doc):
     venues = doc.get('venues', {})
     if not venues:
         return ['nrl_weather.venues is empty'], 0
+    # A venue the clubs do not carry can never join, so the forecast would be
+    # silently absent from every card. Caught here rather than on the page.
+    try:
+        with open(NRL_TEAMS) as fh:
+            club_venues = {t.get('venue') for t in (json.load(fh).get('teams') or {}).values()}
+    except (OSError, ValueError):
+        club_venues = None
+    if club_venues:
+        for name in venues:
+            if name not in club_venues:
+                problems.append(f'nrl weather venue "{name}" is not a venue in nrl_teams.json, so the forecast can never join')
     for name, v in venues.items():
         if not v.get('daily'):
             problems.append(f'nrl weather venue {name} has no daily forecast')

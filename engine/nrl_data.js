@@ -363,8 +363,25 @@ export function nrlTravelContext(home, away, teamsDoc) {
 
 /* ------------------------------------------------------------------ weather */
 
+/**
+ * Ground name without any trailing city, used to join venues that the tape
+ * writes two different ways: Rugby League Project gives "Allianz Stadium,
+ * Sydney" while nrl_teams.json and the Open-Meteo collector use "Allianz
+ * Stadium". Matching on the bare name keeps both spellings resolvable, so a
+ * formatting difference cannot silently empty the weather factor.
+ */
+export function venueKey(name) {
+  return String(name || '').split(',')[0].trim().toLowerCase();
+}
+
 export function nrlWeatherFor(weatherDoc, venue, dateISO) {
-  const v = weatherDoc?.venues?.[venue];
+  const venues = weatherDoc?.venues || {};
+  let v = venues[venue] || null;
+  if (!v) {
+    const want = venueKey(venue);
+    const hit = Object.keys(venues).find((k) => venueKey(k) === want);
+    v = hit ? venues[hit] : null;
+  }
   if (!v) return null;
   const day = (v.daily || []).find((d) => d.date === dateISO) || null;
   if (!day) return null;
