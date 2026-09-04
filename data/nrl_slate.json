@@ -1,0 +1,451 @@
+{
+ "schema_version": 1,
+ "sport": "NRL",
+ "source": {
+  "name": "OLBG \u2014 Rugby League betting tips index and event pages",
+  "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+  "indexes": [
+   "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/10"
+  ],
+  "fetched_at_utc": "2026-09-04T00:00:00Z",
+  "method": "HTTP GET of the server-rendered HTML (no JavaScript execution)",
+  "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/SOURCES.md."
+ },
+ "markets_covered": [
+  "To Win",
+  "Handicap (2-way)",
+  "Total Points",
+  "Win Tournament (outright, never scored)"
+ ],
+ "notes": [
+  "Every event on the OLBG Rugby League board that belongs to the 2026 NRL Premiership is listed here.",
+  "OLBG renders kick-off times in the requesting viewer's timezone (this capture came back in US Eastern, UTC-4). The kickoff_utc values are taken from the round fixture listing, not from OLBG's clock. See docs/NRL_IRREGULARITIES.md NRL-01.",
+  "OLBG's server-rendered HTML carries no bookmaker prices, so no price field can exist in this file. See NRL-02.",
+  "Tipster counts and percentages are market context for manual review only. They are never fed into the scoring functions."
+ ],
+ "events": [
+  {
+   "event_id": "2751059",
+   "type": "match",
+   "home": "Gold Coast Titans",
+   "away": "Dolphins",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Gold_Coast_Titans_v_Dolphins/10?event_id=2751059",
+   "kickoff_utc": "2026-09-04T08:00:00Z",
+   "olbg_display": "Tomorrow 04:00",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": [
+      {
+       "selection": "Dolphins",
+       "tips_for": 20,
+       "tips_total": 24,
+       "pct": 83
+      },
+      {
+       "selection": "Gold Coast Titans",
+       "tips_for": 4,
+       "tips_total": 24,
+       "pct": 17
+      }
+     ]
+    },
+    {
+     "market": "Handicap (2-way)",
+     "line": 12.5,
+     "selections": [
+      {
+       "selection": "Gold Coast Titans",
+       "line": 12.5,
+       "side": "+",
+       "tips_for": 6,
+       "tips_total": 14,
+       "pct": 43
+      },
+      {
+       "selection": "Dolphins",
+       "line": 12.5,
+       "side": "-",
+       "tips_for": 8,
+       "tips_total": 14,
+       "pct": 57
+      }
+     ],
+     "line_source": "olbg_event_page",
+     "other_lines_quoted": [
+      10.5,
+      13.5
+     ],
+     "line_note": "Tipster comments quote 10.50 and -13.50 from other bookmakers, so the handicap is not a single agreed line."
+    },
+    {
+     "market": "Total Points",
+     "line": 57.5,
+     "selections": [
+      {
+       "selection": "Over",
+       "line": 57.5,
+       "tips_for": 3,
+       "tips_total": 5,
+       "pct": 60
+      },
+      {
+       "selection": "Under",
+       "line": 57.5,
+       "tips_for": 2,
+       "tips_total": 5,
+       "pct": 40
+      }
+     ],
+     "line_source": "olbg_event_page"
+    }
+   ],
+   "markets_verified": true,
+   "tipster_consensus": {
+    "market": "Handicap (2-way)",
+    "selection": "Dolphins -12.50",
+    "tips_for": 8,
+    "tips_total": 14,
+    "pct": 57
+   }
+  },
+  {
+   "event_id": "2751062",
+   "type": "match",
+   "home": "South Sydney Rabbitohs",
+   "away": "Sydney Roosters",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/South_Sydney_Rabbitohs_v_Sydney_Roosters/10?event_id=2751062",
+   "kickoff_utc": "2026-09-04T10:00:00Z",
+   "olbg_display": "Tomorrow 06:00",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": []
+    },
+    {
+     "market": "Total Points",
+     "line": 54.5,
+     "selections": [
+      {
+       "selection": "Under",
+       "line": 54.5,
+       "tips_for": 0,
+       "tips_total": 4,
+       "pct": 0
+      },
+      {
+       "selection": "Over",
+       "line": 54.5,
+       "tips_for": 4,
+       "tips_total": 4,
+       "pct": 100
+      }
+     ],
+     "line_source": "olbg_index_best_tip"
+    }
+   ],
+   "markets_verified": false,
+   "tipster_consensus": {
+    "market": "Total Points",
+    "selection": "Under 54.50",
+    "tips_for": 0,
+    "tips_total": 4,
+    "pct": 0
+   }
+  },
+  {
+   "event_id": "2751058",
+   "type": "match",
+   "home": "New Zealand Warriors",
+   "away": "Manly Warringah Sea Eagles",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/New_Zealand_Warriors_v_Manly_Sea_Eagles/10?event_id=2751058",
+   "kickoff_utc": "2026-09-05T05:00:00Z",
+   "olbg_display": "05 Sept 01:00",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": []
+    },
+    {
+     "market": "Total Points",
+     "line": 50.5,
+     "selections": [
+      {
+       "selection": "Over",
+       "line": 50.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      },
+      {
+       "selection": "Under",
+       "line": 50.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      }
+     ],
+     "line_source": "olbg_index_best_tip"
+    }
+   ],
+   "markets_verified": false,
+   "tipster_consensus": {
+    "market": "Total Points",
+    "selection": "Over 50.50",
+    "tips_for": 1,
+    "tips_total": 2,
+    "pct": 50
+   }
+  },
+  {
+   "event_id": "2751057",
+   "type": "match",
+   "home": "North Queensland Cowboys",
+   "away": "Canberra Raiders",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/North_Queensland_Cowboys_v_Canberra_Raiders/10?event_id=2751057",
+   "kickoff_utc": "2026-09-05T07:30:00Z",
+   "olbg_display": "05 Sept 03:30",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": []
+    },
+    {
+     "market": "Total Points",
+     "line": 55.5,
+     "selections": [
+      {
+       "selection": "Over",
+       "line": 55.5,
+       "tips_for": 1,
+       "tips_total": 1,
+       "pct": 100
+      },
+      {
+       "selection": "Under",
+       "line": 55.5,
+       "tips_for": 0,
+       "tips_total": 1,
+       "pct": 0
+      }
+     ],
+     "line_source": "olbg_index_best_tip"
+    }
+   ],
+   "markets_verified": false,
+   "tipster_consensus": {
+    "market": "Total Points",
+    "selection": "Over 55.50",
+    "tips_for": 1,
+    "tips_total": 1,
+    "pct": 100
+   }
+  },
+  {
+   "event_id": "2751056",
+   "type": "match",
+   "home": "Cronulla-Sutherland Sharks",
+   "away": "Melbourne Storm",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Cronulla_Sharks_v_Melbourne_Storm/10?event_id=2751056",
+   "kickoff_utc": "2026-09-05T09:35:00Z",
+   "olbg_display": "05 Sept 05:35",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": []
+    },
+    {
+     "market": "Total Points",
+     "line": 52.5,
+     "selections": [
+      {
+       "selection": "Under",
+       "line": 52.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      },
+      {
+       "selection": "Over",
+       "line": 52.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      }
+     ],
+     "line_source": "olbg_index_best_tip"
+    }
+   ],
+   "markets_verified": false,
+   "tipster_consensus": {
+    "market": "Total Points",
+    "selection": "Under 52.50",
+    "tips_for": 1,
+    "tips_total": 2,
+    "pct": 50
+   }
+  },
+  {
+   "event_id": "2751061",
+   "type": "match",
+   "home": "St George Illawarra Dragons",
+   "away": "Parramatta Eels",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/St_George-Illawarra_Dragons_v_Parramatta_Eels/10?event_id=2751061",
+   "kickoff_utc": "2026-09-06T04:00:00Z",
+   "olbg_display": "06 Sept 00:00",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": []
+    },
+    {
+     "market": "Total Points",
+     "line": 57.5,
+     "selections": [
+      {
+       "selection": "Under",
+       "line": 57.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      },
+      {
+       "selection": "Over",
+       "line": 57.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      }
+     ],
+     "line_source": "olbg_index_best_tip"
+    }
+   ],
+   "markets_verified": false,
+   "tipster_consensus": {
+    "market": "Total Points",
+    "selection": "Under 57.50",
+    "tips_for": 1,
+    "tips_total": 2,
+    "pct": 50
+   }
+  },
+  {
+   "event_id": "2751060",
+   "type": "match",
+   "home": "Penrith Panthers",
+   "away": "Wests Tigers",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Penrith_Panthers_v_Wests_Tigers/10?event_id=2751060",
+   "kickoff_utc": "2026-09-06T06:05:00Z",
+   "olbg_display": "06 Sept 02:05",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": []
+    },
+    {
+     "market": "Total Points",
+     "line": 48.5,
+     "selections": [
+      {
+       "selection": "Over",
+       "line": 48.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      },
+      {
+       "selection": "Under",
+       "line": 48.5,
+       "tips_for": 1,
+       "tips_total": 2,
+       "pct": 50
+      }
+     ],
+     "line_source": "olbg_index_best_tip"
+    }
+   ],
+   "markets_verified": false,
+   "tipster_consensus": {
+    "market": "Total Points",
+    "selection": "Over 48.50",
+    "tips_for": 1,
+    "tips_total": 2,
+    "pct": 50
+   }
+  },
+  {
+   "event_id": "2751007",
+   "type": "match",
+   "home": "Canterbury-Bankstown Bulldogs",
+   "away": "Brisbane Broncos",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Canterbury_Bulldogs_v_Brisbane_Broncos/10?event_id=2751007",
+   "kickoff_utc": "2026-09-03T09:50:00Z",
+   "olbg_display": "(removed from the board after kick-off)",
+   "status": "completed",
+   "markets": [
+    {
+     "market": "To Win",
+     "selections": [
+      {
+       "selection": "Canterbury Bulldogs",
+       "tips_for": 23,
+       "tips_total": 31,
+       "pct": 74
+      }
+     ]
+    },
+    {
+     "market": "Handicap (2-way)",
+     "line": 10.5,
+     "selections": [],
+     "line_source": "olbg_snapshot_2026-09-02"
+    },
+    {
+     "market": "Total Points",
+     "line": 53.5,
+     "selections": [],
+     "line_source": "olbg_snapshot_2026-09-02"
+    }
+   ],
+   "markets_verified": false,
+   "notes": [
+    "Kick-off 2026-09-03T09:50Z; result Canterbury-Bankstown Bulldogs 20 - 34 Brisbane Broncos. Lines captured in the 2026-09-02 snapshot only; the event has since left the OLBG board."
+   ]
+  },
+  {
+   "event_id": "2695857",
+   "type": "outright",
+   "home": null,
+   "away": null,
+   "label": "State of Origin 2027",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/State_of_Origin_2027/10?event_id=2695857",
+   "olbg_display": "27 May 2027 06:00",
+   "status": "upcoming",
+   "markets": [
+    {
+     "market": "Win Tournament",
+     "selections": [
+      {
+       "selection": "New South Wales",
+       "tips_for": 2,
+       "tips_total": 2,
+       "pct": 100
+      }
+     ]
+    }
+   ],
+   "markets_verified": false,
+   "notes": [
+    "Outright market. Never scored by the NRL engine (the engine only scores two-competitor fixtures)."
+   ]
+  }
+ ]
+}

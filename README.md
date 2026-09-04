@@ -25,6 +25,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`ice-hockey.html`](ice-hockey.html) | Ice hockey: scoreboard + month calendar over the NHL fixture list, scored by the ICE HOCKEY PREDICTION MASTER PROMPT v1.0. Three markets per match (outright winner, puck line, game total) behind a subagent risk layer that vetoes any play resting on an unsourced input. Fixtures, standings and goaltending from the official NHL API, prices from the ESPN odds block, OLBG slate for market context. |
 | [`baseball.html`](baseball.html) | Baseball: scoreboard + month calendar over the MLB fixture list, scored by the BASEBALL PREDICTION MASTER PROMPT v1.0. Three tips per match (WIN MATCH OUTRIGHT, RUN LINE, GAME TOTAL) each with a confidence score, generated on load and re-scored by the Generate button with no network needed. Fixtures, results, standings, team batting/pitching stats and probable starters come from the official MLB StatsAPI; the ESPN scoreboard supplies venue/weather context; the OLBG slate is display-and-join context. No free key-less MLB price feed exists, so the odds factor is recorded as missing rather than guessed, and bullpen ERA rank/usage and wind are likewise reported missing (`docs/BASEBALL_SOURCES.md`, `docs/BASEBALL_IRREGULARITIES.md`). |
 | [`npb.html`](npb.html) | Baseball → **NPB** sub-page (MLB \| NPB tabs on both pages): Nippon Professional Baseball scoreboard, month calendar and both league tables built from official npb.jp pages — English BIS calendars (results tape with draws and postponements) and standings, the Japanese schedule detail (予告先発 announced starters, venue, JMA forecast icon) and Japanese box scores (pitching lines). Scored by the NPB BASEBALL PREDICTION MASTER PROMPT v1.0: every match is assessed for a home win, an away win **and, independently, a draw** (12-inning limit), then run line and game total, with evidence floors so nothing reaches a verdict on unsourced blocks. No key-less three-way NPB price feed exists; the odds block, handedness splits, wind and import registrations are recorded as missing. The committed data was seeded from dated page captures and is replaced by the `npb-collect` workflow (`docs/NPB_SOURCES.md`, `docs/NPB_IRREGULARITIES.md`). |
+| [`nrl.html`](nrl.html) | Rugby League → **NRL** sub-page (NRL + Super League \| NRL tabs on both pages): the 2026 NRL Premiership scoreboard, month calendar and full ladder, scored by the **NRL PREDICTION MASTER PROMPT v1.0** ([prompt](docs/NRL_MASTER_PROMPT.md) · [line-by-line review](docs/NRL_PROMPT_REVIEW.md) · [sources](docs/NRL_SOURCES.md) · [irregularities](docs/NRL_IRREGULARITIES.md) · [backtest](docs/NRL_BACKTEST.md)). Every upcoming fixture gets three tips — WIN MATCH, HANDICAP, GAME TOTAL — generated on load and re-scored by the Generate button, each at least forty words with the pick bolded and a confidence band. Inputs: the full season tape (every result and fixture, validated by recomputing the ladder after round 26 against the published table — all seventeen clubs match exactly), the OLBG market slate (every market currently on the board, with lines labelled by source), the 2026 State of Origin calendar, ESPN's key-less NRL scoreboard for venues and UTC kick-offs, and Open-Meteo venue forecasts. Nothing is estimated: no key-less NRL price feed exists, so the fifteen-point odds factor always scores zero and is named on every card, and no return on investment is ever published. The walk-forward backtest (`data/nrl_backtest.json`) scores every fixture only from matches with an earlier date. |
 
 Every sport is reachable from the rail in the masthead on every page.
 
@@ -37,7 +38,10 @@ candidate leagues.
 
 Sports with a structured feed are **predicted**. Sports without a usable
 statistics feed (horse racing, Gaelic football, cycling, boxing) are
-**listed and linked for manual review** and produce no output at all. Snooker
+**listed and linked for manual review** and produce no output at all. The NRL is predicted on its own sub-page
+(`nrl.html`) from the season tape and the OLBG slate, while the rugby league
+page keeps its own ruleset covering both competitions — the two are different
+prompt implementations, not two views of one. Snooker
 is predicted on its own page from the OLBG slate, the official WST ranking
 table and the public snooker.org results database — the odds factor is the one
 unsourced input, recorded as missing rather than guessed
@@ -187,6 +191,10 @@ engine/                 the model — pure functions, no I/O
   golf_writer.js        Golf Step 4 writer (five blocks, table, weather, RG) + validator
   golf_data.js          Golf results tape -> per-player profiles (leak-free)
   golf_card.js          Golf documents -> scored & written card
+  nrl_data.js           NRL tape -> ladder, form, H2H, totals, travel, weather
+  nrl_engine.js         NRL Step 2 scoring (3 markets) + Step 3 rules + coverage caps
+  nrl_writer.js         NRL Step 4 writer (40 words, bolded pick, RG section) + validator
+  nrl_card.js           NRL documents -> scored & written card
   golf_espn.js        ESPN golf / OWGR / PGA TOUR / ESPN-stats parsers
   greyhound_gbgb.js   GBGB official results API parsers (meetings, draws,
                       results, per-dog histories; trials excluded)
@@ -197,6 +205,7 @@ engine/                 the model — pure functions, no I/O
   greyhound_writer.js Greyhound Step 4 tip writer + output-rule validator
   greyhound_card.js   slate -> scored & written WIN card; settlement
 assets/js/
+  nrl-page.js           NRL page controller (scoreboard, calendar, ladder, button)
   golf-page.js          golf page controller (leaderboards, calendar, cards, button)
   golf-collector.js     live browser collection for golf from ESPN (no key)
   app.js                multi-sport controller (scoreboard, calendar, markets, copy)

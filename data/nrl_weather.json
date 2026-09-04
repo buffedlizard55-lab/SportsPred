@@ -1,0 +1,180 @@
+{
+ "schema_version": 1,
+ "sport": "NRL",
+ "fetched_at_utc": "2026-09-04T00:00:00Z",
+ "source": {
+  "name": "Open-Meteo forecast API (key-less, no registration)",
+  "url_template": "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&daily=precipitation_sum,precipitation_probability_max,wind_speed_10m_max&forecast_days=4&timezone=UTC",
+  "note": "Daily aggregate forecast per match venue. Wind is daily maximum at 10 m. Weather is a model forecast, not an observation: it is recorded with its source and used only as the 10-point Weather component of the GAME TOTAL market."
+ },
+ "venues": {
+  "Cbus Super Stadium, Gold Coast": {
+   "lat": -28.0667,
+   "lon": 153.4333,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 16.6
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 13.9
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.0,
+     "precip_prob_max": 4,
+     "wind_max_kmh": 24.6
+    }
+   ]
+  },
+  "Allianz Stadium, Sydney": {
+   "lat": -33.8915,
+   "lon": 151.2213,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 14.4
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 33.0
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.0,
+     "precip_prob_max": 10,
+     "wind_max_kmh": 18.8
+    }
+   ]
+  },
+  "Go Media Stadium, Auckland": {
+   "lat": -36.8728,
+   "lon": 174.7833,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 5.0,
+     "precip_prob_max": 98,
+     "wind_max_kmh": 34.6
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 3,
+     "wind_max_kmh": 16.8
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 10.0,
+     "precip_prob_max": 91,
+     "wind_max_kmh": 24.2
+    }
+   ]
+  },
+  "Queensland Country Bank Stadium, Townsville": {
+   "lat": -19.3167,
+   "lon": 146.7167,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 12.5
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 10.8
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 12.6
+    }
+   ]
+  },
+  "Ocean Protect Stadium, Cronulla": {
+   "lat": -34.0447,
+   "lon": 151.1533,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 14.6
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 11,
+     "wind_max_kmh": 32.5
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 16.8
+    }
+   ]
+  },
+  "WIN Stadium, Wollongong": {
+   "lat": -34.4267,
+   "lon": 150.9019,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.0,
+     "precip_prob_max": 31,
+     "wind_max_kmh": 18.4
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 63,
+     "wind_max_kmh": 30.0
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 19.1
+    }
+   ]
+  },
+  "CommBank Stadium, Parramatta": {
+   "lat": -33.8083,
+   "lon": 150.9892,
+   "daily": [
+    {
+     "date": "2026-09-04",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 15.1
+    },
+    {
+     "date": "2026-09-05",
+     "precip_mm": 0.0,
+     "precip_prob_max": 27,
+     "wind_max_kmh": 33.3
+    },
+    {
+     "date": "2026-09-06",
+     "precip_mm": 0.0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 15.4
+    }
+   ]
+  }
+ }
+}

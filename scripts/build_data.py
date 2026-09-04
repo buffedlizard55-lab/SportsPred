@@ -16,6 +16,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import sys
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -105,6 +106,38 @@ RUGBY_PROVENANCE = os.path.join(DATA, 'rugby_league_provenance.json')
 RUGBY_PREDICTIONS = os.path.join(DATA, 'rugby_league_predictions.json')
 RUGBY_BACKTEST = os.path.join(DATA, 'rugby_league_backtest.json')
 RUGBY_WEATHER = os.path.join(DATA, 'rugby_league_weather.json')
+
+# NRL (nrl.html) — the NRL PREDICTION MASTER PROMPT v1.0 layer
+NRL_MATCHES = os.path.join(DATA, 'nrl_matches.json')
+NRL_TEAMS = os.path.join(DATA, 'nrl_teams.json')
+NRL_SLATE = os.path.join(DATA, 'nrl_slate.json')
+NRL_WEATHER = os.path.join(DATA, 'nrl_weather.json')
+NRL_ORIGIN = os.path.join(DATA, 'nrl_origin.json')
+NRL_PROVENANCE = os.path.join(DATA, 'nrl_provenance.json')
+NRL_PREDICTIONS = os.path.join(DATA, 'nrl_predictions.json')
+NRL_BACKTEST = os.path.join(DATA, 'nrl_backtest.json')
+
+# The published table after round 26, 2026. If a refresh ever breaks the tape,
+# this is the check that catches it. (club, played, won, lost, differential, points)
+NRL_PUBLISHED_LADDER_R26 = [
+    ('New Zealand Warriors', 23, 17, 6, 309, 40),
+    ('Penrith Panthers', 23, 17, 6, 308, 40),
+    ('Dolphins', 23, 16, 7, 152, 38),
+    ('Sydney Roosters', 23, 16, 7, 148, 38),
+    ('Cronulla-Sutherland Sharks', 23, 14, 9, 153, 34),
+    ('South Sydney Rabbitohs', 23, 13, 10, 83, 32),
+    ('Newcastle Knights', 24, 14, 10, 42, 32),
+    ('North Queensland Cowboys', 23, 13, 10, -64, 32),
+    ('Manly Warringah Sea Eagles', 23, 11, 12, 100, 28),
+    ('Canterbury-Bankstown Bulldogs', 23, 11, 12, -46, 28),
+    ('Melbourne Storm', 23, 10, 13, 14, 26),
+    ('Canberra Raiders', 23, 10, 13, -65, 26),
+    ('Parramatta Eels', 23, 9, 14, -179, 24),
+    ('Wests Tigers', 23, 8, 15, -226, 22),
+    ('Brisbane Broncos', 23, 7, 16, -220, 20),
+    ('Gold Coast Titans', 23, 6, 17, -182, 18),
+    ('St George Illawarra Dragons', 23, 4, 19, -327, 14),
+]
 
 # Baseball files (optional until the first CI collection completes)
 BASEBALL_FIXTURES = os.path.join(DATA, 'baseball_fixtures.json')
@@ -807,6 +840,200 @@ def validate_rugby_matches(doc):
     return problems, len(matches)
 
 
+def nrl_ladder(matches, through_round=None):
+    """Recompute the NRL table from the tape: 2 a win, 1 a draw, 2 a bye."""
+    rows = {}
+
+    def blank(team):
+        return {'team': team, 'P': 0, 'W': 0, 'D': 0, 'L': 0, 'B': 0, 'PF': 0, 'PA': 0}
+
+    played = [m for m in matches
+              if m.get('status') == 'completed'
+              and isinstance(m.get('homeScore'), int) and isinstance(m.get('awayScore'), int)
+              and (through_round is None or (m.get('round') or 0) <= through_round)]
+    for m in played:
+        for side in (m['home'], m['away']):
+            rows.setdefault(side, blank(side))
+    rounds = sorted({m.get('round') for m in played if m.get('round')})
+    for m in played:
+        h, a = rows.setdefault(m['home'], blank(m['home'])), rows.setdefault(m['away'], blank(m['away']))
+        hs, as_ = m['homeScore'], m['awayScore']
+        h['P'] += 1; a['P'] += 1
+        h['PF'] += hs; h['PA'] += as_
+        a['PF'] += as_; a['PA'] += hs
+        if hs > as_: h['W'] += 1; a['L'] += 1
+        elif hs < as_: a['W'] += 1; h['L'] += 1
+        else: h['D'] += 1; a['D'] += 1
+    for team, r in rows.items():
+        for rd in rounds:
+            if not any(m.get('round') == rd and team in (m['home'], m['away']) for m in played):
+                r['B'] += 1
+        r['PD'] = r['PF'] - r['PA']
+        r['Pts'] = 2 * r['W'] + r['D'] + 2 * r['B']
+    return sorted(rows.values(), key=lambda r: (-r['Pts'], -r['PD'], -r['PF'], r['team']))
+
+
+def validate_nrl_matches(doc):
+    """The tape: schema, no half-scored rows, and the ladder check."""
+    problems = []
+    matches = doc.get('matches', [])
+    if not isinstance(matches, list) or not matches:
+        return ['nrl_matches.matches is missing or empty'], 0
+    for m in matches:
+        label = f'{m.get("date")} {m.get("home")} v {m.get("away")}'
+        for field in ('date', 'home', 'away', 'status', 'round'):
+            if m.get(field) in (None, ''):
+                problems.append(f'nrl match {label} missing "{field}"')
+        completed = m.get('status') == 'completed'
+        scores = (m.get('homeScore'), m.get('awayScore'))
+        if completed and not all(isinstance(x, int) for x in scores):
+            problems.append(f'nrl match {label} is completed without both scores')
+        if not completed and any(x is not None for x in scores):
+            problems.append(f'nrl match {label} is not completed but carries a score')
+    rounds = {m.get('round') for m in matches}
+    if len(rounds) != 27:
+        problems.append(f'nrl_matches covers {len(rounds)} rounds, expected 27')
+    clubs = {m['home'] for m in matches} | {m['away'] for m in matches}
+    if len(clubs) != 17:
+        problems.append(f'nrl_matches covers {len(clubs)} clubs, expected 17')
+    # the anti-typo check
+    table = {r['team']: r for r in nrl_ladder(matches, through_round=26)}
+    for name, P, W, L, PD, Pts in NRL_PUBLISHED_LADDER_R26:
+        r = table.get(name)
+        if r is None:
+            problems.append(f'nrl ladder after round 26 is missing {name}')
+            continue
+        if (r['P'], r['W'], r['L'], r['PD'], r['Pts']) != (P, W, L, PD, Pts):
+            problems.append(
+                f'nrl ladder after round 26 disagrees with the published table for {name}: '
+                f'computed {r["P"]}/{r["W"]}/{r["L"]}/{r["PD"]}/{r["Pts"]} v published {P}/{W}/{L}/{PD}/{Pts}')
+    return problems, len(matches)
+
+
+def validate_nrl_teams(doc):
+    problems = []
+    teams = doc.get('teams', {})
+    if not isinstance(teams, dict) or not teams:
+        return ['nrl_teams.teams is missing or empty'], 0
+    for name, t in teams.items():
+        for field in ('short', 'venue', 'city', 'country', 'lat', 'lon'):
+            if t.get(field) in (None, ''):
+                problems.append(f'nrl team {name} missing "{field}"')
+        if not isinstance(t.get('aliases'), list) or not t['aliases']:
+            problems.append(f'nrl team {name} has no aliases (the OLBG/ESPN join needs them)')
+    if len(teams) != 17:
+        problems.append(f'nrl_teams has {len(teams)} clubs, expected 17')
+    return problems, len(teams)
+
+
+def validate_nrl_slate(doc):
+    problems = []
+    events = doc.get('events', [])
+    if not isinstance(events, list) or not events:
+        return ['nrl_slate.events is missing or empty'], 0
+    for e in events:
+        if e.get('type') == 'outright':
+            continue
+        for field in ('event_id', 'home', 'away', 'url'):
+            if not e.get(field):
+                problems.append(f'nrl slate event {e.get("event_id")} missing "{field}"')
+        if not str(e.get('url', '')).startswith('https://www.olbg.com/'):
+            problems.append(f'nrl slate event {e.get("event_id")} url is not an OLBG https link')
+        for m in e.get('markets', []) or []:
+            if 'line' in m and not isinstance(m['line'], (int, float, type(None))):
+                problems.append(f'nrl slate event {e.get("event_id")} has a non-numeric line')
+        # no prices may ever appear in this file
+        blob = json.dumps(e)
+        for token in ('odds', 'price', 'fraction', 'decimal'):
+            if f'"{token}"' in blob:
+                problems.append(f'nrl slate event {e.get("event_id")} carries a {token} field (no price feed exists)')
+    return problems, len(events)
+
+
+def validate_nrl_provenance(doc):
+    problems = []
+    if not doc.get('sources'):
+        problems.append('nrl_provenance has no sources')
+    for s in doc.get('sources', []):
+        if not str(s.get('url', '')).startswith('https://'):
+            problems.append(f'nrl provenance source {s.get("id")} url is not https')
+    if not doc.get('irregularities'):
+        problems.append('nrl_provenance has no irregularities register')
+    for i in doc.get('irregularities', []):
+        for field in ('id', 'status', 'title', 'detail', 'effect'):
+            if not i.get(field):
+                problems.append(f'nrl irregularity {i.get("id")} missing "{field}"')
+    return problems, len(doc.get('sources', []))
+
+
+def validate_nrl_backtest(doc):
+    problems = []
+    if not doc.get('rows'):
+        return ['nrl_backtest.rows is empty (run scripts/backtest_nrl.mjs)'], 0
+    w = (doc.get('summary') or {}).get('win_match') or {}
+    if not w.get('selections'):
+        problems.append('nrl_backtest has no WIN MATCH selections')
+    if 'strike' not in w:
+        problems.append('nrl_backtest WIN MATCH summary has no strike rate')
+    blob = json.dumps(doc)
+    for token in ('roi', 'profit', 'units', 'return on investment'):
+        if token in blob.lower() and 'no return on investment' not in blob.lower():
+            problems.append(f'nrl_backtest mentions "{token}" — no ROI is possible without prices')
+    if not (doc.get('summary') or {}).get('handicap', {}).get('settled') is False:
+        problems.append('nrl_backtest must record the handicap as not settled')
+    return problems, len(doc.get('rows', []))
+
+
+def validate_nrl_predictions(doc):
+    problems = []
+    preds = doc.get('predictions', [])
+    if not isinstance(preds, list):
+        return ['nrl_predictions.predictions is not a list'], 0
+    for p in preds:
+        for field in ('match', 'market', 'market_label', 'band'):
+            if not p.get(field):
+                problems.append(f'nrl prediction {p.get("key")} missing "{field}"')
+        if p.get('skip'):
+            continue
+        tip = p.get('tip', '')
+        words = tip.replace('**', '').split()
+        if len(words) < 40:
+            problems.append(f'nrl prediction {p.get("key")} tip is {len(words)} words (minimum 40)')
+        if re.search(r'\d', tip):
+            problems.append(f'nrl prediction {p.get("key")} tip carries a figure')
+        if not re.search(r'Confidence:\s*(LOW|MEDIUM|HIGH)', tip):
+            problems.append(f'nrl prediction {p.get("key")} tip does not state a confidence')
+    return problems, len(preds)
+
+
+def validate_nrl_weather(doc):
+    problems = []
+    venues = doc.get('venues', {})
+    if not venues:
+        return ['nrl_weather.venues is empty'], 0
+    for name, v in venues.items():
+        if not v.get('daily'):
+            problems.append(f'nrl weather venue {name} has no daily forecast')
+        for d in v.get('daily', []):
+            if not d.get('date'):
+                problems.append(f'nrl weather venue {name} has a day with no date')
+    return problems, len(venues)
+
+
+def validate_nrl_origin(doc):
+    problems = []
+    games = doc.get('games', [])
+    if len(games) != 3:
+        problems.append(f'nrl_origin has {len(games)} games, expected three')
+    for g in games:
+        for field in ('game', 'date', 'venue', 'result'):
+            if not g.get(field):
+                problems.append(f'nrl origin game {g.get("game")} missing "{field}"')
+    if not (doc.get('source') or {}).get('urls'):
+        problems.append('nrl_origin has no source urls')
+    return problems, len(games)
+
+
 def validate_ice_hockey_fixtures(doc):
     problems = []
     fixtures = doc.get('fixtures', [])
@@ -1410,6 +1637,25 @@ def main():
                 print(f'              {n} records')
         else:
             total += report(name, [], 0)
+
+    print('\n--- NRL Data Layer (nrl.html, NRL Master Prompt v1.0) ---')
+    nrl_names = [('data/nrl_matches.json', NRL_MATCHES, validate_nrl_matches),
+                 ('data/nrl_teams.json', NRL_TEAMS, validate_nrl_teams),
+                 ('data/nrl_slate.json', NRL_SLATE, validate_nrl_slate),
+                 ('data/nrl_weather.json', NRL_WEATHER, validate_nrl_weather),
+                 ('data/nrl_origin.json', NRL_ORIGIN, validate_nrl_origin),
+                 ('data/nrl_provenance.json', NRL_PROVENANCE, validate_nrl_provenance),
+                 ('data/nrl_predictions.json', NRL_PREDICTIONS, validate_nrl_predictions),
+                 ('data/nrl_backtest.json', NRL_BACKTEST, validate_nrl_backtest)]
+    for name, path, fn in nrl_names:
+        blob = load(path)
+        if blob is None:
+            print(f'  [PENDING] {name} (populated by the NRL collector)')
+            continue
+        problems, n = fn(blob)
+        total += report(name, problems, n)
+        if n:
+            print(f'              {n} records')
 
     print('\n--- Ice Hockey Data Layer ---')
     ih_names = [

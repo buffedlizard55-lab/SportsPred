@@ -323,6 +323,8 @@ function makeFetch(counters) {
         || u.includes('data/darts_')
         || u.includes('data/gaa_')
         || u.includes('data/npb_')
+        || u.includes('data/nrl_')
+        || u.includes('data/rugby_league_')
         || /data\/ice_hockey_(fixtures|tape|standings|goalies|injuries|slate|provenance|predictions|backtest)\.json/.test(u)) {
       const local = join(ROOT, u.replace(/^.*\/(data\/[^?]+)$/, '$1'));
       if (existsSync(local)) return ok(JSON.parse(readFileSync(local, 'utf8')));
@@ -374,6 +376,124 @@ function cleanup() {
     delete global[k];
   }
 }
+
+test('nrl.html boots, renders the ladder and auto-generates a prediction card', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('nrl.html', { search: '?date=2026-09-04' });
+  try {
+    assert.equal(document.querySelector('#page-title').textContent, 'NRL');
+
+    // League sub-navigation: NRL + Super League | NRL, with NRL active.
+    const tabs = [...document.querySelectorAll('#league-tabs a')];
+    assert.deepEqual(tabs.map((a) => a.textContent.trim()), ['NRL + Super League', 'NRL']);
+    assert.ok(tabs[1].classList.contains('on'), 'the NRL tab is active');
+    assert.equal(tabs[0].getAttribute('href'), 'rugby-league.html');
+
+    // The ladder is rendered from the tape, with the finals cut-offs named.
+    const rows = [...document.querySelectorAll('#ladder-body tbody tr')];
+    assert.equal(rows.length, 17, 'all seventeen clubs');
+    assert.match(document.querySelector('#ladder-body').textContent, /top four — double chance/);
+    assert.match(document.querySelector('#ladder-body').textContent, /sudden death/);
+
+    // Two fixtures on 4 September, each with a generated card.
+    const matches = [...document.querySelectorAll('#board .match')];
+    assert.ok(matches.length >= 2, `at least two matches rendered (found ${matches.length})`);
+    assert.match(document.querySelector('#board').textContent, /Dolphins|Roosters|Titans|Rabbitohs/);
+
+    // Tips are present on load, without pressing anything.
+    const tips = [...document.querySelectorAll('#board [data-copytip]')];
+    assert.ok(tips.length >= 3, `tips generated on load (found ${tips.length})`);
+    const first = tips[0].dataset.copytip;
+    assert.ok(first.split(/\s+/).length >= 40, 'each tip is at least forty words');
+    assert.match(first, /\*\*[^\*]+\*\*/, 'the pick is bolded');
+    assert.match(first, /Confidence: (LOW|MEDIUM|HIGH)\./);
+    assert.ok(!/\d/.test(first), 'no figure reaches the page in a tip');
+
+    // The counts line tells the reader how much was withheld.
+    assert.match(document.querySelector('#counts').textContent, /\d+ tips · \d+ live/);
+
+    // The backtest panel publishes real numbers and refuses to invent an ROI.
+    const bt = document.querySelector('#backtest-body').textContent;
+    assert.match(bt, /WIN MATCH \d+\/\d+/);
+    assert.match(bt, /not settled/, 'the handicap is honestly unbacktested');
+    assert.match(bt, /No return on investment is reported/);
+
+    // Responsible gambling is a section, not a line.
+    const rg = [...document.querySelectorAll('#rg-body p')];
+    assert.ok(rg.length >= 4);
+    const rgText = document.querySelector('#rg-body').textContent;
+    assert.match(rgText, /1800 858 858/);
+    assert.match(rgText, /BetStop/);
+    assert.match(rgText, /0800 654 655/);
+  } finally {
+    cleanup();
+  }
+});
+
+test('the NRL Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('nrl.html', { search: '?date=2026-09-04' });
+  try {
+    const before = document.querySelectorAll('#board [data-copytip]').length;
+    assert.ok(before >= 3, `tips exist on load (${before})`);
+
+    // Empty the results, then press the button: it must rebuild them.
+    document.querySelector('#board').innerHTML = '';
+    assert.equal(document.querySelectorAll('#board [data-copytip]').length, 0);
+
+    document.querySelector('#generate').dispatchEvent(new document.defaultView.MouseEvent('click', { bubbles: true }));
+    for (let i = 0; i < 40; i += 1) await new Promise((r) => setTimeout(r, 15));
+
+    const after = document.querySelectorAll('#board [data-copytip]').length;
+    assert.equal(after, before, `Generate repopulated the board (${before} -> ${after})`);
+    assert.match(document.body.textContent, /predictions generated/);
+  } finally {
+    cleanup();
+  }
+});
+
+test('NRL Analysis exposes the fired rules, the missing factors and the review links', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('nrl.html', { search: '?date=2026-09-04' });
+  try {
+    const toggle = document.querySelector('#board [data-toggle]');
+    assert.ok(toggle, 'an Analysis control exists');
+    toggle.dispatchEvent(new document.defaultView.MouseEvent('click', { bubbles: true }));
+    await new Promise((r) => setTimeout(r, 30));
+
+    const detail = document.querySelector('#board .detail.open');
+    assert.ok(detail, 'the analysis panel opened');
+
+    // One component table per market, with points and reasons.
+    const tables = [...detail.querySelectorAll('table.kv')];
+    assert.ok(tables.length >= 3, `three market tables (found ${tables.length})`);
+    assert.match(detail.textContent, /Recent form \(last 6, recency weighted\)/);
+    assert.match(detail.textContent, /Ladder position & finals stakes/);
+    assert.match(detail.textContent, /Odds and value/);
+
+    // The unsourced factors are named rather than hidden.
+    assert.match(detail.textContent, /not sourced|missing/i);
+    assert.match(detail.textContent, /no key-less bookmaker price feed/i);
+
+    // Review links to the official and published sources.
+    const links = [...detail.querySelectorAll('.srclist a')];
+    assert.ok(links.length >= 4, `at least four review links (found ${links.length})`);
+    for (const a of links) {
+      assert.match(a.getAttribute('href'), /^https:\/\//);
+      assert.equal(a.getAttribute('rel'), 'noopener noreferrer');
+    }
+    assert.ok(links.some((a) => /nrl\.com/.test(a.href)), 'the NRL official site is linked');
+    assert.ok(links.some((a) => /olbg\.com/.test(a.href)), 'the OLBG market is linked');
+  } finally {
+    cleanup();
+  }
+});
+
+test('registry: rugby league carries an NRL sub-page', async () => {
+  const { SPORTS } = await import('../engine/registry.js');
+  const rl = SPORTS.find((s) => s.key === 'rugby-league');
+  assert.ok(rl, 'rugby-league is in the registry');
+  assert.deepEqual((rl.subPages || []).map((p) => p.href), ['rugby-league.html', 'nrl.html']);
+  const nrl = rl.subPages.find((p) => p.href === 'nrl.html');
+  assert.match(nrl.name, /NRL PREDICTION MASTER PROMPT/);
+});
 
 test('sport.html boots, renders the board and auto-generates a prediction', { skip: !JSDOM }, async () => {
   const { document } = await bootPage('sport.html', { search: '?sport=football&date=2026-09-05' });

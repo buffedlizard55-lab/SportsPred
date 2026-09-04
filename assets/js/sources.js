@@ -210,6 +210,27 @@ async function boot() {
     }
   }
 
+  // ---- NRL irregularities (the NRL Master Prompt v1.0 layer) ----
+  const nrl = await loadStatic('data/nrl_provenance.json');
+  const nrlbox = $('#nrl-irr');
+  if (nrlbox) {
+    if (!nrl.data) {
+      nrlbox.innerHTML = '<div class="note">NRL register unavailable (data/nrl_provenance.json).</div>';
+    } else {
+      const rows = nrl.data.irregularities || [];
+      nrlbox.innerHTML = `<p class="meta-line">${esc((nrl.data.sources || []).length)} sources recorded, including the OLBG market slate, the official NRL ladder and draw, the season results tape, the Open-Meteo forecast and the State of Origin calendar.</p>
+        <table class="data">
+        <thead><tr><th>Id</th><th>Finding</th><th>Status</th><th>Effect on output</th></tr></thead>
+        <tbody>${rows.map((r) => `<tr>
+          <td><code>${esc(r.id)}</code></td>
+          <td><strong>${esc(r.title)}</strong><div class="meta-line">${esc(r.detail || '')}</div></td>
+          <td>${esc(r.status)}</td>
+          <td>${esc(r.effect || '')}</td>
+        </tr>`).join('')}</tbody></table>
+        <p class="meta-line">Register generated ${esc(nrl.data.generated_at_utc || '')}. See <a href="nrl.html">the NRL scoreboard</a> · <a href="docs/NRL_SOURCES.md" target="_blank" rel="noopener noreferrer">source audit</a> · <a href="docs/NRL_PROMPT_REVIEW.md" target="_blank" rel="noopener noreferrer">line-by-line prompt review</a> · <a href="docs/NRL_BACKTEST.md" target="_blank" rel="noopener noreferrer">backtest</a></p>`;
+    }
+  }
+
   // ---- sport source list ----
   $('#sport-sources').innerHTML = `<table class="data">
     <thead><tr><th>Sport</th><th>OLBG index</th><th>Statistics feed</th><th>Status</th><th>Official references</th></tr></thead>

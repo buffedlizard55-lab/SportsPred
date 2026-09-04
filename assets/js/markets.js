@@ -45,7 +45,7 @@ async function boot() {
       ? `<span class="badge HIGH">${esc(s.specialistEngine ? `${s.specialistEngine} engine` : 'universal')}</span>`
       : '<span class="badge SKIP">review only</span>'}</td>
           <td><a href="https://www.olbg.com/betting-tips/${esc(s.olbgSlug)}/${s.olbgId}" target="_blank" rel="noopener noreferrer">open ↗</a>
-              · <a href="${esc(s.page || `sport.html?sport=${s.key}`)}">scoreboard</a></td>
+              · <a href="${esc(s.page || `sport.html?sport=${s.key}`)}">scoreboard</a>${(s.subPages || []).filter((p) => p.href !== s.page).map((p) => ` · <a href="${esc(p.href)}">${esc(p.label)}</a>`).join('')}</td>
         </tr>`;
   }).join('')}
       <tr><td colspan="7" style="background:#fbfcfe"><strong>Tipster-only sports</strong> — these appear in the OLBG sitemap under

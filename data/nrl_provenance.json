@@ -1,0 +1,197 @@
+{
+ "schema_version": 1,
+ "sport": "NRL",
+ "competition": "2026 NRL Telstra Premiership",
+ "generated_at_utc": "2026-09-04T00:00:00Z",
+ "ruleset_version": "v1.0",
+ "data_policy": [
+  "Every number on the NRL page is read from a committed document or computed arithmetically from one. Nothing is estimated, modelled or filled in by hand.",
+  "A factor that no free, key-less source publishes is scored zero and named on the card. It is never back-filled from a guess.",
+  "No bookmaker prices are used anywhere: no key-less NRL price feed exists, so no return on investment is ever reported.",
+  "OLBG tipster percentages are market context for manual review only. They are never fed into a scoring function."
+ ],
+ "validation": {
+  "tape_check": "The 2026 tape in data/nrl_matches.json was recomputed into a ladder after round 26 and compared with the published table: all seventeen clubs match exactly on played, won, lost, drawn, points differential and competition points. A single mistyped or missing score would break that check for at least one club.",
+  "round_1_note": "Round 1 was a split round (two matches in Las Vegas on 28 February, the remaining six from 5 March). The tape keeps it as one round of eight.",
+  "bye_structure": "Seventeen clubs means some rounds carry three or seven byes rather than one. Rounds 12, 15 and 18 have five matches and rounds 13, 16 and 19 have seven; every club finishes with three byes except the Knights, who have two."
+ },
+ "sources": [
+  {
+   "id": "NRL-SRC-01",
+   "label": "OLBG \u2014 Rugby League betting tips index (the market slate)",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/10",
+   "used_for": "Every NRL event currently on the OLBG board, the markets offered on each (To Win, Handicap 2-way, Total Points) and the best-tip line.",
+   "read": "full-page fetch, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-02",
+   "label": "OLBG \u2014 event page (Gold Coast Titans v Dolphins)",
+   "url": "https://www.olbg.com/betting-tips/Rugby_League/All_Rugby_League/All_Events/Gold_Coast_Titans_v_Dolphins/10?event_id=2751059",
+   "used_for": "Confirms the three markets OLBG offers per NRL fixture and that no bookmaker prices appear in the server-rendered HTML.",
+   "read": "full-page fetch, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-03",
+   "label": "Rugby League Project \u2014 2026 Telstra NRL Premiership, data completed",
+   "url": "https://www.rugbyleagueproject.org/seasons/nrl-2026/data.html",
+   "used_for": "Match-by-match results tape for rounds 1-25 (date, home, away, score).",
+   "read": "full-page fetch, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-04",
+   "label": "Rugby League Project \u2014 Round 27 fixtures",
+   "url": "https://www.rugbyleagueproject.org/seasons/nrl-2026/round-27/summary.html",
+   "used_for": "Round 27 venues and local kick-off times, converted to UTC.",
+   "read": "full-page fetch, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-05",
+   "label": "Wikipedia \u2014 2026 NRL season results",
+   "url": "https://en.wikipedia.org/wiki/2026_NRL_season_results",
+   "used_for": "Round 26 results with venue, referee and attendance; cross-check for the ladder.",
+   "read": "verified extract, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-06",
+   "label": "Rugby League Zone \u2014 NRL results 2026",
+   "url": "https://rugbyleaguezone.com/nrl/results/",
+   "used_for": "Second source for the round 26 scorelines.",
+   "read": "verified extract, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-07",
+   "label": "Zero Tackle \u2014 2026 NRL draw and results",
+   "url": "https://www.zerotackle.com/nrl/fixtures-results/",
+   "used_for": "Kick-off times in UTC and result confirmation (round 26 and the round 27 opener).",
+   "read": "verified extract, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-08",
+   "label": "ABC News \u2014 Broncos beat Bulldogs 34-20",
+   "url": "https://www.abc.net.au/news/2026-09-03/nrl-live-brisbane-broncos-vs-canterbury-bulldogs-payne-haas/107111222",
+   "used_for": "Independent confirmation of the round 27 opener (Canterbury-Bankstown 20 - 34 Brisbane).",
+   "read": "verified extract, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-09",
+   "label": "NRL \u2014 official ladder",
+   "url": "https://www.nrl.com/ladder/",
+   "used_for": "Governing-body reference for the competition table and the top-four / top-eight cut-offs.",
+   "read": "cited for manual review"
+  },
+  {
+   "id": "NRL-SRC-10",
+   "label": "NRL \u2014 official draw",
+   "url": "https://www.nrl.com/draw/",
+   "used_for": "Governing-body reference for fixtures, venues and byes.",
+   "read": "cited for manual review"
+  },
+  {
+   "id": "NRL-SRC-11",
+   "label": "ESPN \u2014 NRL scoreboard (key-less site API)",
+   "url": "https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard?dates=20260903-20260908",
+   "used_for": "Venue names, UTC kick-off times, recent form strings and the season calendar; used by the CI collector to refresh the tape.",
+   "read": "full response fetched, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-12",
+   "label": "Open-Meteo forecast API",
+   "url": "https://api.open-meteo.com/v1/forecast?latitude=-28.0667&longitude=153.4333&daily=precipitation_sum,precipitation_probability_max,wind_speed_10m_max&forecast_days=4&timezone=UTC",
+   "used_for": "Daily precipitation, precipitation probability and maximum wind speed per match venue.",
+   "read": "full response fetched, 2026-09-04 (seven venues)"
+  },
+  {
+   "id": "NRL-SRC-13",
+   "label": "2026 State of Origin series \u2014 schedule and result",
+   "url": "https://www.nrl.com/state-of-origin/",
+   "used_for": "Origin window (27 May, 17 June, 8 July 2026; New South Wales won 2-1) used to decide whether Origin duty is possible for a fixture.",
+   "read": "dates corroborated across two published sources, 2026-09-04"
+  },
+  {
+   "id": "NRL-SRC-14",
+   "label": "Published NRL ladder after round 26 (cross-check)",
+   "url": "https://sportstralia.com.au/rugby/nrl-2026-ladder/",
+   "used_for": "Independent published table used to validate the tape-derived ladder.",
+   "read": "verified extract, 2026-09-04"
+  }
+ ],
+ "irregularities": [
+  {
+   "id": "NRL-01",
+   "status": "open",
+   "title": "OLBG renders kick-off times in the viewer's timezone",
+   "detail": "The OLBG index came back with US Eastern times (UTC-4) on this capture, so an OLBG clock reading of 04:00 is 08:00 UTC, not 04:00 UTC. Every kickoff_utc on this page comes from the round fixture listing (Rugby League Project) or the ESPN scoreboard, never from OLBG's clock. Note that the older combined rugby-league page treats OLBG display times as UTC, so its matches.json kick-offs are several hours out; that is a known defect on that page, not on this one.",
+   "effect": "None on the NRL page. Flagged so the two rugby league pages are not assumed to agree."
+  },
+  {
+   "id": "NRL-02",
+   "status": "open",
+   "title": "No key-less price feed, so the odds factor always scores zero",
+   "detail": "OLBG's server-rendered HTML carries no bookmaker prices and no free NRL odds API exists without a key. The prompt's 15-point odds-and-value factor therefore scores zero on every card, evidence coverage sits at 75 per cent, and no return on investment is published anywhere.",
+   "effect": "Confidence is capped at MEDIUM on every NRL card until a price source is committed. No prices are guessed."
+  },
+  {
+   "id": "NRL-03",
+   "status": "open",
+   "title": "Team lists, Origin squads and judiciary outcomes are not published on any free feed",
+   "detail": "The 20-point key-absences factor is the largest single gap. Outside the verified Origin window the Origin half is scored (10 points, marked partial) because no player can be on Origin duty; inside it the whole factor is left unscored. Injury and suspension halves are never estimated, and no tip ever mentions personnel.",
+   "effect": "Named on every card. Cards inside an Origin window will mostly resolve to SKIP, which the prompt expects."
+  },
+  {
+   "id": "NRL-04",
+   "status": "mitigated",
+   "title": "The results tape is a transcription, validated end to end",
+   "detail": "The tape was transcribed from the Rugby League Project data page (rounds 1-25) and from published round 26 tables. It is validated by recomputing the ladder after round 26 and comparing it with the published table: all seventeen clubs match exactly on played, won, lost, differential and points. Any mistyped or missing score would break that check.",
+   "effect": "None known. The check is re-run whenever the tape is rebuilt."
+  },
+  {
+   "id": "NRL-05",
+   "status": "open",
+   "title": "Golden point is not labelled in the tape",
+   "detail": "The results tape records final scores only. A one- or two-point margin almost always means golden point, but the period is not labelled, so the engine records close finishes and says so rather than asserting golden point. The prompt's regular-season draw possibility is likewise not modelled, because the tape contains no draws in 2026.",
+   "effect": "The game-state factor leans Under on close finishes, described on the card as a close finish."
+  },
+  {
+   "id": "NRL-06",
+   "status": "open",
+   "title": "No free historical handicap or total lines",
+   "detail": "Nothing free publishes historical NRL handicap and total lines, so the HANDICAP market is reported as unbacktested rather than settled against an invented line, and the GAME TOTAL backtest is settled against the rolling season mean total the engine itself would have used on the day.",
+   "effect": "The backtest reports strike rates only, with the totals figure explicitly labelled as not-a-market-line."
+  },
+  {
+   "id": "NRL-07",
+   "status": "open",
+   "title": "No free historical weather, and venues are recorded for fixtures only",
+   "detail": "Venue names are committed for upcoming fixtures (they come from the round listing) but not for completed matches, and no free historical forecast is committed. The walk-forward backtest therefore runs with the weather factor removed from the model \u2014 ten fewer points \u2014 rather than scoring it zero.",
+   "effect": "The backtested engine has one fewer factor than the live card. Stated on the backtest panel."
+  },
+  {
+   "id": "NRL-08",
+   "status": "open",
+   "title": "OLBG handicap lines differ between bookmakers on the same event",
+   "detail": "On the Titans v Dolphins event page the listed handicap selection is +12.50 / -12.50 while tipster comments quote 10.50 and -13.50 from other bookmakers. The engine records the event-page line where one exists and the index best-tip line otherwise, and labels which it used.",
+   "effect": "Lines are review context only. They are never written into a tip and never change a score."
+  },
+  {
+   "id": "NRL-09",
+   "status": "informational",
+   "title": "Per-match cap and the handicap margin test are an interpretation of 'cap sensibly'",
+   "detail": "The prompt asks for active recommendations to be capped sensibly without defining the cap. This implementation publishes at most two markets per fixture, prefers the total over a handicap on the same side of the same match (the two stand or fall together), and withholds any handicap whose margin-of-victory test does not add points.",
+   "effect": "Fewer, less correlated selections. Every withholding is written on the card with its reason."
+  },
+  {
+   "id": "NRL-10",
+   "status": "open",
+   "title": "Five-minute kick-off discrepancy on Cronulla v Melbourne",
+   "detail": "The round listing gives 7:30 pm for Cronulla-Sutherland v Melbourne; OLBG's index shows 05:35 EDT, which is 7:35 pm AEST. The tape uses 7:35 pm, matching OLBG and the usual NRL time slot.",
+   "effect": "None on scoring. Recorded so the fixture listing is not assumed to be exact to the minute."
+  },
+  {
+   "id": "NRL-11",
+   "status": "open",
+   "title": "The travel factor measures this round's trip only",
+   "detail": "The five-point travel factor compares the two clubs' home venues for the fixture in hand. It does not model a club's travel sequence across rounds, so the Warriors' cumulative commute \u2014 they fly to or from Auckland for every away or home turnaround \u2014 is not captured, and neither is a club playing away twice in a row.",
+   "effect": "The home side always scores the full five points. Flagged so the factor is not read as a full travel model."
+  }
+ ]
+}
