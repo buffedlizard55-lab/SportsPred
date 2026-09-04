@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "fetched_at_utc": "2026-09-04T02:43:44Z",
+  "fetched_at_utc": "2026-09-04T02:57:28Z",
   "source": {
     "name": "OLBG betting tips sitemap + sport indexes",
     "url": "https://www.olbg.com/sitemap-betting-tips.xml",
@@ -21,7 +21,7 @@
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Baseball",
@@ -32,7 +32,7 @@
       "events": 0,
       "tip_rows": 3,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Basketball",
@@ -45,7 +45,7 @@
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Boxing",
@@ -56,7 +56,7 @@
       "events": 39,
       "tip_rows": 20,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Cricket",
@@ -70,7 +70,7 @@
         "Man Of The Match",
         "Win Match"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Cycling",
@@ -81,7 +81,7 @@
       "events": 1,
       "tip_rows": 1,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Darts",
@@ -95,7 +95,7 @@
         "Win Match",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Football",
@@ -108,7 +108,7 @@
       "markets_seen": [
         "Full Time Result"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Gaelic_Football",
@@ -119,7 +119,7 @@
       "events": 10,
       "tip_rows": 10,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Golf",
@@ -132,7 +132,7 @@
       "markets_seen": [
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Greyhounds",
@@ -143,7 +143,7 @@
       "events": 0,
       "tip_rows": 6,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Handball",
@@ -156,7 +156,7 @@
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Horse_Racing",
@@ -169,7 +169,7 @@
       "markets_seen": [
         "Daily Racing"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Ice_Hockey",
@@ -182,7 +182,7 @@
       "markets_seen": [
         "Money Line"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Motor_Racing",
@@ -196,7 +196,7 @@
         "Fastest Qualifier",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Rugby_League",
@@ -210,7 +210,7 @@
         "To Win",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Rugby_Union",
@@ -224,7 +224,7 @@
         "To Win",
         "Win Tournament"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Snooker",
@@ -235,7 +235,7 @@
       "events": 1,
       "tip_rows": 1,
       "markets_seen": [],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Tennis",
@@ -248,7 +248,7 @@
       "markets_seen": [
         "Win Match"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     },
     {
       "sport": "Volleyball",
@@ -261,7 +261,7 @@
       "markets_seen": [
         "Win Match"
       ],
-      "fetched_at_utc": "2026-09-04T02:43:44Z"
+      "fetched_at_utc": "2026-09-04T02:57:28Z"
     }
   ]
 }
