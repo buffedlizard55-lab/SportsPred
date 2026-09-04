@@ -1,14 +1,8 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-03T23:35:53Z",
+ "fetched_at_utc": "2026-09-04T01:26:42Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
-  {
-   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-13",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-14",
    "status": 200,
@@ -262,7 +256,7 @@
    "ok": true
   },
   {
-   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260813",
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-25",
    "status": 200,
    "error": null,
    "ok": true
@@ -518,13 +512,19 @@
    "status": 200,
    "error": null,
    "ok": true
+  },
+  {
+   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260925",
+   "status": 200,
+   "error": null,
+   "ok": true
   }
  ],
  "sport": "Ice Hockey",
  "league": "nhl",
  "window": {
-  "from": "2026-08-13",
-  "to": "2026-09-24"
+  "from": "2026-08-14",
+  "to": "2026-09-25"
  },
  "odds_attribution": "ESPN republishes one book (DraftKings) inside the scoreboard payload; attributed wherever shown. OLBG publishes tipster consensus, not prices.",
  "fixtures": [
@@ -5477,10 +5477,260 @@
    "oddsSourceCount": 0,
    "total": null,
    "spread": null
+  },
+  {
+   "id": "2026020035",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-04",
+   "startUtc": "2026-10-04T17:00:00Z",
+   "phase": "upcoming",
+   "venue": "Little Caesars Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/wpg-vs-det/2026/10/04/2026020035",
+   "home": {
+    "id": 17,
+    "abbrev": "DET",
+    "name": "Detroit Red Wings",
+    "record": {
+     "wins": 41,
+     "losses": 31,
+     "otLosses": 10,
+     "played": 82,
+     "points": 92
+    },
+    "recordSummary": "41-31-10",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DET_light.svg"
+   },
+   "away": {
+    "id": 52,
+    "abbrev": "WPG",
+    "name": "Winnipeg Jets",
+    "record": {
+     "wins": 35,
+     "losses": 35,
+     "otLosses": 12,
+     "played": 82,
+     "points": 82
+    },
+    "recordSummary": "35-35-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020036",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-04",
+   "startUtc": "2026-10-04T22:00:00Z",
+   "phase": "upcoming",
+   "venue": "Madison Square Garden",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/uta-vs-nyr/2026/10/04/2026020036",
+   "home": {
+    "id": 3,
+    "abbrev": "NYR",
+    "name": "New York Rangers",
+    "record": {
+     "wins": 34,
+     "losses": 39,
+     "otLosses": 9,
+     "played": 82,
+     "points": 77
+    },
+    "recordSummary": "34-39-9",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/NYR_light.svg"
+   },
+   "away": {
+    "id": 68,
+    "abbrev": "UTA",
+    "name": "Utah Mammoth",
+    "record": {
+     "wins": 43,
+     "losses": 33,
+     "otLosses": 6,
+     "played": 82,
+     "points": 92
+    },
+    "recordSummary": "43-33-6",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/UTA_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020037",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-04",
+   "startUtc": "2026-10-05T00:00:00Z",
+   "phase": "upcoming",
+   "venue": "Honda Center",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/fla-vs-ana/2026/10/04/2026020037",
+   "home": {
+    "id": 24,
+    "abbrev": "ANA",
+    "name": "Anaheim Ducks",
+    "record": {
+     "wins": 43,
+     "losses": 33,
+     "otLosses": 6,
+     "played": 82,
+     "points": 92
+    },
+    "recordSummary": "43-33-6",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/ANA_light.svg"
+   },
+   "away": {
+    "id": 13,
+    "abbrev": "FLA",
+    "name": "Florida Panthers",
+    "record": {
+     "wins": 40,
+     "losses": 38,
+     "otLosses": 4,
+     "played": 82,
+     "points": 84
+    },
+    "recordSummary": "40-38-4",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/FLA_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020038",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-04",
+   "startUtc": "2026-10-05T00:00:00Z",
+   "phase": "upcoming",
+   "venue": "Climate Pledge Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/cgy-vs-sea/2026/10/04/2026020038",
+   "home": {
+    "id": 55,
+    "abbrev": "SEA",
+    "name": "Seattle Kraken",
+    "record": {
+     "wins": 34,
+     "losses": 37,
+     "otLosses": 11,
+     "played": 82,
+     "points": 79
+    },
+    "recordSummary": "34-37-11",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SEA_light.svg"
+   },
+   "away": {
+    "id": 20,
+    "abbrev": "CGY",
+    "name": "Calgary Flames",
+    "record": {
+     "wins": 34,
+     "losses": 39,
+     "otLosses": 9,
+     "played": 82,
+     "points": 77
+    },
+    "recordSummary": "34-39-9",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/CGY_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020039",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-04",
+   "startUtc": "2026-10-05T01:00:00Z",
+   "phase": "upcoming",
+   "venue": "Rogers Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/vgk-vs-van/2026/10/04/2026020039",
+   "home": {
+    "id": 23,
+    "abbrev": "VAN",
+    "name": "Vancouver Canucks",
+    "record": {
+     "wins": 25,
+     "losses": 49,
+     "otLosses": 8,
+     "played": 82,
+     "points": 58
+    },
+    "recordSummary": "25-49-8",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VAN_light.svg"
+   },
+   "away": {
+    "id": 54,
+    "abbrev": "VGK",
+    "name": "Vegas Golden Knights",
+    "record": {
+     "wins": 39,
+     "losses": 26,
+     "otLosses": 17,
+     "played": 82,
+     "points": 95
+    },
+    "recordSummary": "39-26-17",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/VGK_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
   }
  ],
  "counts": {
-  "fixtures": 99,
+  "fixtures": 104,
   "results": 3,
   "withOdds": 0
  }
