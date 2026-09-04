@@ -69,7 +69,17 @@ const MARKET_LABEL = {
   set_score: 'SET SCORE',
 };
 
-const SET_SCORE_RE = /\*\*3-[012]\*\*/g;
+/**
+ * Volleyball set scores that may appear as digits, despite the general ban.
+ *
+ * A completed volleyball match always ends 3-0, 3-1, 3-2 — or, from the other
+ * side of the net, 0-3, 1-3, 2-3. The original pattern exempted only the
+ * winning orientation, so a tip that cited a *defeat* in the head-to-head
+ * ("the most recent meeting finishing **1-3**") was rejected for containing
+ * forbidden digits and published as an empty tip. Both orientations are real
+ * scorelines and both are quoted in the house style, so both are exempt.
+ */
+const SET_SCORE_RE = /\*\*(?:3-[012]|[012]-3)\*\*/g;
 
 export function validateVolleyballTip(text, { market, expectSkip = false } = {}) {
   const violations = [];

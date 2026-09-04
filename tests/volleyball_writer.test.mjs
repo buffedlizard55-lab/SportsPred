@@ -198,3 +198,30 @@ describe('Volleyball writer — OLBG house style', () => {
     assert.equal(spellCount(-1), null);
   });
 });
+
+describe('Volleyball writer — set-score digit exemption', () => {
+  it('allows a head-to-head defeat scoreline, not just a win', () => {
+    /* A volleyball match ends 3-0/3-1/3-2 from the winner's side and 0-3/1-3/2-3
+     * from the loser's. The digit exemption originally covered only the winning
+     * orientation, so a tip citing a defeat in the head-to-head ("the most recent
+     * meeting finishing **1-3**") failed validation and was emitted with
+     * text: null — a blank tip on the page. */
+    for (const score of ['3-0', '3-1', '3-2', '0-3', '1-3', '2-3']) {
+      const text = '**Team Alpha** are the preferred winner. Form is the anchor here. '
+        + 'Team Alpha have won four of their last five in this competition. The sourced '
+        + 'head-to-head record reads three wins from five meetings for them, with the most '
+        + `recent meeting finishing **${score}**. Confidence: MEDIUM.`;
+      const v = validateVolleyballTip(text, { market: 'win_match' });
+      assert.deepEqual(v.violations, [], `scoreline ${score} was rejected`);
+    }
+  });
+
+  it('still rejects a figure that is not a volleyball set score', () => {
+    // The exemption must stay narrow: only real set scores may appear as digits.
+    const text = '**Team Alpha** are the preferred winner. Form is the anchor here. '
+      + 'Team Alpha have won four of their last five, scoring **7-4** on aggregate. '
+      + 'Confidence: MEDIUM.';
+    const v = validateVolleyballTip(text, { market: 'win_match' });
+    assert.ok(v.violations.some((x) => /forbidden numerals/.test(x)));
+  });
+});

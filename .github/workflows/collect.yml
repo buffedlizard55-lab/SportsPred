@@ -162,10 +162,15 @@ jobs:
         if: steps.collect-volleyball-olbg.outcome == 'failure'
         run: echo "::warning::OLBG volleyball collection failed. data/volleyball_slate.json is unchanged."
 
+      # --days 14 backfills two weeks of prior scoreboards. The engine needs
+      # five previous matches per team to score recent form, and a single-day
+      # run left the tape too shallow for any NCAA team to qualify, so every
+      # NCAA fixture published a SKIP. Matches are deduped by id, so re-walking
+      # days already in the tape adds nothing.
       - name: Collect ESPN NCAA volleyball
         id: collect-volleyball-espn
         continue-on-error: true
-        run: node scripts/collect_volleyball_espn.mjs
+        run: node scripts/collect_volleyball_espn.mjs --days 14
 
       - name: Report a failed volleyball ESPN collection
         if: steps.collect-volleyball-espn.outcome == 'failure'

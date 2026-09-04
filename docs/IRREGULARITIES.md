@@ -278,6 +278,83 @@ appends any warning to the document. Design decisions worth noting:
 with zero spurious warnings. Covered by 14 tests in
 `tests/test_olbg_page_health.py`.
 
+## IRR-006 — Volleyball published 0 tips from 216 fixtures — **PARTLY FIXED**
+
+**Severity:** High · **Root cause identified, one bug fixed, one needs a CI run**
+
+**Symptom.** `volleyball.html` generated 432 candidate tips and published none.
+
+**The engine is not at fault.** Diagnosed by scoring every committed fixture:
+
+| measure | value |
+|---|---|
+| fixtures | 216 (214 NCAA, 2 EuroVolley) |
+| highest WIN MATCH raw score | 45 (MEDIUM needs 50) |
+| fixtures scoring 0 raw | 200 of 216 |
+| fixtures with ≥2 sourced factors | 2 of 216 |
+
+**Cause 1 — the results tape is too shallow (needs a CI run).** NCAA form needs
+five prior matches per team. The tape held two days of NCAA results across
+**315 teams**, so *no team had more than one prior result* — measured, not
+assumed. `scripts/collect_volleyball_espn.mjs` fetched exactly one day per run,
+so the tape was only ever as deep as the number of times the workflow fired.
+
+Fixed by adding `--days N`, which walks N prior scoreboards; the workflow now
+passes `--days 14`. This is safe because matches are deduped by id, so
+re-walking a day already in the tape adds nothing, and a day that cannot be
+fetched is recorded in the new `tape.collection.days_walked` block rather than
+being treated as a day with no matches. **The committed tape will not deepen
+until that workflow runs**, so volleyball still publishes 0 tips today.
+
+Verified by simulation (in memory, nothing written): giving one fixture five
+prior results per team plus five head-to-head meetings lifts it from raw 40 /
+SKIP to raw 65 / **MEDIUM**, and it publishes both a WIN MATCH and a SET SCORE
+tip. So the backfill is both necessary and sufficient.
+
+**Cause 2 — a blank-tip bug in the writer (fixed).** The simulation exposed a
+second defect that would have produced empty tips even once the data was there.
+A volleyball match ends 3-0/3-1/3-2 from the winner's side and 0-3/1-3/2-3 from
+the loser's, but the digit exemption `SET_SCORE_RE` matched only the winning
+orientation. A tip citing a *defeat* in the head-to-head — "the most recent
+meeting finishing **1-3**" — was rejected for containing forbidden digits and
+emitted with `text: null`, i.e. a blank tip on the page. Both orientations are
+real scorelines and both appear in the house style, so both are now exempt. The
+exemption stays narrow: a non-volleyball figure such as `**7-4**` is still
+rejected.
+
+**Note on double-counting.** A missing component scores 0 *and* then triggers a
+further −5 in `applyMissingFieldPenalty`, so an unsourced factor is charged
+twice. This was left alone deliberately: it is what the master prompt specifies
+("missing field → `missing[]` + penalty"), and removing it would not change the
+outcome, since the best available fixture reaches only 45 raw against a
+threshold of 50. Flagged here for review rather than changed unilaterally.
+
+---
+
+## IRR-007 — Ice hockey publishes 0 tips because the season has not started
+
+**Severity:** Informational · **Correct behaviour, but invisible to the user**
+
+312 candidate tips, none published. Unlike volleyball this is **not** a defect:
+
+- Today is 2026-09-04; the first committed fixture is **2026-09-19**.
+- **0 of 104** fixtures have been played, and `gameType` is only 1 (preseason)
+  and 2 (regular).
+- The committed standings are the **completed 2025-26 table** — all 32 teams on
+  82 games played, dated 2026-04-17 — while the fixtures are season `20262027`.
+- The results tape holds **3 games**, all from June 2026 (last season's finals).
+
+So the engine is correctly refusing to score current-season form from a
+finished season's table, and correctly reporting `form.last5`, shot ranks, puck
+line covers and win margins as missing. Every match resolves to SKIP with a
+stated reason, which is the intended no-hallucination behaviour.
+
+The remaining gap is presentational: the page says "every match resolved to
+SKIP — see the analysis panels for why", which is honest but does not tell the
+reader the actual reason is that *the season has not started yet*. Recorded for
+review rather than patched, since it is a copy change on a page that is
+otherwise behaving correctly.
+
 ---
 
 ## What is verified healthy

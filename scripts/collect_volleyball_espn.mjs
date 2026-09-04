@@ -5,7 +5,7 @@
  */
 
 import { readFileSync, writeFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join } from 'node:path';
 
 import { parseVolleyballScoreboard } from '../engine/volleyball_espn.js';
@@ -26,6 +26,37 @@ function argOf(name, dflt) {
 const DATE = argOf('--date', new Date().toISOString().slice(0, 10));
 const DRY = process.argv.includes('--dry-run');
 const ymd = (iso) => iso.replace(/-/g, '');
+
+/**
+ * How many days of *already-played* scoreboards to walk back through.
+ *
+ * WHY THIS EXISTS
+ * The collector originally fetched exactly one day. It appends to the tape and
+ * dedupes by match id, so the tape grows one day per run — but that means a
+ * fresh checkout, or any gap in the schedule, leaves the tape only as deep as
+ * the number of times the workflow happened to fire. The committed tape held
+ * two days of NCAA results across 315 teams, so no team had more than one prior
+ * result while the engine needs five to score recent form. Every NCAA fixture
+ * therefore scored zero and published a SKIP.
+ *
+ * Backfilling is safe precisely because of the dedupe: re-walking a day that is
+ * already in the tape adds nothing. Nothing here invents a result — each day is
+ * a separate ESPN scoreboard request, and a day that cannot be fetched is
+ * skipped and reported rather than filled in.
+ */
+const BACKFILL_DAYS = Number(argOf('--days', '0')) || 0;
+
+/** Inclusive list of ISO dates ending at `endISO`, walking `days` backwards. */
+export function backfillDates(endISO, days) {
+  const out = [];
+  const end = new Date(`${endISO}T00:00:00Z`);
+  for (let i = days; i >= 1; i -= 1) {
+    const d = new Date(end);
+    d.setUTCDate(d.getUTCDate() - i);
+    out.push(d.toISOString().slice(0, 10));
+  }
+  return out;
+}
 
 async function getJSON(url) {
   try {
@@ -52,10 +83,21 @@ async function main() {
   let added = 0;
   const upcoming = [];
 
-  for (const lg of LEAGUES) {
-    const payload = lg.slug === 'womens-college-volleyball' ? probe
-      : await getJSON(`${SITE}/${lg.slug}/scoreboard?dates=${ymd(DATE)}`);
-    if (!payload) continue;
+  // Historical days first (results only), then the target date, which is also
+  // the only day whose upcoming rows are refreshed.
+  const days = [...backfillDates(DATE, BACKFILL_DAYS), DATE];
+  const dayReport = [];
+
+  for (const day of days) {
+   const isTarget = day === DATE;
+   let dayResults = 0;
+   let dayFailed = 0;
+   for (const lg of LEAGUES) {
+    const payload = (isTarget && lg.slug === 'womens-college-volleyball') ? probe
+      : await getJSON(`${SITE}/${lg.slug}/scoreboard?dates=${ymd(day)}`);
+    // A day that cannot be fetched is recorded and skipped. It is never
+    // treated as a day on which no matches were played.
+    if (!payload) { dayFailed += 1; continue; }
     const parsed = parseVolleyballScoreboard(payload, {
       sportKey: 'volleyball', leagueSlug: lg.slug, leagueName: lg.name,
     });
@@ -79,8 +121,11 @@ async function main() {
         });
         seen.add(String(m.id));
         added += 1;
+        dayResults += 1;
       }
-      if (m.phase === 'upcoming' || m.phase === 'live') {
+      // Only the target date contributes upcoming rows; a historical day's
+      // "upcoming" entries are stale and must not re-enter the fixture list.
+      if (isTarget && (m.phase === 'upcoming' || m.phase === 'live')) {
         upcoming.push({
           id: m.id,
           event_id: m.id,
@@ -99,6 +144,8 @@ async function main() {
         });
       }
     }
+   }
+   dayReport.push({ date: day, results: dayResults, leagues_unreachable: dayFailed });
   }
 
   // Keep committed EuroVolley upcoming rows; replace NCAA upcoming for this date.
@@ -110,8 +157,30 @@ async function main() {
     fetched_at_utc: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
   };
 
+  // Record which days were actually walked and which could not be fetched, so
+  // a thin tape can be told apart from a quiet schedule on review.
+  tape.collection = {
+    last_run_utc: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
+    target_date: DATE,
+    backfill_days: BACKFILL_DAYS,
+    days_walked: dayReport,
+    note: BACKFILL_DAYS
+      ? 'Historical days are re-walked on every run; matches are deduped by id, so re-walking adds nothing.'
+      : 'Single-day run. Pass --days N to backfill N prior days of results (the engine needs five prior matches per team to score form).',
+  };
+
+  const unreachable = dayReport.filter((d) => d.leagues_unreachable);
+  if (unreachable.length) {
+    console.warn(`WARNING: ${unreachable.length} day(s) had an unreachable league scoreboard: `
+      + unreachable.map((d) => d.date).join(', '));
+  }
+
   if (DRY) {
     console.log(`ncaa completed +${added}; upcoming ${upcoming.length}`);
+    for (const d of dayReport) {
+      console.log(`  ${d.date}: ${d.results} new results`
+        + (d.leagues_unreachable ? `  (${d.leagues_unreachable} league(s) unreachable)` : ''));
+    }
     return 0;
   }
   writeFileSync(TAPE, `${JSON.stringify(tape, null, 2)}\n`);
@@ -120,4 +189,12 @@ async function main() {
   return 0;
 }
 
-main().then((c) => process.exit(c)).catch((e) => { console.error(e); process.exit(1); });
+// Only collect when run as a script. Importing this module (for tests, or to
+// reuse backfillDates) must never start a live collection: a previous incident
+// in this repo had an import overwrite committed data with an empty result.
+const isEntrypoint = process.argv[1]
+  && pathToFileURL(process.argv[1]).href === import.meta.url;
+
+if (isEntrypoint) {
+  main().then((c) => process.exit(c)).catch((e) => { console.error(e); process.exit(1); });
+}
