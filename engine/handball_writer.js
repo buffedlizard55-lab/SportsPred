@@ -283,7 +283,7 @@ function h2hClause(match, fav) {
   const total = spellNumber(h.totalMeetings);
   const wins = spellNumber(h.favWins ?? 0);
   if (!total || !wins) return null;
-  return `the recent head-to-head record reads ${wins} wins from ${total} meetings in favour of ${fav?.name || 'the selection'}`;
+  return `the recent head-to-head record reads ${wins} wins from ${total} meetings in their favour`;
 }
 
 function homeRecordClause(team) {
@@ -355,27 +355,42 @@ function missingClause(result) {
 }
 
 /**
+ * Replace later mentions of a team with the correct pronoun case.
+ *
+ * A naive name -> "they" swap produces "for they" / "against they", so object
+ * position (after a preposition) becomes "them" and possessive position
+ * ("Poland's") becomes "their". Only wording changes; no fact is altered.
+ */
+function replaceWithPronoun(text, name) {
+  if (!text || !name) return text;
+  const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text
+    // possessive: "Poland's depth" -> "their depth"
+    .replace(new RegExp(`${esc}'s\\b`, 'g'), 'their')
+    // object of a preposition: "for Poland" -> "for them"
+    .replace(new RegExp(`\\b(for|to|against|over|with|of|from|behind|than|beat|beating)\\s+${esc}\\b`, 'gi'),
+      (m, prep) => `${prep} them`)
+    // subject position
+    .replace(new RegExp(esc, 'g'), 'they');
+}
+
+/**
  * Joins clauses into sentences. After a team has been named once in the body,
- * later references to that same team are replaced with a pronoun so the tip
- * reads like prose rather than a database dump. No facts are altered.
+ * later references to that same team become a correctly-cased pronoun so the
+ * tip reads like prose rather than a database dump. No facts are altered.
  */
 function joinSentences(clauses, names = []) {
   const seen = new Set();
   const out = [];
   for (const raw of clauses.filter(Boolean)) {
-    let c = raw.trim();
+    let c = String(raw).trim();
     for (const n of names.filter(Boolean)) {
       if (!c.includes(n)) continue;
-      if (seen.has(n)) {
-        c = c.split(n).join('they');
-        // "in favour of they" -> "in their favour"
-        c = c.replace(/in favour of they/g, 'in their favour');
-        c = c.replace(/^they /, 'They ');
-      } else {
+      if (seen.has(n)) c = replaceWithPronoun(c, n);
+      else {
         seen.add(n);
-        // Only the first occurrence in this clause keeps the full name.
-        const first = c.indexOf(n);
-        c = c.slice(0, first + n.length) + c.slice(first + n.length).split(n).join('they');
+        const i = c.indexOf(n);
+        c = c.slice(0, i + n.length) + replaceWithPronoun(c.slice(i + n.length), n);
       }
     }
     c = c.charAt(0).toUpperCase() + c.slice(1);

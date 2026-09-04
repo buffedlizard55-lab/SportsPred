@@ -203,3 +203,39 @@ describe('Handball Writer — OLBG house style and evidence grounding', () => {
     assert.equal(spellNumber(3.5), null);
   });
 });
+
+describe('Handball writer — pronoun case', () => {
+  it('never produces an object-case or possessive pronoun error', () => {
+    const fav = {
+      name: 'Aalborg Handbold', isHome: true,
+      form: { last5: ['W', 'W', 'W', 'W', 'W'], winStreak: 6 },
+      odds: { decimal: 1.15, american: -667 },
+      standings: { rank: 1, totalTeams: 14, played: 26, goalDifference: 128 },
+      homeRecord: { played: 13, wins: 12, winRate: 0.923 },
+      ats: { coveredLast10: 8 },
+      stats: { goalsPerGame: 33.4, goalsConcededPerGame: 27.2 },
+      trends: { overLast5: 3 }, injuries: { fullyFit: true },
+    };
+    const dog = {
+      name: 'Fredericia HK', isHome: false,
+      form: { last5: ['W', 'L', 'W', 'L', 'W'] },
+      odds: { decimal: 5.0, american: 400 },
+      standings: { rank: 4, totalTeams: 14, played: 26 },
+      stats: { goalsPerGame: 29.0, goalsConcededPerGame: 28.4 },
+      trends: { overLast5: 3 }, injuries: {},
+    };
+    const m = {
+      event_id: 'hb-pron', home: fav.name, away: dog.name,
+      homeTeamObj: fav, awayTeamObj: dog,
+      competition: { stage: 'high_stakes_league', highStakes: true, type: 'league' },
+      h2h: { totalMeetings: 6, favWins: 5, recentMeetings: ['W', 'W', 'W', 'W', 'L'] },
+      handicapSpread: 6.5, gameTotal: 61.5,
+    };
+    const r = scoreHandballMatch(m);
+    for (const tip of writeHandballCard([{ match: m, result: r }]).tips.filter((t) => t.ok && !t.skip)) {
+      assert.ok(!/\b(for|to|against|over|with|of|from|than)\s+they\b/i.test(tip.text),
+        `object-case pronoun error: ${tip.text}`);
+      assert.ok(!/\bthey's\b/i.test(tip.text), `possessive pronoun error: ${tip.text}`);
+    }
+  });
+});
