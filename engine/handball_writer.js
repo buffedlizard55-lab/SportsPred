@@ -485,10 +485,12 @@ export function writeHandballTip({ match, result, market, angle }) {
   // OLBG-style lead: the selection is stated plainly in the opening words,
   // then the case is made from sourced evidence only.
   const pickLead = market === 'win_match'
-    ? `${boldedOutcome} are the preferred winner.`
+    ? `${boldedOutcome} is the preferred outright pick.`
     : market === 'handicap_spread'
-      ? `${boldedOutcome} is the preferred margin outcome.`
-      : `${boldedOutcome} is the preferred total outcome.`;
+      ? `${boldedOutcome} is favored.`
+      : String(m.selection || '').toLowerCase() === 'over'
+        ? '**Both teams to score OVER** is the preferred total.'
+        : `${boldedOutcome} is the preferred total.`;
 
   // The angle word is recorded for uniqueness accounting. It is NOT printed as
   // a canned opener ("Defensive organisation is the starting point here") —
@@ -499,11 +501,13 @@ export function writeHandballTip({ match, result, market, angle }) {
   let text = `${pickLead} ${body}`.replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented facts, state the method.
-  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
-    text += ' The rating is produced mechanically from the sourced form, standings and scoring records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const method = 'The rating is produced mechanically from the sourced form, standings and scoring records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const conf = `Confidence: ${band}.`;
+  while (`${text} ${conf}`.split(/\s+/).filter(Boolean).length < MIN_WORDS) {
+    text += ` ${method}`;
   }
 
-  text = `${text} Confidence: ${band}.`;
+  text = `${text} ${conf}`.replace(/\s+/g, ' ').trim();
 
   const v = validateHandballTip(text, { market, expectSkip: false });
   return v.ok

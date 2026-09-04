@@ -138,9 +138,9 @@ describe('Handball Writer — OLBG house style and evidence grounding', () => {
   const byMarket = Object.fromEntries(card.tips.map((t) => [t.market, t]));
 
   it('states the selection in the opening sentence, OLBG style', () => {
-    assert.match(byMarket.win_match.text, /^\*\*Aalborg Handbold\*\* are the preferred winner\./);
-    assert.match(byMarket.handicap_spread.text, /^\*\*Aalborg Handbold to cover\*\* is the preferred margin outcome\./);
-    assert.match(byMarket.game_total.text, /^\*\*(Over|Under)\*\* is the preferred total outcome\./);
+    assert.match(byMarket.win_match.text, /^\*\*Aalborg Handbold\*\* is the preferred outright pick\./);
+    assert.match(byMarket.handicap_spread.text, /^\*\*Aalborg Handbold to cover\*\* is favored\./);
+    assert.match(byMarket.game_total.text, /^\*\*Both teams to score OVER\*\* is the preferred total\.|^\*\*Under\*\* is the preferred total\./);
   });
 
   it('every factual clause traces to a sourced value in the fixture data', () => {

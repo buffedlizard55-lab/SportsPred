@@ -218,12 +218,14 @@ export function writeCricketTip({ match, result, market, angle, seq = 0 }) {
   if (market === 'win_match') bolded = `**${result.favourite}**`;
   else bolded = `**${m.selection}**`;
 
-  const opener = `${angle.word} ${angle.lead}`;
   const leads = pickLeadClause(market, band, result);
   const lead = `${bolded} ${leads[seq % leads.length]}`;
   const body = analyticalBody(market, result, seq);
 
-  let text = `${opener} ${lead} ${body} Confidence: ${band}.`;
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Spin dominance through the middle overs…") — that filler
+  // is what OLBG moderators reject. The published tip leads with the selection.
+  let text = `${lead} ${body} Confidence: ${band}.`;
   let v = validateCricketTip(text);
 
   // If a generated tip fails (e.g. word count), pad with a sourced-style clause.
@@ -235,13 +237,15 @@ export function writeCricketTip({ match, result, market, angle, seq = 0 }) {
   ];
   while (!v.ok && guard < fillers.length) {
     if (v.violations.some((x) => x.startsWith('under 40 words'))) {
-      text = `${opener} ${lead} ${body} ${fillers[guard]} Confidence: ${band}.`;
+      text = `${lead} ${body} ${fillers[guard]} Confidence: ${band}.`;
     }
     v = validateCricketTip(text);
     guard += 1;
   }
 
-  return v.ok ? { ok: true, text, band, skip: false, market } : { ok: false, violations: v.violations, text, market };
+  return v.ok
+    ? { ok: true, text, band, skip: false, market, angleWord: angle?.word }
+    : { ok: false, violations: v.violations, text, market, angleWord: angle?.word };
 }
 
 /**
@@ -291,6 +295,7 @@ export function writeCricketCard(scoredMatches) {
           band: tipResult.band,
           skip: !!tipResult.skip,
           opener: tipResult.skip ? null : angle.id,
+          angleWord: tipResult.skip ? null : angle.word,
           valueFlag: market === 'man_of_the_match' ? !!result.markets.man_of_the_match?.valueFlag : false,
         });
       }
@@ -298,9 +303,10 @@ export function writeCricketCard(scoredMatches) {
     }
   }
 
-  // Enforce globally unique opening words.
+  // Tips now open with the selection itself (OLBG house style), so uniqueness is
+  // enforced on the analytical angle, not the first printed token.
   const styled = tips.filter((t) => t.ok && !t.skip);
-  const openers = styled.map((t) => t.text.split(/\s+/)[0].toLowerCase());
+  const openers = styled.map((t) => String(t.angleWord || '').toLowerCase()).filter(Boolean);
   const dupes = [...new Set(openers.filter((o, i) => openers.indexOf(o) !== i))];
   if (dupes.length) violations.push({ duplicateOpeners: dupes });
 

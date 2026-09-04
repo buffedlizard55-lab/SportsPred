@@ -237,6 +237,7 @@ test('OLBG style: the selection leads the tip in every market', () => {
   assert.match(byMarket[MARKETS.OUTRIGHT].text, /^\*\*Ottawa Senators\*\* are the preferred winner\./);
   assert.match(byMarket[MARKETS.PUCK_LINE].text, /^\*\*Ottawa Senators to cover\*\* is the preferred margin outcome\./);
   assert.match(byMarket[MARKETS.TOTAL].text, /^\*\*(OVER|UNDER)\*\* is the preferred total outcome\./);
+  assert.ok(!/\bGoaltending quality\b/.test(byMarket[MARKETS.OUTRIGHT].text));
 });
 
 test('every factual clause traces to a sourced field on the fixture', () => {

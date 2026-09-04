@@ -240,8 +240,11 @@ export function writeTip({ match, result, market, angle }) {
       ? `**${names.favourite}** is the preferred opening-set selection`
       : `**${names.favourite}** is the preferred outright pick`;
 
-  const text = `${pickLead}. ${angle.word} ${angle.lead} ` +
-    `${buildBody(angle, result, market, names)} Confidence: ${m.band}.`;
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Surface type is the clearest dividing line…") — that
+  // filler is what OLBG moderators reject. The published tip leads with the
+  // selection, then sourced evidence.
+  const text = `${pickLead}. ${buildBody(angle, result, market, names)} Confidence: ${m.band}.`;
   const v = validateTip(text, { market, names, expectSkip: false });
   return v.ok
     ? { ok: true, text, band: m.band, skip: false, angleWord: angle.word }

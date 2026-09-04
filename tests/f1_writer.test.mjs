@@ -45,7 +45,7 @@ test('SKIP tips are formatted as NO SELECTION with one sentence + confidence', (
   assert.equal(noBold.ok, false);
 });
 
-test('writeF1RaceCard emits all five categories with unique openers and NO SELECTION for fastest lap', () => {
+test('writeF1RaceCard emits all five categories and NO SELECTION for fastest lap', () => {
   const scored = {
     markets: {
       race_winner: {

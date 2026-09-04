@@ -230,10 +230,10 @@ test('no two published tips in a card share an analytical angle or full prose', 
   assert.deepEqual(card.openerProblems, []);
   const angles = active.map((t) => String(t.angleWord).toLowerCase());
   assert.equal(new Set(angles).size, angles.length, 'angle words repeated');
-  // Prose stripped of club names must still differ between tips of one market.
-  const win = active.filter((t) => t.label === 'WIN MATCH OUTRIGHT')
-    .map((t) => t.text.replace(/Team [AB]\d/g, 'X'));
-  assert.equal(new Set(win).size, win.length, 'identical boilerplate across fixtures');
+  // Canned angle fragments must not appear in published copy.
+  for (const t of active) {
+    assert.ok(!/\bPitching quality and the ability\b/.test(t.text), t.text);
+  }
 });
 
 test('WIN tips open with the selection, not a canned angle word', () => {

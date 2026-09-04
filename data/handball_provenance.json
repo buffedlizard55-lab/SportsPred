@@ -59,6 +59,12 @@
       "title": "Early season goal samples for promoted teams",
       "detail": "Early season matches may have smaller sample sizes for newly promoted teams like KIF Kolding or Skive FH.",
       "mitigation": "The engine factors in prior tier performance and historical H2H records with proper weighting."
+    },
+    {
+      "id": "HB-IR-03",
+      "title": "Bundesliga and Danish clubs on OLBG that are not in the committed roster",
+      "detail": "OLBG Handball listings regularly include SC Magdeburg, Füchse Berlin, ThSV Eisenach, HBW Balingen-Weilstetten, HSV Hamburg, TVB Stuttgart and GOG. Those clubs are not in data/handball_teams.json or data/handball_matches.json because no free, key-less standings/results feed for those sides has been collected into this snapshot. The current tape covers the sourced HBL, Herreligaen, LNH and REMA 1000-ligaen clubs listed in the teams file (Kiel, Lemgo, Flensburg, Aalborg, Montpellier, and the rest of that roster).",
+      "mitigation": "Do not invent Magdeburg/Füchse/GOG fixtures or form. Score only sourced matches. Surface this gap on the Data Quality tab. Expand the roster only after an official table or result tape is committed."
     }
   ]
 }

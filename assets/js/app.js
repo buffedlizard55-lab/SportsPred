@@ -67,11 +67,36 @@ const todayISO = () => {
 
 const SPECIALIST_SPORTS = ['cricket', 'handball', 'tennis', 'f1'];
 
+function queryParam(name) {
+  try {
+    return new URLSearchParams(location.search).get(name);
+  } catch {
+    return null;
+  }
+}
+
+function initialSport() {
+  const s = queryParam('sport');
+  return SPECIALIST_SPORTS.includes(s) ? s : 'cricket';
+}
+
+function initialDate() {
+  const d = queryParam('date');
+  return /^\d{4}-\d{2}-\d{2}$/.test(d || '') ? d : todayISO();
+}
+
+function persistConsoleUrl() {
+  try {
+    const u = new URL(location.href);
+    u.searchParams.set('sport', state.sport);
+    u.searchParams.set('date', state.date);
+    history.replaceState(null, '', u);
+  } catch { /* jsdom without History may skip */ }
+}
+
 const state = {
-  sport: (typeof location !== 'undefined' && SPECIALIST_SPORTS.includes(new URLSearchParams(location.search).get('sport')))
-    ? new URLSearchParams(location.search).get('sport')
-    : 'cricket',
-  date: todayISO(),
+  sport: initialSport(),
+  date: initialDate(),
   calMonth: new Date(`${todayISO()}T12:00:00Z`),
   phase: 'all',
   league: 'all',
@@ -238,6 +263,7 @@ async function setSport(sportId) {
 
 async function loadDate(dateISO) {
   state.date = dateISO;
+  persistConsoleUrl();
   state.loading = true;
   showProgress(`Loading ${dateISO} for ${getSportConfig(state.sport).name}…`, 25);
 
@@ -245,6 +271,12 @@ async function loadDate(dateISO) {
     await loadCricketDate(dateISO);
   } else if (state.sport === 'handball') {
     loadHandballDate(dateISO);
+    if (state.date !== dateISO) {
+      dateISO = state.date;
+      persistConsoleUrl();
+      const input = $('#date-input');
+      if (input) input.value = dateISO;
+    }
   } else if (state.sport === 'f1') {
     await loadF1Date(dateISO);
   } else {
@@ -260,13 +292,37 @@ async function loadDate(dateISO) {
   autoGeneratePredictions();
 }
 
+function nearestHandballDate(dateISO) {
+  const dates = [...new Set((state.handballMatches?.matches || []).map((m) => m.date).filter(Boolean))].sort();
+  if (!dates.length) return dateISO;
+  const upcoming = dates.find((d) => d >= dateISO);
+  if (upcoming) return upcoming;
+  return dates[dates.length - 1];
+}
+
 function loadHandballDate(dateISO) {
-  const cardData = buildHandballCardForDate(
+  let cardData = buildHandballCardForDate(
     dateISO,
     state.handballMatches,
     state.handballTeams,
     state.handballSlate
   );
+
+  // Landing UX: an empty day makes Generate look broken. Hop once to the
+  // nearest sourced slate date rather than inventing fixtures.
+  if (!cardData.matches.length) {
+    const hop = nearestHandballDate(dateISO);
+    if (hop && hop !== dateISO) {
+      state.date = hop;
+      state.calMonth = new Date(`${hop}T12:00:00Z`);
+      cardData = buildHandballCardForDate(
+        hop,
+        state.handballMatches,
+        state.handballTeams,
+        state.handballSlate
+      );
+    }
+  }
 
   state.currentMatches = cardData.matches;
   state.scoredCard = cardData.scored;

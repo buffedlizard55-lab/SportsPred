@@ -400,3 +400,9 @@ test('handball is predicted on the specialist console', () => {
   assert.equal(hb.page, 'pro.html?sport=handball');
   assert.equal(hb.specialistEngine, 'handball');
 });
+
+test('tennis, cricket and Formula 1 route through the specialist console', () => {
+  assert.equal(getSport('tennis').page, 'pro.html?sport=tennis');
+  assert.equal(getSport('cricket').page, 'pro.html?sport=cricket');
+  assert.equal(getSport('motor-racing').page, 'pro.html?sport=f1');
+});

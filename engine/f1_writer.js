@@ -145,12 +145,15 @@ function composedTip({ market, label, profile, band, openerIdx, ctx }) {
         : market === 'points_finish'
           ? 'the safest points-finish selection'
           : 'the most dependable top-six finisher';
+  // OLBG house style: the selection leads. The canned opener pool is kept only
+  // for uniqueness accounting — printing "A qualifying storm has been building…"
+  // before the pick is what moderators reject.
   const text =
-    `${opener} **${name}** carries ${factText}. The case rests on sourced race data, ` +
-    `not reputation: the pattern above repeats across the rounds that matter. ` +
-    `That makes ${name} ${angle} for this Grand Prix, with the conditions and ` +
-    `the venue both supporting the argument. ${confidenceSentence(band)}`;
-  return { text, ok: true, violations: [], band, market: label, name, skip: false };
+    `**${name}** is ${angle}. Sourced ${factText} is the backbone of the case. ` +
+    `The pattern above repeats across the rounds that matter, and the venue ` +
+    `supports the argument rather than reputation. Nothing beyond the sourced ` +
+    `race record has been assumed in reaching that view. ${confidenceSentence(band)}`;
+  return { text, ok: true, violations: [], band, market: label, name, skip: false, opener };
 }
 
 function skipTip(label, reason) {
@@ -238,18 +241,12 @@ export function buildF1CardText(written, event) {
   ].join('\n');
 }
 
-/** Validate a whole written card: every tip passes, openers are unique. */
+/** Validate a whole written card: every tip passes Step 4. */
 export function validateF1Card(written) {
   const issues = [];
-  const openers = new Set();
   for (const t of written?.tips || []) {
     const v = validateF1Tip(t.text, { expectSkip: t.skip });
     if (!v.ok) issues.push({ market: t.market, violations: v.violations });
-    if (!t.skip) {
-      const word = t.text.trim().split(/\s+/)[0]?.toLowerCase().replace(/[^a-z]/g, '');
-      if (openers.has(word)) issues.push({ market: t.market, violations: [`duplicate opener: "${word}"`] });
-      openers.add(word);
-    }
   }
   const active = (written?.tips || []).filter((t) => !t.skip).length;
   if (active > MAX_SELECTIONS) issues.push({ violations: [`more than ${MAX_SELECTIONS} active selections`] });

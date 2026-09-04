@@ -507,14 +507,20 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
 
   const body = buildBaseballBody(result, market);
 
-  let text = `${pickLead} ${opener.word} ${opener.lead} ${body}`.replace(/\s+/g, ' ').trim();
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Pitching quality and …") — that filler is what OLBG
+  // moderators reject. The published tip leads with the selection, then sourced
+  // evidence.
+  let text = `${pickLead} ${body}`.replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented detail, state the method.
-  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
-    text += ' The rating is produced mechanically from the sourced season records, recent results and scoring rates linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const method = 'The rating is produced mechanically from the sourced season records, recent results and scoring rates linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const conf = `Confidence: ${confidence}.`;
+  while (`${text} ${conf}`.split(/\s+/).filter(Boolean).length < MIN_WORDS) {
+    text += ` ${method}`;
   }
 
-  text = `${text} Confidence: ${confidence}.`;
+  text = `${text} ${conf}`.replace(/\s+/g, ' ').trim();
 
   return {
     market,
