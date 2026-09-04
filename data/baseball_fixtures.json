@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T17:14:28Z",
+ "fetched_at_utc": "2026-09-04T19:42:58Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -537,7 +537,7 @@
    "season": "2026",
    "dateISO": "2026-09-04",
    "startUtc": "2026-09-04T18:10:00Z",
-   "phase": "upcoming",
+   "phase": "live",
    "venue": "Progressive Field",
    "venueIndoor": false,
    "home": {
@@ -551,7 +551,7 @@
      "losses": 70,
      "pct": ".500"
     },
-    "score": 0,
+    "score": 1,
     "isWinner": null,
     "probablePitcher": {
      "id": 671106,
@@ -569,7 +569,7 @@
      "losses": 75,
      "pct": ".460"
     },
-    "score": 0,
+    "score": 4,
     "isWinner": null,
     "probablePitcher": {
      "id": 672456,
@@ -577,8 +577,8 @@
     }
    },
    "score": {
-    "home": 0,
-    "away": 0
+    "home": 1,
+    "away": 4
    },
    "espn": {
     "venueIndoor": false,
@@ -725,7 +725,7 @@
      "losses": 61,
      "pct": ".564"
     },
-    "score": null,
+    "score": 0,
     "isWinner": null,
     "probablePitcher": {
      "id": 650911,
@@ -743,7 +743,7 @@
      "losses": 57,
      "pct": ".593"
     },
-    "score": null,
+    "score": 0,
     "isWinner": null,
     "probablePitcher": {
      "id": 519242,
@@ -751,8 +751,8 @@
     }
    },
    "score": {
-    "home": null,
-    "away": null
+    "home": 0,
+    "away": 0
    },
    "espn": {
     "venueIndoor": false,
@@ -899,7 +899,7 @@
      "losses": 72,
      "pct": ".489"
     },
-    "score": null,
+    "score": 0,
     "isWinner": null,
     "probablePitcher": {
      "id": 669358,
@@ -917,7 +917,7 @@
      "losses": 65,
      "pct": ".539"
     },
-    "score": null,
+    "score": 0,
     "isWinner": null,
     "probablePitcher": {
      "id": 624133,
@@ -925,8 +925,8 @@
     }
    },
    "score": {
-    "home": null,
-    "away": null
+    "home": 0,
+    "away": 0
    },
    "espn": {
     "venueIndoor": false,
@@ -1337,11 +1337,11 @@
     "temperature": null,
     "home": {
      "starter": {
-      "name": "Kumar Rocker",
-      "losses": 10,
-      "wins": 5,
-      "era": 4.44,
-      "record": "(5-10, 4.44)"
+      "name": "Trevor Williams",
+      "losses": 0,
+      "wins": 0,
+      "era": 3.93,
+      "record": "(0-0, 3.93)"
      },
      "records": {
       "overall": "70-71",
@@ -1580,11 +1580,11 @@
     },
     "away": {
      "starter": {
-      "name": "Kyle Leahy",
-      "losses": 4,
-      "wins": 10,
-      "era": 3.13,
-      "record": "(10-4, 3.13)"
+      "name": "Andre Pallante",
+      "losses": 6,
+      "wins": 12,
+      "era": 3.57,
+      "record": "(12-6, 3.57)"
      },
      "records": {
       "overall": "70-71",
@@ -1841,11 +1841,11 @@
     },
     "away": {
      "starter": {
-      "name": "J.T. Ginn",
-      "losses": 8,
-      "wins": 9,
-      "era": 3.71,
-      "record": "(9-8, 3.71)"
+      "name": "Kade Morris",
+      "losses": 1,
+      "wins": 0,
+      "era": 9.82,
+      "record": "(0-1, 9.82)"
      },
      "records": {
       "overall": "55-86",
@@ -2520,11 +2520,11 @@
     "temperature": null,
     "home": {
      "starter": {
-      "name": "Kumar Rocker",
-      "losses": 10,
-      "wins": 5,
-      "era": 4.44,
-      "record": "(5-10, 4.44)"
+      "name": "Trevor Williams",
+      "losses": 0,
+      "wins": 0,
+      "era": 3.93,
+      "record": "(0-0, 3.93)"
      },
      "records": {
       "overall": "70-71",

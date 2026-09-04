@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T17:14:28Z",
+ "fetched_at_utc": "2026-09-04T19:42:58Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -22563,6 +22563,7 @@
       "record": "(7-10, 3.72)"
      },
      "records": {
+      "overall": "71-69",
       "home": "42-27",
       "road": "29-42"
      }

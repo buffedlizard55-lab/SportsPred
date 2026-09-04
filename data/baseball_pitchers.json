@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T17:14:28Z",
+ "fetched_at_utc": "2026-09-04T19:42:59Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -4186,15 +4186,28 @@
   "671106": {
    "id": 671106,
    "name": "Logan Allen",
-   "era": 3.77,
-   "whip": 1.47,
-   "strikeoutsPer9": 9.42,
+   "era": 5.87,
+   "whip": 1.76,
+   "strikeoutsPer9": 9.39,
    "wins": 0,
    "losses": 0,
    "qualityStartsLast4": 0,
    "qualityStartsLast3": 0,
-   "avgInningsPerStart": 3.1,
+   "avgInningsPerStart": 2.05,
    "last4": [
+    {
+     "date": "2026-09-04",
+     "opponent": "Detroit Tigers",
+     "isHome": true,
+     "inningsPitched": 1,
+     "earnedRuns": 4,
+     "hits": 4,
+     "strikeOuts": 1,
+     "baseOnBalls": 2,
+     "pitches": 41,
+     "isWin": false,
+     "qualityStart": false
+    },
     {
      "date": "2026-07-18",
      "opponent": "Pittsburgh Pirates",
@@ -4209,7 +4222,7 @@
      "qualityStart": false
     }
    ],
-   "startsCount": 1,
+   "startsCount": 2,
    "source": "mlb-person-gameLog"
   },
   "671737": {
@@ -4283,15 +4296,28 @@
   "672456": {
    "id": 672456,
    "name": "Keider Montero",
-   "era": 3.24,
-   "whip": 0.99,
-   "strikeoutsPer9": 5.96,
+   "era": 3.29,
+   "whip": 1,
+   "strikeoutsPer9": 5.93,
    "wins": 9,
    "losses": 8,
    "qualityStartsLast4": 1,
-   "qualityStartsLast3": 1,
-   "avgInningsPerStart": 5.55,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4.3,
    "last4": [
+    {
+     "date": "2026-09-04",
+     "opponent": "Cleveland Guardians",
+     "isHome": false,
+     "inningsPitched": 1,
+     "earnedRuns": 1,
+     "hits": 2,
+     "strikeOuts": 1,
+     "baseOnBalls": 0,
+     "pitches": 23,
+     "isWin": true,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-29",
      "opponent": "Los Angeles Dodgers",
@@ -4330,22 +4356,9 @@
      "pitches": 88,
      "isWin": true,
      "qualityStart": true
-    },
-    {
-     "date": "2026-08-07",
-     "opponent": "San Francisco Giants",
-     "isHome": false,
-     "inningsPitched": 6,
-     "earnedRuns": 5,
-     "hits": 5,
-     "strikeOuts": 5,
-     "baseOnBalls": 3,
-     "pitches": 82,
-     "isWin": false,
-     "qualityStart": false
     }
    ],
-   "startsCount": 22,
+   "startsCount": 23,
    "source": "mlb-person-gameLog"
   },
   "674841": {
