@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-03T21:58:47Z",
+ "fetched_at_utc": "2026-09-04T00:12:02Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -1591,15 +1591,28 @@
   "592332": {
    "id": 592332,
    "name": "Kevin Gausman",
-   "era": 4.52,
-   "whip": 1.27,
-   "strikeoutsPer9": 9.04,
+   "era": 4.46,
+   "whip": 1.26,
+   "strikeoutsPer9": 9.09,
    "wins": 8,
    "losses": 11,
    "qualityStartsLast4": 1,
    "qualityStartsLast3": 1,
-   "avgInningsPerStart": 5.08,
+   "avgInningsPerStart": 4.82,
    "last4": [
+    {
+     "date": "2026-09-03",
+     "opponent": "Milwaukee Brewers",
+     "isHome": true,
+     "inningsPitched": 3.2,
+     "earnedRuns": 0,
+     "hits": 2,
+     "strikeOuts": 5,
+     "baseOnBalls": 0,
+     "pitches": 48,
+     "isWin": true,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-29",
      "opponent": "Cincinnati Reds",
@@ -1638,22 +1651,9 @@
      "pitches": 86,
      "isWin": true,
      "qualityStart": false
-    },
-    {
-     "date": "2026-08-13",
-     "opponent": "Washington Nationals",
-     "isHome": false,
-     "inningsPitched": 4.2,
-     "earnedRuns": 6,
-     "hits": 7,
-     "strikeOuts": 7,
-     "baseOnBalls": 1,
-     "pitches": 93,
-     "isWin": false,
-     "qualityStart": false
     }
    ],
-   "startsCount": 28,
+   "startsCount": 29,
    "source": "mlb-person-gameLog"
   },
   "592662": {
@@ -2407,15 +2407,28 @@
   "608379": {
    "id": 608379,
    "name": "Michael Wacha",
-   "era": 3.32,
-   "whip": 1.1,
-   "strikeoutsPer9": 7.17,
+   "era": 3.39,
+   "whip": 1.11,
+   "strikeoutsPer9": 7.14,
    "wins": 8,
    "losses": 8,
-   "qualityStartsLast4": 3,
+   "qualityStartsLast4": 2,
    "qualityStartsLast3": 2,
-   "avgInningsPerStart": 6.55,
+   "avgInningsPerStart": 5.5,
    "last4": [
+    {
+     "date": "2026-09-03",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 2,
+     "earnedRuns": 2,
+     "hits": 4,
+     "strikeOuts": 1,
+     "baseOnBalls": 1,
+     "pitches": 32,
+     "isWin": false,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-28",
      "opponent": "Cleveland Guardians",
@@ -2454,22 +2467,9 @@
      "pitches": 79,
      "isWin": true,
      "qualityStart": false
-    },
-    {
-     "date": "2026-08-11",
-     "opponent": "Los Angeles Dodgers",
-     "isHome": false,
-     "inningsPitched": 6.2,
-     "earnedRuns": 3,
-     "hits": 7,
-     "strikeOuts": 5,
-     "baseOnBalls": 0,
-     "pitches": 96,
-     "isWin": false,
-     "qualityStart": true
     }
    ],
-   "startsCount": 27,
+   "startsCount": 28,
    "source": "mlb-person-gameLog"
   },
   "615698": {
@@ -2883,15 +2883,28 @@
   "645261": {
    "id": 645261,
    "name": "Sandy Alcantara",
-   "era": 3.46,
-   "whip": 1.19,
-   "strikeoutsPer9": 6.64,
+   "era": 3.43,
+   "whip": 1.18,
+   "strikeoutsPer9": 6.57,
    "wins": 13,
    "losses": 8,
-   "qualityStartsLast4": 3,
-   "qualityStartsLast3": 2,
-   "avgInningsPerStart": 6.5,
+   "qualityStartsLast4": 2,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 5.05,
    "last4": [
+    {
+     "date": "2026-09-03",
+     "opponent": "Kansas City Royals",
+     "isHome": false,
+     "inningsPitched": 1.2,
+     "earnedRuns": 0,
+     "hits": 1,
+     "strikeOuts": 0,
+     "baseOnBalls": 0,
+     "pitches": 20,
+     "isWin": true,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-29",
      "opponent": "Washington Nationals",
@@ -2930,22 +2943,9 @@
      "pitches": 97,
      "isWin": false,
      "qualityStart": true
-    },
-    {
-     "date": "2026-08-14",
-     "opponent": "Cincinnati Reds",
-     "isHome": false,
-     "inningsPitched": 7,
-     "earnedRuns": 1,
-     "hits": 3,
-     "strikeOuts": 2,
-     "baseOnBalls": 4,
-     "pitches": 103,
-     "isWin": false,
-     "qualityStart": true
     }
    ],
-   "startsCount": 29,
+   "startsCount": 30,
    "source": "mlb-person-gameLog"
   },
   "650633": {
@@ -5580,15 +5580,28 @@
   "687064": {
    "id": 687064,
    "name": "Brandon Young",
-   "era": 3.38,
-   "whip": 1.34,
-   "strikeoutsPer9": 7.11,
+   "era": 3.35,
+   "whip": 1.32,
+   "strikeoutsPer9": 7.1,
    "wins": 9,
    "losses": 3,
-   "qualityStartsLast4": 2,
+   "qualityStartsLast4": 1,
    "qualityStartsLast3": 1,
-   "avgInningsPerStart": 5.55,
+   "avgInningsPerStart": 5.05,
    "last4": [
+    {
+     "date": "2026-09-03",
+     "opponent": "Boston Red Sox",
+     "isHome": true,
+     "inningsPitched": 4,
+     "earnedRuns": 1,
+     "hits": 1,
+     "strikeOuts": 3,
+     "baseOnBalls": 2,
+     "pitches": 57,
+     "isWin": false,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-28",
      "opponent": "Athletics",
@@ -5627,22 +5640,9 @@
      "pitches": 82,
      "isWin": false,
      "qualityStart": false
-    },
-    {
-     "date": "2026-08-11",
-     "opponent": "Minnesota Twins",
-     "isHome": false,
-     "inningsPitched": 6,
-     "earnedRuns": 1,
-     "hits": 6,
-     "strikeOuts": 4,
-     "baseOnBalls": 3,
-     "pitches": 104,
-     "isWin": true,
-     "qualityStart": true
     }
    ],
-   "startsCount": 23,
+   "startsCount": 24,
    "source": "mlb-person-gameLog"
   },
   "687273": {
@@ -5784,15 +5784,28 @@
   "687562": {
    "id": 687562,
    "name": "Jake Bennett",
-   "era": 3.27,
+   "era": 3.35,
    "whip": 1.04,
-   "strikeoutsPer9": 7.11,
+   "strikeoutsPer9": 7.08,
    "wins": 9,
    "losses": 6,
    "qualityStartsLast4": 2,
    "qualityStartsLast3": 2,
-   "avgInningsPerStart": 5.53,
+   "avgInningsPerStart": 5,
    "last4": [
+    {
+     "date": "2026-09-03",
+     "opponent": "Baltimore Orioles",
+     "isHome": false,
+     "inningsPitched": 3,
+     "earnedRuns": 1,
+     "hits": 3,
+     "strikeOuts": 2,
+     "baseOnBalls": 0,
+     "pitches": 28,
+     "isWin": false,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-29",
      "opponent": "New York Yankees",
@@ -5831,22 +5844,9 @@
      "pitches": 82,
      "isWin": false,
      "qualityStart": false
-    },
-    {
-     "date": "2026-08-08",
-     "opponent": "Athletics",
-     "isHome": true,
-     "inningsPitched": 5.1,
-     "earnedRuns": 4,
-     "hits": 5,
-     "strikeOuts": 5,
-     "baseOnBalls": 3,
-     "pitches": 88,
-     "isWin": false,
-     "qualityStart": false
     }
    ],
-   "startsCount": 16,
+   "startsCount": 17,
    "source": "mlb-person-gameLog"
   },
   "690279": {
@@ -6642,15 +6642,28 @@
   "701656": {
    "id": 701656,
    "name": "Logan Henderson",
-   "era": 2.48,
+   "era": 2.61,
    "whip": 0.83,
-   "strikeoutsPer9": 10.14,
+   "strikeoutsPer9": 10.21,
    "wins": 9,
    "losses": 2,
-   "qualityStartsLast4": 4,
-   "qualityStartsLast3": 3,
-   "avgInningsPerStart": 6.53,
+   "qualityStartsLast4": 3,
+   "qualityStartsLast3": 2,
+   "avgInningsPerStart": 5.75,
    "last4": [
+    {
+     "date": "2026-09-03",
+     "opponent": "Chicago Cubs",
+     "isHome": false,
+     "inningsPitched": 3,
+     "earnedRuns": 2,
+     "hits": 3,
+     "strikeOuts": 4,
+     "baseOnBalls": 0,
+     "pitches": 47,
+     "isWin": false,
+     "qualityStart": false
+    },
     {
      "date": "2026-08-28",
      "opponent": "Texas Rangers",
@@ -6689,22 +6702,9 @@
      "pitches": 93,
      "isWin": true,
      "qualityStart": true
-    },
-    {
-     "date": "2026-08-10",
-     "opponent": "San Diego Padres",
-     "isHome": false,
-     "inningsPitched": 6.1,
-     "earnedRuns": 3,
-     "hits": 5,
-     "strikeOuts": 7,
-     "baseOnBalls": 1,
-     "pitches": 91,
-     "isWin": false,
-     "qualityStart": true
     }
    ],
-   "startsCount": 14,
+   "startsCount": 15,
    "source": "mlb-person-gameLog"
   },
   "800048": {
