@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T19:42:59Z",
+ "fetched_at_utc": "2026-09-04T21:55:02Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -1031,6 +1031,30 @@
   },
   {
    "url": "https://statsapi.mlb.com/api/v1/people/693821/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695505/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695505/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/666157/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/666157/stats?stats=gameLog&season=2026&group=pitching",
    "status": 200,
    "error": null,
    "ok": true
@@ -3503,6 +3527,74 @@
    "startsCount": 8,
    "source": "mlb-person-gameLog"
   },
+  "666157": {
+   "id": 666157,
+   "name": "Nick Lodolo",
+   "era": 5.08,
+   "whip": 1.52,
+   "strikeoutsPer9": 7.31,
+   "wins": 3,
+   "losses": 3,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 1,
+   "avgInningsPerStart": 4.53,
+   "last4": [
+    {
+     "date": "2026-09-01",
+     "opponent": "San Diego Padres",
+     "isHome": true,
+     "inningsPitched": 6,
+     "earnedRuns": 2,
+     "hits": 5,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": true
+    },
+    {
+     "date": "2026-08-26",
+     "opponent": "San Francisco Giants",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 4,
+     "hits": 6,
+     "strikeOuts": 5,
+     "baseOnBalls": 2,
+     "pitches": 95,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-21",
+     "opponent": "Arizona Diamondbacks",
+     "isHome": false,
+     "inningsPitched": 3.1,
+     "earnedRuns": 6,
+     "hits": 10,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 91,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-16",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 0,
+     "hits": 3,
+     "strikeOuts": 2,
+     "baseOnBalls": 2,
+     "pitches": 73,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 17,
+   "source": "mlb-person-gameLog"
+  },
   "666200": {
    "id": 666200,
    "name": "Jesús Luzardo",
@@ -4186,25 +4278,25 @@
   "671106": {
    "id": 671106,
    "name": "Logan Allen",
-   "era": 5.87,
-   "whip": 1.76,
-   "strikeoutsPer9": 9.39,
+   "era": 5.94,
+   "whip": 1.74,
+   "strikeoutsPer9": 8.64,
    "wins": 0,
    "losses": 0,
    "qualityStartsLast4": 0,
    "qualityStartsLast3": 0,
-   "avgInningsPerStart": 2.05,
+   "avgInningsPerStart": 2.6,
    "last4": [
     {
      "date": "2026-09-04",
      "opponent": "Detroit Tigers",
      "isHome": true,
-     "inningsPitched": 1,
-     "earnedRuns": 4,
-     "hits": 4,
+     "inningsPitched": 2.1,
+     "earnedRuns": 5,
+     "hits": 6,
      "strikeOuts": 1,
      "baseOnBalls": 2,
-     "pitches": 41,
+     "pitches": 62,
      "isWin": false,
      "qualityStart": false
     },
@@ -4296,26 +4388,26 @@
   "672456": {
    "id": 672456,
    "name": "Keider Montero",
-   "era": 3.29,
-   "whip": 1,
-   "strikeoutsPer9": 5.93,
+   "era": 3.52,
+   "whip": 1.03,
+   "strikeoutsPer9": 6.04,
    "wins": 9,
    "losses": 8,
    "qualityStartsLast4": 1,
    "qualityStartsLast3": 0,
-   "avgInningsPerStart": 4.3,
+   "avgInningsPerStart": 5.05,
    "last4": [
     {
      "date": "2026-09-04",
      "opponent": "Cleveland Guardians",
      "isHome": false,
-     "inningsPitched": 1,
-     "earnedRuns": 1,
-     "hits": 2,
-     "strikeOuts": 1,
-     "baseOnBalls": 0,
-     "pitches": 23,
-     "isWin": true,
+     "inningsPitched": 4,
+     "earnedRuns": 6,
+     "hits": 8,
+     "strikeOuts": 4,
+     "baseOnBalls": 1,
+     "pitches": 82,
+     "isWin": false,
      "qualityStart": false
     },
     {
@@ -5944,6 +6036,74 @@
    "startsCount": 21,
    "source": "mlb-person-gameLog"
   },
+  "695505": {
+   "id": 695505,
+   "name": "Chase Burns",
+   "era": 2.79,
+   "whip": 1.16,
+   "strikeoutsPer9": 10.59,
+   "wins": 15,
+   "losses": 3,
+   "qualityStartsLast4": 1,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 5.1,
+   "last4": [
+    {
+     "date": "2026-08-30",
+     "opponent": "Chicago Cubs",
+     "isHome": false,
+     "inningsPitched": 5.2,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 7,
+     "baseOnBalls": 1,
+     "pitches": 100,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-24",
+     "opponent": "San Francisco Giants",
+     "isHome": false,
+     "inningsPitched": 3.2,
+     "earnedRuns": 5,
+     "hits": 9,
+     "strikeOuts": 5,
+     "baseOnBalls": 1,
+     "pitches": 64,
+     "isWin": false,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-19",
+     "opponent": "St. Louis Cardinals",
+     "isHome": true,
+     "inningsPitched": 5,
+     "earnedRuns": 2,
+     "hits": 6,
+     "strikeOuts": 8,
+     "baseOnBalls": 2,
+     "pitches": 104,
+     "isWin": true,
+     "qualityStart": false
+    },
+    {
+     "date": "2026-08-14",
+     "opponent": "Miami Marlins",
+     "isHome": true,
+     "inningsPitched": 7,
+     "earnedRuns": 0,
+     "hits": 4,
+     "strikeOuts": 8,
+     "baseOnBalls": 0,
+     "pitches": 93,
+     "isWin": true,
+     "qualityStart": true
+    }
+   ],
+   "startsCount": 26,
+   "source": "mlb-person-gameLog"
+  },
   "695549": {
    "id": 695549,
    "name": "Jackson Jobe",
@@ -6628,7 +6788,7 @@
   }
  },
  "counts": {
-  "pitchers": 86
+  "pitchers": 88
  },
  "note": "Probable-starter profiles from the official MLB StatsAPI person game log and season stats. A starter is recorded as \"confirmed\" only when the MLB schedule names a probable pitcher."
 }

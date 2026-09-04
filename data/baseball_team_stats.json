@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T19:42:55Z",
+ "fetched_at_utc": "2026-09-04T21:55:00Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -103,10 +103,10 @@
    "name": "Cleveland Guardians",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 581,
-    "era": 3.76,
-    "whip": 1.27,
-    "strikeoutsPer9Inn": 9.46,
+    "runs": 583,
+    "era": 3.75,
+    "whip": 1.26,
+    "strikeoutsPer9Inn": 9.45,
     "saves": 40,
     "blownSaves": 14
    }
@@ -129,10 +129,10 @@
    "name": "Detroit Tigers",
    "pitching": {
     "gamesPlayed": 140,
-    "runs": 564,
-    "era": 3.7,
+    "runs": 569,
+    "era": 3.72,
     "whip": 1.23,
-    "strikeoutsPer9Inn": 8.22,
+    "strikeoutsPer9Inn": 8.21,
     "saves": 27,
     "blownSaves": 30
    }
