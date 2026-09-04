@@ -627,6 +627,9 @@ export function scoreBaseballMatch(match) {
     selection: pickSide,
     favoured: fav?.name ?? null,
     dog: dog?.name ?? null,
+    // Sourced head-to-head from the results tape, carried through so the writer
+    // can cite it. Null when the two clubs have no prior meeting in the window.
+    h2h: h2h ?? null,
     odds: {
       provider: fav?.odds?.provider ?? null,
       favouriteAmerican: fav?.odds?.american ?? null,
@@ -657,6 +660,15 @@ export function scoreBaseballMatch(match) {
   };
 }
 
+/**
+ * The public, writer-facing view of a side.
+ *
+ * The writer builds its prose only from what appears here, so every field
+ * carried through must be a sourced value (MLB StatsAPI standings / team stats /
+ * pitcher game logs / results tape — see engine/baseball_data.js
+ * enrichBaseballFixture). Fields absent from the feed stay null and the
+ * corresponding clause is simply never written.
+ */
 function sideProfile(side) {
   return {
     name: side?.name ?? null,
@@ -666,6 +678,17 @@ function sideProfile(side) {
     runDiffPerGame: side?.runDiffPerGame ?? null,
     starterScore: null,
     bullpenRank: side?.bullpenRank ?? null,
+    // Carried through for the tip writer. All sourced, none derived.
+    form: side?.form ?? null,
+    seasonRunDiffPerGame: side?.seasonRunDiffPerGame ?? null,
+    runsPerGameRecent: side?.runsPerGameRecent ?? null,
+    runsAgainstPerGameRecent: side?.runsAgainstPerGameRecent ?? null,
+    seasonRunsPerGame: side?.seasonRunsPerGame ?? null,
+    seasonRunsAgainstPerGame: side?.seasonRunsAgainstPerGame ?? null,
+    teamEra: side?.teamEra ?? null,
+    teamWhip: side?.teamWhip ?? null,
+    avgWinMarginLast5Wins: side?.avgWinMarginLast5Wins ?? null,
+    starter: side?.starter ?? null,
   };
 }
 
