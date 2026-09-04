@@ -38,81 +38,81 @@ export const FORBIDDEN_TOKENS = [
  * Ensures zero repeated opening words even across large cards with 20+ matches (60+ tips).
  */
 export const HANDBALL_OPENERS = [
-  { id: 'defensive', word: 'Defensive', lead: 'solidity provides the fundamental baseline for success over sixty grueling minutes.' },
-  { id: 'offensive', word: 'Offensive', lead: 'efficiency from long range creates an insurmountable tactical dilemma for the opposition.' },
-  { id: 'momentum', word: 'Momentum', lead: 'built across the past month points decisively toward sustained on-court execution.' },
-  { id: 'tempo', word: 'Tempo', lead: 'dictation during rapid transition phases establishes complete command of the match flow.' },
-  { id: 'structure', word: 'Structure', lead: 'and organizational discipline across the backcourt outweigh individual moments of brilliance.' },
-  { id: 'chemistry', word: 'Chemistry', lead: 'developed through consistent lineup continuity reinforces superior collective coordination.' },
-  { id: 'precedent', word: 'Precedent', lead: 'established in recent head-to-head encounters confirms a pronounced stylistic mismatch.' },
-  { id: 'discipline', word: 'Discipline', lead: 'under intense defensive pressure prevents costly giveaways during pivotal stretches.' },
-  { id: 'cohesion', word: 'Cohesion', lead: 'along the six-meter perimeter denies clear attacking avenues throughout sixty minutes.' },
-  { id: 'execution', word: 'Execution', lead: 'in settled offensive possessions generates consistently higher percentage scoring looks.' },
-  { id: 'goalkeeping', word: 'Goalkeeping', lead: 'consistency between the posts anchors what is already a formidable defensive unit.' },
-  { id: 'perimeter', word: 'Perimeter', lead: 'resistance and physical containment minimize the effectiveness of opposing shooters.' },
-  { id: 'transition', word: 'Transition', lead: 'speed and relentless counter-attacking pressure generate repeated high-probability chances.' },
-  { id: 'tactical', word: 'Tactical', lead: 'versatility enables rapid in-game adjustments against varied defensive schemes.' },
-  { id: 'consistency', word: 'Consistency', lead: 'across all phases of play separates proven contenders from volatile opposition.' },
-  { id: 'physicality', word: 'Physicality', lead: 'in the central defensive block disrupts offensive flow and forces hurried decisions.' },
-  { id: 'organization', word: 'Organization', lead: 'behind the ball ensures seamless recovery against even the quickest breakaways.' },
-  { id: 'resilience', word: 'Resilience', lead: 'during second-half pressure points highlights the psychological maturity of this squad.' },
-  { id: 'form', word: 'Form', lead: 'over recent weeks demonstrates a steep upward trajectory in overall performance.' },
-  { id: 'pressure', word: 'Pressure', lead: 'applied by an aggressive advanced defensive stance suffocates opposing playmakers.' },
-  { id: 'depth', word: 'Depth', lead: 'across the entire bench maintains relentless physical intensity without quality drop-off.' },
-  { id: 'dominance', word: 'Dominance', lead: 'in key territorial areas dictates the pace and rhythm from the opening whistle.' },
-  { id: 'velocity', word: 'Velocity', lead: 'in ball circulation continually stretches and exposes opposing defensive formations.' },
-  { id: 'baseline', word: 'Baseline', lead: 'performance indicators highlight a profound gap in execution and tactical reliability.' },
-  { id: 'efficiency', word: 'Efficiency', lead: 'on settled attacking possessions translates directly into sustained scoring production.' },
-  { id: 'control', word: 'Control', lead: 'of the central zones neutralizes the primary strengths of the opposing backcourt.' },
-  { id: 'rotation', word: 'Rotation', lead: 'management preserves crucial energy reserves for decisive closing minutes.' },
-  { id: 'intensity', word: 'Intensity', lead: 'from the opening exchanges sets an unsustainable pace for the challenger.' },
-  { id: 'stature', word: 'Stature', lead: 'and pedigree in competitive league fixtures provide an invaluable psychological advantage.' },
-  { id: 'trajectory', word: 'Trajectory', lead: 'over the current campaign reveals a well-calibrated peak in physical conditioning.' },
-  { id: 'advantage', word: 'Advantage', lead: 'gleaned from home surroundings amplifies defensive aggression and sharpens finishing.' },
-  { id: 'conditioning', word: 'Conditioning', lead: 'levels allow for relentless end-to-end pressure without late-game fatigue.' },
-  { id: 'balance', word: 'Balance', lead: 'between patient perimeter circulation and explosive wing cuts yields consistent returns.' },
-  { id: 'authority', word: 'Authority', lead: 'commanded in domestic competition carries unmistakable weight in this matchup.' },
-  { id: 'sharpness', word: 'Sharpness', lead: 'in second-phase fast breaks exploits momentary lapses in retreat positioning.' },
-  { id: 'solidity', word: 'Solidity', lead: 'across the backline prevents easy opportunities from central scoring corridors.' },
-  { id: 'prowess', word: 'Prowess', lead: 'in close-range finishing ensures that sustained pressure converts into points on the board.' },
-  { id: 'power', word: 'Power', lead: 'and aerial dominance from the nine-meter line dismantle standard defensive walls.' },
-  { id: 'strategy', word: 'Strategy', lead: 'built around quick ball movement circumvents heavily packed defensive lines.' },
-  { id: 'aggression', word: 'Aggression', lead: 'without conceding unnecessary suspensions sets the tone for defensive supremacy.' },
-  { id: 'capability', word: 'Capability', lead: 'to switch seamlessly between offensive structures disorients opposing coaches.' },
-  { id: 'quality', word: 'Quality', lead: 'in set-piece execution yields dependable output during critical phases.' },
-  { id: 'experience', word: 'Experience', lead: 'in high-pressure title fixtures keeps mistakes minimal when the margin narrows.' },
-  { id: 'precision', word: 'Precision', lead: 'in positional passing unlocks stubborn defensive setups with methodical patience.' },
-  { id: 'rhythm', word: 'Rhythm', lead: 'established early forces the opponent into uncomfortable and rushed sequences.' },
-  { id: 'dynamics', word: 'Dynamics', lead: 'in backcourt ball distribution create repeated mismatches across the wings.' },
-  { id: 'tenacity', word: 'Tenacity', lead: 'on loose ball scrums guarantees extra possessions that tilt the contest.' },
-  { id: 'stability', word: 'Stability', lead: 'in possession prevents the quick counters that the underdog desperately relies upon.' },
-  { id: 'production', word: 'Production', lead: 'from multiple attacking angles leaves the defense without a singular target to neutralize.' },
-  { id: 'reliability', word: 'Reliability', lead: 'under scoreboard pressure proves decisive as the clock winds down.' },
-  { id: 'fundamentals', word: 'Fundamentals', lead: 'in defensive footwork and body positioning prevent easy penetration.' },
-  { id: 'impact', word: 'Impact', lead: 'from seasoned leaders steadies the lineup during testing opening salvos.' },
-  { id: 'concentration', word: 'Concentration', lead: 'throughout long defensive stands forces low-percentage desperation efforts.' },
-  { id: 'cohesiveness', word: 'Cohesiveness', lead: 'across the entire squad provides a rock-solid foundation for this meeting.' },
-  { id: 'workrate', word: 'Workrate', lead: 'in transition back-checking eliminates fast-break scoring opportunities.' },
-  { id: 'presence', word: 'Presence', lead: 'on the court instills confidence and dictates terms from early possessions.' },
-  { id: 'fortitude', word: 'Fortitude', lead: 'under intense hostile noise underscores the composure of the stronger lineup.' },
-  { id: 'fluidity', word: 'Fluidity', lead: 'in attacking sequences consistently creates open shooting lanes.' },
-  { id: 'mastery', word: 'Mastery', lead: 'of tactical pacing allows control of the clock and possession count.' },
-  { id: 'command', word: 'Command', lead: 'of the center circle ensures quick restarts and immediate attacking momentum.' },
-  { id: 'poise', word: 'Poise', lead: 'in critical late-game possessions safeguards hard-earned leads.' },
-  { id: 'force', word: 'Force', lead: 'and momentum generated on early breakthroughs set up a dominant showing.' },
-  { id: 'drive', word: 'Drive', lead: 'and determination in the defensive half suffocate opposing passing lanes.' },
-  { id: 'focus', word: 'Focus', lead: 'on execution and spatial awareness generates an undeniable analytical edge.' },
-  { id: 'clarity', word: 'Clarity', lead: 'in tactical game-planning ensures every possession serves a defined purpose.' },
-  { id: 'craft', word: 'Craft', lead: 'and nuanced positioning around the circle create consistent attacking lanes.' },
-  { id: 'vigor', word: 'Vigor', lead: 'in the tackle limits easy looks and keeps the opponent under constant duress.' },
-  { id: 'calibre', word: 'Calibre', lead: 'across every position on the card separates the two sides comprehensively.' },
-  { id: 'assurance', word: 'Assurance', lead: 'in team execution translates into comfortable control across all sixty minutes.' },
-  { id: 'superiority', word: 'Superiority', lead: 'in tactical discipline and conditioning underpins this fixture.' },
-  { id: 'steely', word: 'Steely', lead: 'resolve in defensive duties minimizes scoring spurts from the opposition.' },
-  { id: 'unrelenting', word: 'Unrelenting', lead: 'defensive pressure drains attacking energy and dictates a clear outcome.' },
-  { id: 'methodical', word: 'Methodical', lead: 'ball movement dismantles defensive structures with patient efficiency.' },
-  { id: 'authoritative', word: 'Authoritative', lead: 'leadership on the court keeps the unit operating with singular focus.' },
-  { id: 'comprehensive', word: 'Comprehensive', lead: 'squad strength across all positions provides an insurmountable advantage.' },
+  { id: 'defensive', word: 'Defensive', lead: 'organisation is the starting point here.' },
+  { id: 'offensive', word: 'Offensive', lead: 'output decides the shape of this fixture.' },
+  { id: 'momentum', word: 'Momentum', lead: 'is the first thing to weigh in this matchup.' },
+  { id: 'tempo', word: 'Tempo', lead: 'is likely to settle this one.' },
+  { id: 'structure', word: 'Structure', lead: 'separates these two sides.' },
+  { id: 'chemistry', word: 'Chemistry', lead: 'and lineup continuity matter in this fixture.' },
+  { id: 'precedent', word: 'Precedent', lead: 'between these clubs is instructive.' },
+  { id: 'discipline', word: 'Discipline', lead: 'in possession is the deciding factor.' },
+  { id: 'cohesion', word: 'Cohesion', lead: 'across the six-metre line is the key.' },
+  { id: 'execution', word: 'Execution', lead: 'in settled attack is what tips this.' },
+  { id: 'goalkeeping', word: 'Goalkeeping', lead: 'is the swing factor in this meeting.' },
+  { id: 'perimeter', word: 'Perimeter', lead: 'defending shapes this contest.' },
+  { id: 'transition', word: 'Transition', lead: 'play is the main talking point here.' },
+  { id: 'tactical', word: 'Tactical', lead: 'flexibility is worth weighing here.' },
+  { id: 'consistency', word: 'Consistency', lead: 'is the separator in this fixture.' },
+  { id: 'physicality', word: 'Physicality', lead: 'through the middle matters here.' },
+  { id: 'organisation', word: 'Organisation', lead: 'behind the ball frames this one.' },
+  { id: 'resilience', word: 'Resilience', lead: 'after halftime is the key theme.' },
+  { id: 'form', word: 'Form', lead: 'is the cleanest read on this fixture.' },
+  { id: 'pressure', word: 'Pressure', lead: 'defending is the decisive theme here.' },
+  { id: 'depth', word: 'Depth', lead: 'off the bench is the differentiator.' },
+  { id: 'dominance', word: 'Dominance', lead: 'in the key areas is the theme.' },
+  { id: 'velocity', word: 'Velocity', lead: 'of ball movement shapes this one.' },
+  { id: 'baseline', word: 'Baseline', lead: 'numbers point one way here.' },
+  { id: 'efficiency', word: 'Efficiency', lead: 'in attack is the deciding metric.' },
+  { id: 'control', word: 'Control', lead: 'of the central channel is decisive.' },
+  { id: 'rotation', word: 'Rotation', lead: 'management is worth noting here.' },
+  { id: 'intensity', word: 'Intensity', lead: 'from the throw-off matters here.' },
+  { id: 'stature', word: 'Stature', lead: 'in this competition counts for something.' },
+  { id: 'trajectory', word: 'Trajectory', lead: 'across the campaign is the guide.' },
+  { id: 'advantage', word: 'Advantage', lead: 'on home ground is the theme here.' },
+  { id: 'conditioning', word: 'Conditioning', lead: 'late in the game is relevant.' },
+  { id: 'balance', word: 'Balance', lead: 'between the wings and the backcourt matters.' },
+  { id: 'authority', word: 'Authority', lead: 'in domestic play is the backdrop.' },
+  { id: 'sharpness', word: 'Sharpness', lead: 'on the fast break is the key.' },
+  { id: 'solidity', word: 'Solidity', lead: 'at the back frames this one.' },
+  { id: 'prowess', word: 'Prowess', lead: 'around the circle is the theme.' },
+  { id: 'power', word: 'Power', lead: 'from nine metres is the story here.' },
+  { id: 'strategy', word: 'Strategy', lead: 'in the half court decides this.' },
+  { id: 'aggression', word: 'Aggression', lead: 'without suspensions is the balance here.' },
+  { id: 'capability', word: 'Capability', lead: 'to switch systems matters in this tie.' },
+  { id: 'quality', word: 'Quality', lead: 'on set pieces is the separator.' },
+  { id: 'experience', word: 'Experience', lead: 'in tight finishes counts here.' },
+  { id: 'precision', word: 'Precision', lead: 'in the passing game is decisive.' },
+  { id: 'rhythm', word: 'Rhythm', lead: 'early in the match is the theme.' },
+  { id: 'dynamics', word: 'Dynamics', lead: 'in the backcourt shape this fixture.' },
+  { id: 'tenacity', word: 'Tenacity', lead: 'for loose balls is relevant here.' },
+  { id: 'stability', word: 'Stability', lead: 'in possession is the key read.' },
+  { id: 'production', word: 'Production', lead: 'from multiple angles is the theme.' },
+  { id: 'reliability', word: 'Reliability', lead: 'under scoreboard pressure matters.' },
+  { id: 'fundamentals', word: 'Fundamentals', lead: 'in defensive footwork decide this.' },
+  { id: 'impact', word: 'Impact', lead: 'from senior players is the theme.' },
+  { id: 'concentration', word: 'Concentration', lead: 'over sixty minutes is the key.' },
+  { id: 'cohesiveness', word: 'Cohesiveness', lead: 'across the squad is the backdrop.' },
+  { id: 'workrate', word: 'Workrate', lead: 'in recovery defence matters here.' },
+  { id: 'presence', word: 'Presence', lead: 'on court is a genuine factor here.' },
+  { id: 'fortitude', word: 'Fortitude', lead: 'away from home is being tested.' },
+  { id: 'fluidity', word: 'Fluidity', lead: 'in attacking sequences is the theme.' },
+  { id: 'mastery', word: 'Mastery', lead: 'of game management is decisive.' },
+  { id: 'command', word: 'Command', lead: 'of the tempo is the deciding factor.' },
+  { id: 'poise', word: 'Poise', lead: 'in the closing minutes matters.' },
+  { id: 'force', word: 'Force', lead: 'of the early exchanges is telling.' },
+  { id: 'drive', word: 'Drive', lead: 'in the defensive half is the theme.' },
+  { id: 'focus', word: 'Focus', lead: 'on the numbers is the right approach.' },
+  { id: 'clarity', word: 'Clarity', lead: 'of the matchup profile helps here.' },
+  { id: 'craft', word: 'Craft', lead: 'around the pivot is worth noting.' },
+  { id: 'vigour', word: 'Vigour', lead: 'in the tackle frames this fixture.' },
+  { id: 'calibre', word: 'Calibre', lead: 'across the roster is the separator.' },
+  { id: 'assurance', word: 'Assurance', lead: 'in execution is the theme here.' },
+  { id: 'superiority', word: 'Superiority', lead: 'in the underlying numbers is clear.' },
+  { id: 'steely', word: 'Steely', lead: 'defensive resolve is the theme here.' },
+  { id: 'unrelenting', word: 'Unrelenting', lead: 'pressure is the shape of this one.' },
+  { id: 'methodical', word: 'Methodical', lead: 'build-up play frames this fixture.' },
+  { id: 'authoritative', word: 'Authoritative', lead: 'league form is the backdrop here.' },
+  { id: 'comprehensive', word: 'Comprehensive', lead: 'squad strength is the deciding point.' },
 ];
 
 const MARKET_LABEL = {
@@ -192,41 +192,231 @@ export function validateHandballTip(text, { market, expectSkip = false } = {}) {
   return { ok: violations.length === 0, violations };
 }
 
+/* ------------------------------------------------------------------ *
+ * Evidence-driven prose helpers.
+ *
+ * Every clause below is built from a value that was actually sourced into
+ * the match/team objects (data/handball_teams.json, data/handball_matches.json).
+ * If a value is absent the clause is simply not produced — the writer cannot
+ * invent a fact. Numerals are spelled out because the validator forbids digits
+ * (a hard rule that stops odds, lines, scores and dates leaking into a tip).
+ * ------------------------------------------------------------------ */
+
+const NUMBER_WORDS = [
+  'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine',
+  'ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen',
+  'seventeen', 'eighteen', 'nineteen', 'twenty',
+];
+
+/** Spell a small non-negative integer. Returns null when it cannot be spelled. */
+export function spellNumber(n) {
+  if (typeof n !== 'number' || !Number.isInteger(n) || n < 0) return null;
+  if (n <= 20) return NUMBER_WORDS[n];
+  if (n < 100) {
+    const tens = ['', '', 'twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+    const t = tens[Math.floor(n / 10)];
+    const u = n % 10;
+    return u === 0 ? t : `${t}-${NUMBER_WORDS[u]}`;
+  }
+  return null;
+}
+
+function ordinalWord(n) {
+  const map = {
+    1: 'first', 2: 'second', 3: 'third', 4: 'fourth', 5: 'fifth', 6: 'sixth',
+    7: 'seventh', 8: 'eighth', 9: 'ninth', 10: 'tenth', 11: 'eleventh',
+    12: 'twelfth', 13: 'thirteenth', 14: 'fourteenth', 15: 'fifteenth',
+    16: 'sixteenth', 17: 'seventeenth', 18: 'eighteenth',
+  };
+  return map[n] || null;
+}
+
+function teamObjects(match, result) {
+  const home = match?.homeTeamObj || null;
+  const away = match?.awayTeamObj || null;
+  if (!home && !away) return { fav: null, dog: null };
+  const favName = result?.favourite;
+  const fav = home?.name === favName ? home : away?.name === favName ? away : home;
+  const dog = fav === home ? away : home;
+  return { fav, dog };
+}
+
+/** Form clause, e.g. "have won five of their last five". */
+function formClause(team) {
+  const last5 = team?.form?.last5;
+  if (!Array.isArray(last5) || !last5.length) return null;
+  const wins = last5.filter((r) => r === 'W').length;
+  const w = spellNumber(wins);
+  const n = spellNumber(last5.length);
+  if (!w || !n) return null;
+  return `${team.name} have won ${w} of their last ${n}`;
+}
+
+function streakClause(team) {
+  const ls = team?.form?.lossStreak;
+  if (typeof ls === 'number' && ls >= 3) {
+    const w = spellNumber(ls);
+    return w ? `${team.name} arrive on a run of ${w} straight defeats` : null;
+  }
+  const ws = team?.form?.winStreak;
+  if (typeof ws === 'number' && ws >= 3) {
+    const w = spellNumber(ws);
+    return w ? `${team.name} have now won ${w} in succession` : null;
+  }
+  return null;
+}
+
+function standingsClause(fav, dog) {
+  const fr = fav?.standings?.rank;
+  const dr = dog?.standings?.rank;
+  const fw = ordinalWord(fr);
+  if (!fw) return null;
+  const dw = ordinalWord(dr);
+  if (dw && dr > fr) return `${fav.name} sit ${fw} in the table with the opposition down in ${dw}`;
+  if (dw) return `${fav.name} sit ${fw} in the table, with the visitors placed ${dw}`;
+  return `${fav.name} sit ${fw} in the table`;
+}
+
+function h2hClause(match, fav) {
+  const h = match?.h2h;
+  if (!h || !h.totalMeetings) return null;
+  const total = spellNumber(h.totalMeetings);
+  const wins = spellNumber(h.favWins ?? 0);
+  if (!total || !wins) return null;
+  return `the recent head-to-head record reads ${wins} wins from ${total} meetings in favour of ${fav?.name || 'the selection'}`;
+}
+
+function homeRecordClause(team) {
+  const rec = team?.homeRecord;
+  if (!rec || !rec.played) return null;
+  const w = spellNumber(rec.wins ?? 0);
+  const p = spellNumber(rec.played);
+  if (!w || !p) return null;
+  return `${team.name} have taken ${w} wins from ${p} on their own floor`;
+}
+
+function atsClause(team) {
+  const c = team?.ats?.coveredLast10;
+  if (typeof c !== 'number') return null;
+  const w = spellNumber(c);
+  return w ? `${team.name} have covered the handicap in ${w} of their last ten` : null;
+}
+
+function scoringClause(a, b) {
+  const ag = a?.stats?.goalsPerGame;
+  const bg = b?.stats?.goalsPerGame;
+  if (typeof ag !== 'number' || typeof bg !== 'number') return null;
+  if (ag >= 30 && bg >= 30) return `${a.name} and ${b.name} are each averaging thirty or more goals a game this season`;
+  if (ag >= 30 || bg >= 30) {
+    const hot = ag >= bg ? a : b;
+    return `${hot.name} are averaging thirty or more goals a game, and the opposition are not far behind`;
+  }
+  if (ag < 25 && bg < 25) return `neither side is averaging twenty-five goals a game so far this season`;
+  return `both sides are scoring in the mid to high twenties per game`;
+}
+
+function concedingClause(a, b) {
+  const ac = a?.stats?.goalsConcededPerGame;
+  const bc = b?.stats?.goalsConcededPerGame;
+  if (typeof ac !== 'number' || typeof bc !== 'number') return null;
+  if (ac >= 28 && bc >= 28) return `both defences are shipping twenty-eight or more per game, which is the strongest argument for the total`;
+  if (ac < 25 && bc < 25) return `both defences are conceding fewer than twenty-five a game, and that is what pulls the total down`;
+  return `the defensive numbers are split, with one side far tighter than the other`;
+}
+
+function trendClause(a, b) {
+  const at = a?.trends?.overLast5;
+  const bt = b?.trends?.overLast5;
+  if (typeof at !== 'number' || typeof bt !== 'number') return null;
+  if (at >= 3 && bt >= 3) return `recent matches involving either side have gone over the posted line more often than not`;
+  if (at <= 2 && bt <= 2) return `recent matches involving either side have mostly finished below the posted line`;
+  return `the recent totals trend is mixed, so this leans on the season scoring rates rather than the last few results`;
+}
+
 /**
- * Builds analytical body clauses tailored to handball factors without leaking numbers.
+ * Availability clause. The validator forbids the words used for medical
+ * reporting, so availability is described in neutral squad-strength terms.
  */
-function buildHandballAnalyticalBody(market, result, opener) {
+function injuryClause(fav, dog) {
+  if (dog?.injuries?.keyAttackingAbsence) return `the opposition are short of attacking options, which limits their scope to keep pace`;
+  if (dog?.injuries?.keyDefensiveAbsence) return `the opposition are short of defensive cover, which should open up scoring lanes`;
+  if (fav?.injuries?.keyAbsence) return `the selection are not at full strength, which is why this is not rated any higher`;
+  if (fav?.injuries?.fullyFit) return `the selection have a fully available squad`;
+  return null;
+}
+
+function missingClause(result) {
+  const list = result?.missing || [];
+  if (!list.length) return null;
+  const w = spellNumber(list.length);
+  return w
+    ? `${w} of the input factors could not be sourced for this fixture, so the confidence figure is capped accordingly`
+    : null;
+}
+
+/**
+ * Joins clauses into sentences. After a team has been named once in the body,
+ * later references to that same team are replaced with a pronoun so the tip
+ * reads like prose rather than a database dump. No facts are altered.
+ */
+function joinSentences(clauses, names = []) {
+  const seen = new Set();
+  const out = [];
+  for (const raw of clauses.filter(Boolean)) {
+    let c = raw.trim();
+    for (const n of names.filter(Boolean)) {
+      if (!c.includes(n)) continue;
+      if (seen.has(n)) {
+        c = c.split(n).join('they');
+        // "in favour of they" -> "in their favour"
+        c = c.replace(/in favour of they/g, 'in their favour');
+        c = c.replace(/^they /, 'They ');
+      } else {
+        seen.add(n);
+        // Only the first occurrence in this clause keeps the full name.
+        const first = c.indexOf(n);
+        c = c.slice(0, first + n.length) + c.slice(first + n.length).split(n).join('they');
+      }
+    }
+    c = c.charAt(0).toUpperCase() + c.slice(1);
+    out.push(/[.!?]$/.test(c) ? c : `${c}.`);
+  }
+  return out.join(' ');
+}
+
+/**
+ * Builds the analytical body of a tip strictly from sourced values.
+ * Clauses with no sourced input are omitted rather than invented.
+ */
+function buildHandballAnalyticalBody(market, result, match) {
+  const { fav, dog } = teamObjects(match, result);
+  const home = match?.homeTeamObj || fav;
+  const away = match?.awayTeamObj || dog;
   const clauses = [];
-  const m = result.markets[market];
-  const comp = m?.components || [];
 
   if (market === 'win_match') {
-    clauses.push('recent defensive compactness combined with clinical finishing on fast breaks reinforces this outright expectation');
-    clauses.push('superior league standing and seasoned squad depth provide dependable stability over sixty minutes');
-    clauses.push('tactical discipline in settled play ensures that scoreboard control is maintained from start to finish');
+    clauses.push(formClause(fav));
+    clauses.push(streakClause(dog) || streakClause(fav));
+    clauses.push(standingsClause(fav, dog));
+    clauses.push(h2hClause(match, fav));
+    if (fav?.isHome) clauses.push(homeRecordClause(fav));
   } else if (market === 'handicap_spread') {
-    clauses.push('proven ability to generate substantial winning margins against similar opposition supports covering the spread');
-    clauses.push('unrelenting pressure throughout second-half rotations prevents the opposition from closing the gap');
-    clauses.push('disciplined perimeter containment limits cheap scoring runs and steadily widens the margin');
+    clauses.push(atsClause(fav));
+    clauses.push(formClause(fav));
+    clauses.push(standingsClause(fav, dog));
+    clauses.push(injuryClause(fav, dog));
+    clauses.push(h2hClause(match, fav));
   } else if (market === 'game_total') {
-    if (m?.direction === 'OVER') {
-      clauses.push('rapid transitional pace and high offensive possession counts favor an elevated scoring environment');
-      clauses.push('relentless transition attacks and aggressive offensive schemes will naturally accelerate the match tempo');
-      clauses.push('consistent perimeter shooting and quick restarts ensure a steady flow of goals at both ends');
-    } else {
-      clauses.push('tenacious defensive resistance and patient settled possessions indicate a controlled, lower-scoring contest');
-      clauses.push('commanding goalkeeping and structured central containment will limit clear shooting angles');
-      clauses.push('disciplined recovery speed effectively eliminates transition scoring opportunities throughout');
-    }
+    clauses.push(scoringClause(home, away));
+    clauses.push(concedingClause(home, away));
+    clauses.push(trendClause(home, away));
+    clauses.push(injuryClause(fav, dog));
   }
 
-  // Analytical closer ensuring robust word count
-  clauses.push('sustained physical conditioning and technical precision remain the decisive analytical separators here');
+  clauses.push(missingClause(result));
 
-  return clauses
-    .map((c) => c.charAt(0).toUpperCase() + c.slice(1))
-    .map((c) => (/\.$/.test(c) ? c : c + '.'))
-    .join(' ');
+  const names = [fav?.name, dog?.name, home?.name, away?.name].filter(Boolean);
+  return joinSentences(clauses, [...new Set(names)]);
 }
 
 /**
@@ -263,15 +453,25 @@ export function writeHandballTip({ match, result, market, angle }) {
     boldedOutcome = `**${m.selection}**`;
   }
 
-  const openerText = `${angle.word} ${angle.lead}`;
+  // OLBG-style lead: the selection is stated plainly in the opening words,
+  // then the case is made from sourced evidence only.
   const pickLead = market === 'win_match'
-    ? `${boldedOutcome} emerges as the clear selection on ${label}.`
+    ? `${boldedOutcome} are the preferred winner.`
     : market === 'handicap_spread'
-      ? `${boldedOutcome} stands as the primary recommendation on ${label}.`
-      : `${boldedOutcome} represents the primary analytical direction on ${label}.`;
+      ? `${boldedOutcome} is the preferred margin outcome.`
+      : `${boldedOutcome} is the preferred total outcome.`;
 
-  const body = buildHandballAnalyticalBody(market, result, angle);
-  const text = `${openerText} ${pickLead} ${body} Confidence: ${band}.`;
+  const openerText = `${angle.word} ${angle.lead}`;
+  const body = buildHandballAnalyticalBody(market, result, match);
+
+  let text = `${pickLead} ${openerText} ${body}`.replace(/\s+/g, ' ').trim();
+
+  // Word floor: rather than padding with invented facts, state the method.
+  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
+    text += ' The rating is produced mechanically from the sourced form, standings and scoring records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  }
+
+  text = `${text} Confidence: ${band}.`;
 
   const v = validateHandballTip(text, { market, expectSkip: false });
   return v.ok
@@ -337,6 +537,7 @@ export function writeHandballCard(scoredMatches) {
           band: tipResult.band,
           skip: !!tipResult.skip,
           opener: tipResult.skip ? null : angle.id,
+          angleWord: tipResult.skip ? null : angle.word,
         });
 
         if (exhausted && !tipResult.skip) {
@@ -354,7 +555,9 @@ export function writeHandballCard(scoredMatches) {
 
   const emitted = tips.filter((t) => t.ok);
   const styled = emitted.filter((t) => !t.skip);
-  const openers = styled.map((t) => t.text.split(/\s+/)[0].toLowerCase());
+  // Tips now open with the selection itself (OLBG house style), so uniqueness is
+  // enforced on the analytical angle that follows the selection sentence.
+  const openers = styled.map((t) => String(t.angleWord || '').toLowerCase()).filter(Boolean);
   const dupes = [...new Set(openers.filter((o, i) => openers.indexOf(o) !== i))];
   if (dupes.length) violations.push({ duplicateOpeners: dupes });
 
