@@ -14,6 +14,9 @@
  *    overwriting a good committed tape with an empty one.
  *  - It never infers a score. Only events ESPN marks completed are written with
  *    scores; everything else keeps null.
+ *  - It keeps representative fixtures off the tape. ESPN files State of Origin
+ *    under the same league, so New South Wales and Queensland arrive as if they
+ *    were clubs; anything outside the 17 canonical clubs is skipped (NRL-12).
  *  - Venue and kick-off come from ESPN in UTC. OLBG's index renders times in the
  *    viewer's timezone, so OLBG is never used for kick-off (NRL-01).
  */
@@ -80,19 +83,97 @@ function toMatch(ev, canon) {
   };
 }
 
+/** The 17 canonical club names, used to keep representative fixtures off the tape. */
+export function canonicalClubs(teamsDoc) {
+  return new Set(Object.keys(teamsDoc?.teams || {}));
+}
+
+const DAY_MS = 86400000;
+const midnightUtc = (d) => (d ? Date.parse(`${d}T00:00:00Z`) : NaN);
+const withinDays = (a, b, days) => {
+  const [x, y] = [midnightUtc(a), midnightUtc(b)];
+  return Number.isFinite(x) && Number.isFinite(y) && Math.abs(x - y) <= days * DAY_MS;
+};
+
+/**
+ * Merge freshly fetched matches into a committed tape without duplicating it.
+ *
+ * ESPN's NRL scoreboard carries two things the tape must not absorb:
+ *
+ *  - **State of Origin and other representative fixtures.** ESPN files them
+ *    under the same league, so New South Wales and Queensland arrive as if they
+ *    were clubs. Anything outside the 17 canonical clubs is skipped and
+ *    reported (NRL-12).
+ *
+ *  - **Fixtures the tape already holds under a different date.** The tape dates
+ *    a match by its local kick-off; ESPN dates it in UTC. For every match
+ *    played in Australia those agree, but the two Las Vegas games of round 1
+ *    do not: 2026-02-28 in Las Vegas is 2026-03-01 in UTC. Matching on the date
+ *    alone therefore duplicated them (NRL-13), which double-counted four clubs
+ *    in the ladder.
+ *
+ * So a fetched match is matched to a committed one by, in order of preference:
+ * the exact date; the same pairing within one day; or the same pairing and the
+ * same round within a week. Only a genuinely new fixture is added.
+ */
+export function mergeMatches(committed = [], fetched = [], { clubs = null } = {}) {
+  const out = committed.map((m) => ({ ...m }));
+  const byExact = new Map();
+  const byPair = new Map();
+  const index = (m) => {
+    byExact.set(`${m.date}|${m.home}|${m.away}`, m);
+    const pair = `${m.home}|${m.away}`;
+    if (!byPair.has(pair)) byPair.set(pair, []);
+    byPair.get(pair).push(m);
+  };
+  out.forEach(index);
+
+  const findExisting = (m) => {
+    const exact = byExact.get(`${m.date}|${m.home}|${m.away}`);
+    if (exact) return exact;
+    const candidates = byPair.get(`${m.home}|${m.away}`) || [];
+    return candidates.find((c) => withinDays(c.date, m.date, 1))
+      || candidates.find((c) => c.round != null && c.round === m.round && withinDays(c.date, m.date, 7))
+      || null;
+  };
+
+  let added = 0;
+  let updated = 0;
+  let skipped = 0;
+  const skippedEvents = [];
+  for (const m of fetched) {
+    if (clubs && (!clubs.has(m.home) || !clubs.has(m.away))) {
+      skipped += 1;
+      if (skippedEvents.length < 20) skippedEvents.push(`${m.date} ${m.home} v ${m.away}`);
+      continue;
+    }
+    const existing = findExisting(m);
+    if (!existing) {
+      out.push(m);
+      index(m);
+      added += 1;
+      continue;
+    }
+    // Merge field by field; a null from ESPN never clears a committed value.
+    if (m.homeScore != null && existing.homeScore !== m.homeScore) { existing.homeScore = m.homeScore; updated += 1; }
+    if (m.awayScore != null && existing.awayScore !== m.awayScore) { existing.awayScore = m.awayScore; updated += 1; }
+    if (m.homeScore != null) existing.status = 'completed';
+    if (m.venue && !existing.venue) existing.venue = m.venue;
+    if (m.kickoffUtc && !existing.kickoffUtc) existing.kickoffUtc = m.kickoffUtc;
+    if (m.round != null && existing.round == null) existing.round = m.round;
+    if (m.espnId && !existing.espnId) existing.espnId = m.espnId;
+  }
+  return { matches: out, added, updated, skipped, skippedEvents };
+}
+
 export async function collect({ dryRun = false } = {}) {
   const teamsDoc = JSON.parse(readFileSync(TEAMS, 'utf8'));
   const alias = nrlAliasMap(teamsDoc);
+  const clubs = canonicalClubs(teamsDoc);
   const canon = (name) => alias.get(slugTeam(name)) || name;
-  const committed = JSON.parse(readFileSync(MATCHES, 'utf8'));
-  const byKey = new Map();
-  for (const m of committed.matches || []) {
-    byKey.set(`${m.date}|${m.home}|${m.away}`, m);
-  }
+  const committedDoc = JSON.parse(readFileSync(MATCHES, 'utf8'));
 
-  let fetched = 0;
-  let updated = 0;
-  let added = 0;
+  const raw = [];
   const failures = [];
   for (const [from, to] of windows(SEASON_START, SEASON_END)) {
     let payload;
@@ -104,39 +185,27 @@ export async function collect({ dryRun = false } = {}) {
     }
     for (const ev of payload.events || []) {
       const m = toMatch(ev, canon);
-      if (!m || !m.date) continue;
-      fetched += 1;
-      const key = `${m.date}|${m.home}|${m.away}`;
-      const existing = byKey.get(key);
-      if (!existing) {
-        byKey.set(key, m);
-        added += 1;
-        continue;
-      }
-      // Merge field by field; a null from ESPN never clears a committed value.
-      if (m.homeScore != null && existing.homeScore !== m.homeScore) { existing.homeScore = m.homeScore; updated += 1; }
-      if (m.awayScore != null && existing.awayScore !== m.awayScore) { existing.awayScore = m.awayScore; updated += 1; }
-      if (m.homeScore != null) existing.status = 'completed';
-      if (m.venue && !existing.venue) existing.venue = m.venue;
-      if (m.kickoffUtc && !existing.kickoffUtc) existing.kickoffUtc = m.kickoffUtc;
-      if (m.round != null && existing.round == null) existing.round = m.round;
-      if (m.espnId && !existing.espnId) existing.espnId = m.espnId;
+      if (m && m.date) raw.push(m);
     }
   }
 
-  if (!fetched) {
+  if (!raw.length) {
     throw new Error(`ESPN returned no events at all; refusing to touch the committed tape. Failures: ${failures.join('; ') || 'none'}`);
   }
 
-  const matches = [...byKey.values()]
+  const { matches: merged, added, updated, skipped, skippedEvents } =
+    mergeMatches(committedDoc.matches || [], raw, { clubs });
+
+  const fetched = raw.length;
+  const matches = merged
     .sort((a, b) => (a.date || '').localeCompare(b.date || '') || (a.kickoffUtc || '').localeCompare(b.kickoffUtc || ''));
 
   if (!dryRun) {
     writeFileSync(MATCHES, `${JSON.stringify({
-      ...committed,
+      ...committedDoc,
       generated_at_utc: new Date().toISOString().replace(/\.\d+Z$/, 'Z'),
       source: {
-        ...(committed.source || {}),
+        ...(committedDoc.source || {}),
         espn: {
           name: 'ESPN NRL scoreboard (key-less site API)',
           url: `${BASE}?dates=${ymd(SEASON_START)}-${ymd(SEASON_END)}`,
@@ -148,7 +217,7 @@ export async function collect({ dryRun = false } = {}) {
       matches,
     }, null, 1)}\n`);
   }
-  return { fetched, added, updated, failures, total: matches.length };
+  return { fetched, added, updated, skipped, skippedEvents, failures, total: matches.length };
 }
 
 function check() {
@@ -157,6 +226,16 @@ function check() {
   if (!Array.isArray(doc.matches) || !doc.matches.length) problems.push('no matches');
   const rounds = new Set(doc.matches.map((m) => m.round));
   if (rounds.size !== 27) problems.push(`expected 27 rounds, found ${rounds.size}`);
+  // Representative fixtures (State of Origin) travel in the same ESPN feed.
+  // They are not NRL clubs and must never reach the tape (NRL-12).
+  const teamsDoc = JSON.parse(readFileSync(TEAMS, 'utf8'));
+  const clubs = canonicalClubs(teamsDoc);
+  const seen = new Set();
+  for (const m of doc.matches) {
+    for (const side of [m.home, m.away]) {
+      if (!clubs.has(side) && !seen.has(side)) { seen.add(side); problems.push(`${side} is not one of the 17 NRL clubs`); }
+    }
+  }
   for (const m of doc.matches) {
     if (m.status === 'completed' && (!Number.isFinite(m.homeScore) || !Number.isFinite(m.awayScore))) {
       problems.push(`${m.date} ${m.home} v ${m.away}: completed without both scores`);
@@ -178,7 +257,8 @@ if (process.argv[1] && process.argv[1].endsWith('collect_nrl_espn.mjs')) {
   if (args.includes('--check')) process.exit(check());
   collect({ dryRun: args.includes('--dry-run') })
     .then((r) => {
-      console.log(`ESPN: ${r.fetched} events · ${r.added} new · ${r.updated} updated · ${r.total} on the tape`);
+      console.log(`ESPN: ${r.fetched} events · ${r.added} new · ${r.updated} updated · ${r.skipped} not NRL clubs · ${r.total} on the tape`);
+      if (r.skippedEvents.length) console.log(`  skipped (representative fixtures, NRL-12): ${r.skippedEvents.join('; ')}`);
       if (r.failures.length) console.error(`warnings: ${r.failures.join('; ')}`);
     })
     .catch((err) => { console.error(err.message); process.exit(1); });

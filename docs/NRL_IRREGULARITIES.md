@@ -70,6 +70,17 @@ The five-point travel factor compares the two clubs' home venues for the fixture
 
 **Effect on the card:** The home side always scores the full five points. Flagged so the factor is not read as a full travel model.
 
+### NRL-12 - ESPN files State of Origin in the same NRL feed (mitigated)
+
+The ESPN rugby-league scoreboard for league 3 carries representative fixtures alongside the club competition. Two 2026 Origin games arrive with club-shaped records — New South Wales 22-20 Queensland on 2026-05-27 and Queensland 12-30 New South Wales on 2026-07-08 — each with a week number, so nothing in the payload marks them as anything other than an ordinary round fixture. Left unfiltered they enter the tape as two extra clubs and distort the bye count, which is what broke strict validation on the 2026-09-04 collector run.
+
+**Effect on the card:** scripts/collect_nrl_espn.mjs admits only matches where both sides canonicalise to one of the 17 clubs in data/nrl_teams.json; everything else is skipped and reported on the command line. The tape check (--check) now fails if a non-club side ever reaches data/nrl_matches.json. Origin is modelled separately in data/nrl_origin.json.
+
+### NRL-13 - The tape dates matches locally; ESPN dates them in UTC, so the Las Vegas games fall on different days (mitigated)
+
+data/nrl_matches.json dates each match by its local kick-off, while ESPN's scoreboard dates each event in UTC. For every match played in Australia the two agree. They do not for the two round 1 games played at Allegiant Stadium in Las Vegas: 2026-02-28 local is 2026-03-01 in UTC. Because the collector matched on date + home + away, it treated both games as new fixtures and appended them beside the rows the tape already held, double-counting Newcastle, North Queensland, Canterbury-Bankstown and St George Illawarra in the ladder.
+
+**Effect on the card:** The collector now matches a fetched fixture against the tape by exact date, then by the same pairing within one day, then by the same pairing and round within a week, so a fixture the tape already holds is merged rather than duplicated. The tape keeps its local dates; ESPN only backfills venue, UTC kick-off and event id. Replaying the four events the failed run collected is covered by tests/nrl_espn.test.mjs.
 
 ## Standing rules
 
