@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "sport": "NRL",
- "generated_at_utc": "2026-09-04T00:00:00Z",
+ "generated_at_utc": "2026-09-04T02:43:26Z",
  "matches": [
   {
    "date": "2026-02-28",
@@ -10,9 +10,10 @@
    "homeScore": 28,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "Allegiant Stadium",
+   "kickoffUtc": "2026-03-01T02:15Z",
+   "round": 1,
+   "espnId": "603254"
   },
   {
    "date": "2026-02-28",
@@ -21,9 +22,10 @@
    "homeScore": 15,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "Allegiant Stadium",
+   "kickoffUtc": "2026-03-01T04:30Z",
+   "round": 1,
+   "espnId": "603255"
   },
   {
    "date": "2026-03-05",
@@ -32,9 +34,10 @@
    "homeScore": 52,
    "awayScore": 4,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-03-05T09:00Z",
+   "round": 1,
+   "espnId": "603256"
   },
   {
    "date": "2026-03-06",
@@ -43,9 +46,10 @@
    "homeScore": 42,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-03-06T07:00Z",
+   "round": 1,
+   "espnId": "603257"
   },
   {
    "date": "2026-03-06",
@@ -54,9 +58,10 @@
    "homeScore": 0,
    "awayScore": 26,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-03-06T09:00Z",
+   "round": 1,
+   "espnId": "603258"
   },
   {
    "date": "2026-03-07",
@@ -65,9 +70,10 @@
    "homeScore": 50,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-03-07T06:30Z",
+   "round": 1,
+   "espnId": "603259"
   },
   {
    "date": "2026-03-07",
@@ -76,9 +82,10 @@
    "homeScore": 28,
    "awayScore": 29,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-03-07T08:35Z",
+   "round": 1,
+   "espnId": "603260"
   },
   {
    "date": "2026-03-08",
@@ -87,9 +94,10 @@
    "homeScore": 30,
    "awayScore": 40,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 1
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-03-08T05:05Z",
+   "round": 1,
+   "espnId": "603261"
   },
   {
    "date": "2026-03-12",
@@ -98,9 +106,10 @@
    "homeScore": 32,
    "awayScore": 40,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-03-12T09:00Z",
+   "round": 2,
+   "espnId": "603262"
   },
   {
    "date": "2026-03-13",
@@ -109,9 +118,10 @@
    "homeScore": 40,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-03-13T07:00Z",
+   "round": 2,
+   "espnId": "603263"
   },
   {
    "date": "2026-03-13",
@@ -120,9 +130,10 @@
    "homeScore": 26,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-03-13T09:00Z",
+   "round": 2,
+   "espnId": "603264"
   },
   {
    "date": "2026-03-14",
@@ -131,9 +142,10 @@
    "homeScore": 44,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "Leichhardt Oval",
+   "kickoffUtc": "2026-03-14T04:00Z",
+   "round": 2,
+   "espnId": "603265"
   },
   {
    "date": "2026-03-14",
@@ -142,9 +154,10 @@
    "homeScore": 20,
    "awayScore": 46,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "WIN Stadium",
+   "kickoffUtc": "2026-03-14T06:30Z",
+   "round": 2,
+   "espnId": "603266"
   },
   {
    "date": "2026-03-14",
@@ -153,9 +166,10 @@
    "homeScore": 26,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "Carrington Park",
+   "kickoffUtc": "2026-03-14T08:35Z",
+   "round": 2,
+   "espnId": "603267"
   },
   {
    "date": "2026-03-15",
@@ -164,9 +178,10 @@
    "homeScore": 16,
    "awayScore": 36,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-03-15T05:05Z",
+   "round": 2,
+   "espnId": "603268"
   },
   {
    "date": "2026-03-15",
@@ -175,9 +190,10 @@
    "homeScore": 18,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 2
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-03-15T07:15Z",
+   "round": 2,
+   "espnId": "603269"
   },
   {
    "date": "2026-03-19",
@@ -186,9 +202,10 @@
    "homeScore": 10,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 3
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-03-19T09:00Z",
+   "round": 3,
+   "espnId": "603270"
   },
   {
    "date": "2026-03-20",
@@ -197,9 +214,10 @@
    "homeScore": 4,
    "awayScore": 40,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 3
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-03-20T07:00Z",
+   "round": 3,
+   "espnId": "603271"
   },
   {
    "date": "2026-03-20",
@@ -208,20 +226,10 @@
    "homeScore": 14,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 3
-  },
-  {
-   "date": "2026-03-21",
-   "home": "Newcastle Knights",
-   "away": "New Zealand Warriors",
-   "homeScore": 12,
-   "awayScore": 38,
-   "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 3
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-03-20T09:00Z",
+   "round": 3,
+   "espnId": "603272"
   },
   {
    "date": "2026-03-21",
@@ -246,15 +254,28 @@
    "round": 3
   },
   {
+   "date": "2026-03-21",
+   "home": "Newcastle Knights",
+   "away": "New Zealand Warriors",
+   "homeScore": 12,
+   "awayScore": 38,
+   "status": "completed",
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-03-21T04:00Z",
+   "round": 3,
+   "espnId": "603273"
+  },
+  {
    "date": "2026-03-22",
    "home": "Parramatta Eels",
    "away": "St George Illawarra Dragons",
    "homeScore": 30,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 3
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-03-22T05:05Z",
+   "round": 3,
+   "espnId": "603276"
   },
   {
    "date": "2026-03-22",
@@ -263,9 +284,10 @@
    "homeScore": 30,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 3
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-03-22T07:15Z",
+   "round": 3,
+   "espnId": "603277"
   },
   {
    "date": "2026-03-26",
@@ -274,20 +296,10 @@
    "homeScore": 16,
    "awayScore": 33,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
-  },
-  {
-   "date": "2026-03-27",
-   "home": "Brisbane Broncos",
-   "away": "Dolphins",
-   "homeScore": 26,
-   "awayScore": 12,
-   "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-03-26T09:00Z",
+   "round": 4,
+   "espnId": "603278"
   },
   {
    "date": "2026-03-27",
@@ -296,9 +308,22 @@
    "homeScore": 14,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-03-27T07:00Z",
+   "round": 4,
+   "espnId": "603279"
+  },
+  {
+   "date": "2026-03-27",
+   "home": "Brisbane Broncos",
+   "away": "Dolphins",
+   "homeScore": 26,
+   "awayScore": 12,
+   "status": "completed",
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-03-27T09:00Z",
+   "round": 4,
+   "espnId": "603280"
   },
   {
    "date": "2026-03-28",
@@ -307,9 +332,10 @@
    "homeScore": 16,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-03-28T04:00Z",
+   "round": 4,
+   "espnId": "603281"
   },
   {
    "date": "2026-03-28",
@@ -318,9 +344,10 @@
    "homeScore": 48,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-03-28T06:30Z",
+   "round": 4,
+   "espnId": "603282"
   },
   {
    "date": "2026-03-28",
@@ -329,9 +356,10 @@
    "homeScore": 28,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-03-28T08:35Z",
+   "round": 4,
+   "espnId": "603283"
   },
   {
    "date": "2026-03-29",
@@ -340,9 +368,10 @@
    "homeScore": 22,
    "awayScore": 34,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-03-29T05:05Z",
+   "round": 4,
+   "espnId": "603284"
   },
   {
    "date": "2026-03-29",
@@ -351,9 +380,10 @@
    "homeScore": 22,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 4
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-03-29T07:15Z",
+   "round": 4,
+   "espnId": "603285"
   },
   {
    "date": "2026-04-02",
@@ -362,9 +392,10 @@
    "homeScore": 18,
    "awayScore": 52,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "Kayo Stadium",
+   "kickoffUtc": "2026-04-02T09:00Z",
+   "round": 5,
+   "espnId": "603286"
   },
   {
    "date": "2026-04-03",
@@ -373,9 +404,10 @@
    "homeScore": 32,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-04-03T05:05Z",
+   "round": 5,
+   "espnId": "603287"
   },
   {
    "date": "2026-04-03",
@@ -384,9 +416,10 @@
    "homeScore": 50,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-04-03T09:00Z",
+   "round": 5,
+   "espnId": "603288"
   },
   {
    "date": "2026-04-04",
@@ -395,9 +428,10 @@
    "homeScore": 0,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "Jubilee Stadium",
+   "kickoffUtc": "2026-04-04T06:30Z",
+   "round": 5,
+   "espnId": "603289"
   },
   {
    "date": "2026-04-04",
@@ -406,9 +440,10 @@
    "homeScore": 12,
    "awayScore": 26,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-04-04T08:35Z",
+   "round": 5,
+   "espnId": "603290"
   },
   {
    "date": "2026-04-05",
@@ -417,9 +452,10 @@
    "homeScore": 36,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-04-05T04:00Z",
+   "round": 5,
+   "espnId": "603291"
   },
   {
    "date": "2026-04-05",
@@ -428,9 +464,10 @@
    "homeScore": 32,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-04-05T06:05Z",
+   "round": 5,
+   "espnId": "603292"
   },
   {
    "date": "2026-04-06",
@@ -439,9 +476,10 @@
    "homeScore": 20,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 5
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-04-06T06:05Z",
+   "round": 5,
+   "espnId": "603293"
   },
   {
    "date": "2026-04-09",
@@ -450,9 +488,10 @@
    "homeScore": 32,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-04-09T09:50Z",
+   "round": 6,
+   "espnId": "603294"
   },
   {
    "date": "2026-04-10",
@@ -461,9 +500,10 @@
    "homeScore": 18,
    "awayScore": 28,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
+   "venue": "WIN Stadium",
+   "kickoffUtc": "2026-04-10T08:00Z",
+   "round": 6,
+   "espnId": "603295"
   },
   {
    "date": "2026-04-10",
@@ -472,9 +512,10 @@
    "homeScore": 31,
    "awayScore": 35,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-04-10T10:00Z",
+   "round": 6,
+   "espnId": "603296"
   },
   {
    "date": "2026-04-11",
@@ -483,9 +524,10 @@
    "homeScore": 34,
    "awayScore": 36,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
+   "venue": "Perth Stadium",
+   "kickoffUtc": "2026-04-11T05:00Z",
+   "round": 6,
+   "espnId": "603297"
   },
   {
    "date": "2026-04-11",
@@ -494,9 +536,10 @@
    "homeScore": 22,
    "awayScore": 34,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
+   "venue": "Perth Stadium",
+   "kickoffUtc": "2026-04-11T07:30Z",
+   "round": 6,
+   "espnId": "603298"
   },
   {
    "date": "2026-04-11",
@@ -504,6 +547,18 @@
    "away": "New Zealand Warriors",
    "homeScore": 14,
    "awayScore": 38,
+   "status": "completed",
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-04-11T09:35Z",
+   "round": 6,
+   "espnId": "603299"
+  },
+  {
+   "date": "2026-04-12",
+   "home": "Wests Tigers",
+   "away": "Newcastle Knights",
+   "homeScore": 42,
+   "awayScore": 22,
    "status": "completed",
    "venue": null,
    "kickoffUtc": null,
@@ -516,20 +571,10 @@
    "homeScore": 10,
    "awayScore": 52,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
-  },
-  {
-   "date": "2026-04-12",
-   "home": "Wests Tigers",
-   "away": "Newcastle Knights",
-   "homeScore": 42,
-   "awayScore": 22,
-   "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 6
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-04-12T04:00Z",
+   "round": 6,
+   "espnId": "603300"
   },
   {
    "date": "2026-04-16",
@@ -538,9 +583,10 @@
    "homeScore": 6,
    "awayScore": 38,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-04-16T09:50Z",
+   "round": 7,
+   "espnId": "603302"
   },
   {
    "date": "2026-04-17",
@@ -549,9 +595,10 @@
    "homeScore": 26,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-04-17T08:00Z",
+   "round": 7,
+   "espnId": "603303"
   },
   {
    "date": "2026-04-17",
@@ -560,9 +607,10 @@
    "homeScore": 22,
    "awayScore": 23,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "TIO Stadium",
+   "kickoffUtc": "2026-04-17T10:00Z",
+   "round": 7,
+   "espnId": "603304"
   },
   {
    "date": "2026-04-18",
@@ -571,9 +619,10 @@
    "homeScore": 28,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-04-18T05:00Z",
+   "round": 7,
+   "espnId": "603305"
   },
   {
    "date": "2026-04-18",
@@ -582,9 +631,10 @@
    "homeScore": 30,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-04-18T07:30Z",
+   "round": 7,
+   "espnId": "603306"
   },
   {
    "date": "2026-04-18",
@@ -593,9 +643,10 @@
    "homeScore": 20,
    "awayScore": 21,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "Campbelltown Stadium",
+   "kickoffUtc": "2026-04-18T09:35Z",
+   "round": 7,
+   "espnId": "603307"
   },
   {
    "date": "2026-04-19",
@@ -604,9 +655,10 @@
    "homeScore": 38,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-04-19T04:00Z",
+   "round": 7,
+   "espnId": "603308"
   },
   {
    "date": "2026-04-19",
@@ -615,9 +667,10 @@
    "homeScore": 38,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 7
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-04-19T06:05Z",
+   "round": 7,
+   "espnId": "603309"
   },
   {
    "date": "2026-04-23",
@@ -626,9 +679,10 @@
    "homeScore": 33,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "Leichhardt Oval",
+   "kickoffUtc": "2026-04-23T09:50Z",
+   "round": 8,
+   "espnId": "603310"
   },
   {
    "date": "2026-04-24",
@@ -637,9 +691,10 @@
    "homeScore": 46,
    "awayScore": 34,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-04-24T08:00Z",
+   "round": 8,
+   "espnId": "603311"
   },
   {
    "date": "2026-04-24",
@@ -648,9 +703,10 @@
    "homeScore": 32,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-04-24T10:00Z",
+   "round": 8,
+   "espnId": "603312"
   },
   {
    "date": "2026-04-25",
@@ -659,9 +715,10 @@
    "homeScore": 16,
    "awayScore": 62,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-04-25T06:00Z",
+   "round": 8,
+   "espnId": "603313"
   },
   {
    "date": "2026-04-25",
@@ -670,9 +727,10 @@
    "homeScore": 20,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "Sky Stadium",
+   "kickoffUtc": "2026-04-25T08:05Z",
+   "round": 8,
+   "espnId": "603314"
   },
   {
    "date": "2026-04-25",
@@ -681,9 +739,10 @@
    "homeScore": 6,
    "awayScore": 48,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-04-25T10:10Z",
+   "round": 8,
+   "espnId": "603315"
   },
   {
    "date": "2026-04-26",
@@ -692,9 +751,10 @@
    "homeScore": 12,
    "awayScore": 44,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-04-26T04:00Z",
+   "round": 8,
+   "espnId": "603316"
   },
   {
    "date": "2026-04-26",
@@ -703,9 +763,10 @@
    "homeScore": 33,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 8
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-04-26T06:05Z",
+   "round": 8,
+   "espnId": "603317"
   },
   {
    "date": "2026-05-01",
@@ -714,9 +775,10 @@
    "homeScore": 12,
    "awayScore": 28,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-05-01T08:00Z",
+   "round": 9,
+   "espnId": "603318"
   },
   {
    "date": "2026-05-01",
@@ -725,9 +787,10 @@
    "homeScore": 28,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-01T10:00Z",
+   "round": 9,
+   "espnId": "603319"
   },
   {
    "date": "2026-05-02",
@@ -736,9 +799,10 @@
    "homeScore": 12,
    "awayScore": 28,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-05-02T05:00Z",
+   "round": 9,
+   "espnId": "603320"
   },
   {
    "date": "2026-05-02",
@@ -747,9 +811,10 @@
    "homeScore": 14,
    "awayScore": 36,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-05-02T07:30Z",
+   "round": 9,
+   "espnId": "603321"
   },
   {
    "date": "2026-05-02",
@@ -758,9 +823,10 @@
    "homeScore": 38,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-05-02T09:35Z",
+   "round": 9,
+   "espnId": "603322"
   },
   {
    "date": "2026-05-03",
@@ -769,9 +835,10 @@
    "homeScore": 42,
    "awayScore": 38,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-05-03T04:00Z",
+   "round": 9,
+   "espnId": "603323"
   },
   {
    "date": "2026-05-03",
@@ -780,9 +847,10 @@
    "homeScore": 52,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-05-03T06:05Z",
+   "round": 9,
+   "espnId": "603324"
   },
   {
    "date": "2026-05-03",
@@ -791,9 +859,10 @@
    "homeScore": 18,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 9
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-05-03T08:15Z",
+   "round": 9,
+   "espnId": "603325"
   },
   {
    "date": "2026-05-07",
@@ -802,9 +871,10 @@
    "homeScore": 44,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-07T09:50Z",
+   "round": 10,
+   "espnId": "603326"
   },
   {
    "date": "2026-05-08",
@@ -813,9 +883,10 @@
    "homeScore": 28,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "Central Coast Stadium",
+   "kickoffUtc": "2026-05-08T08:00Z",
+   "round": 10,
+   "espnId": "603327"
   },
   {
    "date": "2026-05-08",
@@ -824,9 +895,10 @@
    "homeScore": 30,
    "awayScore": 33,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-05-08T10:00Z",
+   "round": 10,
+   "espnId": "603328"
   },
   {
    "date": "2026-05-09",
@@ -835,9 +907,10 @@
    "homeScore": 10,
    "awayScore": 44,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "WIN Stadium",
+   "kickoffUtc": "2026-05-09T05:00Z",
+   "round": 10,
+   "espnId": "603329"
   },
   {
    "date": "2026-05-09",
@@ -846,9 +919,10 @@
    "homeScore": 36,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-05-09T07:30Z",
+   "round": 10,
+   "espnId": "603330"
   },
   {
    "date": "2026-05-09",
@@ -857,9 +931,10 @@
    "homeScore": 32,
    "awayScore": 4,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-05-09T09:35Z",
+   "round": 10,
+   "espnId": "603331"
   },
   {
    "date": "2026-05-10",
@@ -868,9 +943,10 @@
    "homeScore": 44,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-05-10T04:00Z",
+   "round": 10,
+   "espnId": "603332"
   },
   {
    "date": "2026-05-10",
@@ -879,9 +955,10 @@
    "homeScore": 18,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 10
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-05-10T06:05Z",
+   "round": 10,
+   "espnId": "603333"
   },
   {
    "date": "2026-05-15",
@@ -890,9 +967,10 @@
    "homeScore": 38,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-15T08:00Z",
+   "round": 11,
+   "espnId": "603334"
   },
   {
    "date": "2026-05-15",
@@ -901,9 +979,10 @@
    "homeScore": 10,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-15T10:05Z",
+   "round": 11,
+   "espnId": "603335"
   },
   {
    "date": "2026-05-16",
@@ -912,9 +991,10 @@
    "homeScore": 18,
    "awayScore": 46,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-16T05:00Z",
+   "round": 11,
+   "espnId": "603336"
   },
   {
    "date": "2026-05-16",
@@ -923,9 +1003,10 @@
    "homeScore": 12,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-16T07:30Z",
+   "round": 11,
+   "espnId": "603337"
   },
   {
    "date": "2026-05-16",
@@ -934,9 +1015,10 @@
    "homeScore": 8,
    "awayScore": 34,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-16T09:45Z",
+   "round": 11,
+   "espnId": "603338"
   },
   {
    "date": "2026-05-17",
@@ -945,9 +1027,10 @@
    "homeScore": 12,
    "awayScore": 36,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-17T04:00Z",
+   "round": 11,
+   "espnId": "603339"
   },
   {
    "date": "2026-05-17",
@@ -956,9 +1039,10 @@
    "homeScore": 42,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-17T06:05Z",
+   "round": 11,
+   "espnId": "603340"
   },
   {
    "date": "2026-05-17",
@@ -967,9 +1051,10 @@
    "homeScore": 28,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 11
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-17T08:25Z",
+   "round": 11,
+   "espnId": "603341"
   },
   {
    "date": "2026-05-21",
@@ -978,9 +1063,10 @@
    "homeScore": 22,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 12
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-05-21T09:50Z",
+   "round": 12,
+   "espnId": "603342"
   },
   {
    "date": "2026-05-22",
@@ -989,9 +1075,10 @@
    "homeScore": 30,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 12
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-05-22T10:00Z",
+   "round": 12,
+   "espnId": "603343"
   },
   {
    "date": "2026-05-23",
@@ -1000,9 +1087,10 @@
    "homeScore": 12,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 12
+   "venue": "Jubilee Stadium",
+   "kickoffUtc": "2026-05-23T07:30Z",
+   "round": 12,
+   "espnId": "603344"
   },
   {
    "date": "2026-05-23",
@@ -1011,9 +1099,10 @@
    "homeScore": 12,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 12
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-05-23T09:35Z",
+   "round": 12,
+   "espnId": "603345"
   },
   {
    "date": "2026-05-24",
@@ -1022,9 +1111,10 @@
    "homeScore": 30,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 12
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-05-24T06:05Z",
+   "round": 12,
+   "espnId": "603346"
   },
   {
    "date": "2026-05-29",
@@ -1033,9 +1123,10 @@
    "homeScore": 28,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-05-29T10:00Z",
+   "round": 13,
+   "espnId": "603347"
   },
   {
    "date": "2026-05-30",
@@ -1044,9 +1135,10 @@
    "homeScore": 28,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-05-30T05:00Z",
+   "round": 13,
+   "espnId": "603348"
   },
   {
    "date": "2026-05-30",
@@ -1055,9 +1147,10 @@
    "homeScore": 22,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-05-30T07:30Z",
+   "round": 13,
+   "espnId": "603349"
   },
   {
    "date": "2026-05-30",
@@ -1066,9 +1159,10 @@
    "homeScore": 18,
    "awayScore": 4,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-05-30T09:35Z",
+   "round": 13,
+   "espnId": "603350"
   },
   {
    "date": "2026-05-31",
@@ -1077,9 +1171,10 @@
    "homeScore": 26,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-05-31T04:00Z",
+   "round": 13,
+   "espnId": "603351"
   },
   {
    "date": "2026-05-31",
@@ -1088,9 +1183,10 @@
    "homeScore": 26,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-05-31T06:05Z",
+   "round": 13,
+   "espnId": "603352"
   },
   {
    "date": "2026-05-31",
@@ -1099,9 +1195,10 @@
    "homeScore": 20,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 13
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-05-31T08:15Z",
+   "round": 13,
+   "espnId": "603353"
   },
   {
    "date": "2026-06-04",
@@ -1110,9 +1207,10 @@
    "homeScore": 28,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-06-04T09:50Z",
+   "round": 14,
+   "espnId": "603354"
   },
   {
    "date": "2026-06-05",
@@ -1121,9 +1219,10 @@
    "homeScore": 32,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-06-05T08:00Z",
+   "round": 14,
+   "espnId": "603355"
   },
   {
    "date": "2026-06-05",
@@ -1132,9 +1231,10 @@
    "homeScore": 0,
    "awayScore": 26,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-06-05T10:00Z",
+   "round": 14,
+   "espnId": "603356"
   },
   {
    "date": "2026-06-06",
@@ -1143,9 +1243,10 @@
    "homeScore": 14,
    "awayScore": 40,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-06-06T07:30Z",
+   "round": 14,
+   "espnId": "603357"
   },
   {
    "date": "2026-06-06",
@@ -1154,9 +1255,10 @@
    "homeScore": 23,
    "awayScore": 28,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-06-06T09:35Z",
+   "round": 14,
+   "espnId": "603358"
   },
   {
    "date": "2026-06-07",
@@ -1165,9 +1267,10 @@
    "homeScore": 0,
    "awayScore": 68,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-06-07T04:00Z",
+   "round": 14,
+   "espnId": "603359"
   },
   {
    "date": "2026-06-07",
@@ -1176,9 +1279,10 @@
    "homeScore": 34,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-06-07T06:05Z",
+   "round": 14,
+   "espnId": "603360"
   },
   {
    "date": "2026-06-08",
@@ -1187,9 +1291,10 @@
    "homeScore": 14,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 14
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-06-08T06:05Z",
+   "round": 14,
+   "espnId": "603361"
   },
   {
    "date": "2026-06-11",
@@ -1198,9 +1303,10 @@
    "homeScore": 48,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 15
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-06-11T09:50Z",
+   "round": 15,
+   "espnId": "603362"
   },
   {
    "date": "2026-06-12",
@@ -1209,9 +1315,10 @@
    "homeScore": 48,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 15
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-06-12T10:00Z",
+   "round": 15,
+   "espnId": "603363"
   },
   {
    "date": "2026-06-13",
@@ -1220,9 +1327,10 @@
    "homeScore": 8,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 15
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-06-13T07:30Z",
+   "round": 15,
+   "espnId": "603364"
   },
   {
    "date": "2026-06-13",
@@ -1231,9 +1339,10 @@
    "homeScore": 15,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 15
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-06-13T09:35Z",
+   "round": 15,
+   "espnId": "603365"
   },
   {
    "date": "2026-06-14",
@@ -1242,9 +1351,10 @@
    "homeScore": 36,
    "awayScore": 28,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 15
+   "venue": "Leichhardt Oval",
+   "kickoffUtc": "2026-06-14T06:05Z",
+   "round": 15,
+   "espnId": "603366"
   },
   {
    "date": "2026-06-19",
@@ -1253,9 +1363,10 @@
    "homeScore": 22,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-06-19T10:00Z",
+   "round": 16,
+   "espnId": "603367"
   },
   {
    "date": "2026-06-20",
@@ -1264,9 +1375,10 @@
    "homeScore": 22,
    "awayScore": 36,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "Campbelltown Stadium",
+   "kickoffUtc": "2026-06-20T05:00Z",
+   "round": 16,
+   "espnId": "603368"
   },
   {
    "date": "2026-06-20",
@@ -1275,9 +1387,10 @@
    "homeScore": 19,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-06-20T07:30Z",
+   "round": 16,
+   "espnId": "603369"
   },
   {
    "date": "2026-06-20",
@@ -1286,9 +1399,10 @@
    "homeScore": 13,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-06-20T09:35Z",
+   "round": 16,
+   "espnId": "603370"
   },
   {
    "date": "2026-06-21",
@@ -1297,9 +1411,10 @@
    "homeScore": 38,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "One NZ Stadium",
+   "kickoffUtc": "2026-06-21T04:00Z",
+   "round": 16,
+   "espnId": "603371"
   },
   {
    "date": "2026-06-21",
@@ -1308,9 +1423,10 @@
    "homeScore": 42,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-06-21T06:05Z",
+   "round": 16,
+   "espnId": "603372"
   },
   {
    "date": "2026-06-21",
@@ -1319,9 +1435,10 @@
    "homeScore": 27,
    "awayScore": 8,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 16
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-06-21T08:15Z",
+   "round": 16,
+   "espnId": "603373"
   },
   {
    "date": "2026-06-25",
@@ -1330,9 +1447,10 @@
    "homeScore": 12,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-06-25T09:50Z",
+   "round": 17,
+   "espnId": "603374"
   },
   {
    "date": "2026-06-26",
@@ -1341,9 +1459,10 @@
    "homeScore": 12,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-06-26T08:00Z",
+   "round": 17,
+   "espnId": "603375"
   },
   {
    "date": "2026-06-26",
@@ -1352,9 +1471,10 @@
    "homeScore": 18,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-06-26T10:00Z",
+   "round": 17,
+   "espnId": "603376"
   },
   {
    "date": "2026-06-27",
@@ -1363,9 +1483,10 @@
    "homeScore": 26,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-06-27T05:00Z",
+   "round": 17,
+   "espnId": "603377"
   },
   {
    "date": "2026-06-27",
@@ -1374,9 +1495,10 @@
    "homeScore": 26,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-06-27T07:30Z",
+   "round": 17,
+   "espnId": "603378"
   },
   {
    "date": "2026-06-27",
@@ -1385,9 +1507,10 @@
    "homeScore": 30,
    "awayScore": 4,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-06-27T09:35Z",
+   "round": 17,
+   "espnId": "603379"
   },
   {
    "date": "2026-06-28",
@@ -1396,9 +1519,10 @@
    "homeScore": 24,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-06-28T04:00Z",
+   "round": 17,
+   "espnId": "603380"
   },
   {
    "date": "2026-06-28",
@@ -1407,9 +1531,10 @@
    "homeScore": 12,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 17
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-06-28T06:05Z",
+   "round": 17,
+   "espnId": "603381"
   },
   {
    "date": "2026-07-03",
@@ -1418,9 +1543,10 @@
    "homeScore": 36,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 18
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-07-03T10:00Z",
+   "round": 18,
+   "espnId": "603382"
   },
   {
    "date": "2026-07-04",
@@ -1429,9 +1555,10 @@
    "homeScore": 24,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 18
+   "venue": "Jubilee Stadium",
+   "kickoffUtc": "2026-07-04T07:30Z",
+   "round": 18,
+   "espnId": "603383"
   },
   {
    "date": "2026-07-04",
@@ -1440,9 +1567,10 @@
    "homeScore": 16,
    "awayScore": 28,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 18
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-07-04T09:35Z",
+   "round": 18,
+   "espnId": "603384"
   },
   {
    "date": "2026-07-05",
@@ -1451,9 +1579,10 @@
    "homeScore": 23,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 18
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-07-05T04:00Z",
+   "round": 18,
+   "espnId": "603385"
   },
   {
    "date": "2026-07-05",
@@ -1462,9 +1591,10 @@
    "homeScore": 13,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 18
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-07-05T06:05Z",
+   "round": 18,
+   "espnId": "603386"
   },
   {
    "date": "2026-07-10",
@@ -1473,9 +1603,10 @@
    "homeScore": 6,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "Campbelltown Stadium",
+   "kickoffUtc": "2026-07-10T10:00Z",
+   "round": 19,
+   "espnId": "603387"
   },
   {
    "date": "2026-07-11",
@@ -1484,9 +1615,10 @@
    "homeScore": 0,
    "awayScore": 66,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "Kayo Stadium",
+   "kickoffUtc": "2026-07-11T05:00Z",
+   "round": 19,
+   "espnId": "603388"
   },
   {
    "date": "2026-07-11",
@@ -1495,9 +1627,10 @@
    "homeScore": 16,
    "awayScore": 40,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-07-11T07:30Z",
+   "round": 19,
+   "espnId": "603389"
   },
   {
    "date": "2026-07-11",
@@ -1506,9 +1639,10 @@
    "homeScore": 28,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-07-11T09:35Z",
+   "round": 19,
+   "espnId": "603390"
   },
   {
    "date": "2026-07-12",
@@ -1517,9 +1651,10 @@
    "homeScore": 26,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-07-12T04:00Z",
+   "round": 19,
+   "espnId": "603391"
   },
   {
    "date": "2026-07-12",
@@ -1528,9 +1663,10 @@
    "homeScore": 18,
    "awayScore": 19,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-07-12T06:05Z",
+   "round": 19,
+   "espnId": "603392"
   },
   {
    "date": "2026-07-12",
@@ -1539,9 +1675,10 @@
    "homeScore": 22,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 19
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-07-12T08:15Z",
+   "round": 19,
+   "espnId": "603393"
   },
   {
    "date": "2026-07-16",
@@ -1550,9 +1687,10 @@
    "homeScore": 12,
    "awayScore": 14,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-07-16T09:50Z",
+   "round": 20,
+   "espnId": "603394"
   },
   {
    "date": "2026-07-17",
@@ -1561,9 +1699,10 @@
    "homeScore": 20,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-07-17T08:00Z",
+   "round": 20,
+   "espnId": "603395"
   },
   {
    "date": "2026-07-17",
@@ -1572,9 +1711,10 @@
    "homeScore": 14,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-07-17T10:00Z",
+   "round": 20,
+   "espnId": "603396"
   },
   {
    "date": "2026-07-18",
@@ -1583,20 +1723,10 @@
    "homeScore": 34,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
-  },
-  {
-   "date": "2026-07-18",
-   "home": "Canterbury-Bankstown Bulldogs",
-   "away": "Wests Tigers",
-   "homeScore": 32,
-   "awayScore": 0,
-   "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-07-18T05:00Z",
+   "round": 20,
+   "espnId": "603397"
   },
   {
    "date": "2026-07-18",
@@ -1605,9 +1735,22 @@
    "homeScore": 20,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-07-18T07:35Z",
+   "round": 20,
+   "espnId": "603398"
+  },
+  {
+   "date": "2026-07-18",
+   "home": "Canterbury-Bankstown Bulldogs",
+   "away": "Wests Tigers",
+   "homeScore": 32,
+   "awayScore": 0,
+   "status": "completed",
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-07-18T09:35Z",
+   "round": 20,
+   "espnId": "603399"
   },
   {
    "date": "2026-07-19",
@@ -1616,9 +1759,10 @@
    "homeScore": 38,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-07-19T04:00Z",
+   "round": 20,
+   "espnId": "603400"
   },
   {
    "date": "2026-07-19",
@@ -1627,9 +1771,10 @@
    "homeScore": 36,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 20
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-07-19T06:05Z",
+   "round": 20,
+   "espnId": "603401"
   },
   {
    "date": "2026-07-23",
@@ -1638,9 +1783,10 @@
    "homeScore": 18,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-07-23T09:50Z",
+   "round": 21,
+   "espnId": "603402"
   },
   {
    "date": "2026-07-24",
@@ -1649,9 +1795,10 @@
    "homeScore": 22,
    "awayScore": 23,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-07-24T08:00Z",
+   "round": 21,
+   "espnId": "603403"
   },
   {
    "date": "2026-07-24",
@@ -1660,9 +1807,10 @@
    "homeScore": 28,
    "awayScore": 26,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-07-24T10:00Z",
+   "round": 21,
+   "espnId": "603404"
   },
   {
    "date": "2026-07-25",
@@ -1671,9 +1819,10 @@
    "homeScore": 56,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-07-25T05:00Z",
+   "round": 21,
+   "espnId": "603405"
   },
   {
    "date": "2026-07-25",
@@ -1682,9 +1831,10 @@
    "homeScore": 18,
    "awayScore": 6,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-07-25T07:30Z",
+   "round": 21,
+   "espnId": "603406"
   },
   {
    "date": "2026-07-25",
@@ -1693,9 +1843,10 @@
    "homeScore": 18,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-07-25T09:35Z",
+   "round": 21,
+   "espnId": "603407"
   },
   {
    "date": "2026-07-26",
@@ -1704,9 +1855,10 @@
    "homeScore": 18,
    "awayScore": 38,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "Jubilee Stadium",
+   "kickoffUtc": "2026-07-26T04:00Z",
+   "round": 21,
+   "espnId": "603408"
   },
   {
    "date": "2026-07-26",
@@ -1715,9 +1867,10 @@
    "homeScore": 12,
    "awayScore": 48,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 21
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-07-26T06:05Z",
+   "round": 21,
+   "espnId": "603409"
   },
   {
    "date": "2026-07-30",
@@ -1726,9 +1879,10 @@
    "homeScore": 12,
    "awayScore": 82,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 22
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-07-30T09:50Z",
+   "round": 22,
+   "espnId": "603410"
   },
   {
    "date": "2026-07-31",
@@ -1759,9 +1913,10 @@
    "homeScore": 6,
    "awayScore": 42,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 22
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-08-01T05:00Z",
+   "round": 22,
+   "espnId": "603413"
   },
   {
    "date": "2026-08-01",
@@ -1770,9 +1925,10 @@
    "homeScore": 42,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 22
+   "venue": "Glen Willow Regional Stadium",
+   "kickoffUtc": "2026-08-01T07:30Z",
+   "round": 22,
+   "espnId": "603414"
   },
   {
    "date": "2026-08-01",
@@ -1781,9 +1937,10 @@
    "homeScore": 6,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 22
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-08-01T09:35Z",
+   "round": 22,
+   "espnId": "603415"
   },
   {
    "date": "2026-08-02",
@@ -1792,9 +1949,10 @@
    "homeScore": 32,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 22
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-08-02T04:00Z",
+   "round": 22,
+   "espnId": "603416"
   },
   {
    "date": "2026-08-02",
@@ -1803,9 +1961,10 @@
    "homeScore": 13,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 22
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-08-02T06:05Z",
+   "round": 22,
+   "espnId": "603417"
   },
   {
    "date": "2026-08-06",
@@ -1814,20 +1973,10 @@
    "homeScore": 8,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
-  },
-  {
-   "date": "2026-08-07",
-   "home": "Sydney Roosters",
-   "away": "Canterbury-Bankstown Bulldogs",
-   "homeScore": 20,
-   "awayScore": 18,
-   "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-08-06T09:50Z",
+   "round": 23,
+   "espnId": "603418"
   },
   {
    "date": "2026-08-07",
@@ -1836,9 +1985,22 @@
    "homeScore": 28,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-08-07T08:00Z",
+   "round": 23,
+   "espnId": "603419"
+  },
+  {
+   "date": "2026-08-07",
+   "home": "Sydney Roosters",
+   "away": "Canterbury-Bankstown Bulldogs",
+   "homeScore": 20,
+   "awayScore": 18,
+   "status": "completed",
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-08-07T10:00Z",
+   "round": 23,
+   "espnId": "603420"
   },
   {
    "date": "2026-08-08",
@@ -1847,9 +2009,10 @@
    "homeScore": 42,
    "awayScore": 20,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "HBF Park",
+   "kickoffUtc": "2026-08-08T05:00Z",
+   "round": 23,
+   "espnId": "603421"
   },
   {
    "date": "2026-08-08",
@@ -1858,9 +2021,10 @@
    "homeScore": 40,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-08-08T07:30Z",
+   "round": 23,
+   "espnId": "603422"
   },
   {
    "date": "2026-08-08",
@@ -1869,9 +2033,10 @@
    "homeScore": 28,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-08-08T09:35Z",
+   "round": 23,
+   "espnId": "603423"
   },
   {
    "date": "2026-08-09",
@@ -1880,9 +2045,10 @@
    "homeScore": 24,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-08-09T04:00Z",
+   "round": 23,
+   "espnId": "603424"
   },
   {
    "date": "2026-08-09",
@@ -1891,9 +2057,10 @@
    "homeScore": 24,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 23
+   "venue": "Jubilee Stadium",
+   "kickoffUtc": "2026-08-09T06:05Z",
+   "round": 23,
+   "espnId": "603425"
   },
   {
    "date": "2026-08-13",
@@ -1902,9 +2069,10 @@
    "homeScore": 6,
    "awayScore": 12,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-08-13T09:50Z",
+   "round": 24,
+   "espnId": "603426"
   },
   {
    "date": "2026-08-14",
@@ -1913,9 +2081,10 @@
    "homeScore": 0,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-08-14T08:00Z",
+   "round": 24,
+   "espnId": "603427"
   },
   {
    "date": "2026-08-14",
@@ -1924,9 +2093,10 @@
    "homeScore": 6,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-08-14T10:00Z",
+   "round": 24,
+   "espnId": "603428"
   },
   {
    "date": "2026-08-15",
@@ -1935,9 +2105,10 @@
    "homeScore": 20,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "Ocean Protect Stadium",
+   "kickoffUtc": "2026-08-15T05:00Z",
+   "round": 24,
+   "espnId": "603429"
   },
   {
    "date": "2026-08-15",
@@ -1946,9 +2117,10 @@
    "homeScore": 32,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-08-15T07:30Z",
+   "round": 24,
+   "espnId": "603430"
   },
   {
    "date": "2026-08-15",
@@ -1957,9 +2129,10 @@
    "homeScore": 6,
    "awayScore": 40,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-08-15T09:35Z",
+   "round": 24,
+   "espnId": "603431"
   },
   {
    "date": "2026-08-16",
@@ -1968,9 +2141,10 @@
    "homeScore": 36,
    "awayScore": 26,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "McDonald Jones Stadium",
+   "kickoffUtc": "2026-08-16T04:00Z",
+   "round": 24,
+   "espnId": "603432"
   },
   {
    "date": "2026-08-16",
@@ -1979,9 +2153,10 @@
    "homeScore": 22,
    "awayScore": 24,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 24
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-08-16T06:05Z",
+   "round": 24,
+   "espnId": "603433"
   },
   {
    "date": "2026-08-20",
@@ -1990,9 +2165,10 @@
    "homeScore": 14,
    "awayScore": 22,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 25
+   "venue": "AAMI Park",
+   "kickoffUtc": "2026-08-20T09:50Z",
+   "round": 25,
+   "espnId": "603434"
   },
   {
    "date": "2026-08-21",
@@ -2001,9 +2177,10 @@
    "homeScore": 30,
    "awayScore": 34,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 25
+   "venue": "GIO Stadium",
+   "kickoffUtc": "2026-08-21T08:00Z",
+   "round": 25,
+   "espnId": "603435"
   },
   {
    "date": "2026-08-21",
@@ -2012,9 +2189,10 @@
    "homeScore": 34,
    "awayScore": 16,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 25
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-08-21T10:00Z",
+   "round": 25,
+   "espnId": "603436"
   },
   {
    "date": "2026-08-22",
@@ -2056,9 +2234,10 @@
    "homeScore": 22,
    "awayScore": 30,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 25
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-08-23T04:00Z",
+   "round": 25,
+   "espnId": "603440"
   },
   {
    "date": "2026-08-23",
@@ -2067,9 +2246,10 @@
    "homeScore": 24,
    "awayScore": 25,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 25
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-08-23T06:05Z",
+   "round": 25,
+   "espnId": "603441"
   },
   {
    "date": "2026-08-27",
@@ -2078,9 +2258,10 @@
    "homeScore": 20,
    "awayScore": 46,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "Suncorp Stadium",
+   "kickoffUtc": "2026-08-27T09:50Z",
+   "round": 26,
+   "espnId": "603442"
   },
   {
    "date": "2026-08-28",
@@ -2089,9 +2270,10 @@
    "homeScore": 44,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "4 Pines Park",
+   "kickoffUtc": "2026-08-28T08:00Z",
+   "round": 26,
+   "espnId": "603443"
   },
   {
    "date": "2026-08-28",
@@ -2100,9 +2282,10 @@
    "homeScore": 24,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-08-28T10:00Z",
+   "round": 26,
+   "espnId": "603444"
   },
   {
    "date": "2026-08-29",
@@ -2111,9 +2294,10 @@
    "homeScore": 22,
    "awayScore": 42,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "Cbus Super Stadium",
+   "kickoffUtc": "2026-08-29T05:00Z",
+   "round": 26,
+   "espnId": "603445"
   },
   {
    "date": "2026-08-29",
@@ -2122,9 +2306,10 @@
    "homeScore": 12,
    "awayScore": 26,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "Allianz Stadium",
+   "kickoffUtc": "2026-08-29T07:30Z",
+   "round": 26,
+   "espnId": "603446"
   },
   {
    "date": "2026-08-29",
@@ -2133,9 +2318,10 @@
    "homeScore": 24,
    "awayScore": 10,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "Queensland Country Bank Stadium",
+   "kickoffUtc": "2026-08-29T09:35Z",
+   "round": 26,
+   "espnId": "603447"
   },
   {
    "date": "2026-08-30",
@@ -2144,9 +2330,10 @@
    "homeScore": 46,
    "awayScore": 32,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "Go Media Stadium",
+   "kickoffUtc": "2026-08-30T04:00Z",
+   "round": 26,
+   "espnId": "603448"
   },
   {
    "date": "2026-08-30",
@@ -2155,9 +2342,10 @@
    "homeScore": 38,
    "awayScore": 18,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 26
+   "venue": "CommBank Stadium",
+   "kickoffUtc": "2026-08-30T06:05Z",
+   "round": 26,
+   "espnId": "603449"
   },
   {
    "date": "2026-09-03",
@@ -2166,9 +2354,10 @@
    "homeScore": 20,
    "awayScore": 34,
    "status": "completed",
-   "venue": null,
-   "kickoffUtc": null,
-   "round": 27
+   "venue": "Accor Stadium",
+   "kickoffUtc": "2026-09-03T09:50Z",
+   "round": 27,
+   "espnId": "603450"
   },
   {
    "date": "2026-09-04",
@@ -2180,7 +2369,8 @@
    "venue": "Cbus Super Stadium, Gold Coast",
    "kickoffUtc": "2026-09-04T08:00:00Z",
    "round": 27,
-   "olbgEventId": "2751059"
+   "olbgEventId": "2751059",
+   "espnId": "603451"
   },
   {
    "date": "2026-09-04",
@@ -2192,7 +2382,8 @@
    "venue": "Allianz Stadium, Sydney",
    "kickoffUtc": "2026-09-04T10:00:00Z",
    "round": 27,
-   "olbgEventId": "2751062"
+   "olbgEventId": "2751062",
+   "espnId": "603452"
   },
   {
    "date": "2026-09-05",
@@ -2204,7 +2395,8 @@
    "venue": "Go Media Stadium, Auckland",
    "kickoffUtc": "2026-09-05T05:00:00Z",
    "round": 27,
-   "olbgEventId": "2751058"
+   "olbgEventId": "2751058",
+   "espnId": "603453"
   },
   {
    "date": "2026-09-05",
@@ -2216,7 +2408,8 @@
    "venue": "Queensland Country Bank Stadium, Townsville",
    "kickoffUtc": "2026-09-05T07:30:00Z",
    "round": 27,
-   "olbgEventId": "2751057"
+   "olbgEventId": "2751057",
+   "espnId": "603454"
   },
   {
    "date": "2026-09-05",
@@ -2228,7 +2421,8 @@
    "venue": "Ocean Protect Stadium, Cronulla",
    "kickoffUtc": "2026-09-05T09:35:00Z",
    "round": 27,
-   "olbgEventId": "2751056"
+   "olbgEventId": "2751056",
+   "espnId": "603455"
   },
   {
    "date": "2026-09-06",
@@ -2240,7 +2434,8 @@
    "venue": "WIN Stadium, Wollongong",
    "kickoffUtc": "2026-09-06T04:00:00Z",
    "round": 27,
-   "olbgEventId": "2751061"
+   "olbgEventId": "2751061",
+   "espnId": "603456"
   },
   {
    "date": "2026-09-06",
@@ -2252,7 +2447,17 @@
    "venue": "CommBank Stadium, Parramatta",
    "kickoffUtc": "2026-09-06T06:05:00Z",
    "round": 27,
-   "olbgEventId": "2751060"
+   "olbgEventId": "2751060",
+   "espnId": "603457"
   }
- ]
+ ],
+ "source": {
+  "espn": {
+   "name": "ESPN NRL scoreboard (key-less site API)",
+   "url": "https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard?dates=20260228-20261008",
+   "fetched_at_utc": "2026-09-04T02:43:26Z",
+   "note": "Scores, venues and UTC kick-offs. OLBG supplies the market slate; it is never used for kick-off times because it renders them in the viewer’s timezone (NRL-01)."
+  }
+ },
+ "collection_warnings": []
 }
