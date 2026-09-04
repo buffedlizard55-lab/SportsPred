@@ -420,6 +420,34 @@ test('sport.html on an empty (offseason) date auto-advances to the next game day
   } finally { cleanup(); }
 });
 
+test('basketball uses the NBA v5 engine and renders its three-market analysis', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('sport.html', { search: '?sport=basketball&date=2026-10-20' });
+  try {
+    // The slate renders.
+    const rows = document.querySelectorAll('#board .match');
+    assert.ok(rows.length >= 1, 'at least one NBA match row rendered');
+
+    // Opening a match's Analysis must show the NBA v5 ordered trio — the
+    // generic universal engine labels these Moneyline/Handicap/Total instead,
+    // so the presence of WIN MATCH / POINT SPREAD / GAME TOTAL proves the
+    // dedicated engine is wired in.
+    const toggle = document.querySelector('[data-toggle]');
+    assert.ok(toggle, 'an analysis toggle exists');
+    toggle.dispatchEvent(new window.Event('click', { bubbles: true }));
+    await new Promise((r) => setTimeout(r, 30));
+    const detail = document.querySelector('.detail.open');
+    assert.ok(detail, 'the detail panel opened');
+    const text = detail.textContent;
+    assert.match(text, /WIN MATCH/);
+    assert.match(text, /POINT SPREAD/);
+    assert.match(text, /GAME TOTAL/);
+
+    // Opening week has no form/odds/records, so the honest output is SKIP with
+    // the missing inputs disclosed — never a fabricated pick.
+    assert.match(text, /SKIP|not available|Not available|missing/i);
+  } finally { cleanup(); }
+});
+
 test('the Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
   const { document, window } = await bootPage('sport.html', { search: '?sport=football&date=2026-09-05' });
   try {

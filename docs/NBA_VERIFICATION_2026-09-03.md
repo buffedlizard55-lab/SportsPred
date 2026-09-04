@@ -82,6 +82,18 @@ Regression test added in `tests/dom_smoke.test.mjs`:
   lists different schools. Made it read the NCAA team names from
   `data/volleyball_matches.json` so it tracks the collector output.
 
+### 3.4 Dedicated NBA v5.0 engine (this pass)
+
+- Added `engine/nba_engine.js` — a faithful implementation of the prompt's STEP 2
+  100-point rubric (three markets) and STEP 3 bet-decision gates, with the no-hallucination
+  discipline (missing inputs → 0 + reason, never inferred).
+- Rewrote `engine/nba_writer.js` for STEP 4 style compliance (40+ words, bold pick in
+  first 15 words, unique openings, no banned phrases, no internal-process language).
+- Wired the NBA engine into `sport.html?sport=basketball` and `predictions.html`; the
+  generic universal engine is no longer used for basketball.
+- Added `tests/nba_engine.test.mjs` (every STEP 2 bucket unit-tested) and a DOM smoke
+  test proving the NBA market trio renders.
+
 ## 4. Irregularities flagged for review
 
 | ID | Irregularity | Status / mitigation |

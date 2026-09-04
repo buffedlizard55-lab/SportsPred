@@ -161,6 +161,13 @@ export function formRate(formList) {
 function competitorToTeam(c) {
   if (!c) return null;
   const record = (c.records || []).find((r) => r?.type === 'total') || (c.records || [])[0] || null;
+  const homeRecord = (c.records || []).find((r) => r?.type === 'home') || null;
+  const awayRecord = (c.records || []).find((r) => r?.type === 'road' || r?.type === 'away') || null;
+  // Average points per game, where ESPN publishes it (NBA/WNBA competitors
+  // carry a statistics array with an `avgPoints` entry). Used only for the
+  // game-total scoring component; never invented when absent.
+  const avgPointsStat = (c.statistics || []).find((s) => s?.name === 'avgPoints');
+  const avgPoints = avgPointsStat?.displayValue != null ? Number(String(avgPointsStat.displayValue).replace(/[^0-9.]/g, '')) : null;
   return {
     id: c.team?.id ?? c.id ?? null,
     name: c.team?.displayName ?? c.team?.name ?? null,
@@ -172,6 +179,9 @@ function competitorToTeam(c) {
     winner: typeof c.winner === 'boolean' ? c.winner : null,
     recordSummary: record?.summary ?? null,
     record: parseRecord(record?.summary),
+    homeSplit: homeRecord ? parseRecord(homeRecord.summary) : null,
+    awaySplit: awayRecord ? parseRecord(awayRecord.summary) : null,
+    avgPoints: Number.isFinite(avgPoints) ? avgPoints : null,
     form: parseForm(c.form),
     rank: Number.isFinite(Number(c.curatedRank?.current)) && Number(c.curatedRank.current) < 100
       ? Number(c.curatedRank.current) : null,

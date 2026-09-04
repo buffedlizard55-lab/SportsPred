@@ -21,11 +21,12 @@ import {
   getSport, SPORTS,
 } from '../../engine/registry.js';
 import {
-  parseScoreboard, buildLeagueContext, headToHead, restDays,
+  parseScoreboard, buildLeagueContext, headToHead, restDays, formFromTape,
 } from '../../engine/espn_universal.js';
 import {
   scoreUniversalMatch, espnSportFor,
 } from '../../engine/universal_engine.js';
+import { scoreNbaMatch } from '../../engine/nba_engine.js';
 import {
   writeUniversalTip, buildCopyText,
 } from '../../engine/universal_writer.js';
@@ -291,6 +292,9 @@ function ctxFor(match) {
       home: restDays(tape, match.home?.name, match.startUtc),
       away: restDays(tape, match.away?.name, match.startUtc),
     } : null,
+    tape: tape || null,
+    homeForm: tape ? formFromTape(tape, match.home?.name, match.startUtc) : null,
+    awayForm: tape ? formFromTape(tape, match.away?.name, match.startUtc) : null,
   };
 }
 
@@ -299,12 +303,24 @@ export function generateAll({ force = false } = {}) {
   let made = 0;
   for (const m of state.matches) {
     if (!force && state.predictions.has(m.id)) continue;
-    const scored = scoreUniversalMatch(m, ctxFor(m));
-    scored.neutral = m.neutral;
-    const tip = writeUniversalTip(scored);
-    // NBA v5 has a stricter display contract: publish three independent,
-    // ordered markets and keep price/line/player detail out of the prose.
-    const nbaTips = state.sport.key === 'basketball' ? writeNbaGame(scored) : null;
+    let scored;
+    let tip;
+    let nbaTips = null;
+    if (state.sport.key === 'basketball') {
+      // NBA v5.0 has its own STEP 2 / STEP 3 rubric (engine/nba_engine.js):
+      // three markets out of 100, with odds/ATS/injury/pace inputs withheld
+      // rather than guessed. The WIN MATCH tip feeds the tip box; the full
+      // ordered trio renders in the analysis panel and the copy-all block.
+      scored = scoreNbaMatch(m, ctxFor(m));
+      scored.neutral = m.neutral;
+      nbaTips = writeNbaGame(scored);
+      const tipIdx = ['match_result', 'handicap', 'total'].indexOf(scored.headline?.market ?? 'match_result');
+      tip = nbaTips[tipIdx >= 0 ? tipIdx : 0];
+    } else {
+      scored = scoreUniversalMatch(m, ctxFor(m));
+      scored.neutral = m.neutral;
+      tip = writeUniversalTip(scored);
+    }
     state.predictions.set(m.id, { scored, tip, nbaTips });
     made += 1;
   }

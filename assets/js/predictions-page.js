@@ -7,8 +7,9 @@
  */
 
 import { SPORTS, getSport } from '../../engine/registry.js';
-import { parseScoreboard, buildLeagueContext, headToHead, restDays } from '../../engine/espn_universal.js';
+import { parseScoreboard, buildLeagueContext, headToHead, restDays, formFromTape } from '../../engine/espn_universal.js';
 import { scoreUniversalMatch, espnSportFor } from '../../engine/universal_engine.js';
+import { scoreNbaMatch } from '../../engine/nba_engine.js';
 import { writeUniversalTip, buildCopyText } from '../../engine/universal_writer.js';
 import { writeNbaGame } from '../../engine/nba_writer.js';
 import { loadLeagueDay, loadLeagueRange, loadStatic, pool, addDays, TTL } from './data-client.js';
@@ -141,15 +142,29 @@ async function run() {
   for (const { m, sport } of collected) {
     const ck = `${sport.key}:${m.leagueSlug}`;
     const tape = tapes.get(ck) || null;
-    const scored = scoreUniversalMatch(m, {
+    const ctx = {
       threeWay: sport.threeWay,
       leagueContext: state.contexts[ck] || { sufficient: false },
       h2h: tape ? headToHead(tape, m.home?.name, m.away?.name, m.startUtc) : null,
       rest: tape ? { home: restDays(tape, m.home?.name, m.startUtc), away: restDays(tape, m.away?.name, m.startUtc) } : null,
-    });
-    scored.neutral = m.neutral;
-    const tip = writeUniversalTip(scored);
-    const nbaTips = sport.key === 'basketball' ? writeNbaGame(scored) : null;
+      tape: tape || null,
+      homeForm: tape ? formFromTape(tape, m.home?.name, m.startUtc) : null,
+      awayForm: tape ? formFromTape(tape, m.away?.name, m.startUtc) : null,
+    };
+    let scored;
+    let tip;
+    let nbaTips = null;
+    if (sport.key === 'basketball') {
+      scored = scoreNbaMatch(m, ctx);
+      scored.neutral = m.neutral;
+      nbaTips = writeNbaGame(scored);
+      const tipIdx = ['match_result', 'handicap', 'total'].indexOf(scored.headline?.market ?? 'match_result');
+      tip = nbaTips[tipIdx >= 0 ? tipIdx : 0];
+    } else {
+      scored = scoreUniversalMatch(m, ctx);
+      scored.neutral = m.neutral;
+      tip = writeUniversalTip(scored);
+    }
     state.rows.push({ m, sport, scored, tip, nbaTips });
   }
   state.rows.sort((a, b) => (b.scored.headline?.score || 0) - (a.scored.headline?.score || 0));
