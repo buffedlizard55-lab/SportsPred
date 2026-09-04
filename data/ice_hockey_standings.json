@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T06:34:26Z",
+ "fetched_at_utc": "2026-09-04T11:51:51Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
@@ -12,7 +12,7 @@
  ],
  "sport": "Ice Hockey",
  "league": "nhl",
- "standings_date": "2026-09-04T06:34:15Z",
+ "standings_date": "2026-09-04T11:51:45Z",
  "teams": {
   "COL": {
    "abbrev": "COL",
