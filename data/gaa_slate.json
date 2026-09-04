@@ -2,14 +2,14 @@
   "schema_version": 1,
   "sport": "Gaelic Football",
   "code": "football",
-  "as_of_utc": "2026-09-04T04:06:24Z",
+  "as_of_utc": "2026-09-04T13:28:42Z",
   "source": {
     "name": "OLBG \u2014 Gaelic Football Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
     "indexes": [
       "https://www.olbg.com/betting-tips/Gaelic_Football/25"
     ],
-    "fetched_at_utc": "2026-09-04T04:06:24Z",
+    "fetched_at_utc": "2026-09-04T13:28:42Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -29,10 +29,10 @@
       "display_date_label": "Tomorrow",
       "consensus": {
         "market": null,
-        "selection": "Draw 5/8 Win Tips 63% Add",
-        "tips_for": 5,
-        "tips_total": 8,
-        "pct": 63
+        "selection": "Draw 7/11 Win Tips 64% Add",
+        "tips_for": 7,
+        "tips_total": 11,
+        "pct": 64
       },
       "teamA": {
         "name": "Shelmaliers"
@@ -51,16 +51,38 @@
       "display_date_label": "Tomorrow",
       "consensus": {
         "market": null,
-        "selection": "Coolera Stradhill 4/8 Win Tips 50% Add",
-        "tips_for": 4,
-        "tips_total": 8,
-        "pct": 50
+        "selection": "Draw 5/11 Win Tips 45% Add",
+        "tips_for": 5,
+        "tips_total": 11,
+        "pct": 45
       },
       "teamA": {
         "name": "Coolera Stradhill"
       },
       "teamB": {
         "name": "St Molaies Gaels"
+      }
+    },
+    {
+      "event_id": "3442",
+      "type": "match",
+      "code": "football",
+      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Naomh_Eanna_Wex_v_HWH_Bunclody/25?event_id=3442",
+      "matchup": "Naomh Eanna Wex v HWH Bunclody",
+      "display_time": "17:00",
+      "display_date_label": "06 Sept",
+      "consensus": {
+        "market": null,
+        "selection": "Naomh Eanna Wex 4/7 Win Tips 57% Add",
+        "tips_for": 4,
+        "tips_total": 7,
+        "pct": 57
+      },
+      "teamA": {
+        "name": "Naomh Eanna Wex"
+      },
+      "teamB": {
+        "name": "HWH Bunclody"
       }
     },
     {
@@ -73,10 +95,10 @@
       "display_date_label": "06 Sept",
       "consensus": {
         "market": null,
-        "selection": "St Marys Sli 3/5 Win Tips 60% Add",
-        "tips_for": 3,
-        "tips_total": 5,
-        "pct": 60
+        "selection": "St Marys Sli 4/7 Win Tips 57% Add",
+        "tips_for": 4,
+        "tips_total": 7,
+        "pct": 57
       },
       "teamA": {
         "name": "Eastern Harps"
@@ -95,38 +117,16 @@
       "display_date_label": "06 Sept",
       "consensus": {
         "market": null,
-        "selection": "Draw 2/5 Win Tips 40% Add",
-        "tips_for": 2,
-        "tips_total": 5,
-        "pct": 40
+        "selection": "Draw 3/7 Win Tips 43% Add",
+        "tips_for": 3,
+        "tips_total": 7,
+        "pct": 43
       },
       "teamA": {
         "name": "St Mogues Fethard"
       },
       "teamB": {
         "name": "St James Wex"
-      }
-    },
-    {
-      "event_id": "3442",
-      "type": "match",
-      "code": "football",
-      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Naomh_Eanna_Wex_v_HWH_Bunclody/25?event_id=3442",
-      "matchup": "Naomh Eanna Wex v HWH Bunclody",
-      "display_time": "17:00",
-      "display_date_label": "06 Sept",
-      "consensus": {
-        "market": null,
-        "selection": "Naomh Eanna Wex 2/5 Win Tips 40% Add",
-        "tips_for": 2,
-        "tips_total": 5,
-        "pct": 40
-      },
-      "teamA": {
-        "name": "Naomh Eanna Wex"
-      },
-      "teamB": {
-        "name": "HWH Bunclody"
       }
     },
     {
@@ -139,10 +139,10 @@
       "display_date_label": "06 Sept",
       "consensus": {
         "market": null,
-        "selection": "Draw 2/3 Win Tips 67% Add",
-        "tips_for": 2,
-        "tips_total": 3,
-        "pct": 67
+        "selection": "St Martins Wex 3/5 Win Tips 60% Add",
+        "tips_for": 3,
+        "tips_total": 5,
+        "pct": 60
       },
       "teamA": {
         "name": "Sarsfields Wex"
@@ -161,9 +161,9 @@
       "display_date_label": "06 Sept",
       "consensus": {
         "market": null,
-        "selection": "Castletown 2/4 Win Tips 50% Add",
-        "tips_for": 2,
-        "tips_total": 4,
+        "selection": "Draw 3/6 Win Tips 50% Add",
+        "tips_for": 3,
+        "tips_total": 6,
         "pct": 50
       },
       "teamA": {
@@ -171,6 +171,28 @@
       },
       "teamB": {
         "name": "Kilanerin"
+      }
+    },
+    {
+      "event_id": "3443",
+      "type": "match",
+      "code": "football",
+      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Michael_Glaveys_v_Elphin/25?event_id=3443",
+      "matchup": "Michael Glaveys v Elphin",
+      "display_time": "16:00",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": null,
+        "selection": "Draw 1/1 Win Tips 100% Add",
+        "tips_for": 1,
+        "tips_total": 1,
+        "pct": 100
+      },
+      "teamA": {
+        "name": "Michael Glaveys"
+      },
+      "teamB": {
+        "name": "Elphin"
       }
     },
     {
@@ -219,7 +241,7 @@
       "display_date_label": "01 Nov",
       "consensus": {
         "market": null,
-        "selection": "Nemo Rangers 2/4 Win Tips 50% 1 comment Add",
+        "selection": "Castlehaven 2/4 Win Tips 50% Add",
         "tips_for": 2,
         "tips_total": 4,
         "pct": 50

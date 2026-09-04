@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "sport": "Snooker",
-  "as_of_utc": "2026-09-04T04:06:16Z",
+  "as_of_utc": "2026-09-04T13:28:33Z",
   "source": {
     "name": "OLBG \u2014 Snooker Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Snooker/8",
     "indexes": [
       "https://www.olbg.com/betting-tips/Snooker/8"
     ],
-    "fetched_at_utc": "2026-09-04T04:06:16Z",
+    "fetched_at_utc": "2026-09-04T13:28:33Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -20,17 +20,17 @@
   "collection_warnings": [],
   "events": [
     {
-      "event_id": "9593",
-      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Liam_Highfield_v_Stan_Moody/8?event_id=9593",
-      "matchup": "Liam Highfield v Stan Moody",
-      "display_time": "13:00",
+      "event_id": "9594",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Judd_Trump_v_Zhao_Xintong/8?event_id=9594",
+      "matchup": "Judd Trump v Zhao Xintong",
+      "display_time": "19:00",
       "display_date_label": "Today",
       "consensus": {
         "market": "Win Match",
-        "selection": "Stan Moody",
-        "tips_for": 2,
-        "tips_total": 3,
-        "pct": 67
+        "selection": "Judd Trump",
+        "tips_for": 8,
+        "tips_total": 10,
+        "pct": 80
       },
       "markets_verified": true,
       "markets": [
@@ -41,19 +41,19 @@
               "name": "Add Selection Win Tips",
               "tips_for": null,
               "tips_total": null,
-              "pct": 67
+              "pct": 80
             },
             {
-              "name": "Stan Moody",
+              "name": "Judd Trump",
               "tips_for": null,
               "tips_total": null,
-              "pct": 67
+              "pct": 80
             },
             {
-              "name": "Liam Highfield",
+              "name": "Zhao Xintong",
               "tips_for": null,
               "tips_total": null,
-              "pct": 33
+              "pct": 20
             }
           ]
         },
@@ -64,13 +64,13 @@
               "name": "Read More Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 58
+              "pct": 45
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 58
+              "pct": 45
             }
           ]
         },
@@ -78,34 +78,46 @@
           "name": "Win Match",
           "selections": [
             {
-              "name": "Hide Selections Stan Moody",
+              "name": "Hide Selections Zhao Xintong",
               "tips_for": 2,
-              "tips_total": 3,
-              "pct": 67
+              "tips_total": 10,
+              "pct": 20
             },
             {
               "name": "Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 58
+              "pct": 45
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 58
+              "pct": 45
             },
             {
               "name": "Days Profit",
-              "tips_for": 1,
-              "tips_total": 3,
-              "pct": 33
+              "tips_for": 8,
+              "tips_total": 10,
+              "pct": 80
             },
             {
-              "name": "Liam Highfield",
-              "tips_for": 1,
-              "tips_total": 3,
-              "pct": 33
+              "name": "Judd Trump",
+              "tips_for": 8,
+              "tips_total": 10,
+              "pct": 80
+            },
+            {
+              "name": "View All Tips Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 56
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 56
             }
           ]
         },
@@ -113,80 +125,92 @@
           "name": "Handicap Betting",
           "selections": [
             {
-              "name": "Hide Selections Liam Highfield +1.50",
+              "name": "Hide Selections Zhao Xintong +0.50",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Judd Trump -0.50",
               "tips_for": 1,
               "tips_total": 1,
               "pct": 100
             },
             {
-              "name": "Add Stan Moody -1.50",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
-            }
-          ]
-        },
-        {
-          "name": "Frame Betting",
-          "selections": [
-            {
-              "name": "Hide Selections Stan Moody 5-2",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
-            },
-            {
-              "name": "Add Stan Moody 5-3",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
-            },
-            {
-              "name": "Add Stan Moody 5-4",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
-            },
-            {
-              "name": "Add Stan Moody 5-1",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
-            },
-            {
-              "name": "Add Liam Highfield 5-3",
-              "tips_for": 1,
-              "tips_total": 2,
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
               "pct": 50
             },
             {
-              "name": "Liam Highfield 5-4",
-              "tips_for": 0,
-              "tips_total": 2,
-              "pct": 0
-            },
-            {
-              "name": "Add Liam Highfield 5-2",
-              "tips_for": 1,
-              "tips_total": 2,
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
               "pct": 50
-            },
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
             {
-              "name": "Add Liam Highfield 5-1",
+              "name": "Hide Selections Zhao Xintong 5-2",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             },
             {
-              "name": "Add Stan Moody 5-0",
+              "name": "Add Zhao Xintong 5-3",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Add Judd Trump 5-3",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Zhao Xintong 5-4",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
               "pct": 0
             },
             {
-              "name": "Add Liam Highfield 5-0",
+              "name": "Add Judd Trump 5-4",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Add Judd Trump 5-2",
               "tips_for": 0,
-              "tips_total": 2,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Add Zhao Xintong 5-1",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Add Judd Trump 5-1",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Add Zhao Xintong 5-0",
+              "tips_for": 0,
+              "tips_total": 3,
+              "pct": 0
+            },
+            {
+              "name": "Add Judd Trump 5-0",
+              "tips_for": 0,
+              "tips_total": 3,
               "pct": 0
             }
           ]
@@ -197,11 +221,25 @@
         },
         {
           "name": "Win Match",
-          "selections": []
+          "selections": [
+            {
+              "name": "Profitable Snooker",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 70
+            }
+          ]
         },
         {
           "name": "Win Match",
-          "selections": []
+          "selections": [
+            {
+              "name": "Profitable Snooker",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            }
+          ]
         },
         {
           "name": "Handicap Betting",
@@ -219,7 +257,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Stan Moody 5-2",
+              "name": "Zhao Xintong 5-2",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -230,7 +268,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Stan Moody 5-3",
+              "name": "Zhao Xintong 5-3",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -241,7 +279,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Stan Moody 5-4",
+              "name": "Judd Trump 5-3",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -252,7 +290,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Stan Moody 5-1",
+              "name": "Zhao Xintong 5-4",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -263,7 +301,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Liam Highfield 5-3",
+              "name": "Judd Trump 5-4",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -274,7 +312,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Liam Highfield 5-4",
+              "name": "Judd Trump 5-2",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -285,7 +323,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Liam Highfield 5-2",
+              "name": "Zhao Xintong 5-1",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -296,7 +334,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Liam Highfield 5-1",
+              "name": "Judd Trump 5-1",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -307,7 +345,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Stan Moody 5-0",
+              "name": "Zhao Xintong 5-0",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -318,7 +356,7 @@
           "name": "Frame Betting",
           "selections": [
             {
-              "name": "Liam Highfield 5-0",
+              "name": "Judd Trump 5-0",
               "tips_for": null,
               "tips_total": null,
               "pct": null
@@ -335,7 +373,14 @@
         },
         {
           "name": "Win Match",
-          "selections": []
+          "selections": [
+            {
+              "name": "Profitable Snooker",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            }
+          ]
         },
         {
           "name": "Win Match",
@@ -343,7 +388,20 @@
         },
         {
           "name": "Win Match",
-          "selections": []
+          "selections": [
+            {
+              "name": "Profitable Snooker",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 70
+            },
+            {
+              "name": "Profitable Snooker",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 70
+            }
+          ]
         }
       ]
     },
@@ -354,57 +412,51 @@
       "display_time": "19:00",
       "display_date_label": "Today",
       "consensus": {
-        "market": "Frame Betting",
-        "selection": "Aaron Hill",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100
+        "market": "Win Match",
+        "selection": "Jak Jones",
+        "tips_for": 8,
+        "tips_total": 9,
+        "pct": 89
       },
       "markets_verified": true,
       "markets": [
         {
-          "name": "Frame Betting",
+          "name": "Win Match",
           "selections": [
             {
-              "name": "Aaron Hill 5-2",
+              "name": "Add Selection Win Tips",
               "tips_for": null,
               "tips_total": null,
-              "pct": 100
+              "pct": 89
             },
             {
-              "name": "Jak Jones 5-2",
+              "name": "Jak Jones",
               "tips_for": null,
               "tips_total": null,
-              "pct": null
+              "pct": 89
             },
             {
-              "name": "Jak Jones 5-3",
+              "name": "Aaron Hill",
               "tips_for": null,
               "tips_total": null,
-              "pct": null
-            },
-            {
-              "name": "Tip Aaron Hill 5-2",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
+              "pct": 11
             }
           ]
         },
         {
-          "name": "Frame Betting",
+          "name": "Win Match",
           "selections": [
             {
               "name": "Read More Annual Profit",
               "tips_for": null,
               "tips_total": null,
-              "pct": 46
+              "pct": 57
             },
             {
               "name": "Annual Strike Rate",
               "tips_for": null,
               "tips_total": null,
-              "pct": 46
+              "pct": 57
             }
           ]
         },
@@ -413,15 +465,33 @@
           "selections": [
             {
               "name": "Hide Selections Jak Jones",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "tips_for": 8,
+              "tips_total": 9,
+              "pct": 89
             },
             {
-              "name": "Add Aaron Hill",
-              "tips_for": 0,
-              "tips_total": 0,
-              "pct": 0
+              "name": "View All Tips Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 57
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 57
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 9,
+              "pct": 11
+            },
+            {
+              "name": "Aaron Hill",
+              "tips_for": 1,
+              "tips_total": 9,
+              "pct": 11
             }
           ]
         },
@@ -447,62 +517,62 @@
           "selections": [
             {
               "name": "Hide Selections Jak Jones 5-2",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 4,
+              "pct": 25
             },
             {
               "name": "Add Jak Jones 5-3",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 4,
               "pct": 0
             },
             {
               "name": "Add Jak Jones 5-4",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 4,
+              "pct": 25
             },
             {
               "name": "Add Jak Jones 5-1",
-              "tips_for": 0,
-              "tips_total": 1,
-              "pct": 0
+              "tips_for": 1,
+              "tips_total": 4,
+              "pct": 25
             },
             {
               "name": "Add Aaron Hill 5-3",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 4,
               "pct": 0
             },
             {
               "name": "Add Aaron Hill 5-4",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 4,
               "pct": 0
             },
             {
               "name": "Add Aaron Hill 5-2",
               "tips_for": 1,
-              "tips_total": 1,
-              "pct": 100
+              "tips_total": 4,
+              "pct": 25
             },
             {
               "name": "Aaron Hill 5-1",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 4,
               "pct": 0
             },
             {
               "name": "Add Jak Jones 5-0",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 4,
               "pct": 0
             },
             {
               "name": "Add Aaron Hill 5-0",
               "tips_for": 0,
-              "tips_total": 1,
+              "tips_total": 4,
               "pct": 0
             }
           ]
@@ -513,7 +583,14 @@
         },
         {
           "name": "Win Match",
-          "selections": []
+          "selections": [
+            {
+              "name": "Profitable Snooker",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 70
+            }
+          ]
         },
         {
           "name": "Win Match",
@@ -643,72 +720,35 @@
         },
         {
           "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
           "selections": [
             {
-              "name": "Aaron Hill 5-2",
+              "name": "Profitable Snooker",
               "tips_for": null,
               "tips_total": null,
-              "pct": null
-            },
-            {
-              "name": "Aaron Hill 5-2",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
+              "pct": 70
             }
           ]
         },
         {
-          "name": "Frame Betting",
+          "name": "Win Match",
           "selections": []
         },
         {
-          "name": "Frame Betting",
+          "name": "Win Match",
           "selections": [
             {
-              "name": "Aaron Hill 5-2",
+              "name": "Profitable Snooker",
               "tips_for": null,
               "tips_total": null,
-              "pct": null
-            },
-            {
-              "name": "Aaron Hill 5-2",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
-            }
-          ]
-        },
-        {
-          "name": "Frame Betting",
-          "selections": []
-        },
-        {
-          "name": "Frame Betting",
-          "selections": [
-            {
-              "name": "Aaron Hill 5-2",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
-            },
-            {
-              "name": "Aaron Hill 5-2",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
-            },
-            {
-              "name": "Jak Jones 5-2",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
-            },
-            {
-              "name": "Jak Jones 5-3",
-              "tips_for": null,
-              "tips_total": null,
-              "pct": null
+              "pct": 70
             }
           ]
         }

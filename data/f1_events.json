@@ -2,7 +2,7 @@
   "schema_version": 1,
   "sport": "Formula 1",
   "season": 2026,
-  "fetched_at_utc": "2026-09-04T04:05:32.882Z",
+  "fetched_at_utc": "2026-09-04T13:27:15.619Z",
   "source": {
     "name": "ESPN Formula 1 public API (key-less)",
     "endpoints": [
@@ -61896,20 +61896,11 @@
               "winner": false
             },
             {
-              "athleteId": "5501",
-              "name": "Pierre Gasly",
-              "team": "Alpine",
-              "carNumber": "10",
-              "order": 3,
-              "startOrder": 9,
-              "winner": false
-            },
-            {
               "athleteId": "5790",
               "name": "Isack Hadjar",
               "team": "Red Bull",
               "carNumber": "6",
-              "order": 4,
+              "order": 3,
               "startOrder": 5,
               "winner": false
             },
@@ -61918,7 +61909,7 @@
               "name": "Oscar Piastri",
               "team": "McLaren",
               "carNumber": "81",
-              "order": 5,
+              "order": 4,
               "startOrder": 7,
               "winner": false
             },
@@ -61927,7 +61918,7 @@
               "name": "Liam Lawson",
               "team": "Racing Bulls",
               "carNumber": "30",
-              "order": 6,
+              "order": 5,
               "startOrder": 10,
               "winner": false
             },
@@ -61936,8 +61927,17 @@
               "name": "Arvid Lindblad",
               "team": "Racing Bulls",
               "carNumber": "41",
-              "order": 7,
+              "order": 6,
               "startOrder": 15,
+              "winner": false
+            },
+            {
+              "athleteId": "5501",
+              "name": "Pierre Gasly",
+              "team": "Alpine",
+              "carNumber": "10",
+              "order": 7,
+              "startOrder": 9,
               "winner": false
             },
             {
@@ -62089,24 +62089,24 @@
         "podium": [
           "5829",
           "868",
-          "5501"
+          "5790"
         ],
         "top6": [
           "5829",
           "868",
-          "5501",
           "5790",
           "5752",
-          "5741"
+          "5741",
+          "5855"
         ],
         "top10": [
           "5829",
           "868",
-          "5501",
           "5790",
           "5752",
           "5741",
           "5855",
+          "5501",
           "5592",
           "4678",
           "348"
@@ -62217,7 +62217,7 @@
             "name": "Isack Hadjar",
             "shortName": "I. Hadjar",
             "country": "France",
-            "order": 4,
+            "order": 3,
             "startOrder": 5,
             "winner": false,
             "team": "Red Bull",
@@ -62267,7 +62267,7 @@
             "name": "Oscar Piastri",
             "shortName": "O. Piastri",
             "country": "Australia",
-            "order": 5,
+            "order": 4,
             "startOrder": 7,
             "winner": false,
             "team": "McLaren",
@@ -62317,7 +62317,7 @@
             "name": "Pierre Gasly",
             "shortName": "P. Gasly",
             "country": "France",
-            "order": 3,
+            "order": 7,
             "startOrder": 9,
             "winner": false,
             "team": "Alpine",
@@ -62342,7 +62342,7 @@
             "name": "Liam Lawson",
             "shortName": "L. Lawson",
             "country": "New Zealand",
-            "order": 6,
+            "order": 5,
             "startOrder": 10,
             "winner": false,
             "team": "Racing Bulls",
@@ -62467,7 +62467,7 @@
             "name": "Arvid Lindblad",
             "shortName": "A. Lindblad",
             "country": "Britain",
-            "order": 7,
+            "order": 6,
             "startOrder": 15,
             "winner": false,
             "team": "Racing Bulls",
@@ -62717,37 +62717,11 @@
             "polePosition": false
           },
           {
-            "athleteId": "5501",
-            "name": "Pierre Gasly",
-            "shortName": "P. Gasly",
-            "country": "France",
-            "order": 3,
-            "startOrder": 9,
-            "winner": false,
-            "team": "Alpine",
-            "carNumber": "10",
-            "teamColor": "FFF500",
-            "dnf": false,
-            "status": "Classified",
-            "pointsEarned": 15,
-            "lapsCompleted": 78,
-            "lapsLed": null,
-            "pitsTaken": 4,
-            "pole": 9,
-            "top5": 1,
-            "top10": 1,
-            "wins": 0,
-            "finishTime": "2:23:51.612",
-            "finishTimeMs": 8631612,
-            "position": 3,
-            "polePosition": false
-          },
-          {
             "athleteId": "5790",
             "name": "Isack Hadjar",
             "shortName": "I. Hadjar",
             "country": "France",
-            "order": 4,
+            "order": 3,
             "startOrder": 5,
             "winner": false,
             "team": "Red Bull",
@@ -62755,7 +62729,7 @@
             "teamColor": "00327D",
             "dnf": false,
             "status": "Classified",
-            "pointsEarned": 12,
+            "pointsEarned": 15,
             "lapsCompleted": 78,
             "lapsLed": null,
             "pitsTaken": 4,
@@ -62765,7 +62739,7 @@
             "wins": 0,
             "finishTime": "2:23:54.637",
             "finishTimeMs": 8634637,
-            "position": 4,
+            "position": 3,
             "polePosition": false
           },
           {
@@ -62773,7 +62747,7 @@
             "name": "Oscar Piastri",
             "shortName": "O. Piastri",
             "country": "Australia",
-            "order": 5,
+            "order": 4,
             "startOrder": 7,
             "winner": false,
             "team": "McLaren",
@@ -62781,7 +62755,7 @@
             "teamColor": "FF8700",
             "dnf": false,
             "status": "Classified",
-            "pointsEarned": 10,
+            "pointsEarned": 12,
             "lapsCompleted": 78,
             "lapsLed": null,
             "pitsTaken": 5,
@@ -62791,7 +62765,7 @@
             "wins": 0,
             "finishTime": "2:23:55.504",
             "finishTimeMs": 8635504,
-            "position": 5,
+            "position": 4,
             "polePosition": false
           },
           {
@@ -62799,7 +62773,7 @@
             "name": "Liam Lawson",
             "shortName": "L. Lawson",
             "country": "New Zealand",
-            "order": 6,
+            "order": 5,
             "startOrder": 10,
             "winner": false,
             "team": "Racing Bulls",
@@ -62807,17 +62781,17 @@
             "teamColor": "6692FF",
             "dnf": false,
             "status": "Classified",
-            "pointsEarned": 8,
+            "pointsEarned": 10,
             "lapsCompleted": 78,
             "lapsLed": null,
             "pitsTaken": 4,
             "pole": 10,
-            "top5": 0,
+            "top5": 1,
             "top10": 1,
             "wins": 0,
             "finishTime": "2:23:57.796",
             "finishTimeMs": 8637796,
-            "position": 6,
+            "position": 5,
             "polePosition": false
           },
           {
@@ -62825,7 +62799,7 @@
             "name": "Arvid Lindblad",
             "shortName": "A. Lindblad",
             "country": "Britain",
-            "order": 7,
+            "order": 6,
             "startOrder": 15,
             "winner": false,
             "team": "Racing Bulls",
@@ -62833,7 +62807,7 @@
             "teamColor": "6692FF",
             "dnf": false,
             "status": "Classified",
-            "pointsEarned": 6,
+            "pointsEarned": 8,
             "lapsCompleted": 78,
             "lapsLed": null,
             "pitsTaken": 4,
@@ -62843,6 +62817,32 @@
             "wins": 0,
             "finishTime": "2:24:00.253",
             "finishTimeMs": 8640253,
+            "position": 6,
+            "polePosition": false
+          },
+          {
+            "athleteId": "5501",
+            "name": "Pierre Gasly",
+            "shortName": "P. Gasly",
+            "country": "France",
+            "order": 7,
+            "startOrder": 9,
+            "winner": false,
+            "team": "Alpine",
+            "carNumber": "10",
+            "teamColor": "FFF500",
+            "dnf": false,
+            "status": "Classified",
+            "pointsEarned": 6,
+            "lapsCompleted": 78,
+            "lapsLed": null,
+            "pitsTaken": 4,
+            "pole": 9,
+            "top5": 0,
+            "top10": 1,
+            "wins": 0,
+            "finishTime": "2:24:01.612",
+            "finishTimeMs": 8641612,
             "position": 7,
             "polePosition": false
           },
@@ -76685,8 +76685,207 @@
           "type": "FP1",
           "label": "Free Practice",
           "date": "2026-09-04T10:30Z",
-          "completed": false,
-          "competitors": []
+          "completed": true,
+          "competitors": [
+            {
+              "athleteId": "5498",
+              "name": "Charles Leclerc",
+              "team": "Ferrari",
+              "carNumber": "16",
+              "order": 1,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "868",
+              "name": "Lewis Hamilton",
+              "team": "Ferrari",
+              "carNumber": "44",
+              "order": 2,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5503",
+              "name": "George Russell",
+              "team": "Mercedes",
+              "carNumber": "63",
+              "order": 3,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5741",
+              "name": "Liam Lawson",
+              "team": "Red Bull",
+              "carNumber": "30",
+              "order": 4,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5829",
+              "name": "Kimi Antonelli",
+              "team": "Mercedes",
+              "carNumber": "12",
+              "order": 5,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5579",
+              "name": "Lando Norris",
+              "team": "McLaren",
+              "carNumber": "1",
+              "order": 6,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5855",
+              "name": "Arvid Lindblad",
+              "team": "Racing Bulls",
+              "carNumber": "41",
+              "order": 7,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5835",
+              "name": "Gabriel Bortoleto",
+              "team": "Audi",
+              "carNumber": "5",
+              "order": 8,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5823",
+              "name": "Franco Colapinto",
+              "team": "Alpine",
+              "carNumber": "43",
+              "order": 9,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5854",
+              "name": "Paul Aron",
+              "team": "Alpine",
+              "carNumber": "61",
+              "order": 10,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5752",
+              "name": "Oscar Piastri",
+              "team": "McLaren",
+              "carNumber": "81",
+              "order": 11,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5652",
+              "name": "Yuki Tsunoda",
+              "team": "Racing Bulls",
+              "carNumber": "22",
+              "order": 12,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "4396",
+              "name": "Nico Hülkenberg",
+              "team": "Audi",
+              "carNumber": "27",
+              "order": 13,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5789",
+              "name": "Oliver Bearman",
+              "team": "Haas",
+              "carNumber": "87",
+              "order": 14,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5833",
+              "name": "Luke Browning",
+              "team": "Williams",
+              "carNumber": "46",
+              "order": 15,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "4686",
+              "name": "Carlos Sainz",
+              "team": "Williams",
+              "carNumber": "55",
+              "order": 16,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5808",
+              "name": "Ayumu Iwasa",
+              "team": "Red Bull",
+              "carNumber": "36",
+              "order": 17,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "4678",
+              "name": "Esteban Ocon",
+              "team": "Haas",
+              "carNumber": "31",
+              "order": 18,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "4520",
+              "name": "Valtteri Bottas",
+              "team": "Cadillac",
+              "carNumber": "77",
+              "order": 19,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "4775",
+              "name": "Lance Stroll",
+              "team": "Aston Martin",
+              "carNumber": "18",
+              "order": 20,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "348",
+              "name": "Fernando Alonso",
+              "team": "Aston Martin",
+              "carNumber": "14",
+              "order": 21,
+              "startOrder": null,
+              "winner": false
+            },
+            {
+              "athleteId": "5892",
+              "name": "Colton Herta",
+              "team": "Cadillac",
+              "carNumber": "25",
+              "order": 22,
+              "startOrder": null,
+              "winner": false
+            }
+          ]
         },
         {
           "type": "FP2",

@@ -295,9 +295,31 @@
       "settlementUrls": [
         "https://en.wikipedia.org/wiki/2026_All-Ireland_Senior_Football_Championship"
       ]
+    },
+    {
+      "matchId": "olbg-3443",
+      "matchTitle": "Michael Glaveys v Elphin",
+      "event": "County football championship",
+      "round": "Championship round",
+      "dateISO": "2026-09-05",
+      "code": "football",
+      "predictedWinner": "Michael Glaveys",
+      "confidence": "SKIP",
+      "modelScore": 25,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Michael Glaveys**",
+      "paragraph": "**Michael Glaveys** arrives with the firmer sourced record, because no recent meetings on the sourced tape, the business end of the championship. Trust the deeper championship run where it exists. Public data is thin, so the call stays cautious. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-04T13:28:43Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Michael_Glaveys_v_Elphin/25?event_id=3443",
+        "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+      ],
+      "status": "pending",
+      "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-04T04:06:25Z",
+  "updatedAtUtc": "2026-09-04T13:28:43Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_gaa_predictions.mjs from the committed source-linked documents.",
     "Nothing in this ledger is hand-written."

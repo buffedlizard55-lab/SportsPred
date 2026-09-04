@@ -8,7 +8,7 @@
       "https://www.olbg.com/betting-tips/Motor_Racing/14",
       "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/14"
     ],
-    "fetched_at_utc": "2026-09-04T04:05:25Z",
+    "fetched_at_utc": "2026-09-04T13:27:02Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/F1_SOURCES.md."
   },
@@ -31,10 +31,10 @@
       "consensus": {
         "market": "Fastest Qualifier",
         "selection": "Lando Norris",
-        "tips_for": 14,
-        "tips_total": 23,
-        "pct": 61,
-        "comments": 7,
+        "tips_for": 15,
+        "tips_total": 28,
+        "pct": 54,
+        "comments": 8,
         "experts": 1
       },
       "markets_verified": true,
@@ -56,63 +56,22 @@
       "consensus": {
         "market": "Win Race",
         "selection": "Lando Norris",
-        "tips_for": 12,
-        "tips_total": 27,
-        "pct": 44,
-        "comments": 4,
+        "tips_for": 13,
+        "tips_total": 28,
+        "pct": 46,
+        "comments": 7,
         "experts": 1
       },
-      "markets_verified": false,
+      "markets_verified": true,
       "track_history": null,
       "resolved_date": "2026-09-06",
       "date_basis": "observed",
-      "markets_on_event_page": []
+      "markets_on_event_page": [
+        "Win Race",
+        "Fastest Lap",
+        "Podium Finish"
+      ]
     }
   ],
-  "outrights": [
-    {
-      "event_id": "827",
-      "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Constructors_Championship_2026/14?event_id=827",
-      "slug": "Formula_1_Constructors_Championship_2026",
-      "event_name": "Formula 1 Constructors Championship 2026",
-      "display_date": "06 Dec",
-      "display_time": "13:00",
-      "type": "outright",
-      "consensus": {
-        "market": "Win Tournament",
-        "selection": "McLaren",
-        "tips_for": 8,
-        "tips_total": 32,
-        "pct": 25,
-        "comments": 1,
-        "experts": 0
-      },
-      "markets_verified": false,
-      "track_history": null,
-      "resolved_date": "2026-12-06",
-      "date_basis": "observed"
-    },
-    {
-      "event_id": "828",
-      "url": "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/Formula_1_Drivers_Championship_2026/14?event_id=828",
-      "slug": "Formula_1_Drivers_Championship_2026",
-      "event_name": "Formula 1 Drivers Championship 2026",
-      "display_date": "06 Dec",
-      "display_time": "13:00",
-      "type": "outright",
-      "consensus": {
-        "market": "Win Tournament",
-        "selection": "Isack Hadjar",
-        "tips_for": 0,
-        "tips_total": 27,
-        "pct": null,
-        "comments": 0,
-        "experts": 0
-      },
-      "markets_verified": false,
-      "track_history": null,
-      "resolved_date": "2026-12-06",
-      "date_basis": "observed"
-    }
-  ]
+  "outrights": []
 }

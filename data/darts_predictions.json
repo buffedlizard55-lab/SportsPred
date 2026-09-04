@@ -1271,7 +1271,7 @@
       "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-04T04:06:24Z",
+  "updatedAtUtc": "2026-09-04T13:28:42Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_darts_predictions.mjs from the committed source-linked documents.",
     "Settlement runs in CI from the official results tape; values are matched by player names.",

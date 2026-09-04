@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "Formula 1",
-  "fetched_at_utc": "2026-09-04T04:05:32.941Z",
+  "fetched_at_utc": "2026-09-04T13:27:15.761Z",
   "source": {
     "url": "https://site.api.espn.com/apis/v2/sports/racing/f1/standings"
   },
@@ -517,7 +517,7 @@
       "color": null,
       "flagCountry": "Australia",
       "rank": 7,
-      "points": 104,
+      "points": 106,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -553,7 +553,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 10,
+          "points": 12,
           "played": true
         },
         "600057435": {
@@ -601,7 +601,7 @@
       "color": null,
       "flagCountry": "France",
       "rank": 8,
-      "points": 68,
+      "points": 71,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -637,7 +637,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 12,
+          "points": 15,
           "played": true
         },
         "600057435": {
@@ -679,7 +679,7 @@
       "color": null,
       "flagCountry": "New Zealand",
       "rank": 9,
-      "points": 49,
+      "points": 51,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -715,7 +715,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 8,
+          "points": 10,
           "played": true
         },
         "600057435": {
@@ -763,7 +763,7 @@
       "color": null,
       "flagCountry": "France",
       "rank": 10,
-      "points": 44,
+      "points": 35,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -799,7 +799,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 15,
+          "points": 6,
           "played": true
         },
         "600057435": {
@@ -847,7 +847,7 @@
       "color": null,
       "flagCountry": "Britain",
       "rank": 11,
-      "points": 23,
+      "points": 25,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -883,7 +883,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 6,
+          "points": 8,
           "played": true
         },
         "600057435": {
@@ -2043,7 +2043,7 @@
       "color": "FF8700",
       "flagCountry": null,
       "rank": 3,
-      "points": 263,
+      "points": 265,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -2079,7 +2079,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 10,
+          "points": 12,
           "played": true
         },
         "600057435": {
@@ -2127,7 +2127,7 @@
       "color": "00327D",
       "flagCountry": null,
       "rank": 4,
-      "points": 186,
+      "points": 189,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -2163,7 +2163,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 12,
+          "points": 15,
           "played": true
         },
         "600057435": {
@@ -2211,7 +2211,7 @@
       "color": "6692FF",
       "flagCountry": null,
       "rank": 5,
-      "points": 66,
+      "points": 70,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -2247,7 +2247,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 14,
+          "points": 18,
           "played": true
         },
         "600057435": {
@@ -2295,7 +2295,7 @@
       "color": "FFF500",
       "flagCountry": null,
       "rank": 6,
-      "points": 63,
+      "points": 54,
       "topFinish": null,
       "perRace": {
         "600057427": {
@@ -2331,7 +2331,7 @@
         "600057434": {
           "abbreviation": "MCO",
           "displayName": "Monaco Grand Prix",
-          "points": 15,
+          "points": 6,
           "played": true
         },
         "600057435": {
