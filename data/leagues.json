@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-04T04:13:46.112Z",
+  "generated_at_utc": "2026-09-04T04:46:11.903Z",
   "generator": "scripts/build_league_registry.mjs",
   "method": "Each league below was proven by calling its ESPN scoreboard endpoint and recording the HTTP status and the league name ESPN returned. Leagues that did not answer 200 are retained with ok:false so the failure is visible rather than silently dropped.",
   "sports": {
@@ -1239,7 +1239,7 @@
     "snooker": {
       "espnSport": null,
       "leagues": [],
-      "note": "Snooker runs on the OLBG market/slate feed plus the public snooker.org results pages and the official WST ranking table. There is no free key-less price feed, so the odds component is scored as missing and Step 3 returns SKIP for live cards (confidence capped); see docs/SNOOKER_IRREGULARITIES.md. Predictions are written by the SNOOKER PREDICTION MASTER PROMPT v3.0 writer."
+      "note": "Snooker runs on the OLBG market/slate feed plus the public snooker.org results pages and the official WST ranking table. There is no free key-less price feed, so the odds component is scored as missing and Step 3 returns SKIP for live cards (confidence capped); see docs/SNOOKER_IRREGULARITIES.md. Predictions are written by the SNOOKER PREDICTION MASTER PROMPT v3.0 writer. Championship League Snooker has its own sub-page (championship-league.html) scored by the CHAMPIONSHIP LEAGUE SNOOKER PREDICTION MASTER PROMPT v1.0. It is an overlay, not a replacement: every other snooker event keeps the generic prompt. The overlay covers three markets (match result, correct score, group winner), treats the 2-2 draw as a genuine outcome in the ranking edition, and refuses to score until the edition (ranking or invitational) is stated, because the two use different match formats. Verified tape: data/snooker_cls.json; walk-forward ledger: data/snooker_cls_backtest.json."
     },
     "horse-racing": {
       "espnSport": null,

@@ -556,11 +556,16 @@ export const SPORTS = [
     unit: 'frames',
     specialistEngine: 'snooker',
     page: 'snooker.html',
+    subPages: [
+      { key: 'snooker', label: 'All snooker', href: 'snooker.html', name: 'Every snooker market on the OLBG slate — SNOOKER PREDICTION MASTER PROMPT v3.0' },
+      { key: 'championship-league', label: 'Championship League', href: 'championship-league.html', name: 'Championship League Snooker — CHAMPIONSHIP LEAGUE SNOOKER PREDICTION MASTER PROMPT v1.0 (match result, correct score, group winner; draw treated as a genuine outcome)' },
+    ],
     officialLinks: [
       { label: 'OLBG Snooker Tips', url: olbgUrl('Snooker', 8) },
       { label: 'World Snooker Tour', url: 'https://www.wst.tv/' },
       { label: 'WST Rankings', url: 'https://www.wst.tv/rankings' },
       { label: 'snooker.org Results', url: 'https://www.snooker.org/res/index.asp' },
+      { label: 'Championship League Snooker (official)', url: 'https://championshipleaguesnooker.co.uk/ranking/' },
     ],
     candidateLeagues: [
       { slug: 'british-open', name: 'Unibet British Open' },
@@ -568,7 +573,7 @@ export const SPORTS = [
       { slug: 'wuhan-open', name: 'Wuhan Open' },
       { slug: 'shanghai-masters', name: 'Shanghai Masters' },
     ],
-    notes: ['Snooker runs on the OLBG market/slate feed plus the public snooker.org results pages and the official WST ranking table. There is no free key-less price feed, so the odds component is scored as missing and Step 3 returns SKIP for live cards (confidence capped); see docs/SNOOKER_IRREGULARITIES.md. Predictions are written by the SNOOKER PREDICTION MASTER PROMPT v3.0 writer.'],
+    notes: ['Snooker runs on the OLBG market/slate feed plus the public snooker.org results pages and the official WST ranking table. There is no free key-less price feed, so the odds component is scored as missing and Step 3 returns SKIP for live cards (confidence capped); see docs/SNOOKER_IRREGULARITIES.md. Predictions are written by the SNOOKER PREDICTION MASTER PROMPT v3.0 writer.', 'Championship League Snooker has its own sub-page (championship-league.html) scored by the CHAMPIONSHIP LEAGUE SNOOKER PREDICTION MASTER PROMPT v1.0. It is an overlay, not a replacement: every other snooker event keeps the generic prompt. The overlay covers three markets (match result, correct score, group winner), treats the 2-2 draw as a genuine outcome in the ranking edition, and refuses to score until the edition (ranking or invitational) is stated, because the two use different match formats. Verified tape: data/snooker_cls.json; walk-forward ledger: data/snooker_cls_backtest.json.'],
   },
   {
     key: 'horse-racing',
