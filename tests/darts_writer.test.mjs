@@ -103,3 +103,32 @@ test('openers and angles rotate (the generator has 10+8 distinct shapes)', () =>
   assert.equal(new Set(OPENERS).size, OPENERS.length);
   assert.equal(new Set(ANGLES).size, ANGLES.length);
 });
+
+test('a player whose name contains a banned word is not rejected for it', () => {
+  /* Gerwyn Price tripped the "price" token in FORBIDDEN_TOKENS. That was
+   * unwinnable: the next rule requires the winner's name in the paragraph, so
+   * the writer could neither name him nor omit him and every tip for that
+   * match published as a violation. Real defect, seen on the committed slate. */
+  const p = { ...writePrediction(base()),
+    matchTitle: 'Gerwyn Price vs Callan Rydz',
+    leanName: 'Gerwyn Price',
+    paragraph: 'Gerwyn Price carries the sharper scoring profile in this one, backed '
+      + 'by a deeper run of recent results, and that profile should hold up well '
+      + 'against the kind of opposition Callan Rydz has offered lately.' };
+  const v = validatePrediction(p);
+  assert.ok(!v.violations.some((x) => /price/.test(x)),
+    `name rejected as a banned token: ${v.violations.join(', ')}`);
+});
+
+test('masking a player name does not open a loophole for betting language', () => {
+  // The ban must still fire when the token appears outside the player's name.
+  const p = { ...writePrediction(base()),
+    matchTitle: 'Gerwyn Price vs Callan Rydz',
+    leanName: 'Gerwyn Price',
+    paragraph: 'Gerwyn Price carries the sharper scoring profile in this one and the '
+      + 'price on offer looks generous, so that profile should hold up well '
+      + 'against the kind of opposition Callan Rydz has offered lately.' };
+  const v = validatePrediction(p);
+  assert.ok(v.violations.some((x) => /forbidden token: "price"/.test(x)),
+    'betting language slipped through the name mask');
+});
