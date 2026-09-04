@@ -82,6 +82,12 @@ jobs:
         if: steps.record.outcome == 'failure'
         run: echo "::warning::baseball ledger recording failed; committed ledger unchanged."
 
+      # Must run after every collector and before validation: the register is
+      # derived from the freshly written documents, so regenerating it here is
+      # what keeps its endpoint counts and coverage figures from going stale.
+      - name: Rebuild the baseball source register
+        run: node scripts/build_baseball_provenance.mjs
+
       - name: Validate the baseball layer
         run: python3 scripts/build_data.py --strict
 

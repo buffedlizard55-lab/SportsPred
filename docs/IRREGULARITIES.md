@@ -188,14 +188,42 @@ only be confirmed by a CI run with network access. Sources for manual verificati
 
 ---
 
-## IRR-004 — `baseball-page.js` fetches a file that is not committed
+## IRR-004 — `baseball-page.js` fetches a file that is not committed — **RESOLVED**
 
-**Severity:** Low · **Pre-existing**
+**Severity:** Low · **Pre-existing** · **Fixed**
 
-`assets/js/baseball-page.js:102` fetches `data/baseball_provenance.json`, which
-does not exist in the repository. `node scripts/verify_site.mjs` reports this on
-every run. The site degrades gracefully — the panel renders empty rather than
-throwing — but CI should build the file. Confirmed still present at `a067d25`.
+`assets/js/baseball-page.js:102` fetched `data/baseball_provenance.json`, which
+did not exist in the repository, so the Sources panel on the baseball page
+always rendered *"No provenance document committed."* Every other sport emits
+its register from its collector, but `scripts/collect_baseball_mlb.mjs` writes
+its five data documents and never wrote one.
+
+**Fix.** `scripts/build_baseball_provenance.mjs` now derives the register from
+the endpoint arrays already recorded inside the committed baseball documents,
+plus a replay of the scoring engine to count missing factors. Nothing in the
+file is hand-entered, so it cannot drift from the data it describes:
+
+- **3 sources** — `statsapi.mlb.com` (267 requests, 267 ok), `site.api.espn.com`
+  (43/43), and the OLBG baseball index. All requests in the committed run
+  returned HTTP 200.
+- **Coverage** — 23 dates, `2026-09-04` … `2026-09-26`, 294 fixtures scored,
+  882 tips generated, 113 published, 769 skipped.
+- **12 missing factors**, each with the number of fixtures it affects.
+- **5 irregularities**, each carrying an `evidence` field naming the file and
+  key that proves it.
+
+The OLBG slate collector records no HTTP status code, so that source carries
+`status: null` rather than an assumed `200`, and the page renderer was changed
+to omit the status rather than print `HTTP null`.
+
+`validate_baseball_provenance` in `scripts/build_data.py` now guards the file
+under `--strict`: sources must be https, state what they provide and carry a
+verification timestamp; a recorded status may be absent but may not be a
+failure; and `coverage.fixtures_scored` must equal the committed fixture count
+with the tip arithmetic reconciling. 14 Python tests and 9 Node tests cover it.
+
+`node scripts/verify_site.mjs` is now clean: *"checked 21 pages, 106 modules,
+130 JSON files — no problems found."*
 
 ---
 
@@ -207,8 +235,9 @@ throwing — but CI should build the file. Confirmed still present at `a067d25`.
   below-threshold verdicts.
 - **All automated checks pass** at `a067d25`: 896 Node tests (including the
   jsdom DOM suite, 0 skipped), 96 Python tests, `verify_site.mjs` clean apart
-  from IRR-004, and `build_data.py --strict` reporting *"All committed data
-  files are well-formed, complete, and provenance-verified."*
+  and `build_data.py --strict` reporting *"All committed data files are
+  well-formed, complete, and provenance-verified."* IRR-004 is now resolved, so
+  `verify_site` reports no problems at all.
 - **The Generate button works.** A jsdom boot of `pro.html` with the committed
   data renders 48 handball tips on click, confirmed this session.
 

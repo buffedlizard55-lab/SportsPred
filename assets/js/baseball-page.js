@@ -526,9 +526,18 @@ function renderBacktest() {
 function renderSources() {
   const p = state.docs?.provenance;
   if (!p?.sources?.length) { $('#sources').textContent = 'No provenance document committed.'; return; }
-  $('#sources').innerHTML = `<div class="srclist">${p.sources.map((s) => `
+  // A source may legitimately carry no HTTP status (the OLBG slate collector
+  // records none), so the status and request count are shown only when the
+  // register actually holds them rather than printing "HTTP null".
+  $('#sources').innerHTML = `<div class="srclist">${p.sources.map((s) => {
+    const bits = [esc((s.provides || []).join(', '))];
+    if (s.verified_utc) bits.push(`verified ${esc(s.verified_utc)}`);
+    if (s.status != null) bits.push(`HTTP ${esc(String(s.status))}`);
+    if (s.requests != null) bits.push(`${esc(String(s.requests_ok))}/${esc(String(s.requests))} requests ok`);
+    return `
     <div><a href="${esc(s.url)}" target="_blank" rel="noopener noreferrer">${esc(s.name)} ↗</a>
-    <div class="meta-line">${esc((s.provides || []).join(', '))} · verified ${esc(s.verified_utc || '')} · HTTP ${esc(String(s.status))}</div></div>`).join('')}
+    <div class="meta-line">${bits.filter(Boolean).join(' · ')}</div></div>`;
+  }).join('')}
     <div class="meta-line" style="margin-top:6px">${(p.irregularities || []).map((i) => `<div><strong>${esc(i.id)}</strong> ${esc(i.title)} — ${esc(i.effect)}</div>`).join('')}</div>
   </div>`;
 }
