@@ -30,10 +30,59 @@ This is an implementation review, not a claim that every requested field is avai
 
 ## Current implementation note
 
-The scoreboard now uses the dedicated `engine/nba_writer.js` presentation layer. When a market clears the scorer's threshold it renders the required ordered trio — WIN MATCH, POINT SPREAD, and GAME TOTAL — as separate copy-ready blocks. The blocks deliberately omit player names, venue names, odds, and line figures. A missing or skipped market remains explicitly withheld; the writer never turns absent evidence into a selection.
+The scoreboard now uses a dedicated NBA v5.0 engine (`engine/nba_engine.js`) plus the
+`engine/nba_writer.js` presentation layer.
 
-## Recommended next implementation
+`nba_engine.js` implements STEP 2's 100-point rubric **exactly**, line by line:
 
-Add a dedicated `nba_engine.js` backed by two independently archived odds sources, an official injury/availability source, and a reproducible historical odds store. Until those feeds exist, NBA scorecards must continue to withhold unsupported markets. The current dedicated writer is a formatting/compliance improvement, not a claim that those missing data sources have been found.
+- **WIN MATCH**: odds strength (30) · recent form last-5 with the +5 streak bonus (25) ·
+  head-to-head (20) · season record with the opponent-higher −5 (15) · context & home
+  court with the strong-home-split +3 (10).
+- **POINT SPREAD**: the moneyline factors as base, context replaced by the ATS-trend
+  bucket, plus the injury (+8/+3/0) and fatigue (±5) modifiers.
+- **GAME TOTAL**: offensive pace (35) · defensive efficiency (25) · injury impact on
+  scoring (20) · recent over/under trends (20).
+- **STEP 3**: ≥70 HIGH, 50–69 MEDIUM (small bet), <50 SKIP; a moneyline of −300 or
+  heavier requires 75+; confidence is further capped by data completeness.
+
+Every bucket that has no free key-less source is scored 0 and recorded in `missing[]`
+with its reason — never inferred. In practice this means:
+
+- **Game total** resolves to SKIP on the free feed, because pace ratings, defensive
+  efficiency, a date-specific injury feed, and post-game closing totals are not
+  available key-less. That is the correct, honest outcome, not a failure.
+- **WIN MATCH and POINT SPREAD** produce real scores once a team has season records,
+  a results tape (for form, head-to-head and rest), and a posted moneyline. The single
+  ESPN-republished odds source is used but the missing second source is flagged, and
+  ATS/injury/conference-rank buckets stay withheld.
+
+`nba_writer.js` enforces STEP 4's output contract: three tips in prompt order, 40+
+words, the selection bolded within the first 15 words, no player/injury/venue/odds/line
+figures, no links or citations, no two tips sharing an opening word, confidence stated
+as LOW/MEDIUM/HIGH (or SKIP), and none of the banned phrases or internal-process
+language (model, edge, EV, implied probability, thresholds, filters, backtests).
+
+## What is still withheld (and why)
+
+The following STEP 1/2 inputs still have **no free, key-less, reproducible source**, so
+they are recorded as missing rather than estimated:
+
+1. A **second independent closing-odds source** (ESPN republishes a single book).
+2. **ATS trends (last 10 covers)** — no free feed retains point-spread covers.
+3. **Conference-rank standings** (top-3 / 4–6 / 7–10 tiers) — the ESPN standings
+   feed is wired (`scripts/collect_basketball_espn.mjs` → `data/basketball_standings.json`,
+   consumed by `buildStandingsMap`). Until that document is committed, the engine
+   falls back to season win-rate and records `NBA-STANDINGS` in `missing[]`.
+4. **Date-specific injury/availability impact** — the official NBA injury report is
+   linked for manual review but is not a structured feed.
+5. **Pace ratings and defensive efficiency** — not in the scoreboard feed.
+6. **Game-stakes tier** (high/mid/low context).
+
+A dedicated collector (`scripts/collect_basketball_espn.mjs`) now produces the
+committed results tape (`data/basketball_tape.json`) and standings snapshot, and
+`scripts/backtest_basketball.mjs` runs a leak-free walk-forward backtest that grades
+WIN MATCH per confidence band (SPREAD/TOTAL are reported as ungraded because no
+key-less feed retains a closing line once a game is final). Closing odds are still
+not archived, so the backtest runs without the odds-strength bucket and says so.
 
 Manual review links: [ESPN NBA scoreboard](https://www.espn.com/nba/scoreboard), [NBA official stats](https://www.nba.com/stats), [NBA official injury report](https://official.nba.com/nba-injury-report-2025-26-season/), and [OLBG Basketball](https://www.olbg.com/betting-tips/Basketball/4).

@@ -49,6 +49,28 @@ function historyPayload() {
   return { leagues: [{ id: '700', name: 'English Premier League', slug: 'eng.1', calendar: [] }], events };
 }
 
+/** A single upcoming NBA game (Boston @ Detroit), no odds block, matching the real ESPN shape. */
+function basketballFixture() {
+  return {
+    leagues: [{ id: '46', name: 'National Basketball Association', slug: 'nba', abbreviation: 'NBA', season: { year: 2027 }, calendar: ['2026-10-20T07:00Z', '2026-10-21T07:00Z'] }],
+    events: [
+      {
+        id: '401909088', date: '2026-10-20T19:00Z', name: 'Boston Celtics at Detroit Pistons', shortName: 'BOS @ DET',
+        season: { year: 2027, type: 2 },
+        competitions: [{
+          id: '401909088', date: '2026-10-20T19:00Z', type: { id: '1', abbreviation: 'STD' }, neutralSite: false,
+          status: { type: { state: 'pre', shortDetail: '7:00 PM' } },
+          venue: { id: '5404', fullName: 'Little Caesars Arena', address: { city: 'Detroit', state: 'MI' } },
+          competitors: [
+            { id: '8', homeAway: 'home', team: { id: '8', displayName: 'Detroit Pistons', shortDisplayName: 'Pistons', abbreviation: 'DET' }, records: [{ name: 'overall', type: 'total', summary: '0-0' }] },
+            { id: '2', homeAway: 'away', team: { id: '2', displayName: 'Boston Celtics', shortDisplayName: 'Celtics', abbreviation: 'BOS' }, records: [{ name: 'overall', type: 'total', summary: '0-0' }] },
+          ],
+        }],
+      },
+    ],
+  };
+}
+
 const golfPost = JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/espn_golf_leaderboard.EXCERPT.json'), 'utf8'));
 const golfPre = JSON.parse(readFileSync(join(ROOT, 'tests/fixtures/espn_golf_leaderboard_pre.EXCERPT.json'), 'utf8'));
 
@@ -227,6 +249,18 @@ function makeFetch(counters) {
       if (/dates=20260903/.test(u)) return ok({ leagues: volleyballFixture.leagues, events: [] });
       return ok(volleyballFixture);
     }
+    if (u.includes('/sports/basketball/')) {
+      const m = u.match(/\/sports\/basketball\/([a-z-]+)\/scoreboard/);
+      const slug = m ? m[1] : 'nba';
+      // 3 September is the NBA/WNBA break: no games today, but the NBA league
+      // calendar already registers the 20 October opening week.
+      if (/dates=20260903/.test(u)) {
+        const cal = slug === 'nba' ? ['2026-10-20T07:00Z', '2026-10-21T07:00Z', '2026-10-22T07:00Z'] : [];
+        return ok({ leagues: [{ id: '46', name: 'National Basketball Association', slug, calendar: cal }], events: [] });
+      }
+      if (/dates=20261020/.test(u) && slug === 'nba') return ok(basketballFixture());
+      return ok({ leagues: [{ id: '46', slug, calendar: [] }], events: [] });
+    }
     if (u.includes('data/baseball_')) {
       const bb = baseballDocs();
       if (u.includes('baseball_fixtures.json')) return ok(bb.fixtures);
@@ -368,6 +402,49 @@ test('sport.html boots, renders the board and auto-generates a prediction', { sk
     const opts = document.querySelectorAll('#league-filter option');
     assert.ok(opts.length >= 2, 'league filter populated');
     assert.match(document.querySelector('#registry-note').textContent, /machine-verified/);
+  } finally { cleanup(); }
+});
+
+test('sport.html on an empty (offseason) date auto-advances to the next game day', { skip: !JSDOM }, async () => {
+  // 2026-09-03 is the NBA/WNBA break. The page must not sit on a blank board
+  // (which made the Generate button look broken); it should hop forward to the
+  // next date the ESPN calendar registers a game and render that slate.
+  const { document, counters } = await bootPage('sport.html', { search: '?sport=basketball&date=2026-09-03' });
+  try {
+    assert.equal(document.querySelector('#date-input').value, '2026-10-20',
+      'the page advanced off the empty date to the next game day');
+    assert.ok(counters.calls.some((u) => u.includes('dates=20261020')), 'the next game day was fetched');
+    const rows = document.querySelectorAll('#board .match');
+    assert.ok(rows.length >= 1, 'the next slate rendered at least one match row');
+    assert.match(document.body.textContent, /Boston Celtics|Detroit Pistons/);
+  } finally { cleanup(); }
+});
+
+test('basketball uses the NBA v5 engine and renders its three-market analysis', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('sport.html', { search: '?sport=basketball&date=2026-10-20' });
+  try {
+    // The slate renders.
+    const rows = document.querySelectorAll('#board .match');
+    assert.ok(rows.length >= 1, 'at least one NBA match row rendered');
+
+    // Opening a match's Analysis must show the NBA v5 ordered trio — the
+    // generic universal engine labels these Moneyline/Handicap/Total instead,
+    // so the presence of WIN MATCH / POINT SPREAD / GAME TOTAL proves the
+    // dedicated engine is wired in.
+    const toggle = document.querySelector('[data-toggle]');
+    assert.ok(toggle, 'an analysis toggle exists');
+    toggle.dispatchEvent(new window.Event('click', { bubbles: true }));
+    await new Promise((r) => setTimeout(r, 30));
+    const detail = document.querySelector('.detail.open');
+    assert.ok(detail, 'the detail panel opened');
+    const text = detail.textContent;
+    assert.match(text, /WIN MATCH/);
+    assert.match(text, /POINT SPREAD/);
+    assert.match(text, /GAME TOTAL/);
+
+    // Opening week has no form/odds/records, so the honest output is SKIP with
+    // the missing inputs disclosed — never a fabricated pick.
+    assert.match(text, /SKIP|not available|Not available|missing/i);
   } finally { cleanup(); }
 });
 
@@ -776,13 +853,20 @@ test('volleyball.html on 3 September renders EuroVolley QFs and separate NCAA ro
     assert.match(text, /EuroVolley/);
     // The refreshed committed tape legitimately carries NCAA fixtures on
     // 2026-09-03 as well; they must render in their own family rows, never
-    // as form/data on the EuroVolley sides.
+    // as form/data on the EuroVolley sides. The exact NCAA teams on a date
+    // move with every collector run, so read them from the committed document
+    // instead of hard-coding a school that may have moved off the date.
+    const volDoc = JSON.parse(readFileSync(join(ROOT, 'data/volleyball_matches.json'), 'utf8'));
+    const ncaaNames = (volDoc.matches || [])
+      .filter((m) => m.family === 'ncaa' && m.dateISO === '2026-09-03')
+      .flatMap((m) => [m.home, m.away]).filter(Boolean);
+    assert.ok(ncaaNames.length, 'the committed document carries an NCAA fixture on this date');
     const rows = [...document.querySelectorAll('#board .match')];
     const euro = rows.find((r) => r.textContent.includes('Poland') && r.textContent.includes('Netherlands'));
     assert.ok(euro, 'EuroVolley fixture renders');
     assert.match(euro.querySelector('.meta-line').textContent, /EuroVolley tape/);
-    assert.ok(!/Nebraska Cornhuskers/.test(euro.textContent), 'EuroVolley card carries no NCAA side');
-    const ncaa = rows.find((r) => r.textContent.includes('Nebraska Cornhuskers'));
+    for (const n of ncaaNames) assert.ok(!euro.textContent.includes(n), 'EuroVolley card carries no NCAA side');
+    const ncaa = rows.find((r) => ncaaNames.some((n) => r.textContent.includes(n)));
     assert.ok(ncaa, 'the committed NCAA fixture on this date renders in its own row');
     assert.match(ncaa.querySelector('.meta-line').textContent, /NCAA \/ ESPN/);
     const toggle = document.querySelector('[data-toggle]');
