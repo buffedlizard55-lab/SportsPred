@@ -18,6 +18,7 @@ import {
 } from './golf_data.js';
 import { scoreGolfEvent, CONFIDENCE, MARKET_ORDER } from './golf_engine.js';
 import { writeGolfCard, validateGolfCard } from './golf_writer.js';
+import { scoreEvent, writeEventCard, validateEventCard } from './golf_event_profiles.js';
 
 /* ------------------------------------------------------------------ *
  * lookups
@@ -91,8 +92,13 @@ export function eventFromDoc(eventsDoc, eventId) {
  * Build the scored + written card for one event.
  * @returns {object|null} null when the event is unknown
  */
+/** Lower-cased cited links venues (data/golf_links_courses.json). */
+export function linksCourseSet(linksDoc) {
+  return new Set((linksDoc?.courses || []).map((c) => String(c.espnCourseNameLower || c.espnCourseName || '').toLowerCase()).filter(Boolean));
+}
+
 export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
-  const { eventsDoc, resultsDoc, rankingsDoc = null, statsDoc = null, weatherDoc = null, slateDoc = null } = docs || {};
+  const { eventsDoc, resultsDoc, rankingsDoc = null, statsDoc = null, weatherDoc = null, slateDoc = null, linksDoc = null } = docs || {};
   const event = eventFromDoc(eventsDoc, eventId);
   if (!event) return null;
   const asOf = asOfISO || String(event.startDate || '').slice(0, 10);
@@ -101,6 +107,7 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
   const owgr = docs.owgr || owgrLookup(rankingsDoc);
   const stats = docs.stats || statsLookup(statsDoc);
   const sg = docs.sg || sgLookup(statsDoc);
+  const links = docs.links || linksCourseSet(linksDoc);
 
   const field = (event.field || []).filter((p) => p && p.athleteId);
   const useSg = sg.available && !docs.noStrokesGained;
@@ -111,6 +118,7 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
     return buildGolfProfile({
       index, player, event, asOfISO: asOf, ranking,
       stats: statRow, sg: sgRow, statsDist: { distanceQ1: stats.distanceQ1, distanceQ3: stats.distanceQ3 },
+      linksCourses: links,
     });
   });
   const floor = applySgCoverageFloor(rawProfiles);
@@ -124,9 +132,11 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
   ctx.sgSuppressed = floor.suppressed;
   ctx.sgSourceAvailable = useSg;
 
-  const scored = scoreGolfEvent(event, profiles, ctx);
-  const written = scored.unscored ? null : writeGolfCard(scored, event, weather);
-  const validation = written ? validateGolfCard(written) : null;
+  // Event overlays (e.g. the Scottish Open prompt) are selected here, so the
+  // site, the backtest and the ledger can never disagree about the ruleset.
+  const scored = scoreEvent(event, profiles, ctx);
+  const written = writeEventCard(scored, event, weather);
+  const validation = written ? validateEventCard(scored, written) : null;
   const olbg = slateDoc ? matchGolfOlbg(event, slateDoc) : [];
   const grades = !scored.unscored && event.state === 'post' ? gradeGolfSelections(scored, field) : null;
 
@@ -148,6 +158,9 @@ export function buildGolfEventCard(docs, eventId, { asOfISO = null } = {}) {
 
   return {
     event, asOf, profiles, ctx, scored, written, validation, olbg, coverage, grades,
+    profile: scored.profile || null,
+    ruleset: scored.ruleset || null,
+    marketOrder: scored.profile ? [...Object.keys(scored.markets)] : MARKET_ORDER,
     sources: buildSources(event, docs, coverage),
   };
 }
@@ -167,7 +180,10 @@ const r1Of = (p) => (Number.isFinite(p?.r1) ? p.r1 : (p?.rounds?.find?.((r) => r
 export function gradeGolfSelections(scored, field) {
   const byId = new Map((field || []).map((p) => [String(p.athleteId), p]));
   const out = {};
-  for (const key of MARKET_ORDER) {
+  // Grade the markets the ruleset actually scored: an event overlay may not have
+  // a top-six market at all, and inventing one here would be a false result.
+  const order = scored?.markets ? Object.keys(scored.markets) : MARKET_ORDER;
+  for (const key of order) {
     const market = scored?.markets?.[key];
     const sel = market?.selections?.[0] || null;
     if (!sel || sel.band === CONFIDENCE.SKIP) { out[key] = { status: 'NO SELECTION', hit: null, selection: null, band: null }; continue; }
@@ -215,6 +231,9 @@ function buildSources(event, docs, coverage) {
   const wx = docs?.weatherDoc?.events?.[String(event?.id)];
   if (wx?.sourceUrl) out.push({ label: 'Open-Meteo forecast', url: wx.sourceUrl });
   if (docs?.slateDoc?.source?.url) out.push({ label: 'OLBG golf tips index', url: docs.slateDoc.source.url });
+  if (docs?.linksDoc?.sources) {
+    for (const src of docs.linksDoc.sources) out.push({ label: `Links venue classification — ${src.name}`, url: src.url });
+  }
   return out;
 }
 
@@ -227,6 +246,7 @@ export function buildGolfDateCard(docs, dateISO, { tours = null } = {}) {
     owgr: docs.owgr || owgrLookup(docs.rankingsDoc),
     stats: docs.stats || statsLookup(docs.statsDoc),
     sg: docs.sg || sgLookup(docs.statsDoc),
+    links: docs.links || linksCourseSet(docs.linksDoc),
   };
   const cards = events.map((e) => buildGolfEventCard(shared, e.id)).filter(Boolean);
   return { dateISO, events, cards };

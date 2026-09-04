@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Scottish Open — venue dossier, verified facts &amp; predictions — SportsPred</title>
+<meta name="description" content="The Renaissance Club dossier behind the SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0: every claim verified against a linked source, the measured winning-score range, the five-market card and the walk-forward backtest of every edition in the results tape.">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+
+<main class="wrap">
+  <div class="page-head">
+    <div>
+      <h1 class="page-title">Scottish Open</h1>
+      <p class="page-sub">Event overlay on the golf layer, scored by the <strong>SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0</strong>
+        (<a href="docs/SCOTTISH_OPEN_MASTER_PROMPT.md">prompt</a> ·
+        <a href="docs/SCOTTISH_OPEN_PROMPT_REVIEW.md">line-by-line review</a> ·
+        <a href="docs/GOLF_IRREGULARITIES.md">irregularities</a> ·
+        <a href="docs/GOLF_SOURCES.md">sources</a>).
+        Every other tournament stays on the generic golf prompt — see <a href="golf.html">Golf</a>.</p>
+      <p class="meta-line" id="sport-links"></p>
+    </div>
+  </div>
+
+  <nav class="leaguetabs" id="tabs" aria-label="Golf sections"></nav>
+  <div id="notes"></div>
+
+  <div class="cols">
+    <!-- ---------- main column ---------- -->
+    <div>
+      <div class="card">
+        <div class="card-head">
+          <h2 id="next-title">Next edition</h2>
+          <span class="sp"></span>
+          <button class="btn primary" id="generate">⚡ Generate predictions</button>
+          <button class="btn" id="copy-all">📋 Copy all cards</button>
+        </div>
+        <div id="upcoming"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Venue dossier — The Renaissance Club</h2><span class="sp"></span><span class="meta-line" id="dossier-meta"></span></div>
+        <div class="card-body" id="dossier">Loading…</div>
+        <div class="card-body tight">
+          <table class="data" id="history-table">
+            <thead><tr><th class="num">Year</th><th>Winner</th><th class="num">Score</th><th>Provenance</th><th>Source for manual review</th></tr></thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <div class="card-body meta-line" id="history-note"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Retrospective cards — walk-forward, then graded</h2><span class="sp"></span><span class="meta-line" id="retro-meta"></span></div>
+        <div class="card-body meta-line">Every edition in the committed results tape is re-scored using only results that ended before its first round, then graded against the published leaderboard. Tee times and the round-one forecast are not published historically, so the thirty-point wave category is missing for every past edition and no first-round-leader tip can read HIGH.</div>
+        <div id="retro"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h2>Verified facts — line by line</h2><span class="sp"></span><span class="meta-line" id="facts-meta"></span></div>
+        <div class="card-body meta-line">Each claim the prompt makes about this event was checked against a named source on the verification date shown. <span class="badge HIGH">CONFIRMED</span> means a source states it; <span class="badge SKIP">UNCONFIRMED</span> means only a secondary source carries it and it must be re-checked before use. Nothing is asserted without a link.</div>
+        <div id="facts"></div>
+      </div>
+    </div>
+
+    <!-- ---------- rail ---------- -->
+    <aside class="rail">
+      <div class="card">
+        <div class="card-head"><h3>Selections</h3></div>
+        <div id="rail-preds"></div>
+        <div class="card-body meta-line" id="rail-count"></div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>Backtest ledger</h3></div>
+        <div class="card-body" id="backtest">Loading…</div>
+      </div>
+
+      <div class="card" id="olbg-box">
+        <div class="card-head"><h3>OLBG golf markets</h3></div>
+        <div class="card-body meta-line">Loading…</div>
+      </div>
+
+      <div class="card">
+        <div class="card-head"><h3>How this ruleset scores</h3></div>
+        <div class="card-body" style="font-size:13px">
+          <p><strong>WIN TOURNAMENT (100)</strong> — all-around ball-striking 25 · recent form 20 · wind and links proxy 20 · shot-shaping and short game 20 · world ranking and pedigree 15. ≥75 <span class="badge HIGH">HIGH</span> · 60–74 <span class="badge MEDIUM">MEDIUM</span> · below 60 <span class="badge LOW">LOW</span> (never skipped).</p>
+          <p><strong>FIRST ROUND LEADER (100)</strong> — opening-round scoring 30 · tee-time wave 30 · putting 20 · fast start 20. Below 50 <span class="badge SKIP">SKIP</span> · ≥65 MEDIUM at most · HIGH only at ≥75 <em>with</em> a confirmed wave advantage.</p>
+          <p><strong>TOP AMERICAN / TOP EUROPEAN / TOP GB AND IRELAND</strong> — the win base plus regional modifiers. ≥70 HIGH · 55–69 MEDIUM · below 55 or within five points of a rival LOW.</p>
+          <p>A factor no free source publishes scores zero, is marked missing and caps the market at MEDIUM. Ball flight, Race to Dubai standings, travel intent, odds and per-round wind are all recorded as missing rather than guessed.</p>
+        </div>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<script type="module" src="assets/js/scottish-open-page.js"></script>
+</body>
+</html>

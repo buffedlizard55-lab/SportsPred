@@ -1,0 +1,444 @@
+{
+  "schema_version": 1,
+  "sport": "Golf",
+  "event": {
+    "key": "scottish-open",
+    "name": "Genesis Scottish Open",
+    "prompt": "SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0",
+    "promptDoc": "docs/SCOTTISH_OPEN_MASTER_PROMPT.md",
+    "reviewDoc": "docs/SCOTTISH_OPEN_PROMPT_REVIEW.md",
+    "ruleset": "SCOTTISH-OPEN-v1.0",
+    "host": "The Renaissance Club, North Berwick, East Lothian, Scotland",
+    "espnCourseId": "10906",
+    "espnTournamentId": "4161",
+    "tours": [
+      "pga",
+      "eur"
+    ],
+    "olbg": [
+      {
+        "label": "OLBG Golf betting tips index",
+        "url": "https://www.olbg.com/betting-tips/Golf/5"
+      },
+      {
+        "label": "OLBG All Golf — All Events",
+        "url": "https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/5"
+      }
+    ]
+  },
+  "verified_at_utc": "2026-09-04",
+  "facts": [
+    {
+      "id": "host-since-2019",
+      "claim": "The Renaissance Club, North Berwick, Scotland has hosted the event since 2019.",
+      "status": "CONFIRMED",
+      "source": "https://www.golfscotland.net/golf-news/the-renaissance-club-to-host-genesis-scottish-open-through-to-2030/",
+      "evidence": "\"The Genesis Scottish Open has reached new heights since finding its home at The Renaissance Club in 2019\"; \"The Renaissance Club to host Genesis Scottish Open through to 2030\".",
+      "secondary": [
+        "https://www.scotlandsgolfcoast.com/members/the-renaissance-club/ (\"The Renaissance Club has hosted the Genesis Scottish Open since 2019.\")"
+      ]
+    },
+    {
+      "id": "host-tenure-to-2030",
+      "claim": "The venue is confirmed as host through 2030, so the overlay does not go stale next season.",
+      "status": "CONFIRMED",
+      "source": "https://www.golfscotland.net/golf-news/the-renaissance-club-to-host-genesis-scottish-open-through-to-2030/",
+      "evidence": "\"we are delighted to be able to call it our home through to 2030\" — Rory Colville, Genesis Scottish Open Championship Director.",
+      "secondary": [
+        "https://irishgolfer.ie/latest-golf-news/2026-04-22/the-renaissance-club-to-host-genesis-scottish-open-through-to-2030/"
+      ]
+    },
+    {
+      "id": "title-sponsor",
+      "claim": "The current title sponsor is Genesis (the event is the Genesis Scottish Open).",
+      "status": "CONFIRMED",
+      "source": "https://www.europeantour.com/dpworld-tour/genesis-scottish-open-2026/tickets-packages/",
+      "evidence": "The DP World Tour event page is titled \"Genesis Scottish Open\", 09 - 12 Jul 2026, The Renaissance Club, North Berwick, Scotland.",
+      "secondary": [
+        "https://www.europeantour.com/dpworld-tour/rolex/news/articles/detail/the-renaissance-club-to-host-genesis-scottish-open-through-to-2026/ (\"Tournament boasts luxury automotive brand Genesis as title sponsor\", 2 August 2022)"
+      ]
+    },
+    {
+      "id": "week-before-the-open",
+      "claim": "The event is played the week immediately before The Open Championship.",
+      "status": "CONFIRMED",
+      "source": "https://golfweek.usatoday.com/story/sports/golf/majors/british-open/2026-06-22/when-is-the-2026-open-championship-at-royal-birkdale/90641242007/",
+      "evidence": "The 2026 PGA TOUR schedule ahead of the Open lists \"Genesis Scottish Open, July 9-12\" before The Open at Royal Birkdale, July 16-19.",
+      "secondary": [
+        "https://en.wikipedia.org/wiki/2026_Open_Championship (\"Dates: 16–19 July 2026, Royal Birkdale Golf Club\")",
+        "https://www.europeantour.com/dpworld-tour/news/articles/detail/the-closing-swing-2026-all-you-need-to-know/ (\"While The Open Championship takes place at Royal Birkdale…\")"
+      ]
+    },
+    {
+      "id": "co-sanctioned",
+      "claim": "The event is co-sanctioned by the DP World Tour and the PGA TOUR and counts on the Race to Dubai Rankings and the FedExCup.",
+      "status": "CONFIRMED",
+      "source": "https://www.golfscotland.net/golf-news/the-renaissance-club-to-host-genesis-scottish-open-through-to-2030/",
+      "evidence": "\"Scotland's national open is co-sanctioned by the DP World Tour and PGA TOUR, counting on both the Race to Dubai Rankings delivered by DP World and the FedExCup\".",
+      "secondary": [
+        "https://trcaa.com/scottish-open/"
+      ]
+    },
+    {
+      "id": "closes-the-season-points-race",
+      "claim": "The event opens the closing stretch of the season-long points race, giving contenders extra incentive.",
+      "status": "CONFIRMED",
+      "source": "https://www.europeantour.com/dpworld-tour/news/articles/detail/the-closing-swing-2026-all-you-need-to-know/",
+      "evidence": "\"Starting with a Rolex Series event at the Genesis Scottish Open… it is the fifth of the five Global Swings on the Race to Dubai\"; the Closing Swing table lists Jul 9-12, Genesis Scottish Open, 5,000 swing points.",
+      "secondary": [
+        "https://www.europeantour.com/dpworld-tour/genesis-scottish-open-2026/tv-schedule (\"Scotland's national open marks the start of the Closing Swing on the 2026 Race to Dubai.\")"
+      ]
+    },
+    {
+      "id": "open-qualification",
+      "claim": "The winner earns a Masters invite and the leading finishers earn Open Championship places — a real incentive layer on top of the prize fund.",
+      "status": "CONFIRMED",
+      "source": "https://www.europeantour.com/dpworld-tour/news/articles/detail/the-closing-swing-2026-all-you-need-to-know/",
+      "evidence": "\"The winner of the Genesis Scottish Open will also earn an invite to the Masters Tournament, with the top three finishers not already exempt who make the cut qualifying for The Open.\"",
+      "secondary": [
+        "https://en.wikipedia.org/wiki/2026_Open_Championship (Open Qualifying Series table lists \"Genesis Scottish Open, 12 Jul 2026, 3 spots\")"
+      ]
+    },
+    {
+      "id": "winning-score-range",
+      "claim": "Winning scores at this venue have ranged from the low twenties under par down to single figures under par — far wider than a typical tour stop.",
+      "status": "CONFIRMED",
+      "source": "https://thegolfnewsnet.com/ryan_ballengee/2026-07-05/genesis-scottish-open-history-results-and-past-winners-129852/",
+      "evidence": "Renaissance Club winners: 2019 −22, 2020 −11, 2021 −18, 2022 −7, 2023 −15. The 2024-2026 scores (−18, −15, −17) are measured directly from the committed ESPN results tape.",
+      "secondary": [
+        "https://www.bettingsites.co/sports/golf/tournaments/scottish-open/ (same eight scores, same years)",
+        "https://www.marca.com/en/golf/2026-07-12/genesis-scottish-open-winners-complete-list-of-winners-at-the-renaissance-club-1.html"
+      ]
+    },
+    {
+      "id": "layout-reroute-2026",
+      "claim": "The championship layout was rerouted for 2026, so venue history across the reroute is not a like-for-like sample.",
+      "status": "CONFIRMED",
+      "source": "https://www.golfscotland.net/golf-news/the-renaissance-club-to-host-genesis-scottish-open-through-to-2030/",
+      "evidence": "\"This season, the Championship layout will be rerouted to build an exciting closing stretch… the fan-favourite par 3 sixth hole The Thistle now becomes the 15th hole.\"",
+      "secondary": []
+    },
+    {
+      "id": "course-par-and-length",
+      "claim": "The championship course is a par 70.",
+      "status": "CONFIRMED",
+      "source": "https://www.espn.com/golf/leaderboard?tournamentId=401811955",
+      "evidence": "The committed ESPN leaderboard rows for the 2024, 2025 and 2026 editions all record par 70; yardage was 7,237 in 2024 and 7,282 in 2025 and 2026 (data/golf_results.json).",
+      "secondary": [
+        "https://en.wikipedia.org/wiki/Scottish_Open_(golf) (infobox: Par 70)"
+      ]
+    },
+    {
+      "id": "national-open-status",
+      "claim": "This is the confirmed national open of the host nation, so the home-nation bonus is larger than a generic home-conditions adjustment.",
+      "status": "CONFIRMED",
+      "source": "https://www.golfscotland.net/golf-news/the-renaissance-club-to-host-genesis-scottish-open-through-to-2030/",
+      "evidence": "\"Scotland's national open is co-sanctioned by the DP World Tour and PGA TOUR…\"; the DP World Tour page calls it \"Scotland's national open\".",
+      "secondary": [
+        "https://www.europeantour.com/dpworld-tour/genesis-scottish-open-2026/tv-schedule"
+      ]
+    },
+    {
+      "id": "next-edition-dates",
+      "claim": "The 2027 edition dates.",
+      "status": "UNCONFIRMED",
+      "source": "https://www.eventmasters.co.uk/golf-hospitality/scottish-open-hospitality.html",
+      "evidence": "A hospitality reseller lists \"Thursday 8 July to Sunday 11 July 2027 at The Renaissance Club\". No DP World Tour, PGA TOUR or R&A page publishing 2027 dates was found as at the verification date, so this is recorded as unconfirmed and must be re-checked at the time of use.",
+      "secondary": [],
+      "irregularity": "IR-GOLF-23"
+    }
+  ],
+  "venue_history": {
+    "note": "2019-2023 winning scores are taken from the cited published history tables (secondary sources). Editions present in the committed ESPN results tape are measured directly from leaderboard rows and carry their own source URL. Nothing is estimated.",
+    "rows": [
+      {
+        "year": 2019,
+        "winner": "Bernd Wiesberger",
+        "toPar": -22,
+        "margin": "playoff",
+        "provenance": "secondary",
+        "source": "https://thegolfnewsnet.com/ryan_ballengee/2026-07-05/genesis-scottish-open-history-results-and-past-winners-129852/"
+      },
+      {
+        "year": 2020,
+        "winner": "Aaron Rai",
+        "toPar": -11,
+        "margin": "playoff",
+        "provenance": "secondary",
+        "source": "https://thegolfnewsnet.com/ryan_ballengee/2026-07-05/genesis-scottish-open-history-results-and-past-winners-129852/"
+      },
+      {
+        "year": 2021,
+        "winner": "Min Woo Lee",
+        "toPar": -18,
+        "margin": "playoff",
+        "provenance": "secondary",
+        "source": "https://thegolfnewsnet.com/ryan_ballengee/2026-07-05/genesis-scottish-open-history-results-and-past-winners-129852/"
+      },
+      {
+        "year": 2022,
+        "winner": "Xander Schauffele",
+        "toPar": -7,
+        "margin": "1 stroke",
+        "provenance": "secondary",
+        "source": "https://thegolfnewsnet.com/ryan_ballengee/2026-07-05/genesis-scottish-open-history-results-and-past-winners-129852/"
+      },
+      {
+        "year": 2023,
+        "winner": "Rory McIlroy",
+        "toPar": -15,
+        "margin": "1 stroke",
+        "provenance": "secondary",
+        "source": "https://thegolfnewsnet.com/ryan_ballengee/2026-07-05/genesis-scottish-open-history-results-and-past-winners-129852/"
+      },
+      {
+        "year": 2024,
+        "winner": "Robert MacIntyre",
+        "toPar": -18,
+        "margin": null,
+        "provenance": "measured",
+        "source": "https://www.espn.com/golf/leaderboard?tournamentId=401580359"
+      },
+      {
+        "year": 2025,
+        "winner": "Chris Gotterup",
+        "toPar": -15,
+        "margin": null,
+        "provenance": "measured",
+        "source": "https://www.espn.com/golf/leaderboard?tournamentId=401703519"
+      },
+      {
+        "year": 2026,
+        "winner": "Tom Kim",
+        "toPar": -17,
+        "margin": null,
+        "provenance": "measured",
+        "source": "https://www.espn.com/golf/leaderboard?tournamentId=401811955"
+      }
+    ],
+    "winningScoreRange": {
+      "best": -22,
+      "worst": -7,
+      "sample": 8
+    }
+  },
+  "editions": [
+    {
+      "eventId": "401580359",
+      "year": 2024,
+      "name": "Genesis Scottish Open",
+      "tour": "pga",
+      "tournamentId": "4161",
+      "startDate": "2024-07-11",
+      "endDate": "2024-07-14",
+      "courseName": "The Renaissance Club",
+      "courseId": "10906",
+      "yards": 7237,
+      "par": 70,
+      "purse": 9000000,
+      "fieldSize": 156,
+      "cutCount": 74,
+      "winner": {
+        "athleteId": "11378",
+        "name": "Robert MacIntyre",
+        "country": "Scotland",
+        "toPar": -18,
+        "rounds": [
+          67,
+          65,
+          63,
+          67
+        ]
+      },
+      "top5": [
+        {
+          "name": "Robert MacIntyre",
+          "country": "Scotland",
+          "position": 1,
+          "toPar": -18
+        },
+        {
+          "name": "Adam Scott",
+          "country": "Australia",
+          "position": 2,
+          "toPar": -17
+        },
+        {
+          "name": "Romain Langasque",
+          "country": "France",
+          "position": 3,
+          "toPar": -15
+        },
+        {
+          "name": "Collin Morikawa",
+          "country": "USA",
+          "position": 4,
+          "toPar": -14
+        },
+        {
+          "name": "Aaron Rai",
+          "country": "England",
+          "position": 4,
+          "toPar": -14
+        }
+      ],
+      "provenance": "measured",
+      "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580359"
+    },
+    {
+      "eventId": "401703519",
+      "year": 2025,
+      "name": "Genesis Scottish Open",
+      "tour": "pga",
+      "tournamentId": "4161",
+      "startDate": "2025-07-10",
+      "endDate": "2025-07-13",
+      "courseName": "The Renaissance Club",
+      "courseId": "10906",
+      "yards": 7282,
+      "par": 70,
+      "purse": 9000000,
+      "fieldSize": 156,
+      "cutCount": 80,
+      "winner": {
+        "athleteId": "4690755",
+        "name": "Chris Gotterup",
+        "country": "USA",
+        "toPar": -15,
+        "rounds": [
+          68,
+          61,
+          70,
+          66
+        ]
+      },
+      "top5": [
+        {
+          "name": "Chris Gotterup",
+          "country": "USA",
+          "position": 1,
+          "toPar": -15
+        },
+        {
+          "name": "Rory McIlroy",
+          "country": "Northern Ireland",
+          "position": 2,
+          "toPar": -13
+        },
+        {
+          "name": "Marco Penge",
+          "country": "England",
+          "position": 2,
+          "toPar": -13
+        },
+        {
+          "name": "Nicolai Højgaard",
+          "country": "Denmark",
+          "position": 4,
+          "toPar": -12
+        },
+        {
+          "name": "Matt Fitzpatrick",
+          "country": "England",
+          "position": 4,
+          "toPar": -12
+        }
+      ],
+      "provenance": "measured",
+      "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703519"
+    },
+    {
+      "eventId": "401811955",
+      "year": 2026,
+      "name": "Genesis Scottish Open",
+      "tour": "pga",
+      "tournamentId": "4161",
+      "startDate": "2026-07-09",
+      "endDate": "2026-07-12",
+      "courseName": "The Renaissance Club",
+      "courseId": "10906",
+      "yards": 7282,
+      "par": 70,
+      "purse": 9000000,
+      "fieldSize": 156,
+      "cutCount": 71,
+      "winner": {
+        "athleteId": "4602673",
+        "name": "Tom Kim",
+        "country": "South Korea",
+        "toPar": -17,
+        "rounds": [
+          65,
+          66,
+          68,
+          64
+        ]
+      },
+      "top5": [
+        {
+          "name": "Tom Kim",
+          "country": "South Korea",
+          "position": 1,
+          "toPar": -17
+        },
+        {
+          "name": "Min Woo Lee",
+          "country": "Australia",
+          "position": 2,
+          "toPar": -15
+        },
+        {
+          "name": "Robert MacIntyre",
+          "country": "Scotland",
+          "position": 3,
+          "toPar": -13
+        },
+        {
+          "name": "Keita Nakajima",
+          "country": "Japan",
+          "position": 3,
+          "toPar": -13
+        },
+        {
+          "name": "Johnny Keefer",
+          "country": "USA",
+          "position": 3,
+          "toPar": -13
+        }
+      ],
+      "provenance": "measured",
+      "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811955"
+    }
+  ],
+  "warnings": [],
+  "irregularities": [
+    {
+      "id": "IR-GOLF-17",
+      "note": "Odds for the win, first-round-leader, top American, top European and top GB & Ireland markets are not published by any free key-less source; OWGR rank within the field stands in for market favouritism, and the two-bookmaker cross-reference cannot be performed."
+    },
+    {
+      "id": "IR-GOLF-18",
+      "note": "Strokes gained exists only as PGA TOUR season averages and only for PGA TOUR members; the last-eight-events window and the tour-wide first-round ranking are field-relative substitutes."
+    },
+    {
+      "id": "IR-GOLF-19",
+      "note": "Links and wind-exposed classification is not published by any feed. data/golf_links_courses.json holds eight cited venues plus The Open Championship itself; every other venue is unclassified and scores zero. Whether a prior edition here was windy is likewise unverifiable, so the venue bonus is credited on the finish alone and the condition is disclosed."
+    },
+    {
+      "id": "IR-GOLF-20",
+      "note": "Ball flight, spin and trajectory are not published, so the low-flight half of the course-fit category and its eight-point penalty are never scored; twelve of twenty is the ceiling, which also makes the prompt's mandatory value test unreachable as written."
+    },
+    {
+      "id": "IR-GOLF-21",
+      "note": "Per-round wind for completed events is not published, so the twenty-point \"in notable wind\" fast-start tier is unreachable and the twelve-point tier is used."
+    },
+    {
+      "id": "IR-GOLF-22",
+      "note": "Race to Dubai standings, travel intent and social/analyst sentiment have no free key-less feed, so those bonuses are unassessed and never assumed."
+    },
+    {
+      "id": "IR-GOLF-23",
+      "note": "The 2027 dates are published only by a hospitality reseller as at the verification date and are recorded as UNCONFIRMED."
+    }
+  ]
+}

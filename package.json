@@ -13,7 +13,7 @@
     "backtest": "node scripts/backtest.mjs",
     "backtest:historical": "node scripts/backtest_historical.mjs",
     "verify": "node scripts/verify_site.mjs",
-    "verify:all": "node scripts/ci_node_tests.mjs && python3 -m unittest discover -s tests -p 'test_*.py' && node scripts/build_t20_blast.mjs --check && node scripts/backtest_t20_blast.mjs --check && node scripts/collect_nrl_espn.mjs --check && node scripts/backtest_nrl.mjs --check && node scripts/collect_nrl_weather.mjs --check && node scripts/record_nrl_predictions.mjs --check && node scripts/verify_site.mjs && python3 scripts/build_data.py --strict",
+    "verify:all": "node scripts/ci_node_tests.mjs && python3 -m unittest discover -s tests -p 'test_*.py' && node scripts/build_t20_blast.mjs --check && node scripts/backtest_t20_blast.mjs --check && node scripts/collect_nrl_espn.mjs --check && node scripts/backtest_nrl.mjs --check && node scripts/collect_nrl_weather.mjs --check && node scripts/record_nrl_predictions.mjs --check && node scripts/build_golf_links.mjs --check && node scripts/build_scottish_open.mjs --check && node scripts/backtest_scottish_open.mjs --check && node scripts/verify_site.mjs && python3 scripts/build_data.py --strict",
     "build:registry": "node scripts/build_league_registry.mjs",
     "build:context": "node scripts/build_league_context.mjs",
     "backtest:universal": "node scripts/backtest_universal.mjs",
@@ -45,7 +45,11 @@
     "collect:nrl-weather": "node scripts/collect_nrl_weather.mjs",
     "backtest:nrl": "node scripts/backtest_nrl.mjs",
     "record:nrl": "node scripts/record_nrl_predictions.mjs",
-    "settle:nrl": "node scripts/settle_nrl.mjs"
+    "settle:nrl": "node scripts/settle_nrl.mjs",
+    "build:golf-links": "node scripts/build_golf_links.mjs",
+    "build:scottish-open": "node scripts/build_scottish_open.mjs",
+    "backtest:scottish-open": "node scripts/backtest_scottish_open.mjs",
+    "check:scottish-open": "node scripts/build_golf_links.mjs --check && node scripts/build_scottish_open.mjs --check && node scripts/backtest_scottish_open.mjs --check"
   },
   "engines": {
     "node": ">=20"

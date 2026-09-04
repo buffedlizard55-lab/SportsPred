@@ -1,0 +1,355 @@
+{
+ "pending": false,
+ "schema_version": 1,
+ "sport": "Golf",
+ "ruleset": "SCOTTISH-OPEN-v1.0",
+ "prompt": "SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0",
+ "promptDoc": "docs/SCOTTISH_OPEN_MASTER_PROMPT.md",
+ "generated_at_utc": "2026-09-04T03:45:03.687Z",
+ "method": "Walk-forward: each Scottish Open edition is scored with results that ended before its first round only. Fields are reconstructed from the event result rows. Tee times and the round-one forecast are not available historically, so the thirty-point wave category is missing for every past edition and no first-round-leader tip can read HIGH. Strokes gained is applied only to the current season and only when the field clears the coverage floor.",
+ "editions": [
+  {
+   "eventId": "401580359",
+   "year": 2024,
+   "name": "Genesis Scottish Open",
+   "startDate": "2024-07-11",
+   "endDate": "2024-07-14",
+   "courseName": "The Renaissance Club",
+   "yards": 7237,
+   "par": 70,
+   "fieldSize": 155,
+   "priorEditionsInTape": 0,
+   "strokesGained": "not applied (no historical snapshot for this season)",
+   "winner": {
+    "name": "Robert MacIntyre",
+    "toPar": -18
+   },
+   "markets": {
+    "outright": {
+     "label": "WIN TOURNAMENT",
+     "selection": "Ludvig Åberg",
+     "score": 59,
+     "band": "LOW",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Eric Cole"
+     ]
+    },
+    "frl": {
+     "label": "FIRST ROUND LEADER",
+     "selection": null,
+     "score": null,
+     "band": null,
+     "valuePick": false,
+     "status": "NO SELECTION",
+     "coSelections": []
+    },
+    "top_american": {
+     "label": "TOP AMERICAN PLAYER",
+     "selection": "Wyndham Clark",
+     "score": 63,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Xander Schauffele"
+     ]
+    },
+    "top_european": {
+     "label": "TOP EUROPEAN PLAYER",
+     "selection": "Rory McIlroy",
+     "score": 64,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Ludvig Åberg"
+     ]
+    },
+    "top_british_irish": {
+     "label": "TOP GB AND IRELAND PLAYER",
+     "selection": "Rory McIlroy",
+     "score": 70,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": []
+    }
+   },
+   "missing": [
+    "strokes gained (no free per-player strokes-gained source for this field, so the ball-striking and putting categories score zero and are marked missing)",
+    "round-one wave forecast (round-one forecast not collected for this event; the wave category scores zero for every player and no first-round-leader tip can read HIGH)",
+    "venue history (fewer than two prior editions of this tournament in the sourced tape, so the wind and links proxy is the primary substitute for course knowledge)",
+    "odds (no free key-less bookmaker odds source exists, so OWGR rank within the field stands in for market favouritism in the value rule and the cross-reference of two bookmakers cannot be performed)",
+    "Race to Dubai standings (no free key-less standings feed, so the European incentive bonus is unassessed)"
+   ],
+   "flags": [
+    "no player met the strict value test; the mandatory value test asks for a course-fit score of fifteen or more, but the low-flight half of that category is not published by any free source, so twelve is the most a player can score there; the outside-the-top-five-favourites fallback is used instead and is written without the VALUE PICK label. Eric Cole is listed instead as the best-scoring player outside the top fifteen in the field, without the VALUE PICK label.",
+    "same player heads TOP EUROPEAN PLAYER and TOP GB AND IRELAND PLAYER — each market is written separately and justified on its own merits as the prompt requires"
+   ],
+   "validation": {
+    "ok": true,
+    "issues": []
+   },
+   "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401580359"
+  },
+  {
+   "eventId": "401703519",
+   "year": 2025,
+   "name": "Genesis Scottish Open",
+   "startDate": "2025-07-10",
+   "endDate": "2025-07-13",
+   "courseName": "The Renaissance Club",
+   "yards": 7282,
+   "par": 70,
+   "fieldSize": 156,
+   "priorEditionsInTape": 1,
+   "strokesGained": "not applied (no historical snapshot for this season)",
+   "winner": {
+    "name": "Chris Gotterup",
+    "toPar": -15
+   },
+   "markets": {
+    "outright": {
+     "label": "WIN TOURNAMENT",
+     "selection": "Scottie Scheffler",
+     "score": 76,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Justin Thomas"
+     ]
+    },
+    "frl": {
+     "label": "FIRST ROUND LEADER",
+     "selection": null,
+     "score": null,
+     "band": null,
+     "valuePick": false,
+     "status": "NO SELECTION",
+     "coSelections": []
+    },
+    "top_american": {
+     "label": "TOP AMERICAN PLAYER",
+     "selection": "Scottie Scheffler",
+     "score": 94,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": []
+    },
+    "top_european": {
+     "label": "TOP EUROPEAN PLAYER",
+     "selection": "Rory McIlroy",
+     "score": 73,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "HIT",
+     "coSelections": []
+    },
+    "top_british_irish": {
+     "label": "TOP GB AND IRELAND PLAYER",
+     "selection": "Rory McIlroy",
+     "score": 93,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "HIT",
+     "coSelections": []
+    }
+   },
+   "missing": [
+    "strokes gained (no free per-player strokes-gained source for this field, so the ball-striking and putting categories score zero and are marked missing)",
+    "round-one wave forecast (round-one forecast not collected for this event; the wave category scores zero for every player and no first-round-leader tip can read HIGH)",
+    "venue history (fewer than two prior editions of this tournament in the sourced tape, so the wind and links proxy is the primary substitute for course knowledge)",
+    "odds (no free key-less bookmaker odds source exists, so OWGR rank within the field stands in for market favouritism in the value rule and the cross-reference of two bookmakers cannot be performed)",
+    "Race to Dubai standings (no free key-less standings feed, so the European incentive bonus is unassessed)"
+   ],
+   "flags": [
+    "no player met the strict value test; the mandatory value test asks for a course-fit score of fifteen or more, but the low-flight half of that category is not published by any free source, so twelve is the most a player can score there; the outside-the-top-five-favourites fallback is used instead and is written without the VALUE PICK label. Justin Thomas is listed instead as the best-scoring player outside the top fifteen in the field, without the VALUE PICK label.",
+    "same player heads WIN TOURNAMENT and TOP AMERICAN PLAYER — each market is written separately and justified on its own merits as the prompt requires",
+    "same player heads TOP EUROPEAN PLAYER and TOP GB AND IRELAND PLAYER — each market is written separately and justified on its own merits as the prompt requires"
+   ],
+   "validation": {
+    "ok": true,
+    "issues": []
+   },
+   "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401703519"
+  },
+  {
+   "eventId": "401811955",
+   "year": 2026,
+   "name": "Genesis Scottish Open",
+   "startDate": "2026-07-09",
+   "endDate": "2026-07-12",
+   "courseName": "The Renaissance Club",
+   "yards": 7282,
+   "par": 70,
+   "fieldSize": 156,
+   "priorEditionsInTape": 2,
+   "strokesGained": "current season table applied",
+   "winner": {
+    "name": "Tom Kim",
+    "toPar": -17
+   },
+   "markets": {
+    "outright": {
+     "label": "WIN TOURNAMENT",
+     "selection": "Wyndham Clark",
+     "score": 101,
+     "band": "HIGH",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Tom Kim"
+     ]
+    },
+    "frl": {
+     "label": "FIRST ROUND LEADER",
+     "selection": "Scottie Scheffler",
+     "score": 62,
+     "band": "LOW",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Eric Cole",
+      "Wyndham Clark"
+     ]
+    },
+    "top_american": {
+     "label": "TOP AMERICAN PLAYER",
+     "selection": "Wyndham Clark",
+     "score": 109,
+     "band": "MEDIUM",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": [
+      "Scottie Scheffler"
+     ]
+    },
+    "top_european": {
+     "label": "TOP EUROPEAN PLAYER",
+     "selection": "Rory McIlroy",
+     "score": 103,
+     "band": "HIGH",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": []
+    },
+    "top_british_irish": {
+     "label": "TOP GB AND IRELAND PLAYER",
+     "selection": "Rory McIlroy",
+     "score": 123,
+     "band": "HIGH",
+     "valuePick": false,
+     "status": "MISS",
+     "coSelections": []
+    }
+   },
+   "missing": [
+    "round-one wave forecast (round-one forecast not collected for this event; the wave category scores zero for every player and no first-round-leader tip can read HIGH)",
+    "odds (no free key-less bookmaker odds source exists, so OWGR rank within the field stands in for market favouritism in the value rule and the cross-reference of two bookmakers cannot be performed)",
+    "Race to Dubai standings (no free key-less standings feed, so the European incentive bonus is unassessed)"
+   ],
+   "flags": [
+    "no player met the strict value test; the mandatory value test asks for a course-fit score of fifteen or more, but the low-flight half of that category is not published by any free source, so twelve is the most a player can score there; the outside-the-top-five-favourites fallback is used instead and is written without the VALUE PICK label. Tom Kim is listed instead as the best-scoring player outside the top fifteen in the field, without the VALUE PICK label.",
+    "same player heads WIN TOURNAMENT and TOP AMERICAN PLAYER — each market is written separately and justified on its own merits as the prompt requires",
+    "same player heads TOP EUROPEAN PLAYER and TOP GB AND IRELAND PLAYER — each market is written separately and justified on its own merits as the prompt requires"
+   ],
+   "validation": {
+    "ok": true,
+    "issues": []
+   },
+   "sourceUrl": "https://www.espn.com/golf/leaderboard?tournamentId=401811955"
+  }
+ ],
+ "aggregate": {
+  "outright": {
+   "total": 3,
+   "hit": 0,
+   "skipped": 0,
+   "unverified": 0,
+   "byBand": {
+    "LOW": {
+     "total": 1,
+     "hit": 0
+    },
+    "MEDIUM": {
+     "total": 1,
+     "hit": 0
+    },
+    "HIGH": {
+     "total": 1,
+     "hit": 0
+    }
+   },
+   "hitRate": 0
+  },
+  "frl": {
+   "total": 1,
+   "hit": 0,
+   "skipped": 2,
+   "unverified": 0,
+   "byBand": {
+    "LOW": {
+     "total": 1,
+     "hit": 0
+    }
+   },
+   "hitRate": 0
+  },
+  "top_american": {
+   "total": 3,
+   "hit": 0,
+   "skipped": 0,
+   "unverified": 0,
+   "byBand": {
+    "MEDIUM": {
+     "total": 3,
+     "hit": 0
+    }
+   },
+   "hitRate": 0
+  },
+  "top_european": {
+   "total": 3,
+   "hit": 1,
+   "skipped": 0,
+   "unverified": 0,
+   "byBand": {
+    "MEDIUM": {
+     "total": 2,
+     "hit": 1
+    },
+    "HIGH": {
+     "total": 1,
+     "hit": 0
+    }
+   },
+   "hitRate": 33.3
+  },
+  "top_british_irish": {
+   "total": 3,
+   "hit": 1,
+   "skipped": 0,
+   "unverified": 0,
+   "byBand": {
+    "MEDIUM": {
+     "total": 2,
+     "hit": 1
+    },
+    "HIGH": {
+     "total": 1,
+     "hit": 0
+    }
+   },
+   "hitRate": 33.3
+  }
+ },
+ "notes": [
+  "Three editions are in the committed tape (2024, 2025, 2026). That is a small sample: it is reported as a sample, never as a strike rate to trust.",
+  "The 2026 championship layout was rerouted (the par-three sixth became the fifteenth), so venue history across that change is not a like-for-like comparison.",
+  "Every market row names the ESPN leaderboard it was graded against."
+ ]
+}

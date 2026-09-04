@@ -217,11 +217,20 @@ function baseballDocs() {
   };
 }
 
-function makeFetch(counters) {
+function makeFetch(counters, overrides = {}) {
+  const keys = Object.keys(overrides);
   return async function stubFetch(url) {
     const u = String(url);
     counters.calls.push(u);
     const ok = (body) => ({ ok: true, status: 200, json: async () => body });
+    // A test may pin a committed document to a fixture body. Checked before the
+    // sport-specific stubs so the override always wins.
+    for (const k of keys) {
+      if (u.includes(k)) {
+        const v = overrides[k];
+        return v === 404 ? { ok: false, status: 404, json: async () => ({}) } : ok(v);
+      }
+    }
     if (u.includes('/sports/golf/leaderboard?league=')) {
       const id = u.match(/event=(\d+)/)?.[1];
       if (id === '401822700') return ok(golfPre);
@@ -322,6 +331,7 @@ function makeFetch(counters) {
         || /data\/snooker_(results|rankings|provenance|predictions|backtest)\.json/.test(u)
         || u.includes('data/darts_')
         || u.includes('data/gaa_')
+        || u.includes('data/golf_')
         || u.includes('data/npb_')
         || u.includes('data/nrl_')
         || u.includes('data/rugby_league_')
@@ -337,7 +347,7 @@ function makeFetch(counters) {
   };
 }
 
-async function bootPage(page, { search = '' } = {}) {
+async function bootPage(page, { search = '', overrides = {} } = {}) {
   const html = readFileSync(join(ROOT, page), 'utf8');
   const counters = { calls: [] };
   const dom = new JSDOM(html, {
@@ -357,7 +367,13 @@ async function bootPage(page, { search = '' } = {}) {
   Object.defineProperty(global, 'navigator', { value: window.navigator, configurable: true, writable: true });
   global.AbortController = window.AbortController || global.AbortController;
   global.requestAnimationFrame = (cb) => setTimeout(() => cb(Date.now()), 0);
-  global.fetch = makeFetch(counters);
+  global.fetch = makeFetch(counters, overrides);
+
+  // data-client.js keeps a module-level memory cache and is imported bare by
+  // every page module, so Node reuses one instance across boots. Clear it, or
+  // the document one test stubbed leaks into the next.
+  const dataClient = await import('../assets/js/data-client.js');
+  try { dataClient.clearCache(); } catch { /* nothing cached yet */ }
 
   // Import the page's module entry (cache-busted so each test gets a fresh run).
   const src = html.match(/<script type="module" src="([^"]+)"/)?.[1];
@@ -1340,5 +1356,275 @@ test('sport.html?sport=gaelic-football hands over to the dedicated GAA page', { 
     const a = document.querySelector('#handover');
     assert.ok(a, 'handover link rendered');
     assert.match(a.getAttribute('href'), /gaa\.html/);
+  } finally { cleanup(); }
+});
+
+/* ------------------------------------------------------------------ *
+ * Scottish Open sub-page — the event overlay that replaces the generic
+ * six-market golf prompt for exactly one tournament.
+ * ------------------------------------------------------------------ */
+
+/**
+ * A published-but-not-yet-played Scottish Open edition, in the collector's
+ * committed shape. The field is the real 2026 field from the committed results
+ * tape (first sixty, the top of the board), so form, strokes gained, world
+ * ranking and course history all resolve against real committed data; only the
+ * event row itself and the tee times are synthetic, because no edition is on
+ * the board today. Tee times are not published this far out in real life either
+ * — they are set here so the wave category has something to measure.
+ */
+function scottishOpenUpcomingDoc() {
+  const tape = JSON.parse(readFileSync(join(ROOT, 'data/golf_results.json'), 'utf8'));
+  const src = tape.events['401811955'];
+  const players = tape.players || {};
+  const field = src.rows.slice(0, 60).map((row, i) => ({
+    athleteId: String(row[0]),
+    name: players[row[0]]?.name || `Player ${row[0]}`,
+    country: players[row[0]]?.country ?? null,
+    countryCode: null,
+    teeTime: i % 2 === 0 ? '2027-07-08T07:10Z' : '2027-07-08T11:50Z',
+    amateur: false, position: null, result: null, toPar: null,
+  }));
+  return {
+    schema_version: 1, sport: 'Golf', fetched_at_utc: '2026-09-04T00:00:00Z',
+    source: { url: 'https://site.web.api.espn.com/apis/site/v2/sports/golf/leaderboard' },
+    window: { days: 120, from: '2026-05-07', to: '2027-07-11' }, tours: ['eur', 'pga'], calendars: {},
+    events: [{
+      id: '401899999', tour: 'eur', tourName: 'DP World Tour',
+      name: 'Genesis Scottish Open', shortName: 'Genesis Scottish Open',
+      seasonYear: 2027, startDate: '2027-07-08T04:00Z', endDate: '2027-07-11T04:00Z',
+      state: 'pre', completed: false, statusDetail: 'July 8 - 11', currentRound: 0,
+      tournamentId: '4161', tournamentName: 'Scottish Open', major: false, isSignature: false,
+      numberOfRounds: 4, cut: { round: 2, score: 0, count: 0 }, purse: 9000000,
+      course: { id: '10906', name: 'The Renaissance Club', city: 'North Berwick', country: 'Scotland', yards: 7282, par: 70, host: true },
+      winner: null, defendingChampion: null, fieldSize: field.length, field, leaders: [],
+      sources: { espnLeaderboard: 'https://www.espn.com/golf/leaderboard?tournamentId=401899999' },
+    }],
+    stats: {}, warnings: [],
+  };
+}
+
+/** A clearly divergent round-one forecast: mild in the morning, gales by afternoon. */
+function scottishOpenWeatherDoc() {
+  return {
+    events: {
+      401899999: {
+        available: true,
+        days: [
+          { date: '2027-07-08', tempMaxC: 15, precipProbPct: 60, windMaxKmh: 38, gustMaxKmh: 61 },
+          { date: '2027-07-09', tempMaxC: 14, precipProbPct: 55, windMaxKmh: 34, gustMaxKmh: 55 },
+          { date: '2027-07-10', tempMaxC: 16, precipProbPct: 30, windMaxKmh: 22, gustMaxKmh: 38 },
+          { date: '2027-07-11', tempMaxC: 17, precipProbPct: 25, windMaxKmh: 19, gustMaxKmh: 33 },
+        ],
+        r1: { trend: 'deteriorating', windAmKmh: 16, windPmKmh: 38, rainAmPct: 15, rainPmPct: 65 },
+        sourceUrl: 'https://api.open-meteo.com/v1/forecast?latitude=56.05&longitude=-2.72',
+      },
+    },
+  };
+}
+
+/**
+ * The committed golf documents, served to the page exactly as the browser
+ * would receive them. The shared stub pins golf_results.json and
+ * golf_rankings.json to small fixtures for the golf.html tests; the Scottish
+ * Open overlay is defined by the real venue history in the real tape, so these
+ * tests run on the real committed data.
+ */
+const REAL = {
+  'data/golf_results.json': JSON.parse(readFileSync(join(ROOT, 'data/golf_results.json'), 'utf8')),
+  'data/golf_rankings.json': JSON.parse(readFileSync(join(ROOT, 'data/golf_rankings.json'), 'utf8')),
+  'data/golf_stats.json': JSON.parse(readFileSync(join(ROOT, 'data/golf_stats.json'), 'utf8')),
+  'data/golf_slate.json': JSON.parse(readFileSync(join(ROOT, 'data/golf_slate.json'), 'utf8')),
+};
+
+/** A published edition on the board, scored against the real committed data. */
+const SCOTTISH_OVERRIDES = {
+  ...REAL,
+  'data/golf_events.json': scottishOpenUpcomingDoc(),
+  'data/golf_weather.json': scottishOpenWeatherDoc(),
+};
+
+test('scottish-open.html boots, scores the published edition with the overlay and auto-generates five markets', { skip: !JSDOM }, async () => {
+  const { document, counters } = await bootPage('scottish-open.html', { overrides: SCOTTISH_OVERRIDES });
+  try {
+    assert.ok(document.querySelector('.masthead'), 'masthead rendered');
+    assert.ok(document.querySelector('.sportrail a[data-sport="golf"]'), 'golf is in the rail');
+    assert.ok(counters.calls.some((u) => u.includes('data/golf_links_courses.json')), 'the cited links table was read');
+    assert.ok(counters.calls.some((u) => u.includes('data/golf_scottish_open.json')), 'the venue dossier was read');
+
+    // the sub-page tabs, so a reader can get back to every other tournament
+    const tabs = [...document.querySelectorAll('#tabs a')];
+    assert.deepEqual(tabs.map((a) => a.getAttribute('href')), ['golf.html', 'scottish-open.html']);
+    assert.ok(tabs[1].className.includes('on'), 'this page is marked active');
+
+    // the verified dossier: every claim carries a link, the one that is not
+    // confirmed says so
+    const facts = document.querySelector('#facts');
+    assert.ok(facts.querySelectorAll('a[href^="https://"]').length >= 10, 'each verified fact links to its source');
+    assert.match(document.querySelector('#facts-meta').textContent, /11 confirmed · 1 unconfirmed/);
+    assert.equal(facts.querySelectorAll('tr').length >= 12, true, 'all twelve claims are listed');
+    assert.match(facts.textContent, /UNCONFIRMED/, 'the reseller-only 2027 dates are labelled, not asserted');
+    assert.match(document.querySelector('#dossier').textContent, /Renaissance Club/);
+    assert.match(document.querySelector('#history-note').textContent, /[-\u2212]22 to [-\u2212]7/);
+
+    // the forward card, generated automatically on load
+    const up = document.querySelector('#upcoming');
+    assert.match(up.textContent, /Genesis Scottish Open/);
+    assert.match(document.querySelector('#next-title').textContent, /Next edition/);
+    assert.match(up.textContent, /CARD VALIDATED/, 'the writer validator passed on the live card');
+    assert.match(up.textContent, /SCOTTISH-OPEN-v1\.0/, 'the overlay ruleset is named');
+
+    // exactly five markets, in the prompt's order, and never the generic six
+    const summaries = [...up.querySelectorAll('details > summary')].map((s) => s.textContent);
+    assert.equal(summaries.length, 5, 'five markets are scored');
+    assert.match(summaries.join(' | '), /WIN TOURNAMENT/);
+    assert.match(summaries.join(' | '), /FIRST ROUND LEADER/);
+    assert.match(summaries.join(' | '), /TOP AMERICAN PLAYER/);
+    assert.match(summaries.join(' | '), /TOP EUROPEAN PLAYER/);
+    assert.match(summaries.join(' | '), /TOP GB AND IRELAND PLAYER/);
+    assert.ok(!/TOP SIX/.test(up.textContent), 'the generic prompt\'s top six market is not offered here');
+
+    // the summary table, the wave note and the value flag
+    assert.equal(up.querySelectorAll('table.kv tbody tr').length >= 5, true);
+    assert.match(up.textContent, /wave|wind/i, 'the mandatory wave and weather note is shown');
+
+    // the missing-input register, including the price feed nobody publishes
+    assert.match(up.textContent, /Not available for this event/);
+    assert.match(up.textContent, /odds/i, 'the absent price feed is disclosed');
+
+    // review links are absolute and safe
+    const srclinks = [...up.querySelectorAll('.srclist a')];
+    assert.ok(srclinks.length >= 3, 'review links are present');
+    for (const a of srclinks) {
+      assert.match(a.getAttribute('href'), /^https:\/\//);
+      assert.equal(a.getAttribute('rel'), 'noopener noreferrer');
+    }
+
+    // and the tips themselves carry no figure, no venue, no source name
+    const tips = [...up.querySelectorAll('.tipbox p')].map((p) => p.textContent).filter((t) => /Confidence:/.test(t));
+    assert.ok(tips.length >= 1, 'written tips are rendered');
+    for (const t of tips) {
+      assert.ok(!/\d/.test(t), `no numerals in a tip: ${t.slice(0, 70)}`);
+      assert.ok(!/Renaissance|Genesis|North Berwick|ESPN|OWGR|OLBG|strokes gained/i.test(t), `no source or venue names in a tip: ${t.slice(0, 70)}`);
+    }
+
+    assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'the rail lists the selections');
+    assert.match(document.querySelector('#rail-count').textContent, /\d+/);
+    assert.match(document.querySelector('#backtest').textContent, /outright|WIN TOURNAMENT/i, 'the walk-forward ledger is rendered');
+    assert.ok(document.querySelector('#olbg-box a[href*="olbg.com"]'), 'the OLBG market slate is linked');
+  } finally { cleanup(); }
+});
+
+test('the Scottish Open Generate button actually generates (it is not a no-op)', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('scottish-open.html', { overrides: SCOTTISH_OVERRIDES });
+  try {
+    const btn = document.querySelector('#generate');
+    assert.ok(btn, 'the button exists');
+    assert.equal(btn.disabled, false);
+    document.querySelector('#rail-preds').innerHTML = '';
+    document.querySelector('#upcoming').innerHTML = '';
+    btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+    for (let i = 0; i < 40; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.ok(document.querySelector('#upcoming').textContent.trim().length > 0, 'clicking Generate repopulated the forward card');
+    assert.ok(document.querySelector('#rail-preds').textContent.trim().length > 0, 'clicking Generate repopulated the rail');
+    assert.match(document.querySelector('#toast').textContent, /re-scored under SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1\.0/);
+    assert.equal(btn.disabled, false, 'the button is re-armed');
+
+    // copy-paste: the whole card goes to the clipboard as plain text
+    const all = document.querySelector('#copy-all');
+    all.dispatchEvent(new window.Event('click', { bubbles: true }));
+    for (let i = 0; i < 20; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.match(document.querySelector('#toast').textContent, /copied|Copy failed/);
+  } finally { cleanup(); }
+});
+
+test('scottish-open.html with no edition published says so rather than inventing one', { skip: !JSDOM }, async () => {
+  // the committed golf_events.json holds no Scottish Open row, so nothing is
+  // on the board -- but the results tape holds three finished editions
+  const { document } = await bootPage('scottish-open.html', { overrides: REAL });
+  try {
+    assert.equal(document.querySelector('#next-title').textContent, 'Next edition — not yet published');
+    const up = document.querySelector('#upcoming').textContent;
+    assert.match(up, /nothing is predicted/);
+    assert.ok(!/CARD VALIDATED/.test(up), 'no card is fabricated for an event that is not on the board');
+    // the retrospective editions still render, because those are in the tape
+    assert.match(document.querySelector('#retro-meta').textContent, /3 edition/);
+    assert.match(document.querySelector('#retro').textContent, /RETROSPECTIVE/);
+  } finally { cleanup(); }
+});
+
+test('scottish-open.html grades its retrospective cards against the published results', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('scottish-open.html', { overrides: REAL });
+  try {
+    const retro = document.querySelector('#retro');
+    assert.match(retro.textContent, /Tom Kim/, 'the published 2026 winner is named from the tape');
+    assert.match(retro.textContent, /graded against the published leaderboard/);
+    assert.match(retro.textContent, /\bHIT\b/, 'at least one past selection is graded a hit');
+    const retroLinks = [...retro.querySelectorAll('.srclist a')].map((a) => a.getAttribute('href'));
+    assert.ok(retroLinks.length >= 3, 'each edition carries review links');
+    for (const href of retroLinks) assert.match(href, /^https:\/\//);
+    assert.ok(retroLinks.filter((h) => /^https:\/\/www\.espn\.com\/golf\/leaderboard\?tournamentId=/.test(h)).length >= 3,
+      'every edition links to its human-readable ESPN leaderboard');
+  } finally { cleanup(); }
+});
+
+test('golf.html carries the Scottish Open sub-page tab and links to the overlay', { skip: !JSDOM }, async () => {
+  const { document } = await bootPage('golf.html', { search: '?date=2026-09-04' });
+  try {
+    const tabs = [...document.querySelectorAll('#league-tabs a')];
+    assert.deepEqual(tabs.map((a) => a.getAttribute('href')), ['golf.html', 'scottish-open.html']);
+    assert.ok(tabs[0].className.includes('on'), 'the all-tournaments tab is marked active here');
+    assert.match(document.body.textContent, /Scottish Open page/);
+  } finally { cleanup(); }
+});
+
+test('registry: golf carries a Scottish Open sub-page', async () => {
+  const { getSport } = await import('../engine/registry.js');
+  const golf = getSport('golf');
+  assert.ok(Array.isArray(golf.subPages), 'golf declares sub-pages');
+  const so = golf.subPages.find((s) => s.key === 'scottish-open');
+  assert.ok(so, 'the Scottish Open sub-page is registered');
+  assert.equal(so.href, 'scottish-open.html');
+  assert.match(so.name, /SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1\.0/);
+  assert.ok(golf.officialLinks.some((l) => /europeantour\.com\/dpworld-tour\/genesis-scottish-open/.test(l.url)), 'the official event page is linked');
+  assert.ok(golf.notes.some((n) => /scottish-open\.html/.test(n)), 'the note explains which events use which prompt');
+});
+
+test('the golf Generate button says why it produced nothing instead of blaming the calendar', { skip: !JSDOM }, async () => {
+  // The committed documents are unreachable — exactly what a file:// open does
+  // to every fetch of data/*.json. The button must name that, not claim there
+  // is no tournament this week.
+  const { document, window } = await bootPage('golf.html', {
+    search: '?date=2026-09-04',
+    overrides: {
+      'data/golf_events.json': 404, 'data/golf_results.json': 404,
+      'data/golf_rankings.json': 404, 'data/golf_stats.json': 404,
+      'data/golf_weather.json': 404, 'data/golf_slate.json': 404,
+      'data/golf_backtest.json': 404,
+    },
+  });
+  try {
+    const btn = document.querySelector('#generate');
+    btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+    for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+    const said = document.querySelector('#toast').textContent;
+    assert.match(said, /committed golf documents did not load/);
+    assert.match(said, /file:\/\//);
+    assert.ok(!/No predictable tournament/.test(said), 'the old misleading message is gone');
+    assert.equal(btn.disabled, false, 'the button is re-armed');
+  } finally { cleanup(); }
+});
+
+test('the Scottish Open Generate button says why it produced nothing', { skip: !JSDOM }, async () => {
+  const { document, window } = await bootPage('scottish-open.html', {
+    overrides: { 'data/golf_results.json': 404, 'data/golf_events.json': 404 },
+  });
+  try {
+    assert.match(document.querySelector('#notes').textContent, /committed results tape is not present/);
+    const btn = document.querySelector('#generate');
+    btn.dispatchEvent(new window.Event('click', { bubbles: true }));
+    for (let i = 0; i < 30; i += 1) await new Promise((r) => setTimeout(r, 15));
+    assert.match(document.querySelector('#toast').textContent, /committed results tape .* did not load/);
+    assert.equal(btn.disabled, false);
   } finally { cleanup(); }
 });

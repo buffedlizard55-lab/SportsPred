@@ -207,6 +207,9 @@ export function summariseForm(rows, asOfISO, event) {
     elevatedWin12m: in12m.some((r) => isTop(r, 1) && elevated(r)),
     careerWinsInWindow: rows.filter((r) => isTop(r, 1)).length,
     majorsWonLast2y: in24m.filter((r) => isTop(r, 1) && r.major).length,
+    // The Scottish Open pedigree bonus credits a major WIN OR RUNNER-UP finish
+    // inside two years, so both are measured from the tape.
+    majorWinOrRunnerUp2y: in24m.filter((r) => r.major && isTop(r, 2)).length,
     starts12m: in12m.length,
     top10s12m,
     top10Rate12m: in12m.length >= 5 ? round(top10s12m / in12m.length, 4) : null,
@@ -216,6 +219,7 @@ export function summariseForm(rows, asOfISO, event) {
     competedLast3Weeks: rows.some((r) => within(r, asOfISO, 21)),
     tourWinIn: (tour, days) => rows.some((r) => r.tour === tour && isTop(r, 1) && within(r, asOfISO, days)),
     tourTop3In: (tour, days) => rows.some((r) => r.tour === tour && isTop(r, 3) && within(r, asOfISO, days)),
+    tourTop5In: (tour, days) => rows.some((r) => r.tour === tour && isTop(r, 5) && within(r, asOfISO, days)),
   };
 }
 
@@ -238,17 +242,84 @@ export function eventHistory(rows, tournamentId) {
   };
 }
 
+/** Lowest whole opening round (in the 60s) that counts as a "scored in the 60s" round. */
+export const R1_SIXTIES_MIN = 60;
+export const R1_SIXTIES_MAX = 69;
+
 /** Opening-round scoring from the last eight starts. */
 export function r1Profile(rows) {
   const opened = rows.filter((r) => isStrokePlayRound(r.rounds?.[0]) && Number.isFinite(r.par));
   const last8 = opened.slice(0, 8);
   const toPar = last8.map((r) => r.rounds[0] - r.par);
   const last5 = opened.slice(0, 5);
+  const in60s = (r) => r.rounds[0] >= R1_SIXTIES_MIN && r.rounds[0] <= R1_SIXTIES_MAX;
   return {
     rounds: last8.length,
     avgR1ToPar: last8.length >= 4 ? round(toPar.reduce((a, b) => a + b, 0) / toPar.length, 3) : null,
     fastStarts: last5.filter((r) => r.rounds[0] <= 67).length,
     fastStartSample: last5.length,
+    // The Scottish Open overlay grades the fast-start profile on rounds "scored
+    // in the 60s" (an absolute score, not a score to par), so both measures are
+    // published from the same rows.
+    in60sLast5: last5.filter(in60s).length,
+    // "Documented pattern of slow starts followed by late-week charges": three
+    // or more opening rounds at 73 or worse across the last five, while the
+    // closing round is repeatedly better than the opening round.
+    slowStarts: last5.filter((r) => r.rounds[0] >= 73).length,
+    lateCharges: last5.filter((r) => isStrokePlayRound(r.rounds?.[3]) && r.rounds[3] <= r.rounds[0] - 2).length,
+  };
+}
+
+/* ------------------------------------------------------------------ *
+ * links / wind-exposed proxy
+ * ------------------------------------------------------------------ */
+
+/**
+ * The ESPN name The Open Championship is published under in the leaderboard
+ * JSON held in the results tape ("The Open", flagged `major: true`). The Open
+ * is always played on a links course, so a start there is the strongest
+ * wind-exposed-links evidence available without a course-classification feed.
+ * Source: https://en.wikipedia.org/wiki/Links_(golf) ("The Open Championship
+ * is always played on links courses").
+ */
+export const OPEN_CHAMPIONSHIP_NAMES = new Set(['the open', 'the open championship', 'british open']);
+
+export function isOpenChampionship(row) {
+  return row?.major === true && OPEN_CHAMPIONSHIP_NAMES.has(normName(row?.name));
+}
+
+/**
+ * Links and wind-exposed proxy record over the last two years.
+ *
+ * `linksCourses` is a Set of lower-cased ESPN course names that an external,
+ * cited source classifies as links (data/golf_links_courses.json). Nothing is
+ * inferred from the course name: "Royal", "Links" or "Golf Links" in a title is
+ * NOT evidence, and a venue absent from the cited list is simply unclassified.
+ *
+ * @returns {{starts:number, openStarts:number, linksStarts:number, best:number|null,
+ *            bestEvent:string|null, bestEndDate:string|null, bestIsOpen:boolean,
+ *            madeCutOnly:boolean, anyLinksStart:boolean, classifiedVenues:string[]}}
+ */
+export function linksProfile(rows, asOfISO, linksCourses = null) {
+  const set = linksCourses instanceof Set ? linksCourses : new Set((linksCourses || []).map((s) => normName(s)));
+  const inWindow = rows.filter((r) => within(r, asOfISO, 730));
+  const hit = (r) => isOpenChampionship(r) || set.has(normName(r.courseName));
+  const at = inWindow.filter(hit);
+  const openStarts = inWindow.filter(isOpenChampionship).length;
+  const bestRows = at.filter((r) => r.position !== null && r.position !== undefined).sort((a, b) => a.position - b.position);
+  const best = bestRows[0] || null;
+  const madeCutOnly = at.length > 0 && (!best || best.position > 20) && at.some((r) => madeCut(r));
+  return {
+    starts: at.length,
+    openStarts,
+    linksStarts: at.length - openStarts,
+    best: best ? best.position : null,
+    bestEvent: best ? best.name : null,
+    bestEndDate: best ? best.endDate : null,
+    bestIsOpen: best ? isOpenChampionship(best) : false,
+    madeCutOnly,
+    anyLinksStart: at.some((r) => madeCut(r)) || openStarts > 0,
+    classifiedVenues: [...new Set(at.map((r) => r.courseName).filter(Boolean))],
   };
 }
 
@@ -291,8 +362,9 @@ export function bestCourseClass(rows, asOfISO) {
  * @param {object} [a.stats]      ESPN season stat row or null
  * @param {object} [a.sg]         {app,ott,arg,putt,t2g,total} each {rank,avg,rounds} or null
  * @param {object} [a.statsDist]  {distanceQ1, distanceQ3} quartile cut-offs of yardsPerDrive across the stats table
+ * @param {Set<string>|string[]} [a.linksCourses] cited links venues (data/golf_links_courses.json)
  */
-export function buildGolfProfile({ index, player, event, asOfISO, ranking = null, stats = null, sg = null, statsDist = null }) {
+export function buildGolfProfile({ index, player, event, asOfISO, ranking = null, stats = null, sg = null, statsDist = null, linksCourses = null }) {
   const rows = historyBefore(index, player.athleteId, asOfISO);
   const form = summariseForm(rows, asOfISO, event);
   const cls = courseClass(event?.course?.yards);
@@ -311,6 +383,7 @@ export function buildGolfProfile({ index, player, event, asOfISO, ranking = null
     form,
     event: eventHistory(rows, event?.tournamentId),
     r1: r1Profile(rows),
+    links: linksProfile(rows, asOfISO, linksCourses),
     course: {
       class: cls,
       record: classRec,
@@ -408,6 +481,13 @@ export function buildFieldContext({ event, profiles, index, weather = null, asOf
   const tees = profiles.map((p) => Date.parse(p.teeTime || '')).filter(Number.isFinite).sort((a, b) => a - b);
   const medianTee = tees.length >= 6 ? tees[Math.floor(tees.length / 2)] : null;
 
+  // Scrambling ("up and down" percentage) is published by the PGA TOUR season
+  // statistics table ESPN republishes. The median across the players who carry
+  // a real figure is the "above-average scrambling" cut-off; a zero means the
+  // source printed nothing, so zeros are never treated as a measured 0%.
+  const scrambles = profiles.map((p) => Number(p.stats?.savePct)).filter((v) => Number.isFinite(v) && v > 0).sort((a, b) => a - b);
+  const scrambleMedian = scrambles.length >= 20 ? scrambles[Math.floor(scrambles.length / 2)] : null;
+
   const regionRank = (flag) => rankWithin(profiles.filter((p) => p.region?.[flag]), (p) => p.owgr?.rank ?? NaN);
   const prior = priorEditionR1Mean(index, event?.tournamentId, asOfISO);
 
@@ -427,6 +507,8 @@ export function buildFieldContext({ event, profiles, index, weather = null, asOf
     sgT2gInField: sgT2gRank,
     sgCoverage: sgAppRank.size,
     medianTee,
+    scrambleMedian,
+    scrambleSample: scrambles.length,
     europeanRank: regionRank('european'),
     americanRank: regionRank('american'),
     britishIrishRank: regionRank('britishIrish'),

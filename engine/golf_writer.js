@@ -81,7 +81,7 @@ export const GOLF_OPENERS = [
  * validation
  * ------------------------------------------------------------------ */
 
-export function validateGolfTip(text, { expectSkip = false, forbiddenNames = [] } = {}) {
+export function validateGolfTip(text, { expectSkip = false, forbiddenNames = [], bannedPhrases = BANNED_PHRASES } = {}) {
   const violations = [];
   const t = String(text || '').trim();
   if (!t) return { ok: false, violations: ['empty tip text'] };
@@ -111,7 +111,7 @@ export function validateGolfTip(text, { expectSkip = false, forbiddenNames = [] 
   if (/[%$£€]/.test(t)) violations.push('contains a figure symbol');
 
   const lower = t.toLowerCase();
-  for (const phrase of BANNED_PHRASES) if (lower.includes(phrase)) violations.push(`banned phrase: "${phrase}"`);
+  for (const phrase of bannedPhrases || []) if (lower.includes(phrase)) violations.push(`banned phrase: "${phrase}"`);
   for (const token of FORBIDDEN_TOKENS) if (lower.includes(token)) violations.push(`forbidden token: "${token}"`);
   for (const name of forbiddenNames || []) {
     const n = String(name || '').trim().toLowerCase();
