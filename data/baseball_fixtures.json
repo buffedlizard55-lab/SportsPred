@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T13:37:41Z",
+ "fetched_at_utc": "2026-09-04T17:14:28Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -551,7 +551,7 @@
      "losses": 70,
      "pct": ".500"
     },
-    "score": null,
+    "score": 0,
     "isWinner": null,
     "probablePitcher": {
      "id": 671106,
@@ -569,7 +569,7 @@
      "losses": 75,
      "pct": ".460"
     },
-    "score": null,
+    "score": 0,
     "isWinner": null,
     "probablePitcher": {
      "id": 672456,
@@ -577,8 +577,8 @@
     }
    },
    "score": {
-    "home": null,
-    "away": null
+    "home": 0,
+    "away": 0
    },
    "espn": {
     "venueIndoor": false,

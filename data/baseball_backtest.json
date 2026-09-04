@@ -2,12 +2,12 @@
  "schema_version": 1,
  "sport": "Baseball",
  "prompt": "BASEBALL PREDICTION MASTER PROMPT v1.0",
- "generated_at_utc": "2026-09-04T13:37:44Z",
+ "generated_at_utc": "2026-09-04T17:14:30Z",
  "method": "Walk-forward: every settled game is re-scored using only games that finished before it. No feature is taken from the fixture being graded.",
  "source_tape": {
   "path": "data/baseball_tape.json",
   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-08-14&hydrate=probablePitcher,linescore,team",
-  "fetched_at_utc": "2026-09-04T13:37:41Z",
+  "fetched_at_utc": "2026-09-04T17:14:28Z",
   "games": 283,
   "settled": 283
  },

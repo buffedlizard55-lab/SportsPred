@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T13:37:37Z",
+ "fetched_at_utc": "2026-09-04T17:14:25Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
