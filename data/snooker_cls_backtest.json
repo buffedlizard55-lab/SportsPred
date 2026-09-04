@@ -1,0 +1,4931 @@
+{
+  "prompt": "CHAMPIONSHIP LEAGUE SNOOKER PREDICTION MASTER PROMPT v1.0",
+  "edition": "ranking",
+  "method": "Walk-forward: every card is scored using only matches that finished on an earlier date, then settled against the published result.",
+  "total": 545,
+  "graded": 193,
+  "skipped": 352,
+  "byMarket": {
+    "CORRECT SCORE": {
+      "graded": 187,
+      "correct": 58
+    },
+    "GROUP WINNER": {
+      "graded": 2,
+      "correct": 0
+    },
+    "MATCH RESULT": {
+      "graded": 4,
+      "correct": 1
+    }
+  },
+  "rows": [
+    {
+      "date": "2026-06-22",
+      "subject": "Kyren Wilson v Haydon Pinhey",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Kyren Wilson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Kyren Wilson v Haydon Pinhey",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Dylan Emery v Michal Szubarczyk",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Dylan Emery",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Dylan Emery v Michal Szubarczyk",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Dylan Emery v Haydon Pinhey",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Dylan Emery v Haydon Pinhey",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Michal Szubarczyk v Haydon Pinhey",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Michal Szubarczyk v Haydon Pinhey",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Xu Si v Craig Steadman",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Xu Si",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Xu Si v Craig Steadman",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Michael Holt v Julien Leclercq",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Michael Holt",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Michael Holt v Julien Leclercq",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Michael Holt v Craig Steadman",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Craig Steadman",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Michael Holt v Craig Steadman",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Xu Si v Julien Leclercq",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Xu Si v Julien Leclercq",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Julien Leclercq v Craig Steadman",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Julien Leclercq",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Julien Leclercq v Craig Steadman",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Xu Si v Michael Holt",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Xu Si v Michael Holt",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Stage One Group 3",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Dylan Emery",
+      "correct": null
+    },
+    {
+      "date": "2026-06-22",
+      "subject": "Stage One Group 24",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Xu Si",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Steven Hallworth v Jeff Cundy",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Steven Hallworth",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Steven Hallworth v Jeff Cundy",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ian Burns v Jamie O'Neill",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ian Burns",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ian Burns v Jamie O'Neill",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ian Burns v Jeff Cundy",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ian Burns",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ian Burns v Jeff Cundy",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Steven Hallworth v Jamie O'Neill",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jamie O'Neill",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Steven Hallworth v Jamie O'Neill",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Jamie O'Neill v Jeff Cundy",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jamie O'Neill",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Jamie O'Neill v Jeff Cundy",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Steven Hallworth v Ian Burns",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ian Burns",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Steven Hallworth v Ian Burns",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ryan Day v Jamie Clarke",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jamie Clarke",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ryan Day v Jamie Clarke",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Chang Bingyu v Phil O'Kane",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chang Bingyu",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Chang Bingyu v Phil O'Kane",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Chang Bingyu v Jamie Clarke",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chang Bingyu",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Chang Bingyu v Jamie Clarke",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ryan Day v Phil O'Kane",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ryan Day",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ryan Day v Phil O'Kane",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Phil O'Kane v Jamie Clarke",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jamie Clarke",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Phil O'Kane v Jamie Clarke",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ryan Day v Chang Bingyu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chang Bingyu",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Ryan Day v Chang Bingyu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Stage One Group 2",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Ian Burns",
+      "correct": null
+    },
+    {
+      "date": "2026-06-23",
+      "subject": "Stage One Group 27",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Chang Bingyu",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Zhang Anda v Daniel Womersley",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Zhang Anda v Daniel Womersley",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jiang Jun v Ross Muir",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jiang Jun",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jiang Jun v Ross Muir",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jiang Jun v Daniel Womersley",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jiang Jun",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jiang Jun v Daniel Womersley",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Zhang Anda v Ross Muir",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Zhang Anda v Ross Muir",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Ross Muir v Daniel Womersley",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Ross Muir v Daniel Womersley",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Zhang Anda v Jiang Jun",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Zhang Anda v Jiang Jun",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jackson Page v Ashley Hugill",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jackson Page",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jackson Page v Ashley Hugill",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Long Zehuang v Artemijs Zizins",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Long Zehuang v Artemijs Zizins",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Long Zehuang v Ashley Hugill",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Long Zehuang v Ashley Hugill",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jackson Page v Artemijs Zizins",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jackson Page v Artemijs Zizins",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Artemijs Zizins v Ashley Hugill",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Artemijs Zizins v Ashley Hugill",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jackson Page v Long Zehuang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Jackson Page v Long Zehuang",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Stage One Group 10",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-06-24",
+      "subject": "Stage One Group 25",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Jackson Page",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Yuan Sijun v Bai Yulu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Yuan Sijun",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Yuan Sijun v Bai Yulu",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Scott Donaldson v Sahil Nayyar",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Scott Donaldson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Scott Donaldson v Sahil Nayyar",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Scott Donaldson v Bai Yulu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Scott Donaldson v Bai Yulu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Yuan Sijun v Sahil Nayyar",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Yuan Sijun v Sahil Nayyar",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Sahil Nayyar v Bai Yulu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Sahil Nayyar v Bai Yulu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Yuan Sijun v Scott Donaldson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Scott Donaldson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Yuan Sijun v Scott Donaldson",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "David Gilbert v Panchaya Channoi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "David Gilbert v Panchaya Channoi",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Ricky Walden v Mahmoud El Hareedy",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Ricky Walden v Mahmoud El Hareedy",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Ricky Walden v Panchaya Channoi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ricky Walden",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Ricky Walden v Panchaya Channoi",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "David Gilbert v Mahmoud El Hareedy",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "David Gilbert v Mahmoud El Hareedy",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Mahmoud El Hareedy v Panchaya Channoi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Mahmoud El Hareedy",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Mahmoud El Hareedy v Panchaya Channoi",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "David Gilbert v Ricky Walden",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "David Gilbert v Ricky Walden",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Stage One Group 20",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Scott Donaldson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-25",
+      "subject": "Stage One Group 21",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Gary Wilson v Duane Jones",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Gary Wilson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Gary Wilson v Duane Jones",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Lyu Haotian v Alexander Ursenbacher",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Alexander Ursenbacher",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Lyu Haotian v Alexander Ursenbacher",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Lyu Haotian v Duane Jones",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Lyu Haotian v Duane Jones",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Gary Wilson v Alexander Ursenbacher",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Gary Wilson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Gary Wilson v Alexander Ursenbacher",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Alexander Ursenbacher v Duane Jones",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Alexander Ursenbacher v Duane Jones",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Gary Wilson v Lyu Haotian",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Gary Wilson v Lyu Haotian",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "He Guoqiang v Dylan Smith",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "He Guoqiang",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "He Guoqiang v Dylan Smith",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Sean O'Sullivan v Liu Yang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liu Yang",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Sean O'Sullivan v Liu Yang",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Sean O'Sullivan v Dylan Smith",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Sean O'Sullivan",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Sean O'Sullivan v Dylan Smith",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "He Guoqiang v Liu Yang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "He Guoqiang",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "He Guoqiang v Liu Yang",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Liu Yang v Dylan Smith",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liu Yang",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Liu Yang v Dylan Smith",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "He Guoqiang v Sean O'Sullivan",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "He Guoqiang",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "He Guoqiang v Sean O'Sullivan",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Stage One Group 14",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Gary Wilson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-26",
+      "subject": "Stage One Group 28",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "He Guoqiang",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Thepchaiya Un-Nooh v Dean Young",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Thepchaiya Un-Nooh v Dean Young",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Louis Heathcote v Reanne Evans",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Louis Heathcote",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Louis Heathcote v Reanne Evans",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Louis Heathcote v Dean Young",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Dean Young",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Louis Heathcote v Dean Young",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Thepchaiya Un-Nooh v Reanne Evans",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Thepchaiya Un-Nooh v Reanne Evans",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Reanne Evans v Dean Young",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Dean Young",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Reanne Evans v Dean Young",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Thepchaiya Un-Nooh v Louis Heathcote",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Thepchaiya Un-Nooh",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Thepchaiya Un-Nooh v Louis Heathcote",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Pang Junxu v Luo Zetao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Pang Junxu v Luo Zetao",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "David Lilley v Fergal Quinn",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "David Lilley v Fergal Quinn",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "David Lilley v Luo Zetao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luo Zetao",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "David Lilley v Luo Zetao",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Pang Junxu v Fergal Quinn",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Pang Junxu",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Pang Junxu v Fergal Quinn",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Fergal Quinn v Luo Zetao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Fergal Quinn v Luo Zetao",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Pang Junxu v David Lilley",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Pang Junxu v David Lilley",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Stage One Group 8",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Dean Young",
+      "correct": null
+    },
+    {
+      "date": "2026-06-27",
+      "subject": "Stage One Group 15",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Pang Junxu",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Hossein Vafaei v Oliver Sykes",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Hossein Vafaei v Oliver Sykes",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Fan Zhengyi v Florian Nussle",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Fan Zhengyi v Florian Nussle",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Fan Zhengyi v Oliver Sykes",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Fan Zhengyi",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Fan Zhengyi v Oliver Sykes",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Hossein Vafaei v Florian Nussle",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Hossein Vafaei v Florian Nussle",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Florian Nussle v Oliver Sykes",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Florian Nussle",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Florian Nussle v Oliver Sykes",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Hossein Vafaei v Fan Zhengyi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Hossein Vafaei v Fan Zhengyi",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Ben Woollaston v Huang Jiahao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ben Woollaston",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Ben Woollaston v Huang Jiahao",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Noppon Saengkham v Liam Davies",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Noppon Saengkham v Liam Davies",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Noppon Saengkham v Huang Jiahao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Noppon Saengkham v Huang Jiahao",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Ben Woollaston v Liam Davies",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liam Davies",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Ben Woollaston v Liam Davies",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Liam Davies v Huang Jiahao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liam Davies",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Liam Davies v Huang Jiahao",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Ben Woollaston v Noppon Saengkham",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ben Woollaston",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Ben Woollaston v Noppon Saengkham",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Stage One Group 18",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-06-29",
+      "subject": "Stage One Group 29",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Elliot Slessor v Robert Milkins",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Elliot Slessor",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Elliot Slessor v Robert Milkins",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Liam Pullen v Liu Wenwei",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Liam Pullen v Liu Wenwei",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Liam Pullen v Robert Milkins",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liam Pullen",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Liam Pullen v Robert Milkins",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Elliot Slessor v Liu Wenwei",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Elliot Slessor v Liu Wenwei",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Liu Wenwei v Robert Milkins",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liu Wenwei",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Liu Wenwei v Robert Milkins",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Elliot Slessor v Liam Pullen",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Elliot Slessor",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Elliot Slessor v Liam Pullen",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Jimmy Robertson v Hammad Miah",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Jimmy Robertson v Hammad Miah",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Martin O'Donnell v Antoni Kowalski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Martin O'Donnell",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Martin O'Donnell v Antoni Kowalski",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Martin O'Donnell v Hammad Miah",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Martin O'Donnell v Hammad Miah",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Jimmy Robertson v Antoni Kowalski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Jimmy Robertson v Antoni Kowalski",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Antoni Kowalski v Hammad Miah",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Antoni Kowalski",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Antoni Kowalski v Hammad Miah",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Jimmy Robertson v Martin O'Donnell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jimmy Robertson",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Jimmy Robertson v Martin O'Donnell",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Stage One Group 9",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Elliot Slessor",
+      "correct": null
+    },
+    {
+      "date": "2026-06-30",
+      "subject": "Stage One Group 23",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Jimmy Robertson",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chris Wakelin v Brian Ochoiski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Brian Ochoiski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chris Wakelin v Brian Ochoiski",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Yao Pengcheng v Luke Pinches",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luke Pinches",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Yao Pengcheng v Luke Pinches",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Yao Pengcheng v Brian Ochoiski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Yao Pengcheng",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Yao Pengcheng v Brian Ochoiski",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chris Wakelin v Luke Pinches",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chris Wakelin",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chris Wakelin v Luke Pinches",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Luke Pinches v Brian Ochoiski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luke Pinches",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Luke Pinches v Brian Ochoiski",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chris Wakelin v Yao Pengcheng",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chris Wakelin",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chris Wakelin v Yao Pengcheng",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Lei Peifan v Wang Xinbo",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Lei Peifan v Wang Xinbo",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Ishpreet Singh Chadha v Chatchapong Nasa",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ishpreet Singh Chadha",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Ishpreet Singh Chadha v Chatchapong Nasa",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Ishpreet Singh Chadha v Wang Xinbo",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ishpreet Singh Chadha",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Ishpreet Singh Chadha v Wang Xinbo",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Lei Peifan v Chatchapong Nasa",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Lei Peifan",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Lei Peifan v Chatchapong Nasa",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chatchapong Nasa v Wang Xinbo",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Chatchapong Nasa v Wang Xinbo",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Lei Peifan v Ishpreet Singh Chadha",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Lei Peifan",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Lei Peifan v Ishpreet Singh Chadha",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Stage One Group 5",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Chris Wakelin",
+      "correct": null
+    },
+    {
+      "date": "2026-07-01",
+      "subject": "Stage One Group 16",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Lei Peifan",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Joe O'Connor v Paul Norris",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Joe O'Connor",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Joe O'Connor v Paul Norris",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Liu Hongyu v Oliver Brown",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Liu Hongyu v Oliver Brown",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Liu Hongyu v Paul Norris",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liu Hongyu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Liu Hongyu v Paul Norris",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Joe O'Connor v Oliver Brown",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Joe O'Connor",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Joe O'Connor v Oliver Brown",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Oliver Brown v Paul Norris",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Oliver Brown",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Oliver Brown v Paul Norris",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Joe O'Connor v Liu Hongyu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liu Hongyu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Joe O'Connor v Liu Hongyu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stan Moody v Thanawat Tirapongpaiboon",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stan Moody v Thanawat Tirapongpaiboon",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Daniel Wells v Stuart Carrington",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Daniel Wells v Stuart Carrington",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Daniel Wells v Thanawat Tirapongpaiboon",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Thanawat Tirapongpaiboon",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Daniel Wells v Thanawat Tirapongpaiboon",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stan Moody v Stuart Carrington",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Stan Moody",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stan Moody v Stuart Carrington",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stuart Carrington v Thanawat Tirapongpaiboon",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stuart Carrington v Thanawat Tirapongpaiboon",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stan Moody v Daniel Wells",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Stan Moody",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stan Moody v Daniel Wells",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stage One Group 17",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Liu Hongyu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-02",
+      "subject": "Stage One Group 30",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Stan Moody",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Iulian Boiko v Ian Martin",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Iulian Boiko",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Iulian Boiko v Ian Martin",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Lan Yuhao v Joshua Thomond",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Lan Yuhao",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Lan Yuhao v Joshua Thomond",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Lan Yuhao v Ian Martin",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Lan Yuhao",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Lan Yuhao v Ian Martin",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Iulian Boiko v Joshua Thomond",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Iulian Boiko",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Iulian Boiko v Joshua Thomond",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Joshua Thomond v Ian Martin",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Joshua Thomond",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Joshua Thomond v Ian Martin",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Iulian Boiko v Lan Yuhao",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Iulian Boiko v Lan Yuhao",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Jak Jones v Michael Larkov",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jak Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Jak Jones v Michael Larkov",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Oliver Lines v Alfie Burden",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Oliver Lines v Alfie Burden",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Oliver Lines v Michael Larkov",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Michael Larkov",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Oliver Lines v Michael Larkov",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Jak Jones v Alfie Burden",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Jak Jones v Alfie Burden",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Alfie Burden v Michael Larkov",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Alfie Burden v Michael Larkov",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Jak Jones v Oliver Lines",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Oliver Lines",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Jak Jones v Oliver Lines",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Stage One Group 4",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Iulian Boiko",
+      "correct": null
+    },
+    {
+      "date": "2026-07-03",
+      "subject": "Stage One Group 22",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Jak Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ali Carter v Patrick Whelan",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ali Carter",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ali Carter v Patrick Whelan",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Jamie Jones v Leone Crowley",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jamie Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Jamie Jones v Leone Crowley",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Jamie Jones v Patrick Whelan",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jamie Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Jamie Jones v Patrick Whelan",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ali Carter v Leone Crowley",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ali Carter",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ali Carter v Leone Crowley",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Leone Crowley v Patrick Whelan",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Patrick Whelan",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Leone Crowley v Patrick Whelan",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ali Carter v Jamie Jones",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ali Carter v Jamie Jones",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stephen Maguire v Anton Kazakov",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Anton Kazakov",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stephen Maguire v Anton Kazakov",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Robbie Williams v Ng On-yee",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Robbie Williams v Ng On-yee",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Robbie Williams v Anton Kazakov",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Robbie Williams",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Robbie Williams v Anton Kazakov",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stephen Maguire v Ng On-yee",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Stephen Maguire",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stephen Maguire v Ng On-yee",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ng On-yee v Anton Kazakov",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Ng On-yee v Anton Kazakov",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stephen Maguire v Robbie Williams",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Stephen Maguire",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stephen Maguire v Robbie Williams",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stage One Group 12",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Ali Carter",
+      "correct": null
+    },
+    {
+      "date": "2026-07-04",
+      "subject": "Stage One Group 19",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Stephen Maguire",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stuart Bingham v Mark Joyce",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Mark Joyce",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stuart Bingham v Mark Joyce",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Jordan Brown v Mateusz Baranowski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Jordan Brown v Mateusz Baranowski",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Jordan Brown v Mark Joyce",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Mark Joyce",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Jordan Brown v Mark Joyce",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stuart Bingham v Mateusz Baranowski",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stuart Bingham v Mateusz Baranowski",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Mateusz Baranowski v Mark Joyce",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Mateusz Baranowski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Mateusz Baranowski v Mark Joyce",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stuart Bingham v Jordan Brown",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stuart Bingham v Jordan Brown",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Zhou Yuelong v Allan Taylor",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhou Yuelong",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Zhou Yuelong v Allan Taylor",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Ben Mertens v Liam Graham",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liam Graham",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Ben Mertens v Liam Graham",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Ben Mertens v Allan Taylor",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Allan Taylor",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Ben Mertens v Allan Taylor",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Zhou Yuelong v Liam Graham",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Zhou Yuelong v Liam Graham",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Liam Graham v Allan Taylor",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Liam Graham v Allan Taylor",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Zhou Yuelong v Ben Mertens",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhou Yuelong",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Zhou Yuelong v Ben Mertens",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stage One Group 11",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Mark Joyce",
+      "correct": null
+    },
+    {
+      "date": "2026-07-06",
+      "subject": "Stage One Group 13",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Zhou Yuelong",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Si Jiahui v Sean Maddocks",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Si Jiahui v Sean Maddocks",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Marco Fu v Xu Yichen",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Marco Fu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Marco Fu v Xu Yichen",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Marco Fu v Sean Maddocks",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Marco Fu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Marco Fu v Sean Maddocks",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Si Jiahui v Xu Yichen",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Si Jiahui",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Si Jiahui v Xu Yichen",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Xu Yichen v Sean Maddocks",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Sean Maddocks",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Xu Yichen v Sean Maddocks",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Si Jiahui v Marco Fu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Si Jiahui v Marco Fu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Cheung Ka Wai v Ashley Carty",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Cheung Ka Wai",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Cheung Ka Wai v Ashley Carty",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Matthew Stevens v George Pragnell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Matthew Stevens v George Pragnell",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "2-2",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Matthew Stevens v Ashley Carty",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Matthew Stevens",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Matthew Stevens v Ashley Carty",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Cheung Ka Wai v George Pragnell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Cheung Ka Wai",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Cheung Ka Wai v George Pragnell",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Ashley Carty v George Pragnell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "George Pragnell",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Ashley Carty v George Pragnell",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Matthew Stevens v Cheung Ka Wai",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Cheung Ka Wai",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Matthew Stevens v Cheung Ka Wai",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Stage One Group 6",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Marco Fu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-07",
+      "subject": "Stage One Group 26",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Cheung Ka Wai",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Jack Lisowski v Jack Bradford",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jack Lisowski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Jack Lisowski v Jack Bradford",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Liam Highfield v Zhao Hanyang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liam Highfield",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Liam Highfield v Zhao Hanyang",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Liam Highfield v Jack Bradford",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liam Highfield",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Liam Highfield v Jack Bradford",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Jack Lisowski v Zhao Hanyang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jack Lisowski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Jack Lisowski v Zhao Hanyang",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Zhao Hanyang v Jack Bradford",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhao Hanyang",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Zhao Hanyang v Jack Bradford",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Jack Lisowski v Liam Highfield",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jack Lisowski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Jack Lisowski v Liam Highfield",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Aaron Hill v Deng Haohui",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Deng Haohui",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Aaron Hill v Deng Haohui",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Luca Brecel v Mitchell Mann",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luca Brecel",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Luca Brecel v Mitchell Mann",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Luca Brecel v Deng Haohui",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luca Brecel",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Luca Brecel v Deng Haohui",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Aaron Hill v Mitchell Mann",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Aaron Hill",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Aaron Hill v Mitchell Mann",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Mitchell Mann v Deng Haohui",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Mitchell Mann",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Mitchell Mann v Deng Haohui",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Aaron Hill v Luca Brecel",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luca Brecel",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Aaron Hill v Luca Brecel",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Stage One Group 7",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Jack Lisowski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-08",
+      "subject": "Stage One Group 31",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Luca Brecel",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zhao Xintong v Simon Blackwell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhao Xintong",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zhao Xintong v Simon Blackwell",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "David Grace v Gao Yang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Grace",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "David Grace v Gao Yang",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-0",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "David Grace v Simon Blackwell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Grace",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "David Grace v Simon Blackwell",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zhao Xintong v Gao Yang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhao Xintong",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zhao Xintong v Gao Yang",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Gao Yang v Simon Blackwell",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Gao Yang v Simon Blackwell",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zhao Xintong v David Grace",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zhao Xintong v David Grace",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zak Surety v Gong Chenzhi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zak Surety",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zak Surety v Gong Chenzhi",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Matthew Selt v Andrew Higginson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Matthew Selt",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Matthew Selt v Andrew Higginson",
+      "market": "CORRECT SCORE",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "3-1",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Matthew Selt v Gong Chenzhi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Matthew Selt",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Matthew Selt v Gong Chenzhi",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zak Surety v Andrew Higginson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zak Surety v Andrew Higginson",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Andrew Higginson v Gong Chenzhi",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Andrew Higginson v Gong Chenzhi",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zak Surety v Matthew Selt",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zak Surety",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Zak Surety v Matthew Selt",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Stage One Group 1",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "David Grace",
+      "correct": null
+    },
+    {
+      "date": "2026-07-09",
+      "subject": "Stage One Group 32",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Zak Surety",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Lei Peifan v David Grace",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Lei Peifan",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Lei Peifan v David Grace",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Zak Surety v Liu Hongyu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Liu Hongyu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Zak Surety v Liu Hongyu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Zak Surety v David Grace",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Zak Surety v David Grace",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Lei Peifan v Liu Hongyu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Lei Peifan v Liu Hongyu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Liu Hongyu v David Grace",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Grace",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Liu Hongyu v David Grace",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": true
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Lei Peifan v Zak Surety",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Lei Peifan v Zak Surety",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Pang Junxu v Ian Burns",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Ian Burns",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Pang Junxu v Ian Burns",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": true
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Hossein Vafaei v Luca Brecel",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Hossein Vafaei v Luca Brecel",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Hossein Vafaei v Ian Burns",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Hossein Vafaei v Ian Burns",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Pang Junxu v Luca Brecel",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Pang Junxu v Luca Brecel",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Luca Brecel v Ian Burns",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Luca Brecel",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Luca Brecel v Ian Burns",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Pang Junxu v Hossein Vafaei",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Pang Junxu v Hossein Vafaei",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": false
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Stage Two Group A",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Lei Peifan",
+      "correct": null
+    },
+    {
+      "date": "2026-07-10",
+      "subject": "Stage Two Group B",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Gary Wilson v Dylan Emery",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Gary Wilson v Dylan Emery",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stephen Maguire v Stan Moody",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stephen Maguire v Stan Moody",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stephen Maguire v Dylan Emery",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stephen Maguire v Dylan Emery",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Gary Wilson v Stan Moody",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Stan Moody",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Gary Wilson v Stan Moody",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stan Moody v Dylan Emery",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Dylan Emery",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stan Moody v Dylan Emery",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Gary Wilson v Stephen Maguire",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Gary Wilson",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Gary Wilson v Stephen Maguire",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Zhou Yuelong v Iulian Boiko",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhou Yuelong",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Zhou Yuelong v Iulian Boiko",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Noppon Saengkham v Scott Donaldson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Noppon Saengkham v Scott Donaldson",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Noppon Saengkham v Iulian Boiko",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Noppon Saengkham v Iulian Boiko",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Zhou Yuelong v Scott Donaldson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Scott Donaldson",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Zhou Yuelong v Scott Donaldson",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Scott Donaldson v Iulian Boiko",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Scott Donaldson",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Scott Donaldson v Iulian Boiko",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Zhou Yuelong v Noppon Saengkham",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Zhou Yuelong v Noppon Saengkham",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stage Two Group C",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Dylan Emery",
+      "correct": null
+    },
+    {
+      "date": "2026-07-11",
+      "subject": "Stage Two Group D",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chris Wakelin v He Guoqiang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chris Wakelin",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chris Wakelin v He Guoqiang",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Ali Carter v David Gilbert",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Ali Carter v David Gilbert",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Ali Carter v He Guoqiang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Ali Carter v He Guoqiang",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chris Wakelin v David Gilbert",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chris Wakelin v David Gilbert",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "David Gilbert v He Guoqiang",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "He Guoqiang",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "David Gilbert v He Guoqiang",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chris Wakelin v Ali Carter",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chris Wakelin v Ali Carter",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Jak Jones v Mark Joyce",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Jak Jones v Mark Joyce",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chang Bingyu v Marco Fu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chang Bingyu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chang Bingyu v Marco Fu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chang Bingyu v Mark Joyce",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Chang Bingyu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Chang Bingyu v Mark Joyce",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Jak Jones v Marco Fu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jak Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Jak Jones v Marco Fu",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Marco Fu v Mark Joyce",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Marco Fu",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Marco Fu v Mark Joyce",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Jak Jones v Chang Bingyu",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jak Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Jak Jones v Chang Bingyu",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": true
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Stage Two Group E",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-07-13",
+      "subject": "Stage Two Group F",
+      "market": "GROUP WINNER",
+      "pick": "Chang Bingyu",
+      "confidence": "HIGH",
+      "actual": "Jak Jones",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jack Lisowski v Cheung Ka Wai",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Cheung Ka Wai",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jack Lisowski v Cheung Ka Wai",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Zhang Anda v Jimmy Robertson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Zhang Anda v Jimmy Robertson",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Zhang Anda v Cheung Ka Wai",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Zhang Anda v Cheung Ka Wai",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jack Lisowski v Jimmy Robertson",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jack Lisowski",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jack Lisowski v Jimmy Robertson",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jimmy Robertson v Cheung Ka Wai",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jimmy Robertson",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jimmy Robertson v Cheung Ka Wai",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jack Lisowski v Zhang Anda",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jack Lisowski v Zhang Anda",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Elliot Slessor v Dean Young",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Elliot Slessor v Dean Young",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Xu Si v Jackson Page",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Xu Si",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Xu Si v Jackson Page",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Xu Si v Dean Young",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Xu Si v Dean Young",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Elliot Slessor v Jackson Page",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Elliot Slessor",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Elliot Slessor v Jackson Page",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jackson Page v Dean Young",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Jackson Page v Dean Young",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Elliot Slessor v Xu Si",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Elliot Slessor",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Elliot Slessor v Xu Si",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-1",
+      "correct": true
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Stage Two Group G",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Zhang Anda",
+      "correct": null
+    },
+    {
+      "date": "2026-07-14",
+      "subject": "Stage Two Group H",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "Elliot Slessor",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Elliot Slessor v Noppon Saengkham",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Elliot Slessor v Noppon Saengkham",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Lei Peifan v David Gilbert",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Lei Peifan v David Gilbert",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Lei Peifan v Noppon Saengkham",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Noppon Saengkham",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Lei Peifan v Noppon Saengkham",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Elliot Slessor v David Gilbert",
+      "market": "MATCH RESULT",
+      "pick": "David Gilbert",
+      "confidence": "MEDIUM",
+      "actual": "Draw",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Elliot Slessor v David Gilbert",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "David Gilbert v Noppon Saengkham",
+      "market": "MATCH RESULT",
+      "pick": "Noppon Saengkham",
+      "confidence": "MEDIUM",
+      "actual": "David Gilbert",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "David Gilbert v Noppon Saengkham",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-1",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Elliot Slessor v Lei Peifan",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Elliot Slessor v Lei Peifan",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Zhang Anda v Dylan Emery",
+      "market": "MATCH RESULT",
+      "pick": "Zhang Anda",
+      "confidence": "MEDIUM",
+      "actual": "Dylan Emery",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Zhang Anda v Dylan Emery",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Hossein Vafaei v Jak Jones",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jak Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Hossein Vafaei v Jak Jones",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Hossein Vafaei v Dylan Emery",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Hossein Vafaei",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Hossein Vafaei v Dylan Emery",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Zhang Anda v Jak Jones",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Zhang Anda v Jak Jones",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Jak Jones v Dylan Emery",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Jak Jones",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Jak Jones v Dylan Emery",
+      "market": "CORRECT SCORE",
+      "pick": "3-1",
+      "confidence": "HIGH",
+      "actual": "3-0",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Zhang Anda v Hossein Vafaei",
+      "market": "MATCH RESULT",
+      "pick": "SKIP",
+      "confidence": "SKIP",
+      "actual": "Draw",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Zhang Anda v Hossein Vafaei",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "2-2",
+      "correct": true
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "David Gilbert v Jak Jones",
+      "market": "MATCH RESULT",
+      "pick": "Jak Jones",
+      "confidence": "MEDIUM",
+      "actual": "Jak Jones",
+      "correct": true
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "David Gilbert v Jak Jones",
+      "market": "CORRECT SCORE",
+      "pick": "2-2",
+      "confidence": "MEDIUM",
+      "actual": "3-2",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Winners' group 1",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": "David Gilbert",
+      "correct": null
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Winners' group 2",
+      "market": "GROUP WINNER",
+      "pick": "Zhang Anda",
+      "confidence": "HIGH",
+      "actual": "Jak Jones",
+      "correct": false
+    },
+    {
+      "date": "2026-07-15",
+      "subject": "Final",
+      "market": "GROUP WINNER",
+      "pick": "TOO OPEN",
+      "confidence": "SKIP",
+      "actual": null,
+      "correct": null
+    }
+  ],
+  "source": "https://en.wikipedia.org/w/index.php?title=2026_Championship_League_(ranking)&oldid=1364748219",
+  "generated_from": "data/snooker_cls.json"
+}
