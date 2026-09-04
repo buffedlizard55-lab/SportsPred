@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "sport": "NRL",
- "fetched_at_utc": "2026-09-04T02:43:27Z",
+ "fetched_at_utc": "2026-09-04T02:57:12Z",
  "source": {
   "name": "Open-Meteo forecast API (key-less, no registration)",
   "url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4648,-35.2406,-33.8469,-34.0447,-28.0667,-33.7611,-37.8235,-32.9261,-36.8728,-19.3167,-33.8083,-34.4267,-33.8915&longitude=153.0093,149.103,151.0631,151.1533,153.4333,151.2878,144.9797,151.7295,174.7833,146.7167,150.9892,150.9019,151.2213&daily=precipitation_sum,precipitation_probability_max,wind_speed_10m_max&forecast_days=4&timezone=UTC",

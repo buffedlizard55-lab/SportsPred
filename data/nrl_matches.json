@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "sport": "NRL",
- "generated_at_utc": "2026-09-04T02:43:26Z",
+ "generated_at_utc": "2026-09-04T02:57:11Z",
  "matches": [
   {
    "date": "2026-02-28",
@@ -2455,7 +2455,7 @@
   "espn": {
    "name": "ESPN NRL scoreboard (key-less site API)",
    "url": "https://site.api.espn.com/apis/site/v2/sports/rugby-league/3/scoreboard?dates=20260228-20261008",
-   "fetched_at_utc": "2026-09-04T02:43:26Z",
+   "fetched_at_utc": "2026-09-04T02:57:11Z",
    "note": "Scores, venues and UTC kick-offs. OLBG supplies the market slate; it is never used for kick-off times because it renders them in the viewer’s timezone (NRL-01)."
   }
  },
