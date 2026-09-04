@@ -457,12 +457,18 @@ export const SPORTS = [
     unit: 'strokes',
     specialistEngine: 'golf',
     page: 'golf.html',
+    subPages: [
+      { key: 'golf', label: 'All tournaments', href: 'golf.html', name: 'Every men\'s-tour event — GOLF TOURNAMENT PREDICTION MASTER PROMPT v1.0' },
+      { key: 'scottish-open', label: 'Scottish Open', href: 'scottish-open.html', name: 'The Renaissance Club — SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0 (verified venue dossier, five markets, walk-forward backtest)' },
+    ],
     officialLinks: [
       { label: 'ESPN Golf Leaderboard', url: 'https://www.espn.com/golf/leaderboard' },
       { label: 'ESPN Golf Schedule', url: 'https://www.espn.com/golf/schedule' },
       { label: 'Official World Golf Ranking', url: 'https://www.owgr.com/current-world-ranking' },
       { label: 'PGA TOUR Stats (strokes gained)', url: 'https://www.pgatour.com/stats' },
       { label: 'OLBG Golf Tips', url: olbgUrl('Golf', 5) },
+      { label: 'OLBG Golf — All Events', url: 'https://www.olbg.com/betting-tips/Golf/All_Golf/All_Events/5' },
+      { label: 'DP World Tour — Genesis Scottish Open', url: 'https://www.europeantour.com/dpworld-tour/genesis-scottish-open-2026/' },
     ],
     candidateLeagues: [
       { slug: 'pga', name: 'PGA Tour' },
@@ -470,7 +476,11 @@ export const SPORTS = [
       { slug: 'lpga', name: 'LPGA Tour' },
       { slug: 'champions-tour', name: 'PGA Tour Champions' },
     ],
-    notes: ['Golf markets are outrights across a full field, so the two-competitor universal engine does not apply. The specialist golf engine (GOLF TOURNAMENT PREDICTION MASTER PROMPT v1.0) scores the PGA TOUR and DP World Tour fields for outright, top six, first round leader and the three regional markets; the LPGA and PGA TOUR Champions are shown for leaderboards and calendars only.'],
+    notes: [
+      'Golf markets are outrights across a full field, so the two-competitor universal engine does not apply. The specialist golf engine (GOLF TOURNAMENT PREDICTION MASTER PROMPT v1.0) scores the PGA TOUR and DP World Tour fields for outright, top six, first round leader and the three regional markets; the LPGA and PGA TOUR Champions are shown for leaderboards and calendars only.',
+      'The Scottish Open has its own sub-page (scottish-open.html) scored by the SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0, which replaces the six-market ruleset with five markets (win tournament, first round leader, top American, top European, top GB and Ireland), an all-around ball-striking category, a wind-and-links proxy in place of thin venue history, and a thirty-point morning/afternoon tee-time wave category. Every other tournament keeps the generic prompt. Venue dossier: data/golf_scottish_open.json; links classification: data/golf_links_courses.json; walk-forward ledger: data/golf_scottish_open_backtest.json.',
+      'No free source publishes golf odds, ball flight, Race to Dubai standings, travel intent or per-round wind, so those factors are recorded as missing and never estimated. Links classification comes only from cited venues plus The Open Championship itself; a course with "Royal" or "Links" in its name is never classified on the name alone.',
+    ],
   },
   {
     key: 'gaelic-football',

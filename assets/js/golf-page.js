@@ -65,6 +65,7 @@ async function boot() {
 function renderStatic() {
   const s = state.sport;
   $('#sport-links').innerHTML = (s?.officialLinks || []).map((l) => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)} ↗</a>`).join(' · ');
+  $('#league-tabs').innerHTML = (s?.subPages || []).map((t) => `<a href="${esc(t.href)}" class="${t.href === 'golf.html' ? 'on' : ''}" title="${esc(t.name)}">${esc(t.label)}</a>`).join('');
   $('#tour-filter').value = state.tour;
 }
 
@@ -449,6 +450,28 @@ function renderCoverage() {
     ${backtestLine()}`;
 }
 
+/** Why a Generate click produced no selection, stated as the real reason. */
+function noCardReason(cardsBuilt = 0) {
+  const docs = state.docs || {};
+  const missingDocs = [
+    ['results tape', docs.resultsDoc], ['world ranking', docs.rankingsDoc],
+    ['season stats', docs.statsDoc], ['event list', docs.eventsDoc?.events?.length ? docs.eventsDoc : null],
+  ].filter(([, v]) => !v).map(([label]) => label);
+  const lead = cardsBuilt
+    ? `${cardsBuilt} tournament card(s) were scored but produced no selection`
+    : 'Nothing to score';
+  if (missingDocs.length) {
+    return `${lead} — the committed golf documents did not load (${missingDocs.join(', ')}). `
+      + 'A page opened from a file:// URL cannot fetch data/*.json; serve the folder (npm run serve) or use the published site.';
+  }
+  if (!state.events.length) return 'No tournament on this board — pick a week that contains a PGA TOUR or DP World Tour event.';
+  const shown = state.events.filter((ev) => !PREDICTABLE_TOURS.includes(ev.tour)).length;
+  if (shown === state.events.length) {
+    return 'Every tournament on this board is LPGA or PGA TOUR Champions, which are shown for leaderboards and calendars but not scored — pick a week with a men\'s-tour event.';
+  }
+  return 'No predictable tournament on this board — pick a week with a PGA TOUR or DP World Tour event.';
+}
+
 /** One-line walk-forward backtest summary from data/golf_backtest.json (real numbers only). */
 function backtestLine() {
   const bt = state.backtest;
@@ -592,7 +615,7 @@ function wireControls() {
         renderCoverage();
         renderMeta();
         const sel = allSelections();
-        toast(n ? `${sel.length} selections generated across ${n} tournament card(s)` : 'No predictable tournament on this board — pick a week with a PGA TOUR or DP World Tour event');
+        toast(sel.length ? `${sel.length} selections generated across ${n} tournament card(s)` : noCardReason(n));
       } catch (err) {
         toast(`Generation failed: ${err.message}`);
         console.error(err);

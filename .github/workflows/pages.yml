@@ -66,6 +66,17 @@ jobs:
       - name: Backtest the T20 Blast model and verify its publication gate
         run: node scripts/backtest_t20_blast.mjs --check
 
+      # The Scottish Open overlay's curated inputs are re-derived and compared
+      # on every push: the cited links/coastal venue table (a course is never
+      # classified from its name), the venue dossier whose every claim carries a
+      # named primary source and a CONFIRMED or UNCONFIRMED status, and the
+      # walk-forward ledger over the editions in the committed results tape.
+      - name: Verify the Scottish Open overlay line by line
+        run: |
+          node scripts/build_golf_links.mjs --check
+          node scripts/build_scottish_open.mjs --check
+          node scripts/backtest_scottish_open.mjs --check
+
       - name: Verify the site line by line (selectors, links, JSON, modules)
         run: node scripts/verify_site.mjs
 

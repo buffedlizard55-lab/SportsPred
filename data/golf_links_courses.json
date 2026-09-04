@@ -1,0 +1,174 @@
+{
+  "schema_version": 1,
+  "sport": "Golf",
+  "generated_at_utc": "2026-09-04T03:45:03.255Z",
+  "method": "Hand-verified venue classification joined against data/golf_results.json. A venue is only classified when a cited source says so; \"Royal\" or \"Links\" in a course name is never treated as evidence. The Open Championship is not listed because it is always played on a links course (see sources[1]) and the engine matches it on the ESPN name plus the major flag.",
+  "sources": [
+    {
+      "id": "wiki-links-list",
+      "name": "Wikipedia — List of links golf courses",
+      "url": "https://en.wikipedia.org/wiki/List_of_links_golf_courses",
+      "fetched_at_utc": "2026-09-04T03:45:03.255Z"
+    },
+    {
+      "id": "wiki-links",
+      "name": "Wikipedia — Links (golf)",
+      "url": "https://en.wikipedia.org/wiki/Links_(golf)",
+      "fetched_at_utc": "2026-09-04T03:45:03.255Z",
+      "provides": "\"The Open Championship is always played on links courses\"; Pebble Beach is explicitly named as not a true links"
+    },
+    {
+      "id": "portrush",
+      "name": "Wikipedia — Royal Portrush Golf Club",
+      "url": "https://en.wikipedia.org/wiki/Royal_Portrush_Golf_Club",
+      "fetched_at_utc": "2026-09-04T03:45:03.255Z"
+    },
+    {
+      "id": "rcd",
+      "name": "Royal County Down Golf Club — Championship Links",
+      "url": "https://www.royalcountydown.org/championship_links",
+      "fetched_at_utc": "2026-09-04T03:45:03.255Z"
+    },
+    {
+      "id": "doonbeg",
+      "name": "GolfPass — Trump International Golf Links Ireland",
+      "url": "https://www.golfpass.com/travel-advisor/courses/19459-trump-international-golf-links-ireland",
+      "fetched_at_utc": "2026-09-04T03:45:03.255Z"
+    }
+  ],
+  "coverage": {
+    "distinctCoursesInTape": 123,
+    "classifiedCourses": 8,
+    "classifiedEventsInTape": 14,
+    "eventsInTape": 230
+  },
+  "courses": [
+    {
+      "espnCourseName": "The Renaissance Club",
+      "classification": "links",
+      "region": "North Berwick, East Lothian, Scotland",
+      "source": "https://en.wikipedia.org/wiki/List_of_links_golf_courses",
+      "evidence": "Listed under Scotland → Lothian: \"The Renaissance Club, Dirleton, North Berwick\".",
+      "note": "Host of the Scottish Open since 2019 and confirmed through 2030.",
+      "espnCourseNameLower": "the renaissance club",
+      "eventsInTape": 3,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "Royal Troon Golf Course",
+      "classification": "links",
+      "region": "Troon, Ayrshire, Scotland",
+      "source": "https://en.wikipedia.org/wiki/List_of_links_golf_courses",
+      "evidence": "Listed under Scotland → Strathclyde: \"Royal Troon Golf Club – Old Course and Portland Course\".",
+      "note": "Hosted The Open in 2024 (ESPN tape row 401580360).",
+      "espnCourseNameLower": "royal troon golf course",
+      "eventsInTape": 1,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "St Andrews Links (Old Course)",
+      "classification": "links",
+      "region": "St Andrews, Fife, Scotland",
+      "source": "https://en.wikipedia.org/wiki/List_of_links_golf_courses",
+      "evidence": "Listed under Scotland → Fife: \"St Andrews Links – Old, New, Castle, Jubilee, Eden, Strathtyrum, and Balgrove Courses\".",
+      "note": "Alfred Dunhill Links Championship in the tape.",
+      "espnCourseNameLower": "st andrews links (old course)",
+      "eventsInTape": 2,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "Royal Birkdale GC",
+      "classification": "links",
+      "region": "Southport, Merseyside, England",
+      "source": "https://en.wikipedia.org/wiki/List_of_links_golf_courses",
+      "evidence": "Listed under England → North West: \"Royal Birkdale Golf Club, Southport, Merseyside\".",
+      "note": "Hosted The Open in 2026 (ESPN tape row 401811957).",
+      "espnCourseNameLower": "royal birkdale gc",
+      "eventsInTape": 1,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "Royal Portrush Golf Club",
+      "classification": "links",
+      "region": "County Antrim, Northern Ireland",
+      "source": "https://en.wikipedia.org/wiki/Royal_Portrush_Golf_Club",
+      "evidence": "\"The 36-hole club has two links courses, the Dunluce Links (the championship course) and the Valley Links. The former is one of the courses on the rota of the Open Championship and it recently hosted the 2025 tournament.\"",
+      "note": "Hosted The Open in 2025 (ESPN tape row 401703521).",
+      "espnCourseNameLower": "royal portrush golf club",
+      "eventsInTape": 1,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "Royal County Down GC",
+      "classification": "links",
+      "region": "Newcastle, County Down, Northern Ireland",
+      "source": "https://www.royalcountydown.org/championship_links",
+      "evidence": "The club's own Championship Links page: \"The finest of all links courses, it offers a stern challenge from the championship tees.\"",
+      "note": "Amgen Irish Open venue in the tape.",
+      "espnCourseNameLower": "royal county down gc",
+      "eventsInTape": 1,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "Trump International Golf Links",
+      "classification": "links",
+      "region": "Doonbeg, County Clare, Ireland",
+      "source": "https://www.golfpass.com/travel-advisor/courses/19459-trump-international-golf-links-ireland",
+      "evidence": "Course profile records \"Style: Links\"; formerly Doonbeg Golf Club.",
+      "note": "Amgen Irish Open venue in the tape. Secondary source — recorded as such.",
+      "espnCourseNameLower": "trump international golf links",
+      "eventsInTape": 2,
+      "inTape": true
+    },
+    {
+      "espnCourseName": "Pebble Beach Golf Links",
+      "classification": "coastal",
+      "region": "Pebble Beach, California, USA",
+      "source": "https://en.wikipedia.org/wiki/Links_(golf)",
+      "evidence": "Named in the links article as a course \"regarded as links\" that does \"not, as presently constituted, have all of the necessary characteristics\".",
+      "note": "Wind-exposed coastal, NOT classified as links. Kept in a separate class so the two are never conflated.",
+      "espnCourseNameLower": "pebble beach golf links",
+      "eventsInTape": 3,
+      "inTape": true
+    }
+  ],
+  "excluded": [
+    {
+      "espnCourseName": "Muirfield Village Golf Club",
+      "reason": "Ohio, USA. Not Muirfield in East Lothian; a name collision, not a links."
+    },
+    {
+      "espnCourseName": "Royal Melbourne Golf Club",
+      "reason": "Melbourne sandbelt. \"Royal\" in the title is not evidence and no cited source classifies it as links."
+    },
+    {
+      "espnCourseName": "Royal Queensland Golf Club",
+      "reason": "\"Royal\" in the title is not evidence; no cited classification found."
+    },
+    {
+      "espnCourseName": "Royal Johannesburg Club",
+      "reason": "\"Royal\" in the title is not evidence; inland parkland."
+    },
+    {
+      "espnCourseName": "Royal GC",
+      "reason": "Ambiguous ESPN course name; refusing to classify a venue that cannot be resolved to a specific course."
+    },
+    {
+      "espnCourseName": "Harbour Town Golf Links",
+      "reason": "\"Links\" in the title is not evidence; no cited classification verified in this pass."
+    },
+    {
+      "espnCourseName": "St. Francis Links",
+      "reason": "\"Links\" in the title is not evidence; no cited classification verified in this pass."
+    },
+    {
+      "espnCourseName": "Yas Links GC",
+      "reason": "\"Links\" in the title is not evidence; no cited classification verified in this pass."
+    },
+    {
+      "espnCourseName": "Dunes Golf & Beach Club",
+      "reason": "Ambiguous ESPN course name; refusing to classify."
+    }
+  ],
+  "warnings": []
+}

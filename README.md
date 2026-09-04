@@ -20,6 +20,7 @@ engine, built around one rule: **nothing is published without a source.**
 | [`greyhounds.html`](greyhounds.html) | Greyhound racing: daily GBGB racecards, results and month calendar with form/trap/distance/grade analysis and the written WIN tips generated per the GREYHOUND RACING PREDICTION MASTER PROMPT v1.0. |
 | [`volleyball.html`](volleyball.html) | Volleyball: NCAA scoreboard from ESPN plus EuroVolley Women 2026 from a committed CEV tape. WIN MATCH and SET SCORE tips per the volleyball master prompt — college form is never applied to internationals. |
 | [`golf.html`](golf.html) | Golf: PGA TOUR / DP World Tour / LPGA / Champions leaderboards and calendars, and the six-market golf card (outright, top six, first round leader, top European, top American, top British & Irish) generated for every men's-tour event on the board. |
+| [`scottish-open.html`](scottish-open.html) | Scottish Open golf, scored by the SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0 as an event overlay: five markets (win tournament, first round leader, top American, top European, top GB & Ireland) with all-around ball-striking in place of one-dimensional form, a wind-and-links proxy in place of thin venue history, a thirty-point morning/afternoon tee-time wave category and a home-national-open adjustment. A source-linked venue dossier, the walk-forward backtest ledger and the retrospective editions all render on the page. Every other golf event keeps the generic prompt. |
 | [`snooker.html`](snooker.html) | Snooker: match scoreboard + month calendar over the OLBG market slate joined to the official WST ranking table and the public snooker.org results database. 100-point scoring (odds, form, H2H, ranking, stage) and 25-40 word written predictions per the SNOOKER PREDICTION MASTER PROMPT v3.0; no free price feed exists, so the odds factor is honestly recorded as missing and live bets resolve to SKIP. |
 | [`darts.html`](darts.html) | Darts: match scoreboard + month calendar over the OLBG market slate joined to the public PDC Order of Merit and a committed, source-tagged European Tour results tape. 100-point scoring (odds, form, 3-dart average, H2H, Order of Merit, stage) and 25-40 word written predictions per the DARTS PREDICTION MASTER PROMPT v1.0; no free price feed exists, so the odds factor is honestly recorded as missing and live bets resolve to SKIP. Unpublished Czech Open pairings are never invented. |
 | [`ice-hockey.html`](ice-hockey.html) | Ice hockey: scoreboard + month calendar over the NHL fixture list, scored by the ICE HOCKEY PREDICTION MASTER PROMPT v1.0. Three markets per match (outright winner, puck line, game total) behind a subagent risk layer that vetoes any play resting on an unsourced input. Fixtures, standings and goaltending from the official NHL API, prices from the ESPN odds block, OLBG slate for market context. |
@@ -53,7 +54,9 @@ is recorded as missing (`docs/DARTS_SOURCES.md`, `docs/DARTS_IRREGULARITIES.md`)
 Golf is an outright
 sport, so it bypasses the two-competitor universal engine and runs on its own
 specialist page (`golf.html`) driven by the GOLF TOURNAMENT PREDICTION MASTER
-PROMPT v1.0 (`docs/GOLF_MASTER_PROMPT.md`). Greyhounds likewise run on their
+PROMPT v1.0 (`docs/GOLF_MASTER_PROMPT.md`), with the Scottish Open scored by its
+own SCOTTISH OPEN GOLF PREDICTION MASTER PROMPT v1.0 overlay
+(`docs/SCOTTISH_OPEN_MASTER_PROMPT.md`) on the `scottish-open.html` sub-page. Greyhounds likewise run on their
 own page (`greyhounds.html`) driven by the GREYHOUND RACING PREDICTION MASTER
 PROMPT v1.0 over the **official GBGB results API** (meetings, draws, results
 and per-dog form histories) with the Sporting Life racecard index for
@@ -191,6 +194,8 @@ engine/                 the model — pure functions, no I/O
   golf_writer.js        Golf Step 4 writer (five blocks, table, weather, RG) + validator
   golf_data.js          Golf results tape -> per-player profiles (leak-free)
   golf_card.js          Golf documents -> scored & written card
+  golf_event_profiles.js  which golf prompt scores which event (Scottish Open -> overlay)
+  golf_scottish_open.js Scottish Open overlay: five markets + Step 3 rules + card text
   nrl_data.js           NRL tape -> ladder, form, H2H, totals, travel, weather
   nrl_engine.js         NRL Step 2 scoring (3 markets) + Step 3 rules + coverage caps
   nrl_writer.js         NRL Step 4 writer (40 words, bolded pick, RG section) + validator
@@ -220,6 +225,9 @@ data/
   results.json          settled outcomes (empty — see IR-02)
   provenance.json       the irregularity register
   golf_*.json           golf events / results tape / OWGR / stats / weather / slate / backtest / provenance (built in CI)
+  golf_links_courses.json   cited links venue table (links / coastal / excluded, each with its source)
+  golf_scottish_open.json   Scottish Open venue dossier: every claim CONFIRMED or UNCONFIRMED
+  golf_scottish_open_backtest.json  Scottish Open walk-forward ledger
 scripts/
   collect_golf_espn.mjs golf events, results tape, OWGR, ESPN stats, PGA TOUR SG
   collect_golf_olbg.py  OLBG golf slate collector (stdlib only)
@@ -230,6 +238,9 @@ scripts/
                         (official SP feeds the odds tier; PnL illustrative)
   collect_golf_weather.mjs  Open-Meteo four-day + round-one trend per event
   backtest_golf.mjs     golf walk-forward backtest + ledger
+  build_golf_links.mjs  cited links / coastal venue table (data/golf_links_courses.json)
+  build_scottish_open.mjs  source-linked Scottish Open venue dossier
+  backtest_scottish_open.mjs  Scottish Open walk-forward ledger
   data_changed.mjs      collector commit guard: exit 1 when only timestamps moved
   collect_cricket_olbg.py  OLBG cricket slate collector (stdlib only)
   collect_olbg.py       OLBG tennis/handball slate collector (stdlib only)
@@ -245,7 +256,7 @@ scripts/
   build_data.py         data-layer validation (npm run build:data)
   serve.py              local preview server
 .github/workflows/      installed Pages deploy + scheduled collection workflows
-tests/                 408 Node tests + 59 Python tests
+tests/                 845 Node tests + 96 Python tests
 docs/
   LIVE_DATA.md          the live data architecture and what ESPN does not publish
   PROMPT_REVIEW.md      line-by-line review of the master prompt
@@ -257,7 +268,10 @@ docs/
   GOLF_PROMPT_REVIEW.md prompt line -> code -> test, with every substitution named
   GOLF_FEATURE_MATRIX.md what the golf layer delivers and how it is proven
   GOLF_SOURCES.md       every golf endpoint, verified, with review links
-  GOLF_IRREGULARITIES.md IR-GOLF-01..16
+  GOLF_IRREGULARITIES.md IR-GOLF-01..23
+  SCOTTISH_OPEN_MASTER_PROMPT.md the Scottish Open prompt (spec of record)
+  SCOTTISH_OPEN_PROMPT_REVIEW.md Scottish Open prompt line -> code -> test -> source
+  SCOTTISH_OPEN_SOURCES.md every Scottish Open source, verified, with review links
   SNOOKER_SOURCES.md    every snooker source, verified, with review links
   SNOOKER_IRREGULARITIES.md IR-SNOOKER-01..08
   SNOOKER_PROMPT_REVIEW.md prompt line -> code -> test, with every substitution named
