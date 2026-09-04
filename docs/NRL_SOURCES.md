@@ -43,6 +43,28 @@ The 2026 tape in data/nrl_matches.json was recomputed into a ladder after round 
 - Round 1 was a split round (two matches in Las Vegas on 28 February, the remaining six from 5 March). The tape keeps it as one round of eight.
 - Seventeen clubs means some rounds carry three or seven byes rather than one. Rounds 12, 15 and 18 have five matches and rounds 13, 16 and 19 have seven; every club finishes with three byes except the Knights, who have two.
 
+## Two traps in the ESPN feed
+
+The CI collector merges ESPN's scoreboard into `data/nrl_matches.json` on every
+run. Two things in that feed do not belong on an NRL club tape, and both are
+handled explicitly (see NRL-12 and NRL-13 in
+[the irregularity register](NRL_IRREGULARITIES.md)):
+
+- **State of Origin is filed under the same league.** ESPN serves New South
+  Wales v Queensland with an ordinary week number, indistinguishable from a club
+  fixture. Anything outside the 17 clubs in `data/nrl_teams.json` is skipped and
+  reported on the command line; `collect_nrl_espn.mjs --check` fails if a
+  non-club side ever reaches the tape. Origin lives in `data/nrl_origin.json`.
+- **ESPN dates events in UTC; the tape dates them by local kick-off.** Those
+  agree for every match played in Australia, but not for the two round 1 games
+  at Allegiant Stadium: 2026-02-28 in Las Vegas is 2026-03-01 in UTC. A fetched
+  fixture is therefore matched against the tape by exact date, then by the same
+  pairing within a day, then by the same pairing and round within a week, so a
+  match the tape already holds is merged rather than duplicated.
+
+`tests/nrl_espn.test.mjs` replays the exact four events the 2026-09-04 collector
+run tripped over and asserts the tape is unchanged by them.
+
 ## What is deliberately not collected
 
 | Prompt asks for | Why it is not collected | What the engine does instead |
@@ -60,5 +82,5 @@ node scripts/collect_nrl_espn.mjs                     # refresh the NRL tape fro
 node scripts/collect_nrl_weather.mjs                  # refresh venue forecasts from Open-Meteo
 node scripts/backtest_nrl.mjs                         # walk-forward backtest
 node scripts/record_nrl_predictions.mjs               # append the forward ledger
-node --test tests/nrl_data.test.mjs tests/nrl_engine.test.mjs tests/nrl_writer.test.mjs
+node --test tests/nrl_data.test.mjs tests/nrl_engine.test.mjs tests/nrl_writer.test.mjs tests/nrl_espn.test.mjs
 ```
