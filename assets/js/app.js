@@ -65,9 +65,38 @@ const todayISO = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 
+const SPECIALIST_SPORTS = ['cricket', 'handball', 'tennis', 'f1'];
+
+function queryParam(name) {
+  try {
+    return new URLSearchParams(location.search).get(name);
+  } catch {
+    return null;
+  }
+}
+
+function initialSport() {
+  const s = queryParam('sport');
+  return SPECIALIST_SPORTS.includes(s) ? s : 'cricket';
+}
+
+function initialDate() {
+  const d = queryParam('date');
+  return /^\d{4}-\d{2}-\d{2}$/.test(d || '') ? d : todayISO();
+}
+
+function persistConsoleUrl() {
+  try {
+    const u = new URL(location.href);
+    u.searchParams.set('sport', state.sport);
+    u.searchParams.set('date', state.date);
+    history.replaceState(null, '', u);
+  } catch { /* jsdom without History may skip */ }
+}
+
 const state = {
-  sport: 'cricket',
-  date: todayISO(),
+  sport: initialSport(),
+  date: initialDate(),
   calMonth: new Date(`${todayISO()}T12:00:00Z`),
   phase: 'all',
   league: 'all',
@@ -158,6 +187,7 @@ async function boot() {
     console.error('Initialization error:', e);
   }
 
+  syncSportPills();
   updateHeaderPills();
   populateLeagueFilter();
   renderCalendar();
@@ -202,15 +232,23 @@ function populateLeagueFilter() {
  * Date & Sport Navigation
  * ------------------------------------------------------------------ */
 
-async function setSport(sportId) {
-  if (state.sport === sportId) return;
-  state.sport = sportId;
-
+function syncSportPills() {
   $$('.sport-pill[data-sport]').forEach((btn) => {
-    const active = btn.dataset.sport === sportId;
+    const active = btn.dataset.sport === state.sport;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-checked', active ? 'true' : 'false');
   });
+}
+
+async function setSport(sportId) {
+  if (state.sport === sportId) return;
+  state.sport = sportId;
+  try {
+    const u = new URL(location.href);
+    u.searchParams.set('sport', sportId);
+    history.replaceState(null, '', u);
+  } catch { /* jsdom without History may skip */ }
+  syncSportPills();
 
   updateHeaderPills();
   populateLeagueFilter();
@@ -232,12 +270,18 @@ async function loadDate(dateISO) {
     await loadCricketDate(dateISO);
   } else if (state.sport === 'handball') {
     loadHandballDate(dateISO);
+    if (state.date !== dateISO) {
+      dateISO = state.date;
+      const input = $('#date-input');
+      if (input) input.value = dateISO;
+    }
   } else if (state.sport === 'f1') {
     await loadF1Date(dateISO);
   } else {
     await loadTennisDate(dateISO);
   }
 
+  persistConsoleUrl();
   hideProgress();
   state.loading = false;
 
@@ -247,13 +291,57 @@ async function loadDate(dateISO) {
   autoGeneratePredictions();
 }
 
+function nearestHandballDate(dateISO) {
+  const dates = [...new Set((state.handballMatches?.matches || []).map((m) => m.date).filter(Boolean))].sort();
+  if (!dates.length) return dateISO;
+  const upcoming = dates.find((d) => d >= dateISO);
+  if (upcoming) return upcoming;
+  return dates[dates.length - 1];
+}
+
+function richestUpcomingHandballDate() {
+  const counts = new Map();
+  for (const m of state.handballMatches?.matches || []) {
+    if (m.phase === 'results' || !m.date) continue;
+    counts.set(m.date, (counts.get(m.date) || 0) + 1);
+  }
+  let best = null;
+  let n = 0;
+  for (const [d, c] of counts) {
+    if (c > n || (c === n && (!best || d < best))) {
+      best = d;
+      n = c;
+    }
+  }
+  return best;
+}
+
 function loadHandballDate(dateISO) {
-  const cardData = buildHandballCardForDate(
+  let cardData = buildHandballCardForDate(
     dateISO,
     state.handballMatches,
     state.handballTeams,
     state.handballSlate
   );
+
+  // Landing UX: an empty or one-match day makes Generate look broken. Hop
+  // once to the richest sourced slate rather than inventing fixtures.
+  const upcoming = (cardData.matches || []).filter((m) => m.phase === 'upcoming').length;
+  const shouldHop = !cardData.matches.length || (!state.handballHopped && upcoming < 3);
+  if (shouldHop) {
+    const hop = richestUpcomingHandballDate() || nearestHandballDate(dateISO);
+    if (hop && hop !== dateISO) {
+      state.handballHopped = true;
+      state.date = hop;
+      state.calMonth = new Date(`${hop}T12:00:00Z`);
+      cardData = buildHandballCardForDate(
+        hop,
+        state.handballMatches,
+        state.handballTeams,
+        state.handballSlate
+      );
+    }
+  }
 
   state.currentMatches = cardData.matches;
   state.scoredCard = cardData.scored;
@@ -2033,7 +2121,7 @@ $('#cal-next').addEventListener('click', () => {
 // Shared site chrome: inject the same masthead, sport rail and footer that the
 // rest of the site renders (ui.js renderShell/renderFooter), so pro.html is not
 // a visually separate page. Must run before boot() resolves its element refs.
-renderShell({ activeSport: null, activePage: 'pro.html' });
+renderShell({ activeSport: state.sport, activePage: 'pro.html' });
 renderFooter();
 
 // Predictions actions

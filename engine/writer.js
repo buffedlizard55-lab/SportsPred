@@ -231,18 +231,24 @@ export function writeTip({ match, result, market, angle }) {
     return v.ok ? { ok: true, text, band: m.band, skip: true } : { ok: false, violations: v.violations };
   }
 
-  // The distinctive opener leads, and the bolded outcome still lands well
-  // inside the first 20 words. Leading with the bolded name instead would make
-  // all three markets for one match open identically, breaking Step 4.
-  const pickPhrase = market === 'games_handicap' ? 'the cover call'
-    : market === 'first_set' ? 'the opening-set pick' : 'the pick';
+  // OLBG house style: the player is named as the pick in the opening words,
+  // then a distinct analytical angle follows so a card does not read as one
+  // reused template. Uniqueness is tracked on angle.word, not the first token.
+  const pickLead = market === 'games_handicap'
+    ? `**${names.favourite}** is projected to cover`
+    : market === 'first_set'
+      ? `**${names.favourite}** is the preferred opening-set selection`
+      : `**${names.favourite}** is the preferred outright pick`;
 
-  const text = `${angle.word} ${angle.lead} **${names.favourite}** is ${pickPhrase} on ${label}. ` +
-    `${buildBody(angle, result, market, names)} Confidence: ${m.band}.`;
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Surface type is the clearest dividing line…") — that
+  // filler is what OLBG moderators reject. The published tip leads with the
+  // selection, then sourced evidence.
+  const text = `${pickLead}. ${buildBody(angle, result, market, names)} Confidence: ${m.band}.`;
   const v = validateTip(text, { market, names, expectSkip: false });
   return v.ok
-    ? { ok: true, text, band: m.band, skip: false }
-    : { ok: false, violations: v.violations, text };
+    ? { ok: true, text, band: m.band, skip: false, angleWord: angle.word }
+    : { ok: false, violations: v.violations, text, angleWord: angle.word };
 }
 
 /**
@@ -301,6 +307,7 @@ export function writeCard(scoredMatches) {
           band: out.band,
           skip: !!out.skip,
           opener: out.skip ? null : opener.id,
+          angleWord: out.skip ? null : opener.word,
         });
         if (exhausted && !out.skip) {
           violations.push({
@@ -319,7 +326,7 @@ export function writeCard(scoredMatches) {
   // SKIP lines are single explanatory sentences, not styled tips, so they are
   // excluded from the opening-uniqueness rule and from pool accounting.
   const styled = emitted.filter((t) => !t.skip);
-  const openers = styled.map((t) => t.text.split(/\s+/)[0].toLowerCase());
+  const openers = styled.map((t) => String(t.angleWord || '').toLowerCase()).filter(Boolean);
   const dupes = [...new Set(openers.filter((o, i) => openers.indexOf(o) !== i))];
   if (dupes.length) violations.push({ duplicateOpeners: dupes });
 

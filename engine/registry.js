@@ -296,6 +296,7 @@ export const SPORTS = [
     predictable: true,
     unit: 'sets',
     specialistEngine: 'tennis',
+    page: 'pro.html?sport=tennis',
     officialLinks: [
       { label: 'ESPN Tennis Scoreboard', url: 'https://www.espn.com/tennis/scoreboard' },
       { label: 'OLBG Tennis Tips', url: olbgUrl('Tennis', 3) },
@@ -317,8 +318,9 @@ export const SPORTS = [
     predictable: true,
     unit: 'runs',
     specialistEngine: 'cricket',
+    page: 'pro.html?sport=cricket',
     subPages: [
-      { key: 'cricket-console', label: 'Cricket console', href: 'pro.html', name: 'Specialist cricket, handball, tennis and F1 console' },
+      { key: 'cricket-console', label: 'Cricket console', href: 'pro.html?sport=cricket', name: 'Specialist cricket, handball, tennis and F1 console' },
       { key: 't20-blast', label: 'T20 Blast', href: 't20-blast.html', name: 'T20 Blast (Vitality Blast, men) — England & Wales' },
     ],
     officialLinks: [
@@ -369,6 +371,7 @@ export const SPORTS = [
     predictable: true,
     unit: 'positions',
     specialistEngine: 'f1',
+    page: 'pro.html?sport=f1',
     officialLinks: [
       { label: 'ESPN F1 Results', url: 'https://www.espn.com/f1/results' },
       { label: 'OLBG Motor Racing Tips', url: olbgUrl('Motor_Racing', 14) },
@@ -387,6 +390,7 @@ export const SPORTS = [
     predictable: true,
     unit: 'goals',
     specialistEngine: 'handball',
+    page: 'pro.html?sport=handball',
     officialLinks: [
       { label: 'OLBG Handball Tips', url: olbgUrl('Handball', 20) },
       { label: 'DAIKIN Handball-Bundesliga', url: 'https://www.daikin-hbl.de/de/hbl/tabelle' },

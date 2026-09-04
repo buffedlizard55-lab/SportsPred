@@ -138,9 +138,11 @@ describe('Handball Writer — OLBG house style and evidence grounding', () => {
   const byMarket = Object.fromEntries(card.tips.map((t) => [t.market, t]));
 
   it('states the selection in the opening sentence, OLBG style', () => {
-    assert.match(byMarket.win_match.text, /^\*\*Aalborg Handbold\*\* are the preferred winner\./);
+    assert.match(byMarket.win_match.text, /^\*\*Aalborg Handbold\*\* is the preferred outright pick\./);
     assert.match(byMarket.handicap_spread.text, /^\*\*Aalborg Handbold to cover\*\* is the preferred margin outcome\./);
-    assert.match(byMarket.game_total.text, /^\*\*(Over|Under)\*\* is the preferred total outcome\./);
+    assert.match(byMarket.game_total.text, /^\*\*(OVER|UNDER)\*\* is the preferred total outcome\./);
+    assert.match(byMarket.win_match.text, /can compete for stretches/);
+    assert.match(byMarket.handicap_spread.text, /should have competitive periods/);
   });
 
   it('every factual clause traces to a sourced value in the fixture data', () => {
@@ -237,5 +239,11 @@ describe('Handball writer — pronoun case', () => {
         `object-case pronoun error: ${tip.text}`);
       assert.ok(!/\bthey's\b/i.test(tip.text), `possessive pronoun error: ${tip.text}`);
     }
+  });
+});
+
+describe('Handball writer — OLBG phrasing allowed', () => {
+  it('does not ban the phrase both teams', () => {
+    assert.ok(!BANNED_PHRASES.includes('both teams'));
   });
 });

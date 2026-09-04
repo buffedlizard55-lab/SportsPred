@@ -237,6 +237,7 @@ test('OLBG style: the selection leads the tip in every market', () => {
   assert.match(byMarket[MARKETS.OUTRIGHT].text, /^\*\*Ottawa Senators\*\* are the preferred winner\./);
   assert.match(byMarket[MARKETS.PUCK_LINE].text, /^\*\*Ottawa Senators to cover\*\* is the preferred margin outcome\./);
   assert.match(byMarket[MARKETS.TOTAL].text, /^\*\*(OVER|UNDER)\*\* is the preferred total outcome\./);
+  assert.ok(!/\bGoaltending quality\b/.test(byMarket[MARKETS.OUTRIGHT].text));
 });
 
 test('every factual clause traces to a sourced field on the fixture', () => {
@@ -296,5 +297,15 @@ test('pronoun substitution uses the correct case, never "for they"', () => {
     assert.ok(!/\b(for|to|against|over|with|of|from|than)\s+they\b/i.test(tip.text),
       `object-case pronoun error: ${tip.text}`);
     assert.ok(!/\bthey's\b/i.test(tip.text), `possessive pronoun error: ${tip.text}`);
+  }
+});
+
+test('every canned opener lead itself passes the output rules', () => {
+  for (const o of OPENERS) {
+    const probe = `**Team Alpha** are the preferred winner. ${o.word} ${o.lead} `
+      + 'Team Alpha have won four of their last five. They arrive on a run of four straight wins. '
+      + 'The crease is close to neutral on the sourced stopping rates. Confidence: MEDIUM.';
+    const v = validateIceHockeyTip(probe, { market: MARKETS.OUTRIGHT });
+    assert.deepEqual(v.violations, [], `opener ${o.id} produced ${v.violations.join(', ')}`);
   }
 });

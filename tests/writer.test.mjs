@@ -145,16 +145,17 @@ test('SKIP tips do not consume openings from the styled pool (regression)', () =
     'no pool-exhaustion violation may be raised by SKIP output');
 });
 
-test('no two tips in a card share an opening word', () => {
+test('no two tips in a card share an analytical angle', () => {
   const matches = [101, 102, 103].map((id) => dominantMatch(id));
   const card = scoreCard(matches);
   const { tips, violations } = writeCard(card.results);
-  const emitted = tips.filter((t) => t.ok);
+  const emitted = tips.filter((t) => t.ok && !t.skip);
   assert.ok(emitted.length > 0, 'expected at least one tip');
-  const openers = emitted.map((t) => t.text.split(/\s+/)[0].toLowerCase());
+  const openers = emitted.map((t) => String(t.angleWord || '').toLowerCase());
   const unique = new Set(openers);
-  assert.equal(unique.size, openers.length, `duplicate openers: ${openers.join(', ')}`);
+  assert.equal(unique.size, openers.length, `duplicate angles: ${openers.join(', ')}`);
   assert.equal(violations.length, 0, JSON.stringify(violations));
+  assert.match(emitted[0].text, /^\*\*[^*]+\*\* is the preferred outright pick|^\*\*[^*]+\*\* is the preferred opening-set|^\*\*[^*]+\*\* is projected to cover/);
 });
 
 test('writeCard emits all three markets for every match', () => {

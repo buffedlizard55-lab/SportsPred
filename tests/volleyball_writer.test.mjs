@@ -144,6 +144,8 @@ describe('Volleyball writer — OLBG house style', () => {
   it('states the selection in the opening words', () => {
     assert.match(byMarket.win_match.text, /^\*\*Poland\*\* are the preferred winner\./);
     assert.match(byMarket.set_score.text, /^\*\*3-[012]\*\* is my preferred correct score\./);
+    assert.match(byMarket.win_match.text, /cannot be treated as an ordinary underdog/);
+    assert.match(byMarket.set_score.text, /match-winner market is safer than relying heavily on the exact score/);
   });
 
   it('every factual clause traces to a sourced value', () => {

@@ -744,7 +744,7 @@ test('predictions.html generates a cross-sport card on arrival', { skip: !JSDOM 
   try {
     assert.match(document.querySelector('#summary').textContent, /fixtures/);
     assert.ok(document.querySelectorAll('#out .card').length >= 1, 'at least one prediction card');
-    assert.match(document.querySelector('#out').textContent, /is the call/);
+    assert.match(document.querySelector('#out').textContent, /is the preferred selection/);
   } finally { cleanup(); }
 });
 

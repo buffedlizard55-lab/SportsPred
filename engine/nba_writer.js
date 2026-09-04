@@ -54,25 +54,25 @@ const PROSE = {
   match_result: {
     label: 'WIN MATCH',
     openers: [
-      `Take **{pick}** to win this one outright, rated {level} confidence. The season's win rate and the recent results lean the same way, and when those two agree the straight win is a more dependable route than chasing a wider margin on the night.`,
-      `The outright case belongs to **{pick}**, {level} confidence. Their form guide and their record point in one direction together, and a side carrying that combination tends to close out games rather than merely compete in them.`,
-      `Look for **{pick}** to come away with the result, {level} confidence. The scheduling has been kinder to them than to their opponent, and a team arriving with momentum and fresher legs is the sensible call on the win market.`,
+      `**{pick}** are the strongest selection on this card, rated {level} confidence. Their overall depth and ability to sustain offensive pressure give them a significant advantage, and they should have enough firepower to create separation if they execute in the key minutes.`,
+      `**{pick}** are the preferred side in this matchup, {level} confidence. Their overall quality gives them the stronger foundation, and they should have enough offensive firepower to handle the key moments and secure the victory.`,
+      `**{pick}** look like the stronger selection, {level} confidence. Their ability to create consistent scoring opportunities should give them control, while limiting the opposition from putting together prolonged momentum will be important.`,
     ],
   },
   handicap: {
     label: 'POINT SPREAD',
     openers: [
-      `Against the number, **{pick}** is the sensible side at {level} confidence. The gap between the two rosters is real enough to justify laying points, and the rest situation nudges the balance further in their favour.`,
-      `Backing **{pick}** to cover looks right, {level} confidence. Their recent run has been built on winning comfortably rather than scraping through, which is exactly the profile a punter wants when a handicap line is attached to the contest.`,
-      `On the spread, **{pick}** rates as the play at {level} confidence. The fresher legs and the stronger recent form make the handicap a reasonable ask instead of a stretch, and that is the kind of edge worth siding with.`,
+      `**{pick}** to cover is the preferred margin outcome, {level} confidence. The gap between the two rosters is real enough to expect scoreboard control rather than a narrow win, and the rest situation nudges the balance further in their favour.`,
+      `**{pick}** to cover is favored, {level} confidence. Their recent run has been built on winning comfortably rather than scraping through, which is the profile a handicap call requires.`,
+      `**{pick}** to cover is the preferred margin direction, {level} confidence. Fresher legs and the stronger recent form make laying the number a reasonable ask instead of a stretch.`,
     ],
   },
   total: {
     label: 'GAME TOTAL',
     openers: [
-      `On the total, **{pick}** is the lean, {level} confidence. The scoring profile of the two sides has been held against the market's expectation, and the direction of this call follows directly from that comparison rather than from any single game.`,
-      `The total leans **{pick}** at {level} confidence. This is a call about the tempo the game settles into once it tips off, and the available scoring evidence suggests the points will flow in the direction this selection expects.`,
-      `For the points line, **{pick}** is where the value sits, {level} confidence. It comes down to whether the pace produces scoring, and the recent numbers from both sides indicate it will, which makes the market a defensible one.`,
+      `**{pick}** is the preferred total outcome, {level} confidence. The scoring profile of the two sides has been held against the market expectation, and the direction of this call follows from that comparison rather than from any single game.`,
+      `**{pick}** is the preferred total direction, {level} confidence. This is a call about the tempo the game settles into, and the available scoring evidence suggests the points will flow in the direction this selection expects.`,
+      `**{pick}** is the preferred total selection, {level} confidence. It comes down to whether the pace produces scoring, and recent output from each side indicates that the selected direction is the stronger projection.`,
     ],
   },
 };

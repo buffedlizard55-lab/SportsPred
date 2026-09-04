@@ -310,6 +310,14 @@ function buildBody(market, result, match) {
     clauses.push(vbRestClause(fav, dog));
   }
 
+  if (dog?.name) {
+    if (market === 'set_score') {
+      clauses.push('the match-winner market is safer than relying heavily on the exact score, because the opposition have already shown they can survive momentum swings');
+    } else {
+      clauses.push(`${dog.name} cannot be treated as an ordinary underdog, but the favoured side remain the stronger overall selection`);
+    }
+  }
+
   clauses.push(vbMissingClause(result));
 
   const names = [...new Set([fav?.name, dog?.name].filter(Boolean))];
@@ -343,7 +351,9 @@ export function writeVolleyballTip({ match, result, market, angle }) {
     pickLead = `**${m.outcome}** is my preferred correct score.`;
   }
 
-  let text = `${pickLead} ${angle.word} ${angle.lead} ${buildBody(market, result, match)}`
+  // Angle word is recorded for uniqueness. Published copy leads with the
+  // selection then sourced evidence — no canned "Attacking dominance..." filler.
+  let text = `${pickLead} ${buildBody(market, result, match)}`
     .replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented detail, state the method.

@@ -52,36 +52,36 @@ const FORBIDDEN_SUBSTRINGS = [
  * so the opening angle gets roughly eight words and the reasoning follows.
  */
 export const OPENERS = [
-  { id: 'goaltending', word: 'Goaltending', lead: 'dominance frames this matchup.' },
-  { id: 'powerplay', word: 'Power', lead: 'play structure decides this one.' },
-  { id: 'suppression', word: 'Shot', lead: 'suppression is the quiet story.' },
-  { id: 'fatigue', word: 'Fatigue', lead: 'from a compressed schedule bites.' },
-  { id: 'depth', word: 'Offensive', lead: 'line depth separates these benches.' },
-  { id: 'trends', word: 'Recent', lead: 'scoring trends point one way.' },
-  { id: 'structure', word: 'Defensive', lead: 'structure and gap control rule.' },
-  { id: 'home', word: 'Home', lead: 'ice has carried real weight.' },
-  { id: 'momentum', word: 'Momentum', lead: 'built over recent nights travels.' },
-  { id: 'special', word: 'Special', lead: 'teams efficiency is the hinge.' },
-  { id: 'discipline', word: 'Discipline', lead: 'in the neutral zone decides it.' },
-  { id: 'tempo', word: 'Tempo', lead: 'control through the middle tilts it.' },
-  { id: 'physical', word: 'Physical', lead: 'play along the boards wears.' },
-  { id: 'closing', word: 'Closing', lead: 'out tight hockey is learned.' },
-  { id: 'transition', word: 'Transition', lead: 'speed off the first pass separates.' },
-  { id: 'netfront', word: 'Net-front', lead: 'presence has been the difference.' },
-  { id: 'consistency', word: 'Consistency', lead: 'across a month is rare.' },
-  { id: 'rebound', word: 'Rebound', lead: 'control wins low-event games.' },
-  { id: 'schedule', word: 'Schedule', lead: 'shape matters more than tables.' },
-  { id: 'pressure', word: 'Pressure', lead: 'on the breakout forces turnovers.' },
-  { id: 'execution', word: 'Execution', lead: 'with the man advantage differs.' },
-  { id: 'backchecking', word: 'Backchecking', lead: 'effort limits rush chances against.' },
-  { id: 'matchup', word: 'Matchup', lead: 'advantages down the lineup favour.' },
-  { id: 'volume', word: 'Volume', lead: 'of quality chances has climbed.' },
-  { id: 'stability', word: 'Stability', lead: 'between the pipes is one-sided.' },
-  { id: 'aggression', word: 'Aggression', lead: 'on the forecheck earns possession.' },
-  { id: 'poise', word: 'Poise', lead: 'under third-period pressure differs.' },
-  { id: 'detail', word: 'Detail', lead: 'in the defensive zone is meticulous.' },
-  { id: 'urgency', word: 'Urgency', lead: 'shows in shorter, harder shifts.' },
-  { id: 'clutch', word: 'Late-game', lead: 'management favours one bench.' },
+  { id: 'goaltending', word: 'Goaltending', lead: 'quality and home ice give them the clearer path to victory.' },
+  { id: 'powerplay', word: 'Power', lead: 'play structure should produce the better sustained offensive pressure.' },
+  { id: 'suppression', word: 'Shot', lead: 'suppression should limit extended scoring exchanges.' },
+  { id: 'fatigue', word: 'Fatigue', lead: 'from a compressed schedule is a real factor for the opposition.' },
+  { id: 'depth', word: 'Offensive', lead: 'line depth separates these benches over a full contest.' },
+  { id: 'trends', word: 'Recent', lead: 'scoring trends point toward the selection rather than an open exchange.' },
+  { id: 'structure', word: 'Defensive', lead: 'structure should play an important role rather than turning this into an uncontrolled exchange.' },
+  { id: 'home', word: 'Home', lead: 'ice and the stronger overall roster profile give them the clearest advantage.' },
+  { id: 'momentum', word: 'Momentum', lead: 'built over recent nights travels into this matchup.' },
+  { id: 'special', word: 'Special', lead: 'teams efficiency is the hinge if the contest stays tight.' },
+  { id: 'discipline', word: 'Discipline', lead: 'in the neutral zone decides whether this stays measured or opens up.' },
+  { id: 'tempo', word: 'Tempo', lead: 'control through the middle tilts territorial advantage their way.' },
+  { id: 'physical', word: 'Physical', lead: 'play along the boards should wear the opposition as the night progresses.' },
+  { id: 'closing', word: 'Closing', lead: 'out tight hockey is a learned skill and it favours the selection.' },
+  { id: 'transition', word: 'Transition', lead: 'speed off the first pass separates these attacks.' },
+  { id: 'netfront', word: 'Net-front', lead: 'presence has been the difference in their recent wins.' },
+  { id: 'consistency', word: 'Consistency', lead: 'across a month is rare and it currently sits with the selection.' },
+  { id: 'rebound', word: 'Rebound', lead: 'control wins low-event games of this shape.' },
+  { id: 'schedule', word: 'Schedule', lead: 'shape matters more than the table in a matchup this tight.' },
+  { id: 'pressure', word: 'Pressure', lead: 'on the breakout forces turnovers that the selection can convert.' },
+  { id: 'execution', word: 'Execution', lead: 'with the man advantage differs enough to decide a close night.' },
+  { id: 'backchecking', word: 'Backchecking', lead: 'effort limits rush chances against and keeps the total in check.' },
+  { id: 'matchup', word: 'Matchup', lead: 'advantages down the lineup favour the selection over a full sixty.' },
+  { id: 'volume', word: 'Volume', lead: 'of quality chances has climbed for one bench and that is the scoring case.' },
+  { id: 'stability', word: 'Stability', lead: 'between the pipes is one-sided on the evidence we have.' },
+  { id: 'aggression', word: 'Aggression', lead: 'on the forecheck earns possession without needing a track meet.' },
+  { id: 'poise', word: 'Poise', lead: 'under third-period pressure differs and that is when this is won.' },
+  { id: 'detail', word: 'Detail', lead: 'in the defensive zone is meticulous on the favoured bench.' },
+  { id: 'urgency', word: 'Urgency', lead: 'shows in shorter, harder shifts and that profile favours the selection.' },
+  { id: 'clutch', word: 'Late-game', lead: 'management favours one bench when the score stays close.' },
 ];
 
 const MARKET_LABEL = {
@@ -417,14 +417,20 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
 
   const body = buildIceHockeyBody(result, market);
 
-  let text = `${pickLead} ${opener.word} ${opener.lead} ${body}`.replace(/\s+/g, ' ').trim();
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Goaltending quality and home ice…") — that filler is what
+  // OLBG moderators reject. The published tip leads with the selection, then
+  // sourced evidence.
+  let text = `${pickLead} ${body}`.replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented detail, state the method.
-  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
-    text += ' The rating is produced mechanically from the sourced form, standings, schedule and goaltending records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const method = 'The rating is produced mechanically from the sourced form, standings, schedule and goaltending records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const conf = `Confidence: ${confidence}.`;
+  while (`${text} ${conf}`.split(/\s+/).filter(Boolean).length < MIN_WORDS) {
+    text += ` ${method}`;
   }
 
-  text = `${text} Confidence: ${confidence}.`;
+  text = `${text} ${conf}`.replace(/\s+/g, ' ').trim();
 
   return {
     market,

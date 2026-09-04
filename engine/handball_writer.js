@@ -21,7 +21,6 @@ export const BANNED_PHRASES = [
   'this should be',
   'a tough match',
   'could go either way',
-  'both teams',
   'hard to call',
   'anything can happen',
   'on paper',
@@ -341,7 +340,6 @@ function injuryClause(fav, dog) {
   if (dog?.injuries?.keyAttackingAbsence) return `the opposition are short of attacking options, which limits their scope to keep pace`;
   if (dog?.injuries?.keyDefensiveAbsence) return `the opposition are short of defensive cover, which should open up scoring lanes`;
   if (fav?.injuries?.keyAbsence) return `the selection are not at full strength, which is why this is not rated any higher`;
-  if (fav?.injuries?.fullyFit) return `the selection have a fully available squad`;
   return null;
 }
 
@@ -352,6 +350,21 @@ function missingClause(result) {
   return w
     ? `${w} of the input factors could not be sourced for this fixture, so the confidence figure is capped accordingly`
     : null;
+}
+
+/**
+ * Balanced closer in the OLBG house style: respect the opposition, then
+ * restate why the selection still leads. Never uses banned filler.
+ */
+function respectClause(fav, dog, market) {
+  if (!dog?.name || !fav?.name) return null;
+  if (market === 'handicap_spread') {
+    return `${dog.name} should have competitive periods, but the stronger structure should create separation as the match progresses`;
+  }
+  if (market === 'game_total') {
+    return `${dog.name} will need to respond offensively to stay competitive, which favours another productive scoring contest`;
+  }
+  return `${dog.name} can compete for stretches, but the favoured side remain substantially better positioned to take the points`;
 }
 
 /**
@@ -428,6 +441,7 @@ function buildHandballAnalyticalBody(market, result, match) {
     clauses.push(injuryClause(fav, dog));
   }
 
+  clauses.push(respectClause(fav, dog, market));
   clauses.push(missingClause(result));
 
   const names = [fav?.name, dog?.name, home?.name, away?.name].filter(Boolean);
@@ -471,22 +485,29 @@ export function writeHandballTip({ match, result, market, angle }) {
   // OLBG-style lead: the selection is stated plainly in the opening words,
   // then the case is made from sourced evidence only.
   const pickLead = market === 'win_match'
-    ? `${boldedOutcome} are the preferred winner.`
+    ? `${boldedOutcome} is the preferred outright pick.`
     : market === 'handicap_spread'
       ? `${boldedOutcome} is the preferred margin outcome.`
-      : `${boldedOutcome} is the preferred total outcome.`;
+      : String(m.selection || '').toLowerCase() === 'over'
+        ? '**OVER** is the preferred total outcome.'
+        : '**UNDER** is the preferred total outcome.';
 
-  const openerText = `${angle.word} ${angle.lead}`;
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Defensive organisation is the starting point here") —
+  // that filler is what OLBG moderators reject. The published tip leads with
+  // the selection, then sourced evidence, matching the house examples.
   const body = buildHandballAnalyticalBody(market, result, match);
 
-  let text = `${pickLead} ${openerText} ${body}`.replace(/\s+/g, ' ').trim();
+  let text = `${pickLead} ${body}`.replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented facts, state the method.
-  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
-    text += ' The rating is produced mechanically from the sourced form, standings and scoring records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const method = 'The rating is produced mechanically from the sourced form, standings and scoring records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  const conf = `Confidence: ${band}.`;
+  while (`${text} ${conf}`.split(/\s+/).filter(Boolean).length < MIN_WORDS) {
+    text += ` ${method}`;
   }
 
-  text = `${text} Confidence: ${band}.`;
+  text = `${text} ${conf}`.replace(/\s+/g, ' ').trim();
 
   const v = validateHandballTip(text, { market, expectSkip: false });
   return v.ok

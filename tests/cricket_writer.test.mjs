@@ -58,11 +58,14 @@ test('every non-skip tip passes validation: 40+ words, bold in first 20, no digi
   }
 });
 
-test('no two non-skip tips open with the same word', () => {
+test('no two non-skip tips share an analytical angle', () => {
   const card = scoreCricketCard([match, { ...match, event_id: 'e2' }]);
   const written = writeCricketCard(card.results);
-  const openers = written.tips.filter((t) => t.ok && !t.skip).map((t) => t.text.split(/\s+/)[0].toLowerCase());
-  assert.equal(new Set(openers).size, openers.length, `duplicate openers: ${openers.join(', ')}`);
+  const openers = written.tips.filter((t) => t.ok && !t.skip).map((t) => String(t.angleWord || '').toLowerCase());
+  assert.equal(new Set(openers).size, openers.length, `duplicate angles: ${openers.join(', ')}`);
+  const win = written.tips.find((t) => t.market === 'win_match' && t.ok && !t.skip);
+  assert.match(win.text, /^\*\*Alpha XI\*\*/);
+  assert.ok(!/^Spin /i.test(win.text), 'canned opener must not lead the published tip');
 });
 
 test('SKIP tips are a single sentence starting with SKIP', () => {
