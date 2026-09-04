@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T00:12:01Z",
+ "fetched_at_utc": "2026-09-04T04:48:29Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -530,354 +530,6 @@
  "odds_attribution": "No key-less multi-book baseball price feed exists. The odds field is null and the engine records the odds factor as missing.",
  "fixtures": [
   {
-   "id": "824796",
-   "source": "mlb-statsapi-schedule",
-   "league": "mlb",
-   "leagueName": "Major League Baseball",
-   "season": "2026",
-   "dateISO": "2026-09-03",
-   "startUtc": "2026-09-03T23:15:00Z",
-   "phase": "live",
-   "venue": "Oriole Park at Camden Yards",
-   "venueIndoor": false,
-   "home": {
-    "id": 110,
-    "name": "Baltimore Orioles",
-    "locationName": "Baltimore",
-    "abbrev": "BAL",
-    "teamCode": "bal",
-    "record": {
-     "wins": 69,
-     "losses": 71,
-     "pct": ".493"
-    },
-    "score": 3,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 687064,
-     "name": "Brandon Young"
-    }
-   },
-   "away": {
-    "id": 111,
-    "name": "Boston Red Sox",
-    "locationName": "Boston",
-    "abbrev": "BOS",
-    "teamCode": "bos",
-    "record": {
-     "wins": 75,
-     "losses": 65,
-     "pct": ".536"
-    },
-    "score": 1,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 687562,
-     "name": "Jake Bennett"
-    }
-   },
-   "score": {
-    "home": 3,
-    "away": 1
-   },
-   "espn": {
-    "venueIndoor": false,
-    "weather": null,
-    "temperature": null,
-    "home": {
-     "starter": {
-      "name": "Brandon Young",
-      "losses": 3,
-      "wins": 9,
-      "era": 3.38,
-      "record": "(9-3, 3.38)"
-     },
-     "records": {
-      "overall": "69-71",
-      "home": "34-34",
-      "road": "35-37"
-     }
-    },
-    "away": {
-     "starter": {
-      "name": "Jake Bennett",
-      "losses": 6,
-      "wins": 9,
-      "era": 3.27,
-      "record": "(9-6, 3.27)"
-     },
-     "records": {
-      "overall": "75-65",
-      "home": "35-34",
-      "road": "40-31"
-     }
-    }
-   },
-   "odds": null,
-   "oddsSourceCount": 0
-  },
-  {
-   "id": "824632",
-   "source": "mlb-statsapi-schedule",
-   "league": "mlb",
-   "leagueName": "Major League Baseball",
-   "season": "2026",
-   "dateISO": "2026-09-03",
-   "startUtc": "2026-09-03T23:15:00Z",
-   "phase": "live",
-   "venue": "Wrigley Field",
-   "venueIndoor": false,
-   "home": {
-    "id": 112,
-    "name": "Chicago Cubs",
-    "locationName": "Chicago",
-    "abbrev": "CHC",
-    "teamCode": "chn",
-    "record": {
-     "wins": 78,
-     "losses": 62,
-     "pct": ".557"
-    },
-    "score": 2,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 592332,
-     "name": "Kevin Gausman"
-    }
-   },
-   "away": {
-    "id": 158,
-    "name": "Milwaukee Brewers",
-    "locationName": "Milwaukee",
-    "abbrev": "MIL",
-    "teamCode": "mil",
-    "record": {
-     "wins": 87,
-     "losses": 53,
-     "pct": ".621"
-    },
-    "score": 1,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 701656,
-     "name": "Logan Henderson"
-    }
-   },
-   "score": {
-    "home": 2,
-    "away": 1
-   },
-   "espn": {
-    "venueIndoor": false,
-    "weather": null,
-    "temperature": null,
-    "home": {
-     "starter": {
-      "name": "Kevin Gausman",
-      "losses": 11,
-      "wins": 8,
-      "era": 4.52,
-      "record": "(8-11, 4.52)"
-     },
-     "records": {
-      "overall": "78-62",
-      "home": "40-31",
-      "road": "38-31"
-     }
-    },
-    "away": {
-     "starter": {
-      "name": "Logan Henderson",
-      "losses": 2,
-      "wins": 9,
-      "era": 2.48,
-      "record": "(9-2, 2.48)"
-     },
-     "records": {
-      "overall": "87-53",
-      "home": "47-25",
-      "road": "40-28"
-     }
-    }
-   },
-   "odds": null,
-   "oddsSourceCount": 0
-  },
-  {
-   "id": "824069",
-   "source": "mlb-statsapi-schedule",
-   "league": "mlb",
-   "leagueName": "Major League Baseball",
-   "season": "2026",
-   "dateISO": "2026-09-03",
-   "startUtc": "2026-09-03T23:40:00Z",
-   "phase": "live",
-   "venue": "Kauffman Stadium",
-   "venueIndoor": false,
-   "home": {
-    "id": 118,
-    "name": "Kansas City Royals",
-    "locationName": "Kansas City",
-    "abbrev": "KC",
-    "teamCode": "kca",
-    "record": {
-     "wins": 62,
-     "losses": 78,
-     "pct": ".443"
-    },
-    "score": 0,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 608379,
-     "name": "Michael Wacha"
-    }
-   },
-   "away": {
-    "id": 146,
-    "name": "Miami Marlins",
-    "locationName": "Miami",
-    "abbrev": "MIA",
-    "teamCode": "mia",
-    "record": {
-     "wins": 71,
-     "losses": 69,
-     "pct": ".507"
-    },
-    "score": 2,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 645261,
-     "name": "Sandy Alcantara"
-    }
-   },
-   "score": {
-    "home": 0,
-    "away": 2
-   },
-   "espn": {
-    "venueIndoor": false,
-    "weather": null,
-    "temperature": null,
-    "home": {
-     "starter": {
-      "name": "Michael Wacha",
-      "losses": 8,
-      "wins": 8,
-      "era": 3.32,
-      "record": "(8-8, 3.32)"
-     },
-     "records": {
-      "overall": "62-78",
-      "home": "36-32",
-      "road": "26-46"
-     }
-    },
-    "away": {
-     "starter": {
-      "name": "Sandy Alcantara",
-      "losses": 8,
-      "wins": 13,
-      "era": 3.46,
-      "record": "(13-8, 3.46)"
-     },
-     "records": {
-      "overall": "71-69",
-      "home": "42-27",
-      "road": "29-42"
-     }
-    }
-   },
-   "odds": null,
-   "oddsSourceCount": 0
-  },
-  {
-   "id": "822853",
-   "source": "mlb-statsapi-schedule",
-   "league": "mlb",
-   "leagueName": "Major League Baseball",
-   "season": "2026",
-   "dateISO": "2026-09-04",
-   "startUtc": "2026-09-04T00:05:00Z",
-   "phase": "live",
-   "venue": "Globe Life Field",
-   "venueIndoor": true,
-   "home": {
-    "id": 140,
-    "name": "Texas Rangers",
-    "locationName": "Arlington",
-    "abbrev": "TEX",
-    "teamCode": "tex",
-    "record": {
-     "wins": 69,
-     "losses": 71,
-     "pct": ".493"
-    },
-    "score": 0,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 615698,
-     "name": "Cal Quantrill"
-    }
-   },
-   "away": {
-    "id": 139,
-    "name": "Tampa Bay Rays",
-    "locationName": "St. Petersburg",
-    "abbrev": "TB",
-    "teamCode": "tba",
-    "record": {
-     "wins": 83,
-     "losses": 56,
-     "pct": ".597"
-    },
-    "score": 0,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 663556,
-     "name": "Shane McClanahan"
-    }
-   },
-   "score": {
-    "home": 0,
-    "away": 0
-   },
-   "espn": {
-    "venueIndoor": true,
-    "weather": null,
-    "temperature": null,
-    "home": {
-     "starter": {
-      "name": "Cal Quantrill",
-      "losses": 5,
-      "wins": 6,
-      "era": 3.01,
-      "record": "(6-5, 3.01)"
-     },
-     "records": {
-      "overall": "69-71",
-      "home": "38-30",
-      "road": "31-41"
-     }
-    },
-    "away": {
-     "starter": {
-      "name": "Shane McClanahan",
-      "losses": 6,
-      "wins": 10,
-      "era": 3.19,
-      "record": "(10-6, 3.19)"
-     },
-     "records": {
-      "overall": "83-56",
-      "home": "47-25",
-      "road": "36-31"
-     }
-    }
-   },
-   "odds": null,
-   "oddsSourceCount": 0
-  },
-  {
    "id": "823095",
    "source": "mlb-statsapi-schedule",
    "league": "mlb",
@@ -885,7 +537,7 @@
    "season": "2026",
    "dateISO": "2026-09-04",
    "startUtc": "2026-09-04T01:40:00Z",
-   "phase": "upcoming",
+   "phase": "live",
    "venue": "T-Mobile Park",
    "venueIndoor": true,
    "home": {
@@ -899,7 +551,7 @@
      "losses": 74,
      "pct": ".471"
     },
-    "score": 0,
+    "score": 4,
     "isWinner": null,
     "probablePitcher": {
      "id": 807739,
@@ -917,7 +569,7 @@
      "losses": 86,
      "pct": ".386"
     },
-    "score": 0,
+    "score": 6,
     "isWinner": null,
     "probablePitcher": {
      "id": 678022,
@@ -925,8 +577,8 @@
     }
    },
    "score": {
-    "home": 0,
-    "away": 0
+    "home": 4,
+    "away": 6
    },
    "espn": {
     "venueIndoor": true,
@@ -972,7 +624,7 @@
    "season": "2026",
    "dateISO": "2026-09-04",
    "startUtc": "2026-09-04T02:10:00Z",
-   "phase": "upcoming",
+   "phase": "live",
    "venue": "UNIQLO Field at Dodger Stadium",
    "venueIndoor": false,
    "home": {
@@ -986,7 +638,7 @@
      "losses": 57,
      "pct": ".590"
     },
-    "score": 0,
+    "score": 1,
     "isWinner": null,
     "probablePitcher": {
      "id": 669373,
@@ -1004,7 +656,7 @@
      "losses": 70,
      "pct": ".500"
     },
-    "score": 0,
+    "score": 2,
     "isWinner": null,
     "probablePitcher": {
      "id": 687273,
@@ -1012,8 +664,8 @@
     }
    },
    "score": {
-    "home": 0,
-    "away": 0
+    "home": 1,
+    "away": 2
    },
    "espn": {
     "venueIndoor": false,
@@ -1175,8 +827,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -1216,9 +868,9 @@
       "record": "(7-5, 3.75)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -1418,8 +1070,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -1435,9 +1087,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -1463,8 +1115,8 @@
       "record": "(5-14, 4.01)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -1477,9 +1129,9 @@
       "record": "(5-4, 3.64)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -1592,8 +1244,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -1609,9 +1261,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -1637,9 +1289,9 @@
       "record": "(6-8, 4.11)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -1651,8 +1303,8 @@
       "record": "(8-10, 4.01)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -1820,15 +1472,15 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
     "probablePitcher": {
-     "id": 677958,
-     "name": "Kumar Rocker"
+     "id": 592866,
+     "name": "Trevor Williams"
     }
    },
    "away": {
@@ -1839,8 +1491,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -1866,8 +1518,8 @@
       "record": "(5-10, 4.44)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -1880,9 +1532,9 @@
       "record": "(13-4, 2.99)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -1962,9 +1614,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -2008,8 +1660,8 @@
       "record": "(4-4, 3.06)"
      },
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     },
@@ -2073,7 +1725,10 @@
     },
     "score": null,
     "isWinner": null,
-    "probablePitcher": null
+    "probablePitcher": {
+     "id": 669467,
+     "name": "Andre Pallante"
+    }
    },
    "score": {
     "home": null,
@@ -2226,7 +1881,10 @@
     },
     "score": null,
     "isWinner": null,
-    "probablePitcher": null
+    "probablePitcher": {
+     "id": 605483,
+     "name": "Blake Snell"
+    }
    },
    "away": {
     "id": 120,
@@ -2476,8 +2134,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -2493,9 +2151,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -2518,9 +2176,9 @@
       "record": "(1-3, 3.86)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -2532,8 +2190,8 @@
       "record": "(6-6, 2.09)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -2839,8 +2497,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -2880,9 +2538,9 @@
       "record": "(6-9, 4.69)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -2908,8 +2566,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -2925,9 +2583,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -2953,8 +2611,8 @@
       "record": "(6-4, 4.97)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -2967,9 +2625,9 @@
       "record": "(16-4, 2.82)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -2994,9 +2652,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -3013,8 +2671,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -3040,8 +2698,8 @@
       "record": "(5-10, 4.44)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -3054,9 +2712,9 @@
       "record": "(13-4, 2.99)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -3081,9 +2739,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -3127,8 +2785,8 @@
       "record": "(4-4, 3.06)"
      },
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     },
@@ -3389,7 +3047,10 @@
     },
     "score": null,
     "isWinner": null,
-    "probablePitcher": null
+    "probablePitcher": {
+     "id": 669461,
+     "name": "Matthew Liberatore"
+    }
    },
    "score": {
     "home": null,
@@ -3455,7 +3116,10 @@
     },
     "score": null,
     "isWinner": null,
-    "probablePitcher": null
+    "probablePitcher": {
+     "id": 607192,
+     "name": "Tyler Glasnow"
+    }
    },
    "away": {
     "id": 120,
@@ -3636,8 +3300,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -3677,9 +3341,9 @@
       "record": "(10-4, 3.45)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -3792,8 +3456,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -3809,9 +3473,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -3837,8 +3501,8 @@
       "record": "(7-12, 4.01)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -3851,9 +3515,9 @@
       "record": "(8-6, 3.23)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -4137,8 +3801,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -4154,9 +3818,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -4179,9 +3843,9 @@
       "record": "(4-6, 3.43)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -4193,8 +3857,8 @@
       "record": "(8-3, 4.05)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -4275,9 +3939,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -4318,8 +3982,8 @@
       "record": "(2-3, 2.65)"
      },
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     },
@@ -4359,9 +4023,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -4378,8 +4042,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -4402,8 +4066,8 @@
       "record": "(8-10, 4.31)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -4416,9 +4080,9 @@
       "record": "(9-6, 4.21)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -4467,7 +4131,10 @@
     },
     "score": null,
     "isWinner": null,
-    "probablePitcher": null
+    "probablePitcher": {
+     "id": 681517,
+     "name": "Kyle Leahy"
+    }
    },
    "score": {
     "home": null,
@@ -4919,8 +4586,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -4958,9 +4625,9 @@
       "record": "(7-10, 3.72)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -4999,9 +4666,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -5039,9 +4706,9 @@
       "record": "(1-4, 4.41)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -5081,8 +4748,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -5120,8 +4787,8 @@
       "record": "(9-9, 4.30)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -5161,9 +4828,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -5211,8 +4878,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -5225,9 +4892,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -5250,9 +4917,9 @@
       "record": "(4-5, 4.57)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
@@ -5264,8 +4931,8 @@
       "record": "(7-8, 5.39)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -5685,8 +5352,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -5720,12 +5387,12 @@
       "name": "Brandon Young",
       "losses": 3,
       "wins": 9,
-      "era": 3.38,
-      "record": "(9-3, 3.38)"
+      "era": 3.42,
+      "record": "(9-3, 3.42)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -5928,8 +5595,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -5961,15 +5628,15 @@
     "home": {
      "starter": {
       "name": "Sandy Alcantara",
-      "losses": 8,
+      "losses": 9,
       "wins": 13,
-      "era": 3.46,
-      "record": "(13-8, 3.46)"
+      "era": 3.54,
+      "record": "(13-9, 3.54)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -6008,9 +5675,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -6044,13 +5711,13 @@
       "name": "Jake Bennett",
       "losses": 6,
       "wins": 9,
-      "era": 3.27,
-      "record": "(9-6, 3.27)"
+      "era": 3.34,
+      "record": "(9-6, 3.34)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -6186,8 +5853,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -6224,9 +5891,9 @@
       "record": "(7-11, 4.96)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -6251,9 +5918,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -6350,8 +6017,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -6364,9 +6031,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -6389,22 +6056,22 @@
       "record": "(14-5, 1.97)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
      "starter": {
       "name": "Kevin Gausman",
       "losses": 11,
-      "wins": 8,
-      "era": 4.52,
-      "record": "(8-11, 4.52)"
+      "wins": 9,
+      "era": 4.38,
+      "record": "(9-11, 4.38)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -6526,9 +6193,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -6565,8 +6232,8 @@
       "record": "(0-4, 4.45)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     }
@@ -7174,9 +6841,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -7213,8 +6880,8 @@
       "record": "(0-4, 4.45)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     }
@@ -7241,8 +6908,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -7280,8 +6947,8 @@
       "record": "(5-14, 4.01)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -7403,8 +7070,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -7442,9 +7109,9 @@
       "record": "(6-8, 4.11)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -7483,9 +7150,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -7523,9 +7190,9 @@
       "record": "(5-4, 3.64)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -7661,8 +7328,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -7699,9 +7366,9 @@
       "record": "(6-10, 3.82)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -7726,9 +7393,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -7825,8 +7492,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -7839,9 +7506,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -7858,15 +7525,15 @@
     "home": {
      "starter": {
       "name": "Logan Henderson",
-      "losses": 2,
+      "losses": 3,
       "wins": 9,
       "era": 2.48,
-      "record": "(9-2, 2.48)"
+      "record": "(9-3, 2.48)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
@@ -7878,8 +7545,8 @@
       "record": "(8-10, 4.01)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -8002,8 +7669,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -8034,15 +7701,15 @@
     "away": {
      "starter": {
       "name": "Shane McClanahan",
-      "losses": 6,
+      "losses": 7,
       "wins": 10,
-      "era": 3.19,
-      "record": "(10-6, 3.19)"
+      "era": 3.36,
+      "record": "(10-7, 3.36)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -8163,9 +7830,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -8202,8 +7869,8 @@
       "record": "(5-10, 4.44)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     }
@@ -8359,9 +8026,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -8399,8 +8066,8 @@
       "record": "(6-6, 2.09)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
@@ -8699,8 +8366,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -8737,8 +8404,8 @@
       "record": "(7-12, 4.01)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -8764,9 +8431,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -8779,9 +8446,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -8804,9 +8471,9 @@
       "record": "(16-4, 2.82)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -8818,8 +8485,8 @@
       "record": "(6-8, 5.03)"
      },
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -8846,8 +8513,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -8885,9 +8552,9 @@
       "record": "(13-4, 2.99)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
@@ -8927,8 +8594,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -8966,9 +8633,9 @@
       "record": "(1-3, 3.86)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -9089,8 +8756,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -9128,9 +8795,9 @@
       "record": "(7-5, 3.75)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
@@ -9395,9 +9062,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -9672,9 +9339,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -9712,8 +9379,8 @@
       "record": "(8-3, 4.05)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
@@ -9769,8 +9436,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -9807,8 +9474,8 @@
       "record": "(9-9, 4.30)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -9996,9 +9663,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -10011,9 +9678,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -10036,9 +9703,9 @@
       "record": "(8-6, 3.23)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -10050,8 +9717,8 @@
       "record": "(2-3, 2.65)"
      },
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -10159,8 +9826,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -10198,9 +9865,9 @@
       "record": "(4-6, 3.43)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -10234,8 +9901,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -10273,9 +9940,9 @@
       "record": "(14-5, 2.95)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
@@ -10315,8 +9982,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -10354,9 +10021,9 @@
       "record": "(6-9, 4.69)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
@@ -10540,9 +10207,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -10736,9 +10403,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -10751,9 +10418,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -10776,9 +10443,9 @@
       "record": "(1-4, 4.41)"
      },
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -10790,8 +10457,8 @@
       "record": "(9-8, 4.08)"
      },
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -11076,8 +10743,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -11110,12 +10777,12 @@
       "name": "Brandon Young",
       "losses": 3,
       "wins": 9,
-      "era": 3.38,
-      "record": "(9-3, 3.38)"
+      "era": 3.42,
+      "record": "(9-3, 3.42)"
      },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -11142,8 +10809,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -11181,9 +10848,9 @@
       "record": "(9-6, 4.21)"
      },
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
@@ -11223,8 +10890,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -11262,9 +10929,9 @@
       "record": "(7-10, 3.72)"
      },
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -11379,8 +11046,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -11418,9 +11085,9 @@
       "record": "(10-4, 3.45)"
      },
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
@@ -11508,9 +11175,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -11548,8 +11215,8 @@
       "record": "(7-8, 5.39)"
      },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
@@ -11685,9 +11352,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -11832,7 +11499,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Nick Lodolo",
+      "losses": 3,
+      "wins": 3,
+      "era": 5.08,
+      "record": "(3-3, 5.08)"
+     },
      "records": {
       "overall": "67-73",
       "home": "34-37",
@@ -11840,7 +11513,13 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Tarik Skubal",
+      "losses": 7,
+      "wins": 8,
+      "era": 2.84,
+      "record": "(8-7, 2.84)"
+     },
      "records": {
       "overall": "82-57",
       "home": "40-28",
@@ -11950,7 +11629,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Jose Soriano",
+      "losses": 7,
+      "wins": 11,
+      "era": 3.52,
+      "record": "(11-7, 3.52)"
+     },
      "records": {
       "overall": "70-71",
       "home": "37-35",
@@ -11958,7 +11643,13 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Drew Anderson",
+      "losses": 5,
+      "wins": 4,
+      "era": 3.73,
+      "record": "(4-5, 3.73)"
+     },
      "records": {
       "overall": "64-75",
       "home": "34-35",
@@ -12003,8 +11694,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -12019,7 +11710,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Sean Manaea",
+      "losses": 7,
+      "wins": 4,
+      "era": 4.7,
+      "record": "(4-7, 4.70)"
+     },
      "records": {
       "overall": "63-77",
       "home": "32-39",
@@ -12027,10 +11724,16 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Shane Baz",
+      "losses": 14,
+      "wins": 5,
+      "era": 4.01,
+      "record": "(5-14, 4.01)"
+     },
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -12056,9 +11759,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -12088,15 +11791,27 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Kevin Gausman",
+      "losses": 11,
+      "wins": 9,
+      "era": 4.38,
+      "record": "(9-11, 4.38)"
+     },
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "AJ Smith-Shawver",
+      "losses": 1,
+      "wins": 0,
+      "era": 7.13,
+      "record": "(0-1, 7.13)"
+     },
      "records": {
       "overall": "83-57",
       "home": "48-24",
@@ -12157,7 +11872,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Dean Kremer",
+      "losses": 5,
+      "wins": 2,
+      "era": 5.81,
+      "record": "(2-5, 5.81)"
+     },
      "records": {
       "overall": "67-73",
       "home": "38-34",
@@ -12165,7 +11886,13 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Max Fried",
+      "losses": 4,
+      "wins": 4,
+      "era": 2.8,
+      "record": "(4-4, 2.80)"
+     },
      "records": {
       "overall": "80-60",
       "home": "37-31",
@@ -12226,7 +11953,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Quinn Mathews",
+      "losses": 2,
+      "wins": 1,
+      "era": 5.03,
+      "record": "(1-2, 5.03)"
+     },
      "records": {
       "overall": "70-70",
       "home": "34-38",
@@ -12234,7 +11967,13 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Blade Tidwell",
+      "losses": 2,
+      "wins": 0,
+      "era": 4.43,
+      "record": "(0-2, 4.43)"
+     },
      "records": {
       "overall": "58-83",
       "home": "33-36",
@@ -12295,7 +12034,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Tomoyuki Sugano",
+      "losses": 8,
+      "wins": 12,
+      "era": 5.19,
+      "record": "(12-8, 5.19)"
+     },
      "records": {
       "overall": "54-86",
       "home": "29-39",
@@ -12303,7 +12048,13 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Casey Mize",
+      "losses": 9,
+      "wins": 5,
+      "era": 3.64,
+      "record": "(5-9, 3.64)"
+     },
      "records": {
       "overall": "73-67",
       "home": "41-28",
@@ -12364,7 +12115,13 @@
     "weather": null,
     "temperature": null,
     "home": {
-     "starter": null,
+     "starter": {
+      "name": "Reid Detmers",
+      "losses": 8,
+      "wins": 4,
+      "era": 3.44,
+      "record": "(4-8, 3.44)"
+     },
      "records": {
       "overall": "53-87",
       "home": "30-44",
@@ -12372,7 +12129,13 @@
      }
     },
     "away": {
-     "starter": null,
+     "starter": {
+      "name": "Kade Anderson",
+      "losses": 0,
+      "wins": 0,
+      "era": 4.5,
+      "record": "(0-0, 4.50)"
+     },
      "records": {
       "overall": "66-74",
       "home": "37-31",
@@ -12417,8 +12180,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -12520,8 +12283,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -12553,9 +12316,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
@@ -12653,8 +12416,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -12679,9 +12442,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -12860,8 +12623,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -12886,8 +12649,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -12913,9 +12676,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -12947,8 +12710,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
@@ -13120,9 +12883,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -13135,9 +12898,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -13154,17 +12917,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -13204,9 +12967,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -13231,8 +12994,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -13412,8 +13175,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -13771,8 +13534,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -13804,9 +13567,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
@@ -13855,8 +13618,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -13881,9 +13644,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -13993,8 +13756,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -14019,8 +13782,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -14046,9 +13809,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -14080,8 +13843,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
@@ -14115,9 +13878,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -14130,9 +13893,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -14149,17 +13912,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -14199,9 +13962,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -14226,8 +13989,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -14407,8 +14170,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -14456,8 +14219,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -14482,9 +14245,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -14579,8 +14342,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -14612,9 +14375,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
@@ -14731,9 +14494,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -14758,8 +14521,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -14903,9 +14666,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -14918,9 +14681,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -14937,17 +14700,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -15056,9 +14819,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -15083,8 +14846,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -15125,9 +14888,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -15152,8 +14915,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -15180,8 +14943,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -15195,8 +14958,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -15213,17 +14976,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -15318,8 +15081,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -15332,9 +15095,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -15351,17 +15114,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -15504,9 +15267,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -15538,8 +15301,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -15865,8 +15628,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -15891,9 +15654,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     }
    },
@@ -16037,8 +15800,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -16052,8 +15815,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -16070,17 +15833,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -16106,8 +15869,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -16120,9 +15883,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -16139,17 +15902,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -16327,9 +16090,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -16354,8 +16117,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -16396,9 +16159,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -16423,8 +16186,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -16450,9 +16213,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -16484,8 +16247,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -16840,8 +16603,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -16866,9 +16629,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     }
    },
@@ -17115,9 +16878,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -17142,8 +16905,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     }
@@ -17184,9 +16947,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -17211,8 +16974,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -17308,8 +17071,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -17322,9 +17085,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -17341,17 +17104,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     }
    },
@@ -17563,9 +17326,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -17597,8 +17360,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -17855,8 +17618,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -17881,9 +17644,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     }
    },
@@ -17958,8 +17721,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -17973,8 +17736,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -17991,17 +17754,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -18027,8 +17790,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -18060,8 +17823,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -18249,8 +18012,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -18275,9 +18038,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -18303,8 +18066,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -18336,8 +18099,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -18525,8 +18288,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -18551,9 +18314,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -18578,9 +18341,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -18612,9 +18375,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -18663,8 +18426,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -18689,9 +18452,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -18785,9 +18548,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -18834,9 +18597,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -18850,8 +18613,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -18868,17 +18631,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     }
    },
@@ -18903,9 +18666,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -18937,8 +18700,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -19436,8 +19199,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -19469,8 +19232,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     },
@@ -19589,8 +19352,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -19615,9 +19378,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -19658,8 +19421,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -19684,9 +19447,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -19711,9 +19474,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -19745,9 +19508,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -19849,9 +19612,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -19898,9 +19661,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -19914,8 +19677,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -19932,17 +19695,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     }
    },
@@ -19967,9 +19730,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -20001,8 +19764,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -20361,9 +20124,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -20410,9 +20173,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -20426,8 +20189,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -20444,17 +20207,17 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     }
    },
@@ -20479,9 +20242,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -20513,8 +20276,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     },
@@ -20613,8 +20376,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -20639,9 +20402,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     }
    },
@@ -20666,9 +20429,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -20700,9 +20463,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
@@ -20751,8 +20514,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -20777,9 +20540,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -21165,8 +20928,8 @@
     "teamCode": "tba",
     "record": {
      "wins": 83,
-     "losses": 56,
-     "pct": ".597"
+     "losses": 57,
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -21191,9 +20954,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "83-56",
+      "overall": "83-57",
       "home": "47-25",
-      "road": "36-31"
+      "road": "36-32"
      }
     }
    },
@@ -21303,8 +21066,8 @@
     "teamCode": "bal",
     "record": {
      "wins": 69,
-     "losses": 71,
-     "pct": ".493"
+     "losses": 72,
+     "pct": ".489"
     },
     "score": null,
     "isWinner": null,
@@ -21329,8 +21092,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "34-34",
+      "overall": "69-72",
+      "home": "34-35",
       "road": "35-37"
      }
     }
@@ -21425,9 +21188,9 @@
     "abbrev": "BOS",
     "teamCode": "bos",
     "record": {
-     "wins": 75,
+     "wins": 76,
      "losses": 65,
-     "pct": ".536"
+     "pct": ".539"
     },
     "score": null,
     "isWinner": null,
@@ -21440,9 +21203,9 @@
     "abbrev": "CHC",
     "teamCode": "chn",
     "record": {
-     "wins": 78,
+     "wins": 79,
      "losses": 62,
-     "pct": ".557"
+     "pct": ".560"
     },
     "score": null,
     "isWinner": null,
@@ -21459,16 +21222,16 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "75-65",
+      "overall": "76-65",
       "home": "35-34",
-      "road": "40-31"
+      "road": "41-31"
      }
     },
     "away": {
      "starter": null,
      "records": {
-      "overall": "78-62",
-      "home": "40-31",
+      "overall": "79-62",
+      "home": "41-31",
       "road": "38-31"
      }
     }
@@ -21495,8 +21258,8 @@
     "teamCode": "mia",
     "record": {
      "wins": 71,
-     "losses": 69,
-     "pct": ".507"
+     "losses": 70,
+     "pct": ".504"
     },
     "score": null,
     "isWinner": null,
@@ -21528,9 +21291,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "71-69",
+      "overall": "71-70",
       "home": "42-27",
-      "road": "29-42"
+      "road": "29-43"
      }
     },
     "away": {
@@ -21563,9 +21326,9 @@
     "abbrev": "KC",
     "teamCode": "kca",
     "record": {
-     "wins": 62,
+     "wins": 63,
      "losses": 78,
-     "pct": ".443"
+     "pct": ".447"
     },
     "score": null,
     "isWinner": null,
@@ -21597,8 +21360,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "62-78",
-      "home": "36-32",
+      "overall": "63-78",
+      "home": "37-32",
       "road": "26-46"
      }
     },
@@ -21682,8 +21445,8 @@
     "teamCode": "mil",
     "record": {
      "wins": 87,
-     "losses": 53,
-     "pct": ".621"
+     "losses": 54,
+     "pct": ".617"
     },
     "score": null,
     "isWinner": null,
@@ -21715,9 +21478,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "87-53",
+      "overall": "87-54",
       "home": "47-25",
-      "road": "40-28"
+      "road": "40-29"
      }
     },
     "away": {
@@ -21765,9 +21528,9 @@
     "abbrev": "TEX",
     "teamCode": "tex",
     "record": {
-     "wins": 69,
+     "wins": 70,
      "losses": 71,
-     "pct": ".493"
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -21792,8 +21555,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "69-71",
-      "home": "38-30",
+      "overall": "70-71",
+      "home": "39-30",
       "road": "31-41"
      }
     }
@@ -22059,8 +21822,8 @@
   }
  ],
  "counts": {
-  "fixtures": 298,
-  "results": 277,
+  "fixtures": 294,
+  "results": 281,
   "withOdds": 0
  }
 }

@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T00:12:01Z",
+ "fetched_at_utc": "2026-09-04T04:48:29Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -425,10 +425,10 @@
     "away": {
      "starter": {
       "name": "Sandy Alcantara",
-      "losses": 8,
+      "losses": 9,
       "wins": 13,
-      "era": 3.46,
-      "record": "(13-8, 3.46)"
+      "era": 3.54,
+      "record": "(13-9, 3.54)"
      },
      "records": {
       "overall": "62-61",
@@ -514,8 +514,8 @@
       "name": "Jake Bennett",
       "losses": 6,
       "wins": 9,
-      "era": 3.27,
-      "record": "(9-6, 3.27)"
+      "era": 3.34,
+      "record": "(9-6, 3.34)"
      },
      "records": {
       "overall": "65-57",
@@ -3800,10 +3800,10 @@
     "away": {
      "starter": {
       "name": "Logan Henderson",
-      "losses": 2,
+      "losses": 3,
       "wins": 9,
       "era": 2.48,
-      "record": "(9-2, 2.48)"
+      "record": "(9-3, 2.48)"
      },
      "records": {
       "overall": "77-48",
@@ -4047,10 +4047,10 @@
     "home": {
      "starter": {
       "name": "Shane McClanahan",
-      "losses": 6,
+      "losses": 7,
       "wins": 10,
-      "era": 3.19,
-      "record": "(10-6, 3.19)"
+      "era": 3.36,
+      "record": "(10-7, 3.36)"
      },
      "records": {
       "overall": "75-49",
@@ -4063,8 +4063,8 @@
       "name": "Brandon Young",
       "losses": 3,
       "wins": 9,
-      "era": 3.38,
-      "record": "(9-3, 3.38)"
+      "era": 3.42,
+      "record": "(9-3, 3.42)"
      },
      "records": {
       "overall": "61-64",
@@ -4538,9 +4538,9 @@
      "starter": {
       "name": "Michael Wacha",
       "losses": 8,
-      "wins": 8,
-      "era": 3.32,
-      "record": "(8-8, 3.32)"
+      "wins": 9,
+      "era": 3.36,
+      "record": "(9-8, 3.36)"
      },
      "records": {
       "overall": "52-74",
@@ -5304,8 +5304,8 @@
       "name": "Cade Gibson",
       "losses": 1,
       "wins": 3,
-      "era": 5.63,
-      "record": "(3-1, 5.63)"
+      "era": 5.71,
+      "record": "(3-1, 5.71)"
      },
      "records": {
       "overall": "64-63",
@@ -5779,9 +5779,9 @@
      "starter": {
       "name": "Cal Quantrill",
       "losses": 5,
-      "wins": 6,
-      "era": 3.01,
-      "record": "(6-5, 3.01)"
+      "wins": 7,
+      "era": 2.79,
+      "record": "(7-5, 2.79)"
      },
      "records": {
       "overall": "62-64",
@@ -6479,10 +6479,10 @@
     "away": {
      "starter": {
       "name": "Sandy Alcantara",
-      "losses": 8,
+      "losses": 9,
       "wins": 13,
-      "era": 3.46,
-      "record": "(13-8, 3.46)"
+      "era": 3.54,
+      "record": "(13-9, 3.54)"
      },
      "records": {
       "overall": "64-64",
@@ -9414,10 +9414,10 @@
     "home": {
      "starter": {
       "name": "Logan Henderson",
-      "losses": 2,
+      "losses": 3,
       "wins": 9,
       "era": 2.48,
-      "record": "(9-2, 2.48)"
+      "record": "(9-3, 2.48)"
      },
      "records": {
       "overall": "81-49",
@@ -9677,8 +9677,8 @@
       "name": "Brandon Young",
       "losses": 3,
       "wins": 9,
-      "era": 3.38,
-      "record": "(9-3, 3.38)"
+      "era": 3.42,
+      "record": "(9-3, 3.42)"
      },
      "records": {
       "overall": "63-67",
@@ -9689,10 +9689,10 @@
     "away": {
      "starter": {
       "name": "Shane McClanahan",
-      "losses": 6,
+      "losses": 7,
       "wins": 10,
-      "era": 3.19,
-      "record": "(10-6, 3.19)"
+      "era": 3.36,
+      "record": "(10-7, 3.36)"
      },
      "records": {
       "overall": "76-53",
@@ -11146,9 +11146,9 @@
      "starter": {
       "name": "Cal Quantrill",
       "losses": 5,
-      "wins": 6,
-      "era": 3.01,
-      "record": "(6-5, 3.01)"
+      "wins": 7,
+      "era": 2.79,
+      "record": "(7-5, 2.79)"
      },
      "records": {
       "overall": "65-66",
@@ -11321,8 +11321,8 @@
       "name": "Jake Bennett",
       "losses": 6,
       "wins": 9,
-      "era": 3.27,
-      "record": "(9-6, 3.27)"
+      "era": 3.34,
+      "record": "(9-6, 3.34)"
      },
      "records": {
       "overall": "71-59",
@@ -11896,10 +11896,10 @@
     "home": {
      "starter": {
       "name": "Sandy Alcantara",
-      "losses": 8,
+      "losses": 9,
       "wins": 13,
-      "era": 3.46,
-      "record": "(13-8, 3.46)"
+      "era": 3.54,
+      "record": "(13-9, 3.54)"
      },
      "records": {
       "overall": "67-65",
@@ -12631,8 +12631,8 @@
       "name": "Casey Legumina",
       "losses": 2,
       "wins": 2,
-      "era": 3.73,
-      "record": "(2-2, 3.73)"
+      "era": 3.84,
+      "record": "(2-2, 3.84)"
      },
      "records": {
       "overall": "78-54",
@@ -15950,9 +15950,9 @@
      "starter": {
       "name": "Michael Wacha",
       "losses": 8,
-      "wins": 8,
-      "era": 3.32,
-      "record": "(8-8, 3.32)"
+      "wins": 9,
+      "era": 3.36,
+      "record": "(9-8, 3.36)"
      },
      "records": {
       "overall": "61-75",
@@ -16109,10 +16109,10 @@
     "home": {
      "starter": {
       "name": "Shane McClanahan",
-      "losses": 6,
+      "losses": 7,
       "wins": 10,
-      "era": 3.19,
-      "record": "(10-6, 3.19)"
+      "era": 3.36,
+      "record": "(10-7, 3.36)"
      },
      "records": {
       "overall": "80-54",
@@ -16457,10 +16457,10 @@
     "home": {
      "starter": {
       "name": "Logan Henderson",
-      "losses": 2,
+      "losses": 3,
       "wins": 9,
       "era": 2.48,
-      "record": "(9-2, 2.48)"
+      "record": "(9-3, 2.48)"
      },
      "records": {
       "overall": "84-51",
@@ -16789,8 +16789,8 @@
       "name": "Brandon Young",
       "losses": 3,
       "wins": 9,
-      "era": 3.38,
-      "record": "(9-3, 3.38)"
+      "era": 3.42,
+      "record": "(9-3, 3.42)"
      },
      "records": {
       "overall": "66-69",
@@ -16931,8 +16931,8 @@
       "name": "Jake Bennett",
       "losses": 6,
       "wins": 9,
-      "era": 3.27,
-      "record": "(9-6, 3.27)"
+      "era": 3.34,
+      "record": "(9-6, 3.34)"
      },
      "records": {
       "overall": "74-61",
@@ -17232,9 +17232,9 @@
      "starter": {
       "name": "Kevin Gausman",
       "losses": 11,
-      "wins": 8,
-      "era": 4.52,
-      "record": "(8-11, 4.52)"
+      "wins": 9,
+      "era": 4.38,
+      "record": "(9-11, 4.38)"
      },
      "records": {
       "overall": "77-59",
@@ -17474,10 +17474,10 @@
     "away": {
      "starter": {
       "name": "Sandy Alcantara",
-      "losses": 8,
+      "losses": 9,
       "wins": 13,
-      "era": 3.46,
-      "record": "(13-8, 3.46)"
+      "era": 3.54,
+      "record": "(13-9, 3.54)"
      },
      "records": {
       "overall": "68-68",
@@ -17911,8 +17911,8 @@
       "name": "Jake Bennett",
       "losses": 6,
       "wins": 9,
-      "era": 3.27,
-      "record": "(9-6, 3.27)"
+      "era": 3.34,
+      "record": "(9-6, 3.34)"
      },
      "records": {
       "overall": "74-61",
@@ -17997,9 +17997,9 @@
      "starter": {
       "name": "Cal Quantrill",
       "losses": 5,
-      "wins": 6,
-      "era": 3.01,
-      "record": "(6-5, 3.01)"
+      "wins": 7,
+      "era": 2.79,
+      "record": "(7-5, 2.79)"
      },
      "records": {
       "overall": "66-70",
@@ -23116,9 +23116,357 @@
    "espn": null,
    "odds": null,
    "oddsSourceCount": 0
+  },
+  {
+   "id": "824796",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-03",
+   "startUtc": "2026-09-03T23:15:00Z",
+   "phase": "results",
+   "venue": "Oriole Park at Camden Yards",
+   "venueIndoor": false,
+   "home": {
+    "id": 110,
+    "name": "Baltimore Orioles",
+    "locationName": "Baltimore",
+    "abbrev": "BAL",
+    "teamCode": "bal",
+    "record": {
+     "wins": 69,
+     "losses": 72,
+     "pct": ".489"
+    },
+    "score": 5,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 687064,
+     "name": "Brandon Young"
+    }
+   },
+   "away": {
+    "id": 111,
+    "name": "Boston Red Sox",
+    "locationName": "Boston",
+    "abbrev": "BOS",
+    "teamCode": "bos",
+    "record": {
+     "wins": 76,
+     "losses": 65,
+     "pct": ".539"
+    },
+    "score": 6,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 687562,
+     "name": "Jake Bennett"
+    }
+   },
+   "score": {
+    "home": 5,
+    "away": 6
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Brandon Young",
+      "losses": 3,
+      "wins": 9,
+      "era": 3.42,
+      "record": "(9-3, 3.42)"
+     },
+     "records": {
+      "overall": "69-72",
+      "home": "34-35",
+      "road": "35-37"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Jake Bennett",
+      "losses": 6,
+      "wins": 9,
+      "era": 3.34,
+      "record": "(9-6, 3.34)"
+     },
+     "records": {
+      "overall": "76-65",
+      "home": "35-34",
+      "road": "41-31"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824632",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-03",
+   "startUtc": "2026-09-03T23:15:00Z",
+   "phase": "results",
+   "venue": "Wrigley Field",
+   "venueIndoor": false,
+   "home": {
+    "id": 112,
+    "name": "Chicago Cubs",
+    "locationName": "Chicago",
+    "abbrev": "CHC",
+    "teamCode": "chn",
+    "record": {
+     "wins": 79,
+     "losses": 62,
+     "pct": ".560"
+    },
+    "score": 2,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 592332,
+     "name": "Kevin Gausman"
+    }
+   },
+   "away": {
+    "id": 158,
+    "name": "Milwaukee Brewers",
+    "locationName": "Milwaukee",
+    "abbrev": "MIL",
+    "teamCode": "mil",
+    "record": {
+     "wins": 87,
+     "losses": 54,
+     "pct": ".617"
+    },
+    "score": 1,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 701656,
+     "name": "Logan Henderson"
+    }
+   },
+   "score": {
+    "home": 2,
+    "away": 1
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Kevin Gausman",
+      "losses": 11,
+      "wins": 9,
+      "era": 4.38,
+      "record": "(9-11, 4.38)"
+     },
+     "records": {
+      "overall": "79-62",
+      "home": "41-31",
+      "road": "38-31"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Logan Henderson",
+      "losses": 3,
+      "wins": 9,
+      "era": 2.48,
+      "record": "(9-3, 2.48)"
+     },
+     "records": {
+      "overall": "87-54",
+      "home": "47-25",
+      "road": "40-29"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824069",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-03",
+   "startUtc": "2026-09-03T23:40:00Z",
+   "phase": "results",
+   "venue": "Kauffman Stadium",
+   "venueIndoor": false,
+   "home": {
+    "id": 118,
+    "name": "Kansas City Royals",
+    "locationName": "Kansas City",
+    "abbrev": "KC",
+    "teamCode": "kca",
+    "record": {
+     "wins": 63,
+     "losses": 78,
+     "pct": ".447"
+    },
+    "score": 7,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 608379,
+     "name": "Michael Wacha"
+    }
+   },
+   "away": {
+    "id": 146,
+    "name": "Miami Marlins",
+    "locationName": "Miami",
+    "abbrev": "MIA",
+    "teamCode": "mia",
+    "record": {
+     "wins": 71,
+     "losses": 70,
+     "pct": ".504"
+    },
+    "score": 3,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 645261,
+     "name": "Sandy Alcantara"
+    }
+   },
+   "score": {
+    "home": 7,
+    "away": 3
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Michael Wacha",
+      "losses": 8,
+      "wins": 9,
+      "era": 3.36,
+      "record": "(9-8, 3.36)"
+     },
+     "records": {
+      "overall": "63-78",
+      "home": "37-32",
+      "road": "26-46"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Sandy Alcantara",
+      "losses": 9,
+      "wins": 13,
+      "era": 3.54,
+      "record": "(13-9, 3.54)"
+     },
+     "records": {
+      "overall": "71-70",
+      "home": "42-27",
+      "road": "29-43"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "822853",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T00:05:00Z",
+   "phase": "results",
+   "venue": "Globe Life Field",
+   "venueIndoor": true,
+   "home": {
+    "id": 140,
+    "name": "Texas Rangers",
+    "locationName": "Arlington",
+    "abbrev": "TEX",
+    "teamCode": "tex",
+    "record": {
+     "wins": 70,
+     "losses": 71,
+     "pct": ".496"
+    },
+    "score": 6,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 615698,
+     "name": "Cal Quantrill"
+    }
+   },
+   "away": {
+    "id": 139,
+    "name": "Tampa Bay Rays",
+    "locationName": "St. Petersburg",
+    "abbrev": "TB",
+    "teamCode": "tba",
+    "record": {
+     "wins": 83,
+     "losses": 57,
+     "pct": ".593"
+    },
+    "score": 0,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 663556,
+     "name": "Shane McClanahan"
+    }
+   },
+   "score": {
+    "home": 6,
+    "away": 0
+   },
+   "espn": {
+    "venueIndoor": true,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Cal Quantrill",
+      "losses": 5,
+      "wins": 7,
+      "era": 2.79,
+      "record": "(7-5, 2.79)"
+     },
+     "records": {
+      "overall": "70-71",
+      "home": "39-30",
+      "road": "31-41"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Shane McClanahan",
+      "losses": 7,
+      "wins": 10,
+      "era": 3.36,
+      "record": "(10-7, 3.36)"
+     },
+     "records": {
+      "overall": "83-57",
+      "home": "47-25",
+      "road": "36-32"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
   }
  ],
  "counts": {
-  "games": 277
+  "games": 281
  }
 }

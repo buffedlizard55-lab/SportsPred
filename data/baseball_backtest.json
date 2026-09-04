@@ -2,14 +2,14 @@
  "schema_version": 1,
  "sport": "Baseball",
  "prompt": "BASEBALL PREDICTION MASTER PROMPT v1.0",
- "generated_at_utc": "2026-09-04T00:12:03Z",
+ "generated_at_utc": "2026-09-04T04:48:30Z",
  "method": "Walk-forward: every settled game is re-scored using only games that finished before it. No feature is taken from the fixture being graded.",
  "source_tape": {
   "path": "data/baseball_tape.json",
   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-08-14&hydrate=probablePitcher,linescore,team",
-  "fetched_at_utc": "2026-09-04T00:12:01Z",
-  "games": 277,
-  "settled": 277
+  "fetched_at_utc": "2026-09-04T04:48:29Z",
+  "games": 281,
+  "settled": 281
  },
  "results": {
   "graded": 4,
@@ -34,7 +34,7 @@
     "hitRate": null
    },
    "skip": {
-    "picks": 273,
+    "picks": 277,
     "graded": 0,
     "hits": 0,
     "hitRate": null
@@ -3663,6 +3663,58 @@
    "selection": "Chicago White Sox",
    "actual": "Houston Astros",
    "hit": false,
+   "graded": false,
+   "runLineGraded": false,
+   "totalGraded": false
+  },
+  {
+   "id": "824796",
+   "dateISO": "2026-09-03",
+   "fixture": "Boston Red Sox at Baltimore Orioles",
+   "band": "SKIP",
+   "score": 31,
+   "selection": "Baltimore Orioles",
+   "actual": "Boston Red Sox",
+   "hit": false,
+   "graded": false,
+   "runLineGraded": false,
+   "totalGraded": false
+  },
+  {
+   "id": "824632",
+   "dateISO": "2026-09-03",
+   "fixture": "Milwaukee Brewers at Chicago Cubs",
+   "band": "SKIP",
+   "score": 34,
+   "selection": "Milwaukee Brewers",
+   "actual": "Chicago Cubs",
+   "hit": false,
+   "graded": false,
+   "runLineGraded": false,
+   "totalGraded": false
+  },
+  {
+   "id": "824069",
+   "dateISO": "2026-09-03",
+   "fixture": "Miami Marlins at Kansas City Royals",
+   "band": "SKIP",
+   "score": 25,
+   "selection": "Miami Marlins",
+   "actual": "Kansas City Royals",
+   "hit": false,
+   "graded": false,
+   "runLineGraded": false,
+   "totalGraded": false
+  },
+  {
+   "id": "822853",
+   "dateISO": "2026-09-04",
+   "fixture": "Tampa Bay Rays at Texas Rangers",
+   "band": "SKIP",
+   "score": 20,
+   "selection": "Texas Rangers",
+   "actual": "Texas Rangers",
+   "hit": true,
    "graded": false,
    "runLineGraded": false,
    "totalGraded": false

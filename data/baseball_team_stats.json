@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T00:11:58Z",
+ "fetched_at_utc": "2026-09-04T04:48:27Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -51,10 +51,10 @@
    "name": "Baltimore Orioles",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 656,
-    "era": 4.16,
+    "runs": 661,
+    "era": 4.18,
     "whip": 1.34,
-    "strikeoutsPer9Inn": 8.08,
+    "strikeoutsPer9Inn": 8.09,
     "saves": 39,
     "blownSaves": 21
    }
@@ -64,11 +64,11 @@
    "name": "Boston Red Sox",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 553,
-    "era": 3.68,
+    "runs": 555,
+    "era": 3.67,
     "whip": 1.24,
-    "strikeoutsPer9Inn": 8.61,
-    "saves": 37,
+    "strikeoutsPer9Inn": 8.65,
+    "saves": 38,
     "blownSaves": 13
    }
   },
@@ -78,10 +78,10 @@
    "pitching": {
     "gamesPlayed": 141,
     "runs": 620,
-    "era": 4.2,
+    "era": 4.18,
     "whip": 1.26,
-    "strikeoutsPer9Inn": 7.79,
-    "saves": 29,
+    "strikeoutsPer9Inn": 7.8,
+    "saves": 30,
     "blownSaves": 24
    }
   },
@@ -155,10 +155,10 @@
    "name": "Kansas City Royals",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 690,
-    "era": 4.73,
-    "whip": 1.4,
-    "strikeoutsPer9Inn": 7.46,
+    "runs": 691,
+    "era": 4.71,
+    "whip": 1.39,
+    "strikeoutsPer9Inn": 7.48,
     "saves": 34,
     "blownSaves": 24
    }
@@ -167,11 +167,11 @@
    "id": 119,
    "name": "Los Angeles Dodgers",
    "pitching": {
-    "gamesPlayed": 139,
-    "runs": 538,
-    "era": 3.71,
+    "gamesPlayed": 140,
+    "runs": 540,
+    "era": 3.7,
     "whip": 1.16,
-    "strikeoutsPer9Inn": 9.27,
+    "strikeoutsPer9Inn": 9.28,
     "saves": 38,
     "blownSaves": 20
    }
@@ -206,11 +206,11 @@
    "id": 133,
    "name": "Athletics",
    "pitching": {
-    "gamesPlayed": 140,
-    "runs": 805,
+    "gamesPlayed": 141,
+    "runs": 809,
     "era": 5.45,
     "whip": 1.5,
-    "strikeoutsPer9Inn": 8.56,
+    "strikeoutsPer9Inn": 8.62,
     "saves": 34,
     "blownSaves": 26
    }
@@ -245,9 +245,9 @@
    "id": 136,
    "name": "Seattle Mariners",
    "pitching": {
-    "gamesPlayed": 140,
-    "runs": 620,
-    "era": 4.18,
+    "gamesPlayed": 141,
+    "runs": 626,
+    "era": 4.2,
     "whip": 1.25,
     "strikeoutsPer9Inn": 8.58,
     "saves": 30,
@@ -271,9 +271,9 @@
    "id": 138,
    "name": "St. Louis Cardinals",
    "pitching": {
-    "gamesPlayed": 140,
-    "runs": 639,
-    "era": 4.24,
+    "gamesPlayed": 141,
+    "runs": 640,
+    "era": 4.23,
     "whip": 1.35,
     "strikeoutsPer9Inn": 7.96,
     "saves": 41,
@@ -285,10 +285,10 @@
    "name": "Tampa Bay Rays",
    "pitching": {
     "gamesPlayed": 140,
-    "runs": 577,
-    "era": 3.78,
+    "runs": 583,
+    "era": 3.79,
     "whip": 1.15,
-    "strikeoutsPer9Inn": 8.25,
+    "strikeoutsPer9Inn": 8.24,
     "saves": 54,
     "blownSaves": 15
    }
@@ -299,9 +299,9 @@
    "pitching": {
     "gamesPlayed": 141,
     "runs": 620,
-    "era": 4.3,
+    "era": 4.27,
     "whip": 1.31,
-    "strikeoutsPer9Inn": 8.69,
+    "strikeoutsPer9Inn": 8.68,
     "saves": 39,
     "blownSaves": 16
    }
@@ -376,10 +376,10 @@
    "name": "Miami Marlins",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 594,
-    "era": 3.92,
+    "runs": 601,
+    "era": 3.96,
     "whip": 1.25,
-    "strikeoutsPer9Inn": 8.31,
+    "strikeoutsPer9Inn": 8.3,
     "saves": 31,
     "blownSaves": 19
    }
@@ -403,9 +403,9 @@
    "pitching": {
     "gamesPlayed": 141,
     "runs": 534,
-    "era": 3.49,
+    "era": 3.47,
     "whip": 1.17,
-    "strikeoutsPer9Inn": 9.64,
+    "strikeoutsPer9Inn": 9.62,
     "saves": 44,
     "blownSaves": 18
    }
