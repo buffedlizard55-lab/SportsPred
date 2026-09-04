@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T04:48:27Z",
+ "fetched_at_utc": "2026-09-04T09:10:43Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -208,10 +208,10 @@
    "pitching": {
     "gamesPlayed": 141,
     "runs": 809,
-    "era": 5.45,
+    "era": 5.44,
     "whip": 1.5,
-    "strikeoutsPer9Inn": 8.62,
-    "saves": 34,
+    "strikeoutsPer9Inn": 8.63,
+    "saves": 35,
     "blownSaves": 26
    }
   },
@@ -246,9 +246,9 @@
    "name": "Seattle Mariners",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 626,
+    "runs": 627,
     "era": 4.2,
-    "whip": 1.25,
+    "whip": 1.26,
     "strikeoutsPer9Inn": 8.58,
     "saves": 30,
     "blownSaves": 22
@@ -272,12 +272,12 @@
    "name": "St. Louis Cardinals",
    "pitching": {
     "gamesPlayed": 141,
-    "runs": 640,
-    "era": 4.23,
+    "runs": 642,
+    "era": 4.24,
     "whip": 1.35,
-    "strikeoutsPer9Inn": 7.96,
+    "strikeoutsPer9Inn": 7.97,
     "saves": 41,
-    "blownSaves": 24
+    "blownSaves": 25
    }
   },
   "139": {

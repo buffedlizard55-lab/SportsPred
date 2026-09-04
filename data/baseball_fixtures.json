@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T04:48:29Z",
+ "fetched_at_utc": "2026-09-04T09:10:46Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -529,180 +529,6 @@
  },
  "odds_attribution": "No key-less multi-book baseball price feed exists. The odds field is null and the engine records the odds factor as missing.",
  "fixtures": [
-  {
-   "id": "823095",
-   "source": "mlb-statsapi-schedule",
-   "league": "mlb",
-   "leagueName": "Major League Baseball",
-   "season": "2026",
-   "dateISO": "2026-09-04",
-   "startUtc": "2026-09-04T01:40:00Z",
-   "phase": "live",
-   "venue": "T-Mobile Park",
-   "venueIndoor": true,
-   "home": {
-    "id": 136,
-    "name": "Seattle Mariners",
-    "locationName": "Seattle",
-    "abbrev": "SEA",
-    "teamCode": "sea",
-    "record": {
-     "wins": 66,
-     "losses": 74,
-     "pct": ".471"
-    },
-    "score": 4,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 807739,
-     "name": "Kade Anderson"
-    }
-   },
-   "away": {
-    "id": 133,
-    "name": "Athletics",
-    "locationName": "Sacramento",
-    "abbrev": "ATH",
-    "teamCode": "ath",
-    "record": {
-     "wins": 54,
-     "losses": 86,
-     "pct": ".386"
-    },
-    "score": 6,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 678022,
-     "name": "Jack Perkins"
-    }
-   },
-   "score": {
-    "home": 4,
-    "away": 6
-   },
-   "espn": {
-    "venueIndoor": true,
-    "weather": null,
-    "temperature": null,
-    "home": {
-     "starter": {
-      "name": "Kade Anderson",
-      "losses": 0,
-      "wins": 0,
-      "era": 4.5,
-      "record": "(0-0, 4.50)"
-     },
-     "records": {
-      "overall": "66-74",
-      "home": "37-31",
-      "road": "29-43"
-     }
-    },
-    "away": {
-     "starter": {
-      "name": "Jack Perkins",
-      "losses": 10,
-      "wins": 3,
-      "era": 6.42,
-      "record": "(3-10, 6.42)"
-     },
-     "records": {
-      "overall": "54-86",
-      "home": "25-44",
-      "road": "29-42"
-     }
-    }
-   },
-   "odds": null,
-   "oddsSourceCount": 0
-  },
-  {
-   "id": "823907",
-   "source": "mlb-statsapi-schedule",
-   "league": "mlb",
-   "leagueName": "Major League Baseball",
-   "season": "2026",
-   "dateISO": "2026-09-04",
-   "startUtc": "2026-09-04T02:10:00Z",
-   "phase": "live",
-   "venue": "UNIQLO Field at Dodger Stadium",
-   "venueIndoor": false,
-   "home": {
-    "id": 119,
-    "name": "Los Angeles Dodgers",
-    "locationName": "Los Angeles",
-    "abbrev": "LAD",
-    "teamCode": "lan",
-    "record": {
-     "wins": 82,
-     "losses": 57,
-     "pct": ".590"
-    },
-    "score": 1,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 669373,
-     "name": "Tarik Skubal"
-    }
-   },
-   "away": {
-    "id": 138,
-    "name": "St. Louis Cardinals",
-    "locationName": "St. Louis",
-    "abbrev": "STL",
-    "teamCode": "sln",
-    "record": {
-     "wins": 70,
-     "losses": 70,
-     "pct": ".500"
-    },
-    "score": 2,
-    "isWinner": null,
-    "probablePitcher": {
-     "id": 687273,
-     "name": "Quinn Mathews"
-    }
-   },
-   "score": {
-    "home": 1,
-    "away": 2
-   },
-   "espn": {
-    "venueIndoor": false,
-    "weather": null,
-    "temperature": null,
-    "home": {
-     "starter": {
-      "name": "Tarik Skubal",
-      "losses": 7,
-      "wins": 8,
-      "era": 2.84,
-      "record": "(8-7, 2.84)"
-     },
-     "records": {
-      "overall": "82-57",
-      "home": "40-28",
-      "road": "42-29"
-     }
-    },
-    "away": {
-     "starter": {
-      "name": "Quinn Mathews",
-      "losses": 2,
-      "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
-     },
-     "records": {
-      "overall": "70-70",
-      "home": "34-38",
-      "road": "36-32"
-     }
-    }
-   },
-   "odds": null,
-   "oddsSourceCount": 0
-  },
   {
    "id": "824424",
    "source": "mlb-statsapi-schedule",
@@ -1720,8 +1546,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -1761,9 +1587,9 @@
       "record": "(10-4, 3.13)"
      },
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -1875,9 +1701,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -1921,8 +1747,8 @@
       "record": "(2-1, 2.42)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -1963,8 +1789,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -1980,13 +1806,16 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
-    "probablePitcher": null
+    "probablePitcher": {
+     "id": 695034,
+     "name": "Kade Morris"
+    }
    },
    "score": {
     "home": null,
@@ -2005,8 +1834,8 @@
       "record": "(11-8, 3.42)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -2019,9 +1848,9 @@
       "record": "(9-8, 3.71)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -3042,8 +2871,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -3083,9 +2912,9 @@
       "record": "(5-13, 5.41)"
      },
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -3110,9 +2939,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -3156,8 +2985,8 @@
       "record": "(4-0, 2.79)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -3198,8 +3027,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -3215,9 +3044,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -3240,8 +3069,8 @@
       "record": "(9-10, 4.19)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -3254,9 +3083,9 @@
       "record": "(3-13, 6.37)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -4126,8 +3955,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -4167,9 +3996,9 @@
       "record": "(5-13, 5.41)"
      },
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -4195,8 +4024,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -4212,9 +4041,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -4240,8 +4069,8 @@
       "record": "(9-10, 4.19)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -4254,9 +4083,9 @@
       "record": "(3-13, 6.37)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -4420,9 +4249,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -4457,8 +4286,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -5130,8 +4959,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -5162,9 +4991,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -5189,9 +5018,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -5229,8 +5058,8 @@
       "record": "(12-8, 2.67)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -5270,9 +5099,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -5310,9 +5139,9 @@
       "record": "(6-4, 4.71)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -6179,8 +6008,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -6218,8 +6047,8 @@
       "record": "(4-8, 4.01)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -6259,9 +6088,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -6295,13 +6124,13 @@
       "name": "Jack Perkins",
       "losses": 10,
       "wins": 3,
-      "era": 6.42,
-      "record": "(3-10, 6.42)"
+      "era": 6.5,
+      "record": "(3-10, 6.50)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -6356,8 +6185,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -6390,13 +6219,13 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -6421,9 +6250,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -6457,12 +6286,12 @@
       "name": "Tarik Skubal",
       "losses": 7,
       "wins": 8,
-      "era": 2.84,
-      "record": "(8-7, 2.84)"
+      "era": 2.86,
+      "record": "(8-7, 2.86)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -6583,9 +6412,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -6619,13 +6448,13 @@
       "name": "Jack Perkins",
       "losses": 10,
       "wins": 3,
-      "era": 6.42,
-      "record": "(3-10, 6.42)"
+      "era": 6.5,
+      "record": "(3-10, 6.50)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -6680,8 +6509,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -6714,13 +6543,13 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -6827,8 +6656,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -6866,8 +6695,8 @@
       "record": "(4-8, 4.01)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -7572,9 +7401,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -7612,8 +7441,8 @@
       "record": "(2-1, 2.42)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -7816,8 +7645,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -7855,8 +7684,8 @@
       "record": "(11-8, 3.42)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -8608,9 +8437,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -8647,8 +8476,8 @@
       "record": "(4-0, 2.79)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -8918,8 +8747,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -8966,9 +8795,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -8982,8 +8811,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -9006,9 +8835,9 @@
       "record": "(3-13, 6.37)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -9020,8 +8849,8 @@
       "record": "(9-10, 4.19)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -9840,9 +9669,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -9873,8 +9702,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -10144,8 +9973,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -10241,9 +10070,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -10257,8 +10086,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -10281,9 +10110,9 @@
       "record": "(6-9, 5.15)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -10295,8 +10124,8 @@
       "record": "(10-9, 4.25)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -10904,9 +10733,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -10943,8 +10772,8 @@
       "record": "(12-8, 2.67)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -11127,8 +10956,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -11256,9 +11085,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -11272,8 +11101,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -11296,9 +11125,9 @@
       "record": "(6-9, 5.15)"
      },
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -11310,8 +11139,8 @@
       "record": "(10-9, 4.25)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -11482,9 +11311,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -11517,12 +11346,12 @@
       "name": "Tarik Skubal",
       "losses": 7,
       "wins": 8,
-      "era": 2.84,
-      "record": "(8-7, 2.84)"
+      "era": 2.86,
+      "record": "(8-7, 2.86)"
      },
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -11922,8 +11751,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -11957,13 +11786,13 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     },
     "away": {
@@ -12099,8 +11928,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -12131,14 +11960,14 @@
     "away": {
      "starter": {
       "name": "Kade Anderson",
-      "losses": 0,
+      "losses": 1,
       "wins": 0,
-      "era": 4.5,
-      "record": "(0-0, 4.50)"
+      "era": 5.4,
+      "record": "(0-1, 5.40)"
      },
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -12228,9 +12057,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -12255,8 +12084,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -12297,9 +12126,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -12324,9 +12153,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -12815,8 +12644,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -12848,9 +12677,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     },
     "away": {
@@ -13106,8 +12935,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -13132,8 +12961,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -13258,8 +13087,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -13291,9 +13120,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     },
     "away": {
@@ -13479,9 +13308,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -13506,8 +13335,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -13548,9 +13377,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -13575,9 +13404,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -14101,8 +13930,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -14127,8 +13956,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -14287,9 +14116,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -14314,8 +14143,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -14356,9 +14185,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -14383,9 +14212,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -15026,9 +14855,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -15053,9 +14882,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -15352,8 +15181,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -15378,8 +15207,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -15475,8 +15304,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -15508,9 +15337,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     },
     "away": {
@@ -15730,9 +15559,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -15764,8 +15593,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -16021,9 +15850,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -16048,9 +15877,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -16401,8 +16230,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -16434,9 +16263,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     },
     "away": {
@@ -16485,8 +16314,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -16511,8 +16340,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -16656,9 +16485,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -16690,8 +16519,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -17016,9 +16845,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -17043,9 +16872,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     }
    },
@@ -17258,8 +17087,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -17291,9 +17120,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     },
     "away": {
@@ -17411,8 +17240,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -17437,8 +17266,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     }
@@ -17533,9 +17362,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -17567,8 +17396,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -18219,8 +18048,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -18245,9 +18074,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -18784,9 +18613,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -18818,9 +18647,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -18854,8 +18683,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -18887,8 +18716,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -18991,9 +18820,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -19025,8 +18854,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -19283,8 +19112,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -19309,9 +19138,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -19848,9 +19677,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -19882,9 +19711,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -19917,9 +19746,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -19951,8 +19780,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -19987,8 +19816,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -20020,8 +19849,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -20071,8 +19900,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -20097,9 +19926,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -20636,9 +20465,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -20670,9 +20499,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -20706,8 +20535,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -20739,8 +20568,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -20774,9 +20603,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -20808,8 +20637,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     },
@@ -21460,8 +21289,8 @@
     "teamCode": "sln",
     "record": {
      "wins": 70,
-     "losses": 70,
-     "pct": ".500"
+     "losses": 71,
+     "pct": ".496"
     },
     "score": null,
     "isWinner": null,
@@ -21486,9 +21315,9 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "70-70",
+      "overall": "70-71",
       "home": "34-38",
-      "road": "36-32"
+      "road": "36-33"
      }
     }
    },
@@ -21582,9 +21411,9 @@
     "abbrev": "ATH",
     "teamCode": "ath",
     "record": {
-     "wins": 54,
+     "wins": 55,
      "losses": 86,
-     "pct": ".386"
+     "pct": ".390"
     },
     "score": null,
     "isWinner": null,
@@ -21616,9 +21445,9 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "54-86",
+      "overall": "55-86",
       "home": "25-44",
-      "road": "29-42"
+      "road": "30-42"
      }
     },
     "away": {
@@ -21701,8 +21530,8 @@
     "teamCode": "sea",
     "record": {
      "wins": 66,
-     "losses": 74,
-     "pct": ".471"
+     "losses": 75,
+     "pct": ".468"
     },
     "score": null,
     "isWinner": null,
@@ -21734,8 +21563,8 @@
     "home": {
      "starter": null,
      "records": {
-      "overall": "66-74",
-      "home": "37-31",
+      "overall": "66-75",
+      "home": "37-32",
       "road": "29-43"
      }
     },
@@ -21784,9 +21613,9 @@
     "abbrev": "LAD",
     "teamCode": "lan",
     "record": {
-     "wins": 82,
+     "wins": 83,
      "losses": 57,
-     "pct": ".590"
+     "pct": ".593"
     },
     "score": null,
     "isWinner": null,
@@ -21811,8 +21640,8 @@
     "away": {
      "starter": null,
      "records": {
-      "overall": "82-57",
-      "home": "40-28",
+      "overall": "83-57",
+      "home": "41-28",
       "road": "42-29"
      }
     }
@@ -21822,8 +21651,8 @@
   }
  ],
  "counts": {
-  "fixtures": 294,
-  "results": 281,
+  "fixtures": 292,
+  "results": 283,
   "withOdds": 0
  }
 }

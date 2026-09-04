@@ -1,56 +1,8 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T04:48:29Z",
+ "fetched_at_utc": "2026-09-04T09:10:46Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/807739/stats?stats=season&group=pitching&season=2026",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/807739/stats?stats=gameLog&season=2026&group=pitching",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/678022/stats?stats=season&group=pitching&season=2026",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/678022/stats?stats=gameLog&season=2026&group=pitching",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/669373/stats?stats=season&group=pitching&season=2026",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/669373/stats?stats=gameLog&season=2026&group=pitching",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/687273/stats?stats=season&group=pitching&season=2026",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
-  {
-   "url": "https://statsapi.mlb.com/api/v1/people/687273/stats?stats=gameLog&season=2026&group=pitching",
-   "status": 200,
-   "error": null,
-   "ok": true
-  },
   {
    "url": "https://statsapi.mlb.com/api/v1/people/671106/stats?stats=season&group=pitching&season=2026",
    "status": 200,
@@ -419,6 +371,18 @@
   },
   {
    "url": "https://statsapi.mlb.com/api/v1/people/669302/stats?stats=gameLog&season=2026&group=pitching",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695034/stats?stats=season&group=pitching&season=2026",
+   "status": 200,
+   "error": null,
+   "ok": true
+  },
+  {
+   "url": "https://statsapi.mlb.com/api/v1/people/695034/stats?stats=gameLog&season=2026&group=pitching",
    "status": 200,
    "error": null,
    "ok": true
@@ -3947,74 +3911,6 @@
    "startsCount": 27,
    "source": "mlb-person-gameLog"
   },
-  "669373": {
-   "id": 669373,
-   "name": "Tarik Skubal",
-   "era": 2.86,
-   "whip": 0.98,
-   "strikeoutsPer9": 10.81,
-   "wins": 8,
-   "losses": 7,
-   "qualityStartsLast4": 3,
-   "qualityStartsLast3": 2,
-   "avgInningsPerStart": 6.05,
-   "last4": [
-    {
-     "date": "2026-09-03",
-     "opponent": "St. Louis Cardinals",
-     "isHome": true,
-     "inningsPitched": 5.2,
-     "earnedRuns": 2,
-     "hits": 10,
-     "strikeOuts": 6,
-     "baseOnBalls": 1,
-     "pitches": 102,
-     "isWin": false,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-28",
-     "opponent": "Detroit Tigers",
-     "isHome": false,
-     "inningsPitched": 6,
-     "earnedRuns": 1,
-     "hits": 4,
-     "strikeOuts": 7,
-     "baseOnBalls": 0,
-     "pitches": 83,
-     "isWin": true,
-     "qualityStart": true
-    },
-    {
-     "date": "2026-08-22",
-     "opponent": "Pittsburgh Pirates",
-     "isHome": true,
-     "inningsPitched": 7,
-     "earnedRuns": 3,
-     "hits": 5,
-     "strikeOuts": 11,
-     "baseOnBalls": 1,
-     "pitches": 106,
-     "isWin": true,
-     "qualityStart": true
-    },
-    {
-     "date": "2026-08-16",
-     "opponent": "Milwaukee Brewers",
-     "isHome": true,
-     "inningsPitched": 6,
-     "earnedRuns": 1,
-     "hits": 7,
-     "strikeOuts": 7,
-     "baseOnBalls": 2,
-     "pitches": 109,
-     "isWin": false,
-     "qualityStart": true
-    }
-   ],
-   "startsCount": 22,
-   "source": "mlb-person-gameLog"
-  },
   "669461": {
    "id": 669461,
    "name": "Matthew Liberatore",
@@ -4860,74 +4756,6 @@
    "startsCount": 9,
    "source": "mlb-person-gameLog"
   },
-  "678022": {
-   "id": 678022,
-   "name": "Jack Perkins",
-   "era": 6.5,
-   "whip": 1.54,
-   "strikeoutsPer9": 10.62,
-   "wins": 3,
-   "losses": 10,
-   "qualityStartsLast4": 0,
-   "qualityStartsLast3": 0,
-   "avgInningsPerStart": 4,
-   "last4": [
-    {
-     "date": "2026-09-03",
-     "opponent": "Seattle Mariners",
-     "isHome": false,
-     "inningsPitched": 3,
-     "earnedRuns": 3,
-     "hits": 4,
-     "strikeOuts": 7,
-     "baseOnBalls": 5,
-     "pitches": 86,
-     "isWin": true,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-29",
-     "opponent": "Baltimore Orioles",
-     "isHome": true,
-     "inningsPitched": 5,
-     "earnedRuns": 1,
-     "hits": 4,
-     "strikeOuts": 5,
-     "baseOnBalls": 4,
-     "pitches": 80,
-     "isWin": false,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-12",
-     "opponent": "Tampa Bay Rays",
-     "isHome": true,
-     "inningsPitched": 5,
-     "earnedRuns": 6,
-     "hits": 12,
-     "strikeOuts": 2,
-     "baseOnBalls": 1,
-     "pitches": 97,
-     "isWin": false,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-07",
-     "opponent": "Boston Red Sox",
-     "isHome": false,
-     "inningsPitched": 3,
-     "earnedRuns": 5,
-     "hits": 5,
-     "strikeOuts": 3,
-     "baseOnBalls": 3,
-     "pitches": 70,
-     "isWin": false,
-     "qualityStart": false
-    }
-   ],
-   "startsCount": 13,
-   "source": "mlb-person-gameLog"
-  },
   "680694": {
    "id": 680694,
    "name": "Kyle Bradish",
@@ -5488,74 +5316,6 @@
    "startsCount": 8,
    "source": "mlb-person-gameLog"
   },
-  "687273": {
-   "id": 687273,
-   "name": "Quinn Mathews",
-   "era": 4.38,
-   "whip": 1.58,
-   "strikeoutsPer9": 8.76,
-   "wins": 1,
-   "losses": 2,
-   "qualityStartsLast4": 0,
-   "qualityStartsLast3": 0,
-   "avgInningsPerStart": 4.8,
-   "last4": [
-    {
-     "date": "2026-09-03",
-     "opponent": "Los Angeles Dodgers",
-     "isHome": false,
-     "inningsPitched": 5,
-     "earnedRuns": 1,
-     "hits": 4,
-     "strikeOuts": 4,
-     "baseOnBalls": 4,
-     "pitches": 99,
-     "isWin": true,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-28",
-     "opponent": "Pittsburgh Pirates",
-     "isHome": true,
-     "inningsPitched": 5.2,
-     "earnedRuns": 1,
-     "hits": 5,
-     "strikeOuts": 7,
-     "baseOnBalls": 1,
-     "pitches": 102,
-     "isWin": true,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-22",
-     "opponent": "Philadelphia Phillies",
-     "isHome": false,
-     "inningsPitched": 5,
-     "earnedRuns": 7,
-     "hits": 10,
-     "strikeOuts": 3,
-     "baseOnBalls": 1,
-     "pitches": 99,
-     "isWin": false,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-17",
-     "opponent": "Cincinnati Reds",
-     "isHome": false,
-     "inningsPitched": 4,
-     "earnedRuns": 1,
-     "hits": 2,
-     "strikeOuts": 7,
-     "baseOnBalls": 3,
-     "pitches": 95,
-     "isWin": true,
-     "qualityStart": false
-    }
-   ],
-   "startsCount": 5,
-   "source": "mlb-person-gameLog"
-  },
   "687473": {
    "id": 687473,
    "name": "Ryan Gusto",
@@ -6072,6 +5832,35 @@
     }
    ],
    "startsCount": 28,
+   "source": "mlb-person-gameLog"
+  },
+  "695034": {
+   "id": 695034,
+   "name": "Kade Morris",
+   "era": 9.82,
+   "whip": 2.11,
+   "strikeoutsPer9": 6.14,
+   "wins": 0,
+   "losses": 1,
+   "qualityStartsLast4": 0,
+   "qualityStartsLast3": 0,
+   "avgInningsPerStart": 4,
+   "last4": [
+    {
+     "date": "2026-06-06",
+     "opponent": "Houston Astros",
+     "isHome": false,
+     "inningsPitched": 4,
+     "earnedRuns": 9,
+     "hits": 9,
+     "strikeOuts": 4,
+     "baseOnBalls": 3,
+     "pitches": 90,
+     "isWin": false,
+     "qualityStart": false
+    }
+   ],
+   "startsCount": 1,
    "source": "mlb-person-gameLog"
   },
   "695076": {
@@ -6754,61 +6543,6 @@
    "startsCount": 19,
    "source": "mlb-person-gameLog"
   },
-  "807739": {
-   "id": 807739,
-   "name": "Kade Anderson",
-   "era": 5.4,
-   "whip": 1.47,
-   "strikeoutsPer9": 6.6,
-   "wins": 0,
-   "losses": 0,
-   "qualityStartsLast4": 0,
-   "qualityStartsLast3": 0,
-   "avgInningsPerStart": 4.77,
-   "last4": [
-    {
-     "date": "2026-09-03",
-     "opponent": "Athletics",
-     "isHome": true,
-     "inningsPitched": 5,
-     "earnedRuns": 4,
-     "hits": 7,
-     "strikeOuts": 3,
-     "baseOnBalls": 2,
-     "pitches": 79,
-     "isWin": false,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-29",
-     "opponent": "Toronto Blue Jays",
-     "isHome": false,
-     "inningsPitched": 4.1,
-     "earnedRuns": 2,
-     "hits": 3,
-     "strikeOuts": 3,
-     "baseOnBalls": 3,
-     "pitches": 85,
-     "isWin": false,
-     "qualityStart": false
-    },
-    {
-     "date": "2026-08-22",
-     "opponent": "Chicago Cubs",
-     "isHome": true,
-     "inningsPitched": 5.2,
-     "earnedRuns": 3,
-     "hits": 5,
-     "strikeOuts": 5,
-     "baseOnBalls": 2,
-     "pitches": 81,
-     "isWin": true,
-     "qualityStart": false
-    }
-   ],
-   "startsCount": 3,
-   "source": "mlb-person-gameLog"
-  },
   "808825": {
    "id": 808825,
    "name": "Andrew Sears",
@@ -6881,7 +6615,7 @@
   }
  },
  "counts": {
-  "pitchers": 89
+  "pitchers": 86
  },
  "note": "Probable-starter profiles from the official MLB StatsAPI person game log and season stats. A starter is recorded as \"confirmed\" only when the MLB schedule names a probable pitcher."
 }

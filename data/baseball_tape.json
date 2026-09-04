@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T04:48:29Z",
+ "fetched_at_utc": "2026-09-04T09:10:46Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -3788,8 +3788,8 @@
       "name": "Tarik Skubal",
       "losses": 7,
       "wins": 8,
-      "era": 2.84,
-      "record": "(8-7, 2.84)"
+      "era": 2.86,
+      "record": "(8-7, 2.86)"
      },
      "records": {
       "overall": "74-51",
@@ -3976,8 +3976,8 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
       "overall": "64-61",
@@ -4150,8 +4150,8 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
       "overall": "64-61",
@@ -5533,8 +5533,8 @@
       "name": "Jack Perkins",
       "losses": 10,
       "wins": 3,
-      "era": 6.42,
-      "record": "(3-10, 6.42)"
+      "era": 6.5,
+      "record": "(3-10, 6.50)"
      },
      "records": {
       "overall": "49-77",
@@ -9604,8 +9604,8 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
       "overall": "66-65",
@@ -15777,8 +15777,8 @@
       "name": "Tarik Skubal",
       "losses": 7,
       "wins": 8,
-      "era": 2.84,
-      "record": "(8-7, 2.84)"
+      "era": 2.86,
+      "record": "(8-7, 2.86)"
      },
      "records": {
       "overall": "81-54",
@@ -16601,8 +16601,8 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
       "overall": "68-68",
@@ -17146,8 +17146,8 @@
       "name": "Quinn Mathews",
       "losses": 2,
       "wins": 1,
-      "era": 5.03,
-      "record": "(1-2, 5.03)"
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
      },
      "records": {
       "overall": "68-68",
@@ -17332,10 +17332,10 @@
     "away": {
      "starter": {
       "name": "Kade Anderson",
-      "losses": 0,
+      "losses": 1,
       "wins": 0,
-      "era": 4.5,
-      "record": "(0-0, 4.50)"
+      "era": 5.4,
+      "record": "(0-1, 5.40)"
      },
      "records": {
       "overall": "64-72",
@@ -18126,8 +18126,8 @@
       "name": "Jack Perkins",
       "losses": 10,
       "wins": 3,
-      "era": 6.42,
-      "record": "(3-10, 6.42)"
+      "era": 6.5,
+      "record": "(3-10, 6.50)"
      },
      "records": {
       "overall": "53-83",
@@ -19225,8 +19225,8 @@
       "name": "Jack Perkins",
       "losses": 10,
       "wins": 3,
-      "era": 6.42,
-      "record": "(3-10, 6.42)"
+      "era": 6.5,
+      "record": "(3-10, 6.50)"
      },
      "records": {
       "overall": "53-83",
@@ -23464,9 +23464,183 @@
    },
    "odds": null,
    "oddsSourceCount": 0
+  },
+  {
+   "id": "823095",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T01:40:00Z",
+   "phase": "results",
+   "venue": "T-Mobile Park",
+   "venueIndoor": true,
+   "home": {
+    "id": 136,
+    "name": "Seattle Mariners",
+    "locationName": "Seattle",
+    "abbrev": "SEA",
+    "teamCode": "sea",
+    "record": {
+     "wins": 66,
+     "losses": 75,
+     "pct": ".468"
+    },
+    "score": 4,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 807739,
+     "name": "Kade Anderson"
+    }
+   },
+   "away": {
+    "id": 133,
+    "name": "Athletics",
+    "locationName": "Sacramento",
+    "abbrev": "ATH",
+    "teamCode": "ath",
+    "record": {
+     "wins": 55,
+     "losses": 86,
+     "pct": ".390"
+    },
+    "score": 7,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 678022,
+     "name": "Jack Perkins"
+    }
+   },
+   "score": {
+    "home": 4,
+    "away": 7
+   },
+   "espn": {
+    "venueIndoor": true,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Kade Anderson",
+      "losses": 1,
+      "wins": 0,
+      "era": 5.4,
+      "record": "(0-1, 5.40)"
+     },
+     "records": {
+      "overall": "66-75",
+      "home": "37-32",
+      "road": "29-43"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Jack Perkins",
+      "losses": 10,
+      "wins": 3,
+      "era": 6.5,
+      "record": "(3-10, 6.50)"
+     },
+     "records": {
+      "overall": "55-86",
+      "home": "25-44",
+      "road": "30-42"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "823907",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T02:10:00Z",
+   "phase": "results",
+   "venue": "UNIQLO Field at Dodger Stadium",
+   "venueIndoor": false,
+   "home": {
+    "id": 119,
+    "name": "Los Angeles Dodgers",
+    "locationName": "Los Angeles",
+    "abbrev": "LAD",
+    "teamCode": "lan",
+    "record": {
+     "wins": 83,
+     "losses": 57,
+     "pct": ".593"
+    },
+    "score": 3,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 669373,
+     "name": "Tarik Skubal"
+    }
+   },
+   "away": {
+    "id": 138,
+    "name": "St. Louis Cardinals",
+    "locationName": "St. Louis",
+    "abbrev": "STL",
+    "teamCode": "sln",
+    "record": {
+     "wins": 70,
+     "losses": 71,
+     "pct": ".496"
+    },
+    "score": 2,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 687273,
+     "name": "Quinn Mathews"
+    }
+   },
+   "score": {
+    "home": 3,
+    "away": 2
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Tarik Skubal",
+      "losses": 7,
+      "wins": 8,
+      "era": 2.86,
+      "record": "(8-7, 2.86)"
+     },
+     "records": {
+      "overall": "83-57",
+      "home": "41-28",
+      "road": "42-29"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Quinn Mathews",
+      "losses": 2,
+      "wins": 1,
+      "era": 4.38,
+      "record": "(1-2, 4.38)"
+     },
+     "records": {
+      "overall": "70-71",
+      "home": "34-38",
+      "road": "36-33"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
   }
  ],
  "counts": {
-  "games": 281
+  "games": 283
  }
 }

@@ -2,14 +2,14 @@
  "schema_version": 1,
  "sport": "Baseball",
  "prompt": "BASEBALL PREDICTION MASTER PROMPT v1.0",
- "generated_at_utc": "2026-09-04T04:48:30Z",
+ "generated_at_utc": "2026-09-04T09:10:47Z",
  "method": "Walk-forward: every settled game is re-scored using only games that finished before it. No feature is taken from the fixture being graded.",
  "source_tape": {
   "path": "data/baseball_tape.json",
   "url": "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date=2026-08-14&hydrate=probablePitcher,linescore,team",
-  "fetched_at_utc": "2026-09-04T04:48:29Z",
-  "games": 281,
-  "settled": 281
+  "fetched_at_utc": "2026-09-04T09:10:46Z",
+  "games": 283,
+  "settled": 283
  },
  "results": {
   "graded": 4,
@@ -34,7 +34,7 @@
     "hitRate": null
    },
    "skip": {
-    "picks": 277,
+    "picks": 279,
     "graded": 0,
     "hits": 0,
     "hitRate": null
@@ -3714,6 +3714,32 @@
    "score": 20,
    "selection": "Texas Rangers",
    "actual": "Texas Rangers",
+   "hit": true,
+   "graded": false,
+   "runLineGraded": false,
+   "totalGraded": false
+  },
+  {
+   "id": "823095",
+   "dateISO": "2026-09-04",
+   "fixture": "Athletics at Seattle Mariners",
+   "band": "SKIP",
+   "score": 15,
+   "selection": "Seattle Mariners",
+   "actual": "Athletics",
+   "hit": false,
+   "graded": false,
+   "runLineGraded": false,
+   "totalGraded": false
+  },
+  {
+   "id": "823907",
+   "dateISO": "2026-09-04",
+   "fixture": "St. Louis Cardinals at Los Angeles Dodgers",
+   "band": "SKIP",
+   "score": 20,
+   "selection": "Los Angeles Dodgers",
+   "actual": "Los Angeles Dodgers",
    "hit": true,
    "graded": false,
    "runLineGraded": false,
