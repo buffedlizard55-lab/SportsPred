@@ -1,18 +1,19 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T18:29:52Z",
+ "fetched_at_utc": "2026-09-04T23:05:39Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
    "url": "https://api-web.nhle.com/v1/standings/now",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   }
  ],
  "sport": "Ice Hockey",
  "league": "nhl",
- "standings_date": "2026-09-04T18:29:46Z",
+ "standings_date": "2026-09-04T23:05:30Z",
  "teams": {
   "COL": {
    "abbrev": "COL",

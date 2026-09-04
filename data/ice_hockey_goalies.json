@@ -1,199 +1,231 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T18:29:56Z",
+ "fetched_at_utc": "2026-09-04T23:06:47Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
    "url": "https://api-web.nhle.com/v1/club-stats/COL/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/CAR/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/DAL/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/BUF/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/TBL/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/MTL/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/MIN/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/BOS/20252026/2",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/OTT/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/PIT/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/PHI/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/WSH/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/VGK/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/EDM/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 3
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/UTA/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 3
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/DET/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/CBJ/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/ANA/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/NYI/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/LAK/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/NJD/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/STL/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/NSH/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/SJS/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/FLA/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/WPG/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/SEA/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/TOR/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/CGY/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/NYR/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/CHI/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/VAN/20252026/2",
-   "status": 429,
-   "error": "HTTP 429",
-   "ok": false
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   }
  ],
  "sport": "Ice Hockey",
@@ -201,6 +233,177 @@
  "season": "20252026",
  "teams": {},
  "counts": {
-  "teams": 0
- }
+  "teams": 0,
+  "requested": 32,
+  "throttled": 0,
+  "emptyResponses": 32
+ },
+ "irregularities": [
+  {
+   "code": "NO_GOALIE_ROWS",
+   "detail": "32 of 32 teams published no goaltender rows for season 20252026 game type 2",
+   "teams": [
+    {
+     "abbrev": "COL",
+     "url": "https://api-web.nhle.com/v1/club-stats/COL/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "CAR",
+     "url": "https://api-web.nhle.com/v1/club-stats/CAR/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "DAL",
+     "url": "https://api-web.nhle.com/v1/club-stats/DAL/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "BUF",
+     "url": "https://api-web.nhle.com/v1/club-stats/BUF/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "TBL",
+     "url": "https://api-web.nhle.com/v1/club-stats/TBL/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "MTL",
+     "url": "https://api-web.nhle.com/v1/club-stats/MTL/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "MIN",
+     "url": "https://api-web.nhle.com/v1/club-stats/MIN/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "BOS",
+     "url": "https://api-web.nhle.com/v1/club-stats/BOS/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "OTT",
+     "url": "https://api-web.nhle.com/v1/club-stats/OTT/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "PIT",
+     "url": "https://api-web.nhle.com/v1/club-stats/PIT/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "PHI",
+     "url": "https://api-web.nhle.com/v1/club-stats/PHI/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "WSH",
+     "url": "https://api-web.nhle.com/v1/club-stats/WSH/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "VGK",
+     "url": "https://api-web.nhle.com/v1/club-stats/VGK/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "EDM",
+     "url": "https://api-web.nhle.com/v1/club-stats/EDM/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "UTA",
+     "url": "https://api-web.nhle.com/v1/club-stats/UTA/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "DET",
+     "url": "https://api-web.nhle.com/v1/club-stats/DET/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "CBJ",
+     "url": "https://api-web.nhle.com/v1/club-stats/CBJ/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "ANA",
+     "url": "https://api-web.nhle.com/v1/club-stats/ANA/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "NYI",
+     "url": "https://api-web.nhle.com/v1/club-stats/NYI/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "LAK",
+     "url": "https://api-web.nhle.com/v1/club-stats/LAK/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "NJD",
+     "url": "https://api-web.nhle.com/v1/club-stats/NJD/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "STL",
+     "url": "https://api-web.nhle.com/v1/club-stats/STL/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "NSH",
+     "url": "https://api-web.nhle.com/v1/club-stats/NSH/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "SJS",
+     "url": "https://api-web.nhle.com/v1/club-stats/SJS/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "FLA",
+     "url": "https://api-web.nhle.com/v1/club-stats/FLA/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "WPG",
+     "url": "https://api-web.nhle.com/v1/club-stats/WPG/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "SEA",
+     "url": "https://api-web.nhle.com/v1/club-stats/SEA/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "TOR",
+     "url": "https://api-web.nhle.com/v1/club-stats/TOR/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "CGY",
+     "url": "https://api-web.nhle.com/v1/club-stats/CGY/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "NYR",
+     "url": "https://api-web.nhle.com/v1/club-stats/NYR/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "CHI",
+     "url": "https://api-web.nhle.com/v1/club-stats/CHI/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    },
+    {
+     "abbrev": "VAN",
+     "url": "https://api-web.nhle.com/v1/club-stats/VAN/20252026/2",
+     "reason": "endpoint returned 200 but published no goaltender rows for this season and game type"
+    }
+   ]
+  }
+ ]
 }

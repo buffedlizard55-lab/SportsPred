@@ -2,7 +2,7 @@
  "schema_version": 1,
  "sport": "Ice Hockey",
  "olbg_sport_id": "13",
- "fetched_at_utc": "2026-09-04T18:29:58Z",
+ "fetched_at_utc": "2026-09-04T23:06:47Z",
  "source": {
   "name": "OLBG Ice Hockey betting-tips index",
   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
@@ -11,6 +11,20 @@
  },
  "events": [],
  "markets_seen": [],
- "warnings": [],
+ "warnings": [
+  "OLBG delivered a complete Ice Hockey index page that lists no upcoming fixtures. Recorded as a genuinely empty slate."
+ ],
+ "page_health": {
+  "status": "empty-slate",
+  "warnings": [
+   "OLBG delivered a complete Ice Hockey index page that lists no upcoming fixtures. Recorded as a genuinely empty slate."
+  ],
+  "evidence": {
+   "bytes": 169902,
+   "event_count": 0,
+   "sport": "Ice Hockey"
+  },
+  "healthy": true
+ },
  "note": "Display-and-join context for the ice hockey engine. OLBG publishes tipster consensus, not odds, so this slate can never supply a price; prices come from the ESPN scoreboard odds block (one book, attributed) and the NHL API is used for fixtures, standings and goaltending."
 }

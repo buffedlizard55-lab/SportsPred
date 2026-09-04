@@ -1,523 +1,609 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T18:29:56Z",
+ "fetched_at_utc": "2026-09-04T23:05:44Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-14",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-15",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-16",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-17",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-18",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-19",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-20",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-21",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-22",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-23",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-24",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-25",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-26",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-27",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-28",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-29",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-30",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-31",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-01",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-02",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-03",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-04",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-05",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-06",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-07",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-08",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-09",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-10",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-11",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-12",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-13",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-14",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-15",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-16",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-17",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-18",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-19",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-20",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-21",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-22",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-23",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-24",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-25",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260814",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260815",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260816",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260817",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260818",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260819",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260820",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260821",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260822",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260823",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260824",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260825",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260826",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260827",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260828",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260829",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260830",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260831",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260901",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260902",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260903",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260904",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260905",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260906",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260907",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260908",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260909",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260910",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260911",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260912",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260913",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260914",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260915",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260916",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260917",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260918",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260919",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260920",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260921",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260922",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260923",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260924",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   },
   {
    "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260925",
    "status": 200,
    "error": null,
-   "ok": true
+   "ok": true,
+   "attempts": 1
   }
  ],
  "sport": "Ice Hockey",
