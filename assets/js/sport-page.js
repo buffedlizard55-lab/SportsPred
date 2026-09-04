@@ -55,6 +55,7 @@ const state = {
   olbg: null,
   loadedAt: null,
   errors: [],
+  autoHopped: false,    // only auto-advance the landing date once
 };
 
 /* ------------------------------------------------------------------ *
@@ -110,7 +111,7 @@ async function loadOlbg() {
   const map = {
     football: null, cricket: 'data/cricket_slate.json', handball: 'data/handball_slate.json',
     tennis: 'data/slate.json', 'motor-racing': 'data/f1_slate.json', golf: 'data/golf_slate.json',
-    volleyball: 'data/volleyball_slate.json',
+    volleyball: 'data/volleyball_slate.json', basketball: 'data/basketball_slate.json',
   };
   const path = map[state.sport.key];
   const box = $('#olbg-box');
@@ -209,6 +210,34 @@ async function loadDate(dateISO) {
   renderRail();
   renderMeta();
   renderCalendar();
+  maybeAutoAdvance();
+}
+
+/** Smallest ESPN-calendar date with a registered fixture strictly after the current date. */
+function nextGameDay() {
+  let best = null;
+  for (const d of state.calCounts.keys()) {
+    if (d > state.date && (best === null || d < best)) best = d;
+  }
+  return best;
+}
+
+/**
+ * Landing UX: when the page opens on a date with no fixtures for this sport
+ * (the NBA is in offseason in early September, for example), the board is
+ * empty and the Generate button appears to do nothing. Jump once, forward, to
+ * the next date the ESPN calendar actually registers a game, so the page lands
+ * on a real, predictable slate instead of a blank one. Manual navigation is
+ * never hijacked: the hop happens at most once, and only forward.
+ */
+function maybeAutoAdvance() {
+  if (!state.sport?.predictable || !state.sport?.espnSport) return;
+  if (state.matches.length) return;      // the date has games — nothing to fix
+  if (state.autoHopped) return;          // already advanced once this session
+  const next = nextGameDay();
+  if (!next) return;                     // no future fixture registered at all
+  state.autoHopped = true;
+  loadDate(next);
 }
 
 /**
@@ -474,6 +503,21 @@ function renderBoard() {
   $('#counts').textContent = `${counts.all} matches · ${counts.upcoming} upcoming · ${counts.live} in play · ${counts.results} final`;
 
   if (!list.length) {
+    if (state.matches.length === 0) {
+      // The date genuinely has no fixtures for this sport (offseason, break).
+      const next = nextGameDay();
+      board.innerHTML = `<div class="empty">
+        <p><strong>No ${esc(state.sport.name)} games are scheduled for ${esc(state.date)}.</strong></p>
+        ${next
+    ? `<p class="meta-line">The next game day registered on the ESPN calendar is <strong>${esc(fmtDateLong(next))}</strong>.</p>
+           <p><button class="btn primary" id="jump-next">Jump to ${esc(next)}</button></p>`
+    : '<p class="meta-line">No future fixture is registered on the ESPN calendar yet — check back as the schedule fills in.</p>'}
+        <p class="meta-line">You can also pick any date on the calendar below.</p>
+      </div>`;
+      const j = $('#jump-next');
+      if (j) j.addEventListener('click', () => loadDate(next));
+      return;
+    }
     board.innerHTML = `<div class="empty">No ${esc(state.sport.name)} matches match these filters on ${esc(state.date)}.
       Try an adjacent date on the calendar, or clear the filters.</div>`;
     return;
