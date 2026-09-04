@@ -128,6 +128,7 @@ function has(obj, key) {
 function clauseFor(component) {
   if (!component || component.missing) return null;
   const p = component.points;
+  const detail = component.detail;
   switch (component.id) {
     case 'recent_form':
       if (p >= 25) return { text: 'their recent run of results is the strongest form line on this card', positive: true };
@@ -145,7 +146,14 @@ function clauseFor(component) {
       return { text: 'recent meetings have fallen the other way', positive: false };
     case 'key_absences':
       if (p >= 20) return { text: 'the opponent is missing key personnel', positive: true };
-      if (p >= 10) return { text: 'the representative season is over and no Origin duty hangs over either squad', positive: true };
+      if (p >= 10) {
+        const variants = [
+          'the representative season is finished, so no Origin duty hangs over either squad',
+          'Origin is done for the year and neither club is carrying representative absentions',
+          'with the interstate series finished, neither squad is missing players to Origin duty',
+        ];
+        return { text: `${hashString(String(detail || '') + 'abs') % variants.length === 0 ? variants[0] : (hashString(String(detail || '')) % 2 ? variants[1] : variants[2])}`, positive: true };
+      }
       return { text: 'personnel is a live concern for them', positive: false };
     case 'odds_value':
       if (p >= 11) return { text: 'the market has them as a clear favourite', positive: true };
@@ -441,13 +449,13 @@ export function buildNrlFormattedCardText(card, dateISO) {
 
   lines.push('SUMMARY TABLE');
   const cell = (s, w) => String(s).padEnd(w).slice(0, w);
-  lines.push(`${cell('Match', 46)}${cell('WIN MATCH', 26)}${cell('HANDICAP', 26)}${cell('GAME TOTAL', 20)}`);
-  lines.push('-'.repeat(118));
+  lines.push(`${cell('Match', 50)}${cell('WIN MATCH', 30)}${cell('HANDICAP', 26)}${cell('GAME TOTAL', 20)}`);
+  lines.push('-'.repeat(126));
   for (const row of card.summary) {
     const wm = row.markets.win_match;
     const hc = row.markets.handicap;
     const gt = row.markets.game_total;
-    lines.push(`${cell(row.match, 46)}${cell(`${wm.pick} (${wm.band})`, 26)}${cell(`${hc.pick} (${hc.band})`, 26)}${cell(`${gt.pick} (${gt.band})`, 20)}`);
+    lines.push(`${cell(row.match, 50)}${cell(`${wm.pick} (${wm.band})`, 30)}${cell(`${hc.pick} (${hc.band})`, 26)}${cell(`${gt.pick} (${gt.band})`, 20)}`);
   }
   lines.push('');
 
