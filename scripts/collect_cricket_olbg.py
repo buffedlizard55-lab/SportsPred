@@ -22,6 +22,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.cricket_olbg_parse import parse_index, resolve_date  # noqa: E402
+from scripts.lib.olbg_page_health import diagnose  # noqa: E402
 
 INDEX_URL = "https://www.olbg.com/betting-tips/Cricket/7"
 OUT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -68,6 +69,12 @@ def build_snapshot(html: str, fetched_at: datetime) -> dict:
             "date_basis": basis,
             "consensus": row.get("consensus"),
         })
+    # A parse that finds no rows is ambiguous by itself: a bot-block, a cookie
+    # wall and a genuine off-season all yield zero events. diagnose() reads the
+    # delivered bytes and records which it was, so an empty document is never
+    # mistaken for a verified-empty schedule.
+    _health = diagnose(html, event_count=len(events), sport="Cricket")
+
     return {
         "schema_version": 1,
         "sport": "Cricket",
@@ -90,7 +97,8 @@ def build_snapshot(html: str, fetched_at: datetime) -> dict:
             "Times are presented in UK local time as shown by OLBG.",
             "OLBG publishes tipster consensus counts, not bookmaker odds; no odds are recorded here.",
         ],
-        "collection_warnings": [],
+        "collection_warnings": [] + _health["warnings"],
+        "page_health": _health,
         "events": events,
         "outrights": outright_rows,
     }

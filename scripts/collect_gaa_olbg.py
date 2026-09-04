@@ -14,6 +14,7 @@ sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.gaa_olbg_parse import (  # noqa: E402
     parse_index, parse_team_names, FOOTBALL_INDEX, HURLING_INDEX, FOOTBALL_ID, HURLING_ID,
 )
+from scripts.lib.olbg_page_health import diagnose  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 UA = ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
@@ -48,6 +49,10 @@ def snapshot(html: str, fetched_at: datetime, *, code: str, index_url: str, spor
             "teamA": team_a,
             "teamB": team_b,
         })
+    # Zero rows is ambiguous on its own: a bot-block, a cookie wall and a real
+    # off-season all parse to nothing. Record which the delivered bytes show.
+    _health = diagnose(html, event_count=len(events), sport=f"GAA {code}")
+
     return {
         "schema_version": 1,
         "sport": "Hurling" if code == "hurling" else "Gaelic Football",
@@ -65,7 +70,8 @@ def snapshot(html: str, fetched_at: datetime, *, code: str, index_url: str, spor
             "OLBG tipster consensus counts are display-only and are never fed into GAA scoring.",
             "OLBG does not expose structured odds in server-rendered HTML (IR-GAA-01).",
         ],
-        "collection_warnings": [],
+        "collection_warnings": _health["warnings"],
+        "page_health": _health,
         "events": events,
     }
 

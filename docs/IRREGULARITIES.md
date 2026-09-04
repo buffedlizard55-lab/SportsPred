@@ -225,6 +225,59 @@ with the tip arithmetic reconciling. 14 Python tests and 9 Node tests cover it.
 `node scripts/verify_site.mjs` is now clean: *"checked 21 pages, 106 modules,
 130 JSON files — no problems found."*
 
+## IRR-005 — Every OLBG collector reported a failed fetch as an empty schedule — **RESOLVED**
+
+**Severity:** High · **Systemic — all 12 OLBG collectors** · **Fixed**
+
+**Finding.** Each OLBG parser records a warning when an *individual* row is
+malformed, but none of them said anything when it found **no rows at all**. A
+Cloudflare interstitial, a cookie wall, a truncated body, a redirect shell and a
+genuine off-season all produced `events: []` with `warnings: []`. The collector
+then wrote an empty slate and exited 0, so a blocked scrape was indistinguishable
+from "this sport has no fixtures today".
+
+Reproduced against all twelve parsers by feeding each an empty body, a
+Cloudflare page and a cookie wall:
+
+```
+parser         empty        bot-block    cookie-wall
+baseball       ev=0,w=0     ev=0,w=0     ev=0,w=0
+cricket        ev=0,w=0     ev=0,w=0     ev=0,w=0
+... (all 12 identical)
+```
+
+This is what produced the three zero-event slates — `baseball_slate.json`,
+`ice_hockey_slate.json` and `volleyball_slate.json` — with nothing recorded to
+explain them. It is the same class of defect as the NHL collector writing an
+empty file and exiting 0 (see the standing note below): **a green summary line
+is not evidence of success.**
+
+**Ruled out.** The parsers themselves are sound. The baseball parser run against
+the committed capture returns four fully-populated events; the ice hockey parser
+returns three. The failure was in the collectors' inability to interpret an
+empty result, not in their ability to read a populated page.
+
+**Fix.** `scripts/lib/olbg_page_health.py` classifies the delivered bytes into
+`ok`, `empty-slate`, `blocked`, `truncated` or `not-a-sport-page`, and every one
+of the twelve collectors now writes the verdict to a `page_health` key and
+appends any warning to the document. Design decisions worth noting:
+
+- **An empty slate is still a legitimate outcome.** Sports do have off-seasons,
+  so the guard does not fail on empty — it makes the *reason* observable. Only a
+  full, recognisably-OLBG page that lists nothing is reported as `empty-slate`,
+  and that verdict is marked healthy.
+- **A page that produced rows is always trusted**, so a consent banner on a
+  working page cannot void real fixtures.
+- **Signatures are matched against visible text, not script bodies**, so
+  analytics code that merely contains the word `captcha` cannot fake a block.
+- Every verdict carries the `evidence` that produced it (byte count, matched
+  signature) so any claim in a slate can be traced back to the page.
+
+**Verified.** All 12 collectors now return `blocked` for an intercepted page and
+`empty-slate` for a genuine off-season, and the committed captures still parse
+with zero spurious warnings. Covered by 14 tests in
+`tests/test_olbg_page_health.py`.
+
 ---
 
 ## What is verified healthy

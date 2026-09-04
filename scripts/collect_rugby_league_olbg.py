@@ -34,6 +34,7 @@ from lib.rugby_league_olbg_parse import (  # noqa: E402
     parse_handicap_selections,
     parse_total_selections,
 )
+from lib.olbg_page_health import diagnose  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "data", "rugby_league_slate.json")
@@ -63,6 +64,7 @@ def collect(from_files=None, save_html_dir=None):
     matches: dict[str, dict] = {}
     outrights: dict[str, dict] = {}
     failures = []
+    page_health = []
 
     sources = from_files or INDEX_URLS
     for src in sources:
@@ -87,6 +89,11 @@ def collect(from_files=None, save_html_dir=None):
             continue
 
         m, o = parse_index(html)
+        # Zero rows from a successful fetch is ambiguous: a bot-block, a cookie
+        # wall and a real off-season all parse to nothing. Record which it was.
+        _h = diagnose(html, event_count=len(m) + len(o), sport="Rugby League")
+        page_health.append({"url": src, **_h})
+        failures.extend(f"{src}: {w}" for w in _h["warnings"])
         print(f"  {label}: {len(m)} matches, {len(o)} outrights")
         for row in m:
             matches.setdefault(row["event_id"], row)
@@ -100,7 +107,7 @@ def collect(from_files=None, save_html_dir=None):
         if not matches and not outrights:
             print("\nAborting: nothing could be fetched. Refusing to overwrite "
                   "the existing snapshot with an empty one.", file=sys.stderr)
-            return None, now, failures
+            return None, now, failures, page_health
 
     # Resolve display labels to ISO dates against the fetch time.
     for row in list(matches.values()) + list(outrights.values()):
@@ -108,7 +115,7 @@ def collect(from_files=None, save_html_dir=None):
         row["resolved_date"] = iso
         row["date_basis"] = basis
 
-    return {"matches": list(matches.values()), "outrights": list(outrights.values())}, now, failures
+    return {"matches": list(matches.values()), "outrights": list(outrights.values())}, now, failures, page_health
 
 
 def enrich_event_pages(rows, limit=None, save_html_dir=None):
@@ -145,7 +152,7 @@ def enrich_event_pages(rows, limit=None, save_html_dir=None):
     return rows
 
 
-def build_payload(data, now, failures):
+def build_payload(data, now, failures, page_health=None):
     events = []
     for r in data["matches"]:
         events.append(r)
@@ -177,6 +184,7 @@ def build_payload(data, now, failures):
             "Handicap and Total lines are captured from event pages where present; matches without enriched lines list markets_verified=false.",
         ],
         "collection_warnings": failures,
+        "page_health": page_health or [],
         "events": events,
     }
 
@@ -191,9 +199,9 @@ def main():
     args = ap.parse_args()
 
     if args.from_file:
-        data, now, failures = collect(from_files=[args.from_file], save_html_dir=args.save_html)
+        data, now, failures, page_health = collect(from_files=[args.from_file], save_html_dir=args.save_html)
     else:
-        data, now, failures = collect(save_html_dir=args.save_html)
+        data, now, failures, page_health = collect(save_html_dir=args.save_html)
 
     if data is None:
         return 1
@@ -202,7 +210,7 @@ def main():
         enrich_event_pages(data["matches"], limit=args.enrich_limit, save_html_dir=args.save_html)
         enrich_event_pages(data["outrights"], limit=args.enrich_limit, save_html_dir=args.save_html)
 
-    payload = build_payload(data, now, failures)
+    payload = build_payload(data, now, failures, page_health)
 
     if args.dry_run:
         print(f"\nRugby League slate: {len(payload['events'])} total rows")

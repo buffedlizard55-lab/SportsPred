@@ -109,6 +109,16 @@ and zero markets. The OLBG baseball index was fetched successfully, but no
 fixture rows were parsed out of the server-rendered HTML for the committed
 window.
 
+**Root cause narrowed (2026-09-04).** The parser is *not* at fault: run against
+the committed capture in `tests/fixtures/olbg_baseball_index.RECONSTRUCTED.html`
+it returns four fully-populated events with markets, tip counts and resolved
+dates. The defect was that the collector could not tell a failed fetch from an
+empty schedule — see IR-OLBG-01 below, which was systemic across all twelve OLBG
+collectors and is now fixed. Whether this particular slate is empty because MLB
+markets were genuinely unlisted or because the request was intercepted is
+recorded on the next collection run in `page_health`; it cannot be determined
+retrospectively from the committed document.
+
 **Effect on output:** no OLBG consensus is joined onto any baseball fixture.
 The whole baseball layer runs on the official MLB StatsAPI feeds plus the ESPN
 scoreboard; nothing on the baseball page is sourced from OLBG. No tip cites an

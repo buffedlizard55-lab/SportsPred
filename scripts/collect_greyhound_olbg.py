@@ -22,6 +22,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.greyhound_olbg_parse import parse_index  # noqa: E402
+from scripts.lib.olbg_page_health import diagnose  # noqa: E402
 
 INDEX_URL = "https://www.olbg.com/betting-tips/Greyhounds/28"
 OUT_PATH = os.path.join(
@@ -62,6 +63,12 @@ def build_snapshot(html: str, fetched_at: datetime, enrich: bool = False) -> dic
             },
             "markets_verified": True,
         })
+    # A parse that finds no rows is ambiguous by itself: a bot-block, a cookie
+    # wall and a genuine off-season all yield zero events. diagnose() reads the
+    # delivered bytes and records which it was, so an empty document is never
+    # mistaken for a verified-empty schedule.
+    _health = diagnose(html, event_count=len(events), sport="Greyhound Racing")
+
     return {
         "schema_version": 1,
         "sport": "Greyhounds",
@@ -78,7 +85,8 @@ def build_snapshot(html: str, fetched_at: datetime, enrich: bool = False) -> dic
             "OLBG does not expose structured odds in server-rendered HTML, so no price fields exist (IR-GH-01).",
             "Races are matched to the official GBGB meeting/draw records by track and scheduled time in the page layer.",
         ],
-        "collection_warnings": [],
+        "collection_warnings": [] + _health["warnings"],
+        "page_health": _health,
         "events": events,
     }
 
