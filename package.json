@@ -34,6 +34,8 @@
     "collect:baseball": "node scripts/collect_baseball_mlb.mjs && python3 scripts/collect_baseball_olbg.py --enrich",
     "record:baseball": "node scripts/record_baseball_predictions.mjs",
     "backtest:baseball": "node scripts/backtest_baseball.mjs",
+    "collect:basketball": "node scripts/collect_basketball_espn.mjs",
+    "backtest:basketball": "node scripts/backtest_basketball.mjs",
     "serve": "python3 scripts/serve.py 8000",
     "build:t20-blast": "node scripts/build_t20_blast.mjs",
     "check:t20-blast": "node scripts/build_t20_blast.mjs --check",

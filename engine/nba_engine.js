@@ -114,6 +114,39 @@ export function recordPoints(record, opponentRecord) {
   return clamp(pts, 0, 15);
 }
 
+/**
+ * Standings & season record bucket (STEP 2, WIN MATCH) using a real
+ * conference rank when available: top-3 = 15, 4-6 = 10, 7-10 = 5, outside = 0,
+ * minus 5 when the opponent ranks higher (lower number). Falls back to the
+ * season win-rate proxy only when no standings were collected.
+ */
+export function standingsPoints(own, opp) {
+  if (own && typeof own.rank === 'number') {
+    let pts = own.rank <= 3 ? 15 : own.rank <= 6 ? 10 : own.rank <= 10 ? 5 : 0;
+    if (opp && typeof opp.rank === 'number' && opp.rank < own.rank) pts -= 5;
+    return clamp(pts, 0, 15);
+  }
+  return recordPoints(own, opp);
+}
+
+/**
+ * Build a Map(teamDisplayName → { rank, conf, winPct, ppg, oppPpg }) from the
+ * committed standings document (data/basketball_standings.json). Keys are the
+ * ESPN team displayName, which is what the scoreboard competitors also carry,
+ * so the two join cleanly.
+ */
+export function buildStandingsMap(doc) {
+  const map = new Map();
+  const conferences = doc?.conferences || {};
+  for (const [conf, confDoc] of Object.entries(conferences)) {
+    for (const t of confDoc?.teams || []) {
+      if (!t?.name) continue;
+      map.set(String(t.name), { rank: t.rank, conf, winPct: t.winPct, ppg: t.ppg, oppPpg: t.oppPpg });
+    }
+  }
+  return map;
+}
+
 /** Context + home-court bucket (STEP 2, WIN MATCH). Home side gets the strong-split bonus. */
 export function contextPoints(team, isHome, neutral) {
   if (neutral) return 2; // no venue edge
@@ -178,8 +211,11 @@ export function scoreNbaMatch(match, ctx = {}) {
 
   const homeRec = home.record || null;
   const awayRec = away.record || null;
-  const homeRecPts = recordPoints(homeRec, awayRec);
-  const awayRecPts = recordPoints(awayRec, homeRec);
+  const standings = ctx.standings || null;
+  const homeStd = standings ? (standings.get(homeName) || null) : null;
+  const awayStd = standings ? (standings.get(awayName) || null) : null;
+  const homeRecPts = standingsPoints(homeStd || homeRec, awayStd || awayRec);
+  const awayRecPts = standingsPoints(awayStd || awayRec, homeStd || homeRec);
 
   let lean = fav;
   if (!lean) {
@@ -224,13 +260,20 @@ export function scoreNbaMatch(match, ctx = {}) {
   }
 
   const rPts = lean === 'home' ? homeRecPts : awayRecPts;
+  const ownStd = lean === 'home' ? homeStd : awayStd;
+  const ownRec = lean === 'home' ? homeRec : awayRec;
   if (rPts !== null) {
     wmScore += rPts;
-    wmBreakdown.push({ bucket: 'season-record', points: rPts, max: 15, detail: `${sideName} ${(lean === 'home' ? homeRec : awayRec).winPct * 100}% win rate` });
+    const detail = ownStd?.rank != null
+      ? `${sideName} conference rank #${ownStd.rank} (${ownStd.conf})`
+      : `${sideName} ${ownRec.winPct * 100}% win rate`;
+    wmBreakdown.push({ bucket: 'season-record', points: rPts, max: 15, detail });
   } else {
     addMissing(missing, 'NBA-REC', 'season win-loss record', 'no season record published for this team yet');
   }
-  addMissing(missing, 'NBA-CONF', 'conference rank (top-3 / 4-6 / 7-10 tiers)', 'no key-less conference standings feed; the -5 opponent-higher adjustment is applied only via season win rate');
+  if (!standings) {
+    addMissing(missing, 'NBA-STANDINGS', 'conference standings / rank', 'no key-less conference standings feed was collected; season win-rate is used as the declared proxy');
+  }
 
   const cPts = contextPoints(lean === 'home' ? home : away, lean === 'home', neutral);
   wmScore += cPts;
