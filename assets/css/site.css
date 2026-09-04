@@ -27,6 +27,26 @@
   --shadow: 0 1px 2px rgba(16, 21, 31, .06), 0 4px 14px rgba(16, 21, 31, .05);
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Alias tokens so specialist-console markup (cricket/handball/tennis/F1 on
+     pro.html) that inlined var() references keeps them meaningful under the
+     shared light theme. Additive — nothing on the modern pages reads these. */
+  --accent-primary: #0a58ca;
+  --accent-secondary: #5b5bd6;
+  --color-win: #128f52;
+  --color-loss: #e0342b;
+  --color-draw: #b4790a;
+  --text-primary: #10151f;
+  --text-secondary: #5a6472;
+  --text-muted: #79828f;
+  --bg-main: #f4f6fa;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fbfcfe;
+  --bg-subtle: #f7f9fc;
+  --border-color: #e3e7ee;
+  --border-highlight: #c6cfdb;
+  --text-dim: #a7aeb9;
+  --text-main: #10151f;
 }
 
 * { box-sizing: border-box; }
@@ -48,11 +68,18 @@ a:hover { text-decoration: underline; }
 .wrap { max-width: 1240px; margin: 0 auto; padding: 0 16px; }
 
 /* ---------- masthead ---------- */
-.masthead { background: var(--navy); color: #fff; }
+.masthead {
+  background: var(--navy); color: #fff;
+  position: sticky; top: 0; z-index: 50;
+  box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 6px 18px rgba(11,18,32,.10);
+}
 .masthead a { color: #fff; }
 .mast-top {
   display: flex; align-items: center; gap: 16px;
   height: 56px;
+}
+.mast-links a:focus-visible, .sportrail a:focus-visible, .brand:focus-visible {
+  outline: 2px solid var(--accent); outline-offset: -2px; border-radius: 6px;
 }
 .brand { display: flex; align-items: center; gap: 10px; font-weight: 800; letter-spacing: -.02em; }
 .brand:hover { text-decoration: none; }
@@ -410,3 +437,292 @@ table.components td:first-child { min-width: 220px; }
 .nba-tip .tip-meta { display: flex; align-items: center; gap: 8px; margin-bottom: 5px; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
 .nba-tip .tip-meta strong { color: var(--navy); }
 .nba-tip .btn { text-transform: none; letter-spacing: normal; }
+
+/* ==========================================================================
+   Specialist console (cricket · handball · tennis · F1) — light-theme port
+   --------------------------------------------------------------------------
+   pro.html previously shipped its own dark stylesheet (styles.css). To make
+   every page share one design system it now loads site.css and wraps its
+   content in <main class="wrap console">. All of its bespoke components are
+   restyled below with the same light tokens, radius and shadow the rest of
+   the site uses, scoped under .console so nothing leaks onto the modern pages.
+   ========================================================================== */
+
+/* inline var() references in the console's rendered markup resolve against the
+   aliases added to :root above. Nothing else to do here. */
+
+.console { padding: 20px 0 48px; }
+
+/* Sport switcher + console meta bar (moved out of the old topbar). */
+.console .subbar {
+  display: flex; align-items: center; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.console .subbar .sub-title { font-size: 20px; font-weight: 800; letter-spacing: -.02em; margin: 0; }
+.console .subbar .sub-desc { color: var(--muted); font-size: 13px; margin: 2px 0 0; }
+
+.sport-switcher {
+  display: inline-flex; flex-wrap: wrap; gap: 2px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 999px; padding: 3px;
+}
+.sport-pill {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; border: 0; color: var(--body);
+  font: inherit; font-size: 13px; font-weight: 600; padding: 6px 13px;
+  border-radius: 999px; cursor: pointer; text-decoration: none;
+}
+.sport-pill:hover { background: var(--line-2); color: var(--navy); text-decoration: none; }
+.sport-pill.active { background: var(--navy); color: #fff; }
+.sport-pill .sport-icon { font-size: 15px; }
+.console .meta { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.console .meta .pill, .console .mini-pill {
+  font: 600 11px/1.4 var(--mono); letter-spacing: .02em;
+  display: inline-flex; align-items: center; gap: 5px;
+  background: var(--card); border: 1px solid var(--line); color: var(--body);
+  padding: 3px 8px; border-radius: 6px; text-decoration: none;
+}
+.console .pill.link { color: var(--accent-2); }
+.console .pill.link:hover { border-color: var(--accent-2); }
+
+/* In-page tab navigation. */
+.console .tabs {
+  display: flex; gap: 2px; border-bottom: 2px solid var(--line);
+  overflow-x: auto; scrollbar-width: none; margin-bottom: 18px;
+}
+.console .tabs::-webkit-scrollbar { display: none; }
+.console .tab {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: transparent; border: 0; border-bottom: 3px solid transparent;
+  color: var(--muted); font: inherit; font-size: 13.5px; font-weight: 700;
+  padding: 10px 14px; cursor: pointer; white-space: nowrap;
+}
+.console .tab:hover { color: var(--navy); }
+.console .tab.active { color: var(--navy); border-bottom-color: var(--accent); }
+.console .tab .tab-icon { font-size: 14px; }
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+/* Toolbars reused by the console panels. */
+.console .toolbar {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; flex-wrap: wrap;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 12px 16px; margin-bottom: 14px;
+}
+.console .toolbar .date-controls { display: flex; align-items: center; gap: 6px; }
+.console .summary-badge { font-size: 13px; color: var(--body); font-weight: 600; }
+.console .filter-bar { background: #fbfcfe; }
+.console .filter-group { display: flex; align-items: center; gap: 8px; }
+.console .filter-label {
+  font-size: 11px; font-weight: 700; color: var(--muted);
+  text-transform: uppercase; letter-spacing: .05em;
+}
+.console select.select-box {
+  font: inherit; font-size: 13px; padding: 6px 10px;
+  border: 1px solid var(--line); border-radius: 7px; background: #fff; color: var(--ink);
+}
+.console .segmented {
+  display: inline-flex; background: #fff; border: 1px solid var(--line);
+  border-radius: 8px; padding: 2px; gap: 2px;
+}
+.console .segmented button {
+  background: transparent; border: 0; color: var(--muted);
+  font: inherit; font-size: 12px; font-weight: 600; padding: 5px 12px;
+  border-radius: 6px; cursor: pointer;
+}
+.console .segmented button:hover { color: var(--navy); }
+.console .segmented button.active { background: var(--navy); color: #fff; }
+.console .search-box-wrap { flex: 1; min-width: 180px; }
+.console .search-box-wrap input { width: 100%; }
+.console .action-btn-group { display: flex; gap: 8px; flex-wrap: wrap; }
+
+/* Progress (overrides the site's thin-line .progress, scoped to the console). */
+.console .progress {
+  height: auto; background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); padding: 12px 16px; margin-bottom: 14px;
+}
+.console .progress-label { font-size: 12px; color: var(--body); font-weight: 600; margin-bottom: 6px; }
+.console .progress-track { height: 6px; background: var(--line-2); border-radius: 3px; overflow: hidden; }
+.console .progress-bar { height: 100%; background: var(--accent); width: 0%; transition: width .2s ease; }
+
+/* Buttons. The shared .btn base applies; these add the console's accents. */
+.console .btn.nav-btn { width: 32px; height: 32px; padding: 0; font-size: 18px; justify-content: center; }
+.console .btn.primary-btn, .console .btn.primary { background: var(--accent); border-color: var(--accent); color: #fff; }
+.console .btn.primary-btn:hover:not(:disabled), .console .btn.primary:hover { background: #b30024; border-color: #b30024; }
+.console .btn.secondary-btn { background: var(--line-2); border-color: var(--line); }
+
+/* Scoreboard / match cards. */
+.console .match-list { display: flex; flex-direction: column; gap: 12px; }
+.console .match-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 14px 16px; margin-bottom: 12px;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+.console .match-card:hover { border-color: var(--navy); box-shadow: 0 4px 18px rgba(16,21,31,.10); }
+.console .match-header {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-bottom: 10px; padding-bottom: 9px; border-bottom: 1px solid var(--line-2);
+}
+.console .league-badge {
+  font-size: 11px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase;
+  color: var(--accent-2); display: flex; align-items: center; gap: 6px; flex-wrap: wrap;
+}
+.console .status-badge {
+  font: 700 11px/1.3 var(--mono); text-transform: uppercase;
+  padding: 3px 8px; border-radius: 5px; white-space: nowrap;
+}
+.console .status-badge.results { background: var(--line-2); color: var(--body); }
+.console .status-badge.live { background: rgba(224,52,43,.12); color: var(--live); border: 1px solid rgba(224,52,43,.35); animation: c-pulse 1.8s infinite; }
+.console .status-badge.upcoming { background: rgba(10,88,202,.10); color: var(--accent-2); border: 1px solid rgba(10,88,202,.3); }
+@keyframes c-pulse { 0%,100%{opacity:1;} 50%{opacity:.55;} }
+
+.console .match-body-grid {
+  display: grid; grid-template-columns: 1fr auto auto; align-items: center; gap: 18px;
+}
+@media (max-width: 820px) { .console .match-body-grid { grid-template-columns: 1fr; gap: 12px; } }
+.console .teams-container { display: flex; flex-direction: column; gap: 8px; }
+.console .team-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.console .team-name-area { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.console .team-name { font-size: 15px; font-weight: 700; color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.console .team-standings-rank {
+  font-size: 10px; color: var(--muted); background: var(--line-2);
+  border: 1px solid var(--line); padding: 1px 6px; border-radius: 5px; font-weight: 800;
+}
+.console .form-bubbles { display: inline-flex; gap: 3px; }
+.console .form-bubble {
+  width: 16px; height: 16px; border-radius: 4px; font-size: 10px; font-weight: 800;
+  display: inline-flex; align-items: center; justify-content: center; color: #fff;
+}
+.console .form-bubble.w { background: var(--win); }
+.console .form-bubble.l { background: var(--live); }
+.console .form-bubble.d { background: var(--medium); }
+.console .team-score {
+  font: 800 20px/1 var(--mono); color: var(--ink); min-width: 30px; text-align: right;
+}
+.console .team-score.winner { color: var(--win); }
+.console .cricket-scores { display: flex; flex-direction: column; gap: 2px; margin: 6px 0; font-size: 13px; color: var(--muted); }
+.console .cricket-scores strong { color: var(--ink); font-weight: 700; }
+
+.console .markets-chips { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.console .market-chip {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  background: #fbfcfe; border: 1px solid var(--line);
+  padding: 5px 9px; border-radius: 7px; font-size: 11.5px;
+}
+.console .market-chip-name { color: var(--muted); font-weight: 600; }
+.console .market-chip-val { color: var(--ink); font-weight: 700; display: inline-flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+
+.console .card-action-area { display: flex; justify-content: flex-end; }
+.console .match-footer-links {
+  margin-top: 10px; padding-top: 8px; border-top: 1px solid var(--line-2);
+  font-size: 11.5px; color: var(--muted);
+  display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap;
+}
+.console .olbg-hint { max-width: 60%; }
+.console .review-links-group { display: flex; gap: 8px; flex-wrap: wrap; }
+.console .review-links-group a { color: var(--accent-2); }
+
+/* Calendar. */
+.console .cal-grid, .console #olbg-cal-grid {
+  display: grid; grid-template-columns: repeat(7, 1fr); gap: 5px;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 12px; margin-bottom: 16px;
+}
+.console .cal-dow {
+  font: 700 11px/1 var(--mono); color: var(--muted); text-align: center;
+  padding: 5px 0; text-transform: uppercase; letter-spacing: .05em;
+}
+.console .cal-day {
+  min-height: 62px; background: var(--bg); border: 1px solid var(--line-2);
+  border-radius: 8px; padding: 6px; cursor: pointer; transition: all .15s ease;
+  position: relative; display: flex; flex-direction: column; justify-content: space-between;
+}
+.console .cal-day:hover { background: var(--card); border-color: var(--navy); }
+.console .cal-day.out { opacity: .35; cursor: default; }
+.console .cal-day.today { border-color: var(--accent); }
+.console .cal-day.sel { background: var(--navy); border-color: var(--navy); }
+.console .cal-day.sel .n { color: #fff; }
+.console .cal-day .n { font: 700 13px/1 var(--mono); color: var(--ink); }
+.console .cal-day .c { font-size: 9px; color: var(--accent); font-weight: 700; }
+.console .cal-day .slate-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--win); align-self: flex-end; }
+.console .cal-day .count-badge {
+  background: rgba(10,88,202,.12); color: var(--accent-2); font: 800 9px/1.2 var(--mono);
+  padding: 2px 5px; border-radius: 5px; align-self: flex-end; margin-top: 2px;
+}
+.console .cal-toolbar, .console .olbg-toolbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; margin-bottom: 8px; }
+.console .cal-nav { display: flex; align-items: center; gap: 8px; }
+.console .cal-title { font-size: 17px; margin: 0; letter-spacing: -.02em; }
+.console .cal-toolbar .hint, .console .olbg-toolbar .hint { color: var(--muted); font-size: 12px; }
+
+/* Predictions. */
+.console .pred-toolbar { background: #fbfcfe; }
+.console .pred-actions { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.console .warnings { margin-bottom: 14px; display: flex; flex-direction: column; gap: 8px; }
+.console .info-box {
+  background: #fbfcfe; border: 1px solid var(--line);
+  border-left: 3px solid var(--accent-2); padding: 10px 14px; border-radius: 8px;
+  font-size: 13px; color: var(--body); line-height: 1.6;
+}
+.console .info-box code { font-family: var(--mono); font-size: 12px; background: var(--line-2); padding: 1px 5px; border-radius: 4px; }
+.console .pred-out { display: flex; flex-direction: column; gap: 14px; margin-bottom: 20px; }
+.console .tip {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  border-left: 4px solid var(--accent-2); box-shadow: var(--shadow); padding: 14px 16px;
+}
+.console .tip.skip { border-left-color: var(--skip); }
+.console .tip-head {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  margin-bottom: 8px; padding-bottom: 8px; border-bottom: 1px solid var(--line-2); flex-wrap: wrap;
+}
+.console .tip-title { font-size: 14px; font-weight: 700; color: var(--ink); }
+.console .tip-acts { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.console .words { font: 11px var(--mono); color: var(--muted); }
+.console .tip p { font-size: 13.5px; line-height: 1.62; color: var(--body); margin: 0; }
+.console .tip p strong { color: var(--navy); }
+
+/* Tables & stat grids. */
+.console .table-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 14px 16px; overflow-x: auto; margin-bottom: 16px;
+}
+.console table { width: 100%; border-collapse: collapse; text-align: left; font-size: 13px; }
+.console th, .console td { padding: 8px 10px; border-bottom: 1px solid var(--line-2); vertical-align: middle; }
+.console th {
+  background: #f7f9fc; color: var(--muted); font: 700 11px var(--sans);
+  text-transform: uppercase; letter-spacing: .04em; white-space: nowrap;
+}
+.console tr:hover td { background: #fbfcfe; }
+.console .stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap: 12px; margin-bottom: 16px; }
+.console .stat-card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  box-shadow: var(--shadow); padding: 12px 14px; display: flex; flex-direction: column; gap: 3px;
+}
+.console .stat-card strong { font: 800 22px/1.1 var(--mono); color: var(--navy); }
+.console .stat-card span { font-size: 12px; color: var(--muted); }
+.console h2 { font-size: 17px; letter-spacing: -.02em; }
+.console .lede { font-size: 14px; line-height: 1.7; color: var(--body); }
+.console .hint { font-size: 12px; color: var(--muted); }
+.console pre {
+  background: #0f1722; color: #a7c4ff; border-radius: 8px; padding: 12px 14px;
+  font: 12px/1.5 var(--mono); overflow-x: auto; margin: 10px 0 0;
+}
+
+/* General emphasis + empty state reuse the shared rules; give the console a
+   slightly tighter empty card so it matches .table-card surfaces. */
+.console .empty { border: 1px dashed var(--line); background: var(--card); }
+
+/* ---------- global micro-polish (applies to every shared page) ---------- */
+::selection { background: rgba(209,0,42,.15); }
+.btn, select, input[type="search"], input[type="date"], .seg button, .day, .cell { transition: background-color .12s ease, border-color .12s ease, color .12s ease; }
+.btn:focus-visible, select:focus-visible, input:focus-visible {
+  outline: 2px solid var(--accent-2); outline-offset: 1px;
+}
+main { min-height: calc(100vh - 150px); }
+@media (max-width: 720px) {
+  .mast-top { height: auto; flex-wrap: wrap; padding: 10px 0; }
+  .sportrail-inner { min-height: 40px; }
+}
