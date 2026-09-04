@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T11:51:54Z",
+ "fetched_at_utc": "2026-09-04T15:10:45Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
@@ -15,8 +15,8 @@
  "byTeam": {
   "ANA": {
    "team": "Anaheim Ducks",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 5,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 4,
    "entries": [
     {
      "id": "592812",
@@ -35,14 +35,6 @@
      "comment": "out"
     },
     {
-     "id": "592230",
-     "athlete": "Troy Terry",
-     "status": "Out",
-     "date": "2026-06-18T17:13Z",
-     "position": "RW",
-     "comment": "Terry underwent hip surgery and is expected to need 5-6 months to recover, Chris Johnston of The Athletic reports Thursday."
-    },
-    {
      "id": "591844",
      "athlete": "Drew Helleson",
      "status": "Out",
@@ -59,12 +51,12 @@
      "comment": "out"
     }
    ],
-   "forwardOutCount": 2,
+   "forwardOutCount": 1,
    "keyForwardLineMissing": false
   },
   "BOS": {
    "team": "Boston Bruins",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 2,
    "entries": [
     {
@@ -89,7 +81,7 @@
   },
   "BUF": {
    "team": "Buffalo Sabres",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 3,
    "entries": [
     {
@@ -122,8 +114,8 @@
   },
   "CGY": {
    "team": "Calgary Flames",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 8,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 4,
    "entries": [
     {
      "id": "590529",
@@ -150,38 +142,6 @@
      "comment": "Kuznetsov (upper body) will miss the rest of the 2025-26 regular season, according to Pat Steinberg of Sportsnet 960 The Fan on Tuesday."
     },
     {
-     "id": "587597",
-     "athlete": "Joel Hanley",
-     "status": "Out",
-     "date": "2026-03-28T17:45Z",
-     "position": "D",
-     "comment": "out"
-    },
-    {
-     "id": "587503",
-     "athlete": "Samuel Honzek",
-     "status": "Injured Reserve",
-     "date": "2026-03-27T17:41Z",
-     "position": "LW",
-     "comment": "Honzek (upper body) will not return this season, per Pat Steinberg of Sportsnet 960 The Fan on Friday."
-    },
-    {
-     "id": "583098",
-     "athlete": "Jonathan Huberdeau",
-     "status": "Injured Reserve",
-     "date": "2026-02-21T22:27Z",
-     "position": "LW",
-     "comment": "Huberdeau (hip) was put on injured reserve Saturday, per the NHL media site."
-    },
-    {
-     "id": "575858",
-     "athlete": "Jake Bean",
-     "status": "Injured Reserve",
-     "date": "2025-12-18T18:19Z",
-     "position": "D",
-     "comment": "Bean (undisclosed) will need to undergo surgery and is expected to be sidelined indefinitely, Pat Steinberg of Sportsnet 960 The Fan reports Thursday."
-    },
-    {
      "id": "569847",
      "athlete": "Henry Mews",
      "status": "Out",
@@ -193,35 +153,18 @@
    "forwardOutCount": 1,
    "keyForwardLineMissing": false
   },
-  "CAR": {
+  "Carolina Hurricanes": {
    "team": "Carolina Hurricanes",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 2,
-   "entries": [
-    {
-     "id": "592346",
-     "athlete": "Eric Robinson",
-     "status": "Out",
-     "date": "2026-06-27T03:25Z",
-     "position": "LW",
-     "comment": "out"
-    },
-    {
-     "id": "592345",
-     "athlete": "Seth Jarvis",
-     "status": "Out",
-     "date": "2026-06-27T03:22Z",
-     "position": "C",
-     "comment": "out"
-    }
-   ],
-   "forwardOutCount": 2,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 0,
+   "entries": [],
+   "forwardOutCount": 0,
    "keyForwardLineMissing": false
   },
   "CHI": {
    "team": "Chicago Blackhawks",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 4,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 1,
    "entries": [
     {
      "id": "592892",
@@ -230,30 +173,6 @@
      "date": "2026-07-18T20:42Z",
      "position": "C",
      "comment": "Bedard (shoulder) signed a five-year, $75 million contract with Chicago on Saturday."
-    },
-    {
-     "id": "588036",
-     "athlete": "Matt Grzelcyk",
-     "status": "Out",
-     "date": "2026-03-31T16:34Z",
-     "position": "D",
-     "comment": "Grzelcyk (upper body) will miss the remainder of the 2025-26 regular season, according to Ben Pope of the Chicago Sun-Times on Tuesday."
-    },
-    {
-     "id": "588035",
-     "athlete": "Artyom Levshunov",
-     "status": "Out",
-     "date": "2026-03-31T16:30Z",
-     "position": "D",
-     "comment": "Levshunov (hand) will not play again in 2025-26, according to Ben Pope of the Chicago Sun-Times on Tuesday."
-    },
-    {
-     "id": "578486",
-     "athlete": "Ryan Ellis",
-     "status": "Injured Reserve",
-     "date": "2026-01-08T20:25Z",
-     "position": "D",
-     "comment": "Ellis (back) and his contract have been traded to Chicago from San Jose, along with Jake Furlong and a 2028 fourth-round pick in exchange for Laurent Brossoit, Nolan Allan and a 2028 seventh-round pick Thursday."
     }
    ],
    "forwardOutCount": 1,
@@ -261,7 +180,7 @@
   },
   "CBJ": {
    "team": "Columbus Blue Jackets",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 2,
    "entries": [
     {
@@ -286,7 +205,7 @@
   },
   "DAL": {
    "team": "Dallas Stars",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 3,
    "entries": [
     {
@@ -319,17 +238,9 @@
   },
   "DET": {
    "team": "Detroit Red Wings",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 3,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 2,
    "entries": [
-    {
-     "id": "592605",
-     "athlete": "Viktor Arvidsson",
-     "status": "Out",
-     "date": "2026-07-01T17:09Z",
-     "position": "LW",
-     "comment": "Arvidsson (ribs) agreed to terms on a two-year, $10 million contract with Detroit on Wednesday, Elliotte Friedman of Sportsnet reports."
-    },
     {
      "id": "590355",
      "athlete": "Mason Appleton",
@@ -347,12 +258,12 @@
      "comment": "out"
     }
    ],
-   "forwardOutCount": 3,
-   "keyForwardLineMissing": true
+   "forwardOutCount": 2,
+   "keyForwardLineMissing": false
   },
   "EDM": {
    "team": "Edmonton Oilers",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 5,
    "entries": [
     {
@@ -401,25 +312,9 @@
   },
   "FLA": {
    "team": "Florida Panthers",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 11,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 7,
    "entries": [
-    {
-     "id": "592959",
-     "athlete": "Brad Marchand",
-     "status": "Injured Reserve",
-     "date": "2026-08-15T14:20Z",
-     "position": "LW",
-     "comment": "Marchand (lower body) had offseason surgery and could be unavailable for the start of the 2026-27 campaign, according to George Richards of Florida Hockey Now on Saturday."
-    },
-    {
-     "id": "592587",
-     "athlete": "Radko Gudas",
-     "status": "Out",
-     "date": "2026-07-01T15:41Z",
-     "position": "D",
-     "comment": "Gudas (ankle) signed a six-year, $9 million contract with the Panthers on Wednesday, Elliotte Friedman of Sportsnet reports."
-    },
     {
      "id": "592566",
      "athlete": "Jacob Markstrom",
@@ -469,22 +364,6 @@
      "comment": "out"
     },
     {
-     "id": "588018",
-     "athlete": "Jonah Gadjovich",
-     "status": "Injured Reserve",
-     "date": "2026-03-31T15:45Z",
-     "position": "LW",
-     "comment": "Gadjovich (upper body) is not expected to suit up again this season, per Jameson Olive of the Panthers' official site on Tuesday."
-    },
-    {
-     "id": "587007",
-     "athlete": "Niko Mikkola",
-     "status": "Injured Reserve",
-     "date": "2026-03-23T19:06Z",
-     "position": "D",
-     "comment": "ir"
-    },
-    {
      "id": "586996",
      "athlete": "Uvis Balinskis",
      "status": "Out",
@@ -496,36 +375,19 @@
    "forwardOutCount": 2,
    "keyForwardLineMissing": false
   },
-  "LA": {
+  "Los Angeles Kings": {
    "team": "Los Angeles Kings",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 1,
-   "entries": [
-    {
-     "id": "584668",
-     "athlete": "Kevin Fiala",
-     "status": "Injured Reserve",
-     "date": "2026-03-06T22:06Z",
-     "position": "LW",
-     "comment": "Fiala (lower leg fracture) won't be available before training camp for the 2026-27 campaign, per John Hoven of SiriusXM NHL Network Radio."
-    }
-   ],
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 0,
+   "entries": [],
    "forwardOutCount": 0,
    "keyForwardLineMissing": false
   },
   "MIN": {
    "team": "Minnesota Wild",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 4,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 3,
    "entries": [
-    {
-     "id": "592700",
-     "athlete": "Zach Bogosian",
-     "status": "Out",
-     "date": "2026-07-01T21:26Z",
-     "position": "D",
-     "comment": "Bogosian (lower body) signed a one-year, $1.25 million contract with the Wild on Wednesday, Michael Russo of The Athletic reports."
-    },
     {
      "id": "591912",
      "athlete": "Filip Gustavsson",
@@ -556,17 +418,9 @@
   },
   "NJ": {
    "team": "New Jersey Devils",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 5,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 3,
    "entries": [
-    {
-     "id": "592572",
-     "athlete": "Arseny Gritsyuk",
-     "status": "Out",
-     "date": "2026-06-30T19:07Z",
-     "position": "RW",
-     "comment": "Gritsyuk (upper body) signed a three-year, $9.75 million contract with New Jersey on Tuesday."
-    },
     {
      "id": "592564",
      "athlete": "Evan Rodrigues",
@@ -590,39 +444,22 @@
      "date": "2026-04-09T14:35Z",
      "position": "D",
      "comment": "Hughes (undisclosed)  will undergo a procedure and will miss the remainder of the season, it was announced Thursday."
-    },
-    {
-     "id": "586874",
-     "athlete": "Stefan Noesen",
-     "status": "Injured Reserve",
-     "date": "2026-03-22T16:31Z",
-     "position": "RW",
-     "comment": "Noesen (knee) has been ruled out for the rest of the season, Kristy Flannery of The Hockey News reports Sunday."
-    }
-   ],
-   "forwardOutCount": 1,
-   "keyForwardLineMissing": false
-  },
-  "NYR": {
-   "team": "New York Rangers",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 1,
-   "entries": [
-    {
-     "id": "586989",
-     "athlete": "Matt Rempe",
-     "status": "Injured Reserve",
-     "date": "2026-03-23T14:59Z",
-     "position": "C",
-     "comment": "Rempe (thumb) probably won't be ready to return before the end of the 2025-26 regular season, according to Vince Z. Mercogliano of The Athletic on Monday."
     }
    ],
    "forwardOutCount": 0,
    "keyForwardLineMissing": false
   },
+  "New York Rangers": {
+   "team": "New York Rangers",
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 0,
+   "entries": [],
+   "forwardOutCount": 0,
+   "keyForwardLineMissing": false
+  },
   "OTT": {
    "team": "Ottawa Senators",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 3,
    "entries": [
     {
@@ -655,7 +492,7 @@
   },
   "PHI": {
    "team": "Philadelphia Flyers",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 2,
    "entries": [
     {
@@ -678,26 +515,17 @@
    "forwardOutCount": 2,
    "keyForwardLineMissing": false
   },
-  "PIT": {
+  "Pittsburgh Penguins": {
    "team": "Pittsburgh Penguins",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 1,
-   "entries": [
-    {
-     "id": "588814",
-     "athlete": "Caleb Jones",
-     "status": "Injured Reserve",
-     "date": "2026-04-05T18:16Z",
-     "position": "D",
-     "comment": "ir"
-    }
-   ],
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 0,
+   "entries": [],
    "forwardOutCount": 0,
    "keyForwardLineMissing": false
   },
   "SJ": {
    "team": "San Jose Sharks",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 2,
    "entries": [
     {
@@ -722,7 +550,7 @@
   },
   "TB": {
    "team": "Tampa Bay Lightning",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 1,
    "entries": [
     {
@@ -739,17 +567,9 @@
   },
   "TOR": {
    "team": "Toronto Maple Leafs",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 5,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 2,
    "entries": [
-    {
-     "id": "592725",
-     "athlete": "Zack MacEwen",
-     "status": "Injured Reserve",
-     "date": "2026-07-01T22:34Z",
-     "position": "C",
-     "comment": "MacEwen (knee) signed a two-year contract with the Maple Leafs on Wednesday."
-    },
     {
      "id": "592019",
      "athlete": "Max Domi",
@@ -765,47 +585,22 @@
      "date": "2026-04-11T15:19Z",
      "position": "C",
      "comment": "Joshua (upper body) will not return to the lineup for the rest of the season, according to David Alter of The Hockey News on Saturday."
-    },
-    {
-     "id": "586446",
-     "athlete": "Auston Matthews",
-     "status": "Out",
-     "date": "2026-03-19T20:51Z",
-     "position": "C",
-     "comment": "Matthews underwent successful MCL knee repair surgery Thursday."
-    },
-    {
-     "id": "584283",
-     "athlete": "Chris Tanev",
-     "status": "Injured Reserve",
-     "date": "2026-03-04T16:59Z",
-     "position": "D",
-     "comment": "Tanev underwent core muscle surgery Wednesday and will miss the remainder of the 2025-26 campaign."
     }
    ],
-   "forwardOutCount": 3,
-   "keyForwardLineMissing": true
+   "forwardOutCount": 2,
+   "keyForwardLineMissing": false
   },
-  "UTA": {
+  "Utah Mammoth": {
    "team": "Utah Mammoth",
-   "timestamp": "2026-09-04T11:51:42Z",
-   "count": 1,
-   "entries": [
-    {
-     "id": "592841",
-     "athlete": "Barrett Hayton",
-     "status": "Out",
-     "date": "2026-07-08T16:35Z",
-     "position": "C",
-     "comment": "Hayton (upper body) signed a one-year, $4.775 million contract with Utah on Wednesday."
-    }
-   ],
-   "forwardOutCount": 1,
+   "timestamp": "2026-09-04T15:10:36Z",
+   "count": 0,
+   "entries": [],
+   "forwardOutCount": 0,
    "keyForwardLineMissing": false
   },
   "VAN": {
    "team": "Vancouver Canucks",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 3,
    "entries": [
     {
@@ -838,7 +633,7 @@
   },
   "WSH": {
    "team": "Washington Capitals",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 3,
    "entries": [
     {
@@ -871,7 +666,7 @@
   },
   "WPG": {
    "team": "Winnipeg Jets",
-   "timestamp": "2026-09-04T11:51:42Z",
+   "timestamp": "2026-09-04T15:10:36Z",
    "count": 6,
    "entries": [
     {
