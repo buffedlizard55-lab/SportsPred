@@ -4,7 +4,7 @@
   "source": {
     "name": "OLBG — Cricket Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Cricket/7",
-    "fetched_at_utc": "2026-09-03T23:53:46Z",
+    "fetched_at_utc": "2026-09-04T04:05:07Z",
     "method": "Verified HTTP extraction of public OLBG cricket tips index",
     "licence_note": "Publicly viewable market listing for manual review and analysis."
   },
@@ -34,15 +34,7 @@
       "display_time": "00:00",
       "resolved_date": null,
       "date_basis": "unknown",
-      "consensus": {
-        "market": "Win Match",
-        "selection": "Guyana Amazon Warriors",
-        "tips_for": 3,
-        "tips_total": 3,
-        "pct": 100,
-        "comments": 2,
-        "experts": 0
-      }
+      "consensus": null
     },
     {
       "event_id": "188619",
@@ -59,10 +51,10 @@
       "consensus": {
         "market": "Win Match",
         "selection": "England W",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
-        "comments": 1,
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67,
+        "comments": 2,
         "experts": 0
       }
     },
@@ -82,8 +74,8 @@
         "market": "Man Of The Match",
         "selection": "OE Robinson",
         "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
+        "tips_total": 2,
+        "pct": 50,
         "comments": 1,
         "experts": 0
       }
@@ -108,6 +100,23 @@
       }
     },
     {
+      "event_id": "187504",
+      "name": "SA20 2026-27",
+      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/SA20_2026-27/7?event_id=187504",
+      "display_date": "24 Jan 2027",
+      "resolved_date": "2027-01-24",
+      "date_basis": "observed",
+      "consensus": {
+        "market": "Outright Winner",
+        "selection": "SA20 2026-27",
+        "tips_for": 1,
+        "tips_total": 1,
+        "pct": 100,
+        "comments": 0,
+        "experts": 0
+      }
+    },
+    {
       "event_id": "187184",
       "name": "Big Bash Women 2026",
       "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/Big_Bash_Women_2026/7?event_id=187184",
@@ -117,9 +126,9 @@
       "consensus": {
         "market": "Outright Winner",
         "selection": "Big Bash Women 2026",
-        "tips_for": 1,
+        "tips_for": 0,
         "tips_total": 1,
-        "pct": 100,
+        "pct": null,
         "comments": 0,
         "experts": 0
       }
@@ -134,26 +143,9 @@
       "consensus": {
         "market": "Outright Winner",
         "selection": "T20 Big Bash 2026-27",
-        "tips_for": 1,
+        "tips_for": 0,
         "tips_total": 1,
-        "pct": 100,
-        "comments": 0,
-        "experts": 0
-      }
-    },
-    {
-      "event_id": "187504",
-      "name": "SA20 2026-27",
-      "url": "https://www.olbg.com/betting-tips/Cricket/All_Cricket/All_Events/SA20_2026-27/7?event_id=187504",
-      "display_date": "24 Jan 2027",
-      "resolved_date": "2027-01-24",
-      "date_basis": "observed",
-      "consensus": {
-        "market": "Outright Winner",
-        "selection": "SA20 2026-27",
-        "tips_for": 1,
-        "tips_total": 1,
-        "pct": 100,
+        "pct": null,
         "comments": 0,
         "experts": 0
       }

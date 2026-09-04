@@ -1,38 +1,13 @@
 {
-  "generated_at_utc": "2026-09-03T23:55:00Z",
+  "generated_at_utc": "2026-09-04T04:06:25Z",
   "ruleset": "v1.1",
   "trimmed": false,
   "trimmedReason": null,
   "tips": [],
   "unscored": [
     {
-      "event_id": "899487",
-      "match": "Jessica Bouzas Maneiro v Elena Rybakina",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899491",
-      "match": "Alexander Zverev v Quentin Halys",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
       "event_id": "899567",
       "match": "Yibing Wu v Carlos Alcaraz",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899543",
-      "match": "Ben Shelton v Denis Shapovalov",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899527",
-      "match": "Alex Michelsen v Daniel Merida",
-      "reason": "no sourced price or ranking, so no market could be scored"
-    },
-    {
-      "event_id": "899541",
-      "match": "Marta Kostyuk v Ekaterina Alexandrova",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -41,18 +16,23 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
+      "event_id": "899525",
+      "match": "Jessica Pegula v Leylah Fernandez",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
       "event_id": "899577",
       "match": "Ann Li v Linda Noskova",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899576",
-      "match": "Elina Svitolina v Anna Kalinskaya",
+      "event_id": "899526",
+      "match": "Jasmine Paolini v Sorana Cirstea",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899525",
-      "match": "Jessica Pegula v Leylah Fernandez",
+      "event_id": "899528",
+      "match": "Daniil Medvedev v Arthur Rinderknech",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
@@ -66,13 +46,43 @@
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
+      "event_id": "899527",
+      "match": "Alex Michelsen v Daniel Merida",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899587",
+      "match": "Anastasia Potapova v Amanda Anisimova",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899541",
+      "match": "Marta Kostyuk v Ekaterina Alexandrova",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899564",
+      "match": "Tomas Martin Etcheverry v Mariano Navone",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
       "event_id": "899565",
       "match": "Valentin Vacherot v Frances Tiafoe",
       "reason": "no sourced price or ranking, so no market could be scored"
     },
     {
-      "event_id": "899458",
-      "match": "Karolina Pliskova v Diana Shnaider",
+      "event_id": "899576",
+      "match": "Elina Svitolina v Anna Kalinskaya",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899543",
+      "match": "Ben Shelton v Denis Shapovalov",
+      "reason": "no sourced price or ranking, so no market could be scored"
+    },
+    {
+      "event_id": "899584",
+      "match": "Iga Swiatek v Marie Bouzkova",
       "reason": "no sourced price or ranking, so no market could be scored"
     }
   ],

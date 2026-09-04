@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "sport": "GAA",
-  "generated_at_utc": "2026-09-03T23:48:37Z",
+  "generated_at_utc": "2026-09-04T04:06:25Z",
   "method": "Walk-forward over committed source-linked tape rows. Every match is scored only from matches recorded strictly before it. No odds tier is ever tested: there is no free price feed (IR-GAA-01), so the output measures model lean accuracy only and is NOT a betting record.",
   "events": 4,
   "summary": [
