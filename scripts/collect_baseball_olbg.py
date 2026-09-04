@@ -28,6 +28,7 @@ from urllib.request import Request, urlopen
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib.baseball_olbg_parse import INDEX_URL, SPORT_ID, parse_index, parse_event_page_markets  # noqa: E402
+from lib.olbg_page_health import diagnose  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, "data", "baseball_slate.json")
@@ -49,6 +50,7 @@ def fetch(url: str) -> str:
 def build_slate(html: str, source_url: str, enrich: bool = False) -> dict:
     now = datetime.now(timezone.utc)
     parsed = parse_index(html, now=now)
+    health = diagnose(html, event_count=len(parsed["events"]), sport="Baseball")
 
     if enrich:
         for ev in parsed["events"]:
@@ -77,7 +79,12 @@ def build_slate(html: str, source_url: str, enrich: bool = False) -> dict:
         },
         "events": parsed["events"],
         "markets_seen": parsed["markets_seen"],
-        "warnings": parsed["warnings"],
+        # A parse that yields no rows is ambiguous on its own: a bot-block, a
+        # cookie wall and a real off-season all look identical. diagnose()
+        # inspects the delivered bytes and says which it was, so an empty
+        # slate can never be mistaken for a verified-empty schedule.
+        "warnings": parsed["warnings"] + health["warnings"],
+        "page_health": health,
         "note": (
             "Display-and-join context for the baseball engine. OLBG publishes tipster "
             "consensus, not odds, so this slate can never supply a price. Fixtures, "

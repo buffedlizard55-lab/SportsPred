@@ -35,7 +35,7 @@ import {
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const DATA = join(ROOT, 'data');
 const TIMEOUT = 25000;
-const CONCURRENCY = 4;
+const CONCURRENCY = 2; // NHL API rate-limits bursts; see getJSON retry note.
 
 const arg = (flag, fallback = null) => {
   const i = process.argv.indexOf(flag);
@@ -53,18 +53,44 @@ const stamp = (offsetDays) => {
 };
 const dashless = (iso) => iso.replace(/-/g, '');
 
-async function getJSON(url) {
-  const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), TIMEOUT);
-  try {
-    const res = await fetch(url, { signal: ctrl.signal, headers: { accept: 'application/json' } });
-    if (!res.ok) return { url, status: res.status, data: null, error: `HTTP ${res.status}` };
-    return { url, status: res.status, data: await res.json(), error: null };
-  } catch (e) {
-    return { url, status: 0, data: null, error: String(e.message || e) };
-  } finally {
-    clearTimeout(t);
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+/**
+ * Fetch JSON, retrying on rate limiting and transient server errors.
+ *
+ * The NHL API rate-limits bursts: a previous run of this collector lost 19 of
+ * 32 club-stats requests to HTTP 429 and silently wrote an EMPTY goalie file,
+ * which then made every ice hockey tip unpublishable. Retrying with exponential
+ * backoff and honouring Retry-After is what stops that recurring. The number of
+ * attempts used is recorded so a throttled run is visible in provenance rather
+ * than looking like a clean miss.
+ */
+async function getJSON(url, { attempts = 4 } = {}) {
+  let last = null;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    const ctrl = new AbortController();
+    const t = setTimeout(() => ctrl.abort(), TIMEOUT);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal, headers: { accept: 'application/json' } });
+      if (res.ok) {
+        return { url, status: res.status, data: await res.json(), error: null, attempts: attempt };
+      }
+      last = { url, status: res.status, data: null, error: `HTTP ${res.status}`, attempts: attempt };
+      // 429 = rate limited, 5xx = transient. Anything else will not improve on retry.
+      if (res.status !== 429 && res.status < 500) return last;
+      const retryAfter = Number(res.headers.get('retry-after'));
+      const waitMs = Number.isFinite(retryAfter) && retryAfter > 0
+        ? retryAfter * 1000
+        : Math.min(8000, 500 * 2 ** (attempt - 1));
+      if (attempt < attempts) await sleep(waitMs);
+    } catch (e) {
+      last = { url, status: 0, data: null, error: String(e.message || e), attempts: attempt };
+      if (attempt < attempts) await sleep(Math.min(8000, 500 * 2 ** (attempt - 1)));
+    } finally {
+      clearTimeout(t);
+    }
   }
+  return last;
 }
 
 async function pool(items, worker) {
@@ -94,6 +120,7 @@ function provenance(checks, extra = {}) {
     endpoints: checks.map((c) => ({
       url: c.url, status: c.status, error: c.error,
       ok: c.status === 200 && !c.error,
+      attempts: c.attempts ?? 1,
     })),
     ...extra,
   };
@@ -200,10 +227,17 @@ async function collectGoalies(teams) {
   if (!abbrevs.length) return { ok: false, checks: [] };
   const checks = await pool(abbrevs, async (a) => getJSON(NHL_CLUB_STATS_URL(a, SEASON, 2)));
   const out = {};
+  // A request that succeeds but yields no goaltender row is a real irregularity:
+  // it means the season/gameType asked for has no club stats published yet. It
+  // used to be swallowed, producing an empty file that looked like a clean run.
+  const emptyResponses = [];
   checks.forEach((c, i) => {
     if (!c.data) return;
     const parsed = parseNhlClubStats(c.data, { abbrev: abbrevs[i] });
-    if (!parsed.goalies.length) return;
+    if (!parsed.goalies.length) {
+      emptyResponses.push({ abbrev: abbrevs[i], url: c.url, reason: 'endpoint returned 200 but published no goaltender rows for this season and game type' });
+      return;
+    }
     const best = parsed.goalies.reduce((a, b) => (b.savePctg > a.savePctg ? b : a));
     out[abbrevs[i]] = {
       name: best.name,
@@ -217,12 +251,35 @@ async function collectGoalies(teams) {
       topLine: parsed.topLine,
     };
   });
-  write('ice_hockey_goalies.json', {
+  const throttled = checks.filter((c) => c.status === 429).length;
+  const doc = {
     ...provenance(checks, { sport: 'Ice Hockey', league: 'nhl', season: SEASON }),
     teams: out,
-    counts: { teams: Object.keys(out).length },
-  });
-  return { ok: true, checks, teams: Object.keys(out).length };
+    counts: {
+      teams: Object.keys(out).length,
+      requested: abbrevs.length,
+      throttled,
+      emptyResponses: emptyResponses.length,
+    },
+    irregularities: [
+      ...(throttled ? [{
+        code: 'RATE_LIMITED',
+        detail: `${throttled} of ${abbrevs.length} club-stats requests were still rate limited after retries`,
+      }] : []),
+      ...(emptyResponses.length ? [{
+        code: 'NO_GOALIE_ROWS',
+        detail: `${emptyResponses.length} of ${abbrevs.length} teams published no goaltender rows for season ${SEASON} game type 2`,
+        teams: emptyResponses,
+      }] : []),
+    ],
+  };
+  if (!Object.keys(out).length) {
+    console.error(`  goalies WARNING: no goaltender captured for any of ${abbrevs.length} teams `
+      + `(throttled: ${throttled}, empty 200s: ${emptyResponses.length}). `
+      + 'Every ice hockey tip will be withheld until this is resolved.');
+  }
+  write('ice_hockey_goalies.json', doc);
+  return { ok: Object.keys(out).length > 0, checks, teams: Object.keys(out).length };
 }
 
 /* ------------------------------------------------------------------ *
@@ -256,4 +313,13 @@ async function main() {
   return 0;
 }
 
-main().then((code) => process.exit(code)).catch((e) => { console.error(e); process.exit(1); });
+/* Exported for unit testing. Importing this module must NOT start a collection
+ * run, so main() only fires when the file is executed directly. */
+export { getJSON };
+
+const isEntrypoint = process.argv[1]
+  && fileURLToPath(import.meta.url) === process.argv[1];
+
+if (isEntrypoint) {
+  main().then((code) => process.exit(code)).catch((e) => { console.error(e); process.exit(1); });
+}

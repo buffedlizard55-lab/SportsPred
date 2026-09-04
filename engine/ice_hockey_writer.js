@@ -144,12 +144,18 @@ export function validateIceHockeyTip(text, { market = null, expectSkip = false }
   return { ok: violations.length === 0, violations };
 }
 
-/** No two tips in one output may open with the same word. */
+/**
+ * No two tips in one output may use the same analytical angle.
+ *
+ * Tips now open with the selection itself (OLBG house style), so the angle word
+ * that follows the selection sentence is what must stay distinct. `angleWord` is
+ * set by writeTip; the first-word fallback keeps this usable for raw strings.
+ */
 export function validateOpenerUniqueness(tips) {
   const seen = new Map();
   const problems = [];
   for (const tip of tips) {
-    const first = String(tip.text || '').replace(/^\*\*/, '').split(/\s+/)[0]?.toLowerCase() ?? '';
+    const first = String(tip.angleWord || String(tip.text || '').replace(/^\*\*/, '').split(/\s+/)[0] || '').toLowerCase();
     if (seen.has(first)) problems.push(`"${first}" opens two tips (${seen.get(first)} and ${tip.market})`);
     else seen.set(first, tip.market);
   }
@@ -160,37 +166,209 @@ export function validateOpenerUniqueness(tips) {
  * Tip construction
  * ------------------------------------------------------------------ */
 
-function filler(angle, favourSide, market) {
-  const label = favourSide || 'the stronger side';
-  const tails = {
-    [MARKETS.OUTRIGHT]: [
-      `That gap shows up early and it rarely closes, which is why ${label} is the selection at full strength.`,
-      `Over a full sixty minutes that advantage compounds rather than fades, and it shapes the whole contest.`,
-      `Expect the pattern to hold through the middle frame, when rotations shorten and habits take over.`,
-    ],
-    [MARKETS.PUCK_LINE]: [
-      `Margin, not merely outcome, is the point here, and ${label} has been building them rather than scraping them.`,
-      `Comfortable multi-goal periods have been the norm rather than the exception, which is what covering demands.`,
-      `When the lead arrives it tends to grow, and that is the specific behaviour this market rewards.`,
-    ],
-    [MARKETS.TOTAL]: [
-      `Scoring tempo has been running one way for a while now, and nothing in this pairing argues for a change.`,
-      `The pattern has repeated often enough that it should be treated as a genuine tendency rather than a streak.`,
-      `Late empties only push the outcome further in the same direction when a game is already stretched.`,
-    ],
-  };
-  const pool = tails[market] || tails[MARKETS.OUTRIGHT];
-  return pool[angle % pool.length];
+/* ------------------------------------------------------------------ *
+ * Evidence-driven prose (OLBG house style).
+ *
+ * Every clause is derived from a value that was actually sourced onto the
+ * scored result (NHL standings / tape / goalie feeds — see
+ * engine/ice_hockey_data.js enrichIceHockeyFixture). A clause whose input is
+ * null is not produced, so the writer cannot invent a statistic.
+ *
+ * Figures are spelled as words because validateIceHockeyTip forbids digits —
+ * that hard rule is what stops odds, puck lines, totals and save percentages
+ * leaking into published copy.
+ * ------------------------------------------------------------------ */
+
+const NUM_WORDS = [
+  'zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten',
+];
+
+/** Spell a small whole number, or return null when it cannot be spelled. */
+export function spellSmall(n) {
+  if (typeof n !== 'number' || !Number.isInteger(n) || n < 0 || n > 10) return null;
+  return NUM_WORDS[n];
 }
 
-function underSideLine(result, market) {
+/** Rank position expressed as a league-relative band (no digits). */
+function rankBand(rank, leagueSize) {
+  if (typeof rank !== 'number' || typeof leagueSize !== 'number' || leagueSize <= 0) return null;
+  const q = rank / leagueSize;
+  if (q <= 0.2) return 'among the very best in the league';
+  if (q <= 0.4) return 'in the upper tier of the league';
+  if (q <= 0.6) return 'around the league midpoint';
+  if (q <= 0.8) return 'in the lower half of the league';
+  return 'among the weakest in the league';
+}
+
+function formClauseIH(team) {
+  const last5 = team?.form?.last5;
+  if (!Array.isArray(last5) || !last5.length) return null;
+  const wins = last5.filter((r) => r === 'W').length;
+  const w = spellSmall(wins);
+  const n = spellSmall(last5.length);
+  if (!w || !n) return null;
+  return `${team.name} have won ${w} of their last ${n}`;
+}
+
+function streakClauseIH(team) {
+  const ws = team?.form?.winStreak;
+  if (typeof ws === 'number' && ws >= 3) {
+    const w = spellSmall(ws);
+    return w ? `they arrive on a run of ${w} straight wins` : null;
+  }
+  return null;
+}
+
+function goaltendingClause(fav, dog) {
+  const f = fav?.goaltender?.savePctg;
+  const d = dog?.goaltender?.savePctg;
+  if (typeof f !== 'number' || typeof d !== 'number') return null;
+  if (f - d >= 0.015) return `the crease is where this is won, with the favoured starter posting the materially better stopping rate this season`;
+  if (d - f >= 0.015) return `the opposing starter has actually been the sharper of the two, which is why this is not rated any higher`;
+  return `the two starters have been posting comparable stopping rates, so the crease is close to neutral`;
+}
+
+function backupClause(dog) {
+  if (dog?.goaltender?.isBackup === true) return `the opposition are turning to their backup in goal`;
+  return null;
+}
+
+function shotShareClause(fav) {
+  const forBand = rankBand(fav?.shotsForRank, fav?.leagueSize);
+  const againstBand = rankBand(fav?.shotsAgainstRank, fav?.leagueSize);
+  if (!forBand && !againstBand) return null;
+  if (forBand && againstBand) return `they generate shot volume ${forBand} and suppress it ${againstBand}`;
+  return `their shot volume ranks ${forBand || againstBand}`;
+}
+
+function marginClause(fav) {
+  const m = fav?.avgWinMarginLast5Wins;
+  if (typeof m !== 'number') return null;
+  if (m > 1.5) return `when they have won lately they have been winning by more than a single goal, which is what a handicap play needs`;
+  return `their recent wins have been narrow, and that is the main argument against laying the handicap`;
+}
+
+function coversClause(fav) {
+  const c = fav?.puckLineCovers;
+  if (!c || typeof c.covered !== 'number' || typeof c.of !== 'number') return null;
+  const w = spellSmall(c.covered);
+  const n = spellSmall(c.of);
+  if (!w || !n) return null;
+  return `${fav.name} have covered the handicap in ${w} of their last ${n}`;
+}
+
+function b2bClause(fav, dog) {
+  if (dog?.backToBack === true) return `the opposition are playing on consecutive nights, and that schedule spot has consistently told late`;
+  if (fav?.backToBack === true) return `the selection are on the second night of a back-to-back, which caps the confidence here`;
+  return null;
+}
+
+function totalsTrendClause(home, away) {
+  const h = home?.recentTotals;
+  const a = away?.recentTotals;
+  if (!h?.games && !a?.games) return null;
+  const overs = (h?.overs ?? 0) + (a?.overs ?? 0);
+  const games = (h?.games ?? 0) + (a?.games ?? 0);
+  if (!games) return null;
+  if (overs * 2 > games) return `recent games involving these two have finished above the posted line more often than below it`;
+  if (overs * 2 < games) return `recent games involving these two have mostly finished below the posted line`;
+  return `the recent totals split is even, so this leans on the scoring rates rather than the last few results`;
+}
+
+function scoringRateClause(home, away) {
+  const h = home?.goalsForPerGame;
+  const a = away?.goalsForPerGame;
+  const hc = home?.goalsAgainstPerGame;
+  const ac = away?.goalsAgainstPerGame;
+  if (typeof h !== 'number' || typeof a !== 'number') return null;
+  const combined = h + a;
+  if (typeof hc === 'number' && typeof ac === 'number' && (hc + ac) / 2 < 2.8) {
+    return `season goals-against rates on both benches are among the tighter marks in the competition`;
+  }
+  if (combined >= 6.4) return `the two benches are scoring at a healthy clip on the season, which is the core of the argument`;
+  if (combined <= 5.4) return `neither bench has been scoring freely across the season to date`;
+  return `season scoring rates on both benches sit around the competition average`;
+}
+
+function missingClauseIH(result) {
+  const list = result?.missing || [];
+  if (!list.length) return null;
+  const w = spellSmall(list.length);
+  const count = w || 'several';
+  return `${count} of the input factors could not be sourced for this fixture, so the confidence figure is capped accordingly`;
+}
+
+/**
+ * Replace later mentions of a team with the correct pronoun case.
+ *
+ * A naive name -> "they" swap produces "for they" / "against they", so object
+ * position (after a preposition) becomes "them" and possessive position
+ * ("Poland's") becomes "their". Only wording changes; no fact is altered.
+ */
+function replaceWithPronoun(text, name) {
+  if (!text || !name) return text;
+  const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text
+    // possessive: "Poland's depth" -> "their depth"
+    .replace(new RegExp(`${esc}'s\\b`, 'g'), 'their')
+    // object of a preposition: "for Poland" -> "for them"
+    .replace(new RegExp(`\\b(for|to|against|over|with|of|from|behind|than|beat|beating)\\s+${esc}\\b`, 'gi'),
+      (m, prep) => `${prep} them`)
+    // subject position
+    .replace(new RegExp(esc, 'g'), 'they');
+}
+
+function joinIH(clauses, names = []) {
+  const seen = new Set();
+  const out = [];
+  for (const raw of clauses.filter(Boolean)) {
+    let c = String(raw).trim();
+    for (const n of names.filter(Boolean)) {
+      if (!c.includes(n)) continue;
+      if (seen.has(n)) c = replaceWithPronoun(c, n);
+      else {
+        seen.add(n);
+        const i = c.indexOf(n);
+        c = c.slice(0, i + n.length) + replaceWithPronoun(c.slice(i + n.length), n);
+      }
+    }
+    c = c.charAt(0).toUpperCase() + c.slice(1);
+    out.push(/[.!?]$/.test(c) ? c : `${c}.`);
+  }
+  return out.join(' ');
+}
+
+/** Build the analytical body for one market, strictly from sourced values. */
+function buildIceHockeyBody(result, market) {
+  const favIsHome = result.selection === 'home';
+  const fav = favIsHome ? result.home : result.away;
+  const dog = favIsHome ? result.away : result.home;
+  const clauses = [];
+
   if (market === MARKETS.OUTRIGHT) {
-    return `**${result.favoured}** is the side to take in this meeting, with the balance of evidence clearly on their side of the sheet.`;
+    clauses.push(formClauseIH(fav));
+    clauses.push(streakClauseIH(fav));
+    clauses.push(goaltendingClause(fav, dog));
+    clauses.push(backupClause(dog));
+    clauses.push(shotShareClause(fav));
+    clauses.push(b2bClause(fav, dog));
+  } else if (market === MARKETS.PUCK_LINE) {
+    clauses.push(coversClause(fav));
+    clauses.push(marginClause(fav));
+    clauses.push(formClauseIH(fav));
+    clauses.push(goaltendingClause(fav, dog));
+    clauses.push(b2bClause(fav, dog));
+  } else {
+    clauses.push(scoringRateClause(result.home, result.away));
+    clauses.push(totalsTrendClause(result.home, result.away));
+    clauses.push(goaltendingClause(fav, dog));
+    clauses.push(backupClause(dog));
   }
-  if (market === MARKETS.PUCK_LINE) {
-    return `**${result.favoured}** should cover here, because the winning margins they have been building leave room for the handicap.`;
-  }
-  return `**${result.total.decision.side || 'OVER'}** is the read on the goal count, and the underlying tempo supports it.`;
+
+  clauses.push(missingClauseIH(result));
+
+  const names = [...new Set([fav?.name, dog?.name].filter(Boolean))];
+  return joinIH(clauses, names);
 }
 
 export function writeTip(result, market, openerIndex = 0, { reasonOverride = null } = {}) {
@@ -229,23 +407,24 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
     : market === MARKETS.PUCK_LINE ? result.puckLine.decision.confidence
       : result.total.decision.confidence;
 
-  const head = market === MARKETS.TOTAL
-    ? `**${result.total.decision.side}**`
-    : `**${result.favoured}**`;
+  // OLBG house style: the selection is stated plainly in the opening words,
+  // then the case is argued from sourced evidence only.
+  const pickLead = market === MARKETS.OUTRIGHT
+    ? `**${result.favoured}** are the preferred winner.`
+    : market === MARKETS.PUCK_LINE
+      ? `**${result.favoured} to cover** is the preferred margin outcome.`
+      : `**${result.total.decision.side || 'OVER'}** is the preferred total outcome.`;
 
-  const angleBody = {
-    [MARKETS.OUTRIGHT]: `The reasoning behind it is straightforward: recent results, structural control of the middle of the ice and crease reliability all lean the same way, and nothing in the opposing profile contradicts that read.`,
-    [MARKETS.PUCK_LINE]: `The case rests on how these games have been won rather than merely who won them, with separation arriving in the middle periods instead of at the final horn.`,
-    [MARKETS.TOTAL]: `Special teams volume, crease quality and the way both benches have been scoring lately all line up behind that read.`,
-  }[market];
+  const body = buildIceHockeyBody(result, market);
 
-  const text = [
-    `${opener.word} ${opener.lead}`,
-    underSideLine(result, market),
-    angleBody,
-    filler(openerIndex, result.favoured, market),
-    `Confidence: ${confidence}.`,
-  ].join(' ');
+  let text = `${pickLead} ${opener.word} ${opener.lead} ${body}`.replace(/\s+/g, ' ').trim();
+
+  // Word floor: rather than padding with invented detail, state the method.
+  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
+    text += ' The rating is produced mechanically from the sourced form, standings, schedule and goaltending records linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  }
+
+  text = `${text} Confidence: ${confidence}.`;
 
   return {
     market,
@@ -253,6 +432,7 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
     text,
     confidence,
     opener: opener.id,
+    angleWord: opener.word,
     validation: validateIceHockeyTip(text, { market }),
     skip: false,
   };

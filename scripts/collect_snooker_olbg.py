@@ -24,6 +24,7 @@ from datetime import datetime, timezone
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 from scripts.lib.snooker_olbg_parse import parse_index, parse_event_page_markets, INDEX_URL  # noqa: E402
+from scripts.lib.olbg_page_health import diagnose  # noqa: E402
 
 OUT_PATH = os.path.join(
     os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
@@ -64,6 +65,12 @@ def build_snapshot(html: str, fetched_at: datetime, enrich: bool = False) -> dic
             except Exception as err:  # noqa: BLE001 - collector must survive
                 warnings.append(f"{ev['event_id']}: event page enrichment failed: {err}")
                 ev["markets_verified"] = False
+    # A parse that finds no rows is ambiguous by itself: a bot-block, a cookie
+    # wall and a genuine off-season all yield zero events. diagnose() reads the
+    # delivered bytes and records which it was, so an empty document is never
+    # mistaken for a verified-empty schedule.
+    _health = diagnose(html, event_count=len(events), sport="Snooker")
+
     return {
         "schema_version": 1,
         "sport": "Snooker",
@@ -81,7 +88,8 @@ def build_snapshot(html: str, fetched_at: datetime, enrich: bool = False) -> dic
             "OLBG does not expose structured odds in server-rendered HTML, so no price fields exist (IR-SNOOKER-01).",
             "Tournament, round, venue and date are joined from the official WST/snooker.org records in the page/engine layer, never from OLBG alone.",
         ],
-        "collection_warnings": warnings,
+        "collection_warnings": warnings + _health["warnings"],
+        "page_health": _health,
         "events": events,
     }
 

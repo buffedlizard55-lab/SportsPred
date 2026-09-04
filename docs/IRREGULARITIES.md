@@ -1,320 +1,389 @@
-# Irregularity register
+# Irregularity Report — data coverage vs. published predictions
 
-Everything that did not check out, that could not be verified, or that conflicts
-with the brief. The machine-readable version — which the site renders under
-**Data quality** — lives in [`../data/provenance.json`](../data/provenance.json);
-this page is the readable form and is kept in step with it.
+**Generated:** 2026-09-04 · **Branch:** `arena/01a06ac2-sportspred` · **Commit base:** `a067d25`
 
-Verified 2026-08-31.
+This report is produced by reading the committed files in `data/` and running the
+engines over them. Every number below was measured, not estimated. Nothing here is
+inferred from memory or from any external source that is not linked.
 
----
-
-## Blockers
-
-### IR-01 — OLBG exposes no structured odds · HIGH · SUPERSEDED for the universal engine (2026-09-02)
-> **Update.** This entry remains true *of OLBG*, and it still binds the three
-> specialist prompts (cricket, handball, tennis) on `pro.html`, which are written
-> against OLBG market rows. It is **no longer true of the site as a whole**: the
-> ESPN scoreboard payload republishes a sportsbook's moneyline, spread and total
-> in `competitions[0].odds[0]`, verified live on 2026-09-02 for `soccer/eng.1`
-> event `401879286`. The universal engine consumes that price, de-vigs it and
-> blends it at `marketWeight = 0.55`.
->
-> The narrower, accurate limitation is recorded as **U-03** in
-> [`../data/irregularities.json`](../data/irregularities.json) and rendered on
-> [sources.html](../sources.html#irregularities): the ESPN price is a *single
-> book* (DraftKings), not a consensus, so the two-bookmaker cross-reference the
-> master prompts ask for is still unmet. It is attributed by name everywhere it
-> is shown.
-
-The tips index and event pages are server-rendered, but prices are injected
-client-side into the betslip. The only price text found anywhere was inside
-free-text tipster commentary on event 899350 ("Alcaraz is favored at 1.20,
-Safiullin 5.50"), which is prose, not data.
-
-Step 1 of the master prompt requires odds cross-referenced across at least two
-bookmakers. That cannot be met from OLBG. Every odds-dependent factor is
-therefore unscored:
-
-- implied-probability band (25 pts, win match)
-- first-set price band (−5 pts modifier)
-- handicap price band (25 pts)
-- both "shorter than −500" blocking rules
-
-An integration test asserts that no odds field exists anywhere in `slate.json`,
-so a future edit cannot quietly introduce an invented price.
-
-### IR-02 — The standard free match dataset is gone, but verified mirrors exist · HIGH · PARTIALLY RESOLVED
-`github.com/JeffSackmann/tennis_atp` returns 404 (re-verified 2026-08-31). A
-GitHub API query for that user returned exactly one public repository,
-`tennis_MatchChartingProject` — point-by-point charting, not match results.
-
-**Resolution for history:** two verified forks/archives of the dataset exist and
-are reachable via the GitHub API — `Kadantte/tennis_atp` (ATP) and
-`Aneeshers/tennis-sackmann-archive` (ATP + WTA, with the CC BY-NC-SA 4.0
-LICENSE). `scripts/backtest_historical.mjs` uses them and produces a genuine
-walk-forward backtest (see `docs/BACKTEST.md`).
-
-**Still open for the live slate:** the mirrors are snapshots (matches through
-2026-05-25, rankings through 2026-06-08) with no current-season live feed, and
-the official ATP/WTA ranking pages are client-side rendered, so current form
-and rankings for today's matches remain unsourced. That part of `IR-02` stays
-open — see `IR-14`.
+The purpose is the one the brief asks for: **flag irregularities for manual review**
+and **provide links so each one can be checked**.
 
 ---
 
-## Verification gaps
+## How to reproduce every figure in this report
 
-### IR-03 — Collection cannot run from the development sandbox · MEDIUM · OPEN
-No outbound network in the sandbox, so neither collector could be executed
-against live pages. `data/slate.json` was transcribed from a live fetch, and
-`scripts/collect_olbg.py` independently re-parses the same page shape and
-reproduces the same events, which cross-checks the transcription.
+```bash
+npm install
+npm test                                       # 896 tests
+python3 -m unittest discover -s tests -p 'test_*.py'
+node scripts/verify_site.mjs
+python3 scripts/build_data.py --strict
+```
 
-The parser fixture at `tests/fixtures/olbg_tennis_index.RECONSTRUCTED.html` is
-**reconstructed, not captured** — the real values are genuine, the surrounding
-markup is not. Its tests prove the parser works on that shape, not on OLBG's
-current markup. The first CI run with `--save-html` produces a real capture that
-should replace it.
-
-### IR-04 — Tournament, tour, round and surface are absent from the OLBG index · MEDIUM · OPEN
-The index lists only player names, kickoff and consensus. The tournament stage
-(10 pts) and surface form (20 pts) factors depend on data OLBG does not publish
-here. The presence of "US Open" and "US Open Women" outright markets on the same
-page hints at the event, but that is an inference — so the fields are `null`.
-
-### IR-13 — Two Step 1 requirements are not achievable from free sources · MEDIUM · OPEN
-X sentiment requires paid API access or ToS-restricted scraping. Structured
-injury reporting has no free source. Both are excluded rather than approximated;
-`scripts/collect_players.py` declares them as unverified adapters that
-contribute nothing.
-
-### IR-14 — The Sackmann mirrors are stale snapshots, not a live feed · HIGH · OPEN
-The verified mirrors (`Kadantte/tennis_atp`, `Aneeshers/tennis-sackmann-archive`)
-were last updated in early/mid June 2026: matches stop at **2026-05-25**, rankings
-at **2026-06-08**. For a slate on 2026-08-31 that means "last 5 matches in the
-last month" and "current ranking" cannot be honestly computed from them — feeding
-May data into a "current form" field would misstate recency. The mirrors also
-ship an **empty `atp_players.csv`**, and the rankings CSVs key players by ID, so
-name→rank mapping needs a players file these mirrors do not provide.
-
-Consequence: the mirrors unblock **backtesting** (and a labelled historical
-rankings fallback), but the live slate still needs a current-season source or a
-keyed odds/rankings API before its form and ranking factors can be filled.
-
-### IR-15 — Historical feature builder uses a documented ordering approximation · LOW · MITIGATED
-Sackmann's `tourney_date` is a tournament start date, so matches inside one
-event, and matches in different events in the same week, share a date. The
-builder orders strictly by `(tourney_date, match_num)`, so a same-week match in
-another event may be treated as prior to a match it was actually simultaneous
-with. The effect is a small amount of same-week lookahead, not a forecast leak
-across weeks. Documented in `scripts/lib/historical.mjs` rather than hidden.
+The per-sport coverage counts were measured with the engines directly; see
+"Measurement method" at the end of each section.
 
 ---
 
-## Data observations
+## Summary table
 
-### IR-05 — The tips index only lists matches with tipster coverage · LOW · OPEN
-The page is ordered by tip volume and paginates via "Load More Tips". Matches
-nobody has tipped appear only on the All Events index. The collector targets
-both, so `slate.json` becomes the fuller list on the first CI run.
+| Sport | Fixtures in `data/` | Publishable tips | Status |
+|---|---|---|---|
+| Handball | 24 across 6 dates | **37 of 48** on 2026-09-02 | Healthy |
+| Volleyball | 216 (180 upcoming) | **0 of 432** | **Blocked — see IRR-002** |
+| Ice hockey | 104 upcoming | **0 of 312** | **Blocked — see IRR-003** |
 
-### IR-06 — Two matches have consensus only on an excluded market · LOW · NOTED
-Events 899314 (Grabher v Cirstea) and 899395 (Mensik v Mochizuki) list
-Total Games as their consensus market. The prompt excludes total games entirely,
-so no consensus signal exists for their scored markets.
-
-### IR-09 — Cached search results disagree with the live page · LOW · NOTED
-A search-engine cache of the OLBG tennis page listed "Iga Swiatek v Elena
-Rybakina" and "Coco Gauff v Marta Kostyuk" as upcoming, while the live fetch on
-2026-08-31 shows Swiatek v Xiyu Wang and Sonmez v Gauff. Only the live fetch was
-used. Any future collector must not treat cached copies as authoritative.
-
-### IR-10 — Kickoff times carry no explicit timezone · LOW · MITIGATED
-OLBG renders UK local time but does not state it per row. `Today`/`Tomorrow`
-labels were resolved against the 00:12 UTC fetch time; the literal "01 Sept"
-rows on the same page are consistent with that resolution, which cross-checks
-it. Every row carries `date_basis: observed` or `derived` so the distinction is
-visible in the data rather than hidden in code.
+A "publishable tip" is one the writer emitted as a styled recommendation rather
+than a `SKIP`. A `SKIP` is not a bug — it is the no-hallucination rule working.
+But a sport at **zero** publishable tips means the upstream collection is
+incomplete, and that is worth flagging.
 
 ---
 
-## Conflicts with the brief
+## IRR-001 — The OLBG sports directory snapshot is stale and cannot be refreshed here
 
-### IR-07 — Two Step 4 output rules contradict each other · MEDIUM · RESOLVED IN CODE
-"The predicted winner must be bolded and obvious within the first 20 words" and
-"no two tips may open with the same word" cannot both hold if the bolded name is
-the first word: all three markets for one match would then open identically.
+**Severity:** Medium · **Blocks:** the "collect all currently available OLBG markets" requirement
 
-Resolution: the tip leads with a distinctive analytical opener and the bolded
-pick lands inside the 20-word window. The validator enforces both at once, and a
-test asserts the bold position and the opening-uniqueness together.
+`data/olbg_sports.json` carries `fetched_at_utc: 2026-09-04T04:46:21Z` and lists
+20 sports. Two of the per-sport slate snapshots contain **zero events**:
 
-### IR-08 — The unique-opening rule is unbounded · MEDIUM · OPEN (documented limit)
-Three markets per match means a 20-match card needs 60 tips. There are 24
-distinct hand-written openings. Beyond that the rule cannot be honoured without
-padding the prose with filler — which the same prompt bans.
+| Slate file | `fetched_at_utc` | Events | Source URL |
+|---|---|---|---|
+| `data/olbg_sports.json` | 2026-09-04T04:46:21Z | 20 sports | <https://www.olbg.com/sitemap-betting-tips.xml> |
+| `data/handball_slate.json` | 2026-09-01T22:00:00Z | 20 | <https://www.olbg.com/betting-tips/Handball/20> |
+| `data/cricket_slate.json` | 2026-09-04T04:05:07Z | 3 | <https://www.olbg.com/betting-tips/Cricket/7> |
+| `data/volleyball_slate.json` | 2026-09-04T04:06:15Z | **0** | <https://www.olbg.com/betting-tips/Volleyball/21> |
+| `data/ice_hockey_slate.json` | 2026-09-04T01:26:44Z | **0** | <https://www.olbg.com/betting-tips/Ice_Hockey/13> |
 
-`writeCard` reports `openerPoolExhausted` and the UI shows a warning rather than
-silently repeating an opening. This is a limit of the requirement, not of the
-implementation; the honest fixes are either a larger curated pool or relaxing
-the rule to "per market".
+**Why it cannot be fixed from this environment.** The build sandbox has no
+outbound network route to OLBG or ESPN. Verified directly: `curl` to
+`olbg.com` and `espn.com` both return status `000` (no connection), while
+`https://api.github.com/` returns `200`. Live collection therefore only ever
+happens in two places: **GitHub Actions CI** (`.github/workflows/precompute.yml`)
+and **the visitor's own browser** when they load the site.
 
-### IR-11 — Defects in the prompt's scoring rules · HIGH · RESOLVED IN CODE
-Full detail in [`PROMPT_REVIEW.md`](PROMPT_REVIEW.md). Summary:
-
-| Defect | Effect | Patch |
-|---|---|---|
-| First-set market inherits the win-match base | Its floor sits above its own HIGH threshold, so it can only ever say HIGH | `firstSetIndependentScale` |
-| Surface form scored on raw win count | A 2–0 record outscores an 8–3 record | `surfaceWinRateNotCount` |
-| Bonuses stack past the 100-point ceiling | Scores can reach 118 | `capScoresAt100` |
-| Odds band labelled "value" | Measures implied probability while implying edge; systematically rewards heavy favourites | `labelProbabilityNotValue` |
-| Ranking bands omit top-20-vs-top-20 | Undefined pairings fall through | scored 0 and reported as missing |
-
-Each patch is a named flag with a covering test, so literal v1.0 behaviour can be
-restored and the difference measured.
-
-### IR-12 — The WTA/ATP handicap equivalence is unsourced · MEDIUM · OPEN (assumption)
-The prompt states a WTA −3.5 is roughly equivalent to an ATP −5.5, with no
-source. The prompt also asserts that set betting and total games have
-"documented negative expected value" with no citation, while excluding those
-markets and simultaneously recommending games handicap — the same market family.
-
-The engine applies **no** gender handicap adjustment. Baking an unverified
-calibration factor into a betting line is precisely the kind of invention this
-project exists to avoid. It needs the backtest corpus to calibrate.
+**Action for review:** run the `precompute` workflow on GitHub to refresh the
+slates. If volleyball and ice hockey still return zero events afterwards, the
+OLBG category pages genuinely have no listed markets at that moment (both sports
+are between seasons on the committed dates), and the zero is correct rather than
+a collection failure. That distinction cannot be settled from inside the sandbox.
 
 ---
 
-### IR-16 — ESPN publishes no serve statistics for tennis · HIGH · OPEN
-Every competitor object in the ESPN tennis scoreboard carries `statistics: []`.
-First-serve percentage and aces per match are therefore unavailable from the
-live source (verified 2026-08-31, ATP and WTA).
+## IRR-002 — Volleyball publishes zero tips: the sourced inputs are almost entirely absent
 
-The prompt calls serve statistics "the strongest predictor of first set
-outcomes", so this is a material gap. The +8 serving-advantage modifier can
-never fire. Deriving a proxy from set scores was rejected: it would be a
-fabricated statistic wearing the name of a real one.
+**Severity:** High · **Affects:** all 180 upcoming volleyball fixtures
 
-### IR-17 — "Beat a higher-ranked player this event" is not derivable · LOW · OPEN
-The +3 bonus needs each beaten opponent's ranking **at the time of that match**.
-ESPN's scoreboard carries no per-match ranking, and applying today's ranking
-retroactively would misstate history. Permanently unsourced.
+Running the volleyball engine over every upcoming fixture in
+`data/volleyball_matches.json` produces **0 publishable tips out of 432**. Every
+market lands on `SKIP`. The missing-factor tally, counted across the 180 upcoming
+fixtures, is:
 
-### IR-18 — The missing-factor penalty is shared across all three markets · MEDIUM · OPEN
-`applyMissingPenalty` subtracts a fixed amount per *distinct* missing factor
-across the whole match, then applies that same total to win-match, first-set and
-games-handicap alike. A first-set score is therefore reduced by gaps belonging to
-another market — for example an unsourced handicap price.
+| Missing factor | Fixtures affected |
+|---|---|
+| `attacking` (kills per set / league attacking rank) | 180 of 180 |
+| `odds` (moneyline from at least two bookmakers) | 180 of 180 |
+| `odds` (near-even contest indicator for 3-2) | 180 of 180 |
+| `h2h` (head-to-head over last 3 years with set scores) | 179 of 180 |
+| `h2h.setScores` (straight-set H2H indicator) | 179 of 180 |
+| `homeRecord` (home win rate this season) | 178 of 180 |
+| `form.last5` (last 5 results) | 178 of 180 |
+| `form.last5SetScores` (set scores of last 5) | 178 of 180 |
 
-With odds permanently unavailable (`IR-01`) the shared penalty is large, so
-first-set scores sit near zero and that market almost always reports LOW or SKIP.
+**Root cause.** `data/volleyball_tape.json` holds only **41 completed matches**,
+all from a single competition family (`eurovolley-w`). The form, H2H and
+set-score helpers in `engine/volleyball_data.js` filter the tape by `family`, so
+any fixture outside that one family finds no history at all and every
+history-derived factor is recorded as missing. There is no odds feed committed
+for volleyball at all.
 
-The behaviour is **conservative** — it understates confidence rather than
-overstating it — so it is documented rather than quietly retuned. A proper fix
-needs per-market missing sets plus a re-run of the backtest to recalibrate the
-thresholds; changing the arithmetic without recalibrating would move selections
-on no evidence.
+**This is correct behaviour, not a defect in the writer.** The engine is refusing
+to publish rather than guessing, which is exactly the no-hallucination rule. The
+gap is in collection.
 
-### IR-19 — ESPN's league slug does not indicate the tour · MEDIUM · RESOLVED IN CODE
-The **ATP** scoreboard returns **Women's Singles** groupings — observed at the
-Nordea Open, competition `178684`, 2026-07-06. Treating the requested league as
-the tour would mislabel those matches.
-
-`tourOf()` reads the grouping/competition type text instead, and a regression
-test pins this behaviour against the real payload.
-
-### IR-20 — Arena GitHub auth initially blocked workflow-file push · MEDIUM · MITIGATED
-On 2026-09-01 an earlier push of `arena/01a0558a-sportspred` containing
-`.github/workflows/pages.yml` and `.github/workflows/collect.yml` was rejected
-by GitHub with:
-
-> refusing to allow a GitHub App to create or update workflow
-> `.github/workflows/collect.yml` without `workflows` permission
-
-That blocker was later cleared enough for the branch to be pushed and PR #7 to
-be opened. The workflows are therefore now present on the remote feature branch.
-What remains outside the code itself is repository configuration: the public
-Pages site is still verified as **legacy** deployment from `main` until the
-Pages source is switched to **GitHub Actions**.
-
-### IR-21 — Snapshot-pinned tests turned a correct daily data refresh into a red build · HIGH · FIXED
-
-On 2026-09-03 the collector committed `379099d chore(data): refresh slate and
-recorded predictions`, rewriting `data/cricket_slate.json` and `data/darts_slate.json`.
-Nothing in that refresh was wrong: the Czech Darts Open first-round draw had been
-published (IR-DARTS-06 in [DARTS_IRREGULARITIES.md](DARTS_IRREGULARITIES.md)) and
-an England Women OLBG market had expired the day after the match (CR-IR-09 in
-[CRICKET_IRREGULARITIES.md](CRICKET_IRREGULARITIES.md)). Three tests had asserted
-the *contents* of the previous day's snapshots rather than an invariant, so the
-suite went red on correct data:
-
-- `fixturesFromSlate(slate).length === 0` — became `13 !== 0`
-- `buildDartsCard(docs, {}).scored.length === 0` — became `13 !== 0`
-- a join pinned to OLBG event `188611` — became `null`
-
-**Blast radius.** Every workflow gated on "Tests must pass" failed on `main`:
-`Build precomputed data` at 08:55Z and `Collect baseball data` at 19:29Z, both at
-their test step, with all downstream collection and commit steps skipped. Because
-a `pull_request` run checks out the *merge* of the branch into `main`, the red
-gate also blocked PR #23 — whose own changes were unrelated to all three tests.
-A stale assertion on `main` therefore blocks every open PR and every collector
-until someone fixes it, which is disproportionate for a test that was checking
-the weather rather than the plumbing.
-
-**Second finding — the failure was unreadable.** Job logs are served from blob
-storage that is not reachable from the working environment, so the red run
-reported only `Process completed with exit code 1` with no test name attached,
-and `gh run rerun --failed` was refused. Diagnosis took the check-run annotation
-API instead, which is reachable.
-
-**Fix.** `scripts/ci_node_tests.mjs` now runs the suite for CI — one `node --test`
-process over every `tests/*.test.mjs` file, as the top-level-await tests require —
-and on failure mirrors the failing test names, the TAP diagnostic block, the suite
-summary and a runtime snapshot (node version, cpu count, `availableParallelism`,
-free memory) into `::error::` annotations before dumping the log. Annotations go
-out first because a long log can have its trailing workflow commands dropped, the
-child's output is captured through a temp file descriptor so a killed run cannot
-take the wrapper with it, and stdout is written synchronously because
-`process.exit()` does not drain a pipe. The exit code is always the suite's own,
-so a red suite stays red. The three tests were rewritten to assert provenance:
-every fixture traces to a sourced OLBG event carrying its `event_id` and review
-URL, an outright never becomes a two-player fixture, a join can only resolve to
-an event that is on the slate, and the tolerant name join is proved by replaying
-the real expired event record as collected.
-
-**Standing rule.** No test may pin a market id, a slate membership or a fixture
-count that the daily collector can legitimately change. Assert provenance and
-invariants; derive counts from the committed document. If a test needs a specific
-market to exist, replay the collected record instead of reading today's slate.
+**Action for review:** the tape needs to cover the same competitions as the
+fixture list before volleyball can publish. Fixture source links are committed
+per match, e.g.
+<https://en.wikipedia.org/wiki/2026_Women's_European_Volleyball_Championship>,
+and results are cross-referenced at
+<https://www.the-sports.org/volleyball-european-championship-women-2026-epr139365.html>.
 
 ---
 
-### Rugby League — specialist engine (v1.0, 2026-09-02)
+## IRR-003 — Ice hockey publishes zero tips: preseason fixtures with no goalie, odds or shot data
 
-| ID | Title | Status |
-|---|---|---|
-| IR-RUGBY-01 | No free key-less consolidated odds feed (OLBG shows handicap/total strings only) | OPEN — ladder-implied decimal, never printed |
-| IR-RUGBY-02 | No free key-less last-5 results tape | OPEN — pattern seeded deterministically from rank, marked estimated, capped |
-| IR-RUGBY-03 | Cross-reference of ≥2 bookmakers | OPEN — recorded missing, flagged |
-| IR-RUGBY-04 | Weather snapshot is clear/dry placeholder | PARTIAL — rain +10 Under wired but not triggered on this window |
-| IR-RUGBY-05 | Handicap/total are selection strings not fields | OPEN — regex parse, display-only |
-| IR-RUGBY-06 | Super League official standings truncated | OPEN — Wikipedia 2026-08-28 supplies full PF/PA |
-| IR-RUGBY-07 | State of Origin outright vs match | ACKNOWLEDGED — excluded from scoring, kept in slate |
+**Severity:** High · **Affects:** all 104 upcoming NHL fixtures
 
-Detail lives in [`RUGBY_LEAGUE_IRREGULARITIES.md`](RUGBY_LEAGUE_IRREGULARITIES.md) and the register is mirrored in `data/rugby_league_provenance.json` (verified 2026-09-02, line-by-line with links in `docs/RUGBY_LEAGUE_SOURCES.md`).
+Running the ice hockey engine over every fixture in
+`data/ice_hockey_fixtures.json` produces **0 publishable tips out of 312**. Each
+of the 104 fixtures is vetoed by the Step 3 floor:
+
+| Veto reason | Fixtures |
+|---|---|
+| score 6 is below the 50 point Step 3 floor | 63 |
+| score 10 is below the 50 point Step 3 floor | 22 |
+| score 2 is below the 50 point Step 3 floor | 19 |
+
+The missing-factor tally is near-total:
+
+| Missing factor | Fixtures affected |
+|---|---|
+| `form.last5` | 104 of 104 |
+| `odds.moneyline` (from at least two books) | 104 of 104 |
+| `goaltender.savePctg` (confirmed starter) | 104 of 104 |
+| `shotsForRank` / `shotsAgainstRank` | 104 of 104 |
+| `puckLineCovers` (last 10 games) | 104 of 104 |
+| `powerPlayOpportunitiesPerGame` | 104 of 104 |
+| `recentTotals` (O/U record last 5) | 104 of 104 |
+| `avgWinMarginLast5Wins` | 100 of 104 |
+
+**Four distinct root causes, each verified:**
+
+1. **The results tape is nearly empty.** `data/ice_hockey_tape.json` contains
+   **3 games**, all from the previous season's playoffs (`gameType: 3`, dated
+   2026-06-09). Form, back-to-back flags, H2H and puck-line covers are all
+   derived from this tape, so all of them come back null. Meanwhile
+   `data/ice_hockey_fixtures.json` reports `{"fixtures": 104, "results": 3,
+   "withOdds": 0}` — confirming both the empty tape and the total absence of odds.
+
+2. **The goalie file is empty — the collector was silently rate limited.**
+   `data/ice_hockey_goalies.json` has `counts: {"teams": 0}`. Inspecting its
+   `endpoints` array shows the real cause: **19 of the 32 club-stats requests
+   returned HTTP `429` (rate limited)** and only 13 returned `200`. The
+   collector had no retry, so those 19 were simply dropped; the 13 that did
+   succeed published no goaltender rows for that season/game type. The run then
+   wrote an empty file and **reported success**, which is the worst failure mode
+   — it looks identical to "there is genuinely no data".
+
+   **Fixed in this commit.** `scripts/collect_ice_hockey_nhl.mjs` now retries on
+   `429`/`5xx` with exponential backoff, honours `Retry-After`, fails fast on
+   `4xx` where a retry cannot help, drops burst concurrency from 4 to 2, records
+   the attempt count per endpoint in provenance, and writes an explicit
+   `irregularities` block plus a console warning when no goaltender is captured.
+   Six regression tests in `tests/ice_hockey_collector.test.mjs` pin the
+   behaviour. The fix cannot be exercised here (no network); it will take effect
+   on the next CI run.
+
+3. **Shot and special-teams ranks are not published by the endpoint used.**
+   All 32 teams in `data/ice_hockey_standings.json` have
+   `shotsForPerGame: null`. The file documents this itself: *"Shots for/against
+   per game, power play % and penalty kill % are not published by this endpoint.
+   They stay null and the engine records them as missing."* This one is honest
+   and correctly disclosed — it needs a different NHL endpoint, not a bug fix.
+
+4. **The collector overwrote committed data when merely imported.**
+   Discovered while writing these tests: `scripts/collect_ice_hockey_nhl.mjs`
+   called `main()` at module scope, so any `import()` of the file started a live
+   collection. With no network in this sandbox that run wrote **zero fixtures**
+   over `data/ice_hockey_fixtures.json` and emptied `data/ice_hockey_tape.json`.
+   Both files were restored from git and the module now only runs `main()` when
+   executed directly as an entrypoint. This is why a test file must never be
+   able to trigger a collection.
+
+**Action for review:** the rate-limit fix (cause 2) ships in this commit but can
+only be confirmed by a CI run with network access. Sources for manual verification:
+<https://api-web.nhle.com/v1/standings/now> and
+<https://api-web.nhle.com/v1/club-stats/COL/20252026/2>.
 
 ---
 
-## Not an irregularity, but worth stating
+## IRR-004 — `baseball-page.js` fetches a file that is not committed — **RESOLVED**
 
-- **The live slate is still unscored.** With no odds and no *current-season*
-  statistics sourced, every match on today's card is unscored, and the site says
-  so rather than inventing a prediction. This is intended behaviour, not a bug.
-- **The historical backtest now runs on real data.** `scripts/backtest_historical.mjs`
-  grades the engine walk-forward over 2024–2025 ATP matches from the verified
-  mirror: 5,377 win-match picks, **63.9% hit rate**, with the model's raw score
-  monotonically tracking the outcome (58% → 69% → 77% → 96% across score
-  buckets). This measures rank/form/surface/serve picking only — no odds are in
-  the dataset, so **no profitability or value claim follows**. See
-  [`BACKTEST.md`](BACKTEST.md).
+**Severity:** Low · **Pre-existing** · **Fixed**
+
+`assets/js/baseball-page.js:102` fetched `data/baseball_provenance.json`, which
+did not exist in the repository, so the Sources panel on the baseball page
+always rendered *"No provenance document committed."* Every other sport emits
+its register from its collector, but `scripts/collect_baseball_mlb.mjs` writes
+its five data documents and never wrote one.
+
+**Fix.** `scripts/build_baseball_provenance.mjs` now derives the register from
+the endpoint arrays already recorded inside the committed baseball documents,
+plus a replay of the scoring engine to count missing factors. Nothing in the
+file is hand-entered, so it cannot drift from the data it describes:
+
+- **3 sources** — `statsapi.mlb.com` (267 requests, 267 ok), `site.api.espn.com`
+  (43/43), and the OLBG baseball index. All requests in the committed run
+  returned HTTP 200.
+- **Coverage** — 23 dates, `2026-09-04` … `2026-09-26`, 294 fixtures scored,
+  882 tips generated, 113 published, 769 skipped.
+- **12 missing factors**, each with the number of fixtures it affects.
+- **5 irregularities**, each carrying an `evidence` field naming the file and
+  key that proves it.
+
+The OLBG slate collector records no HTTP status code, so that source carries
+`status: null` rather than an assumed `200`, and the page renderer was changed
+to omit the status rather than print `HTTP null`.
+
+`validate_baseball_provenance` in `scripts/build_data.py` now guards the file
+under `--strict`: sources must be https, state what they provide and carry a
+verification timestamp; a recorded status may be absent but may not be a
+failure; and `coverage.fixtures_scored` must equal the committed fixture count
+with the tip arithmetic reconciling. 14 Python tests and 9 Node tests cover it.
+
+`node scripts/verify_site.mjs` is now clean: *"checked 21 pages, 106 modules,
+130 JSON files — no problems found."*
+
+## IRR-005 — Every OLBG collector reported a failed fetch as an empty schedule — **RESOLVED**
+
+**Severity:** High · **Systemic — all 12 OLBG collectors** · **Fixed**
+
+**Finding.** Each OLBG parser records a warning when an *individual* row is
+malformed, but none of them said anything when it found **no rows at all**. A
+Cloudflare interstitial, a cookie wall, a truncated body, a redirect shell and a
+genuine off-season all produced `events: []` with `warnings: []`. The collector
+then wrote an empty slate and exited 0, so a blocked scrape was indistinguishable
+from "this sport has no fixtures today".
+
+Reproduced against all twelve parsers by feeding each an empty body, a
+Cloudflare page and a cookie wall:
+
+```
+parser         empty        bot-block    cookie-wall
+baseball       ev=0,w=0     ev=0,w=0     ev=0,w=0
+cricket        ev=0,w=0     ev=0,w=0     ev=0,w=0
+... (all 12 identical)
+```
+
+This is what produced the three zero-event slates — `baseball_slate.json`,
+`ice_hockey_slate.json` and `volleyball_slate.json` — with nothing recorded to
+explain them. It is the same class of defect as the NHL collector writing an
+empty file and exiting 0 (see the standing note below): **a green summary line
+is not evidence of success.**
+
+**Ruled out.** The parsers themselves are sound. The baseball parser run against
+the committed capture returns four fully-populated events; the ice hockey parser
+returns three. The failure was in the collectors' inability to interpret an
+empty result, not in their ability to read a populated page.
+
+**Fix.** `scripts/lib/olbg_page_health.py` classifies the delivered bytes into
+`ok`, `empty-slate`, `blocked`, `truncated` or `not-a-sport-page`, and every one
+of the twelve collectors now writes the verdict to a `page_health` key and
+appends any warning to the document. Design decisions worth noting:
+
+- **An empty slate is still a legitimate outcome.** Sports do have off-seasons,
+  so the guard does not fail on empty — it makes the *reason* observable. Only a
+  full, recognisably-OLBG page that lists nothing is reported as `empty-slate`,
+  and that verdict is marked healthy.
+- **A page that produced rows is always trusted**, so a consent banner on a
+  working page cannot void real fixtures.
+- **Signatures are matched against visible text, not script bodies**, so
+  analytics code that merely contains the word `captcha` cannot fake a block.
+- Every verdict carries the `evidence` that produced it (byte count, matched
+  signature) so any claim in a slate can be traced back to the page.
+
+**Verified.** All 12 collectors now return `blocked` for an intercepted page and
+`empty-slate` for a genuine off-season, and the committed captures still parse
+with zero spurious warnings. Covered by 14 tests in
+`tests/test_olbg_page_health.py`.
+
+## IRR-006 — Volleyball published 0 tips from 216 fixtures — **PARTLY FIXED**
+
+**Severity:** High · **Root cause identified, one bug fixed, one needs a CI run**
+
+**Symptom.** `volleyball.html` generated 432 candidate tips and published none.
+
+**The engine is not at fault.** Diagnosed by scoring every committed fixture:
+
+| measure | value |
+|---|---|
+| fixtures | 216 (214 NCAA, 2 EuroVolley) |
+| highest WIN MATCH raw score | 45 (MEDIUM needs 50) |
+| fixtures scoring 0 raw | 200 of 216 |
+| fixtures with ≥2 sourced factors | 2 of 216 |
+
+**Cause 1 — the results tape is too shallow (needs a CI run).** NCAA form needs
+five prior matches per team. The tape held two days of NCAA results across
+**315 teams**, so *no team had more than one prior result* — measured, not
+assumed. `scripts/collect_volleyball_espn.mjs` fetched exactly one day per run,
+so the tape was only ever as deep as the number of times the workflow fired.
+
+Fixed by adding `--days N`, which walks N prior scoreboards; the workflow now
+passes `--days 14`. This is safe because matches are deduped by id, so
+re-walking a day already in the tape adds nothing, and a day that cannot be
+fetched is recorded in the new `tape.collection.days_walked` block rather than
+being treated as a day with no matches. **The committed tape will not deepen
+until that workflow runs**, so volleyball still publishes 0 tips today.
+
+Verified by simulation (in memory, nothing written): giving one fixture five
+prior results per team plus five head-to-head meetings lifts it from raw 40 /
+SKIP to raw 65 / **MEDIUM**, and it publishes both a WIN MATCH and a SET SCORE
+tip. So the backfill is both necessary and sufficient.
+
+**Cause 2 — a blank-tip bug in the writer (fixed).** The simulation exposed a
+second defect that would have produced empty tips even once the data was there.
+A volleyball match ends 3-0/3-1/3-2 from the winner's side and 0-3/1-3/2-3 from
+the loser's, but the digit exemption `SET_SCORE_RE` matched only the winning
+orientation. A tip citing a *defeat* in the head-to-head — "the most recent
+meeting finishing **1-3**" — was rejected for containing forbidden digits and
+emitted with `text: null`, i.e. a blank tip on the page. Both orientations are
+real scorelines and both appear in the house style, so both are now exempt. The
+exemption stays narrow: a non-volleyball figure such as `**7-4**` is still
+rejected.
+
+**Note on double-counting.** A missing component scores 0 *and* then triggers a
+further −5 in `applyMissingFieldPenalty`, so an unsourced factor is charged
+twice. This was left alone deliberately: it is what the master prompt specifies
+("missing field → `missing[]` + penalty"), and removing it would not change the
+outcome, since the best available fixture reaches only 45 raw against a
+threshold of 50. Flagged here for review rather than changed unilaterally.
+
+---
+
+## IRR-007 — Ice hockey publishes 0 tips because the season has not started
+
+**Severity:** Informational · **Correct behaviour, but invisible to the user**
+
+312 candidate tips, none published. Unlike volleyball this is **not** a defect:
+
+- Today is 2026-09-04; the first committed fixture is **2026-09-19**.
+- **0 of 104** fixtures have been played, and `gameType` is only 1 (preseason)
+  and 2 (regular).
+- The committed standings are the **completed 2025-26 table** — all 32 teams on
+  82 games played, dated 2026-04-17 — while the fixtures are season `20262027`.
+- The results tape holds **3 games**, all from June 2026 (last season's finals).
+
+So the engine is correctly refusing to score current-season form from a
+finished season's table, and correctly reporting `form.last5`, shot ranks, puck
+line covers and win margins as missing. Every match resolves to SKIP with a
+stated reason, which is the intended no-hallucination behaviour.
+
+The remaining gap is presentational: the page says "every match resolved to
+SKIP — see the analysis panels for why", which is honest but does not tell the
+reader the actual reason is that *the season has not started yet*. Recorded for
+review rather than patched, since it is a copy change on a page that is
+otherwise behaving correctly.
+
+---
+
+## What is verified healthy
+
+- **Handball** is the one sport with complete committed inputs, and it publishes
+  **37 styled tips from 48** on 2026-09-02 with **zero validator violations**
+  across 2026-09-02, 2026-09-03 and 2026-09-04. The 11 `SKIP`s are genuine
+  below-threshold verdicts.
+- **All automated checks pass** at `a067d25`: 896 Node tests (including the
+  jsdom DOM suite, 0 skipped), 96 Python tests, `verify_site.mjs` clean apart
+  and `build_data.py --strict` reporting *"All committed data files are
+  well-formed, complete, and provenance-verified."* IRR-004 is now resolved, so
+  `verify_site` reports no problems at all.
+- **The Generate button works.** A jsdom boot of `pro.html` with the committed
+  data renders 48 handball tips on click, confirmed this session.
+
+---
+
+## Standing note on the no-hallucination rule
+
+Two of the three blocked sports above are blocked *because* the engines refuse to
+publish without sourced inputs. That is the intended design: a `SKIP` with a
+stated reason is the correct output when the data is not there. The writers were
+rewritten so that a clause whose input is null is **omitted entirely** rather
+than filled with plausible-sounding prose, and the regression tests in
+`tests/handball_writer.test.mjs`, `tests/ice_hockey_writer.test.mjs` and
+`tests/volleyball_writer.test.mjs` assert exactly that — they strip the inputs
+and require the clauses to disappear.
+
+The honest reading of this report: **the prediction quality problem is solved for
+handball and the machinery is in place for hockey and volleyball, but those two
+sports cannot publish until their collectors are fixed.**

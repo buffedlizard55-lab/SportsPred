@@ -188,8 +188,34 @@ export function validatePrediction(p, { forbiddenNames = [] } = {}) {
   for (const phrase of BANNED_PHRASES) {
     if (lower.includes(phrase)) violations.push(`banned phrase: "${phrase}"`);
   }
+
+  /*
+   * Forbidden-token scan, with player names masked out first.
+   *
+   * The scan is a plain substring test, so a player whose name contains a
+   * banned word was unconditionally rejected: Gerwyn Price tripped the "price"
+   * token. That was unwinnable, because the very next rule *requires* the
+   * winner's name to appear in the paragraph — the writer could neither name
+   * him nor omit him, so every tip for that match published as a violation.
+   *
+   * Masking the competitors' own names before scanning keeps the ban on
+   * betting language ("no verified price", "odds") fully intact while letting a
+   * name that merely looks like one through. Only the names attached to this
+   * match are masked, so the token is still caught anywhere else in the prose.
+   */
+  // The prediction object carries no playerA/playerB fields, so the opponent's
+  // name is recovered by splitting the match title on its "vs" separator.
+  const titleNames = String(p.matchTitle || '').split(/\s+vs\.?\s+/i);
+  const nameFragments = [scoredLean(p), ...titleNames, ...(forbiddenNames || [])]
+    .map((n) => String(n || '').toLowerCase().trim())
+    .filter(Boolean)
+    .sort((a, b) => b.length - a.length);
+  let scannable = lower;
+  for (const fragment of nameFragments) {
+    scannable = scannable.split(fragment).join(' ');
+  }
   for (const token of FORBIDDEN_TOKENS) {
-    if (lower.includes(token)) violations.push(`forbidden token: "${token}"`);
+    if (scannable.includes(token)) violations.push(`forbidden token: "${token}"`);
   }
   if (!lower.includes((scoredLean(p) || '').toLowerCase())) violations.push('winner name missing from paragraph');
   for (const name of forbiddenNames) {

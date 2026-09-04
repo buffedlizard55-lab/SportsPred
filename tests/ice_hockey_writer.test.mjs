@@ -7,7 +7,7 @@ import assert from 'node:assert/strict';
 
 import {
   validateIceHockeyTip, validateOpenerUniqueness, writeTip, writeIceHockeyCard,
-  buildIceHockeyFormattedCardText, BANNED_PHRASES, OPENERS, MIN_WORDS,
+  buildIceHockeyFormattedCardText, BANNED_PHRASES, OPENERS, MIN_WORDS, spellSmall,
 } from '../engine/ice_hockey_writer.js';
 import { scoreIceHockeyCardMixed, MARKETS, CONFIDENCE } from '../engine/ice_hockey_engine.js';
 
@@ -214,4 +214,87 @@ test('opener uniqueness checking catches a repeated opening word', () => {
     { text: 'Goaltending structure decides this one.', market: 'puck_line' },
   ]);
   assert.equal(problems.length, 1);
+});
+
+/* ------------------------------------------------------------------ *
+ * OLBG house style + evidence grounding.
+ *
+ * These lock the prose to sourced values: every numeric phrase in a tip must
+ * trace back to a field on the fixture, and a clause must disappear entirely
+ * when its input is not sourced.
+ * ------------------------------------------------------------------ */
+
+const styleCard = () => scoreIceHockeyCardMixed([{
+  id: 'g1', league: 'nhl', leagueName: 'National Hockey League', dateISO: '2026-10-08',
+  total: { line: 5.5 },
+  home: fullTeam({ goalsAgainstPerGame: 2.7, recentTotals: { games: 5, overs: 4, unders: 1 } }),
+  away: weakTeam({ goaltender: { savePctg: 0.896, isBackup: true, confirmed: true }, goalsAgainstPerGame: 3.4, recentTotals: { games: 5, overs: 3, unders: 2 } }),
+}]);
+
+test('OLBG style: the selection leads the tip in every market', () => {
+  const card = writeIceHockeyCard(styleCard().results, { dateISO: '2026-10-08' });
+  const byMarket = Object.fromEntries(card.tips.map((t) => [t.market, t]));
+  assert.match(byMarket[MARKETS.OUTRIGHT].text, /^\*\*Ottawa Senators\*\* are the preferred winner\./);
+  assert.match(byMarket[MARKETS.PUCK_LINE].text, /^\*\*Ottawa Senators to cover\*\* is the preferred margin outcome\./);
+  assert.match(byMarket[MARKETS.TOTAL].text, /^\*\*(OVER|UNDER)\*\* is the preferred total outcome\./);
+});
+
+test('every factual clause traces to a sourced field on the fixture', () => {
+  const card = writeIceHockeyCard(styleCard().results, { dateISO: '2026-10-08' });
+  const byMarket = Object.fromEntries(card.tips.map((t) => [t.market, t]));
+
+  // form.last5 = W W W W L -> four of five; winStreak 4 -> four straight
+  assert.match(byMarket[MARKETS.OUTRIGHT].text, /won four of their last five/);
+  assert.match(byMarket[MARKETS.OUTRIGHT].text, /run of four straight wins/);
+  // away goaltender.isBackup === true
+  assert.match(byMarket[MARKETS.OUTRIGHT].text, /turning to their backup in goal/);
+  // away.backToBack === true
+  assert.match(byMarket[MARKETS.OUTRIGHT].text, /playing on consecutive nights/);
+  // puckLineCovers { covered: 7, of: 10 }
+  assert.match(byMarket[MARKETS.PUCK_LINE].text, /covered the handicap in seven of their last ten/);
+  // avgWinMarginLast5Wins 2.2 > 1.5
+  assert.match(byMarket[MARKETS.PUCK_LINE].text, /winning by more than a single goal/);
+});
+
+test('a clause vanishes when its input is not sourced, rather than being invented', () => {
+  const thin = scoreIceHockeyCardMixed([{
+    id: 'g2', league: 'nhl', leagueName: 'National Hockey League', dateISO: '2026-10-08',
+    total: { line: 5.5 },
+    home: { name: 'Ottawa Senators', abbrev: 'OTT', odds: { american: -260, decimal: 1.385 } },
+    away: { name: 'Philadelphia Flyers', abbrev: 'PHI', odds: { american: 220, decimal: 3.2 } },
+  }]);
+  for (const tip of writeIceHockeyCard(thin.results, { dateISO: '2026-10-08' }).tips) {
+    if (tip.skip) continue;
+    assert.ok(!/of their last (five|ten)/.test(tip.text), 'form/covers clause must vanish when unsourced');
+    assert.ok(!/backup in goal/.test(tip.text), 'goalie clause must vanish when unsourced');
+    assert.match(tip.text, /could not be sourced for this fixture/, 'unsourced factors must be disclosed');
+  }
+});
+
+test('the digit ban still holds across every generated tip', () => {
+  for (const tip of writeIceHockeyCard(styleCard().results, { dateISO: '2026-10-08' }).tips) {
+    assert.ok(!/\d/.test(tip.text.replace(/\*\*/g, '')), `digit leaked: ${tip.text}`);
+  }
+});
+
+test('spellSmall never emits a digit and refuses values it cannot spell', () => {
+  for (let i = 0; i <= 10; i += 1) assert.ok(!/\d/.test(spellSmall(i)), `spellSmall(${i}) leaked a digit`);
+  assert.equal(spellSmall(11), null);
+  assert.equal(spellSmall(-1), null);
+  assert.equal(spellSmall(2.5), null);
+});
+
+test('a team name is not repeated more than twice: later mentions become pronouns', () => {
+  for (const tip of writeIceHockeyCard(styleCard().results, { dateISO: '2026-10-08' }).tips) {
+    const hits = (tip.text.match(/Ottawa Senators/g) || []).length;
+    assert.ok(hits <= 2, `team name repeated ${hits} times: ${tip.text}`);
+  }
+});
+
+test('pronoun substitution uses the correct case, never "for they"', () => {
+  for (const tip of writeIceHockeyCard(styleCard().results, { dateISO: '2026-10-08' }).tips) {
+    assert.ok(!/\b(for|to|against|over|with|of|from|than)\s+they\b/i.test(tip.text),
+      `object-case pronoun error: ${tip.text}`);
+    assert.ok(!/\bthey's\b/i.test(tip.text), `possessive pronoun error: ${tip.text}`);
+  }
 });

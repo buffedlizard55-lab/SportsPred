@@ -29,6 +29,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib.f1_olbg_parse import (  # noqa: E402
     parse_index, parse_event_page_markets, parse_track_history,
 )
+from lib.olbg_page_health import diagnose  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = os.path.join(ROOT, 'data', 'f1_slate.json')
@@ -58,6 +59,7 @@ def collect(from_files=None, save_html_dir=None):
     matches: dict[str, dict] = {}
     outrights: dict[str, dict] = {}
     failures = []
+    page_health = []
 
     sources = from_files or INDEX_URLS
     for src in sources:
@@ -82,6 +84,12 @@ def collect(from_files=None, save_html_dir=None):
             continue
 
         m, o = parse_index(html)
+        # Zero rows from a successful fetch is ambiguous: a bot-block, a
+        # cookie wall and a real off-season all parse to nothing. Record
+        # which the delivered bytes actually show.
+        _h = diagnose(html, event_count=len(m) + len(o), sport="Formula 1")
+        page_health.append({"url": src, **_h})
+        failures.extend(f"{src}: {w}" for w in _h["warnings"])
         print(f'  {label}: {len(m)} markets rows, {len(o)} outright rows')
         for row in m:
             matches.setdefault(row['event_id'], row)
@@ -95,14 +103,14 @@ def collect(from_files=None, save_html_dir=None):
         if not matches and not outrights:
             print('\nAborting: nothing could be fetched. Refusing to overwrite '
                   'the existing snapshot with an empty one.', file=sys.stderr)
-            return None, now, failures
+            return None, now, failures, page_health
 
     for row in list(matches.values()) + list(outrights.values()):
         iso, basis = resolve_date_import(row.get('display_date'), now)
         row['resolved_date'] = iso
         row['date_basis'] = basis
 
-    return {'matches': list(matches.values()), 'outrights': list(outrights.values())}, now, failures
+    return {'matches': list(matches.values()), 'outrights': list(outrights.values())}, now, failures, page_health
 
 
 def resolve_date_import(display_date, now):
@@ -139,7 +147,7 @@ def enrich_event_pages(rows, limit=None, save_html_dir=None):
     return rows
 
 
-def build_payload(data, now, failures):
+def build_payload(data, now, failures, page_health=None):
     return {
         'schema_version': 1,
         'sport': 'Formula 1',
@@ -158,6 +166,7 @@ def build_payload(data, now, failures):
             'Track history (past winners / fastest laps) is factual content published on OLBG event pages; it is cross-checked where ESPN publishes the same fact (2025 Monza fastest lap).',
         ],
         'collection_warnings': failures,
+        'page_health': page_health or [],
         'events': data['matches'],
         'outrights': data['outrights'],
     }
@@ -173,7 +182,7 @@ def main():
     args = ap.parse_args()
 
     print('Collecting OLBG Formula 1 slate…')
-    data, now, failures = collect(from_files=args.from_files, save_html_dir=args.save_html)
+    data, now, failures, page_health = collect(from_files=args.from_files, save_html_dir=args.save_html)
     if data is None:
         return 1
 
@@ -181,7 +190,7 @@ def main():
         print('Enriching event pages…')
         enrich_event_pages(data['matches'], limit=args.enrich_limit, save_html_dir=args.save_html)
 
-    payload = build_payload(data, now, failures)
+    payload = build_payload(data, now, failures, page_health)
     print(f'\n{len(payload["events"])} race-market rows, {len(payload["outrights"])} outrights')
 
     if args.dry_run:

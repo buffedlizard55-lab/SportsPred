@@ -16,6 +16,7 @@ from urllib.error import HTTPError, URLError
 from urllib.request import Request, urlopen
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from lib.olbg_page_health import diagnose  # noqa: E402
 from lib.handball_olbg_parse import (  # noqa: E402
     parse_handball_index,
     resolve_handball_date,
@@ -45,7 +46,8 @@ def fetch(url: str) -> str:
         return resp.read().decode(charset, errors='replace')
 
 
-def build_payload(events: list[dict], now: datetime, warnings: list[str]) -> dict:
+def build_payload(events: list[dict], now: datetime, warnings: list[str],
+                  page_health: list[dict] | None = None) -> dict:
     return {
         'schema_version': 1,
         'sport': 'Handball',
@@ -68,6 +70,7 @@ def build_payload(events: list[dict], now: datetime, warnings: list[str]) -> dic
             'Display dates are resolved against the UTC snapshot timestamp.',
         ],
         'collection_warnings': warnings,
+        'page_health': page_health or [],
         'events': events,
     }
 
@@ -81,6 +84,7 @@ def main():
     now = datetime.now(timezone.utc)
     events_map = {}
     warnings = []
+    page_health = []
 
     if args.from_file:
         with open(args.from_file, 'r', encoding='utf-8') as fh:
@@ -88,6 +92,9 @@ def main():
         parsed = parse_handball_index(content)
         for ev in parsed:
             events_map[ev['event_id']] = ev
+        health = diagnose(content, event_count=len(parsed), sport='Handball')
+        page_health.append({'url': args.from_file, **health})
+        warnings.extend(health['warnings'])
     else:
         for url in INDEX_URLS:
             try:
@@ -95,8 +102,16 @@ def main():
                 parsed = parse_handball_index(html)
                 for ev in parsed:
                     events_map[ev['event_id']] = ev
+                # A successful fetch that yields no rows is ambiguous on its own:
+                # a bot-block, a cookie wall and a real off-season all parse to
+                # nothing. Record which of those the delivered bytes show.
+                health = diagnose(html, event_count=len(parsed), sport='Handball')
+                page_health.append({'url': url, **health})
+                warnings.extend(f'{url}: {w}' for w in health['warnings'])
             except (HTTPError, URLError, OSError) as e:
                 warnings.append(f'{url}: {e}')
+                page_health.append({'url': url, 'status': 'fetch-failed',
+                                    'healthy': False, 'evidence': {'error': str(e)}})
 
     events = list(events_map.values())
     for ev in events:
@@ -104,7 +119,7 @@ def main():
         ev['resolved_date'] = resolved_date
         ev['date_basis'] = basis
 
-    payload = build_payload(events, now, warnings)
+    payload = build_payload(events, now, warnings, page_health)
 
     if args.dry_run:
         print(f'Parsed {len(events)} handball events.')

@@ -560,6 +560,14 @@ export function riskFilter({ consensus, marketProb, missing = [], score, agreeme
  * Match scoring
  * ------------------------------------------------------------------ */
 
+/**
+ * The public, writer-facing view of a side.
+ *
+ * The writer builds its prose only from what appears here, so every field
+ * carried through must be a sourced value (NHL standings / tape / goalie feed —
+ * see engine/ice_hockey_data.js enrichIceHockeyFixture). Fields absent from the
+ * feed stay null and the corresponding clause is simply never written.
+ */
 function sideProfile(team) {
   return {
     name: team?.name ?? null,
@@ -570,6 +578,15 @@ function sideProfile(team) {
     savePctg: team?.goaltender?.savePctg ?? null,
     backup: team?.goaltender?.isBackup === true,
     backToBack: team?.backToBack === true,
+    // Carried through for the tip writer. All sourced, none derived.
+    form: team?.form ?? null,
+    shotsForRank: team?.shotsForRank ?? null,
+    shotsAgainstRank: team?.shotsAgainstRank ?? null,
+    leagueSize: team?.leagueSize ?? null,
+    avgWinMarginLast5Wins: team?.avgWinMarginLast5Wins ?? null,
+    puckLineCovers: team?.puckLineCovers ?? null,
+    recentTotals: team?.recentTotals ?? null,
+    goaltender: team?.goaltender ?? null,
   };
 }
 

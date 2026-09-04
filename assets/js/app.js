@@ -55,6 +55,7 @@ import { writeCard as writeTennisCard } from '../../engine/writer.js';
 import { buildSlateIndex, matchSlateEvent } from '../../engine/join.js';
 import { olbgDateCounts, olbgSummaryForDate, olbgEventsForDate, olbgOutrightsForDate, adjacentOlbgDates } from '../../engine/olbg.js';
 import { collectCard as collectTennisCard, toEngineMatch as toTennisEngineMatch, isoDate } from './collector.js';
+import { renderShell, renderFooter } from './ui.js';
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
@@ -2028,6 +2029,12 @@ $('#cal-next').addEventListener('click', () => {
   state.calMonth = new Date(Date.UTC(state.calMonth.getUTCFullYear(), state.calMonth.getUTCMonth() + 1, 1));
   renderCalendar();
 });
+
+// Shared site chrome: inject the same masthead, sport rail and footer that the
+// rest of the site renders (ui.js renderShell/renderFooter), so pro.html is not
+// a visually separate page. Must run before boot() resolves its element refs.
+renderShell({ activeSport: null, activePage: 'pro.html' });
+renderFooter();
 
 // Predictions actions
 $('#generate-card').addEventListener('click', () => {

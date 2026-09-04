@@ -3,87 +3,63 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>SportsPred — Multi-Sport Scoreboard &amp; Prediction Engine</title>
-<meta name="description" content="Professional sports scoreboard, calendar, OLBG markets, and three-market prediction engine for Handball and Tennis. Purely sourced data, no hallucinations.">
-<link rel="stylesheet" href="assets/css/styles.css">
+<title>Specialist console — cricket, handball, tennis, F1 — SportsPred</title>
+<meta name="description" content="Active scoreboard, calendar, OLBG markets and written predictions for the specialist sports (cricket, handball, tennis, Formula 1). Purely sourced data, no hallucinations.">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="preconnect" href="https://www.espncricinfo.com" crossorigin>
 </head>
 <body>
-<div style="background:#0b1220;color:#fff;padding:8px 16px;font:13px -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif">
-  <div style="max-width:1240px;margin:0 auto">
-    Specialist engine console (cricket · handball · tennis · Formula 1; golf and greyhounds run on their own pages).
-    <a href="index.html" style="color:#fff;text-decoration:underline">← Back to the main SportsPred site</a>
-  </div>
-</div>
 
-<!-- TOP HEADER -->
-<header class="topbar">
-  <div class="wrap header-wrap">
-    <div class="brand-area">
-      <div class="logo-mark">SP</div>
-      <div class="brand-text">
-        <h1 class="brand-title">SportsPred</h1>
-        <p class="tag">Active Scoreboard &amp; Three-Market Prediction Engine</p>
-      </div>
+<!-- The shared masthead, sport rail and site footer are injected by
+     renderShell()/renderFooter() in assets/js/ui.js (called from app.js), so
+     every page on the site carries the same chrome and navigation. -->
+
+<main class="wrap console">
+  <!-- Specialist console header: sport switcher + live meta pills. The shared
+       masthead (brand + sport rail) sits above this on every page. -->
+  <div class="subbar">
+    <div>
+      <h1 class="sub-title">Specialist engines</h1>
+      <p class="sub-desc">Cricket · handball · tennis · Formula 1 — scoreboard, calendar, OLBG markets and written predictions. Golf, greyhounds, volleyball, snooker, darts, GAA, NRL, NPB and T20 Blast run on their own pages.</p>
     </div>
-
-    <!-- SPORT SELECTOR -->
-    <div class="sport-switcher" role="radiogroup" aria-label="Select Sport">
-      <button class="sport-pill active" data-sport="cricket" aria-checked="true">
-        <span class="sport-icon">🏏</span>
-        <span class="sport-label">Cricket</span>
-      </button>
-      <button class="sport-pill" data-sport="handball" aria-checked="false">
-        <span class="sport-icon">🤾</span>
-        <span class="sport-label">Handball</span>
-      </button>
-      <button class="sport-pill" data-sport="tennis" aria-checked="false">
-        <span class="sport-icon">🎾</span>
-        <span class="sport-label">Tennis</span>
-      </button>
-      <button class="sport-pill" data-sport="f1" aria-checked="false">
-        <span class="sport-icon">🏎️</span>
-        <span class="sport-label">Formula 1</span>
-      </button>
-      <a class="sport-pill" href="golf.html" title="Golf runs on its own page: leaderboards, calendar and the six-market card">
-        <span class="sport-icon">⛳</span>
-        <span class="sport-label">Golf →</span>
-      </a>
-      <a class="sport-pill" href="greyhounds.html" title="Greyhounds run on their own page: GBGB racecards, calendar and win predictions">
-        <span class="sport-icon">🐕</span>
-        <span class="sport-label">Greyhounds →</span>
-      </a>
-      <a class="sport-pill" href="volleyball.html" title="Volleyball runs on its own page: NCAA ESPN scoreboard plus EuroVolley tape">
-        <span class="sport-icon">🏐</span>
-        <span class="sport-label">Volleyball →</span>
-      </a>
-    </div>
-
+    <span style="flex:1"></span>
     <div class="meta" id="meta">
-      <span class="pill" id="sport-pill">Cricket v1.0</span>
-      <span class="pill" id="ruleset-pill">ruleset v1.0</span>
-      <span class="pill" id="snapshot-pill">snapshot loaded</span>
-      <a class="pill link" id="source-link" href="https://www.espncricinfo.com/live-cricket-score" target="_blank" rel="noopener noreferrer">ESPNcricinfo Live ↗</a>
+      <span class="pill" id="sport-pill">—</span>
+      <span class="pill" id="ruleset-pill">—</span>
+      <span class="pill" id="snapshot-pill">—</span>
+      <a class="pill link" id="source-link" href="#" target="_blank" rel="noopener noreferrer">Official source ↗</a>
     </div>
   </div>
-</header>
 
-<!-- SUB HEADER NAVIGATION (TABS) -->
-<nav class="tabs wrap" role="tablist" aria-label="Main Navigation">
-  <button class="tab active" data-tab="scoreboard" role="tab"><span class="tab-icon">⚡</span> Scoreboard</button>
-  <button class="tab" data-tab="calendar" role="tab"><span class="tab-icon">📅</span> Calendar</button>
-  <button class="tab" data-tab="olbg" role="tab"><span class="tab-icon">📊</span> OLBG Markets</button>
-  <button class="tab" data-tab="predictions" role="tab"><span class="tab-icon">🎯</span> Predictions</button>
-  <button class="tab" data-tab="standings" role="tab"><span class="tab-icon">🏆</span> Standings &amp; Stats</button>
-  <button class="tab" data-tab="backtest" role="tab"><span class="tab-icon">📈</span> Backtest &amp; Analytics</button>
-  <button class="tab" data-tab="quality" role="tab"><span class="tab-icon">🛡️</span> Data Quality</button>
-  <button class="tab" data-tab="about" role="tab"><span class="tab-icon">ℹ️</span> About &amp; Sources</button>
-</nav>
+  <div class="subbar">
+    <div class="sport-switcher" role="radiogroup" aria-label="Select Sport">
+      <button class="sport-pill active" data-sport="cricket" aria-checked="true"><span class="sport-icon">🏏</span><span class="sport-label">Cricket</span></button>
+      <button class="sport-pill" data-sport="handball" aria-checked="false"><span class="sport-icon">🤾</span><span class="sport-label">Handball</span></button>
+      <button class="sport-pill" data-sport="tennis" aria-checked="false"><span class="sport-icon">🎾</span><span class="sport-label">Tennis</span></button>
+      <button class="sport-pill" data-sport="f1" aria-checked="false"><span class="sport-icon">🏎️</span><span class="sport-label">Formula 1</span></button>
+      <a class="sport-pill" href="golf.html" title="Golf runs on its own page">⛳ Golf →</a>
+      <a class="sport-pill" href="greyhounds.html" title="Greyhounds run on their own page">🐕 Greyhounds →</a>
+      <a class="sport-pill" href="volleyball.html" title="Volleyball runs on its own page">🏐 Volleyball →</a>
+      <a class="sport-pill" href="snooker.html" title="Snooker runs on its own page">🎱 Snooker →</a>
+      <a class="sport-pill" href="darts.html" title="Darts runs on its own page">🎯 Darts →</a>
+    </div>
+  </div>
 
-<main class="wrap main-content">
+  <!-- MAIN NAVIGATION (TABS) -->
+  <nav class="tabs" role="tablist" aria-label="Console sections">
+    <button class="tab active" data-tab="scoreboard" role="tab"><span class="tab-icon">⚡</span> Scoreboard</button>
+    <button class="tab" data-tab="calendar" role="tab"><span class="tab-icon">📅</span> Calendar</button>
+    <button class="tab" data-tab="olbg" role="tab"><span class="tab-icon">📊</span> OLBG Markets</button>
+    <button class="tab" data-tab="predictions" role="tab"><span class="tab-icon">🎯</span> Predictions</button>
+    <button class="tab" data-tab="standings" role="tab"><span class="tab-icon">🏆</span> Standings &amp; Stats</button>
+    <button class="tab" data-tab="backtest" role="tab"><span class="tab-icon">📈</span> Backtest &amp; Analytics</button>
+    <button class="tab" data-tab="quality" role="tab"><span class="tab-icon">🛡️</span> Data Quality</button>
+    <button class="tab" data-tab="about" role="tab"><span class="tab-icon">ℹ️</span> About &amp; Sources</button>
+  </nav>
 
   <!-- SCOREBOARD PANEL -->
   <section id="tab-scoreboard" class="panel active" role="tabpanel">
-    <div class="toolbar datebar card-header-bar">
+    <div class="toolbar card-header-bar">
       <div class="date-controls">
         <button class="btn nav-btn" id="prev-day" aria-label="Previous day">‹</button>
         <input type="date" id="date-input" aria-label="Choose date">
@@ -209,18 +185,7 @@
   <section id="tab-about" class="panel" role="tabpanel">
     <div id="about-out"></div>
   </section>
-
 </main>
-
-<!-- FOOTER -->
-<footer class="footer wrap">
-  <div class="footer-card">
-    <p><strong>Responsible Gambling.</strong> Nothing here is betting advice or a guarantee of any outcome.
-    Predictions are generated mechanically from sourced data and are fallible. 18+.
-    If gambling is becoming a problem, contact your national support helpline or visit BeGambleAware.org.</p>
-    <p class="small" id="footer-meta">SportsPred Multi-Sport Portal · Ruleset v1.0 Verified</p>
-  </div>
-</footer>
 
 <!-- TOAST NOTIFICATION -->
 <div id="toast" class="toast" role="status" aria-live="polite"></div>

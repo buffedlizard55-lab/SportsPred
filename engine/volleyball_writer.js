@@ -69,7 +69,17 @@ const MARKET_LABEL = {
   set_score: 'SET SCORE',
 };
 
-const SET_SCORE_RE = /\*\*3-[012]\*\*/g;
+/**
+ * Volleyball set scores that may appear as digits, despite the general ban.
+ *
+ * A completed volleyball match always ends 3-0, 3-1, 3-2 — or, from the other
+ * side of the net, 0-3, 1-3, 2-3. The original pattern exempted only the
+ * winning orientation, so a tip that cited a *defeat* in the head-to-head
+ * ("the most recent meeting finishing **1-3**") was rejected for containing
+ * forbidden digits and published as an empty tip. Both orientations are real
+ * scorelines and both are quoted in the house style, so both are exempt.
+ */
+const SET_SCORE_RE = /\*\*(?:3-[012]|[012]-3)\*\*/g;
 
 export function validateVolleyballTip(text, { market, expectSkip = false } = {}) {
   const violations = [];
@@ -117,33 +127,193 @@ export function validateVolleyballTip(text, { market, expectSkip = false } = {})
   return { ok: violations.length === 0, violations };
 }
 
-function buildBody(market, result) {
-  const clauses = [];
-  if (market === 'win_match') {
-    clauses.push('recent side-out reliability combined with first-contact quality reinforces this outright expectation');
-    clauses.push('head-to-head set scores from the most recent meeting carry more weight than a simple win-loss ledger');
-    clauses.push('indoor crowd noise punishes shaky serve receive far more than outdoor sports ever do');
-  } else {
-    const outcome = result.markets.set_score?.outcome;
-    if (outcome === '3-0') {
-      clauses.push('straight-set winning streaks remain the single strongest predictor of a sweep against comparable opposition');
-      clauses.push('elite serving that generates repeated aces disrupts the opponent\'s offensive system from the first rotation');
-      clauses.push('a clear quality gap rarely needs a fifth set when one side has been closing without dropping frames');
-    } else if (outcome === '3-1') {
-      clauses.push('the challenger is competitive enough to steal a set but has been collapsing once the deficit reaches two');
-      clauses.push('form shows the favourite dropping the occasional set while still closing the match with authority');
-      clauses.push('four-set meetings have been the typical length whenever these two have shared a court recently');
-    } else {
-      clauses.push('recent meetings have gone the distance, which is a fundamentally different set-score context from a sweep');
-      clauses.push('nearly identical recent form points to a match that will not be decided until late');
-      clauses.push('five-set volleyball is physically exhausting and the schedule intensity on both sides argues against an early finish');
-    }
+/* ------------------------------------------------------------------ *
+ * Evidence-driven prose (OLBG house style).
+ *
+ * Clauses are built only from values sourced onto the match by
+ * engine/volleyball_data.js (form and set scores from the results tape, H2H
+ * meetings with their set scores, rest days, rank, odds). A clause whose input
+ * is null is never produced, so the writer cannot invent a statistic.
+ *
+ * Set scores are the ONLY digits allowed by validateVolleyballTip, and only in
+ * the bolded 3-0 / 3-1 / 3-2 form; every other figure is spelled as a word.
+ * ------------------------------------------------------------------ */
+
+const VB_NUM = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+
+/** Spell a small whole number, or return null when it cannot be spelled. */
+export function spellCount(n) {
+  if (typeof n !== 'number' || !Number.isInteger(n) || n < 0 || n > 10) return null;
+  return VB_NUM[n];
+}
+
+function vbFormClause(team) {
+  const last5 = team?.form?.last5;
+  if (!Array.isArray(last5) || !last5.length) return null;
+  const wins = last5.filter((r) => r === 'W').length;
+  const w = spellCount(wins);
+  const n = spellCount(last5.length);
+  if (!w || !n) return null;
+  return `${team.name} have won ${w} of their last ${n} in this competition`;
+}
+
+function vbStreakClause(fav, dog) {
+  const ws = fav?.form?.winStreak;
+  if (typeof ws === 'number' && ws >= 3) {
+    const w = spellCount(ws);
+    if (w) return `they arrive on a run of ${w} straight wins`;
   }
-  clauses.push('nothing beyond the sourced record has been assumed in reaching that view');
-  return clauses
-    .map((c) => c.charAt(0).toUpperCase() + c.slice(1))
-    .map((c) => (/\.$/.test(c) ? c : `${c}.`))
-    .join(' ');
+  const dl = dog?.form?.lossStreak;
+  if (typeof dl === 'number' && dl >= 2) {
+    const w = spellCount(dl);
+    if (w) return `the opposition have lost ${w} in a row coming in`;
+  }
+  return null;
+}
+
+/**
+ * Sweep rate from the sourced set scores of recent wins. Reported as a plain
+ * tendency rather than a percentage, because percentages need digits.
+ */
+function vbSweepClause(team) {
+  const scores = team?.form?.last5SetScores;
+  if (!Array.isArray(scores) || !scores.length) return null;
+  const wins = scores.filter((x) => typeof x === 'string' && x.startsWith('3-'));
+  if (!wins.length) return null;
+  const sweeps = wins.filter((x) => x === '3-0').length;
+  const w = spellCount(sweeps);
+  const n = spellCount(wins.length);
+  if (!w || !n) return null;
+  if (sweeps === 0) return `none of their recent wins arrived as a sweep, which argues against the shortest finishing score`;
+  return `${w} of their last ${n} wins arrived without dropping a set`;
+}
+
+/** Whether recent wins needed a deciding set — the case for a longer score. */
+function vbDeciderClause(team) {
+  const scores = team?.form?.last5SetScores;
+  if (!Array.isArray(scores) || !scores.length) return null;
+  const deciders = scores.filter((x) => x === '3-2' || x === '2-3').length;
+  if (deciders === 0) return null;
+  const w = spellCount(deciders);
+  return w ? `${w} of their recent matches went to a deciding set` : null;
+}
+
+function vbH2HClause(match, fav) {
+  const h = match?.h2h;
+  const meetings = h?.recentMeetings;
+  if (!Array.isArray(meetings) || !meetings.length) return null;
+  const favWins = meetings.filter((m) => m.winner && String(m.winner).toLowerCase() === String(fav?.name || '').toLowerCase()).length;
+  const w = spellCount(favWins);
+  const n = spellCount(meetings.length);
+  if (!w || !n) return null;
+  const last = meetings[0];
+  const tail = last?.setScore ? `, with the most recent meeting finishing **${last.setScore}**` : '';
+  return `the sourced head-to-head record reads ${w} wins from ${n} meetings for ${fav?.name || 'the selection'}${tail}`;
+}
+
+function vbRestClause(fav, dog) {
+  if (dog?.rest?.playedWithin48h === true) return `the opposition were on court inside the previous two days, and that turnaround tells in long matches`;
+  if (fav?.rest?.playedWithin48h === true) return `the selection are on a short turnaround themselves, which caps the confidence here`;
+  return null;
+}
+
+function vbRankClause(fav, dog) {
+  const fr = fav?.standings?.rank ?? fav?.rank;
+  const dr = dog?.standings?.rank ?? dog?.rank;
+  if (typeof fr !== 'number' || typeof dr !== 'number') return null;
+  if (dr > fr) return `the published ranking also favours the selection over the opposition`;
+  if (dr < fr) return `the published ranking actually favours the opposition, which is why this is not rated any higher`;
+  return null;
+}
+
+function vbNeutralClause(match) {
+  if (match?.neutral === true) return `this is played at a neutral venue, so no home advantage is assumed in the rating`;
+  return null;
+}
+
+function vbMissingClause(result) {
+  const list = result?.missing || [];
+  if (!list.length) return null;
+  const w = spellCount(list.length);
+  const count = w || 'several';
+  return `${count} of the input factors could not be sourced for this fixture, so the confidence figure is capped accordingly`;
+}
+
+/**
+ * Replace later mentions of a team with the correct pronoun case.
+ *
+ * A naive name -> "they" swap produces "for they" / "against they", so object
+ * position (after a preposition) becomes "them" and possessive position
+ * ("Poland's") becomes "their". Only wording changes; no fact is altered.
+ */
+function replaceWithPronoun(text, name) {
+  if (!text || !name) return text;
+  const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text
+    // possessive: "Poland's depth" -> "their depth"
+    .replace(new RegExp(`${esc}'s\\b`, 'g'), 'their')
+    // object of a preposition: "for Poland" -> "for them"
+    .replace(new RegExp(`\\b(for|to|against|over|with|of|from|behind|than|beat|beating)\\s+${esc}\\b`, 'gi'),
+      (m, prep) => `${prep} them`)
+    // subject position
+    .replace(new RegExp(esc, 'g'), 'they');
+}
+
+function vbJoin(clauses, names = []) {
+  const seen = new Set();
+  const out = [];
+  for (const raw of clauses.filter(Boolean)) {
+    let c = String(raw).trim();
+    for (const n of names.filter(Boolean)) {
+      if (!c.includes(n)) continue;
+      if (seen.has(n)) c = replaceWithPronoun(c, n);
+      else {
+        seen.add(n);
+        const i = c.indexOf(n);
+        c = c.slice(0, i + n.length) + replaceWithPronoun(c.slice(i + n.length), n);
+      }
+    }
+    c = c.charAt(0).toUpperCase() + c.slice(1);
+    out.push(/[.!?]$/.test(c) ? c : `${c}.`);
+  }
+  return out.join(' ');
+}
+
+/** Build the analytical body strictly from sourced values. */
+function buildBody(market, result, match) {
+  const home = match?.homeTeamObj || null;
+  const away = match?.awayTeamObj || null;
+  const fav = home?.name === result?.favourite ? home : away?.name === result?.favourite ? away : home;
+  const dog = fav === home ? away : home;
+  const clauses = [];
+
+  if (market === 'win_match') {
+    clauses.push(vbFormClause(fav));
+    clauses.push(vbStreakClause(fav, dog));
+    clauses.push(vbH2HClause(match, fav));
+    clauses.push(vbRankClause(fav, dog));
+    clauses.push(vbRestClause(fav, dog));
+    clauses.push(vbNeutralClause(match));
+  } else {
+    const outcome = result?.markets?.set_score?.outcome;
+    if (outcome === '3-0') {
+      clauses.push(vbSweepClause(fav));
+      clauses.push(vbFormClause(fav));
+    } else if (outcome === '3-2') {
+      clauses.push(vbDeciderClause(fav) || vbDeciderClause(dog));
+      clauses.push(vbFormClause(dog));
+    } else {
+      clauses.push(vbSweepClause(fav));
+      clauses.push(vbFormClause(dog));
+    }
+    clauses.push(vbH2HClause(match, fav));
+    clauses.push(vbRestClause(fav, dog));
+  }
+
+  clauses.push(vbMissingClause(result));
+
+  const names = [...new Set([fav?.name, dog?.name].filter(Boolean))];
+  return vbJoin(clauses, names);
 }
 
 export function writeVolleyballTip({ match, result, market, angle }) {
@@ -164,17 +334,24 @@ export function writeVolleyballTip({ match, result, market, angle }) {
     return v.ok ? { ok: true, text, band: CONFIDENCE.SKIP, skip: true } : { ok: false, violations: v.violations, text };
   }
 
-  let bolded;
+  // OLBG house style: the selection is stated plainly in the opening words,
+  // then the case is argued from sourced evidence only.
   let pickLead;
   if (market === 'win_match') {
-    bolded = `**${result.favourite}**`;
-    pickLead = `${bolded} is the pick on ${label}.`;
+    pickLead = `**${result.favourite}** are the preferred winner.`;
   } else {
-    bolded = `**${m.outcome}**`;
-    pickLead = `${bolded} is the expected finishing score on ${label}.`;
+    pickLead = `**${m.outcome}** is my preferred correct score.`;
   }
 
-  const text = `${angle.word} ${angle.lead} ${pickLead} ${buildBody(market, result)} Confidence: ${band}.`;
+  let text = `${pickLead} ${angle.word} ${angle.lead} ${buildBody(market, result, match)}`
+    .replace(/\s+/g, ' ').trim();
+
+  // Word floor: rather than padding with invented detail, state the method.
+  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
+    text += ' The rating is produced mechanically from the sourced results tape, head-to-head record and rest data linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  }
+
+  text = `${text} Confidence: ${band}.`;
   const v = validateVolleyballTip(text, { market, expectSkip: false });
   return v.ok
     ? { ok: true, text, band, skip: false, market }
@@ -232,6 +409,7 @@ export function writeVolleyballCard(scoredMatches) {
           band: tipResult.band,
           skip: !!tipResult.skip,
           opener: tipResult.skip ? null : angle.id,
+          angleWord: tipResult.skip ? null : angle.word,
           selection: market === 'win_match' ? result.favourite : result.markets.set_score?.outcome,
         });
         if (exhausted && !tipResult.skip) {
@@ -249,7 +427,9 @@ export function writeVolleyballCard(scoredMatches) {
 
   const emitted = tips.filter((t) => t.ok);
   const styled = emitted.filter((t) => !t.skip);
-  const openers = styled.map((t) => t.text.split(/\s+/)[0].toLowerCase());
+  // Tips now open with the selection itself (OLBG house style), so uniqueness is
+  // enforced on the analytical angle that follows the selection sentence.
+  const openers = styled.map((t) => String(t.angleWord || '').toLowerCase()).filter(Boolean);
   const dupes = [...new Set(openers.filter((o, i) => openers.indexOf(o) !== i))];
   if (dupes.length) violations.push({ duplicateOpeners: dupes });
 

@@ -31,6 +31,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from lib.golf_olbg_parse import (  # noqa: E402
     parse_index, parse_event_page_markets, parse_form_table, parse_owgr_links,
 )
+from lib.olbg_page_health import diagnose  # noqa: E402
 from lib.olbg_parse import resolve_date  # noqa: E402
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -63,6 +64,7 @@ def collect(from_files=None, save_html_dir=None):
     form_table: list[dict] = []
     owgr_links: list[dict] = []
     failures = []
+    page_health = []
 
     sources = from_files or INDEX_URLS
     for src in sources:
@@ -84,6 +86,12 @@ def collect(from_files=None, save_html_dir=None):
             continue
 
         t, tm = parse_index(html)
+        # Zero rows from a successful fetch is ambiguous: a bot-block, a
+        # cookie wall and a real off-season all parse to nothing. Record
+        # which the delivered bytes actually show.
+        _h = diagnose(html, event_count=len(t) + len(tm), sport="Golf")
+        page_health.append({"url": src, **_h})
+        failures.extend(f"{src}: {w}" for w in _h["warnings"])
         print(f'  {src}: {len(t)} tournament rows, {len(tm)} team-event rows')
         for row in t:
             tournaments.setdefault(row['event_id'], row)
@@ -101,7 +109,7 @@ def collect(from_files=None, save_html_dir=None):
         if not tournaments and not teams:
             print('\nAborting: nothing could be fetched. Refusing to overwrite '
                   'the existing snapshot with an empty one.', file=sys.stderr)
-            return None, now, failures
+            return None, now, failures, page_health
 
     for row in list(tournaments.values()) + list(teams.values()):
         iso, basis = resolve_date(row.get('display_date'), now)
@@ -114,7 +122,7 @@ def collect(from_files=None, save_html_dir=None):
         'form_table': form_table,
         'owgr_links': owgr_links,
     }
-    return data, now, failures
+    return data, now, failures, page_health
 
 
 def enrich_event_pages(rows, limit=None, save_html_dir=None):
@@ -138,7 +146,7 @@ def enrich_event_pages(rows, limit=None, save_html_dir=None):
     return rows
 
 
-def build_payload(data, now, failures):
+def build_payload(data, now, failures, page_health=None):
     return {
         'schema_version': 1,
         'sport': 'Golf',
@@ -157,6 +165,7 @@ def build_payload(data, now, failures):
             'form_table and owgr_links are editorial content from the index article, kept for cross-checking the OWGR feed only.',
         ],
         'collection_warnings': failures,
+        'page_health': page_health or [],
         'events': data['tournaments'],
         'team_events': data['teams'],
         'form_table': data['form_table'],
@@ -174,7 +183,7 @@ def main():
     args = ap.parse_args()
 
     print('Collecting OLBG Golf slate…')
-    data, now, failures = collect(from_files=args.from_files, save_html_dir=args.save_html)
+    data, now, failures, page_health = collect(from_files=args.from_files, save_html_dir=args.save_html)
     if data is None:
         return 1
 
@@ -182,7 +191,7 @@ def main():
         print('Enriching event pages…')
         enrich_event_pages(data['tournaments'] + data['teams'], limit=args.enrich_limit, save_html_dir=args.save_html)
 
-    payload = build_payload(data, now, failures)
+    payload = build_payload(data, now, failures, page_health)
     print(f'\n{len(payload["events"])} tournament rows, {len(payload["team_events"])} team-event rows, '
           f'{len(payload["form_table"])} form-table rows')
 

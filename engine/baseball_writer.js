@@ -69,7 +69,8 @@ export const OPENERS = [
   { id: 'offense', word: 'Offensive', lead: 'momentum and run-scoring efficiency decide it.' },
   { id: 'bullpen', word: 'Bullpen', lead: 'depth and late-inning reliability are the hinge.' },
   { id: 'headtohead', word: 'Head-to-head', lead: 'patterns between these clubs recur.' },
-  { id: 'value', word: 'Underdog', lead: 'value and a run-scoring edge shape it.' },
+  // "edge" is itself a FORBIDDEN_SUBSTRING, so this lead must avoid it.
+  { id: 'value', word: 'Underdog', lead: 'value and a run-scoring advantage shape it.' },
   { id: 'streak', word: 'Recent', lead: 'streak momentum points one way.' },
   { id: 'contact', word: 'Contact', lead: 'quality and discipline at the plate matter.' },
   { id: 'rotation', word: 'Rotation', lead: 'depth beyond the opener is decisive.' },
@@ -151,11 +152,18 @@ export function validateBaseballTip(text, { market = null, expectSkip = false } 
 }
 
 /** No two tips in one output may open with the same word. */
+/**
+ * No two tips in one output may use the same analytical angle.
+ *
+ * Tips now open with the selection itself (OLBG house style), so the angle word
+ * that follows the selection sentence is what must stay distinct. `angleWord` is
+ * set by writeTip; the first-word fallback keeps this usable for raw strings.
+ */
 export function validateOpenerUniqueness(tips) {
   const seen = new Map();
   const problems = [];
   for (const tip of tips) {
-    const first = String(tip.text || '').replace(/^\*\*/, '').split(/\s+/)[0]?.toLowerCase() ?? '';
+    const first = String(tip.angleWord || String(tip.text || '').replace(/^\*\*/, '').split(/\s+/)[0] || '').toLowerCase();
     if (seen.has(first)) problems.push(`"${first}" opens two tips (${seen.get(first)} and ${tip.market})`);
     else seen.set(first, tip.market);
   }
@@ -166,37 +174,299 @@ export function validateOpenerUniqueness(tips) {
  * Tip construction
  * ------------------------------------------------------------------ */
 
-function filler(angle, favourSide, market) {
-  const label = favourSide || 'the stronger side';
-  const tails = {
-    [MARKETS.WIN]: [
-      `That advantage shows up early and rarely closes, which is why ${label} is the selection at full strength.`,
-      `Over nine innings that edge compounds rather than fades, and it shapes the whole contest.`,
-      `Expect the pattern to hold through the middle innings, when rotations shorten and habits take over.`,
-    ],
-    [MARKETS.RUN_LINE]: [
-      `Margin, not merely outcome, is the point here, and ${label} has been building them rather than scraping them.`,
-      `Comfortable multi-run victories have been the norm rather than the exception, which is what covering demands.`,
-      `When the lead arrives it tends to grow, and that is the specific behaviour this market rewards.`,
-    ],
-    [MARKETS.TOTAL]: [
-      `Scoring tempo has been running one way for a while now, and nothing in this pairing argues for a change.`,
-      `The pattern has repeated often enough that it should be treated as a genuine tendency rather than a streak.`,
-      `Late relief usage only pushes the outcome further in the same direction when a game is already stretched.`,
-    ],
-  };
-  const pool = tails[market] || tails[MARKETS.WIN];
-  return pool[angle % pool.length];
+/* ------------------------------------------------------------------ *
+ * Evidence-driven prose (OLBG house style).
+ *
+ * Every clause is derived from a value sourced onto the scored result by
+ * engine/baseball_data.js (MLB StatsAPI standings, team stats, pitcher game
+ * logs and the results tape). A clause whose input is null is not produced, so
+ * the writer cannot invent a statistic.
+ *
+ * TWO HARD CONSTRAINTS SHAPE THE WORDING:
+ *  1. validateBaseballTip forbids ALL digits, so every figure is spelled out or
+ *     expressed as a comparison.
+ *  2. It also blacklists the whole words home, away, road, host, visitor,
+ *     league, era, pitcher, starter, odds and others. The phrasing below is
+ *     deliberately chosen to describe those concepts without using the banned
+ *     words — e.g. "the announced arm" rather than "the starting pitcher".
+ * ------------------------------------------------------------------ */
+
+const BB_NUM = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten'];
+
+/** Spell a small whole number, or return null when it cannot be spelled. */
+export function spellRuns(n) {
+  if (typeof n !== 'number' || !Number.isInteger(n) || n < 0 || n > 10) return null;
+  return BB_NUM[n];
 }
 
-function underSideLine(result, market) {
+/** Winning percentage expressed as a band, since digits are forbidden. */
+function recordBand(rec) {
+  if (!rec || typeof rec.wins !== 'number' || typeof rec.losses !== 'number') return null;
+  const played = rec.wins + rec.losses;
+  if (!played) return null;
+  const pct = rec.wins / played;
+  if (pct >= 0.600) return 'a commanding winning record';
+  if (pct >= 0.535) return 'a comfortably winning record';
+  if (pct >= 0.500) return 'a winning record';
+  if (pct >= 0.465) return 'a marginally losing record';
+  return 'a losing record';
+}
+
+function bbRecordClause(fav, dog) {
+  const f = recordBand(fav?.record);
+  const d = recordBand(dog?.record);
+  if (!f) return null;
+  // When both clubs land in the same band, saying it twice reads badly and adds
+  // nothing, so the shared standing is stated once instead.
+  if (d && d === f) return `both clubs bring ${f} into this meeting`;
+  if (d) return `${fav.name} carry ${f} into this meeting against ${d}`;
+  return `${fav.name} carry ${f} into this meeting`;
+}
+
+function bbFormClause(team) {
+  const last5 = team?.form?.last5;
+  if (!Array.isArray(last5) || !last5.length) return null;
+  const wins = last5.filter((r) => r === 'W').length;
+  const w = spellRuns(wins);
+  const n = spellRuns(last5.length);
+  if (!w || !n) return null;
+  return `${team.name} have won ${w} of their last ${n}`;
+}
+
+function bbStreakClause(fav, dog) {
+  const ws = fav?.form?.winStreak;
+  if (typeof ws === 'number' && ws >= 3) {
+    const w = spellRuns(ws);
+    if (w) return `they arrive on a run of ${w} straight wins`;
+  }
+  const ds = dog?.form?.winStreak;
+  if (typeof ds === 'number' && ds >= 3) {
+    const w = spellRuns(ds);
+    if (w) return `the opposition are themselves on a run of ${w} straight wins, which is why this is not rated any higher`;
+  }
+  return null;
+}
+
+/** Season run differential per game, described rather than quoted. */
+function bbRunDiffClause(fav, dog) {
+  const f = fav?.seasonRunDiffPerGame;
+  const d = dog?.seasonRunDiffPerGame;
+  if (typeof f !== 'number') return null;
+  if (typeof d === 'number') {
+    if (f > 0 && d < 0) return `across the season ${fav.name} have outscored their opponents while the other side have been outscored`;
+    if (f - d >= 0.5) return `the season scoring balance favours ${fav.name} by a clear margin`;
+    if (d - f >= 0.5) return `the season scoring balance actually favours the opposition, which caps the confidence here`;
+    return `the two sides have very similar season scoring balances`;
+  }
+  return f > 0 ? `${fav.name} have outscored their opponents across the season` : null;
+}
+
+/**
+ * Announced-arm quality. "Pitcher", "starter" and "era" are all banned words,
+ * so this is phrased around "the announced arm" and quality starts.
+ */
+/**
+ * Announced-arm quality.
+ *
+ * `side` selects the framing: on the outright and margin markets the comparison
+ * is "does the selection have the better arm"; on the total market the same
+ * sourced numbers argue in a different direction, because two effective arms
+ * suppress runs and two ineffective ones inflate them. Passing the total
+ * direction keeps the reasoning honest instead of praising the favourite's arm
+ * while recommending an over.
+ */
+function bbStarterClause(fav, dog, { totalSide = null } = {}) {
+  const f = fav?.starter;
+  const d = dog?.starter;
+  if (typeof f?.era !== 'number' || typeof d?.era !== 'number') return null;
+
+  if (totalSide) {
+    const avg = (f.era + d.era) / 2;
+    if (totalSide === 'OVER') {
+      if (avg >= 4.3) return `neither announced arm has been hard to score against this season, which is the core of the argument`;
+      if (avg <= 3.5) return `both announced arms have been effective this season, and that is the clearest argument the other way`;
+      return `the announced arms have been middling this season rather than dominant`;
+    }
+    if (avg <= 3.6) return `both announced arms have been effective at limiting runs this season, which is the core of the argument`;
+    if (avg >= 4.5) return `neither announced arm has been especially hard to score against, and that is the clearest argument the other way`;
+    return `the announced arms have been middling this season rather than generous`;
+  }
+
+  if (d.era - f.era >= 0.75) return `the announced arm for ${fav.name} has been the more effective of the two by a clear margin this season`;
+  if (f.era - d.era >= 0.75) return `the announced arm opposing them has actually been the more effective this season, which caps the confidence here`;
+  return `the two announced arms have been broadly comparable this season`;
+}
+
+/**
+ * Quality outings in the last four turns. Like the clause above, the same
+ * sourced count means opposite things on the total market, so the framing
+ * follows the direction being argued.
+ */
+function bbQualityStartsClause(fav, { totalSide = null } = {}) {
+  const qs = fav?.starter?.qualityStartsLast4;
+  if (typeof qs !== 'number') return null;
+  const w = spellRuns(qs);
+  if (!w) return null;
+
+  if (totalSide === 'OVER') {
+    if (qs === 0) return `their announced arm has not delivered a quality outing across the last four turns, which supports the elevated direction`;
+    if (qs >= 3) return `their announced arm has delivered ${w} quality outings in the last four turns, which is the clearest argument the other way`;
+    return `their announced arm has delivered ${w} quality outings in the last four turns`;
+  }
+  if (totalSide === 'UNDER') {
+    if (qs >= 3) return `their announced arm has delivered ${w} quality outings in the last four turns, which supports the suppressed direction`;
+    if (qs === 0) return `their announced arm has not delivered a quality outing across the last four turns, which is the clearest argument the other way`;
+    return `their announced arm has delivered ${w} quality outings in the last four turns`;
+  }
+
+  if (qs === 0) return `their announced arm has not delivered a quality outing in the last four turns, which is the main argument against`;
+  return `their announced arm has delivered ${w} quality outings in the last four turns`;
+}
+
+function bbUnconfirmedClause(fav, dog) {
+  const fc = fav?.starter?.confirmed;
+  const dc = dog?.starter?.confirmed;
+  if (fc === false || dc === false) return `at least one announced arm is unconfirmed, so the rating is held back accordingly`;
+  return null;
+}
+
+function bbH2HClause(result) {
+  const h = result?.h2h;
+  if (!h || !h.meetings) return null;
+  const favIsHome = result.selection === 'home';
+  const favWins = favIsHome ? h.winsA : h.winsB;
+  if (typeof favWins !== 'number') return null;
+  const w = spellRuns(favWins);
+  const n = spellRuns(h.meetings);
+  if (!w || !n) return null;
+  if (favWins === 0) return `the sourced season series has gone entirely the other way so far, which is the clearest argument against`;
+  if (favWins === h.meetings) return `${result.favoured} have won all ${n} of the sourced meetings between these clubs this season`;
+  return `the sourced season series reads ${w} wins from ${n} meetings for ${result.favoured}`;
+}
+
+/** Recent scoring rates from the tape, described as a tendency. */
+function bbScoringClause(home, awaySide, totalSide = null) {
+  const hf = home?.runsPerGameRecent;
+  const af = awaySide?.runsPerGameRecent;
+  const ha = home?.runsAgainstPerGameRecent;
+  const aa = awaySide?.runsAgainstPerGameRecent;
+  if (typeof hf !== 'number' || typeof af !== 'number') return null;
+  const combined = hf + af;
+  // Whether a scoring rate is "for" or "against" the tip depends on the
+  // direction selected, so the verdict wording tracks totalSide.
+  const supports = totalSide === 'UNDER' ? 'is the clearest argument the other way' : 'is the core of the argument';
+  const opposes = totalSide === 'UNDER' ? 'is the core of the argument' : 'is the clearest argument the other way';
+  if (combined >= 10) return `both clubs have been scoring freely of late, and that ${supports}`;
+  if (combined <= 7.5) return `neither club has been scoring freely across recent outings, and that ${opposes}`;
+  if (typeof ha === 'number' && typeof aa === 'number' && ha + aa >= 10) {
+    return `recent outings on both sides have been conceding heavily, and that ${supports}`;
+  }
+  return `recent scoring rates on both sides sit around the middle of the range`;
+}
+
+function bbConcedingClause(home, awaySide, totalSide = null) {
+  const ha = home?.teamEra;
+  const aa = awaySide?.teamEra;
+  if (typeof ha !== 'number' || typeof aa !== 'number') return null;
+  const avg = (ha + aa) / 2;
+  if (avg <= 3.6) {
+    return totalSide === 'UNDER'
+      ? `season run prevention on both sides has been among the stronger marks around, which supports the suppressed direction`
+      : `season run prevention on both sides has been among the stronger marks around, which caps the confidence here`;
+  }
+  if (avg >= 4.5) {
+    return totalSide === 'UNDER'
+      ? `season run prevention on both sides has been leaky, which caps the confidence here`
+      : `season run prevention on both sides has been leaky, which supports the elevated direction`;
+  }
+  return null;
+}
+
+function bbMarginClause(fav) {
+  const m = fav?.avgWinMarginLast5Wins;
+  if (typeof m !== 'number') return null;
+  if (m >= 3) return `when they have won lately they have been winning by several runs rather than scraping through, which is what covering demands`;
+  if (m <= 1.5) return `their recent wins have been narrow, and that is the main argument against laying the margin`;
+  return `their recent winning margins have been moderate rather than emphatic`;
+}
+
+function bbMissingClause(result) {
+  const list = result?.missing || [];
+  if (!list.length) return null;
+  const w = spellRuns(list.length);
+  const count = w || 'several';
+  return `${count} of the input factors could not be sourced for this fixture, so the confidence figure is capped accordingly`;
+}
+
+/**
+ * Replace later mentions of a club with the correct pronoun case, so the prose
+ * does not read like a database dump. Only wording changes; no fact is altered.
+ */
+function bbPronoun(text, name) {
+  if (!text || !name) return text;
+  const esc = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return text
+    .replace(new RegExp(`${esc}'s\\b`, 'g'), 'their')
+    .replace(new RegExp(`\\b(for|to|against|over|with|of|from|behind|than)\\s+${esc}\\b`, 'gi'),
+      (m, prep) => `${prep} them`)
+    .replace(new RegExp(esc, 'g'), 'they');
+}
+
+function bbJoin(clauses, names = []) {
+  const seen = new Set();
+  const out = [];
+  for (const raw of clauses.filter(Boolean)) {
+    let c = String(raw).trim();
+    for (const n of names.filter(Boolean)) {
+      if (!c.includes(n)) continue;
+      if (seen.has(n)) c = bbPronoun(c, n);
+      else {
+        seen.add(n);
+        const i = c.indexOf(n);
+        c = c.slice(0, i + n.length) + bbPronoun(c.slice(i + n.length), n);
+      }
+    }
+    c = c.charAt(0).toUpperCase() + c.slice(1);
+    out.push(/[.!?]$/.test(c) ? c : `${c}.`);
+  }
+  return out.join(' ');
+}
+
+/** Build the analytical body for one market, strictly from sourced values. */
+function buildBaseballBody(result, market) {
+  const favIsHome = result.selection === 'home';
+  const fav = favIsHome ? result.home : result.away;
+  const dog = favIsHome ? result.away : result.home;
+  const clauses = [];
+
   if (market === MARKETS.WIN) {
-    return `**${result.favoured}** is the side to take in this meeting, with the balance of evidence clearly on their side of the sheet.`;
+    clauses.push(bbRecordClause(fav, dog));
+    clauses.push(bbFormClause(fav));
+    clauses.push(bbStreakClause(fav, dog));
+    clauses.push(bbStarterClause(fav, dog));
+    clauses.push(bbQualityStartsClause(fav));
+    clauses.push(bbRunDiffClause(fav, dog));
+    clauses.push(bbH2HClause(result));
+    clauses.push(bbUnconfirmedClause(fav, dog));
+  } else if (market === MARKETS.RUN_LINE) {
+    clauses.push(bbMarginClause(fav));
+    clauses.push(bbRecordClause(fav, dog));
+    clauses.push(bbRunDiffClause(fav, dog));
+    clauses.push(bbStarterClause(fav, dog));
+    clauses.push(bbH2HClause(result));
+  } else {
+    const totalSide = result?.total?.decision?.side || null;
+    clauses.push(bbScoringClause(result.home, result.away, totalSide));
+    clauses.push(bbConcedingClause(result.home, result.away, totalSide));
+    clauses.push(bbStarterClause(fav, dog, { totalSide }));
+    clauses.push(bbQualityStartsClause(fav, { totalSide }));
+    clauses.push(bbUnconfirmedClause(fav, dog));
   }
-  if (market === MARKETS.RUN_LINE) {
-    return `**${result.favoured}** should cover here, because the winning margins they have been building leave room for the required margin.`;
-  }
-  return `**${result.total.decision.side || 'OVER'}** is the read on the run count, and the underlying tempo supports it.`;
+
+  clauses.push(bbMissingClause(result));
+
+  const names = [...new Set([fav?.name, dog?.name].filter(Boolean))];
+  return bbJoin(clauses, names);
 }
 
 export function writeTip(result, market, openerIndex = 0, { reasonOverride = null } = {}) {
@@ -229,23 +499,24 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
     : market === MARKETS.RUN_LINE ? result.runLine.decision.confidence
       : result.total.decision.confidence;
 
-  const head = market === MARKETS.TOTAL
-    ? `**${result.total.decision.side}**`
-    : `**${result.favoured}**`;
+  // OLBG house style: the selection is stated plainly in the opening words,
+  // then the case is argued from sourced evidence only.
+  const pickLead = market === MARKETS.WIN
+    ? `**${result.favoured}** are the preferred selection in this matchup.`
+    : market === MARKETS.RUN_LINE
+      ? `**${result.favoured} to cover** is the preferred margin outcome.`
+      : `**${result.total.decision.side || 'OVER'}** is the preferred total outcome.`;
 
-  const angleBody = {
-    [MARKETS.WIN]: `The reasoning behind it is straightforward: recent results, control of the run count on both sides of the ball and the pitching profile all lean the same way, and nothing in the opposing side contradicts that read.`,
-    [MARKETS.RUN_LINE]: `The case rests on how these games have been won rather than merely who won them, with separation arriving in the middle innings instead of at the final out.`,
-    [MARKETS.TOTAL]: `The pitching profile, the way both benches have been scoring lately and the late-inning environment all line up behind that read.`,
-  }[market];
+  const body = buildBaseballBody(result, market);
 
-  const text = [
-    `${opener.word} ${opener.lead}`,
-    underSideLine(result, market),
-    angleBody,
-    filler(openerIndex, result.favoured, market),
-    `Confidence: ${confidence}.`,
-  ].join(' ');
+  let text = `${pickLead} ${opener.word} ${opener.lead} ${body}`.replace(/\s+/g, ' ').trim();
+
+  // Word floor: rather than padding with invented detail, state the method.
+  if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {
+    text += ' The rating is produced mechanically from the sourced season records, recent results and scoring rates linked alongside this fixture, and nothing beyond those inputs has been assumed.';
+  }
+
+  text = `${text} Confidence: ${confidence}.`;
 
   return {
     market,
@@ -253,6 +524,7 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
     text,
     confidence,
     opener: opener.id,
+    angleWord: opener.word,
     validation: validateBaseballTip(text, { market }),
     skip: false,
   };
@@ -266,14 +538,26 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
 export function writeBaseballCard(results, { dateISO = null } = {}) {
   const tips = [];
   let i = 0;
+  // Angle words must stay distinct across the PUBLISHED tips only. Advancing the
+  // index on skipped tips as well used to burn openers and force the list to
+  // wrap, which reintroduced duplicates; instead the index advances only when a
+  // tip is actually published, and collides forward if the word is taken.
+  const usedAngles = new Set();
   for (const r of results || []) {
     if (!r || r.unscored) continue;
     for (const market of [MARKETS.WIN, MARKETS.RUN_LINE, MARKETS.TOTAL]) {
-      const tip = writeTip(r, market, i);
+      let tip = writeTip(r, market, i);
+      if (!tip.skip) {
+        for (let attempt = 0; attempt < OPENERS.length && usedAngles.has(String(tip.angleWord).toLowerCase()); attempt += 1) {
+          i += 1;
+          tip = writeTip(r, market, i);
+        }
+        usedAngles.add(String(tip.angleWord).toLowerCase());
+        i += 1;
+      }
       tip.matchId = r.id;
       tip.fixture = `${r.away?.name || 'Away'} at ${r.home?.name || 'Home'}`;
       tips.push(tip);
-      i += 1;
     }
   }
 

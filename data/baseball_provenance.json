@@ -1,0 +1,194 @@
+{
+ "schema_version": 1,
+ "sport": "Baseball",
+ "league": "MLB",
+ "prompt": "BASEBALL PREDICTION MASTER PROMPT v1.0",
+ "generated_at_utc": "2026-09-04T21:46:52.745Z",
+ "generator": "scripts/build_baseball_provenance.mjs",
+ "note": "Derived from the endpoint records inside the committed baseball documents and from a replay of the scoring engine. No value in this file is entered by hand.",
+ "irregularities_reference": "docs/BASEBALL_IRREGULARITIES.md — IR-BASEBALL ids are shared with that register; ids 01-06 are documented there in prose.",
+ "sources": [
+  {
+   "id": "statsapi-mlb-com",
+   "name": "MLB Stats API (official, key-less)",
+   "url": "https://statsapi.mlb.com",
+   "endpoints": [
+    "https://statsapi.mlb.com/api/v1/people/{personId}/stats?stats=season&group=pitching&season={season}",
+    "https://statsapi.mlb.com/api/v1/schedule?sportId=1&date={date}&hydrate=probablePitcher,linescore,team",
+    "https://statsapi.mlb.com/api/v1/standings?leagueId=103,104&season={season}",
+    "https://statsapi.mlb.com/api/v1/teams/stats?stats=season&group=hitting&season={season}&sportId=1"
+   ],
+   "status": 200,
+   "status_distribution": {
+    "200": 261
+   },
+   "requests": 261,
+   "requests_ok": 261,
+   "verified_utc": "2026-09-04T19:42:59Z",
+   "provides": [
+    "fixtures",
+    "start times",
+    "venues",
+    "probable starters",
+    "settled results used for form",
+    "run differential",
+    "head-to-head and winning margins",
+    "season records",
+    "home and road splits",
+    "season team hitting and pitching aggregates",
+    "probable-starter season lines and last-four-start game logs"
+   ],
+   "documents": [
+    "data/baseball_fixtures.json",
+    "data/baseball_pitchers.json",
+    "data/baseball_standings.json",
+    "data/baseball_tape.json",
+    "data/baseball_team_stats.json"
+   ]
+  },
+  {
+   "id": "site-api-espn-com",
+   "name": "ESPN MLB scoreboard (public JSON)",
+   "url": "https://site.api.espn.com",
+   "endpoints": [
+    "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard?dates={date}"
+   ],
+   "status": 200,
+   "status_distribution": {
+    "200": 43
+   },
+   "requests": 43,
+   "requests_ok": 43,
+   "verified_utc": "2026-09-04T19:42:58Z",
+   "provides": [
+    "fixtures",
+    "start times",
+    "venues",
+    "probable starters"
+   ],
+   "documents": [
+    "data/baseball_fixtures.json"
+   ]
+  },
+  {
+   "id": "olbg-baseball",
+   "name": "OLBG Baseball betting-tips index",
+   "url": "https://www.olbg.com/betting-tips/Baseball/12",
+   "endpoints": [
+    "https://www.olbg.com/betting-tips/Baseball/12"
+   ],
+   "status": null,
+   "status_distribution": null,
+   "requests": null,
+   "requests_ok": null,
+   "verified_utc": "2026-09-04T19:43:00Z",
+   "provides": [
+    "OLBG slate listing (fixture, league, start time, tip counts)"
+   ],
+   "documents": [
+    "data/baseball_slate.json"
+   ],
+   "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
+   "note": "Publicly viewable listing of facts (fixture, league, kickoff, tip counts) recorded for manual review. No bookmaker price is published in this HTML, so no price field is produced.",
+   "events_returned": 0
+  }
+ ],
+ "coverage": {
+  "dates": 23,
+  "date_range": [
+   "2026-09-04",
+   "2026-09-26"
+  ],
+  "fixtures_scored": 292,
+  "tips_generated": 876,
+  "tips_published": 109,
+  "tips_skipped": 767,
+  "missing_factors": [
+   {
+    "factor": "odds.moneyline (current moneyline cross-referenced from at least two books)",
+    "fixtures": 292
+   },
+   {
+    "factor": "bullpenRank (bullpen ERA rank — top 10 vs bottom 10)",
+    "fixtures": 292
+   },
+   {
+    "factor": "bullpenRank for both bullpens (bullpen and late-inning run environment)",
+    "fixtures": 292
+   },
+   {
+    "factor": "recentTotals (Over/Under trends over the last 5 games — requires a posted total line, which no key-less feed provides)",
+    "fixtures": 292
+   },
+   {
+    "factor": "away starter not confirmed (bullpen game possible)",
+    "fixtures": 252
+   },
+   {
+    "factor": "head-to-head record over the last 3 years",
+    "fixtures": 250
+   },
+   {
+    "factor": "home starter not confirmed (bullpen game possible)",
+    "fixtures": 246
+   },
+   {
+    "factor": "wind direction at game time (outdoor venue — no key-less feed publishes wind direction or speed)",
+    "fixtures": 231
+   },
+   {
+    "factor": "starter (confirmed starter ERA, WHIP, strikeouts per 9, last 4 starts)",
+    "fixtures": 164
+   },
+   {
+    "factor": "starter.era for both starters (starting pitcher run suppression)",
+    "fixtures": 164
+   },
+   {
+    "factor": "opponent.vsStarterHandednessAvg (opposing lineup batting average vs this handedness, last 30 days)",
+    "fixtures": 133
+   },
+   {
+    "factor": "starter.shortRest (whether the starter is pitching on short rest)",
+    "fixtures": 97
+   }
+  ]
+ },
+ "irregularities": [
+  {
+   "id": "IR-BASEBALL-01",
+   "title": "No bookmaker price is available",
+   "effect": "No key-less feed publishes an MLB moneyline, run line or total, so all 292 committed fixtures carry withOdds = 0. Every market-derived factor in the prompt is unscorable, no value or ROI figure is computed, and no tip cites a price.",
+   "evidence": "data/baseball_fixtures.json counts.withOdds",
+   "status": "open"
+  },
+  {
+   "id": "IR-BASEBALL-02",
+   "title": "Bullpen and posted-total factors are unavailable",
+   "effect": "Bullpen ERA rank, bullpen fatigue, Over/Under trends over the last five games and opposing-lineup average versus starter handedness are not published by any key-less feed. They are recorded as missing on all 292 scored fixtures rather than estimated.",
+   "evidence": "data/baseball_provenance.json coverage.missing_factors",
+   "status": "open"
+  },
+  {
+   "id": "IR-BASEBALL-06",
+   "title": "Most probable starters are not yet named",
+   "effect": "The MLB schedule names a probable starter for 86 of 584 starting slots across the committed window, because clubs announce starters only a few days ahead. Unnamed slots score zero and the tip states that the arm is unconfirmed instead of assuming one.",
+   "evidence": "data/baseball_fixtures.json fixtures[].{home,away}.probablePitcher",
+   "status": "open"
+  },
+  {
+   "id": "IR-BASEBALL-07",
+   "title": "The OLBG baseball slate returned no events",
+   "effect": "The committed OLBG slate document lists zero events and zero markets, so no OLBG consensus is joined onto any baseball fixture. The engine runs entirely on the official MLB StatsAPI feeds; nothing on the baseball page is sourced from OLBG.",
+   "evidence": "data/baseball_slate.json events, markets_seen",
+   "status": "open"
+  },
+  {
+   "id": "IR-BASEBALL-08",
+   "title": "Publication rate is intentionally low",
+   "effect": "109 of 876 candidate tips across 23 dates clear the confidence gate; the rest publish an explicit SKIP. With no price and most starters unnamed, the risk layer suppresses the majority of plays by design rather than publishing a tip it cannot support.",
+   "evidence": "replay of engine/baseball_data.js buildBaseballCard over every committed date",
+   "status": "by-design"
+  }
+ ]
+}
