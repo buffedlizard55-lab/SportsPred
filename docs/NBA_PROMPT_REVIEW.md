@@ -69,16 +69,20 @@ they are recorded as missing rather than estimated:
 
 1. A **second independent closing-odds source** (ESPN republishes a single book).
 2. **ATS trends (last 10 covers)** — no free feed retains point-spread covers.
-3. **Conference-rank standings** (top-3 / 4–6 / 7–10 tiers) — no key-less conference
-   standings feed is wired; season win-rate is used as the declared proxy.
+3. **Conference-rank standings** (top-3 / 4–6 / 7–10 tiers) — the ESPN standings
+   feed is wired (`scripts/collect_basketball_espn.mjs` → `data/basketball_standings.json`,
+   consumed by `buildStandingsMap`). Until that document is committed, the engine
+   falls back to season win-rate and records `NBA-STANDINGS` in `missing[]`.
 4. **Date-specific injury/availability impact** — the official NBA injury report is
    linked for manual review but is not a structured feed.
 5. **Pace ratings and defensive efficiency** — not in the scoreboard feed.
 6. **Game-stakes tier** (high/mid/low context).
 
-A future pass could add a dedicated collector (a committed results tape plus an
-odds-archive) to strengthen WIN MATCH / SPREAD scoring and to enable a real
-walk-forward backtest against closing lines. Until then, the engine withholds rather
-than fabricates.
+A dedicated collector (`scripts/collect_basketball_espn.mjs`) now produces the
+committed results tape (`data/basketball_tape.json`) and standings snapshot, and
+`scripts/backtest_basketball.mjs` runs a leak-free walk-forward backtest that grades
+WIN MATCH per confidence band (SPREAD/TOTAL are reported as ungraded because no
+key-less feed retains a closing line once a game is final). Closing odds are still
+not archived, so the backtest runs without the odds-strength bucket and says so.
 
 Manual review links: [ESPN NBA scoreboard](https://www.espn.com/nba/scoreboard), [NBA official stats](https://www.nba.com/stats), [NBA official injury report](https://official.nba.com/nba-injury-report-2025-26-season/), and [OLBG Basketball](https://www.olbg.com/betting-tips/Basketball/4).

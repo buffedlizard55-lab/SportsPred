@@ -94,6 +94,23 @@ Regression test added in `tests/dom_smoke.test.mjs`:
 - Added `tests/nba_engine.test.mjs` (every STEP 2 bucket unit-tested) and a DOM smoke
   test proving the NBA market trio renders.
 
+### 3.5 Standings collector and walk-forward backtest (this pass)
+
+- Added `engine/basketball_espn.js` — a pure parser for the ESPN NBA/WNBA standings
+  payload (`conferences → teams[{name, rank, winPct, ppg, oppPpg}]`, rank = table
+  position, not the BPI `playoffSeed`). Unit-tested against a live-read excerpt.
+- Added `scripts/collect_basketball_espn.mjs` — writes `data/basketball_standings.json`
+  and `data/basketball_tape.json` (completed NBA + WNBA games over the window), with
+  source/status/fetch-time recorded per document and nothing defaulted.
+- Added `scripts/backtest_basketball.mjs` — leak-free walk-forward backtest that
+  re-scores each settled game from earlier games only and grades WIN MATCH per band;
+  SPREAD/TOTAL are reported as ungraded because no key-less feed retains a closing
+  line once a game is final. `buildPreMatch`/`grade` exported for unit tests.
+- Wired `standingsPoints`/`buildStandingsMap` into `scoreNbaMatch` so the conference-rank
+  bucket uses real standings when `data/basketball_standings.json` is committed, and
+  falls back to the win-rate proxy (flagging `NBA-STANDINGS`) otherwise.
+- Added `npm run collect:basketball` / `npm run backtest:basketball`.
+
 ## 4. Irregularities flagged for review
 
 | ID | Irregularity | Status / mitigation |
