@@ -65,8 +65,12 @@ const todayISO = () => {
   return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 };
 
+const SPECIALIST_SPORTS = ['cricket', 'handball', 'tennis', 'f1'];
+
 const state = {
-  sport: 'cricket',
+  sport: (typeof location !== 'undefined' && SPECIALIST_SPORTS.includes(new URLSearchParams(location.search).get('sport')))
+    ? new URLSearchParams(location.search).get('sport')
+    : 'cricket',
   date: todayISO(),
   calMonth: new Date(`${todayISO()}T12:00:00Z`),
   phase: 'all',
@@ -158,6 +162,7 @@ async function boot() {
     console.error('Initialization error:', e);
   }
 
+  syncSportPills();
   updateHeaderPills();
   populateLeagueFilter();
   renderCalendar();
@@ -202,15 +207,23 @@ function populateLeagueFilter() {
  * Date & Sport Navigation
  * ------------------------------------------------------------------ */
 
-async function setSport(sportId) {
-  if (state.sport === sportId) return;
-  state.sport = sportId;
-
+function syncSportPills() {
   $$('.sport-pill[data-sport]').forEach((btn) => {
-    const active = btn.dataset.sport === sportId;
+    const active = btn.dataset.sport === state.sport;
     btn.classList.toggle('active', active);
     btn.setAttribute('aria-checked', active ? 'true' : 'false');
   });
+}
+
+async function setSport(sportId) {
+  if (state.sport === sportId) return;
+  state.sport = sportId;
+  try {
+    const u = new URL(location.href);
+    u.searchParams.set('sport', sportId);
+    history.replaceState(null, '', u);
+  } catch { /* jsdom without History may skip */ }
+  syncSportPills();
 
   updateHeaderPills();
   populateLeagueFilter();
@@ -2033,7 +2046,7 @@ $('#cal-next').addEventListener('click', () => {
 // Shared site chrome: inject the same masthead, sport rail and footer that the
 // rest of the site renders (ui.js renderShell/renderFooter), so pro.html is not
 // a visually separate page. Must run before boot() resolves its element refs.
-renderShell({ activeSport: null, activePage: 'pro.html' });
+renderShell({ activeSport: state.sport, activePage: 'pro.html' });
 renderFooter();
 
 // Predictions actions

@@ -387,6 +387,7 @@ export const SPORTS = [
     predictable: true,
     unit: 'goals',
     specialistEngine: 'handball',
+    page: 'pro.html?sport=handball',
     officialLinks: [
       { label: 'OLBG Handball Tips', url: olbgUrl('Handball', 20) },
       { label: 'DAIKIN Handball-Bundesliga', url: 'https://www.daikin-hbl.de/de/hbl/tabelle' },

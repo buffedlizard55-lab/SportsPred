@@ -290,7 +290,7 @@ test('a written tip is valid, bolded, sourced and copyable', () => {
   assert.equal(tip.ok, true, `violations: ${tip.violations.join('; ')}`);
   assert.deepEqual(tip.violations, []);
   assert.ok(tip.words >= 55 && tip.words <= 170, `word count ${tip.words}`);
-  assert.match(tip.text, /^\*\*.+\*\* is the call/);
+  assert.match(tip.text, /^\*\*.+\*\* is the preferred selection/);
   assert.ok(tip.text.includes(r.headline.selection));
 });
 
@@ -392,4 +392,11 @@ test('allOlbgIndexes yields one reviewable OLBG URL per sport', () => {
   const rows = allOlbgIndexes();
   assert.equal(rows.length, SPORTS.length);
   for (const r of rows) assert.match(r.url, /^https:\/\/www\.olbg\.com\/betting-tips\/[A-Za-z_]+\/\d+$/);
+});
+
+test('handball is predicted on the specialist console', () => {
+  const hb = getSport('handball');
+  assert.equal(hb.predictable, true);
+  assert.equal(hb.page, 'pro.html?sport=handball');
+  assert.equal(hb.specialistEngine, 'handball');
 });

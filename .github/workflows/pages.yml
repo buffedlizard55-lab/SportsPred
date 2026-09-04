@@ -88,6 +88,7 @@ jobs:
           cp -r assets _site/
           cp -r engine _site/
           cp -r data _site/
+          rm -f _site/data/baseball_predictions.json
           printf 'User-agent: *\nAllow: /\n' > _site/robots.txt
 
       - uses: actions/upload-pages-artifact@v3

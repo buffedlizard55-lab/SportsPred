@@ -298,3 +298,13 @@ test('pronoun substitution uses the correct case, never "for they"', () => {
     assert.ok(!/\bthey's\b/i.test(tip.text), `possessive pronoun error: ${tip.text}`);
   }
 });
+
+test('every canned opener lead itself passes the output rules', () => {
+  for (const o of OPENERS) {
+    const probe = `**Team Alpha** are the preferred winner. ${o.word} ${o.lead} `
+      + 'Team Alpha have won four of their last five. They arrive on a run of four straight wins. '
+      + 'The crease is close to neutral on the sourced stopping rates. Confidence: MEDIUM.';
+    const v = validateIceHockeyTip(probe, { market: MARKETS.OUTRIGHT });
+    assert.deepEqual(v.violations, [], `opener ${o.id} produced ${v.violations.join(', ')}`);
+  }
+});

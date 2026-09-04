@@ -42,8 +42,13 @@ async function boot() {
   $('#sport-picks').innerHTML = PREDICTABLE.map((s) => `
     <label class="btn sm" style="cursor:pointer">
       <input type="checkbox" value="${esc(s.key)}" ${state.sports.has(s.key) ? 'checked' : ''}> ${s.icon} ${esc(s.name)}
-    </label>`).join('') + OWN_PAGE.map((s) => `
-    <a class="btn sm" href="${esc(s.page)}?date=${esc(state.date)}" title="${esc(s.name)} runs on its own specialist page">${s.icon} ${esc(s.name)} →</a>`).join('');
+    </label>`).join('') + OWN_PAGE.map((s) => {
+      const href = String(s.page).includes('?')
+        ? `${s.page}&date=${encodeURIComponent(state.date)}`
+        : `${s.page}?date=${encodeURIComponent(state.date)}`;
+      return `
+    <a class="btn sm" href="${esc(href)}" title="${esc(s.name)} runs on its own specialist page">${s.icon} ${esc(s.name)} →</a>`;
+    }).join('');
 
   $$('#sport-picks input').forEach((cb) => cb.addEventListener('change', () => {
     if (cb.checked) state.sports.add(cb.value); else state.sports.delete(cb.value);

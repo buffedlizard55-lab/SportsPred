@@ -51,10 +51,9 @@ const FORBIDDEN_SUBSTRINGS = [
  * legitimate analytical language (pitching, bullpen, lineup) still passes.
  */
 const FORBIDDEN_WORDS = [
-  'home', 'away', 'road', 'host', 'hosts', 'visitor', 'visitors', 'stadium',
-  'arena', 'ballpark', 'park', 'league', 'era', 'whip', 'moneyline', 'handicap',
+  'stadium', 'arena', 'ballpark', 'park', 'league', 'era', 'whip', 'moneyline', 'handicap',
   'spread', 'odds', 'stat', 'stats', 'pitcher', 'starter', 'starters', 'batter',
-  'roster', 'injury', 'injuries', 'travel',
+  'roster', 'injury', 'injuries',
 ];
 
 /**
@@ -65,27 +64,26 @@ const FORBIDDEN_WORDS = [
  * follows.
  */
 export const OPENERS = [
-  { id: 'pitching', word: 'Pitching', lead: 'dominance and run suppression frame this one.' },
-  { id: 'offense', word: 'Offensive', lead: 'momentum and run-scoring efficiency decide it.' },
-  { id: 'bullpen', word: 'Bullpen', lead: 'depth and late-inning reliability are the hinge.' },
-  { id: 'headtohead', word: 'Head-to-head', lead: 'patterns between these clubs recur.' },
-  // "edge" is itself a FORBIDDEN_SUBSTRING, so this lead must avoid it.
-  { id: 'value', word: 'Underdog', lead: 'value and a run-scoring advantage shape it.' },
-  { id: 'streak', word: 'Recent', lead: 'streak momentum points one way.' },
-  { id: 'contact', word: 'Contact', lead: 'quality and discipline at the plate matter.' },
-  { id: 'rotation', word: 'Rotation', lead: 'depth beyond the opener is decisive.' },
-  { id: 'tempo', word: 'Tempo', lead: 'control of the middle innings tilts it.' },
-  { id: 'execution', word: 'Execution', lead: 'with runners on differs between these sides.' },
-  { id: 'consistency', word: 'Consistency', lead: 'across a full month is rare and telling.' },
-  { id: 'pressure', word: 'Pressure', lead: 'innings have separated these clubs all year.' },
-  { id: 'depth', word: 'Lineup', lead: 'depth and sequencing create the gap.' },
-  { id: 'suppression', word: 'Run', lead: 'suppression is the quiet story here.' },
-  { id: 'clutch', word: 'Clutch', lead: 'production late in games is one-sided.' },
-  { id: 'volume', word: 'Volume', lead: 'of hard contact has climbed for one side.' },
-  { id: 'discipline', word: 'Discipline', lead: 'at the plate rewards one club more.' },
-  { id: 'form', word: 'Form', lead: 'over the past fortnight splits the two.' },
-  { id: 'margins', word: 'Margins', lead: 'of victory have been widening, not shrinking.' },
-  { id: 'stability', word: 'Stability', lead: 'in the rotation is the difference.' },
+  { id: 'pitching', word: 'Pitching', lead: 'quality and the ability to sustain offensive pressure give them a significant advantage.' },
+  { id: 'offense', word: 'Offensive', lead: 'firepower should create separation if they execute at the plate.' },
+  { id: 'bullpen', word: 'Bullpen', lead: 'reliability should prevent the opposition from gaining prolonged momentum.' },
+  { id: 'headtohead', word: 'Head-to-head', lead: 'patterns between these clubs support the same reading of the matchup.' },
+  { id: 'value', word: 'Underdog', lead: 'respect is due, but the favourite still holds the stronger overall profile.' },
+  { id: 'streak', word: 'Recent', lead: 'results give them a solid opportunity to control the game.' },
+  { id: 'contact', word: 'Contact', lead: 'quality should allow them to apply pressure early and take advantage of mistakes.' },
+  { id: 'rotation', word: 'Rotation', lead: 'depth beyond the announced arm is part of what separates these clubs.' },
+  { id: 'tempo', word: 'Tempo', lead: 'control through the middle innings should keep the opposition from stringing rallies.' },
+  { id: 'execution', word: 'Execution', lead: 'in the key innings is what turns a balanced matchup into a win.' },
+  { id: 'consistency', word: 'Consistency', lead: 'across recent outings is the foundation of this selection.' },
+  { id: 'pressure', word: 'Pressure', lead: 'in the middle innings has separated these clubs all year.' },
+  { id: 'depth', word: 'Lineup', lead: 'depth and sequencing create the gap that the selection can exploit.' },
+  { id: 'suppression', word: 'Run', lead: 'prevention is the quiet part of the argument for this side.' },
+  { id: 'clutch', word: 'Clutch', lead: 'production late in games has been one-sided and that matters here.' },
+  { id: 'volume', word: 'Volume', lead: 'of hard contact has climbed for one club and that is the scoring case.' },
+  { id: 'discipline', word: 'Discipline', lead: 'at the plate rewards the selection more often than the opposition.' },
+  { id: 'form', word: 'Form', lead: 'over the past fortnight splits the two and favours the selection.' },
+  { id: 'margins', word: 'Margins', lead: 'of victory have been widening, which is what covering demands.' },
+  { id: 'stability', word: 'Stability', lead: 'in the announced arm is the difference in this matchup.' },
 ];
 
 const MARKET_LABEL = {
@@ -502,7 +500,7 @@ export function writeTip(result, market, openerIndex = 0, { reasonOverride = nul
   // OLBG house style: the selection is stated plainly in the opening words,
   // then the case is argued from sourced evidence only.
   const pickLead = market === MARKETS.WIN
-    ? `**${result.favoured}** are the preferred selection in this matchup.`
+    ? `**${result.favoured}** are the strongest selection on this card.`
     : market === MARKETS.RUN_LINE
       ? `**${result.favoured} to cover** is the preferred margin outcome.`
       : `**${result.total.decision.side || 'OVER'}** is the preferred total outcome.`;

@@ -97,7 +97,7 @@ test('the validator refuses digits, banned fillers, forbidden words, and short t
   assert.equal(bad.ok, false);
   const filler = validateBaseballTip(`**${'x'.repeat(20)}** ${'this should be a low-scoring affair '.repeat(4)} Confidence: HIGH.`, { market: MARKETS.TOTAL });
   assert.equal(filler.ok, false);
-  const word = validateBaseballTip(`**Over** ${'the away side travels well '.repeat(8)} Confidence: MEDIUM.`, { market: MARKETS.TOTAL });
+  const word = validateBaseballTip(`**Over** ${'the moneyline on this fixture is the story '.repeat(4)} Confidence: MEDIUM.`, { market: MARKETS.TOTAL });
   assert.equal(word.ok, false);
   const short = validateBaseballTip('**Over** a short tip. Confidence: HIGH.', { market: MARKETS.TOTAL });
   assert.equal(short.ok, false);
@@ -234,4 +234,14 @@ test('no two published tips in a card share an analytical angle or full prose', 
   const win = active.filter((t) => t.label === 'WIN MATCH OUTRIGHT')
     .map((t) => t.text.replace(/Team [AB]\d/g, 'X'));
   assert.equal(new Set(win).size, win.length, 'identical boilerplate across fixtures');
+});
+
+test('WIN tips open with the selection, not a canned angle word', () => {
+  const tip = writeTip(fullResult(), MARKETS.WIN, 0);
+  assert.match(tip.text, /^\*\*Team Alpha\*\* are the strongest selection on this card\./);
+  const homeWord = validateBaseballTip(
+    `**Over** ${'the home club is in form and the other side is not '.repeat(4)} Confidence: MEDIUM.`,
+    { market: MARKETS.TOTAL },
+  );
+  assert.ok(!homeWord.violations.some((v) => /forbidden word "home"/.test(v)), homeWord.violations.join('; '));
 });

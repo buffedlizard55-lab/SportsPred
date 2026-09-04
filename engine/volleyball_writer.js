@@ -343,7 +343,9 @@ export function writeVolleyballTip({ match, result, market, angle }) {
     pickLead = `**${m.outcome}** is my preferred correct score.`;
   }
 
-  let text = `${pickLead} ${angle.word} ${angle.lead} ${buildBody(market, result, match)}`
+  // Angle word is recorded for uniqueness. Published copy leads with the
+  // selection then sourced evidence — no canned "Attacking dominance..." filler.
+  let text = `${pickLead} ${buildBody(market, result, match)}`
     .replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented detail, state the method.

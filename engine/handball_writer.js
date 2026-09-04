@@ -21,7 +21,6 @@ export const BANNED_PHRASES = [
   'this should be',
   'a tough match',
   'could go either way',
-  'both teams',
   'hard to call',
   'anything can happen',
   'on paper',
@@ -355,6 +354,21 @@ function missingClause(result) {
 }
 
 /**
+ * Balanced closer in the OLBG house style: respect the opposition, then
+ * restate why the selection still leads. Never uses banned filler.
+ */
+function respectClause(fav, dog, market) {
+  if (!dog?.name || !fav?.name) return null;
+  if (market === 'handicap_spread') {
+    return `${dog.name} should have competitive periods, but the stronger structure should create separation as the match progresses`;
+  }
+  if (market === 'game_total') {
+    return `${dog.name} will need to respond offensively to stay competitive, which favours another productive scoring contest`;
+  }
+  return `${dog.name} can compete for stretches, but the favoured side remain substantially better positioned to take the points`;
+}
+
+/**
  * Replace later mentions of a team with the correct pronoun case.
  *
  * A naive name -> "they" swap produces "for they" / "against they", so object
@@ -476,10 +490,13 @@ export function writeHandballTip({ match, result, market, angle }) {
       ? `${boldedOutcome} is the preferred margin outcome.`
       : `${boldedOutcome} is the preferred total outcome.`;
 
-  const openerText = `${angle.word} ${angle.lead}`;
+  // The angle word is recorded for uniqueness accounting. It is NOT printed as
+  // a canned opener ("Defensive organisation is the starting point here") —
+  // that filler is what OLBG moderators reject. The published tip leads with
+  // the selection, then sourced evidence, matching the house examples.
   const body = buildHandballAnalyticalBody(market, result, match);
 
-  let text = `${pickLead} ${openerText} ${body}`.replace(/\s+/g, ' ').trim();
+  let text = `${pickLead} ${body}`.replace(/\s+/g, ' ').trim();
 
   // Word floor: rather than padding with invented facts, state the method.
   if (text.split(/\s+/).filter(Boolean).length + 3 < MIN_WORDS) {

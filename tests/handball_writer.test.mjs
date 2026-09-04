@@ -239,3 +239,9 @@ describe('Handball writer — pronoun case', () => {
     }
   });
 });
+
+describe('Handball writer — OLBG phrasing allowed', () => {
+  it('does not ban the phrase both teams', () => {
+    assert.ok(!BANNED_PHRASES.includes('both teams'));
+  });
+});

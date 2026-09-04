@@ -130,7 +130,7 @@ export function writeUniversalTip(result) {
   const s = (id) => (result.model?.signals || []).find((x) => x.id === id) || null;
   const neutral = result.neutral === true;
 
-  const opening = `**${head.selection}** is the call in the ${head.label.toLowerCase()} market for ${result.match}${result.league ? ` in the ${result.league}` : ''}, rated ${head.band} confidence at ${head.score} out of one hundred.`;
+  const opening = `**${head.selection}** is the preferred selection in this matchup.`;
 
   const body = [
     marketSentence(result),
