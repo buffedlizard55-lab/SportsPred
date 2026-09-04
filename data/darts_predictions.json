@@ -1225,9 +1225,53 @@
       ],
       "status": "pending",
       "settlement": null
+    },
+    {
+      "matchId": "olbg-31323",
+      "matchTitle": "Damon Heta v Karel Sedlacek",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Damon Heta",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Damon Heta** (0/100)",
+      "paragraph": "**Damon Heta** brings the more sustainable recent form, built on Trust the deeper run of results here. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-04T04:06:24Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Damon_Heta_vs_Karel_Sedlacek/15?event_id=31323",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
+    },
+    {
+      "matchId": "olbg-31322",
+      "matchTitle": "Krzysztof Ratajski v Adam Gawlas",
+      "event": null,
+      "round": "Round 1",
+      "dateISO": null,
+      "venue": null,
+      "predictedWinner": "Krzysztof Ratajski",
+      "confidence": "SKIP",
+      "modelScore": 0,
+      "bet": "SKIP",
+      "betType": "SKIP — no verified price",
+      "verdict": "No confident read — lean **Krzysztof Ratajski** (0/100)",
+      "paragraph": "Tournament form separates the pair, and **Krzysztof Ratajski** owns it via Recent board results give the firmer steer. Key input is unverified. The sourced record is the only input behind this lean. Confidence: SKIP.",
+      "generatedAtUtc": "2026-09-04T04:06:24Z",
+      "sourceUrls": [
+        "https://www.olbg.com/betting-tips/Darts/All_Darts/All_Events/Krzysztof_Ratajski_vs_Adam_Gawlas/15?event_id=31322",
+        "https://www.olbg.com/betting-tips/Darts/15"
+      ],
+      "status": "pending",
+      "settlement": null
     }
   ],
-  "updatedAtUtc": "2026-09-03T23:55:00Z",
+  "updatedAtUtc": "2026-09-04T04:06:24Z",
   "notes": [
     "Writers/engine output recorded by scripts/record_darts_predictions.mjs from the committed source-linked documents.",
     "Settlement runs in CI from the official results tape; values are matched by player names.",

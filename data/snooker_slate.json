@@ -1,14 +1,14 @@
 {
   "schema_version": 1,
   "sport": "Snooker",
-  "as_of_utc": "2026-09-03T23:54:51Z",
+  "as_of_utc": "2026-09-04T04:06:16Z",
   "source": {
     "name": "OLBG \u2014 Snooker Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Snooker/8",
     "indexes": [
       "https://www.olbg.com/betting-tips/Snooker/8"
     ],
-    "fetched_at_utc": "2026-09-03T23:54:51Z",
+    "fetched_at_utc": "2026-09-04T04:06:16Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
@@ -18,5 +18,701 @@
     "Tournament, round, venue and date are joined from the official WST/snooker.org records in the page/engine layer, never from OLBG alone."
   ],
   "collection_warnings": [],
-  "events": []
+  "events": [
+    {
+      "event_id": "9593",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Liam_Highfield_v_Stan_Moody/8?event_id=9593",
+      "matchup": "Liam Highfield v Stan Moody",
+      "display_time": "13:00",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Win Match",
+        "selection": "Stan Moody",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Add Selection Win Tips",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 67
+            },
+            {
+              "name": "Stan Moody",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 67
+            },
+            {
+              "name": "Liam Highfield",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 58
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 58
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Stan Moody",
+              "tips_for": 2,
+              "tips_total": 3,
+              "pct": 67
+            },
+            {
+              "name": "Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 58
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 58
+            },
+            {
+              "name": "Days Profit",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            },
+            {
+              "name": "Liam Highfield",
+              "tips_for": 1,
+              "tips_total": 3,
+              "pct": 33
+            }
+          ]
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Liam Highfield +1.50",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Add Stan Moody -1.50",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Stan Moody 5-2",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Stan Moody 5-3",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Stan Moody 5-4",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Stan Moody 5-1",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Liam Highfield 5-3",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Liam Highfield 5-4",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Liam Highfield 5-2",
+              "tips_for": 1,
+              "tips_total": 2,
+              "pct": 50
+            },
+            {
+              "name": "Add Liam Highfield 5-1",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Stan Moody 5-0",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            },
+            {
+              "name": "Add Liam Highfield 5-0",
+              "tips_for": 0,
+              "tips_total": 2,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Stan Moody 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Stan Moody 5-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Stan Moody 5-4",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Stan Moody 5-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 5-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 5-4",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 5-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Stan Moody 5-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Liam Highfield 5-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        }
+      ]
+    },
+    {
+      "event_id": "9592",
+      "url": "https://www.olbg.com/betting-tips/Snooker/All_Snooker/All_Events/Aaron_Hill_v_Jak_Jones/8?event_id=9592",
+      "matchup": "Aaron Hill v Jak Jones",
+      "display_time": "19:00",
+      "display_date_label": "Today",
+      "consensus": {
+        "market": "Frame Betting",
+        "selection": "Aaron Hill",
+        "tips_for": 1,
+        "tips_total": 1,
+        "pct": 100
+      },
+      "markets_verified": true,
+      "markets": [
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 100
+            },
+            {
+              "name": "Jak Jones 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Jak Jones 5-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Tip Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Read More Annual Profit",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 46
+            },
+            {
+              "name": "Annual Strike Rate",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": 46
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": [
+            {
+              "name": "Hide Selections Jak Jones",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Aaron Hill +1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            },
+            {
+              "name": "Add Jak Jones -1.50",
+              "tips_for": 0,
+              "tips_total": 0,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Hide Selections Jak Jones 5-2",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Jak Jones 5-3",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Jak Jones 5-4",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Jak Jones 5-1",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 5-3",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 5-4",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 5-2",
+              "tips_for": 1,
+              "tips_total": 1,
+              "pct": 100
+            },
+            {
+              "name": "Aaron Hill 5-1",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Jak Jones 5-0",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            },
+            {
+              "name": "Add Aaron Hill 5-0",
+              "tips_for": 0,
+              "tips_total": 1,
+              "pct": 0
+            }
+          ]
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Win Match",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Handicap Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Jak Jones 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Jak Jones 5-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Jak Jones 5-4",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Jak Jones 5-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-4",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-1",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Jak Jones 5-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-0",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        },
+        {
+          "name": "Frame Betting",
+          "selections": []
+        },
+        {
+          "name": "Frame Betting",
+          "selections": [
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Aaron Hill 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Jak Jones 5-2",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            },
+            {
+              "name": "Jak Jones 5-3",
+              "tips_for": null,
+              "tips_total": null,
+              "pct": null
+            }
+          ]
+        }
+      ]
+    }
+  ]
 }

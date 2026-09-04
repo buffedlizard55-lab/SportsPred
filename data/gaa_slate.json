@@ -2,24 +2,22 @@
   "schema_version": 1,
   "sport": "Gaelic Football",
   "code": "football",
-  "as_of_utc": "2026-09-03T22:00:00Z",
+  "as_of_utc": "2026-09-04T04:06:24Z",
   "source": {
-    "name": "OLBG — Gaelic Football Betting Tips",
+    "name": "OLBG \u2014 Gaelic Football Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Gaelic_Football/25",
-    "indexes": ["https://www.olbg.com/betting-tips/Gaelic_Football/25"],
-    "fetched_at_utc": "2026-09-03T22:00:00Z",
-    "method": "Public OLBG index captured 2026-09-03. Event ids, matchups, times and tipster consensus transcribed from the server-rendered listing. No JavaScript execution. No prices on the page.",
+    "indexes": [
+      "https://www.olbg.com/betting-tips/Gaelic_Football/25"
+    ],
+    "fetched_at_utc": "2026-09-04T04:06:24Z",
+    "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
   "notes": [
     "OLBG tipster consensus counts are display-only and are never fed into GAA scoring.",
-    "OLBG does not expose structured odds in server-rendered HTML (IR-GAA-01).",
-    "Club championship pairings are listed as published. Names are OLBG spellings (e.g. Coolera Stradhill, St Molaies Gaels) and are not silently corrected.",
-    "Outrights are kept for the markets rail and are never turned into two-team fixtures."
+    "OLBG does not expose structured odds in server-rendered HTML (IR-GAA-01)."
   ],
-  "collection_warnings": [
-    "Live HTTP collection from this sandbox was blocked (TLS EOF). The snapshot is the public index content retrieved 2026-09-03 via the page fetch used for review. CI collect_gaa_olbg.py replaces it when outbound OLBG is reachable."
-  ],
+  "collection_warnings": [],
   "events": [
     {
       "event_id": "3439",
@@ -27,12 +25,21 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Shelmaliers_v_Gusserane/25?event_id=3439",
       "matchup": "Shelmaliers v Gusserane",
-      "display_time": "10:15",
-      "display_date_label": "05 Sept",
-      "dateISO": "2026-09-05",
-      "consensus": { "market": "Win Match", "selection": "Draw", "tips_for": 5, "tips_total": 7, "pct": 71 },
-      "teamA": { "name": "Shelmaliers" },
-      "teamB": { "name": "Gusserane" }
+      "display_time": "15:15",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": null,
+        "selection": "Draw 5/8 Win Tips 63% Add",
+        "tips_for": 5,
+        "tips_total": 8,
+        "pct": 63
+      },
+      "teamA": {
+        "name": "Shelmaliers"
+      },
+      "teamB": {
+        "name": "Gusserane"
+      }
     },
     {
       "event_id": "3434",
@@ -40,25 +47,21 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Coolera_Stradhill_v_St_Molaies_Gaels/25?event_id=3434",
       "matchup": "Coolera Stradhill v St Molaies Gaels",
-      "display_time": "14:00",
-      "display_date_label": "05 Sept",
-      "dateISO": "2026-09-05",
-      "consensus": { "market": "Win Match", "selection": "Coolera Stradhill", "tips_for": 4, "tips_total": 7, "pct": 57 },
-      "teamA": { "name": "Coolera Stradhill" },
-      "teamB": { "name": "St Molaies Gaels" }
-    },
-    {
-      "event_id": "3438",
-      "type": "match",
-      "code": "football",
-      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Mogues_Fethard_v_St_James_Wex/25?event_id=3438",
-      "matchup": "St Mogues Fethard v St James Wex",
-      "display_time": "10:15",
-      "display_date_label": "06 Sept",
-      "dateISO": "2026-09-06",
-      "consensus": { "market": "Win Match", "selection": "St Mogues Fethard", "tips_for": 2, "tips_total": 5, "pct": 40 },
-      "teamA": { "name": "St Mogues Fethard" },
-      "teamB": { "name": "St James Wex" }
+      "display_time": "19:00",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": null,
+        "selection": "Coolera Stradhill 4/8 Win Tips 50% Add",
+        "tips_for": 4,
+        "tips_total": 8,
+        "pct": 50
+      },
+      "teamA": {
+        "name": "Coolera Stradhill"
+      },
+      "teamB": {
+        "name": "St Molaies Gaels"
+      }
     },
     {
       "event_id": "3436",
@@ -66,12 +69,43 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Eastern_Harps_v_St_Marys_Sli/25?event_id=3436",
       "matchup": "Eastern Harps v St Marys Sli",
-      "display_time": "12:00",
+      "display_time": "17:00",
       "display_date_label": "06 Sept",
-      "dateISO": "2026-09-06",
-      "consensus": { "market": "Win Match", "selection": "St Marys Sli", "tips_for": 3, "tips_total": 5, "pct": 60 },
-      "teamA": { "name": "Eastern Harps" },
-      "teamB": { "name": "St Marys Sli" }
+      "consensus": {
+        "market": null,
+        "selection": "St Marys Sli 3/5 Win Tips 60% Add",
+        "tips_for": 3,
+        "tips_total": 5,
+        "pct": 60
+      },
+      "teamA": {
+        "name": "Eastern Harps"
+      },
+      "teamB": {
+        "name": "St Marys Sli"
+      }
+    },
+    {
+      "event_id": "3438",
+      "type": "match",
+      "code": "football",
+      "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/St_Mogues_Fethard_v_St_James_Wex/25?event_id=3438",
+      "matchup": "St Mogues Fethard v St James Wex",
+      "display_time": "15:15",
+      "display_date_label": "06 Sept",
+      "consensus": {
+        "market": null,
+        "selection": "Draw 2/5 Win Tips 40% Add",
+        "tips_for": 2,
+        "tips_total": 5,
+        "pct": 40
+      },
+      "teamA": {
+        "name": "St Mogues Fethard"
+      },
+      "teamB": {
+        "name": "St James Wex"
+      }
     },
     {
       "event_id": "3442",
@@ -79,12 +113,21 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Naomh_Eanna_Wex_v_HWH_Bunclody/25?event_id=3442",
       "matchup": "Naomh Eanna Wex v HWH Bunclody",
-      "display_time": "12:00",
+      "display_time": "17:00",
       "display_date_label": "06 Sept",
-      "dateISO": "2026-09-06",
-      "consensus": { "market": "Win Match", "selection": "HWH Bunclody", "tips_for": 2, "tips_total": 5, "pct": 40 },
-      "teamA": { "name": "Naomh Eanna Wex" },
-      "teamB": { "name": "HWH Bunclody" }
+      "consensus": {
+        "market": null,
+        "selection": "Naomh Eanna Wex 2/5 Win Tips 40% Add",
+        "tips_for": 2,
+        "tips_total": 5,
+        "pct": 40
+      },
+      "teamA": {
+        "name": "Naomh Eanna Wex"
+      },
+      "teamB": {
+        "name": "HWH Bunclody"
+      }
     },
     {
       "event_id": "3440",
@@ -92,12 +135,21 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Sarsfields_Wex_v_St_Martins_Wex/25?event_id=3440",
       "matchup": "Sarsfields Wex v St Martins Wex",
-      "display_time": "12:00",
+      "display_time": "17:00",
       "display_date_label": "06 Sept",
-      "dateISO": "2026-09-06",
-      "consensus": { "market": "Win Match", "selection": "Draw", "tips_for": 2, "tips_total": 3, "pct": 67 },
-      "teamA": { "name": "Sarsfields Wex" },
-      "teamB": { "name": "St Martins Wex" }
+      "consensus": {
+        "market": null,
+        "selection": "Draw 2/3 Win Tips 67% Add",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67
+      },
+      "teamA": {
+        "name": "Sarsfields Wex"
+      },
+      "teamB": {
+        "name": "St Martins Wex"
+      }
     },
     {
       "event_id": "3441",
@@ -105,12 +157,21 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Castletown_v_Kilanerin/25?event_id=3441",
       "matchup": "Castletown v Kilanerin",
-      "display_time": "12:00",
+      "display_time": "17:00",
       "display_date_label": "06 Sept",
-      "dateISO": "2026-09-06",
-      "consensus": { "market": "Win Match", "selection": "Castletown", "tips_for": 2, "tips_total": 4, "pct": 50 },
-      "teamA": { "name": "Castletown" },
-      "teamB": { "name": "Kilanerin" }
+      "consensus": {
+        "market": null,
+        "selection": "Castletown 2/4 Win Tips 50% Add",
+        "tips_for": 2,
+        "tips_total": 4,
+        "pct": 50
+      },
+      "teamA": {
+        "name": "Castletown"
+      },
+      "teamB": {
+        "name": "Kilanerin"
+      }
     },
     {
       "event_id": "3327",
@@ -118,10 +179,15 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/All_Ireland_Football_Championship_2027/25?event_id=3327",
       "matchup": "All Ireland Football Championship 2027",
-      "display_time": "10:30",
+      "display_time": "15:30",
       "display_date_label": "25 Jul 2027",
-      "dateISO": "2027-07-25",
-      "consensus": { "market": "Win Tournament", "selection": "Kerry", "tips_for": 4, "tips_total": 6, "pct": 67 },
+      "consensus": {
+        "market": null,
+        "selection": "Kerry 4/6 Win Tips 67% 1 comment Add",
+        "tips_for": 4,
+        "tips_total": 6,
+        "pct": 67
+      },
       "teamA": null,
       "teamB": null
     },
@@ -131,10 +197,15 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Sligo_County_Football_Championship_2026/25?event_id=3336",
       "matchup": "Sligo County Football Championship 2026",
-      "display_time": "09:00",
+      "display_time": "14:00",
       "display_date_label": "04 Oct",
-      "dateISO": "2026-10-04",
-      "consensus": { "market": "Win Tournament", "selection": "Shamrock Gaels", "tips_for": 2, "tips_total": 3, "pct": 67 },
+      "consensus": {
+        "market": null,
+        "selection": "Shamrock Gaels 2/3 Win Tips 67% Add",
+        "tips_for": 2,
+        "tips_total": 3,
+        "pct": 67
+      },
       "teamA": null,
       "teamB": null
     },
@@ -144,10 +215,15 @@
       "code": "football",
       "url": "https://www.olbg.com/betting-tips/Gaelic_Football/All_Gaelic_Football/All_Events/Cork_County_Football_Championship_2026/25?event_id=1141",
       "matchup": "Cork County Football Championship 2026",
-      "display_time": "14:15",
+      "display_time": "19:15",
       "display_date_label": "01 Nov",
-      "dateISO": "2026-11-01",
-      "consensus": { "market": "Win Tournament", "selection": "Nemo Rangers", "tips_for": 2, "tips_total": 4, "pct": 50 },
+      "consensus": {
+        "market": null,
+        "selection": "Nemo Rangers 2/4 Win Tips 50% 1 comment Add",
+        "tips_for": 2,
+        "tips_total": 4,
+        "pct": 50
+      },
       "teamA": null,
       "teamB": null
     }

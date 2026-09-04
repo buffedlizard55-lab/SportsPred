@@ -2,22 +2,22 @@
   "schema_version": 1,
   "sport": "Hurling",
   "code": "hurling",
-  "as_of_utc": "2026-09-03T22:00:00Z",
+  "as_of_utc": "2026-09-04T04:06:24Z",
   "source": {
-    "name": "OLBG — Hurling Betting Tips",
+    "name": "OLBG \u2014 Hurling Betting Tips",
     "url": "https://www.olbg.com/betting-tips/Hurling/26",
-    "indexes": ["https://www.olbg.com/betting-tips/Hurling/26"],
-    "fetched_at_utc": "2026-09-03T22:00:00Z",
-    "method": "Public OLBG hurling index captured 2026-09-03. Event ids, matchups, times and tipster consensus transcribed from the server-rendered listing. No prices on the page.",
+    "indexes": [
+      "https://www.olbg.com/betting-tips/Hurling/26"
+    ],
+    "fetched_at_utc": "2026-09-04T04:06:24Z",
+    "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Factual market listing retained for review."
   },
   "notes": [
-    "Hurling is not in the OLBG betting-tips sitemap of 20 sports; the index exists at /Hurling/26 and is collected as a GAA sub-code.",
-    "Tipster consensus is display-only. No prices (IR-GAA-01)."
+    "OLBG tipster consensus counts are display-only and are never fed into GAA scoring.",
+    "OLBG does not expose structured odds in server-rendered HTML (IR-GAA-01)."
   ],
-  "collection_warnings": [
-    "Live HTTP collection from this sandbox was blocked (TLS EOF). Snapshot is the public index content retrieved 2026-09-03."
-  ],
+  "collection_warnings": [],
   "events": [
     {
       "event_id": "701",
@@ -25,12 +25,21 @@
       "code": "hurling",
       "url": "https://www.olbg.com/betting-tips/Hurling/All_Hurling/All_Events/Tullaroan_v_OLoughlin_Gaels/26?event_id=701",
       "matchup": "Tullaroan v OLoughlin Gaels",
-      "display_time": "12:00",
-      "display_date_label": "05 Sept",
-      "dateISO": "2026-09-05",
-      "consensus": { "market": "FT Result", "selection": "Draw", "tips_for": 3, "tips_total": 4, "pct": 75 },
-      "teamA": { "name": "Tullaroan" },
-      "teamB": { "name": "OLoughlin Gaels" }
+      "display_time": "17:00",
+      "display_date_label": "Tomorrow",
+      "consensus": {
+        "market": "FT Result",
+        "selection": "Draw",
+        "tips_for": 3,
+        "tips_total": 5,
+        "pct": 60
+      },
+      "teamA": {
+        "name": "Tullaroan"
+      },
+      "teamB": {
+        "name": "OLoughlin Gaels"
+      }
     },
     {
       "event_id": "675",
@@ -38,10 +47,15 @@
       "code": "hurling",
       "url": "https://www.olbg.com/betting-tips/Hurling/All_Hurling/All_Events/All_Ireland_Hurling_Championship_2027/26?event_id=675",
       "matchup": "All Ireland Hurling Championship 2027",
-      "display_time": "10:30",
+      "display_time": "15:30",
       "display_date_label": "18 Jul 2027",
-      "dateISO": "2027-07-18",
-      "consensus": { "market": "Win Hurling", "selection": "Galway", "tips_for": 7, "tips_total": 18, "pct": 39 },
+      "consensus": {
+        "market": "Win Hurling",
+        "selection": "Limerick",
+        "tips_for": 5,
+        "tips_total": 18,
+        "pct": 28
+      },
       "teamA": null,
       "teamB": null
     },
@@ -51,10 +65,15 @@
       "code": "hurling",
       "url": "https://www.olbg.com/betting-tips/Hurling/All_Hurling/All_Events/Kilkenny_County_Hurling_Championship_2026/26?event_id=669",
       "matchup": "Kilkenny County Hurling Championship 2026",
-      "display_time": "10:00",
+      "display_time": "15:00",
       "display_date_label": "01 Nov",
-      "dateISO": "2026-11-01",
-      "consensus": { "market": "Win Hurling", "selection": "Thomastown", "tips_for": 1, "tips_total": 2, "pct": 50 },
+      "consensus": {
+        "market": "Win Hurling",
+        "selection": "Thomastown",
+        "tips_for": 1,
+        "tips_total": 2,
+        "pct": 50
+      },
       "teamA": null,
       "teamB": null
     }

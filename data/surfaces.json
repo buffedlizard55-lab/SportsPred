@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at_utc": "2026-09-03T23:53:38Z",
+  "generated_at_utc": "2026-09-04T04:04:59Z",
   "method": "Surface per tournament derived from the surface column of recorded match rows in the Sackmann dataset mirrors. A tournament needs >=90% agreement across its own rows or its surface is left null. Nothing is inferred from tournament names.",
   "min_agreement": 0.9,
   "attribution": "Jeff Sackmann tennis datasets, CC BY-NC-SA 4.0, via verified mirrors.",

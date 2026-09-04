@@ -8,7 +8,7 @@
       "https://www.olbg.com/betting-tips/Motor_Racing/14",
       "https://www.olbg.com/betting-tips/Motor_Racing/All_Motor_Racing/All_Events/14"
     ],
-    "fetched_at_utc": "2026-09-03T23:54:11Z",
+    "fetched_at_utc": "2026-09-04T04:05:25Z",
     "method": "HTTP GET of server-rendered HTML via urllib; no JavaScript execution",
     "licence_note": "Publicly viewable page. Redistribution limited to this factual fixture/market listing; see docs/F1_SOURCES.md."
   },
@@ -39,7 +39,7 @@
       },
       "markets_verified": true,
       "track_history": null,
-      "resolved_date": "2026-09-04",
+      "resolved_date": "2026-09-05",
       "date_basis": "derived",
       "markets_on_event_page": [
         "Fastest Qualifier"
@@ -62,15 +62,11 @@
         "comments": 4,
         "experts": 1
       },
-      "markets_verified": true,
+      "markets_verified": false,
       "track_history": null,
       "resolved_date": "2026-09-06",
       "date_basis": "observed",
-      "markets_on_event_page": [
-        "Win Race",
-        "Fastest Lap",
-        "Podium Finish"
-      ]
+      "markets_on_event_page": []
     }
   ],
   "outrights": [
@@ -84,11 +80,11 @@
       "type": "outright",
       "consensus": {
         "market": "Win Tournament",
-        "selection": "Mercedes",
-        "tips_for": 14,
+        "selection": "McLaren",
+        "tips_for": 8,
         "tips_total": 32,
-        "pct": 44,
-        "comments": 6,
+        "pct": 25,
+        "comments": 1,
         "experts": 0
       },
       "markets_verified": false,
@@ -106,11 +102,11 @@
       "type": "outright",
       "consensus": {
         "market": "Win Tournament",
-        "selection": "Max Verstappen",
-        "tips_for": 9,
+        "selection": "Isack Hadjar",
+        "tips_for": 0,
         "tips_total": 27,
-        "pct": 33,
-        "comments": 4,
+        "pct": null,
+        "comments": 0,
         "experts": 0
       },
       "markets_verified": false,
