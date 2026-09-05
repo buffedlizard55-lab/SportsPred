@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T21:55:00Z",
+ "fetched_at_utc": "2026-09-05T00:12:59Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -245,19 +245,19 @@
   "114": {
    "id": 114,
    "name": "Guardians",
-   "wins": 70,
+   "wins": 71,
    "losses": 70,
-   "gamesPlayed": 140,
-   "winningPercentage": ".500",
-   "runDifferential": -11,
-   "runsScored": 566,
-   "runsAllowed": 577,
-   "streak": "L2",
-   "streakNumber": 2,
+   "gamesPlayed": 141,
+   "winningPercentage": ".504",
+   "runDifferential": -10,
+   "runsScored": 573,
+   "runsAllowed": 583,
+   "streak": "W1",
+   "streakNumber": 1,
    "home": {
-    "wins": 33,
+    "wins": 34,
     "losses": 38,
-    "pct": ".465"
+    "pct": ".472"
    },
    "away": {
     "wins": 37,
@@ -275,9 +275,9 @@
     "pct": ".553"
    },
    "vsRight": {
-    "wins": 44,
+    "wins": 45,
     "losses": 49,
-    "pct": ".473"
+    "pct": ".479"
    }
   },
   "115": {
@@ -322,13 +322,13 @@
    "id": 116,
    "name": "Tigers",
    "wins": 64,
-   "losses": 75,
-   "gamesPlayed": 139,
-   "winningPercentage": ".460",
-   "runDifferential": 47,
-   "runsScored": 610,
-   "runsAllowed": 563,
-   "streak": "W1",
+   "losses": 76,
+   "gamesPlayed": 140,
+   "winningPercentage": ".457",
+   "runDifferential": 46,
+   "runsScored": 616,
+   "runsAllowed": 570,
+   "streak": "L1",
    "streakNumber": 1,
    "home": {
     "wins": 34,
@@ -337,8 +337,8 @@
    },
    "away": {
     "wins": 30,
-    "losses": 40,
-    "pct": ".429"
+    "losses": 41,
+    "pct": ".423"
    },
    "lastTen": {
     "wins": 3,
@@ -347,8 +347,8 @@
    },
    "vsLeft": {
     "wins": 17,
-    "losses": 26,
-    "pct": ".395"
+    "losses": 27,
+    "pct": ".386"
    },
    "vsRight": {
     "wins": 47,
