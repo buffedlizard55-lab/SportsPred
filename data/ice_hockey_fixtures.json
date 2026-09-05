@@ -1,15 +1,8 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-04T23:05:44Z",
+ "fetched_at_utc": "2026-09-05T01:04:09Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
-  {
-   "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-14",
-   "status": 200,
-   "error": null,
-   "ok": true,
-   "attempts": 1
-  },
   {
    "url": "https://api-web.nhle.com/v1/scoreboard/2026-08-15",
    "status": 200,
@@ -305,7 +298,7 @@
    "attempts": 1
   },
   {
-   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260814",
+   "url": "https://api-web.nhle.com/v1/scoreboard/2026-09-26",
    "status": 200,
    "error": null,
    "ok": true,
@@ -604,13 +597,20 @@
    "error": null,
    "ok": true,
    "attempts": 1
+  },
+  {
+   "url": "https://site.api.espn.com/apis/site/v2/sports/hockey/nhl/scoreboard?dates=20260926",
+   "status": 200,
+   "error": null,
+   "ok": true,
+   "attempts": 1
   }
  ],
  "sport": "Ice Hockey",
  "league": "nhl",
  "window": {
-  "from": "2026-08-14",
-  "to": "2026-09-25"
+  "from": "2026-08-15",
+  "to": "2026-09-26"
  },
  "odds_attribution": "ESPN republishes one book (DraftKings) inside the scoreboard payload; attributed wherever shown. OLBG publishes tipster consensus, not prices.",
  "fixtures": [
@@ -5813,10 +5813,210 @@
    "oddsSourceCount": 0,
    "total": null,
    "spread": null
+  },
+  {
+   "id": "2026020040",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-05T23:00:00Z",
+   "phase": "upcoming",
+   "venue": "Benchmark International Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/phi-vs-tbl/2026/10/05/2026020040",
+   "home": {
+    "id": 14,
+    "abbrev": "TBL",
+    "name": "Tampa Bay Lightning",
+    "record": {
+     "wins": 50,
+     "losses": 26,
+     "otLosses": 6,
+     "played": 82,
+     "points": 106
+    },
+    "recordSummary": "50-26-6",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/TBL_light.svg"
+   },
+   "away": {
+    "id": 4,
+    "abbrev": "PHI",
+    "name": "Philadelphia Flyers",
+    "record": {
+     "wins": 43,
+     "losses": 27,
+     "otLosses": 12,
+     "played": 82,
+     "points": 98
+    },
+    "recordSummary": "43-27-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PHI_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020041",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-05T23:30:00Z",
+   "phase": "upcoming",
+   "venue": "TD Garden",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/ott-vs-bos/2026/10/05/2026020041",
+   "home": {
+    "id": 6,
+    "abbrev": "BOS",
+    "name": "Boston Bruins",
+    "record": {
+     "wins": 45,
+     "losses": 27,
+     "otLosses": 10,
+     "played": 82,
+     "points": 100
+    },
+    "recordSummary": "45-27-10",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/BOS_light.svg"
+   },
+   "away": {
+    "id": 9,
+    "abbrev": "OTT",
+    "name": "Ottawa Senators",
+    "record": {
+     "wins": 44,
+     "losses": 27,
+     "otLosses": 11,
+     "played": 82,
+     "points": 99
+    },
+    "recordSummary": "44-27-11",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/OTT_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020042",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-05T23:30:00Z",
+   "phase": "upcoming",
+   "venue": "PPG Paints Arena",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/wpg-vs-pit/2026/10/05/2026020042",
+   "home": {
+    "id": 5,
+    "abbrev": "PIT",
+    "name": "Pittsburgh Penguins",
+    "record": {
+     "wins": 41,
+     "losses": 25,
+     "otLosses": 16,
+     "played": 82,
+     "points": 98
+    },
+    "recordSummary": "41-25-16",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/PIT_light.svg"
+   },
+   "away": {
+    "id": 52,
+    "abbrev": "WPG",
+    "name": "Winnipeg Jets",
+    "record": {
+     "wins": 35,
+     "losses": 35,
+     "otLosses": 12,
+     "played": 82,
+     "points": 82
+    },
+    "recordSummary": "35-35-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/WPG_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
+  },
+  {
+   "id": "2026020043",
+   "source": "nhl-api-scoreboard",
+   "league": "nhl",
+   "leagueName": "National Hockey League",
+   "season": 20262027,
+   "gameType": 2,
+   "dateISO": "2026-10-05",
+   "startUtc": "2026-10-06T00:00:00Z",
+   "phase": "upcoming",
+   "venue": "American Airlines Center",
+   "neutral": false,
+   "gameCenterLink": "https://api-web.nhle.com/gamecenter/sjs-vs-dal/2026/10/05/2026020043",
+   "home": {
+    "id": 25,
+    "abbrev": "DAL",
+    "name": "Dallas Stars",
+    "record": {
+     "wins": 50,
+     "losses": 20,
+     "otLosses": 12,
+     "played": 82,
+     "points": 112
+    },
+    "recordSummary": "50-20-12",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/DAL_light.svg"
+   },
+   "away": {
+    "id": 28,
+    "abbrev": "SJS",
+    "name": "San Jose Sharks",
+    "record": {
+     "wins": 39,
+     "losses": 35,
+     "otLosses": 8,
+     "played": 82,
+     "points": 86
+    },
+    "recordSummary": "39-35-8",
+    "logo": "https://assets.nhle.com/logos/nhl/svg/SJS_light.svg"
+   },
+   "score": {
+    "home": null,
+    "away": null
+   },
+   "odds": null,
+   "oddsSourceCount": 0,
+   "total": null,
+   "spread": null
   }
  ],
  "counts": {
-  "fixtures": 104,
+  "fixtures": 108,
   "results": 3,
   "withOdds": 0
  }

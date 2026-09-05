@@ -2,7 +2,7 @@
  "schema_version": 1,
  "sport": "Ice Hockey",
  "olbg_sport_id": "13",
- "fetched_at_utc": "2026-09-04T23:06:47Z",
+ "fetched_at_utc": "2026-09-05T01:05:13Z",
  "source": {
   "name": "OLBG Ice Hockey betting-tips index",
   "url": "https://www.olbg.com/betting-tips/Ice_Hockey/13",
@@ -20,7 +20,7 @@
    "OLBG delivered a complete Ice Hockey index page that lists no upcoming fixtures. Recorded as a genuinely empty slate."
   ],
   "evidence": {
-   "bytes": 169902,
+   "bytes": 170515,
    "event_count": 0,
    "sport": "Ice Hockey"
   },
