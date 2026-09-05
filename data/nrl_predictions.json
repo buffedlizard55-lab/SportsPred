@@ -2,14 +2,14 @@
  "schema_version": 1,
  "sport": "NRL",
  "description": "Forward ledger of every NRL prediction this engine has published. Appended by scripts/record_nrl_predictions.mjs in CI; settled against the tape afterwards. No prices are recorded because no key-less price feed exists.",
- "last_run_utc": "2026-09-04T08:53:11Z",
+ "last_run_utc": "2026-09-05T08:23:54Z",
  "ruleset_version": "v1.0",
  "counts": {
   "entries": 21,
   "live": 14,
   "skip": 7,
-  "settled": 0,
-  "pending": 21
+  "settled": 6,
+  "pending": 12
  },
  "predictions": [
   {
@@ -30,7 +30,12 @@
    "reference_source": null,
    "tip": "**Dolphins** — What stands out in the record works for them. Their recent run of results is the strongest form line on this card, the ladder gap in their favour is wide with the finals picture in play and recent meetings between these clubs have gone their way. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: HIGH.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "20-24",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": true,
+    "winner": "Dolphins"
+   }
   },
   {
    "key": "Gold Coast Titans v Dolphins|handicap",
@@ -50,7 +55,12 @@
    "reference_source": null,
    "tip": "SKIP — HANDICAP: withheld by the per-match cap: two markets are already published for this fixture, so this market is left alone rather than forced into a selection.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "20-24",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": null,
+    "note": "Not settled: no free source publishes the historical handicap line."
+   }
   },
   {
    "key": "Gold Coast Titans v Dolphins|game_total",
@@ -70,7 +80,13 @@
    "reference_source": "olbg_event_page",
    "tip": "**Under** — The attacking and defensive numbers point the under on the game total. Recent matches involving these clubs have been staying low and recent finishes between these sides have been tight and low-scoring. This is a mechanical read of public data, not a guarantee. Confidence: HIGH.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "20-24",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": true,
+    "total": 44,
+    "reference": 57.5
+   }
   },
   {
    "key": "South Sydney Rabbitohs v Sydney Roosters|win_match",
@@ -90,7 +106,12 @@
    "reference_source": null,
    "tip": "**Sydney Roosters** — Form tilts this fixture their way. They arrive with a solid recent record behind them, they hold a clear advantage in ladder position and recent meetings between these clubs have gone their way. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: HIGH.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "50-20",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": false,
+    "winner": "South Sydney Rabbitohs"
+   }
   },
   {
    "key": "South Sydney Rabbitohs v Sydney Roosters|handicap",
@@ -110,7 +131,12 @@
    "reference_source": null,
    "tip": "**Sydney Roosters** — Recent weeks make a strong case for them on the handicap. When they win they tend to win comfortably, which is what covering asks for, and they arrive with a solid recent record behind them and they hold a clear advantage in ladder position. This is a mechanical read of public data, not a guarantee. Confidence: HIGH.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "50-20",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": null,
+    "note": "Not settled: no free source publishes the historical handicap line."
+   }
   },
   {
    "key": "South Sydney Rabbitohs v Sydney Roosters|game_total",
@@ -130,7 +156,13 @@
    "reference_source": "olbg_index_best_tip",
    "tip": "SKIP — GAME TOTAL: the directional advantage is 7 points, under the 15 the prompt requires, so this market is left alone rather than forced into a selection.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "50-20",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": false,
+    "total": 70,
+    "reference": 54.5
+   }
   },
   {
    "key": "Cronulla-Sutherland Sharks v Melbourne Storm|win_match",
@@ -148,8 +180,8 @@
    "skip_reason": null,
    "reference": null,
    "reference_source": null,
-   "tip": "**Cronulla-Sutherland Sharks** — Momentum sits with them. The ladder gap in their favour is wide with the finals picture in play, the representative season is finished, so no Origin duty hangs over either squad and there is no unusual travel burden on them this round. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: MEDIUM.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "tip": "**Cronulla-Sutherland Sharks** — Form tilts this fixture their way. The ladder gap in their favour is wide with the finals picture in play, the representative season is finished, so no Origin duty hangs over either squad and there is no unusual travel burden on them this round. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: MEDIUM.",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -169,7 +201,7 @@
    "reference": null,
    "reference_source": null,
    "tip": "**Cronulla-Sutherland Sharks** — Consistency over the last month is on their side on the handicap. When they win they tend to win comfortably, which is what covering asks for, and the ladder gap in their favour is wide with the finals picture in play and even though their recent results have been mixed. Every selection on this card is a model output from public data and remains fallible. Confidence: MEDIUM.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -189,7 +221,7 @@
    "reference": 52.5,
    "reference_source": "olbg_index_best_tip",
    "tip": "SKIP — GAME TOTAL: the directional advantage is 10 points, under the 15 the prompt requires, so this market is left alone rather than forced into a selection.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -210,7 +242,12 @@
    "reference_source": null,
    "tip": "**New Zealand Warriors** — Everything on the tape leans their way. Their recent run of results is the strongest form line on this card, the ladder gap in their favour is wide with the finals picture in play, the representative season is finished and so no Origin duty hangs over either squad. Every selection on this card is a model output from public data and remains fallible. Confidence: MEDIUM.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "31-30",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": true,
+    "winner": "New Zealand Warriors"
+   }
   },
   {
    "key": "New Zealand Warriors v Manly Warringah Sea Eagles|handicap",
@@ -230,7 +267,12 @@
    "reference_source": null,
    "tip": "SKIP — HANDICAP: withheld by the per-match cap: two markets are already published for this fixture, so this market is left alone rather than forced into a selection.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "31-30",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": null,
+    "note": "Not settled: no free source publishes the historical handicap line."
+   }
   },
   {
    "key": "New Zealand Warriors v Manly Warringah Sea Eagles|game_total",
@@ -250,7 +292,13 @@
    "reference_source": "olbg_index_best_tip",
    "tip": "**Over** — The totals evidence on this fixture favours the over on the game total. Both attacks have been scoring freely. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: HIGH.",
    "recorded_at_utc": "2026-09-04T08:53:11Z",
-   "settled": null
+   "settled": {
+    "score": "31-30",
+    "settled_at_utc": "2026-09-05T08:23:54Z",
+    "correct": true,
+    "total": 61,
+    "reference": 50.5
+   }
   },
   {
    "key": "North Queensland Cowboys v Canberra Raiders|win_match",
@@ -268,8 +316,8 @@
    "skip_reason": null,
    "reference": null,
    "reference_source": null,
-   "tip": "**North Queensland Cowboys** — Travel and rhythm leave the edge with them. They arrive with a solid recent record behind them, they hold a clear advantage in ladder position, the representative season is finished and so no Origin duty hangs over either squad. This is a mechanical read of public data, not a guarantee. Confidence: MEDIUM.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "tip": "**North Queensland Cowboys** — The case for them is a straightforward one. They arrive with a solid recent record behind them, they hold a clear advantage in ladder position, the representative season is finished and so no Origin duty hangs over either squad. This is a mechanical read of public data, not a guarantee. Confidence: MEDIUM.",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -289,7 +337,7 @@
    "reference": null,
    "reference_source": null,
    "tip": "SKIP — HANDICAP: the WIN MATCH score of 59 is below the 60 the prompt requires before a handicap can be considered, so this market is left alone rather than forced into a selection.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -308,8 +356,8 @@
    "skip_reason": null,
    "reference": 55.5,
    "reference_source": "olbg_index_best_tip",
-   "tip": "**Over** — The balance of the totals evidence sits with the over on the game total. Both defences have been conceding heavily. This is a mechanical read of public data, not a guarantee. The card publishes this with its narrow basis stated rather than dressing it up. Confidence: HIGH.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "tip": "**Over** — Recent totals and conditions argue for the over on the game total. Both defences have been conceding heavily. This is a mechanical read of public data, not a guarantee. The card publishes this with its narrow basis stated rather than dressing it up. Confidence: HIGH.",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -328,8 +376,8 @@
    "skip_reason": null,
    "reference": null,
    "reference_source": null,
-   "tip": "**Penrith Panthers** — The weight of recent evidence lands with them. They arrive with a solid recent record behind them, the ladder gap in their favour is wide with the finals picture in play and recent meetings between these clubs have gone their way. Every selection on this card is a model output from public data and remains fallible. Confidence: HIGH.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "tip": "**Penrith Panthers** — Nothing in the recent record tells against them. They arrive with a solid recent record behind them, the ladder gap in their favour is wide with the finals picture in play and recent meetings between these clubs have gone their way. Every selection on this card is a model output from public data and remains fallible. Confidence: HIGH.",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -349,7 +397,7 @@
    "reference": null,
    "reference_source": null,
    "tip": "SKIP — HANDICAP: withheld by the per-match cap: two markets are already published for this fixture, so this market is left alone rather than forced into a selection.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -369,7 +417,7 @@
    "reference": 48.5,
    "reference_source": "olbg_index_best_tip",
    "tip": "**Under** — The scoring profiles on this card lean the under on the game total. Recent matches involving these clubs have been staying low and recent finishes between these sides have been tight and low-scoring. Every selection on this card is a model output from public data and remains fallible. Confidence: HIGH.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -388,8 +436,8 @@
    "skip_reason": null,
    "reference": null,
    "reference_source": null,
-   "tip": "**Parramatta Eels** — Nothing in the recent record tells against them. They arrive with a solid recent record behind them, the ladder gap in their favour is wide with the finals picture in play and recent meetings between these clubs have gone their way. This is a mechanical read of public data, not a guarantee. Confidence: HIGH.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "tip": "**Parramatta Eels** — Everything on the tape leans their way. They arrive with a solid recent record behind them, the ladder gap in their favour is wide with the finals picture in play and recent meetings between these clubs have gone their way. This is a mechanical read of public data, not a guarantee. Confidence: HIGH.",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -409,7 +457,7 @@
    "reference": null,
    "reference_source": null,
    "tip": "SKIP — HANDICAP: its recent winning margins do not support a separate cover: the prompt’s margin-of-victory test adds nothing here, so the card will not double up on the same side, so this market is left alone rather than forced into a selection.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   },
   {
@@ -428,10 +476,10 @@
    "skip_reason": null,
    "reference": 57.5,
    "reference_source": "olbg_index_best_tip",
-   "tip": "**Over** — The way these two sides have been finishing suggests the over on the game total. Both defences have been conceding heavily. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: MEDIUM.",
-   "recorded_at_utc": "2026-09-04T08:53:11Z",
+   "tip": "**Over** — The balance of the totals evidence sits with the over on the game total. Both defences have been conceding heavily. As with every tip here, this is an estimate built from public data rather than a promise. Confidence: MEDIUM.",
+   "recorded_at_utc": "2026-09-05T08:23:54Z",
    "settled": null
   }
  ],
- "last_settled_utc": "2026-09-04T08:53:11Z"
+ "last_settled_utc": "2026-09-05T08:23:54Z"
 }

@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "sport": "NRL",
- "fetched_at_utc": "2026-09-04T08:53:11Z",
+ "fetched_at_utc": "2026-09-05T08:23:53Z",
  "source": {
   "name": "Open-Meteo forecast API (key-less, no registration)",
   "url": "https://api.open-meteo.com/v1/forecast?latitude=-27.4648,-35.2406,-33.8469,-34.0447,-28.0667,-33.7611,-37.8235,-32.9261,-36.8728,-19.3167,-33.8083,-34.4267,-33.8915&longitude=153.0093,149.103,151.0631,151.1533,153.4333,151.2878,144.9797,151.7295,174.7833,146.7167,150.9892,150.9019,151.2213&daily=precipitation_sum,precipitation_probability_max,wind_speed_10m_max&forecast_days=4&timezone=UTC",
@@ -13,28 +13,28 @@
    "lon": 153.0093,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 12
-    },
-    {
      "date": "2026-09-05",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 10.1
+     "wind_max_kmh": 9
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
-     "precip_prob_max": 2,
-     "wind_max_kmh": 18.7
+     "precip_prob_max": 0,
+     "wind_max_kmh": 14.7
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 1.4,
-     "precip_prob_max": 10,
-     "wind_max_kmh": 14.5
+     "precip_mm": 0.1,
+     "precip_prob_max": 6,
+     "wind_max_kmh": 12.4
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.3,
+     "precip_prob_max": 39,
+     "wind_max_kmh": 13.4
     }
    ]
   },
@@ -43,28 +43,28 @@
    "lon": 149.103,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0.8,
-     "precip_prob_max": 61,
-     "wind_max_kmh": 18.7
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 6.2,
+     "precip_mm": 5.5,
      "precip_prob_max": 100,
-     "wind_max_kmh": 23.8
+     "wind_max_kmh": 21.8
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 17.8
+     "wind_max_kmh": 18.7
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 0.6,
-     "precip_prob_max": 8,
-     "wind_max_kmh": 10.5
+     "precip_mm": 2.6,
+     "precip_prob_max": 24,
+     "wind_max_kmh": 11.2
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0,
+     "precip_prob_max": 0,
+     "wind_max_kmh": 14.2
     }
    ]
   },
@@ -73,16 +73,10 @@
    "lon": 151.0631,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 11.8
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 0,
-     "precip_prob_max": 27,
-     "wind_max_kmh": 29.7
+     "precip_mm": 0.1,
+     "precip_prob_max": 33,
+     "wind_max_kmh": 32
     },
     {
      "date": "2026-09-06",
@@ -92,9 +86,15 @@
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 4.1,
-     "precip_prob_max": 16,
-     "wind_max_kmh": 14.8
+     "precip_mm": 2.2,
+     "precip_prob_max": 43,
+     "wind_max_kmh": 14.4
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.2,
+     "precip_prob_max": 18,
+     "wind_max_kmh": 13.5
     }
    ]
   },
@@ -103,28 +103,28 @@
    "lon": 151.1533,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 14.4
-    },
-    {
      "date": "2026-09-05",
      "precip_mm": 0,
-     "precip_prob_max": 29,
-     "wind_max_kmh": 32.8
+     "precip_prob_max": 24,
+     "wind_max_kmh": 33.8
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 18.9
+     "wind_max_kmh": 16.9
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 3.8,
-     "precip_prob_max": 22,
-     "wind_max_kmh": 24
+     "precip_mm": 2.4,
+     "precip_prob_max": 36,
+     "wind_max_kmh": 20
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.4,
+     "precip_prob_max": 23,
+     "wind_max_kmh": 17.7
     }
    ]
   },
@@ -133,28 +133,28 @@
    "lon": 153.4333,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 18.2
-    },
-    {
      "date": "2026-09-05",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 13.5
+     "wind_max_kmh": 12.6
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
-     "precip_prob_max": 10,
-     "wind_max_kmh": 26.3
+     "precip_prob_max": 14,
+     "wind_max_kmh": 22.1
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 0.1,
-     "precip_prob_max": 25,
-     "wind_max_kmh": 17.7
+     "precip_mm": 0.2,
+     "precip_prob_max": 14,
+     "wind_max_kmh": 17
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 1.8,
+     "precip_prob_max": 57,
+     "wind_max_kmh": 18.7
     }
    ]
   },
@@ -163,28 +163,28 @@
    "lon": 151.2878,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 17.8
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 0,
+     "precip_mm": 0.9,
      "precip_prob_max": 18,
-     "wind_max_kmh": 36.1
+     "wind_max_kmh": 32.3
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
-     "precip_prob_max": 3,
-     "wind_max_kmh": 18.8
+     "precip_prob_max": 0,
+     "wind_max_kmh": 19
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 7.1,
-     "precip_prob_max": 25,
-     "wind_max_kmh": 22.1
+     "precip_mm": 4.4,
+     "precip_prob_max": 62,
+     "wind_max_kmh": 21.3
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 1.7,
+     "precip_prob_max": 61,
+     "wind_max_kmh": 18.8
     }
    ]
   },
@@ -193,28 +193,28 @@
    "lon": 144.9797,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 7.2,
-     "precip_prob_max": 100,
-     "wind_max_kmh": 27.5
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 1.6,
-     "precip_prob_max": 92,
-     "wind_max_kmh": 28.5
+     "precip_mm": 1.5,
+     "precip_prob_max": 90,
+     "wind_max_kmh": 27.9
     },
     {
      "date": "2026-09-06",
-     "precip_mm": 1.4,
-     "precip_prob_max": 29,
-     "wind_max_kmh": 13.9
+     "precip_mm": 1.1,
+     "precip_prob_max": 24,
+     "wind_max_kmh": 13.3
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 1.3,
-     "precip_prob_max": 23,
-     "wind_max_kmh": 21.6
+     "precip_mm": 0.4,
+     "precip_prob_max": 45,
+     "wind_max_kmh": 20.2
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.6,
+     "precip_prob_max": 40,
+     "wind_max_kmh": 22.8
     }
    ]
   },
@@ -223,28 +223,28 @@
    "lon": 151.7295,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 18.5
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 0.1,
+     "precip_mm": 0,
      "precip_prob_max": 6,
-     "wind_max_kmh": 28.4
+     "wind_max_kmh": 27.4
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
-     "precip_prob_max": 7,
-     "wind_max_kmh": 28.3
+     "precip_prob_max": 2,
+     "wind_max_kmh": 21
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 17.5,
-     "precip_prob_max": 29,
-     "wind_max_kmh": 25.6
+     "precip_mm": 9.5,
+     "precip_prob_max": 67,
+     "wind_max_kmh": 21.9
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.9,
+     "precip_prob_max": 71,
+     "wind_max_kmh": 20.7
     }
    ]
   },
@@ -253,28 +253,28 @@
    "lon": 174.7833,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 1.8,
-     "precip_prob_max": 100,
-     "wind_max_kmh": 31.8
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 0.1,
+     "precip_mm": 0.2,
      "precip_prob_max": 2,
-     "wind_max_kmh": 16.3
+     "wind_max_kmh": 18
     },
     {
      "date": "2026-09-06",
-     "precip_mm": 6.8,
+     "precip_mm": 9.6,
      "precip_prob_max": 96,
-     "wind_max_kmh": 30.3
+     "wind_max_kmh": 26.1
     },
     {
      "date": "2026-09-07",
      "precip_mm": 0.8,
-     "precip_prob_max": 96,
-     "wind_max_kmh": 20.6
+     "precip_prob_max": 94,
+     "wind_max_kmh": 21.1
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.3,
+     "precip_prob_max": 41,
+     "wind_max_kmh": 13.2
     }
    ]
   },
@@ -283,28 +283,28 @@
    "lon": 146.7167,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 2,
-     "wind_max_kmh": 13.6
-    },
-    {
      "date": "2026-09-05",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 10.4
+     "wind_max_kmh": 10.7
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 12.7
+     "wind_max_kmh": 12.2
     },
     {
      "date": "2026-09-07",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 13.9
+     "wind_max_kmh": 12
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.9,
+     "precip_prob_max": 23,
+     "wind_max_kmh": 12.6
     }
    ]
   },
@@ -313,28 +313,28 @@
    "lon": 150.9892,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 13.6
-    },
-    {
      "date": "2026-09-05",
      "precip_mm": 0,
-     "precip_prob_max": 27,
-     "wind_max_kmh": 31.9
+     "precip_prob_max": 33,
+     "wind_max_kmh": 33.5
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
      "precip_prob_max": 0,
-     "wind_max_kmh": 15
+     "wind_max_kmh": 14.7
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 2.6,
-     "precip_prob_max": 16,
-     "wind_max_kmh": 15.6
+     "precip_mm": 4.1,
+     "precip_prob_max": 43,
+     "wind_max_kmh": 14.9
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.2,
+     "precip_prob_max": 18,
+     "wind_max_kmh": 12.7
     }
    ]
   },
@@ -343,28 +343,28 @@
    "lon": 150.9019,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 8,
-     "wind_max_kmh": 16.2
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 0,
-     "precip_prob_max": 47,
-     "wind_max_kmh": 35.1
+     "precip_mm": 0.1,
+     "precip_prob_max": 41,
+     "wind_max_kmh": 31.5
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
-     "precip_prob_max": 2,
-     "wind_max_kmh": 20.5
+     "precip_prob_max": 0,
+     "wind_max_kmh": 17.7
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 4.3,
-     "precip_prob_max": 36,
-     "wind_max_kmh": 23.2
+     "precip_mm": 3.6,
+     "precip_prob_max": 68,
+     "wind_max_kmh": 18.1
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 0.8,
+     "precip_prob_max": 16,
+     "wind_max_kmh": 15.5
     }
    ]
   },
@@ -373,28 +373,28 @@
    "lon": 151.2213,
    "daily": [
     {
-     "date": "2026-09-04",
-     "precip_mm": 0,
-     "precip_prob_max": 0,
-     "wind_max_kmh": 14.5
-    },
-    {
      "date": "2026-09-05",
-     "precip_mm": 0.1,
+     "precip_mm": 0.3,
      "precip_prob_max": 18,
-     "wind_max_kmh": 35.8
+     "wind_max_kmh": 32.2
     },
     {
      "date": "2026-09-06",
      "precip_mm": 0,
-     "precip_prob_max": 3,
-     "wind_max_kmh": 18.5
+     "precip_prob_max": 0,
+     "wind_max_kmh": 19.1
     },
     {
      "date": "2026-09-07",
-     "precip_mm": 6.5,
-     "precip_prob_max": 25,
-     "wind_max_kmh": 21.3
+     "precip_mm": 2.9,
+     "precip_prob_max": 62,
+     "wind_max_kmh": 20.3
+    },
+    {
+     "date": "2026-09-08",
+     "precip_mm": 1.1,
+     "precip_prob_max": 61,
+     "wind_max_kmh": 17.5
     }
    ]
   }

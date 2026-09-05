@@ -1,7 +1,7 @@
 {
  "schema_version": 1,
  "sport": "NRL",
- "generated_at_utc": "2026-09-04T08:53:11Z",
+ "generated_at_utc": "2026-09-05T08:23:54Z",
  "ruleset_version": "v1.0",
  "method": [
   "Walk-forward: every fixture is scored only from matches with an earlier date, with the ladder, form, byes, head-to-head and reference total all recomputed at that point.",
@@ -16,25 +16,25 @@
  },
  "window": {
   "from": "2026-04-16",
-  "to": "2026-09-03",
+  "to": "2026-09-05",
   "rounds": "7-27",
-  "fixtures": 149
+  "fixtures": 152
  },
  "summary": {
   "win_match": {
-   "selections": 131,
-   "hits": 89,
+   "selections": 134,
+   "hits": 91,
    "strike": 0.679,
    "byBand": {
     "HIGH": {
-     "selections": 24,
-     "hits": 18,
-     "strike": 0.75
+     "selections": 26,
+     "hits": 19,
+     "strike": 0.731
     },
     "MEDIUM": {
-     "selections": 81,
-     "hits": 54,
-     "strike": 0.667
+     "selections": 82,
+     "hits": 55,
+     "strike": 0.671
     },
     "LOW": {
      "selections": 26,
@@ -44,9 +44,9 @@
    }
   },
   "game_total": {
-   "selections": 116,
-   "hits": 61,
-   "strike": 0.526,
+   "selections": 119,
+   "hits": 64,
+   "strike": 0.538,
    "byBand": {
     "HIGH": {
      "selections": 65,
@@ -54,9 +54,9 @@
      "strike": 0.615
     },
     "MEDIUM": {
-     "selections": 51,
-     "hits": 21,
-     "strike": 0.412
+     "selections": 54,
+     "hits": 24,
+     "strike": 0.444
     },
     "LOW": {
      "selections": 0,
@@ -3945,6 +3945,84 @@
    "reference": 47.8,
    "actualTotal": 54,
    "correct": false
+  },
+  {
+   "date": "2026-09-04",
+   "round": 27,
+   "match": "Gold Coast Titans v Dolphins",
+   "market": "win_match",
+   "pick": "Dolphins",
+   "band": "HIGH",
+   "score": 100,
+   "coverage": 0.75,
+   "actual": "Dolphins",
+   "result": "20-24",
+   "correct": true
+  },
+  {
+   "date": "2026-09-04",
+   "round": 27,
+   "match": "Gold Coast Titans v Dolphins",
+   "market": "game_total",
+   "pick": "Under",
+   "band": "MEDIUM",
+   "advantage": 15,
+   "coverage": 1,
+   "reference": 47.83,
+   "actualTotal": 44,
+   "correct": true
+  },
+  {
+   "date": "2026-09-04",
+   "round": 27,
+   "match": "South Sydney Rabbitohs v Sydney Roosters",
+   "market": "win_match",
+   "pick": "Sydney Roosters",
+   "band": "HIGH",
+   "score": 79,
+   "coverage": 0.75,
+   "actual": "South Sydney Rabbitohs",
+   "result": "50-20",
+   "correct": false
+  },
+  {
+   "date": "2026-09-04",
+   "round": 27,
+   "match": "South Sydney Rabbitohs v Sydney Roosters",
+   "market": "game_total",
+   "pick": "Over",
+   "band": "MEDIUM",
+   "advantage": 15,
+   "coverage": 1,
+   "reference": 47.83,
+   "actualTotal": 70,
+   "correct": true
+  },
+  {
+   "date": "2026-09-05",
+   "round": 27,
+   "match": "New Zealand Warriors v Manly Warringah Sea Eagles",
+   "market": "win_match",
+   "pick": "New Zealand Warriors",
+   "band": "MEDIUM",
+   "score": 100,
+   "coverage": 0.6,
+   "actual": "New Zealand Warriors",
+   "result": "31-30",
+   "correct": true
+  },
+  {
+   "date": "2026-09-05",
+   "round": 27,
+   "match": "New Zealand Warriors v Manly Warringah Sea Eagles",
+   "market": "game_total",
+   "pick": "Over",
+   "band": "MEDIUM",
+   "advantage": 15,
+   "coverage": 1,
+   "reference": 47.92,
+   "actualTotal": 61,
+   "correct": true
   }
  ]
 }
