@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-05T00:13:01Z",
+ "fetched_at_utc": "2026-09-05T04:42:43Z",
  "collector": "scripts/collect_baseball_mlb.mjs",
  "endpoints": [
   {
@@ -468,8 +468,8 @@
       "name": "Braydon Fisher",
       "losses": 4,
       "wins": 3,
-      "era": 3.26,
-      "record": "(3-4, 3.26)"
+      "era": 3.21,
+      "record": "(3-4, 3.21)"
      },
      "records": {
       "overall": "61-64",
@@ -569,8 +569,8 @@
       "name": "Michael Lorenzen",
       "losses": 11,
       "wins": 3,
-      "era": 7.13,
-      "record": "(3-11, 7.13)"
+      "era": 7.03,
+      "record": "(3-11, 7.03)"
      },
      "records": {
       "overall": "49-74",
@@ -1163,9 +1163,9 @@
      "starter": {
       "name": "Jared Jones",
       "losses": 6,
-      "wins": 2,
-      "era": 4.83,
-      "record": "(2-6, 4.83)"
+      "wins": 3,
+      "era": 4.46,
+      "record": "(3-6, 4.46)"
      },
      "records": {
       "overall": "60-65",
@@ -3067,10 +3067,10 @@
     "home": {
      "starter": {
       "name": "Cristopher Sanchez",
-      "losses": 4,
+      "losses": 5,
       "wins": 16,
-      "era": 2.52,
-      "record": "(16-4, 2.52)"
+      "era": 2.58,
+      "record": "(16-5, 2.58)"
      },
      "records": {
       "overall": "68-58",
@@ -3081,10 +3081,10 @@
     "away": {
      "starter": {
       "name": "Janson Junk",
-      "losses": 8,
+      "losses": 9,
       "wins": 6,
-      "era": 4.11,
-      "record": "(6-8, 4.11)"
+      "era": 4,
+      "record": "(6-9, 4.00)"
      },
      "records": {
       "overall": "64-62",
@@ -3297,9 +3297,9 @@
      "starter": {
       "name": "Nolan McLean",
       "losses": 8,
-      "wins": 10,
+      "wins": 11,
       "era": 3.06,
-      "record": "(10-8, 3.06)"
+      "record": "(11-8, 3.06)"
      },
      "records": {
       "overall": "57-69",
@@ -3312,8 +3312,8 @@
       "name": "Walker Buehler",
       "losses": 6,
       "wins": 8,
-      "era": 4.66,
-      "record": "(8-6, 4.66)"
+      "era": 4.56,
+      "record": "(8-6, 4.56)"
      },
      "records": {
       "overall": "67-59",
@@ -3699,10 +3699,10 @@
     "home": {
      "starter": {
       "name": "Shane Baz",
-      "losses": 14,
+      "losses": 15,
       "wins": 5,
-      "era": 4.01,
-      "record": "(5-14, 4.01)"
+      "era": 3.91,
+      "record": "(5-15, 3.91)"
      },
      "records": {
       "overall": "61-65",
@@ -3875,8 +3875,8 @@
       "name": "Foster Griffin",
       "losses": 4,
       "wins": 15,
-      "era": 3.21,
-      "record": "(15-4, 3.21)"
+      "era": 3.26,
+      "record": "(15-4, 3.26)"
      },
      "records": {
       "overall": "61-65",
@@ -4048,9 +4048,9 @@
      "starter": {
       "name": "Nick Martinez",
       "losses": 4,
-      "wins": 13,
-      "era": 2.99,
-      "record": "(13-4, 2.99)"
+      "wins": 14,
+      "era": 3.04,
+      "record": "(14-4, 3.04)"
      },
      "records": {
       "overall": "75-50",
@@ -4363,10 +4363,10 @@
     "home": {
      "starter": {
       "name": "Daniel Lynch IV",
-      "losses": 4,
+      "losses": 5,
       "wins": 4,
-      "era": 3.06,
-      "record": "(4-4, 3.06)"
+      "era": 3.51,
+      "record": "(4-5, 3.51)"
      },
      "records": {
       "overall": "53-74",
@@ -4450,10 +4450,10 @@
     "home": {
      "starter": {
       "name": "Zebby Matthews",
-      "losses": 8,
+      "losses": 9,
       "wins": 9,
-      "era": 4.58,
-      "record": "(9-8, 4.58)"
+      "era": 4.69,
+      "record": "(9-9, 4.69)"
      },
      "records": {
       "overall": "62-65",
@@ -4767,9 +4767,9 @@
      "starter": {
       "name": "Cristian Javier",
       "losses": 5,
-      "wins": 1,
-      "era": 6.45,
-      "record": "(1-5, 6.45)"
+      "wins": 2,
+      "era": 5.98,
+      "record": "(2-5, 5.98)"
      },
      "records": {
       "overall": "63-63",
@@ -4855,8 +4855,8 @@
       "name": "Ryan Feltner",
       "losses": 9,
       "wins": 5,
-      "era": 5.84,
-      "record": "(5-9, 5.84)"
+      "era": 5.91,
+      "record": "(5-9, 5.91)"
      },
      "records": {
       "overall": "50-76",
@@ -5029,8 +5029,8 @@
       "name": "Robert Stock",
       "losses": 3,
       "wins": 1,
-      "era": 5.88,
-      "record": "(1-3, 5.88)"
+      "era": 5.81,
+      "record": "(1-3, 5.81)"
      },
      "records": {
       "overall": "58-70",
@@ -5414,8 +5414,8 @@
       "name": "Will Warren",
       "losses": 6,
       "wins": 9,
-      "era": 4.23,
-      "record": "(9-6, 4.23)"
+      "era": 4.16,
+      "record": "(9-6, 4.16)"
      },
      "records": {
       "overall": "71-55",
@@ -5499,10 +5499,10 @@
     "away": {
      "starter": {
       "name": "Matt Wilkinson",
-      "losses": 2,
+      "losses": 3,
       "wins": 0,
-      "era": 4.63,
-      "record": "(0-2, 4.63)"
+      "era": 6.14,
+      "record": "(0-3, 6.14)"
      },
      "records": {
       "overall": "52-74",
@@ -5920,10 +5920,10 @@
     "home": {
      "starter": {
       "name": "Kumar Rocker",
-      "losses": 10,
+      "losses": 11,
       "wins": 5,
-      "era": 4.44,
-      "record": "(5-10, 4.44)"
+      "era": 4.61,
+      "record": "(5-11, 4.61)"
      },
      "records": {
       "overall": "62-65",
@@ -6947,9 +6947,9 @@
      "starter": {
       "name": "Chris Sale",
       "losses": 9,
-      "wins": 13,
-      "era": 2.06,
-      "record": "(13-9, 2.06)"
+      "wins": 14,
+      "era": 2.1,
+      "record": "(14-9, 2.10)"
      },
      "records": {
       "overall": "75-54",
@@ -9414,10 +9414,10 @@
     "home": {
      "starter": {
       "name": "Shane Baz",
-      "losses": 14,
+      "losses": 15,
       "wins": 5,
-      "era": 4.01,
-      "record": "(5-14, 4.01)"
+      "era": 3.91,
+      "record": "(5-15, 3.91)"
      },
      "records": {
       "overall": "63-68",
@@ -9429,9 +9429,9 @@
      "starter": {
       "name": "Nick Martinez",
       "losses": 4,
-      "wins": 13,
-      "era": 2.99,
-      "record": "(13-4, 2.99)"
+      "wins": 14,
+      "era": 3.04,
+      "record": "(14-4, 3.04)"
      },
      "records": {
       "overall": "77-53",
@@ -9501,10 +9501,10 @@
     "home": {
      "starter": {
       "name": "Cristopher Sanchez",
-      "losses": 4,
+      "losses": 5,
       "wins": 16,
-      "era": 2.52,
-      "record": "(16-4, 2.52)"
+      "era": 2.58,
+      "record": "(16-5, 2.58)"
      },
      "records": {
       "overall": "73-58",
@@ -9675,10 +9675,10 @@
     "home": {
      "starter": {
       "name": "Janson Junk",
-      "losses": 8,
+      "losses": 9,
       "wins": 6,
-      "era": 4.11,
-      "record": "(6-8, 4.11)"
+      "era": 4,
+      "record": "(6-9, 4.00)"
      },
      "records": {
       "overall": "67-64",
@@ -9762,10 +9762,10 @@
     "home": {
      "starter": {
       "name": "Daniel Lynch IV",
-      "losses": 4,
+      "losses": 5,
       "wins": 4,
-      "era": 3.06,
-      "record": "(4-4, 3.06)"
+      "era": 3.51,
+      "record": "(4-5, 3.51)"
      },
      "records": {
       "overall": "58-74",
@@ -9778,8 +9778,8 @@
       "name": "Jacob Waguespack",
       "losses": 2,
       "wins": 1,
-      "era": 2.6,
-      "record": "(1-2, 2.60)"
+      "era": 3.03,
+      "record": "(1-2, 3.03)"
      },
      "records": {
       "overall": "61-69",
@@ -9850,9 +9850,9 @@
      "starter": {
       "name": "Cristian Javier",
       "losses": 5,
-      "wins": 1,
-      "era": 6.45,
-      "record": "(1-5, 6.45)"
+      "wins": 2,
+      "era": 5.98,
+      "record": "(2-5, 5.98)"
      },
      "records": {
       "overall": "65-66",
@@ -10179,10 +10179,10 @@
     "away": {
      "starter": {
       "name": "Matt Wilkinson",
-      "losses": 2,
+      "losses": 3,
       "wins": 0,
-      "era": 4.63,
-      "record": "(0-2, 4.63)"
+      "era": 6.14,
+      "record": "(0-3, 6.14)"
      },
      "records": {
       "overall": "52-78",
@@ -10354,9 +10354,9 @@
      "starter": {
       "name": "Shota Imanaga",
       "losses": 10,
-      "wins": 8,
-      "era": 4.01,
-      "record": "(8-10, 4.01)"
+      "wins": 9,
+      "era": 3.91,
+      "record": "(9-10, 3.91)"
      },
      "records": {
       "overall": "75-56",
@@ -10570,8 +10570,8 @@
       "name": "Shane Drohan",
       "losses": 5,
       "wins": 7,
-      "era": 3.75,
-      "record": "(7-5, 3.75)"
+      "era": 4.09,
+      "record": "(7-5, 4.09)"
      },
      "records": {
       "overall": "81-50",
@@ -10757,9 +10757,9 @@
      "starter": {
       "name": "Ranger Suarez",
       "losses": 4,
-      "wins": 5,
-      "era": 3.64,
-      "record": "(5-4, 3.64)"
+      "wins": 6,
+      "era": 3.44,
+      "record": "(6-4, 3.44)"
      },
      "records": {
       "overall": "72-59",
@@ -10845,8 +10845,8 @@
       "name": "Ryan Feltner",
       "losses": 9,
       "wins": 5,
-      "era": 5.84,
-      "record": "(5-9, 5.84)"
+      "era": 5.91,
+      "record": "(5-9, 5.91)"
      },
      "records": {
       "overall": "50-81",
@@ -11214,10 +11214,10 @@
     "away": {
      "starter": {
       "name": "Zebby Matthews",
-      "losses": 8,
+      "losses": 9,
       "wins": 9,
-      "era": 4.58,
-      "record": "(9-8, 4.58)"
+      "era": 4.69,
+      "record": "(9-9, 4.69)"
      },
      "records": {
       "overall": "64-68",
@@ -11724,8 +11724,8 @@
       "name": "Will Warren",
       "losses": 6,
       "wins": 9,
-      "era": 4.23,
-      "record": "(9-6, 4.23)"
+      "era": 4.16,
+      "record": "(9-6, 4.16)"
      },
      "records": {
       "overall": "74-57",
@@ -13542,8 +13542,8 @@
       "name": "Robert Stock",
       "losses": 3,
       "wins": 1,
-      "era": 5.88,
-      "record": "(1-3, 5.88)"
+      "era": 5.81,
+      "record": "(1-3, 5.81)"
      },
      "records": {
       "overall": "60-73",
@@ -14379,9 +14379,9 @@
      "starter": {
       "name": "Chris Sale",
       "losses": 9,
-      "wins": 13,
-      "era": 2.06,
-      "record": "(13-9, 2.06)"
+      "wins": 14,
+      "era": 2.1,
+      "record": "(14-9, 2.10)"
      },
      "records": {
       "overall": "79-55",
@@ -14534,10 +14534,10 @@
     "away": {
      "starter": {
       "name": "Rhett Lowder",
-      "losses": 8,
+      "losses": 9,
       "wins": 6,
-      "era": 5.14,
-      "record": "(6-8, 5.14)"
+      "era": 5.43,
+      "record": "(6-9, 5.43)"
      },
      "records": {
       "overall": "64-71",
@@ -15460,9 +15460,9 @@
      "starter": {
       "name": "Jared Jones",
       "losses": 6,
-      "wins": 2,
-      "era": 4.83,
-      "record": "(2-6, 4.83)"
+      "wins": 3,
+      "era": 4.46,
+      "record": "(3-6, 4.46)"
      },
      "records": {
       "overall": "65-71",
@@ -16005,9 +16005,9 @@
      "starter": {
       "name": "Jared Jones",
       "losses": 6,
-      "wins": 2,
-      "era": 4.83,
-      "record": "(2-6, 4.83)"
+      "wins": 3,
+      "era": 4.46,
+      "record": "(3-6, 4.46)"
      },
      "records": {
       "overall": "65-71",
@@ -16395,8 +16395,8 @@
       "name": "Foster Griffin",
       "losses": 4,
       "wins": 15,
-      "era": 3.21,
-      "record": "(15-4, 3.21)"
+      "era": 3.26,
+      "record": "(15-4, 3.26)"
      },
      "records": {
       "overall": "68-68",
@@ -16407,10 +16407,10 @@
     "away": {
      "starter": {
       "name": "Daniel Lynch IV",
-      "losses": 4,
+      "losses": 5,
       "wins": 4,
-      "era": 3.06,
-      "record": "(4-4, 3.06)"
+      "era": 3.51,
+      "record": "(4-5, 3.51)"
      },
      "records": {
       "overall": "62-75",
@@ -16481,9 +16481,9 @@
      "starter": {
       "name": "Nolan McLean",
       "losses": 8,
-      "wins": 10,
+      "wins": 11,
       "era": 3.06,
-      "record": "(10-8, 3.06)"
+      "record": "(11-8, 3.06)"
      },
      "records": {
       "overall": "61-75",
@@ -16496,8 +16496,8 @@
       "name": "Bennett Sousa",
       "losses": 3,
       "wins": 1,
-      "era": 6.23,
-      "record": "(1-3, 6.23)"
+      "era": 5.87,
+      "record": "(1-3, 5.87)"
      },
      "records": {
       "overall": "68-68",
@@ -16568,9 +16568,9 @@
      "starter": {
       "name": "Nick Martinez",
       "losses": 4,
-      "wins": 13,
-      "era": 2.99,
-      "record": "(13-4, 2.99)"
+      "wins": 14,
+      "era": 3.04,
+      "record": "(14-4, 3.04)"
      },
      "records": {
       "overall": "81-54",
@@ -16583,8 +16583,8 @@
       "name": "Walker Buehler",
       "losses": 6,
       "wins": 8,
-      "era": 4.66,
-      "record": "(8-6, 4.66)"
+      "era": 4.56,
+      "record": "(8-6, 4.56)"
      },
      "records": {
       "overall": "72-64",
@@ -16830,8 +16830,8 @@
       "name": "Shane Drohan",
       "losses": 5,
       "wins": 7,
-      "era": 3.75,
-      "record": "(7-5, 3.75)"
+      "era": 4.09,
+      "record": "(7-5, 4.09)"
      },
      "records": {
       "overall": "85-51",
@@ -16984,10 +16984,10 @@
     "away": {
      "starter": {
       "name": "Shane Baz",
-      "losses": 14,
+      "losses": 15,
       "wins": 5,
-      "era": 4.01,
-      "record": "(5-14, 4.01)"
+      "era": 3.91,
+      "record": "(5-15, 3.91)"
      },
      "records": {
       "overall": "67-69",
@@ -17057,10 +17057,10 @@
     "home": {
      "starter": {
       "name": "Ryan Johnson",
-      "losses": 7,
+      "losses": 8,
       "wins": 3,
-      "era": 5.47,
-      "record": "(3-7, 5.47)"
+      "era": 5.17,
+      "record": "(3-8, 5.17)"
      },
      "records": {
       "overall": "52-84",
@@ -17071,10 +17071,10 @@
     "away": {
      "starter": {
       "name": "Cristopher Sanchez",
-      "losses": 4,
+      "losses": 5,
       "wins": 16,
-      "era": 2.52,
-      "record": "(16-4, 2.52)"
+      "era": 2.58,
+      "record": "(16-5, 2.58)"
      },
      "records": {
       "overall": "76-60",
@@ -17158,10 +17158,10 @@
     "away": {
      "starter": {
       "name": "Janson Junk",
-      "losses": 8,
+      "losses": 9,
       "wins": 6,
-      "era": 4.11,
-      "record": "(6-8, 4.11)"
+      "era": 4,
+      "record": "(6-9, 4.00)"
      },
      "records": {
       "overall": "69-68",
@@ -17320,8 +17320,8 @@
       "name": "Will Warren",
       "losses": 6,
       "wins": 9,
-      "era": 4.23,
-      "record": "(9-6, 4.23)"
+      "era": 4.16,
+      "record": "(9-6, 4.16)"
      },
      "records": {
       "overall": "78-59",
@@ -17333,9 +17333,9 @@
      "starter": {
       "name": "Ranger Suarez",
       "losses": 4,
-      "wins": 5,
-      "era": 3.64,
-      "record": "(5-4, 3.64)"
+      "wins": 6,
+      "era": 3.44,
+      "record": "(6-4, 3.44)"
      },
      "records": {
       "overall": "74-63",
@@ -17822,10 +17822,10 @@
     "away": {
      "starter": {
       "name": "Kumar Rocker",
-      "losses": 10,
+      "losses": 11,
       "wins": 5,
-      "era": 4.44,
-      "record": "(5-10, 4.44)"
+      "era": 4.61,
+      "record": "(5-11, 4.61)"
      },
      "records": {
       "overall": "67-70",
@@ -18083,10 +18083,10 @@
     "away": {
      "starter": {
       "name": "Shane Baz",
-      "losses": 14,
+      "losses": 15,
       "wins": 5,
-      "era": 4.01,
-      "record": "(5-14, 4.01)"
+      "era": 3.91,
+      "record": "(5-15, 3.91)"
      },
      "records": {
       "overall": "67-69",
@@ -18156,10 +18156,10 @@
     "home": {
      "starter": {
       "name": "Ryan Johnson",
-      "losses": 7,
+      "losses": 8,
       "wins": 3,
-      "era": 5.47,
-      "record": "(3-7, 5.47)"
+      "era": 5.17,
+      "record": "(3-8, 5.17)"
      },
      "records": {
       "overall": "52-84",
@@ -18170,10 +18170,10 @@
     "away": {
      "starter": {
       "name": "Cristopher Sanchez",
-      "losses": 4,
+      "losses": 5,
       "wins": 16,
-      "era": 2.52,
-      "record": "(16-4, 2.52)"
+      "era": 2.58,
+      "record": "(16-5, 2.58)"
      },
      "records": {
       "overall": "76-60",
@@ -18244,9 +18244,9 @@
      "starter": {
       "name": "Shota Imanaga",
       "losses": 10,
-      "wins": 8,
-      "era": 4.01,
-      "record": "(8-10, 4.01)"
+      "wins": 9,
+      "era": 3.91,
+      "record": "(9-10, 3.91)"
      },
      "records": {
       "overall": "77-60",
@@ -18520,8 +18520,8 @@
       "name": "Robert Stock",
       "losses": 3,
       "wins": 1,
-      "era": 5.88,
-      "record": "(1-3, 5.88)"
+      "era": 5.81,
+      "record": "(1-3, 5.81)"
      },
      "records": {
       "overall": "62-76",
@@ -22571,9 +22571,1076 @@
    },
    "odds": null,
    "oddsSourceCount": 0
+  },
+  {
+   "id": "824471",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T22:10:00Z",
+   "phase": "results",
+   "venue": "Great American Ball Park",
+   "venueIndoor": false,
+   "home": {
+    "id": 113,
+    "name": "Cincinnati Reds",
+    "locationName": "Cincinnati",
+    "abbrev": "CIN",
+    "teamCode": "cin",
+    "record": {
+     "wins": 67,
+     "losses": 74,
+     "pct": ".475"
+    },
+    "score": 7,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 695076,
+     "name": "Rhett Lowder"
+    }
+   },
+   "away": {
+    "id": 158,
+    "name": "Milwaukee Brewers",
+    "locationName": "Milwaukee",
+    "abbrev": "MIL",
+    "teamCode": "mil",
+    "record": {
+     "wins": 88,
+     "losses": 54,
+     "pct": ".620"
+    },
+    "score": 10,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 675660,
+     "name": "Shane Drohan"
+    }
+   },
+   "score": {
+    "home": 7,
+    "away": 10
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Rhett Lowder",
+      "losses": 9,
+      "wins": 6,
+      "era": 5.43,
+      "record": "(6-9, 5.43)"
+     },
+     "records": {
+      "overall": "67-74",
+      "home": "34-38",
+      "road": "33-36"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Shane Drohan",
+      "losses": 5,
+      "wins": 7,
+      "era": 4.09,
+      "record": "(7-5, 4.09)"
+     },
+     "records": {
+      "overall": "88-54",
+      "home": "47-25",
+      "road": "41-29"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "823418",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T22:40:00Z",
+   "phase": "results",
+   "venue": "Citizens Bank Park",
+   "venueIndoor": false,
+   "home": {
+    "id": 143,
+    "name": "Philadelphia Phillies",
+    "locationName": "Philadelphia",
+    "abbrev": "PHI",
+    "teamCode": "phi",
+    "record": {
+     "wins": 79,
+     "losses": 62,
+     "pct": ".560"
+    },
+    "score": 2,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 650911,
+     "name": "Cristopher Sánchez"
+    }
+   },
+   "away": {
+    "id": 144,
+    "name": "Atlanta Braves",
+    "locationName": "Atlanta",
+    "abbrev": "ATL",
+    "teamCode": "atl",
+    "record": {
+     "wins": 84,
+     "losses": 57,
+     "pct": ".596"
+    },
+    "score": 5,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 519242,
+     "name": "Chris Sale"
+    }
+   },
+   "score": {
+    "home": 2,
+    "away": 5
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Cristopher Sanchez",
+      "losses": 5,
+      "wins": 16,
+      "era": 2.58,
+      "record": "(16-5, 2.58)"
+     },
+     "records": {
+      "overall": "79-62",
+      "home": "38-31",
+      "road": "41-31"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Chris Sale",
+      "losses": 9,
+      "wins": 14,
+      "era": 2.1,
+      "record": "(14-9, 2.10)"
+     },
+     "records": {
+      "overall": "84-57",
+      "home": "48-24",
+      "road": "36-33"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "823338",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T22:45:00Z",
+   "phase": "results",
+   "venue": "PNC Park",
+   "venueIndoor": false,
+   "home": {
+    "id": 134,
+    "name": "Pittsburgh Pirates",
+    "locationName": "Pittsburgh",
+    "abbrev": "PIT",
+    "teamCode": "pit",
+    "record": {
+     "wins": 70,
+     "losses": 72,
+     "pct": ".493"
+    },
+    "score": 1,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 683003,
+     "name": "Jared Jones"
+    }
+   },
+   "away": {
+    "id": 108,
+    "name": "Los Angeles Angels",
+    "locationName": "Anaheim",
+    "abbrev": "LAA",
+    "teamCode": "ana",
+    "record": {
+     "wins": 53,
+     "losses": 88,
+     "pct": ".376"
+    },
+    "score": 0,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 696270,
+     "name": "Ryan Johnson"
+    }
+   },
+   "score": {
+    "home": 1,
+    "away": 0
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Jared Jones",
+      "losses": 6,
+      "wins": 3,
+      "era": 4.46,
+      "record": "(3-6, 4.46)"
+     },
+     "records": {
+      "overall": "70-72",
+      "home": "37-33",
+      "road": "33-39"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Ryan Johnson",
+      "losses": 8,
+      "wins": 3,
+      "era": 5.17,
+      "record": "(3-8, 5.17)"
+     },
+     "records": {
+      "overall": "53-88",
+      "home": "30-44",
+      "road": "23-44"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824797",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T23:05:00Z",
+   "phase": "results",
+   "venue": "Oriole Park at Camden Yards",
+   "venueIndoor": false,
+   "home": {
+    "id": 110,
+    "name": "Baltimore Orioles",
+    "locationName": "Baltimore",
+    "abbrev": "BAL",
+    "teamCode": "bal",
+    "record": {
+     "wins": 69,
+     "losses": 73,
+     "pct": ".486"
+    },
+    "score": 0,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 669358,
+     "name": "Shane Baz"
+    }
+   },
+   "away": {
+    "id": 111,
+    "name": "Boston Red Sox",
+    "locationName": "Boston",
+    "abbrev": "BOS",
+    "teamCode": "bos",
+    "record": {
+     "wins": 77,
+     "losses": 65,
+     "pct": ".542"
+    },
+    "score": 1,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 624133,
+     "name": "Ranger Suarez"
+    }
+   },
+   "score": {
+    "home": 0,
+    "away": 1
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Shane Baz",
+      "losses": 15,
+      "wins": 5,
+      "era": 3.91,
+      "record": "(5-15, 3.91)"
+     },
+     "records": {
+      "overall": "69-73",
+      "home": "34-36",
+      "road": "35-37"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Ranger Suarez",
+      "losses": 4,
+      "wins": 6,
+      "era": 3.44,
+      "record": "(6-4, 3.44)"
+     },
+     "records": {
+      "overall": "77-65",
+      "home": "35-34",
+      "road": "42-31"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "823579",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T23:10:00Z",
+   "phase": "results",
+   "venue": "Citi Field",
+   "venueIndoor": false,
+   "home": {
+    "id": 121,
+    "name": "New York Mets",
+    "locationName": "Flushing",
+    "abbrev": "NYM",
+    "teamCode": "nyn",
+    "record": {
+     "wins": 64,
+     "losses": 77,
+     "pct": ".454"
+    },
+    "score": 10,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 690997,
+     "name": "Nolan McLean"
+    }
+   },
+   "away": {
+    "id": 137,
+    "name": "San Francisco Giants",
+    "locationName": "San Francisco",
+    "abbrev": "SF",
+    "teamCode": "sfn",
+    "record": {
+     "wins": 58,
+     "losses": 84,
+     "pct": ".408"
+    },
+    "score": 6,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 683363,
+     "name": "Matt Wilkinson"
+    }
+   },
+   "score": {
+    "home": 10,
+    "away": 6
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Nolan McLean",
+      "losses": 8,
+      "wins": 11,
+      "era": 3.06,
+      "record": "(11-8, 3.06)"
+     },
+     "records": {
+      "overall": "64-77",
+      "home": "33-39",
+      "road": "31-38"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Matt Wilkinson",
+      "losses": 3,
+      "wins": 0,
+      "era": 6.14,
+      "record": "(0-3, 6.14)"
+     },
+     "records": {
+      "overall": "58-84",
+      "home": "33-36",
+      "road": "25-48"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "823824",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T23:10:00Z",
+   "phase": "results",
+   "venue": "loanDepot park",
+   "venueIndoor": true,
+   "home": {
+    "id": 146,
+    "name": "Miami Marlins",
+    "locationName": "Miami",
+    "abbrev": "MIA",
+    "teamCode": "mia",
+    "record": {
+     "wins": 71,
+     "losses": 71,
+     "pct": ".500"
+    },
+    "score": 1,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 676083,
+     "name": "Janson Junk"
+    }
+   },
+   "away": {
+    "id": 112,
+    "name": "Chicago Cubs",
+    "locationName": "Chicago",
+    "abbrev": "CHC",
+    "teamCode": "chn",
+    "record": {
+     "wins": 80,
+     "losses": 62,
+     "pct": ".563"
+    },
+    "score": 6,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 684007,
+     "name": "Shota Imanaga"
+    }
+   },
+   "score": {
+    "home": 1,
+    "away": 6
+   },
+   "espn": {
+    "venueIndoor": true,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Janson Junk",
+      "losses": 9,
+      "wins": 6,
+      "era": 4,
+      "record": "(6-9, 4.00)"
+     },
+     "records": {
+      "overall": "71-71",
+      "home": "42-28",
+      "road": "29-43"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Shota Imanaga",
+      "losses": 10,
+      "wins": 9,
+      "era": 3.91,
+      "record": "(9-10, 3.91)"
+     },
+     "records": {
+      "overall": "80-62",
+      "home": "41-31",
+      "road": "39-31"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824387",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T23:15:00Z",
+   "phase": "results",
+   "venue": "Progressive Field",
+   "venueIndoor": false,
+   "home": {
+    "id": 114,
+    "name": "Cleveland Guardians",
+    "locationName": "Cleveland",
+    "abbrev": "CLE",
+    "teamCode": "cle",
+    "record": {
+     "wins": 72,
+     "losses": 70,
+     "pct": ".507"
+    },
+    "score": 4,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 656492,
+     "name": "Foster Griffin"
+    }
+   },
+   "away": {
+    "id": 116,
+    "name": "Detroit Tigers",
+    "locationName": "Detroit",
+    "abbrev": "DET",
+    "teamCode": "det",
+    "record": {
+     "wins": 64,
+     "losses": 77,
+     "pct": ".454"
+    },
+    "score": 3,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 808825,
+     "name": "Andrew Sears"
+    }
+   },
+   "score": {
+    "home": 4,
+    "away": 3
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Logan Allen",
+      "losses": 0,
+      "wins": 0,
+      "era": 5.94,
+      "record": "(0-0, 5.94)"
+     },
+     "records": {
+      "overall": "71-70",
+      "home": "34-38",
+      "road": "37-32"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Keider Montero",
+      "losses": 8,
+      "wins": 9,
+      "era": 3.52,
+      "record": "(9-8, 3.52)"
+     },
+     "records": {
+      "overall": "64-76",
+      "home": "34-35",
+      "road": "30-41"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824554",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-04",
+   "startUtc": "2026-09-04T23:40:00Z",
+   "phase": "results",
+   "venue": "Rate Field",
+   "venueIndoor": null,
+   "home": {
+    "id": 145,
+    "name": "Chicago White Sox",
+    "locationName": "Chicago",
+    "abbrev": "CWS",
+    "teamCode": "cha",
+    "record": {
+     "wins": 74,
+     "losses": 67,
+     "pct": ".525"
+    },
+    "score": 4,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 607200,
+     "name": "Erick Fedde"
+    }
+   },
+   "away": {
+    "id": 142,
+    "name": "Minnesota Twins",
+    "locationName": "Minneapolis",
+    "abbrev": "MIN",
+    "teamCode": "min",
+    "record": {
+     "wins": 67,
+     "losses": 74,
+     "pct": ".475"
+    },
+    "score": 1,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 805673,
+     "name": "Zebby Matthews"
+    }
+   },
+   "score": {
+    "home": 4,
+    "away": 1
+   },
+   "espn": null,
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "822852",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-05",
+   "startUtc": "2026-09-05T00:05:00Z",
+   "phase": "results",
+   "venue": "Globe Life Field",
+   "venueIndoor": true,
+   "home": {
+    "id": 140,
+    "name": "Texas Rangers",
+    "locationName": "Arlington",
+    "abbrev": "TEX",
+    "teamCode": "tex",
+    "record": {
+     "wins": 70,
+     "losses": 72,
+     "pct": ".493"
+    },
+    "score": 6,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 592866,
+     "name": "Trevor Williams"
+    }
+   },
+   "away": {
+    "id": 139,
+    "name": "Tampa Bay Rays",
+    "locationName": "St. Petersburg",
+    "abbrev": "TB",
+    "teamCode": "tba",
+    "record": {
+     "wins": 84,
+     "losses": 57,
+     "pct": ".596"
+    },
+    "score": 7,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 607259,
+     "name": "Nick Martinez"
+    }
+   },
+   "score": {
+    "home": 6,
+    "away": 7
+   },
+   "espn": {
+    "venueIndoor": true,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Trevor Williams",
+      "losses": 0,
+      "wins": 0,
+      "era": 3.72,
+      "record": "(0-0, 3.72)"
+     },
+     "records": {
+      "overall": "70-72",
+      "home": "39-31",
+      "road": "31-41"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Nick Martinez",
+      "losses": 4,
+      "wins": 14,
+      "era": 3.04,
+      "record": "(14-4, 3.04)"
+     },
+     "records": {
+      "overall": "84-57",
+      "home": "47-25",
+      "road": "37-32"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824146",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-05",
+   "startUtc": "2026-09-05T00:10:00Z",
+   "phase": "results",
+   "venue": "Daikin Park",
+   "venueIndoor": null,
+   "home": {
+    "id": 117,
+    "name": "Houston Astros",
+    "locationName": "Houston",
+    "abbrev": "HOU",
+    "teamCode": "hou",
+    "record": {
+     "wins": 73,
+     "losses": 69,
+     "pct": ".514"
+    },
+    "score": 3,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 664299,
+     "name": "Cristian Javier"
+    }
+   },
+   "away": {
+    "id": 109,
+    "name": "Arizona Diamondbacks",
+    "locationName": "Phoenix",
+    "abbrev": "AZ",
+    "teamCode": "ari",
+    "record": {
+     "wins": 74,
+     "losses": 68,
+     "pct": ".521"
+    },
+    "score": 1,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 518876,
+     "name": "Merrill Kelly"
+    }
+   },
+   "score": {
+    "home": 3,
+    "away": 1
+   },
+   "espn": null,
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824067",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-05",
+   "startUtc": "2026-09-05T00:10:00Z",
+   "phase": "results",
+   "venue": "Kauffman Stadium",
+   "venueIndoor": false,
+   "home": {
+    "id": 118,
+    "name": "Kansas City Royals",
+    "locationName": "Kansas City",
+    "abbrev": "KC",
+    "teamCode": "kca",
+    "record": {
+     "wins": 63,
+     "losses": 79,
+     "pct": ".444"
+    },
+    "score": 2,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 663738,
+     "name": "Daniel Lynch IV"
+    }
+   },
+   "away": {
+    "id": 141,
+    "name": "Toronto Blue Jays",
+    "locationName": "Toronto",
+    "abbrev": "TOR",
+    "teamCode": "tor",
+    "record": {
+     "wins": 71,
+     "losses": 71,
+     "pct": ".500"
+    },
+    "score": 9,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 592791,
+     "name": "Jameson Taillon"
+    }
+   },
+   "score": {
+    "home": 2,
+    "away": 9
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Daniel Lynch IV",
+      "losses": 5,
+      "wins": 4,
+      "era": 3.51,
+      "record": "(4-5, 3.51)"
+     },
+     "records": {
+      "overall": "63-79",
+      "home": "37-33",
+      "road": "26-46"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Jameson Taillon",
+      "losses": 6,
+      "wins": 2,
+      "era": 5.65,
+      "record": "(2-6, 5.65)"
+     },
+     "records": {
+      "overall": "71-71",
+      "home": "37-35",
+      "road": "34-36"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "824311",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-05",
+   "startUtc": "2026-09-05T00:40:00Z",
+   "phase": "results",
+   "venue": "Coors Field",
+   "venueIndoor": false,
+   "home": {
+    "id": 115,
+    "name": "Colorado Rockies",
+    "locationName": "Denver",
+    "abbrev": "COL",
+    "teamCode": "col",
+    "record": {
+     "wins": 54,
+     "losses": 87,
+     "pct": ".383"
+    },
+    "score": 6,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 663372,
+     "name": "Ryan Feltner"
+    }
+   },
+   "away": {
+    "id": 138,
+    "name": "St. Louis Cardinals",
+    "locationName": "St. Louis",
+    "abbrev": "STL",
+    "teamCode": "sln",
+    "record": {
+     "wins": 71,
+     "losses": 71,
+     "pct": ".500"
+    },
+    "score": 7,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 669467,
+     "name": "Andre Pallante"
+    }
+   },
+   "score": {
+    "home": 6,
+    "away": 7
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Ryan Feltner",
+      "losses": 9,
+      "wins": 5,
+      "era": 5.91,
+      "record": "(5-9, 5.91)"
+     },
+     "records": {
+      "overall": "54-87",
+      "home": "29-40",
+      "road": "25-47"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Andre Pallante",
+      "losses": 6,
+      "wins": 12,
+      "era": 3.51,
+      "record": "(12-6, 3.51)"
+     },
+     "records": {
+      "overall": "71-71",
+      "home": "34-38",
+      "road": "37-33"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
+  },
+  {
+   "id": "823256",
+   "source": "mlb-statsapi-schedule",
+   "league": "mlb",
+   "leagueName": "Major League Baseball",
+   "season": "2026",
+   "dateISO": "2026-09-05",
+   "startUtc": "2026-09-05T01:40:00Z",
+   "phase": "results",
+   "venue": "Petco Park",
+   "venueIndoor": false,
+   "home": {
+    "id": 135,
+    "name": "San Diego Padres",
+    "locationName": "San Diego",
+    "abbrev": "SD",
+    "teamCode": "sdn",
+    "record": {
+     "wins": 74,
+     "losses": 67,
+     "pct": ".525"
+    },
+    "score": 3,
+    "isWinner": true,
+    "probablePitcher": {
+     "id": 621111,
+     "name": "Walker Buehler"
+    }
+   },
+   "away": {
+    "id": 147,
+    "name": "New York Yankees",
+    "locationName": "Bronx",
+    "abbrev": "NYY",
+    "teamCode": "nya",
+    "record": {
+     "wins": 80,
+     "losses": 61,
+     "pct": ".567"
+    },
+    "score": 2,
+    "isWinner": false,
+    "probablePitcher": {
+     "id": 608331,
+     "name": "Max Fried"
+    }
+   },
+   "score": {
+    "home": 3,
+    "away": 2
+   },
+   "espn": {
+    "venueIndoor": false,
+    "weather": null,
+    "temperature": null,
+    "home": {
+     "starter": {
+      "name": "Walker Buehler",
+      "losses": 6,
+      "wins": 8,
+      "era": 4.56,
+      "record": "(8-6, 4.56)"
+     },
+     "records": {
+      "overall": "74-67",
+      "home": "42-28",
+      "road": "32-39"
+     }
+    },
+    "away": {
+     "starter": {
+      "name": "Max Fried",
+      "losses": 4,
+      "wins": 4,
+      "era": 2.73,
+      "record": "(4-4, 2.73)"
+     },
+     "records": {
+      "overall": "80-61",
+      "home": "37-31",
+      "road": "43-30"
+     }
+    }
+   },
+   "odds": null,
+   "oddsSourceCount": 0
   }
  ],
  "counts": {
-  "games": 270
+  "games": 283
  }
 }

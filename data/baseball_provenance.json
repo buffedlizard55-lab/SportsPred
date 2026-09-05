@@ -3,7 +3,7 @@
  "sport": "Baseball",
  "league": "MLB",
  "prompt": "BASEBALL PREDICTION MASTER PROMPT v1.0",
- "generated_at_utc": "2026-09-05T00:13:03.773Z",
+ "generated_at_utc": "2026-09-05T04:42:45.614Z",
  "generator": "scripts/build_baseball_provenance.mjs",
  "note": "Derived from the endpoint records inside the committed baseball documents and from a replay of the scoring engine. No value in this file is entered by hand.",
  "irregularities_reference": "docs/BASEBALL_IRREGULARITIES.md — IR-BASEBALL ids are shared with that register; ids 01-06 are documented there in prose.",
@@ -20,11 +20,11 @@
    ],
    "status": 200,
    "status_distribution": {
-    "200": 261
+    "200": 219
    },
-   "requests": 261,
-   "requests_ok": 261,
-   "verified_utc": "2026-09-05T00:13:01Z",
+   "requests": 219,
+   "requests_ok": 219,
+   "verified_utc": "2026-09-05T04:42:43Z",
    "provides": [
     "fixtures",
     "start times",
@@ -59,7 +59,7 @@
    },
    "requests": 43,
    "requests_ok": 43,
-   "verified_utc": "2026-09-05T00:13:01Z",
+   "verified_utc": "2026-09-05T04:42:43Z",
    "provides": [
     "fixtures",
     "start times",
@@ -81,7 +81,7 @@
    "status_distribution": null,
    "requests": null,
    "requests_ok": null,
-   "verified_utc": "2026-09-05T00:13:02Z",
+   "verified_utc": "2026-09-05T04:42:44Z",
    "provides": [
     "OLBG slate listing (fixture, league, start time, tip counts)"
    ],
@@ -94,55 +94,55 @@
   }
  ],
  "coverage": {
-  "dates": 24,
+  "dates": 23,
   "date_range": [
-   "2026-09-04",
+   "2026-09-05",
    "2026-09-27"
   ],
-  "fixtures_scored": 306,
-  "tips_generated": 918,
-  "tips_published": 117,
-  "tips_skipped": 801,
+  "fixtures_scored": 293,
+  "tips_generated": 879,
+  "tips_published": 107,
+  "tips_skipped": 772,
   "missing_factors": [
    {
     "factor": "odds.moneyline (current moneyline cross-referenced from at least two books)",
-    "fixtures": 306
+    "fixtures": 293
    },
    {
     "factor": "bullpenRank (bullpen ERA rank — top 10 vs bottom 10)",
-    "fixtures": 306
+    "fixtures": 293
    },
    {
     "factor": "bullpenRank for both bullpens (bullpen and late-inning run environment)",
-    "fixtures": 306
+    "fixtures": 293
    },
    {
     "factor": "recentTotals (Over/Under trends over the last 5 games — requires a posted total line, which no key-less feed provides)",
-    "fixtures": 306
-   },
-   {
-    "factor": "away starter not confirmed (bullpen game possible)",
-    "fixtures": 265
+    "fixtures": 293
    },
    {
     "factor": "home starter not confirmed (bullpen game possible)",
     "fixtures": 261
    },
    {
-    "factor": "head-to-head record over the last 3 years",
-    "fixtures": 256
+    "factor": "away starter not confirmed (bullpen game possible)",
+    "fixtures": 260
    },
    {
     "factor": "wind direction at game time (outdoor venue — no key-less feed publishes wind direction or speed)",
-    "fixtures": 241
+    "fixtures": 230
+   },
+   {
+    "factor": "head-to-head record over the last 3 years",
+    "fixtures": 222
    },
    {
     "factor": "starter (confirmed starter ERA, WHIP, strikeouts per 9, last 4 starts)",
-    "fixtures": 179
+    "fixtures": 171
    },
    {
     "factor": "starter.era for both starters (starting pitcher run suppression)",
-    "fixtures": 179
+    "fixtures": 171
    },
    {
     "factor": "opponent.vsStarterHandednessAvg (opposing lineup batting average vs this handedness, last 30 days)",
@@ -150,7 +150,7 @@
    },
    {
     "factor": "starter.shortRest (whether the starter is pitching on short rest)",
-    "fixtures": 97
+    "fixtures": 104
    }
   ]
  },
@@ -158,21 +158,21 @@
   {
    "id": "IR-BASEBALL-01",
    "title": "No bookmaker price is available",
-   "effect": "No key-less feed publishes an MLB moneyline, run line or total, so all 306 committed fixtures carry withOdds = 0. Every market-derived factor in the prompt is unscorable, no value or ROI figure is computed, and no tip cites a price.",
+   "effect": "No key-less feed publishes an MLB moneyline, run line or total, so all 293 committed fixtures carry withOdds = 0. Every market-derived factor in the prompt is unscorable, no value or ROI figure is computed, and no tip cites a price.",
    "evidence": "data/baseball_fixtures.json counts.withOdds",
    "status": "open"
   },
   {
    "id": "IR-BASEBALL-02",
    "title": "Bullpen and posted-total factors are unavailable",
-   "effect": "Bullpen ERA rank, bullpen fatigue, Over/Under trends over the last five games and opposing-lineup average versus starter handedness are not published by any key-less feed. They are recorded as missing on all 306 scored fixtures rather than estimated.",
+   "effect": "Bullpen ERA rank, bullpen fatigue, Over/Under trends over the last five games and opposing-lineup average versus starter handedness are not published by any key-less feed. They are recorded as missing on all 293 scored fixtures rather than estimated.",
    "evidence": "data/baseball_provenance.json coverage.missing_factors",
    "status": "open"
   },
   {
    "id": "IR-BASEBALL-06",
    "title": "Most probable starters are not yet named",
-   "effect": "The MLB schedule names a probable starter for 86 of 612 starting slots across the committed window, because clubs announce starters only a few days ahead. Unnamed slots score zero and the tip states that the arm is unconfirmed instead of assuming one.",
+   "effect": "The MLB schedule names a probable starter for 65 of 586 starting slots across the committed window, because clubs announce starters only a few days ahead. Unnamed slots score zero and the tip states that the arm is unconfirmed instead of assuming one.",
    "evidence": "data/baseball_fixtures.json fixtures[].{home,away}.probablePitcher",
    "status": "open"
   },
@@ -186,7 +186,7 @@
   {
    "id": "IR-BASEBALL-08",
    "title": "Publication rate is intentionally low",
-   "effect": "117 of 918 candidate tips across 24 dates clear the confidence gate; the rest publish an explicit SKIP. With no price and most starters unnamed, the risk layer suppresses the majority of plays by design rather than publishing a tip it cannot support.",
+   "effect": "107 of 879 candidate tips across 23 dates clear the confidence gate; the rest publish an explicit SKIP. With no price and most starters unnamed, the risk layer suppresses the majority of plays by design rather than publishing a tip it cannot support.",
    "evidence": "replay of engine/baseball_data.js buildBaseballCard over every committed date",
    "status": "by-design"
   }
