@@ -1,6 +1,6 @@
 {
  "schema_version": 1,
- "fetched_at_utc": "2026-09-05T01:05:12Z",
+ "fetched_at_utc": "2026-09-05T05:52:26Z",
  "collector": "scripts/collect_ice_hockey_nhl.mjs",
  "endpoints": [
   {
@@ -50,14 +50,14 @@
    "status": 200,
    "error": null,
    "ok": true,
-   "attempts": 2
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/BOS/20252026/2",
    "status": 200,
    "error": null,
    "ok": true,
-   "attempts": 2
+   "attempts": 1
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/OTT/20252026/2",
@@ -169,14 +169,14 @@
    "status": 200,
    "error": null,
    "ok": true,
-   "attempts": 1
+   "attempts": 2
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/FLA/20252026/2",
    "status": 200,
    "error": null,
    "ok": true,
-   "attempts": 1
+   "attempts": 3
   },
   {
    "url": "https://api-web.nhle.com/v1/club-stats/WPG/20252026/2",
